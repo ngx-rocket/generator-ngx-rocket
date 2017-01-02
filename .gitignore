@@ -1,19 +1,28 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
 
-# compiled output
+# Compiled output
 /dist
 /tmp
 
-# dependencies
+# Dependencies
 /node_modules
+
+# Cordova
+/www
+/plugins
+/platforms
 
 # IDEs and editors
 /.idea
+!.idea/runConfigurations/
+!.idea/codeStyleSettings.xml
 .project
 .classpath
 .c9/
 *.launch
 .settings/
+xcuserdata/
 
 # IDE - VSCode
 .vscode/*
@@ -22,7 +31,11 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# misc
+# Maven
+/target
+/log
+
+# Misc
 /.sass-cache
 /connect.lock
 /coverage/*
@@ -30,11 +43,12 @@
 npm-debug.log
 testem.log
 /typings
+/reports
 
-# e2e
+# E2E
 /e2e/*.js
 /e2e/*.map
 
-#System Files
+# System Files
 .DS_Store
 Thumbs.db
