@@ -6,11 +6,13 @@ module.exports = function (config) {
     basePath: '',
     frameworks: ['jasmine', 'angular-cli'],
     plugins: [
-      require('karma-jasmine'),
-      require('karma-phantomjs-launcher'),
-      require('karma-remap-istanbul'),
-      require('angular-cli/plugins/karma')
+      'karma-jasmine',
+      'karma-phantomjs-launcher',
+      'karma-junit-reporter',
+      'karma-remap-istanbul',
+      'angular-cli/plugins/karma'
     ],
+    // List of files/patterns to load in the browser
     files: [
       { pattern: './src/test.ts', watched: false }
     ],
@@ -20,10 +22,16 @@ module.exports = function (config) {
     mime: {
       'text/x-typescript': ['ts','tsx']
     },
+    junitReporter: {
+      outputDir: 'reports/junit/',
+      outputFile: 'TESTS-xunit.xml',
+      useBrowserName: false,
+      suite: '' // Will become the package name attribute in xml testsuite element
+    },
     remapIstanbulReporter: {
       reports: {
-        html: 'coverage',
-        lcovonly: './coverage/coverage.lcov'
+        html: 'reports/coverage',
+        lcovonly: './reports/coverage/coverage.lcov'
       }
     },
     angularCli: {
@@ -31,10 +39,11 @@ module.exports = function (config) {
       environment: 'dev'
     },
     reporters: config.angularCli && config.angularCli.codeCoverage
-              ? ['progress', 'karma-remap-istanbul']
-              : ['progress'],
+              ? ['progress', 'junit', 'karma-remap-istanbul']
+              : ['progress', 'junit'],
     port: 9876,
     colors: true,
+    // Level of logging, can be: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['PhantomJS'],
