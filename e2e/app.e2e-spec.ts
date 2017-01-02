@@ -1,6 +1,6 @@
 import { Ng2StarterKitPage } from './app.po';
 
-describe('ng2-starter-kit App', function() {
+describe('app', () => {
   let page: Ng2StarterKitPage;
 
   beforeEach(() => {
