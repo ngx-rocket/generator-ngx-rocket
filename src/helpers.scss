@@ -1,0 +1,14 @@
+/*
+ * Global CSS helpers.
+ * No theme-related style should goes here, only general helpers.
+ */
+
+// Layout helpers
+// --------------
+
+// Center a block element vertically
+.block-vertical-center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}

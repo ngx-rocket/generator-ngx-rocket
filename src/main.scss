@@ -1,0 +1,15 @@
+/*
+ * Entry point of global application style.
+ * Component-specific style should not go here and be included directly as part of the components.
+ */
+
+// Bootstrap inclusion with our app theme
+@import "theme/theme-variables";
+@import "theme/bootstrap-variables";
+@import "~bootstrap/scss/bootstrap";
+
+// Theme customization
+@import "theme/theme";
+
+// Global styling
+@import "helpers";
