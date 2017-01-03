@@ -1,0 +1,20 @@
+@import "src/theme/theme-variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+.navbar {
+  margin-bottom: $spacer;
+}
+
+.collapse {
+  clear: right;
+}
+
+@include media-breakpoint-up(md) {
+
+  // Align the menu to the right when it's not collapsed
+  .dropdown-menu {
+    right: 0;
+    left: auto;
+  }
+
+}
