@@ -14,7 +14,7 @@
 /platforms
 
 # IDEs and editors
-/.idea
+.idea/*
 !.idea/runConfigurations/
 !.idea/codeStyleSettings.xml
 .project
