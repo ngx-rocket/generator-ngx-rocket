@@ -1,3 +1,7 @@
+/*
+ * Prepare environment for unit tests.
+ */
+
 import './polyfills.ts';
 
 import 'zone.js/dist/long-stack-trace-zone';

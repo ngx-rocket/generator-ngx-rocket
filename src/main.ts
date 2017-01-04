@@ -1,3 +1,9 @@
+/*
+ * Entry point of the application.
+ * Only platform bootstrapping code should be here.
+ * For app-specific initialization, use `app/app.component.ts`.
+ */
+
 import './polyfills.ts';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
