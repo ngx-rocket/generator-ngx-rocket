@@ -9,11 +9,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { CoreModule }    from './core/core.module';
 import { HomeModule } from './home/home.module';
+import { AboutModule } from './about/about.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -21,8 +19,10 @@ import { HomeModule } from './home/home.module';
     NgbModule.forRoot(),
     CoreModule,
     HomeModule,
+    AboutModule,
     AppRoutingModule
   ],
+  declarations: [AppComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
