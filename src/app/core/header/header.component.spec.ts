@@ -7,7 +7,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
-
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
@@ -28,5 +27,4 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
 });
