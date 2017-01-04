@@ -7,11 +7,11 @@
     <a class="navbar-brand" href="https://github.com/angular-starter-kit" i18n>APP_NAME</a>
     <div id="navbarMenu" class="collapse navbar-toggleable-sm float-xs-none" [ngbCollapse]="menuHidden">
       <div class="nav navbar-nav">
-        <a class="nav-item nav-link text-uppercase" [class.active]="true">
+        <a class="nav-item nav-link text-uppercase" routerLink="/home" routerLinkActive="active">
           <i class="fa fa-home"></i>
           <span i18n>Home</span>
         </a>
-        <a class="nav-item nav-link text-uppercase" [class.active]="false">
+        <a class="nav-item nav-link text-uppercase" routerLink="/about" routerLinkActive="active">
           <i class="fa fa-question-circle"></i>
           <span i18n>About</span>
         </a>
