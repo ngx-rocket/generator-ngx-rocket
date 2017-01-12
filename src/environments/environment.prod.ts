@@ -5,5 +5,10 @@ let pkg = require('../../package.json');
 
 export const environment = {
   production: true,
-  version: pkg.version
+  version: pkg.version,
+  defaultLanguage: 'en-US',
+  supportedLanguages: [
+    'en-US',
+    'fr-FR'
+  ]
 };

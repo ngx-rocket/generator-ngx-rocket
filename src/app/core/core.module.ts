@@ -2,12 +2,15 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from 'ng2-translate';
 
 import { HeaderComponent } from './header/header.component';
+import { I18nService } from './i18n.service';
 
 @NgModule({
   imports: [
     CommonModule,
+    TranslateModule,
     RouterModule,
     NgbModule.forRoot()
   ],
@@ -16,6 +19,9 @@ import { HeaderComponent } from './header/header.component';
   ],
   declarations: [
     HeaderComponent
+  ],
+  providers: [
+    I18nService
   ]
 })
 export class CoreModule {

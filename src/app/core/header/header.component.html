@@ -4,21 +4,21 @@
       <button class="navbar-toggler hidden-md-up" type="button" aria-controls="navbarMenu"
               aria-label="Toggle navigation" (click)="toggleMenu()" [attr.aria-expanded]="!menuHidden"></button>
     </div>
-    <a class="navbar-brand" href="https://github.com/angular-starter-kit" i18n>APP_NAME</a>
+    <a class="navbar-brand" href="https://github.com/angular-starter-kit" translate>APP_NAME</a>
     <div id="navbarMenu" class="collapse navbar-toggleable-sm float-xs-none" [ngbCollapse]="menuHidden">
       <div class="nav navbar-nav">
         <a class="nav-item nav-link text-uppercase" routerLink="/home" routerLinkActive="active">
           <i class="fa fa-home"></i>
-          <span i18n>Home</span>
+          <span translate>Home</span>
         </a>
         <a class="nav-item nav-link text-uppercase" routerLink="/about" routerLinkActive="active">
           <i class="fa fa-question-circle"></i>
-          <span i18n>About</span>
+          <span translate>About</span>
         </a>
       </div>
       <div class="float-md-right">
         <div ngbDropdown>
-          <button id="languageDropdown" class="btn btn-default" ngbDropdownToggle i18n>{{currentLocale}}</button>
+          <button id="languageDropdown" class="btn btn-default" ngbDropdownToggle>{{currentLanguage}}</button>
           <div class="dropdown-menu" aria-labelledby="languageDropdown">
             <button class="dropdown-item" *ngFor="let language of languages" (click)="setLanguage(language)">
               {{language}}

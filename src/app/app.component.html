@@ -1,2 +1,4 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
+<div [hidden]="!hasLoaded">
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+</div>

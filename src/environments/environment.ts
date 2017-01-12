@@ -5,5 +5,10 @@
 
 export const environment = {
   production: false,
-  version: 'dev'
+  version: 'dev',
+  defaultLanguage: 'en-US',
+  supportedLanguages: [
+    'en-US',
+    'fr-FR'
+  ]
 };
