@@ -10,7 +10,8 @@
     "test": "ng test",
     "test:ci": "ng test --single-run --code-coverage --lint",
     "pree2e": "webdriver-manager update --standalone false --gecko false",
-    "e2e": "protractor"
+    "e2e": "protractor",
+    "translations:extract": "ng2-translate-extract --dir ./src --output ./src/translations --format=pot --clean"
   },
   "private": true,
   "dependencies": {
@@ -22,16 +23,19 @@
     "@angular/platform-browser": "^2.3.1",
     "@angular/platform-browser-dynamic": "^2.3.1",
     "@angular/router": "^3.3.1",
+    "@biesbjerg/ng2-translate-po-loader": "^0.2.1",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.15",
     "bootstrap": "^4.0.0-alpha.5",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
+    "ng2-translate": "^5.0.0",
     "rxjs": "^5.0.1",
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.7.2"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^2.3.1",
+    "@biesbjerg/ng2-translate-extract": "^0.3.5",
     "@types/jasmine": "^2.5.40",
     "@types/node": "^6.0.42",
     "angular-cli": "1.0.0-beta.24",

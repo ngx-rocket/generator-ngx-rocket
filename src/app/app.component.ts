@@ -5,6 +5,7 @@ import 'rxjs/add/operator/mergeMap';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { TranslateService } from 'ng2-translate';
 
 import { environment } from '../environments/environment';
 import { Logger } from './core/logger.service';
@@ -20,7 +21,8 @@ export class AppComponent implements OnInit {
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
-              private titleService: Title) { }
+              private titleService: Title,
+              private translate: TranslateService) { }
 
   ngOnInit() {
     // Setup logger
@@ -29,6 +31,12 @@ export class AppComponent implements OnInit {
     }
 
     log.debug('init');
+
+    // Setup translations
+    this.translate.setDefaultLang('en-US');
+
+    // TODO: core translation service
+    this.translate.use('en-US');
 
     // Change page title on navigation, based on route data
     this.router.events
@@ -42,8 +50,8 @@ export class AppComponent implements OnInit {
       })
       .filter(route => route.outlet === 'primary')
       .mergeMap(route => route.data)
-      .subscribe(routeData => {
-        let title = routeData['title'];
+      .subscribe(event => {
+        let title = event['title'];
         if (title) {
           this.titleService.setTitle(title);
         }

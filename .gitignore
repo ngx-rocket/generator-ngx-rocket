@@ -44,6 +44,7 @@ npm-debug.log
 testem.log
 /typings
 /reports
+/src/translations/template.pot
 
 # E2E
 /e2e/*.js
