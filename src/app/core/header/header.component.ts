@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { environment } from '../../../environments/environment';
 import { I18nService } from '../i18n.service';
 
 @Component({
@@ -11,7 +10,6 @@ import { I18nService } from '../i18n.service';
 export class HeaderComponent implements OnInit {
 
   menuHidden: boolean = true;
-  languages = environment.supportedLanguages;
 
   constructor(private i18nService: I18nService) { }
 
@@ -25,6 +23,10 @@ export class HeaderComponent implements OnInit {
 
   get currentLanguage(): string {
     return this.i18nService.getLanguage();
+  }
+
+  get languages(): string[] {
+    return this.i18nService.supportedLanguages;
   }
 
   ngOnInit() { }

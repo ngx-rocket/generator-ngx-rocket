@@ -1,0 +1,127 @@
+/* tslint:disable:no-unused-variable */
+import { TestBed, async, inject } from '@angular/core/testing';
+import { TranslateService, LangChangeEvent } from 'ng2-translate';
+import { Subject } from 'rxjs';
+
+import { I18nService } from './i18n.service';
+
+const defaultLanguage = 'en-US';
+const supportedLanguages = ['eo', 'en-US'];
+
+class MockTranslateService {
+
+  currentLang: string = null;
+  onLangChange = new Subject();
+
+  use(language: string) {
+    this.currentLang = language;
+    this.onLangChange.next({
+      lang: this.currentLang,
+      translations: {}
+    });
+  }
+
+}
+
+describe('I18nService', () => {
+  let i18nService, translateService;
+  let onLangChangeSpy;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [
+        I18nService,
+        { provide: TranslateService, useClass: MockTranslateService },
+      ]
+    });
+  });
+
+  beforeEach(inject([
+    I18nService,
+    TranslateService
+  ], (_i18nService: I18nService,
+      _translateService: TranslateService) => {
+
+    i18nService = _i18nService;
+    translateService = _translateService;
+
+    // Create spies
+    onLangChangeSpy = jasmine.createSpy('onLangChangeSpy');
+    translateService.onLangChange
+      .subscribe((event: LangChangeEvent) => {
+        onLangChangeSpy(event.lang);
+      });
+    spyOn(translateService, 'use').and.callThrough();
+  }));
+
+  afterEach(() => {
+    // Cleanup
+    localStorage.removeItem('language');
+  });
+
+  describe('init', () => {
+    it('should init with default language', () => {
+      // Act
+      i18nService.init(defaultLanguage, supportedLanguages);
+
+      // Assert
+      expect(translateService.use).toHaveBeenCalledWith(defaultLanguage);
+      expect(onLangChangeSpy).toHaveBeenCalledWith(defaultLanguage);
+    });
+
+    it('should init with save language', () => {
+      // Arrange
+      let savedLanguage = 'eo';
+      localStorage.setItem('language', savedLanguage);
+
+      // Act
+      i18nService.init(defaultLanguage, supportedLanguages);
+
+      // Assert
+      expect(translateService.use).toHaveBeenCalledWith(savedLanguage);
+      expect(onLangChangeSpy).toHaveBeenCalledWith(savedLanguage);
+    });
+  });
+
+  describe('setLanguage', () => {
+    it('should change current language', () => {
+      // Arrange
+      let newLanguage = 'eo';
+      i18nService.init(defaultLanguage, supportedLanguages);
+
+      // Act
+      i18nService.setLanguage(newLanguage);
+
+      // Assert
+      expect(translateService.use).toHaveBeenCalledWith(newLanguage);
+      expect(onLangChangeSpy).toHaveBeenCalledWith(newLanguage);
+    });
+
+    it('should change current language to default if unsupported', () => {
+      // Arrange
+      let newLanguage = 'fr';
+      i18nService.init(defaultLanguage, supportedLanguages);
+
+      // Act
+      i18nService.setLanguage(newLanguage);
+
+      // Assert
+      expect(translateService.use).toHaveBeenCalledWith(defaultLanguage);
+      expect(onLangChangeSpy).toHaveBeenCalledWith(defaultLanguage);
+    });
+  });
+
+  describe('getLanguage', () => {
+    it('should return current language', () => {
+      // Arrange
+      i18nService.init(defaultLanguage, supportedLanguages);
+
+      // Act
+      let currentLanguage = i18nService.getLanguage();
+
+      // Assert
+      expect(currentLanguage).toEqual(defaultLanguage);
+    });
+  });
+
+});

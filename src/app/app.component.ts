@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
     log.debug('init');
 
     // Setup translations
-    this.i18nService.init();
+    this.i18nService.init(environment.defaultLanguage, environment.supportedLanguages);
 
     // Only display app after language is loaded, to avoid text blinking
     this.translateService.onLangChange

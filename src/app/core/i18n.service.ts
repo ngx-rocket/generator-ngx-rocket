@@ -2,19 +2,25 @@ import { Injectable } from '@angular/core';
 import { TranslateService, LangChangeEvent } from 'ng2-translate';
 import * as _ from 'lodash';
 
-import { environment } from '../../environments/environment';
-
 const languageKey = 'language';
 
 @Injectable()
 export class I18nService {
 
+  defaultLanguage: string;
+  supportedLanguages: string[];
+
   constructor(private translateService: TranslateService) { }
 
   /**
+   * Initializes i18n for the application.
    * Loads language from local storage if present, or sets default language.
+   * @param {!string} defaultLanguage The default language to use.
+   * @param {Array.<String>} supportedLanguages The list of supported languages.
    */
-  init() {
+  init(defaultLanguage: string, supportedLanguages: string[]) {
+    this.defaultLanguage = defaultLanguage;
+    this.supportedLanguages = supportedLanguages;
     this.setLanguage();
 
     this.translateService.onLangChange
@@ -29,11 +35,11 @@ export class I18nService {
    */
   setLanguage(language?: string) {
     language = language || localStorage.getItem(languageKey);
-    let isSupportedLanguage = _.includes(environment.supportedLanguages, language);
+    let isSupportedLanguage = _.includes(this.supportedLanguages, language);
 
     // Fallback if language is not supported
     if (!isSupportedLanguage) {
-      language = environment.defaultLanguage;
+      language = this.defaultLanguage;
     }
 
     this.translateService.use(language);

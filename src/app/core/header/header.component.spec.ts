@@ -3,6 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from 'ng2-translate';
+import { I18nService } from '../i18n.service';
 
 import { HeaderComponent } from './header.component';
 
@@ -12,8 +14,12 @@ describe('HeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [NgbModule.forRoot()],
-      declarations: [HeaderComponent]
+      imports: [
+        NgbModule.forRoot(),
+        TranslateModule.forRoot()
+      ],
+      declarations: [HeaderComponent],
+      providers: [I18nService]
     })
     .compileComponents();
   }));
