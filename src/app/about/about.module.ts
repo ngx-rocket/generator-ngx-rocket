@@ -11,6 +11,8 @@ import { AboutComponent } from './about.component';
     TranslateModule,
     AboutRoutingModule
   ],
-  declarations: [AboutComponent]
+  declarations: [
+    AboutComponent
+  ]
 })
 export class AboutModule { }
