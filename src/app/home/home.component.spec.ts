@@ -5,6 +5,7 @@ import { DebugElement } from '@angular/core';
 import { Http, BaseRequestOptions } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 
+import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home.component';
 import { QuoteService } from './quote.service';
 
@@ -14,6 +15,9 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        SharedModule
+      ],
       declarations: [HomeComponent],
       providers: [
         QuoteService,

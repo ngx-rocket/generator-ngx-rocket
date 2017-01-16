@@ -4,7 +4,7 @@
       <img class="logo" src="assets/angular-logo.svg" alt="angular logo"/>
       <span translate>Hello world !</span>
     </h1>
-    <div appLoading="vm.isLoading"></div>
-    <q>{{quote}}</q>
+    <app-loader [isLoading]="isLoading"></app-loader>
+    <q [hidden]="isLoading">{{quote}}</q>
   </div>
 </div>

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { TranslateModule } from 'ng2-translate';
 
+import { SharedModule } from '../shared/shared.module';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { QuoteService } from './quote.service';
@@ -12,6 +13,7 @@ import { QuoteService } from './quote.service';
     CommonModule,
     HttpModule,
     TranslateModule,
+    SharedModule,
     HomeRoutingModule
   ],
   declarations: [
