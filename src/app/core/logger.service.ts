@@ -45,9 +45,7 @@ export enum LogLevel {
 /**
  * Log output handler function.
  */
-export interface LogOutput {
-  (source: string, level: LogLevel, ...objects: any[]): void;
-}
+type LogOutput = (source: string, level: LogLevel, ...objects: any[]) => void;
 
 export class Logger {
 
@@ -106,7 +104,7 @@ export class Logger {
 
   private log(func: Function, level: LogLevel, objects: any[]) {
     if (level <= Logger.level) {
-      let log = this.source ? ['[' + this.source + ']'].concat(objects) : objects;
+      const log = this.source ? ['[' + this.source + ']'].concat(objects) : objects;
       func.apply(func, log);
       Logger.outputs.forEach((output) => output.apply(output, [this.source, level].concat(objects)));
     }

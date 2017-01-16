@@ -27,8 +27,8 @@ describe('Logger', () => {
 
   it('should add a new LogOutput and receives log entries', () => {
     // Arrange
-    let outputSpy = jasmine.createSpy('outputSpy');
-    let log = new Logger('test');
+    const outputSpy = jasmine.createSpy('outputSpy');
+    const log = new Logger('test');
 
     // Act
     Logger.outputs.push(outputSpy);
@@ -49,8 +49,8 @@ describe('Logger', () => {
 
   it('should add a new LogOutput and receives only production log entries', () => {
     // Arrange
-    let outputSpy = jasmine.createSpy('outputSpy');
-    let log = new Logger('test');
+    const outputSpy = jasmine.createSpy('outputSpy');
+    const log = new Logger('test');
 
     // Act
     Logger.outputs.push(outputSpy);

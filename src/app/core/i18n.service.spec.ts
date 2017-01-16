@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import { TestBed, async, inject } from '@angular/core/testing';
 import { TranslateService, LangChangeEvent } from 'ng2-translate';
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/subject';
 
 import { I18nService } from './i18n.service';
 
@@ -71,7 +71,7 @@ describe('I18nService', () => {
 
     it('should init with save language', () => {
       // Arrange
-      let savedLanguage = 'eo';
+      const savedLanguage = 'eo';
       localStorage.setItem('language', savedLanguage);
 
       // Act
@@ -86,7 +86,7 @@ describe('I18nService', () => {
   describe('setLanguage', () => {
     it('should change current language', () => {
       // Arrange
-      let newLanguage = 'eo';
+      const newLanguage = 'eo';
       i18nService.init(defaultLanguage, supportedLanguages);
 
       // Act
@@ -99,7 +99,7 @@ describe('I18nService', () => {
 
     it('should change current language to default if unsupported', () => {
       // Arrange
-      let newLanguage = 'fr';
+      const newLanguage = 'fr';
       i18nService.init(defaultLanguage, supportedLanguages);
 
       // Act
@@ -117,7 +117,7 @@ describe('I18nService', () => {
       i18nService.init(defaultLanguage, supportedLanguages);
 
       // Act
-      let currentLanguage = i18nService.getLanguage();
+      const currentLanguage = i18nService.getLanguage();
 
       // Assert
       expect(currentLanguage).toEqual(defaultLanguage);

@@ -35,7 +35,7 @@ export class I18nService {
    */
   setLanguage(language?: string) {
     language = language || localStorage.getItem(languageKey);
-    let isSupportedLanguage = _.includes(this.supportedLanguages, language);
+    const isSupportedLanguage = _.includes(this.supportedLanguages, language);
 
     // Fallback if language is not supported
     if (!isSupportedLanguage) {

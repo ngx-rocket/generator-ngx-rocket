@@ -9,7 +9,7 @@ import { TranslatePoLoader } from '@biesbjerg/ng2-translate-po-loader';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { CoreModule }    from './core/core.module';
+import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { AboutModule } from './about/about.module';
 

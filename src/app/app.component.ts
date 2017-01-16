@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from 'ng2-translate';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/observable';
 
 import { environment } from '../environments/environment';
 import { Logger } from './core/logger.service';
@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
       .subscribe(() => { this.hasLoaded = true; });
 
     // Change page title on navigation or language change, based on route data
-    let onNavigationEnd = this.router.events.filter(event => event instanceof NavigationEnd);
+    const onNavigationEnd = this.router.events.filter(event => event instanceof NavigationEnd);
     Observable.merge(this.translateService.onLangChange, onNavigationEnd)
       .map(() => {
         let route = this.activatedRoute;
@@ -60,7 +60,7 @@ export class AppComponent implements OnInit {
       .filter(route => route.outlet === 'primary')
       .mergeMap(route => route.data)
       .subscribe(event => {
-        let title = event['title'];
+        const title = event['title'];
         if (title) {
           this.titleService.setTitle(title);
         }
