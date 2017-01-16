@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TranslateService, LangChangeEvent } from 'ng2-translate';
-import * as _ from 'lodash';
+import { includes } from 'lodash';
 
 const languageKey = 'language';
 
@@ -35,7 +35,7 @@ export class I18nService {
    */
   setLanguage(language?: string) {
     language = language || localStorage.getItem(languageKey);
-    const isSupportedLanguage = _.includes(this.supportedLanguages, language);
+    const isSupportedLanguage = includes(this.supportedLanguages, language);
 
     // Fallback if language is not supported
     if (!isSupportedLanguage) {
