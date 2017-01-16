@@ -1,4 +1,8 @@
+import 'rxjs/add/operator/finally';
+
 import { Component, OnInit } from '@angular/core';
+
+import { QuoteService } from './quote.service';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +12,18 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   quote: string;
+  isLoading: boolean;
 
-  constructor() { }
+  constructor(private quoteService: QuoteService) {}
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.isLoading = true;
+    this.quoteService.getRandomQuote({ category: 'nerdy' })
+     .finally(() => { this.isLoading = false; })
+      .subscribe((quote: string) => {
+        console.log(quote);
+        this.quote = quote;
+      });
+  }
 
 }
