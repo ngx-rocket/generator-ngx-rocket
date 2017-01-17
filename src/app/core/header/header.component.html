@@ -1,11 +1,11 @@
 <header>
   <nav class="navbar navbar-full navbar-dark navbar-static-top bg-inverse">
     <div class="float-xs-right">
-      <button class="navbar-toggler hidden-md-up" type="button" aria-controls="navbarMenu"
+      <button class="navbar-toggler hidden-md-up" type="button" aria-controls="navbar-menu"
               aria-label="Toggle navigation" (click)="toggleMenu()" [attr.aria-expanded]="!menuHidden"></button>
     </div>
     <a class="navbar-brand" href="https://github.com/angular-starter-kit" translate>APP_NAME</a>
-    <div id="navbarMenu" class="collapse navbar-toggleable-sm float-xs-none" [ngbCollapse]="menuHidden">
+    <div id="navbar-menu" class="collapse navbar-toggleable-sm float-xs-none" [ngbCollapse]="menuHidden">
       <div class="nav navbar-nav">
         <a class="nav-item nav-link text-uppercase" routerLink="/home" routerLinkActive="active">
           <i class="fa fa-home"></i>
@@ -18,8 +18,8 @@
       </div>
       <div class="float-md-right">
         <div ngbDropdown>
-          <button id="languageDropdown" class="btn btn-default" ngbDropdownToggle>{{currentLanguage}}</button>
-          <div class="dropdown-menu" aria-labelledby="languageDropdown">
+          <button id="language-dropdown" class="btn btn-default" ngbDropdownToggle>{{currentLanguage}}</button>
+          <div class="dropdown-menu" aria-labelledby="language-dropdown">
             <button class="dropdown-item" *ngFor="let language of languages" (click)="setLanguage(language)">
               {{language}}
             </button>
