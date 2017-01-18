@@ -1,23 +1,33 @@
 # ngX Starter Kit
 
-Web project starter kit including modern tools and workflow based on [angular-cli](https://github.com/angular/angular-cli), best practices from the community, a scalable base template and a good learning base.
+Web project starter kit including modern tools and workflow based on
+[angular-cli](https://github.com/angular/angular-cli), best practices from the community, a scalable base template and
+a good learning base.
+
+### Benefits
+
+- Quickstart a project in seconds and focus on features, not on frameworks and tools
+
+- Industrial-grade tools, ready for usage in a continuous integration environment and DevOps
+
+- Scalable architecture with base app template including example components, services and tests
 
 > Note: This project is still under development, see the [current status](#current-status) section for more information.
 
 # Getting started
 
 1. Install required tools:
- ```
+ ```bash
  npm install -g angular-cli
  ```
 
 2. Go to project folder then install dependencies:
- ```
+ ```bash
  npm install
  ```
  
 3. Launch development server, and open `localhost:4200` in your browser:
- ```
+ ```bash
  npm start
  ```
  
@@ -60,22 +70,101 @@ npm run test:ci               | Lint code and run unit tests once for continuous
 npm run e2e                   | Run e2e tests using [Protractor](http://www.protractortest.org) (`npm start` must be run beforehand)
 npm run lint                  | Lint code
 npm run translations:extract  | Extract strings from code and templates to `src/app/translations/template.pot`
+npm run docs                  | Display project documentation
 
-When building the application, you can specify the target environment using the additional flag `--env <name>` (do not forget to prepend `--` to pass arguments to npm scripts).
+When building the application, you can specify the target environment using the additional flag `--env <name>` (do not
+forget to prepend `--` to pass arguments to npm scripts).
 
-The default build environment is `production`. See [this documentation](docs/build-environments.md) for more details about multiple build environments management.
+The default build environment is `production`. See [this documentation](docs/build-environments.md) for more details
+about multiple build environments management.
 
 ## Development server
 
-Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change
+any of the source files.
 You should not use `ng serve` directly, as it does not use the backend proxy configuration by default.
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+Run `ng generate component component-name` to generate a new component. You can also use
+`ng generate directive/pipe/service/class/module`.
 
 ## Additional tools
 
-Tasks are mostly based on the `angular-cli` tool. Use `ng help` to get more help or go check out the [Angular-CLI README](https://github.com/angular/angular-cli).
+Tasks are mostly based on the `angular-cli` tool. Use `ng help` to get more help or go check out the
+[Angular-CLI README](https://github.com/angular/angular-cli).
 
 # Current status
+
+## What's in the box
+
+The app template is based on [HTML5](http://whatwg.org/html), [TypeScript](http://www.typescriptlang.org) and
+[Scss](http://sass-lang.com). The translation files use the common
+[Gettext](https://www.gnu.org/software/gettext/manual/index.html) format.
+
+#### Tools
+Development, build and quality processes are based on [angular-cli](https://github.com/angular/angular-cli) and
+[NPM scripts](https://docs.npmjs.com/misc/scripts), which includes:
+
+- Optimized build and bundling process with [Webpack](https://webpack.github.io)
+- [Development server](https://webpack.github.io/docs/webpack-dev-server.html) with backend proxy and live reload
+- Cross-browser CSS with [autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) and
+  [browserlist](https://github.com/ai/browserslist)
+- Asset revisioning for [better cache management](https://webpack.github.io/docs/long-term-caching.html)
+- Unit tests using [Jasmine](http://jasmine.github.io) and [Karma](https://karma-runner.github.io)
+- End-to-end tests using [Protractor](https://github.com/angular/protractor)
+- Static code analysis: [TSLint](https://github.com/palantir/tslint), [Codelyzer](https://github.com/mgechev/codelyzer),
+  [Stylelint](http://stylelint.io) and [HTMLHint](http://htmlhint.com/)
+- Local knowledgebase server using [hads](https://github.com/sinedied/hads)
+
+#### Libraries
+- [Angular 2](https://angular.io)
+- [Bootstrap 4](https://v4-alpha.getbootstrap.com)
+- [Font Awesome](http://fontawesome.io)
+- [RxJS](http://reactivex.io/rxjs)
+- [ng-bootsrap](https://ng-bootstrap.github.io/)
+- [ng2-translate](https://github.com/ocombe/ng2-translate)
+- [Lodash](https://lodash.com)
+
+## Work in progress
+
+These features are currently WIP and not implemented in this version:
+
+- Http service extension to provide support for server configuration, default headers and user-configurable cache
+  policy.
+- Window service wrapper into Angular DI system (to allow mocking in unit tests)
+- The app template is currently based on Bootstrap 4 alpha5, it needs to be updated for alpha6
+- Coding guides for Angular, TypeScript, SCSS, HTML, unit tests and e2e tests
+
+## Limitations
+
+- `translations:extract` cannot extract translated strings from variables
+  ([#10](https://github.com/biesbjerg/ng2-translate-extract/issues/10))
+- No HTML minification (due to `angular-cli` lack of add-on support for build process)
+- No images assets optimization (due to `angular-cli` lack of add-on support for build process)
+- Inclusion of whole `package.json` to get the current version (due to `angular-cli` lack of add-on support for build
+  process, workaround is WIP)
+
+# Licence
+
+The MIT License (MIT)
+
+Copyright (c) 2016 Yohan Lasorsa
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
