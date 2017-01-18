@@ -10,11 +10,9 @@
 }
 
 @include media-breakpoint-up(md) {
-
   // Align the menu to the right when it's not collapsed
   .dropdown-menu {
     right: 0;
     left: auto;
   }
-
 }

@@ -1,0 +1,26 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "font-family-name-quotes": "always-where-recommended",
+    "function-url-quotes": ["always", { "except": ["empty"] }],
+    "selector-attribute-quotes": "always",
+    "string-quotes": "double",
+    "max-nesting-depth": 3,
+    "selector-max-compound-selectors": 3,
+    "selector-max-specificity": "0,3,2",
+    "declaration-no-important": true,
+    "at-rule-no-vendor-prefix": true,
+    "media-feature-name-no-vendor-prefix": true,
+    "property-no-vendor-prefix": true,
+    "selector-no-vendor-prefix": true,
+    "value-no-vendor-prefix": true,
+    "no-empty-source": null,
+    "selector-class-pattern": "[a-z-]+",
+    "selector-id-pattern": "[a-z-]+",
+    "selector-no-id": true,
+    "selector-no-qualifying-type": true,
+    "selector-no-universal": true,
+    "max-line-length": 120,
+    "no-unsupported-browser-features": true
+  }
+}
