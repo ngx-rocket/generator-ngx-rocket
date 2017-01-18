@@ -13,7 +13,8 @@ const proxyConfig = [
     context: '/api',
     pathRewrite: {'^/api': ''},
     target: 'http://api.icndb.com',
-    changeOrigin: true
+    changeOrigin: true,
+    secure: false
   }
 ];
 
