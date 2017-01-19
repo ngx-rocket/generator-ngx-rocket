@@ -5,28 +5,21 @@
   "rules": {
     "callable-types": true,
     "class-name": true,
-    "comment-format": [
-      true,
-      "check-space"
-    ],
+    "comment-format": [true, "check-space"],
     "curly": true,
     "eofline": true,
     "forin": true,
     "import-blacklist": [true, "rxjs"],
     "import-spacing": true,
-    "indent": [
-      true,
-      "spaces"
-    ],
+    "indent": [true, "spaces"],
     "interface-over-type-literal": true,
+    "jsdoc-format": true,
     "label-position": true,
-    "max-line-length": [
-      true,
-      120
-    ],
+    "max-line-length": [true, 120],
     "member-access": false,
     "member-ordering": [
       true,
+      "public-before-private",
       "static-before-instance",
       "variables-before-functions"
     ],
@@ -64,17 +57,14 @@
       "check-whitespace"
     ],
     "prefer-const": true,
-    "quotemark": [
-      true,
-      "single"
-    ],
+    "quotemark": [true, "single"],
     "radix": true,
-    "semicolon": [
-      "always"
-    ],
-    "triple-equals": [
+    "semicolon": ["always"],
+    "triple-equals": [true, "allow-null-check"],
+    "typedef": [
       true,
-      "allow-null-check"
+      "parameter",
+      "property-declaration"
     ],
     "typedef-whitespace": [
       true,
