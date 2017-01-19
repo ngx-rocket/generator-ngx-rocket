@@ -11,8 +11,8 @@ const HttpsProxyAgent = require('https-proxy-agent');
 const proxyConfig = [
   {
     context: '/api',
-    pathRewrite: {'^/api': ''},
-    target: 'http://api.icndb.com',
+    pathRewrite: { '^/api': '' },
+    target: 'https://api.chucknorris.io',
     changeOrigin: true,
     secure: false
   }
