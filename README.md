@@ -6,7 +6,7 @@ a good learning base.
 
 ### Benefits
 
-- Quickstart a project in seconds and focus on features, not on frameworks and tools
+- Quickstart a project in seconds and focus on features, not on frameworks or tools
 
 - Industrial-grade tools, ready for usage in a continuous integration environment and DevOps
 
@@ -108,8 +108,8 @@ Development, build and quality processes are based on [angular-cli](https://gith
 
 - Optimized build and bundling process with [Webpack](https://webpack.github.io)
 - [Development server](https://webpack.github.io/docs/webpack-dev-server.html) with backend proxy and live reload
-- Cross-browser CSS with [autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) and
-  [browserlist](https://github.com/ai/browserslist)
+- Cross-browser CSS with [autoprefixer](https://github.com/postcss/autoprefixer) and
+  [browserslist](https://github.com/ai/browserslist)
 - Asset revisioning for [better cache management](https://webpack.github.io/docs/long-term-caching.html)
 - Unit tests using [Jasmine](http://jasmine.github.io) and [Karma](https://karma-runner.github.io)
 - End-to-end tests using [Protractor](https://github.com/angular/protractor)
