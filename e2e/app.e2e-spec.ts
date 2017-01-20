@@ -7,8 +7,8 @@ describe('app', () => {
     page = new Ng2StarterKitPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display hello message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Hello world !');
   });
 });
