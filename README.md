@@ -75,8 +75,7 @@ npm run docs                  | Display project documentation
 When building the application, you can specify the target environment using the additional flag `--env <name>` (do not
 forget to prepend `--` to pass arguments to npm scripts).
 
-The default build environment is `production`. See [this documentation](docs/build-environments.md) for more details
-about multiple build environments management.
+The default build environment is `prod`.
 
 ## Development server
 
