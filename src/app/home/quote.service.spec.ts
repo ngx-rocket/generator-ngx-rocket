@@ -40,9 +40,7 @@ describe('QuoteService', () => {
       // Arrange
       const mockQuote = 'a random quote';
       const response = new Response(new ResponseOptions({
-        body: {
-          value: { joke: mockQuote }
-        }
+        body: { value: mockQuote }
       }));
       mockBackend.connections.subscribe((connection: MockConnection) => connection.mockRespond(response));
 
