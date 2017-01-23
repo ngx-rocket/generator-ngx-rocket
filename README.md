@@ -133,7 +133,6 @@ These features are currently WIP and not implemented in this version:
 - Http service extension to provide support for server configuration, default headers and user-configurable cache
   policy.
 - Window service wrapper into Angular DI system (to allow mocking in unit tests)
-- The app template is currently based on Bootstrap 4 alpha5, it needs to be updated for alpha6
 - Coding guides for Angular, TypeScript, SCSS, HTML, unit tests and e2e tests
 
 ## Limitations
