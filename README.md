@@ -98,7 +98,7 @@ Tasks are mostly based on the `angular-cli` tool. Use `ng help` to get more help
 ## What's in the box
 
 The app template is based on [HTML5](http://whatwg.org/html), [TypeScript](http://www.typescriptlang.org) and
-[Scss](http://sass-lang.com). The translation files use the common
+[Sass](http://sass-lang.com). The translation files use the common
 [Gettext](https://www.gnu.org/software/gettext/manual/index.html) format.
 
 #### Tools
