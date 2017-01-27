@@ -32,6 +32,7 @@ a good learning base.
  ```
  
 # Project structure
+
 ```
 dist/                        compiled version
 docs/                        project docs and coding guides
@@ -102,6 +103,7 @@ The app template is based on [HTML5](http://whatwg.org/html), [TypeScript](http:
 [Gettext](https://www.gnu.org/software/gettext/manual/index.html) format.
 
 #### Tools
+
 Development, build and quality processes are based on [angular-cli](https://github.com/angular/angular-cli) and
 [NPM scripts](https://docs.npmjs.com/misc/scripts), which includes:
 
@@ -117,6 +119,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - Local knowledgebase server using [hads](https://github.com/sinedied/hads)
 
 #### Libraries
+
 - [Angular 2](https://angular.io)
 - [Bootstrap 4](https://v4-alpha.getbootstrap.com)
 - [Font Awesome](http://fontawesome.io)
@@ -125,6 +128,22 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - [ng2-translate](https://github.com/ocombe/ng2-translate)
 - [Lodash](https://lodash.com)
 
+#### Coding guides
+
+- [Angular](docs/coding-guides/angular.md)
+- [TypeScript](docs/coding-guides/typescript.md)
+- [Sass](docs/coding-guides/sass.md)
+- [HTML](docs/coding-guides/html.md)
+- [Unit tests](docs/coding-guides/unit-tests.md)
+- [End-to-end tests](docs/coding-guides/e2e-tests.md)
+
+#### Other documentation
+
+- [I18n guide](docs/i18n.md)
+- [Working behind a corporate proxy](docs/corporate-proxy.md)
+- [Updating dependencies and tools](docs/updating.md)
+- [Using a backend proxy for development](docs/backend-proxy.md)
+
 ## Work in progress
 
 These features are currently WIP and not implemented in this version:
@@ -132,7 +151,6 @@ These features are currently WIP and not implemented in this version:
 - Http service extension to provide support for server configuration, default headers and user-configurable cache
   policy.
 - Window service wrapper into Angular DI system (to allow mocking in unit tests)
-- Coding guides for Angular, TypeScript, SCSS, HTML, unit tests and e2e tests
 
 ## Limitations
 
