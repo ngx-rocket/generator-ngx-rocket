@@ -23,7 +23,7 @@ const log = new Logger('app');
 })
 export class AppComponent implements OnInit {
 
-  hasLoaded: boolean = false;
+  hasLoaded = false;
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
