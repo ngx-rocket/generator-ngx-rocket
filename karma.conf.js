@@ -1,7 +1,7 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/0.13/config/configuration-file.html
 
-module.exports = function (config) {
+module.exports = function(config) {
   config.set({
     basePath: '',
     frameworks: ['jasmine', 'angular-cli'],
@@ -20,7 +20,7 @@ module.exports = function (config) {
       './src/test.ts': ['angular-cli']
     },
     mime: {
-      'text/x-typescript': ['ts','tsx']
+      'text/x-typescript': ['ts', 'tsx']
     },
     junitReporter: {
       outputDir: 'reports/junit/',
@@ -40,8 +40,8 @@ module.exports = function (config) {
       environment: 'dev'
     },
     reporters: config.angularCli && config.angularCli.codeCoverage
-              ? ['progress', 'junit', 'karma-remap-istanbul']
-              : ['progress', 'junit'],
+      ? ['progress', 'junit', 'karma-remap-istanbul']
+      : ['progress', 'junit'],
     port: 9876,
     colors: true,
     // Level of logging, can be: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
