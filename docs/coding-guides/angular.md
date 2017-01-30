@@ -35,9 +35,9 @@ page at hand.
 
 ## Going deeper
 
-Even though it's not mandatory, Angular leverages and recommends the use of design patterns you may not be accustomed
-to, like [reactive programming](#reactive-programming), [unidirectional data-flow](#unidirectional data-flow) and
-[centralized state management](#centralized state management).
+Even though it's not mandatory, Angular leverages and was designed for the use of design patterns you may not be
+accustomed to, like [reactive programming](#reactive-programming), [unidirectional data flow](#unidirectional-data-flow)
+and [centralized state management](#centralized-state-management).
 
 These concepts are difficult to resume in a few words, and despite being tightly related to each other they concern
 specific parts of an application flow, each being quite deep to learn on its own.
@@ -83,20 +83,58 @@ applications, along with substantial performance improvements.
 If you look closely, the new two-way binding syntax is just syntactic sugar to combine two *one-way* bindings (a
 *property* and *event* binding), keeping the data flow unidirectional.
 
-TO COMPLETE
+This change is really important, as it was often the cause of performance issues with Angular 1, and it one of the
+pillars enabling better performance in new Angular apps.
 
-##### Learning references
-
-- [Reactive data flows in Angular 2](https://lambda-it.ch/blog/post/reactive-data-flow-in-angular-2), *(15 min)*
+While Angular tries to stay *pattern-agnostic* and can be used with conventional MV* patterns, it was designed with
+reactive programming in mind and really shines when used with reactive data flow patterns like
+[Redux](http://redux.js.org/docs/basics/DataFlow.html),
+[Flux](https://facebook.github.io/flux/docs/in-depth-overview.html#content) or
+[MVI](http://futurice.com/blog/reactive-mvc-and-the-virtual-dom).
 
 #### Centralized state management
 
-Base concepts:
+As applications grow in size, keeping track of the all its individual components state and data flows can become
+tedious, and tend to be difficult to manage and debug.
+
+The main goal of using a centralized state management is to make state changes *predictable* by imposing certain
+restrictions on how and when updates can happen, using *unidirectional data flow*. This approach was first popularized
+with React with introduction of the [Flux](https://facebook.github.io/flux/docs/in-depth-overview.html#content)
+architecture. Many libraries emerged then trying to adapt and refine the original concept, and one of these gained
+massive popularity by providing a simpler, elegant alternative: [Redux](http://redux.js.org/docs/basics/DataFlow.html).
+Redux is at the same time a library (with the big *R*) and a design pattern (with the little *r*), the latter being
+framework-agnostic and working very well with Angular.
+
+The *redux* design pattern is based on these [3 principles](http://redux.js.org/docs/introduction/ThreePrinciples.html):
 
 - The application state is a *single immutable* data structure
 - A state change is triggered by an *action*, an object describing what happened
 - Pure functions called *reducers* take the previous state and the next action to compute the new state
 
-TO COMPLETE
+The core concepts behind these principles are nicely explained in
+[this example](http://redux.js.org/docs/introduction/CoreConcepts.html) *(3 min)*.
 
-[@ngrx/store](https://github.com/ngrx/store)
+##### Which library to use?
+
+You can make Angular work with any state management library you like, but your best bet would be to use
+[@ngrx/store](https://github.com/ngrx/store). It works the same as the popular [Redux](http://redux.js.org) library,
+but with a tight integration with Angular and [RxJS](http://reactivex.io/rxjs/), with some nice additional developer
+utilities.
+
+Here are some resources to get started:
+
+- [Build a better Angular 2 application with redux and ngrx](http://onehungrymind.com/build-better-angular-2-application-redux-ngrx/),
+  a nice tutorial for @ngrx/store *(30 min)*
+
+- [Comprehensive introduction to @ngrx/store](https://gist.github.com/btroncone/a6e4347326749f938510), an in-depth
+  walkthrough to this library usage in Angular *(60 min)*
+
+##### When to use it?
+
+You may have noticed that the starter template does not include a centralized state management system out of the box.
+Why is that? Well, while there is many benefits from using this pattern, the choice is ultimately up to your team and
+what you want to achieve with your app.
+
+Keep in mind that using a single centralized state for your app introduces a new layer a complexity
+[that might not be needed](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367), depending of your
+goal.
