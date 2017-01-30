@@ -35,9 +35,9 @@ page at hand.
 
 ## Going deeper
 
-Even though it's not mandatory, Angular leverages and was designed for the use of design patterns you may not be
-accustomed to, like [reactive programming](#reactive-programming), [unidirectional data flow](#unidirectional-data-flow)
-and [centralized state management](#centralized-state-management).
+Even though they are not mandatory, Angular was designed for the use of design patterns you may not be accustomed to,
+like [reactive programming](#reactive-programming), [unidirectional data flow](#unidirectional-data-flow) and
+[centralized state management](#centralized-state-management).
 
 These concepts are difficult to resume in a few words, and despite being tightly related to each other they concern
 specific parts of an application flow, each being quite deep to learn on its own.
