@@ -17,7 +17,7 @@ will guide you step by step into building a complete Angular application.
 
 #### Angular 1 veteran
 
-If you come from Angular 1 and want to dig straight in the new version, you want want to take a look at the
+If you come from Angular 1 and want to dig straight in the new version, you may want to take a look at the
 [Angular 1 vs 2 quick reference](https://angular.io/docs/ts/latest/cookbook/a1-a2-quick-reference.html).
 
 ## Style guide
@@ -52,8 +52,8 @@ asynchronous events that can be processed with array-like operators.
 ##### From promises to observables
 
 While Angular 1 used to rely heavily on [*Promises*](https://docs.angularjs.org/api/ng/service/$q) to handle
-asynchronous events, *Observables* are now used instead in this new Angular version. Event though in specific cases
-like for HTTP requests, an *Observable* can be converted into a *Promise*, it it recommended to embrace the new
+asynchronous events, *Observables* are now used instead in this new Angular version. Even though in specific cases
+like for HTTP requests, an *Observable* can be converted into a *Promise*, it is recommended to embrace the new
 paradigm as it can a lot more than *Promises*, with way less code. This transition is also explained in the
 [Angular tutorial](https://angular.io/docs/ts/latest/tutorial/toh-pt6.html#!#observables).
 
