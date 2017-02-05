@@ -12,7 +12,7 @@ npm udpate
 
 - Upgrade packages manually
 ```bash
-npm install --save[_dev] <package_name>@latest
+npm install --save[-dev] <package_name>@latest
 ```
 
 Alternatively, you can use [npm-check](https://github.com/dylang/npm-check) to perform an interactive upgrade:

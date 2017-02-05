@@ -28,7 +28,7 @@ In addition, this project also follows the general [Angular style guide](https:/
 - Use single quotes `'` for strings
 - Always use strict equality checks: `===` and `!==` instead of `==` or `!=` to avoid comparison pitfalls (see 
   [JavaScript equality table](https://dorey.github.io/JavaScript-Equality-Table/)).
-  The only accept usage for `==` is when you want to check a value against `null` or `undefined`.
+  The only accepted usage for `==` is when you want to check a value against `null` or `undefined`.
 - Use `[]` instead of `Array` constructor
 - Use `{}` instead of `Object` constructor
 - Always specify types for function parameters and returns (if applicable)
