@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { HeaderComponent } from './header/header.component';
 import { I18nService } from './i18n.service';
+import { HttpService } from './http/http.service';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { I18nService } from './i18n.service';
     HeaderComponent
   ],
   providers: [
-    I18nService
+    I18nService,
+    HttpService
   ]
 })
 export class CoreModule {
