@@ -1,12 +1,13 @@
 /* tslint:disable:no-unused-variable */
 import { TestBed, async, inject } from '@angular/core/testing';
 import { MockBackend, MockConnection } from '@angular/http/testing';
-import { BaseRequestOptions, HttpModule, Http, Response, ResponseOptions } from '@angular/http';
+import { BaseRequestOptions, Http, Response, ResponseOptions } from '@angular/http';
 
 import { QuoteService } from './quote.service';
 
 describe('QuoteService', () => {
-  let quoteService, mockBackend;
+  let quoteService: QuoteService;
+  let mockBackend: MockBackend;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -45,7 +46,7 @@ describe('QuoteService', () => {
       mockBackend.connections.subscribe((connection: MockConnection) => connection.mockRespond(response));
 
       // Act
-      const randomQuoteSubscription = quoteService.getRandomQuote({ context: 'toto' });
+      const randomQuoteSubscription = quoteService.getRandomQuote({ category: 'toto' });
 
       // Assert
       randomQuoteSubscription.subscribe((quote: string) => {
@@ -59,7 +60,7 @@ describe('QuoteService', () => {
       mockBackend.connections.subscribe((connection: MockConnection) => connection.mockRespond(response));
 
       // Act
-      const randomQuoteSubscription = quoteService.getRandomQuote({ context: 'toto' });
+      const randomQuoteSubscription = quoteService.getRandomQuote({ category: 'toto' });
 
       // Assert
       randomQuoteSubscription.subscribe((quote: string) => {
