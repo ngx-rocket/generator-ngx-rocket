@@ -18,7 +18,7 @@ a good learning base.
 
 1. Install required tools:
  ```bash
- npm install -g angular-cli
+ npm install -g @angular/cli
  ```
 
 2. Go to project folder then install dependencies:
