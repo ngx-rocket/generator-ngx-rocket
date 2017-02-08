@@ -24,8 +24,9 @@ class MockTranslateService {
 }
 
 describe('I18nService', () => {
-  let i18nService, translateService;
-  let onLangChangeSpy;
+  let i18nService: I18nService;
+  let translateService: TranslateService;
+  let onLangChangeSpy: jasmine.Spy;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
