@@ -5,7 +5,7 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "build": "ng build --aot --prod",
+    "build": "npm run env && ng build --aot --prod",
     "start": "ng serve --proxy-config proxy.conf.js",
     "lint": "ng lint && stylelint \"src/**/*.scss\" --syntax scss && htmlhint \"src\"",
     "test": "ng test",
@@ -13,7 +13,8 @@
     "pree2e": "webdriver-manager update --standalone false --gecko false",
     "e2e": "protractor",
     "translations:extract": "ng2-translate-extract --dir ./src --output ./src/translations --format=pot --clean",
-    "docs": "hads ./docs -o"
+    "docs": "hads ./docs -o",
+    "env": "env2json npm_package_version -o src/environments/.env.json"
   },
   "private": true,
   "dependencies": {
@@ -44,6 +45,7 @@
     "@types/lodash": "4.14.50",
     "@types/node": "^7.0.0",
     "codelyzer": "~2.0.0-beta.1",
+    "env2json": "^1.0.0",
     "hads": "^1.3.1",
     "htmlhint": "^0.9.13",
     "https-proxy-agent": "^1.0.0",

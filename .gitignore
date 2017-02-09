@@ -44,6 +44,7 @@ testem.log
 /typings
 /reports
 /src/translations/template.pot
+/src/environments/.env.json
 
 # E2E
 /e2e/*.js
