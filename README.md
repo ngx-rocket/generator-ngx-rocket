@@ -158,8 +158,6 @@ These features are currently WIP and not implemented in this version:
   ([#10](https://github.com/biesbjerg/ng2-translate-extract/issues/10))
 - No HTML minification (due to `angular-cli` lack of add-on support for build process)
 - No images assets optimization (due to `angular-cli` lack of add-on support for build process)
-- Inclusion of whole `package.json` to get the current version (due to `angular-cli` lack of add-on support for build
-  process, workaround is WIP)
 
 # Licence
 
