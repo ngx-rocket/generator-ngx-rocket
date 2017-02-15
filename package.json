@@ -41,7 +41,7 @@
     "@angular/compiler-cli": "^2.4.0",
     "@biesbjerg/ng2-translate-extract": "^0.6.0",
     "@types/jasmine": "^2.5.40",
-    "@types/lodash": "4.14.50",
+    "@types/lodash": "^4.14.52",
     "@types/node": "^7.0.0",
     "codelyzer": "~2.0.0-beta.1",
     "env2json": "^1.0.0",
@@ -52,16 +52,16 @@
     "jasmine-spec-reporter": "^3.2.0",
     "karma": "~1.4.0",
     "karma-cli": "^1.0.1",
+    "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "^1.0.2",
     "karma-junit-reporter": "^1.2.0",
     "karma-phantomjs-launcher": "^1.0.2",
-    "karma-coverage-istanbul-reporter": "^0.2.0",
     "phantomjs-prebuilt": "^2.1.14",
     "protractor": "~5.1.0",
     "stylelint": "^7.7.1",
     "stylelint-config-standard": "^16.0.0",
     "ts-node": "^2.0.0",
     "tslint": "^4.3.0",
-    "typescript": "~2.0.10"
+    "typescript": "~2.1.6"
   }
 }
