@@ -68,7 +68,7 @@ npm start                     | Run development server on `http://localhost:4200
 npm run build [-- --env=prod] | Lint code and build app for production in `dist/` folder
 npm test                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
 npm run test:ci               | Lint code and run unit tests once for continuous integration
-npm run e2e                   | Run e2e tests using [Protractor](http://www.protractortest.org) (`npm start` must be run beforehand)
+npm run e2e                   | Run e2e tests using [Protractor](http://www.protractortest.org)
 npm run lint                  | Lint code
 npm run translations:extract  | Extract strings from code and templates to `src/app/translations/template.pot`
 npm run docs                  | Display project documentation
