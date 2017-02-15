@@ -6,11 +6,11 @@ module.exports = function(config) {
     basePath: '',
     frameworks: ['jasmine', '@angular/cli'],
     plugins: [
-      'karma-jasmine',
-      'karma-phantomjs-launcher',
-      'karma-junit-reporter',
-      'karma-remap-istanbul',
-      '@angular/cli/plugins/karma'
+      require('karma-jasmine'),
+      require('karma-phantomjs-launcher'),
+      require('karma-junit-reporter'),
+      require('karma-coverage-istanbul-reporter'),
+      require('@angular/cli/plugins/karma')
     ],
     // List of files/patterns to load in the browser
     files: [
@@ -28,19 +28,17 @@ module.exports = function(config) {
       useBrowserName: false,
       suite: '' // Will become the package name attribute in xml testsuite element
     },
-    remapIstanbulReporter: {
-      reports: {
-        html: 'reports/coverage',
-        lcovonly: './reports/coverage/coverage.lcov',
-        'text-summary': ''
-      }
+    coverageIstanbulReporter: {
+      reports: ['html', 'lcovonly', 'text-summary'],
+      dir: 'reports/coverage',
+      fixWebpackSourcePaths: true
     },
     angularCli: {
       config: './angular-cli.json',
       environment: 'dev'
     },
     reporters: config.angularCli && config.angularCli.codeCoverage
-      ? ['progress', 'junit', 'karma-remap-istanbul']
+      ? ['progress', 'junit', 'coverage-istanbul']
       : ['progress', 'junit'],
     port: 9876,
     colors: true,
