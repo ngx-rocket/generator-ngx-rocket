@@ -37,7 +37,7 @@
     "zone.js": "^0.7.2"
   },
   "devDependencies": {
-    "@angular/cli": "1.0.0-beta.31",
+    "@angular/cli": "^1.0.0-beta.32.3",
     "@angular/compiler-cli": "^2.4.0",
     "@biesbjerg/ng2-translate-extract": "^0.6.0",
     "@types/jasmine": "^2.5.40",
@@ -50,7 +50,7 @@
     "https-proxy-agent": "^1.0.0",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "^3.2.0",
-    "karma": "~1.4.0",
+    "karma": "~1.5.0",
     "karma-cli": "^1.0.1",
     "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "^1.0.2",

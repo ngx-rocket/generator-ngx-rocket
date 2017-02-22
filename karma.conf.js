@@ -30,7 +30,7 @@ module.exports = function(config) {
     },
     coverageIstanbulReporter: {
       reports: ['html', 'lcovonly', 'text-summary'],
-      dir: 'reports/coverage',
+      dir: './reports/coverage',
       fixWebpackSourcePaths: true
     },
     angularCli: {
