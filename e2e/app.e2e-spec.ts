@@ -1,10 +1,10 @@
-import { Ng2StarterKitPage } from './app.po';
+import { NgxStarterKitPage } from './app.po';
 
 describe('app', () => {
-  let page: Ng2StarterKitPage;
+  let page: NgxStarterKitPage;
 
   beforeEach(() => {
-    page = new Ng2StarterKitPage();
+    page = new NgxStarterKitPage();
   });
 
   it('should display hello message', () => {
