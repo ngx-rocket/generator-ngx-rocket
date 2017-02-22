@@ -1,4 +1,5 @@
 {
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
     "version": "1.0.0-beta.32.3",
     "name": "ngx-starter-kit"
@@ -22,8 +23,7 @@
       "styles": [
         "main.scss"
       ],
-      "scripts": [
-      ],
+      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
@@ -52,6 +52,7 @@
     }
   },
   "defaults": {
-    "styleExt": "scss"
+    "styleExt": "scss",
+    "component": {}
   }
 }
