@@ -12,6 +12,9 @@ module.exports = function(config) {
       require('karma-coverage-istanbul-reporter'),
       require('@angular/cli/plugins/karma')
     ],
+    client: {
+      clearContext: false // leave Jasmine Spec Runner output visible in browser
+    },
     // List of files/patterns to load in the browser
     files: [
       { pattern: './src/test.ts', watched: false }
@@ -30,11 +33,11 @@ module.exports = function(config) {
     },
     coverageIstanbulReporter: {
       reports: ['html', 'lcovonly', 'text-summary'],
-      dir: 'reports/coverage',
+      dir: './reports/coverage',
       fixWebpackSourcePaths: true
     },
     angularCli: {
-      config: './angular-cli.json',
+      config: './.angular-cli.json',
       environment: 'dev'
     },
     reporters: config.angularCli && config.angularCli.codeCoverage

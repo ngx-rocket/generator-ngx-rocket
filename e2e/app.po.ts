@@ -5,7 +5,7 @@
 
 import { browser, element, by } from 'protractor';
 
-export class Ng2StarterKitPage {
+export class NgxStarterKitPage {
   navigateTo() {
     return browser.get('/');
   }
