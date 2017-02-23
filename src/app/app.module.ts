@@ -5,6 +5,7 @@ import { HttpModule, Http } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule, TranslateLoader } from 'ng2-translate';
 import { TranslatePoLoader } from '@biesbjerg/ng2-translate-po-loader';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -37,7 +38,10 @@ export function createTranslateLoader(http: Http) {
     AppRoutingModule
   ],
   declarations: [AppComponent],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
