@@ -1,7 +1,8 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
+    "sourceMap": true,
     "declaration": false,
+    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [
@@ -9,13 +10,12 @@
     ],
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
     "outDir": "../dist/out-tsc-e2e",
-    "sourceMap": true,
+    "module": "commonjs",
     "target": "es2015",
-    "typeRoots": [
-      "../node_modules/@types"
+    "types":[
+      "jasmine",
+      "node"
     ]
   }
 }

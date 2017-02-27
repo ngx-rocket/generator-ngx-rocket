@@ -1,7 +1,10 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
     "declaration": false,
+    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [
@@ -10,14 +13,6 @@
     ],
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
-    "mapRoot": "./",
-    "module": "es2015",
-    "moduleResolution": "node",
-    "outDir": "../dist/out-tsc",
-    "sourceMap": true,
-    "target": "es5",
-    "typeRoots": [
-      "../node_modules/@types"
-    ]
+    "target": "es5"
   }
 }
