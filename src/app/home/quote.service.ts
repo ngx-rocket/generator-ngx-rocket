@@ -6,7 +6,7 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 const routes = {
-  quote: (c: RandomQuoteContext) => `/api/jokes/random?category=${c.category}`
+  quote: (c: RandomQuoteContext) => `/jokes/random?category=${c.category}`
 };
 
 export interface RandomQuoteContext {
@@ -20,7 +20,7 @@ export class QuoteService {
   constructor(private http: Http) { }
 
   getRandomQuote(context: RandomQuoteContext): Observable<string> {
-    return this.http.get(routes.quote(context))
+    return this.http.get(routes.quote(context), { cache: true })
       .map((res: Response) => res.json())
       .map(body => body.value)
       .catch(() => Observable.of('Error, could not load joke :-('));

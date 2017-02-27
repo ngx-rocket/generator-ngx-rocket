@@ -1,16 +1,25 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { HttpModule, Http, XHRBackend, ConnectionBackend, RequestOptions } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { HeaderComponent } from './header/header.component';
 import { I18nService } from './i18n.service';
 import { HttpService } from './http/http.service';
+import { HttpCacheService } from './http/http-cache.service';
+
+export function createHttpService(backend: ConnectionBackend,
+                                  defaultOptions: RequestOptions,
+                                  httpCacheService: HttpCacheService) {
+  return new HttpService(backend, defaultOptions, httpCacheService);
+}
 
 @NgModule({
   imports: [
     CommonModule,
+    HttpModule,
     TranslateModule,
     RouterModule,
     NgbModule.forRoot()
@@ -23,7 +32,12 @@ import { HttpService } from './http/http.service';
   ],
   providers: [
     I18nService,
-    HttpService
+    HttpCacheService,
+    {
+      provide: Http,
+      deps: [XHRBackend, RequestOptions, HttpCacheService],
+      useFactory: createHttpService
+    }
   ]
 })
 export class CoreModule {
