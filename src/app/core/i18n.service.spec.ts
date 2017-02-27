@@ -21,6 +21,8 @@ class MockTranslateService {
     });
   }
 
+  setTranslation(lang: string, translations: Object, shouldMerge?: boolean) { }
+
 }
 
 describe('I18nService', () => {
