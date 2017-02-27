@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { includes } from 'lodash';
 
-const enUS = require('../../translations/en-US.json');
-const frFR = require('../../translations/fr-FR.json');
+import enUS from '../../translations/en-US.json';
+import frFR from '../../translations/fr-FR.json';
 
 const languageKey = 'language';
 
