@@ -70,7 +70,7 @@ npm test                      | Run unit tests via [Karma](https://karma-runner.
 npm run test:ci               | Lint code and run unit tests once for continuous integration
 npm run e2e                   | Run e2e tests using [Protractor](http://www.protractortest.org)
 npm run lint                  | Lint code
-npm run translations:extract  | Extract strings from code and templates to `src/app/translations/template.pot`
+npm run translations:extract  | Extract strings from code and templates to `src/app/translations/template.json`
 npm run docs                  | Display project documentation
 
 When building the application, you can specify the target environment using the additional flag `--env <name>` (do not
@@ -100,7 +100,7 @@ Tasks are mostly based on the `angular-cli` tool. Use `ng help` to get more help
 
 The app template is based on [HTML5](http://whatwg.org/html), [TypeScript](http://www.typescriptlang.org) and
 [Sass](http://sass-lang.com). The translation files use the common
-[Gettext](https://www.gnu.org/software/gettext/manual/index.html) format.
+[JSON](http://www.json.org) format.
 
 #### Tools
 
@@ -125,7 +125,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - [Font Awesome](http://fontawesome.io)
 - [RxJS](http://reactivex.io/rxjs)
 - [ng-bootsrap](https://ng-bootstrap.github.io/)
-- [ng2-translate](https://github.com/ocombe/ng2-translate)
+- [ngx-translate](https://github.com/ngx-translate/core)
 - [Lodash](https://lodash.com)
 
 #### Coding guides
