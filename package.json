@@ -36,7 +36,7 @@
     "zone.js": "^0.7.6"
   },
   "devDependencies": {
-    "@angular/cli": "1.0.0-beta.32.3",
+    "@angular/cli": "1.0.0-rc.0",
     "@angular/compiler-cli": "^2.4.0",
     "@biesbjerg/ng2-translate-extract": "^0.6.0",
     "@types/jasmine": "^2.5.40",
@@ -61,6 +61,6 @@
     "stylelint-config-standard": "^16.0.0",
     "ts-node": "^2.0.0",
     "tslint": "^4.4.2",
-    "typescript": "~2.1.6"
+    "typescript": "~2.2.1"
   }
 }
