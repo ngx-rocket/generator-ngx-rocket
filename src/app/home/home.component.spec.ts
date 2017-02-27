@@ -28,8 +28,8 @@ describe('HomeComponent', () => {
           useFactory: (backend: MockBackend, defaultOptions: BaseRequestOptions) => {
             return new Http(backend, defaultOptions);
           },
-          deps: [MockBackend, BaseRequestOptions],
-        },
+          deps: [MockBackend, BaseRequestOptions]
+        }
       ]
     })
     .compileComponents();

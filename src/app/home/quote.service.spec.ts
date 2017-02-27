@@ -1,5 +1,4 @@
-/* tslint:disable:no-unused-variable */
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, fakeAsync, inject, tick } from '@angular/core/testing';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { BaseRequestOptions, Http, Response, ResponseOptions } from '@angular/http';
 
@@ -20,8 +19,8 @@ describe('QuoteService', () => {
           useFactory: (backend: MockBackend, defaultOptions: BaseRequestOptions) => {
             return new Http(backend, defaultOptions);
           },
-          deps: [MockBackend, BaseRequestOptions],
-        },
+          deps: [MockBackend, BaseRequestOptions]
+        }
       ]
     });
   });
@@ -36,8 +35,12 @@ describe('QuoteService', () => {
     mockBackend = _mockBackend;
   }));
 
+  afterEach(() => {
+    mockBackend.verifyNoPendingRequests();
+  });
+
   describe('getRandomQuote', () => {
-    it('should return a random Chuck Norris quote', () => {
+    it('should return a random Chuck Norris quote', fakeAsync(() => {
       // Arrange
       const mockQuote = 'a random quote';
       const response = new Response(new ResponseOptions({
@@ -47,25 +50,27 @@ describe('QuoteService', () => {
 
       // Act
       const randomQuoteSubscription = quoteService.getRandomQuote({ category: 'toto' });
+      tick();
 
       // Assert
       randomQuoteSubscription.subscribe((quote: string) => {
         expect(quote).toEqual(mockQuote);
       });
-    });
+    }));
 
-    it('should return a string in case of error', () => {
+    it('should return a string in case of error', fakeAsync(() => {
       // Arrange
       const response = new Response(new ResponseOptions({ status: 500 }));
       mockBackend.connections.subscribe((connection: MockConnection) => connection.mockRespond(response));
 
       // Act
       const randomQuoteSubscription = quoteService.getRandomQuote({ category: 'toto' });
+      tick();
 
       // Assert
       randomQuoteSubscription.subscribe((quote: string) => {
         expect(typeof quote).toEqual('string');
       });
-    });
+    }));
   });
 });
