@@ -22,6 +22,7 @@
 *.launch
 .settings/
 xcuserdata/
+*.sublime-workspace
 
 # IDE - VSCode
 .vscode/*

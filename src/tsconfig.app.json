@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "baseUrl": "",
+    "sourceMap": true,
     "declaration": false,
+    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [
@@ -10,14 +11,14 @@
     ],
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
-    "mapRoot": "./",
-    "module": "es2015",
-    "moduleResolution": "node",
-    "outDir": "../dist/out-tsc",
-    "sourceMap": true,
+    "outDir": "../out-tsc/app",
     "target": "es5",
-    "typeRoots": [
-      "../node_modules/@types"
-    ]
-  }
+    "module": "es2015",
+    "baseUrl": "",
+    "types": []
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
 }
