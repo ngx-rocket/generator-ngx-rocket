@@ -11,7 +11,7 @@
     "test": "ng test",
     "test:ci": "npm run lint && ng test --single-run --code-coverage",
     "e2e": "ng e2e",
-    "translations:extract": "ng2-translate-extract --dir ./src --output ./src/translations --format=pot --clean",
+    "translations:extract": "ng2-translate-extract --dir ./src --output ./src/translations --format=json --clean",
     "docs": "hads ./docs -o",
     "env": "env2json npm_package_version -o src/environments/.env.json"
   },
@@ -25,13 +25,12 @@
     "@angular/platform-browser": "^2.4.0",
     "@angular/platform-browser-dynamic": "^2.4.0",
     "@angular/router": "^3.4.0",
-    "@biesbjerg/ng2-translate-po-loader": "^0.2.1",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.20",
+    "@ngx-translate/core": "^6.0.0",
     "bootstrap": "4.0.0-alpha.6",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
-    "ng2-translate": "^5.0.0",
     "rxjs": "^5.1.0",
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.7.6"

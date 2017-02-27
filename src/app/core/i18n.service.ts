@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import { TranslateService, LangChangeEvent } from 'ng2-translate';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { includes } from 'lodash';
+
+const enUS = require('../../translations/en-US.json');
+const frFR = require('../../translations/fr-FR.json');
 
 const languageKey = 'language';
 
@@ -10,7 +13,11 @@ export class I18nService {
   defaultLanguage: string;
   supportedLanguages: string[];
 
-  constructor(private translateService: TranslateService) { }
+  constructor(private translateService: TranslateService) {
+    // Embed languages to avoid extra HTTP requests
+    translateService.setTranslation('en-US', enUS );
+    translateService.setTranslation('fr-FR', frFR);
+  }
 
   /**
    * Initializes i18n for the application.

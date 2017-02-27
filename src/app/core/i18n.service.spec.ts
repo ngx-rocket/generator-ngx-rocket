@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import { TestBed, async, inject } from '@angular/core/testing';
-import { TranslateService, LangChangeEvent } from 'ng2-translate';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Subject } from 'rxjs/Subject';
 
 import { I18nService } from './i18n.service';
