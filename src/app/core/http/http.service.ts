@@ -55,8 +55,8 @@ export class HttpService extends Http {
           subscriber.next(new Response(cachedData));
           subscriber.complete();
         } else {
-          this.httpRequest(request, options)
-            .subscribe((response: Response) => {
+          this.httpRequest(request, options).subscribe(
+            (response: Response) => {
               // Store the serializable version of the response
               this.httpCacheService.setCacheData(url, null, new ResponseOptions({
                 body: response.text(),
@@ -67,11 +67,10 @@ export class HttpService extends Http {
                 url: response.url
               }));
               subscriber.next(response);
-            }, (error: any) => {
-              subscriber.error(error);
-            }, () => {
-              subscriber.complete();
-            });
+            },
+            (error) => subscriber.error(error),
+            () => subscriber.complete()
+          );
         }
       });
     }
@@ -125,8 +124,12 @@ export class HttpService extends Http {
 
   // Customize the default error handler here if needed
   private errorHandler(response: Response): Observable<Response> {
-    log.debug('Request error', response);
-    return Observable.throw(response);
+    if (environment.production) {
+      // Avoid unchaught exceptions on production
+      log.error('Request error', response);
+      return Observable.throw(response);
+    }
+    throw response;
   }
 
 }

@@ -70,6 +70,7 @@ describe('QuoteService', () => {
       // Assert
       randomQuoteSubscription.subscribe((quote: string) => {
         expect(typeof quote).toEqual('string');
+        expect(quote).toContain('Error');
       });
     }));
   });
