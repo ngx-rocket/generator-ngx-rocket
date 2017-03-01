@@ -61,7 +61,7 @@ describe('QuoteService', () => {
     it('should return a string in case of error', fakeAsync(() => {
       // Arrange
       const response = new Response(new ResponseOptions({ status: 500 }));
-      mockBackend.connections.subscribe((connection: MockConnection) => connection.mockRespond(response));
+      mockBackend.connections.subscribe((connection: MockConnection) => connection.mockError(response as any));
 
       // Act
       const randomQuoteSubscription = quoteService.getRandomQuote({ category: 'toto' });

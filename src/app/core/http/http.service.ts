@@ -1,5 +1,4 @@
 import 'rxjs/add/observable/throw';
-import './request-options-args';
 
 import { Injectable } from '@angular/core';
 import {
@@ -12,6 +11,7 @@ import { extend } from 'lodash';
 import { environment } from '../../../environments/environment';
 import { Logger } from '../logger.service';
 import { HttpCacheService } from './http-cache.service';
+import { HttpCachePolicy } from './request-options-args';
 
 const log = new Logger('HttpService');
 
@@ -49,7 +49,7 @@ export class HttpService extends Http {
       return this.httpRequest(request, options);
     } else {
       return new Observable((subscriber: Subscriber<Response>) => {
-        const cachedData = options.cache === 'force' ? null : this.httpCacheService.getCacheData(url);
+        const cachedData = options.cache === HttpCachePolicy.Update ? null : this.httpCacheService.getCacheData(url);
         if (cachedData !== null) {
           // Create new response to avoid side-effects
           subscriber.next(new Response(cachedData));
