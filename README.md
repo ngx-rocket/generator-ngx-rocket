@@ -148,8 +148,6 @@ Development, build and quality processes are based on [angular-cli](https://gith
 
 These features are currently WIP and not implemented in this version:
 
-- Http service extension to provide support for server configuration, default headers and user-configurable cache
-  policy.
 - Window service wrapper into Angular DI system (to allow mocking in unit tests)
 
 ## Limitations
