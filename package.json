@@ -1,6 +1,6 @@
 {
   "name": "ngx-starter-kit",
-  "version": "0.9.6",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -34,7 +34,7 @@
     "zone.js": "^0.7.6"
   },
   "devDependencies": {
-    "@angular/cli": "1.0.0-rc.0",
+    "@angular/cli": "^1.0.0-rc.1",
     "@angular/compiler-cli": "^2.4.0",
     "@biesbjerg/ng2-translate-extract": "^0.6.0",
     "@types/jasmine": "^2.5.40",
@@ -49,7 +49,7 @@
     "jasmine-spec-reporter": "^3.2.0",
     "karma": "~1.5.0",
     "karma-cli": "~1.0.1",
-    "karma-coverage-istanbul-reporter": "^0.2.0",
+    "karma-coverage-istanbul-reporter": "^0.3.0",
     "karma-jasmine": "^1.1.0",
     "karma-junit-reporter": "^1.2.0",
     "karma-phantomjs-launcher": "^1.0.2",
@@ -57,8 +57,8 @@
     "protractor": "~5.1.0",
     "stylelint": "^7.7.1",
     "stylelint-config-standard": "^16.0.0",
-    "ts-node": "~2.0.0",
-    "tslint": "~4.4.2",
+    "ts-node": "~2.1.0",
+    "tslint": "~4.5.1",
     "typescript": "~2.2.1"
   }
 }
