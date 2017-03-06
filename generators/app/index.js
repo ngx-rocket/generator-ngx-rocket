@@ -170,12 +170,12 @@ module.exports = class extends Generator {
       skipInstall: this.options['skip-install'],
       skipMessage: this.options['skip-message'],
       callback: () => {
-        if (!this.options['skip-install']) {
-          // Prepare Cordova platforms
-          if (this.props.target !== 'web') {
-            this.spawnCommandSync('npm', ['cordova -- prepare']);
-          }
-        }
+        // if (!this.options['skip-install']) {
+        //   // Prepare Cordova platforms
+        //   if (this.props.target !== 'web') {
+        //     this.spawnCommandSync('npm', ['cordova -- prepare']);
+        //   }
+        // }
       }
     });
   }
