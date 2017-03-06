@@ -14,17 +14,12 @@ a good learning base.
 
 # Getting started
 
-1. Install required tools:
- ```bash
- npm install -g @angular/cli
- ```
-
-2. Go to project folder then install dependencies:
+1. Go to project folder and install dependencies:
  ```bash
  npm install
  ```
  
-3. Launch development server, and open `localhost:4200` in your browser:
+2. Launch development server, and open `localhost:4200` in your browser:
  ```bash
  npm start
  ```
@@ -84,8 +79,11 @@ You should not use `ng serve` directly, as it does not use the backend proxy con
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use
-`ng generate directive/pipe/service/class/module`.
+Run `npm run generate -- component <name>` to generate a new component. You can also use
+`npm run generate -- directive|pipe|service|class|module`.
+
+If you have installed [angular-cli](https://github.com/angular/angular-cli) globally with `npm install -g @angular/cli`,
+you can also use the command `ng generate` directly.
 
 ## Additional tools
 
