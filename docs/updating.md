@@ -36,6 +36,3 @@ This will create a file `npm-shrinkwrap.json` alongside your `package.json` file
 
 The `angular-cli` package needs extra care with updating, see
 [this doc](https://github.com/angular/angular-cli#updating-angular-cli).
-
-Be very careful with the last step (`ng update`) and check the diff closely, so you do not overwrite changes that were
-made as part of the starter template or your own code.

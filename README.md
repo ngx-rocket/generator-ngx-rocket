@@ -97,8 +97,7 @@ Tasks are mostly based on the `angular-cli` tool. Use `ng help` to get more help
 ## What's in the box
 
 The app template is based on [HTML5](http://whatwg.org/html), [TypeScript](http://www.typescriptlang.org) and
-[Sass](http://sass-lang.com). The translation files use the common
-[JSON](http://www.json.org) format.
+[Sass](http://sass-lang.com). The translation files use the common [JSON](http://www.json.org) format.
 
 #### Tools
 
@@ -114,7 +113,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - End-to-end tests using [Protractor](https://github.com/angular/protractor)
 - Static code analysis: [TSLint](https://github.com/palantir/tslint), [Codelyzer](https://github.com/mgechev/codelyzer),
   [Stylelint](http://stylelint.io) and [HTMLHint](http://htmlhint.com/)
-- Local knowledgebase server using [hads](https://github.com/sinedied/hads)
+- Local knowledgebase server using [Hads](https://github.com/sinedied/hads)
 
 #### Libraries
 
@@ -141,6 +140,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - [Working behind a corporate proxy](docs/corporate-proxy.md)
 - [Updating dependencies and tools](docs/updating.md)
 - [Using a backend proxy for development](docs/backend-proxy.md)
+- [Browser routing](docs/routing.md)
 
 # Licence
 
