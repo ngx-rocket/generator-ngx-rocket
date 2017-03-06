@@ -87,8 +87,11 @@ You should not use `ng serve` directly, as it does not use the backend proxy con
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use
-`ng generate directive/pipe/service/class/module`.
+Run `npm run generate -- component <name>` to generate a new component. You can also use
+`npm run generate -- directive|pipe|service|class|module`.
+
+If you have installed [angular-cli](https://github.com/angular/angular-cli) globally with `npm install -g @angular/cli`,
+you can also use the command `ng generate` directly.
 
 ## Additional tools
 
