@@ -39,7 +39,7 @@ do
     echo -------------------------------------------------------------
     echo
 
-    yo ngx-app --automate "$CWD/$file" $TEST_APP_NAME
+    yo ngx-app --no-analytics --automate "$CWD/$file" $TEST_APP_NAME
 
     npm run test:ci
     npm run e2e
