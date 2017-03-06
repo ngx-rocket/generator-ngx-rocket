@@ -24,7 +24,7 @@ See generated project example [here](https://github.com/angular-starter-kit/ngx-
 
 1. Install required tools:
  ```bash
- npm install -g yo generator-ngx-app @angular/cli
+ npm install -g yo generator-ngx-app
  ```
 
 2. Create your application:

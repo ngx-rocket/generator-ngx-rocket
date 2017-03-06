@@ -1,3 +1,4 @@
+.idea/
 sample/
 deploy/
 scripts/
@@ -5,3 +6,4 @@ scripts/
 .travis.yml
 .DS_Store
 Thumbs.db
+npm-debug.log
