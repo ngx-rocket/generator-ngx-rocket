@@ -1,0 +1,37 @@
+[
+  {
+    "name": "skip-install",
+    "type": "Boolean",
+    "required": false,
+    "desc": "Skip npm install after project generation",
+    "defaults": false
+  },
+  {
+    "name": "skip-message",
+    "type": "Boolean",
+    "required": false,
+    "desc": "Skip npm install messages",
+    "defaults": false
+  },
+  {
+    "name": "skip-welcome",
+    "type": "Boolean",
+    "required": false,
+    "desc": "Skip Yeoman's welcome message",
+    "defaults": false
+  },
+  {
+    "name": "analytics",
+    "type": "Boolean",
+    "required": false,
+    "desc": "Report anonymous usage analytics",
+    "defaults": true
+  },
+  {
+    "name": "automate",
+    "type": "String",
+    "required": false,
+    "desc": "Automate prompt answers using the specified JSON file",
+    "defaults": ""
+  }
+]

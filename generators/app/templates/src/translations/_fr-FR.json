@@ -1,5 +1,5 @@
 {
-  "APP_NAME": "Starter Kit",
+  "APP_NAME": "<%= props.appName %>",
   "Version": "Version",
   "Home": "Accueil",
   "About": "A propos",

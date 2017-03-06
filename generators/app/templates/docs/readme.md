@@ -1,4 +1,4 @@
-# ngX Starter Kit
+# <%= props.appName %>
 
 Welcome to the project documentation!
 

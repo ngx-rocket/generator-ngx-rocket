@@ -1,0 +1,7 @@
+sample/
+deploy/
+scripts/
+.gitignore
+.travis.yml
+.DS_Store
+Thumbs.db

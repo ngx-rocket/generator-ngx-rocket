@@ -1,0 +1,27 @@
+sudo: required
+dist: trusty
+git:
+  depth: 1
+
+language: node_js
+node_js:
+  - '5'
+  - '6'
+  - stable
+
+matrix:
+  fast_finish: true
+
+install:
+  - npm install -g yo @angular-cli
+  - npm install
+  - npm link
+
+before_script:
+  # For protractor (chrome is not installed on travis)
+  - export PROTRACTOR_BROWSER='firefox'
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
+script:
+  - npm test
