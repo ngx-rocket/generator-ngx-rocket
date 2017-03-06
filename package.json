@@ -1,6 +1,6 @@
 {
   "name": "generator-ngx-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Angular 2+ enterprise-grade project generator based on angular-cli with best practices from the community, a scalable starter template and a good learning base.",
   "repository": "angular-starter-kit/generator-ngx-app",
   "keywords": [
@@ -23,7 +23,7 @@
   "author": "Yohan Lasorsa",
   "license": "MIT",
   "preferGlobal": true,
-  "main": "index.js",
+  "main": "./generators/app/index.js",
   "scripts": {
     "test": "scripts/test.sh",
     "deploy": "scripts/deploy.sh",
