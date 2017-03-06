@@ -13,7 +13,7 @@ matrix:
   fast_finish: true
 
 install:
-  - npm install -g yo @angular-cli
+  - npm install -g yo
   - npm install
   - npm link
 
