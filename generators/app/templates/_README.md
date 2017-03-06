@@ -1,35 +1,18 @@
-# generator-ngx-app
+# <%= props.appName %>
 
-[![NPM version](https://img.shields.io/npm/v/generator-ngx-app.svg)](https://www.npmjs.com/package/generator-ngx-app)
-[![Build status](https://img.shields.io/travis/angular-starter-kit/generator-ngx-app/master.svg)](https://travis-ci.org/angular-starter-kit/generator-ngx-app)
-[![Downloads](https://img.shields.io/npm/dt/generator-ngx-app.svg)](https://npmjs.org/package/generator-ngx-app)
-
-Web project starter kit including modern tools and workflow based on
-[angular-cli](https://github.com/angular/angular-cli), best practices from the community, a scalable base template and
-a good learning base.
-
-See generated project example [here](https://github.com/angular-starter-kit/ngx-starter-kit).
-
-![logo](https://cloud.githubusercontent.com/assets/593151/23604024/a9729c78-0257-11e7-8c60-0882a98bad41.png)
-
-### Benefits
-
-- Quickstart a project in seconds and focus on features, not on frameworks or tools
-
-- Industrial-grade tools, ready for usage in a continuous integration environment and DevOps
-
-- Scalable architecture with base app template including example components, services and tests
+This project was generated with [generator-ngx-app](https://github.com/angular-starter-kit/generator-ngx-app/)
+version <%= version %>
 
 # Getting started
 
-1. Install required tools:
+1. Go to project folder and install dependencies:
  ```bash
- npm install -g yo generator-ngx-app @angular/cli
+ npm install
  ```
-
-2. Create your application:
+ 
+2. Launch development server, and open `localhost:4200` in your browser:
  ```bash
- yo ngx-app
+ npm start
  ```
  
 # Project structure
@@ -87,8 +70,11 @@ You should not use `ng serve` directly, as it does not use the backend proxy con
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use
-`ng generate directive/pipe/service/class/module`.
+Run `npm run generate -- component <name>` to generate a new component. You can also use
+`npm run generate -- directive|pipe|service|class|module`.
+
+If you have installed [angular-cli](https://github.com/angular/angular-cli) globally with `npm install -g @angular/cli`,
+you can also use the command `ng generate` directly.
 
 ## Additional tools
 
@@ -145,6 +131,26 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - [Using a backend proxy for development](docs/backend-proxy.md)
 - [Browser routing](docs/routing.md)
 
-# License
+# Licence
 
-[MIT](LICENSE)
+The MIT License (MIT)
+
+Copyright (c) 2016-2017 THALES Services
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

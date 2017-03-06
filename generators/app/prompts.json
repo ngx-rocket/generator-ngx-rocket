@@ -1,0 +1,7 @@
+[
+  {
+    "type": "string",
+    "name": "appName",
+    "message": "What's the name of your app?"
+  }
+]
