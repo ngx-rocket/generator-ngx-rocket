@@ -49,7 +49,7 @@ module.exports = class extends Generator {
     });
   }
 
-  welcome() {
+  initializing() {
     if (!this.options['skip-welcome']) {
       this.log(yosay(`${chalk.green('Welcome!')}\nLet\'s generate an awesome Angular app!`));
     }
@@ -60,7 +60,7 @@ module.exports = class extends Generator {
     this.insight.track('platform', process.platform);
   }
 
-  ask() {
+  prompting() {
     let processProps = (props) => {
       props.appName = props.appName || this.options.appName;
       props.projectName = _.kebabCase(props.appName);
@@ -86,7 +86,16 @@ module.exports = class extends Generator {
     }
   }
 
-  prepare() {
+  configuring() {
+    this.insight.track('generator', 'web', 'boostrap');
+
+    // Generate .yo-rc.json
+    this.config.set('version', this.version);
+    this.config.set('props', this.props);
+    this.config.save();
+  }
+
+  preparing() {
     return new Promise((resolve) => {
       let filesPath = path.join(__dirname, 'templates');
 
@@ -130,16 +139,7 @@ module.exports = class extends Generator {
     });
   }
 
-  save() {
-    this.insight.track('generator', 'web', 'boostrap');
-
-    // Generate .yo-rc.json
-    this.config.set('version', this.version);
-    this.config.set('props', this.props);
-    this.config.save();
-  }
-
-  write() {
+  writing() {
     this.files.forEach((file) => {
       let write = !file.hasFolderCondition || _.every(folderRules, (rule, folder) => {
         return !_.startsWith(path.dirname(file.src), folder) || rule(this.props);
