@@ -8,6 +8,13 @@ node_js:
   - '6'
   - stable
 
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
 matrix:
   fast_finish: true
 
@@ -17,8 +24,7 @@ install:
   - npm link
 
 before_script:
-  # For protractor (chrome is not installed on travis)
-  - export PROTRACTOR_BROWSER='firefox'
+  - export PROTRACTOR_BROWSER='Chrome_travis_ci'
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
 
