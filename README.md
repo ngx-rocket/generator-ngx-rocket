@@ -12,8 +12,6 @@ a good learning base.
 
 - Scalable architecture with base app template including example components, services and tests
 
-> Note: This project is still under development, see the [current status](#current-status) section for more information.
-
 # Getting started
 
 1. Install required tools:
@@ -143,19 +141,6 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - [Working behind a corporate proxy](docs/corporate-proxy.md)
 - [Updating dependencies and tools](docs/updating.md)
 - [Using a backend proxy for development](docs/backend-proxy.md)
-
-## Work in progress
-
-These features are currently WIP and not implemented in this version:
-
-- Window service wrapper into Angular DI system (to allow mocking in unit tests)
-
-## Limitations
-
-- `translations:extract` cannot extract translated strings from variables
-  ([#10](https://github.com/biesbjerg/ng2-translate-extract/issues/10))
-- No HTML minification (due to `angular-cli` lack of add-on support for build process)
-- No images assets optimization (due to `angular-cli` lack of add-on support for build process)
 
 # Licence
 
