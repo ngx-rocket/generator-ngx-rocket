@@ -77,11 +77,11 @@ module.exports = class extends Generator {
   }
 
   prompting() {
+    this.props = this.props || {};
     let processProps = (props) => {
       props.appName = this.props.appName || props.appName || this.options.appName;
       props.projectName = _.kebabCase(props.appName);
       _.extend(this.props, props);
-
     };
 
     if (this.options.automate) {
@@ -92,12 +92,8 @@ module.exports = class extends Generator {
       let namePrompt = _.find(prompts, { name: 'appName' });
       namePrompt.default = this.appname;
       namePrompt.when = () => !this.options.appName;
+      _.remove(prompts, (p) => this.props[p.name] !== undefined);
 
-      if (!this.props) {
-        this.props = {};
-      } else {
-        _.remove(prompts, (p) => this.props[p.name] !== undefined);
-      }
       return this.prompt(prompts).then(processProps);
     }
   }
