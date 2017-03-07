@@ -10,8 +10,6 @@ a good learning base.
 
 See generated project example [here](https://github.com/angular-starter-kit/ngx-starter-kit).
 
-![logo](https://cloud.githubusercontent.com/assets/593151/23604024/a9729c78-0257-11e7-8c60-0882a98bad41.png)
-
 ### Benefits
 
 - Quickstart a project in seconds and focus on features, not on frameworks or tools
@@ -19,6 +17,8 @@ See generated project example [here](https://github.com/angular-starter-kit/ngx-
 - Industrial-grade tools, ready for usage in a continuous integration environment and DevOps
 
 - Scalable architecture with base app template including example components, services and tests
+
+![logo](https://cloud.githubusercontent.com/assets/593151/23604024/a9729c78-0257-11e7-8c60-0882a98bad41.png)
 
 # Getting started
 
@@ -93,13 +93,6 @@ Run `npm run generate -- component <name>` to generate a new component. You can 
 If you have installed [angular-cli](https://github.com/angular/angular-cli) globally with `npm install -g @angular/cli`,
 you can also use the command `ng generate` directly.
 
-## Additional tools
-
-Tasks are mostly based on the `angular-cli` tool. Use `ng help` to get more help or go check out the
-[Angular-CLI README](https://github.com/angular/angular-cli).
-
-# Current status
-
 ## What's in the box
 
 The app template is based on [HTML5](http://whatwg.org/html), [TypeScript](http://www.typescriptlang.org) and
@@ -133,20 +126,20 @@ Development, build and quality processes are based on [angular-cli](https://gith
 
 #### Coding guides
 
-- [Angular](docs/coding-guides/angular.md)
-- [TypeScript](docs/coding-guides/typescript.md)
-- [Sass](docs/coding-guides/sass.md)
-- [HTML](docs/coding-guides/html.md)
-- [Unit tests](docs/coding-guides/unit-tests.md)
-- [End-to-end tests](docs/coding-guides/e2e-tests.md)
+- [Angular](https://github.com/angular-starter-kit/ngx-starter-kit/docs/coding-guides/angular.md)
+- [TypeScript](https://github.com/angular-starter-kit/ngx-starter-kit/docs/coding-guides/typescript.md)
+- [Sass](https://github.com/angular-starter-kit/ngx-starter-kit/docs/coding-guides/sass.md)
+- [HTML](https://github.com/angular-starter-kit/ngx-starter-kit/docs/coding-guides/html.md)
+- [Unit tests](https://github.com/angular-starter-kit/ngx-starter-kit/docs/coding-guides/unit-tests.md)
+- [End-to-end tests](https://github.com/angular-starter-kit/ngx-starter-kit/docs/coding-guides/e2e-tests.md)
 
 #### Other documentation
 
-- [I18n guide](docs/i18n.md)
-- [Working behind a corporate proxy](docs/corporate-proxy.md)
-- [Updating dependencies and tools](docs/updating.md)
-- [Using a backend proxy for development](docs/backend-proxy.md)
-- [Browser routing](docs/routing.md)
+- [I18n guide](https://github.com/angular-starter-kit/ngx-starter-kit/docs/i18n.md)
+- [Working behind a corporate proxy](https://github.com/angular-starter-kit/ngx-starter-kit/docs/corporate-proxy.md)
+- [Updating dependencies and tools](https://github.com/angular-starter-kit/ngx-starter-kit/docs/updating.md)
+- [Using a backend proxy for development](https://github.com/angular-starter-kit/ngx-starter-kit/docs/backend-proxy.md)
+- [Browser routing](https://github.com/angular-starter-kit/ngx-starter-kit/docs/routing.md)
 
 # License
 
