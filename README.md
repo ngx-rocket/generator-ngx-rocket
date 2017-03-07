@@ -126,20 +126,20 @@ Development, build and quality processes are based on [angular-cli](https://gith
 
 #### Coding guides
 
-- [Angular](https://github.com/angular-starter-kit/ngx-starter-kit/docs/coding-guides/angular.md)
-- [TypeScript](https://github.com/angular-starter-kit/ngx-starter-kit/docs/coding-guides/typescript.md)
-- [Sass](https://github.com/angular-starter-kit/ngx-starter-kit/docs/coding-guides/sass.md)
-- [HTML](https://github.com/angular-starter-kit/ngx-starter-kit/docs/coding-guides/html.md)
-- [Unit tests](https://github.com/angular-starter-kit/ngx-starter-kit/docs/coding-guides/unit-tests.md)
-- [End-to-end tests](https://github.com/angular-starter-kit/ngx-starter-kit/docs/coding-guides/e2e-tests.md)
+- [Angular](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/coding-guides/angular.md)
+- [TypeScript](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/coding-guides/typescript.md)
+- [Sass](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/coding-guides/sass.md)
+- [HTML](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/coding-guides/html.md)
+- [Unit tests](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/coding-guides/unit-tests.md)
+- [End-to-end tests](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/coding-guides/e2e-tests.md)
 
 #### Other documentation
 
-- [I18n guide](https://github.com/angular-starter-kit/ngx-starter-kit/docs/i18n.md)
-- [Working behind a corporate proxy](https://github.com/angular-starter-kit/ngx-starter-kit/docs/corporate-proxy.md)
-- [Updating dependencies and tools](https://github.com/angular-starter-kit/ngx-starter-kit/docs/updating.md)
-- [Using a backend proxy for development](https://github.com/angular-starter-kit/ngx-starter-kit/docs/backend-proxy.md)
-- [Browser routing](https://github.com/angular-starter-kit/ngx-starter-kit/docs/routing.md)
+- [I18n guide](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/i18n.md)
+- [Working behind a corporate proxy](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/corporate-proxy.md)
+- [Updating dependencies and tools](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/updating.md)
+- [Using a backend proxy for development](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/backend-proxy.md)
+- [Browser routing](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/routing.md)
 
 # License
 
