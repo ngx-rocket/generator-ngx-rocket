@@ -7,18 +7,18 @@
     "defaults": false
   },
   {
-    "name": "skip-message",
-    "type": "Boolean",
-    "required": false,
-    "desc": "Skip npm install messages",
-    "defaults": false
-  },
-  {
     "name": "skip-welcome",
     "type": "Boolean",
     "required": false,
     "desc": "Skip Yeoman's welcome message",
     "defaults": false
+  },
+  {
+    "name": "update",
+    "type": "Boolean",
+    "required": false,
+    "desc": "Update existing project",
+    "defaults": true
   },
   {
     "name": "analytics",

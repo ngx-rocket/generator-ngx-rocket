@@ -50,11 +50,27 @@ module.exports = class extends Generator {
   }
 
   initializing() {
-    if (!this.options['skip-welcome']) {
+    this.insight.optOut = !this.options['analytics'] || process.env.DISABLE_NGX_ANALYTICS;
+
+    if (this.options['update']) {
+      this.props = this.config.get('props');
+    }
+
+    if (this.props) {
+      let fromVersion = this.config.get('version');
+      if (fromVersion >= this.version) {
+        this.log(chalk.green('\nNothing to update, it\'s all good!\n'));
+        process.exit(0);
+      }
+
+      this.log(`\nUpdating ${chalk.green(this.props.appName)} project (${chalk.yellow(fromVersion)} -> ${chalk.yellow(this.version)})\n`);
+      this.log(`${chalk.yellow('Make sure you don\'t have uncommitted changes before overwriting files!')}`);
+      this.insight.track('generator', 'update', fromVersion, 'to', this.version);
+
+    } else if (!this.options['skip-welcome']) {
       this.log(yosay(`${chalk.green('Welcome!')}\nLet\'s generate an awesome Angular app!`));
     }
 
-    this.insight.optOut = !this.options['analytics'];
     this.insight.track('generator', this.version);
     this.insight.track('node', process.version);
     this.insight.track('platform', process.platform);
@@ -62,10 +78,10 @@ module.exports = class extends Generator {
 
   prompting() {
     let processProps = (props) => {
-      props.appName = props.appName || this.options.appName;
+      props.appName = this.props.appName || props.appName || this.options.appName;
       props.projectName = _.kebabCase(props.appName);
+      _.extend(this.props, props);
 
-      this.props = props;
     };
 
     if (this.options.automate) {
@@ -75,28 +91,22 @@ module.exports = class extends Generator {
     } else {
       let namePrompt = _.find(prompts, { name: 'appName' });
       namePrompt.default = this.appname;
-      namePrompt.when = () => {
-        return !this.options.appName;
-      };
+      namePrompt.when = () => !this.options.appName;
 
-      // Use prompts from json
-      return this.prompt(prompts).then((props) => {
-        processProps(props);
-      });
+      if (!this.props) {
+        this.props = {};
+      } else {
+        _.remove(prompts, (p) => this.props[p.name] !== undefined);
+      }
+      return this.prompt(prompts).then(processProps);
     }
-  }
-
-  configuring() {
-    this.insight.track('generator', 'web', 'boostrap');
-
-    // Generate .yo-rc.json
-    this.config.set('version', this.version);
-    this.config.set('props', this.props);
-    this.config.save();
   }
 
   preparing() {
     return new Promise((resolve) => {
+      // TODO: update with chosen options
+      this.insight.track('generator', 'web', 'boostrap');
+
       let filesPath = path.join(__dirname, 'templates');
 
       dir.files(filesPath, (err, files) => {
@@ -157,7 +167,7 @@ module.exports = class extends Generator {
             this.fs.copy(this.templatePath(file.src), this.destinationPath(file.dest));
           }
         } catch (error) {
-          console.error('Template processing error on file', file.src);
+          this.log(chalk.red(`\nTemplate processing error on file ${file.src}`));
           throw error;
         }
       }
@@ -165,15 +175,25 @@ module.exports = class extends Generator {
   }
 
   install() {
+    this.config.set('version', this.version);
+    this.config.set('props', this.props);
+    this.config.save();
+
+    const skipInstall = this.options['skip-install'];
+
+    if (!skipInstall) {
+      this.log(`\nRunning ${chalk.yellow('npm install')}, please wait...`);
+    }
+
     this.installDependencies({
       bower: false,
-      skipInstall: this.options['skip-install'],
-      skipMessage: this.options['skip-message'],
+      skipInstall: skipInstall,
+      skipMessage: true,
       callback: () => {
         // if (!this.options['skip-install']) {
         //   // Prepare Cordova platforms
         //   if (this.props.target !== 'web') {
-        //     this.spawnCommandSync('npm', ['cordova -- prepare']);
+        //     this.spawnCommandSync('npm', ['prepare']);
         //   }
         // }
       }
@@ -187,7 +207,7 @@ module.exports = class extends Generator {
     this.log(`- $ ${chalk.green('npm test')}: run unit tests in watch mode for TDD`);
     this.log(`- $ ${chalk.green('run test:ci')}: lint code and run units tests with coverage`);
     this.log(`- $ ${chalk.green('run e2e')}: launch e2e tests`);
-    this.log(`- $ ${chalk.green('run docs')}: show docs and coding guides`);
+    this.log(`- $ ${chalk.green('run docs')}: show docs and coding guides\n`);
   }
 
 };
