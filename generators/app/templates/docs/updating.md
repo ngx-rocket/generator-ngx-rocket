@@ -7,7 +7,7 @@ npm outdated
 
 - Update local packages according to `package.json`
 ```bash
-npm udpate
+npm update
 ```
 
 - Upgrade packages manually
