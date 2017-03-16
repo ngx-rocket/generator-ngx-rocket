@@ -13,7 +13,11 @@ In addition, this project also follows the general [Angular style guide](https:/
 - Use `PascalCase` for type, classes, interfaces, constants and enum values.
 - Use `camelCase` for variables, properties and functions
 - Avoid prefixing interface with a capital `I`, see [Angular style guide](https://angular.io/styleguide#!#03-03)
-- Do not use `_` as a prefix for private properties
+- Do not use `_` as a prefix for private properties. An exception can be made for backing fields like this:
+  ```typescript
+  private _foo: string;
+  get foo() { return this._foo; } // foo is read-only to consumers
+  ```
 
 ## Ordering
 
