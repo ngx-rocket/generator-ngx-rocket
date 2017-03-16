@@ -85,14 +85,14 @@ describe('I18nService', () => {
     });
   });
 
-  describe('setLanguage', () => {
+  describe('set language', () => {
     it('should change current language', () => {
       // Arrange
       const newLanguage = 'eo';
       i18nService.init(defaultLanguage, supportedLanguages);
 
       // Act
-      i18nService.setLanguage(newLanguage);
+      i18nService.language = newLanguage;
 
       // Assert
       expect(translateService.use).toHaveBeenCalledWith(newLanguage);
@@ -105,7 +105,7 @@ describe('I18nService', () => {
       i18nService.init(defaultLanguage, supportedLanguages);
 
       // Act
-      i18nService.setLanguage(newLanguage);
+      i18nService.language = newLanguage;
 
       // Assert
       expect(translateService.use).toHaveBeenCalledWith(defaultLanguage);
@@ -113,13 +113,13 @@ describe('I18nService', () => {
     });
   });
 
-  describe('getLanguage', () => {
+  describe('get language', () => {
     it('should return current language', () => {
       // Arrange
       i18nService.init(defaultLanguage, supportedLanguages);
 
       // Act
-      const currentLanguage = i18nService.getLanguage();
+      const currentLanguage = i18nService.language;
 
       // Assert
       expect(currentLanguage).toEqual(defaultLanguage);

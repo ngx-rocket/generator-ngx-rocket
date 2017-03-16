@@ -12,7 +12,8 @@
     "e2e": "ng e2e",
     "translations:extract": "ng2-translate-extract --dir ./src --output ./src/translations --format=json --clean",
     "docs": "hads ./docs -o",
-    "env": "env2json npm_package_version -o src/environments/.env.json"
+    "env": "env2json npm_package_version -o src/environments/.env.json",
+    "generate": "ng generate"
   },
   "dependencies": {
     "@angular/common": "^2.4.0",
@@ -33,10 +34,10 @@
     "zone.js": "^0.7.6"
   },
   "devDependencies": {
-    "@angular/cli": "^1.0.0-rc.1",
+    "@angular/cli": "^1.0.0-rc.2",
     "@angular/compiler-cli": "^2.4.0",
     "@biesbjerg/ng2-translate-extract": "^0.6.0",
-    "@types/jasmine": "^2.5.40",
+    "@types/jasmine": "2.5.45",
     "@types/lodash": "^4.14.52",
     "@types/node": "^7.0.0",
     "codelyzer": "~2.0.0",
