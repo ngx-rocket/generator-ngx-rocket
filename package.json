@@ -30,9 +30,8 @@
     "release:patch": "npm version patch && npm publish",
     "release:minor": "npm version minor && npm publish",
     "release:major": "npm version major && npm publish",
-    "prepublish": "npm run changelog && git push",
     "postpublish": "git tag -a $npm_package_version -m '$npm_package_version' && git push --tags",
-    "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -m 'Updated changelog'"
+    "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -m 'Updated changelog' && git push"
   },
   "dependencies": {
     "chalk": "^1.1.1",
