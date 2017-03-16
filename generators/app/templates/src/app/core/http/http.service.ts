@@ -36,6 +36,7 @@ export class HttpService extends Http {
   request(request: string|Request, options?: RequestOptionsArgs): Observable<Response> {
     options = options || {};
     let url: string;
+
     if (typeof request === 'string') {
       url = request;
       request = environment.serverUrl + url;

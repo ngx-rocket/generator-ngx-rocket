@@ -1,7 +1,4 @@
-/* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 import { Http, BaseRequestOptions } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 
@@ -15,24 +12,24 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        SharedModule
-      ],
-      declarations: [HomeComponent],
-      providers: [
-        QuoteService,
-        MockBackend,
-        BaseRequestOptions,
-        {
-          provide: Http,
-          useFactory: (backend: MockBackend, defaultOptions: BaseRequestOptions) => {
-            return new Http(backend, defaultOptions);
-          },
-          deps: [MockBackend, BaseRequestOptions]
-        }
-      ]
-    })
-    .compileComponents();
+        imports: [
+          SharedModule
+        ],
+        declarations: [HomeComponent],
+        providers: [
+          QuoteService,
+          MockBackend,
+          BaseRequestOptions,
+          {
+            provide: Http,
+            useFactory: (backend: MockBackend, defaultOptions: BaseRequestOptions) => {
+              return new Http(backend, defaultOptions);
+            },
+            deps: [MockBackend, BaseRequestOptions]
+          }
+        ]
+      })
+      .compileComponents();
   }));
 
   beforeEach(() => {
