@@ -12,7 +12,8 @@
     "e2e": "ng e2e",
     "translations:extract": "ng2-translate-extract --dir ./src --output ./src/translations --format=json --clean",
     "docs": "hads ./docs -o",
-    "env": "env2json npm_package_version -o src/environments/.env.json"
+    "env": "env2json npm_package_version -o src/environments/.env.json",
+    "generate": "ng generate"
   },
   "dependencies": {
     "@angular/common": "^2.4.0",
