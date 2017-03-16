@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
       .subscribe(event => {
         const title = event['title'];
         if (title) {
-          this.titleService.setTitle(title);
+          this.titleService.setTitle(this.translateService.instant(title));
         }
       });
   }
