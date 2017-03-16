@@ -1,0 +1,7 @@
+unreleased=false
+enhancement-label=**Enhancements**:
+filter-by-milestone=false
+enhancement-labels=feature,documentation
+issue-line-labels=feature,documentation
+exclude-labels=duplicate,question,invalid,wontfix,discussion-open
+author=false
