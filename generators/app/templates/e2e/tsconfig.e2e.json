@@ -10,9 +10,9 @@
     ],
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
-    "outDir": "../dist/out-tsc-e2e",
+    "outDir": "../out-tsc/e2e",
     "module": "commonjs",
-    "target": "es2015",
+    "target": "es5",
     "types":[
       "jasmine",
       "node"
