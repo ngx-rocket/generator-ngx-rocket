@@ -8,7 +8,7 @@ CWD=`pwd`
 VERSION=`node -p -e "require('./package.json').version"`
 SCRIPT_FOLDER=$CWD/`dirname "${BASH_SOURCE[0]}"`
 DEPLOY_FOLDER=$CWD/deploy
-DEPLOY_APP_NAME="Starter Kit"
+DEPLOY_APP_NAME="ngX Starter Kit"
 REPOSITORY=https://$GITHUB_TOKEN@github.com/angular-starter-kit/ngx-starter-kit.git
 
 function cleanup() {
@@ -27,6 +27,7 @@ function prepare_repo() {
 }
 
 function update_repo() {
+    rm .yo-rc.json
     git reset HEAD README.md
     git checkout -- README.md
     git add -A
@@ -50,11 +51,11 @@ trap cleanup ERR
 # Use web/bootstrap for master branch
 BRANCH=master
 prepare_repo
-yo ngx-app --automate "$SCRIPT_FOLDER/test-cases/web/bootstrap.json" "$DEPLOY_APP_NAME"
+yo ngx-app --skip-install --automate "$SCRIPT_FOLDER/tests/web/bootstrap-authentication.json" "$DEPLOY_APP_NAME"
 update_repo
 
 # Use mobile/ionic for mobile branch
 #BRANCH=mobile
 #prepare_repo
-#yo ngx-app --automate "$SCRIPT_FOLDER/test-cases/mobile/ionic.json" "$DEPLOY_APP_NAME"
+#yo ngx-app --skip-install --automate "$SCRIPT_FOLDER/test-cases/mobile/ionic.json" "$DEPLOY_APP_NAME"
 #update_repo
