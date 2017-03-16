@@ -12,6 +12,9 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { AboutModule } from './about/about.module';
+<% if (props.auth) { -%>
+import { LoginModule } from './login/login.module';
+<% } -%>
 
 @NgModule({
   imports: [
@@ -24,6 +27,9 @@ import { AboutModule } from './about/about.module';
     SharedModule,
     HomeModule,
     AboutModule,
+<% if (props.auth) { -%>
+    LoginModule,
+<% } -%>
     AppRoutingModule
   ],
   declarations: [AppComponent],

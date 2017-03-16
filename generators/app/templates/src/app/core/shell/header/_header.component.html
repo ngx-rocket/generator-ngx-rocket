@@ -1,0 +1,44 @@
+<header>
+  <nav class="navbar navbar-toggleable-sm navbar-inverse bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbar-menu"
+            aria-label="Toggle navigation" (click)="toggleMenu()" [attr.aria-expanded]="!menuHidden">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="https://github.com/angular-starter-kit" translate>APP_NAME</a>
+    <div id="navbar-menu" class="collapse navbar-collapse float-xs-none" [ngbCollapse]="menuHidden">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link text-uppercase" routerLink="/home" routerLinkActive="active">
+          <i class="fa fa-home"></i>
+          <span translate>Home</span>
+        </a>
+        <a class="nav-item nav-link text-uppercase" routerLink="/about" routerLinkActive="active">
+          <i class="fa fa-question-circle"></i>
+          <span translate>About</span>
+        </a>
+      </div>
+      <div class="navbar-nav ml-auto">
+        <div class="nav-item" ngbDropdown>
+          <a id="language-dropdown" class="nav-link" ngbDropdownToggle>{{currentLanguage}}</a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="language-dropdown">
+            <button class="dropdown-item" *ngFor="let language of languages" (click)="setLanguage(language)">
+              {{language}}
+            </button>
+          </div>
+        </div>
+<% if (props.auth) { -%>
+        <div class="nav-item" ngbDropdown>
+          <a id="user-dropdown" class="nav-link" ngbDropdownToggle>
+            <i class="fa fa-user-circle"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-dropdown">
+            <h6 class="dropdown-header">
+              <span translate>Logged in as</span> <b>{{username}}</b></h6>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" (click)="logout()" translate>Logout</button>
+          </div>
+        </div>
+<% } -%>
+      </div>
+    </div>
+  </nav>
+</header>

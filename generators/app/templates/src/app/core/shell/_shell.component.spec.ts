@@ -2,6 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 
+<% if (props.auth) { -%>
+import { AuthenticationService } from '../authentication/authentication.service';
+import { MockAuthenticationService } from '../authentication/authentication.service.mock';
+<% } -%>
 import { ShellComponent } from './shell.component';
 import { CoreModule } from '../core.module';
 
@@ -15,6 +19,11 @@ describe('ShellComponent', () => {
         RouterTestingModule,
         TranslateModule.forRoot(),
         CoreModule
+<% if (props.auth) { -%>
+      ],
+      providers: [
+        { provide: AuthenticationService, useClass: MockAuthenticationService }
+<% } -%>
       ]
     })
     .compileComponents();

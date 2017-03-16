@@ -7,6 +7,10 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { ShellComponent } from './shell/shell.component';
 import { HeaderComponent } from './shell/header/header.component';
+<% if (props.auth) { -%>
+import { AuthenticationService } from './authentication/authentication.service';
+import { AuthenticationGuard } from './authentication/authentication.guard';
+<% } -%>
 import { I18nService } from './i18n.service';
 import { HttpService } from './http/http.service';
 import { HttpCacheService } from './http/http-cache.service';
@@ -33,6 +37,10 @@ export function createHttpService(backend: ConnectionBackend,
     HeaderComponent
   ],
   providers: [
+<% if (props.auth) { -%>
+    AuthenticationService,
+    AuthenticationGuard,
+<% } -%>
     I18nService,
     HttpCacheService,
     {
