@@ -24,6 +24,7 @@
     "test.ts"
   ],
   "include": [
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "**/*.mock.ts"
   ]
 }
