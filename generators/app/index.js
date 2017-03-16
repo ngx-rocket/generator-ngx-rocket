@@ -124,7 +124,8 @@ module.exports = class extends Generator {
           let dest = path.relative(hasFolderCondition ? path.dirname(src).split(path.sep)[0] : '.', src);
 
           if (hasFileCondition) {
-            let fileName = path.basename(src).replace(/__.*?[.]/, '_');
+            let fileName = path.basename(src).replace(/__.*?[.]/, '');
+            isTemplate = _.startsWith(fileName, '_');
             dest = path.join(path.dirname(src), fileName);
           }
 
