@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { I18nService } from '../i18n.service';
+import { I18nService } from '../../i18n.service';
 
 @Component({
   selector: 'app-header',

@@ -1,11 +1,9 @@
-/* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
-import { I18nService } from '../i18n.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
+import { I18nService } from '../../i18n.service';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
@@ -15,6 +13,7 @@ describe('HeaderComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        RouterTestingModule,
         NgbModule.forRoot(),
         TranslateModule.forRoot()
       ],
