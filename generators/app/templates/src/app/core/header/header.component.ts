@@ -18,11 +18,11 @@ export class HeaderComponent implements OnInit {
   }
 
   setLanguage(language: string) {
-    this.i18nService.setLanguage(language);
+    this.i18nService.language = language;
   }
 
   get currentLanguage(): string {
-    return this.i18nService.getLanguage();
+    return this.i18nService.language;
   }
 
   get languages(): string[] {

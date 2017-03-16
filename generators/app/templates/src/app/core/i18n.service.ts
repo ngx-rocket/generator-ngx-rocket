@@ -28,7 +28,7 @@ export class I18nService {
   init(defaultLanguage: string, supportedLanguages: string[]) {
     this.defaultLanguage = defaultLanguage;
     this.supportedLanguages = supportedLanguages;
-    this.setLanguage();
+    this.language = null;
 
     this.translateService.onLangChange
       .subscribe((event: LangChangeEvent) => { localStorage.setItem(languageKey, event.lang); });
@@ -38,9 +38,9 @@ export class I18nService {
    * Sets the current language.
    * Note: The current language is saved to the local storage.
    * If no parameter is specified, the language is loaded from local storage (if present).
-   * @param {string=} language The IETF language code to set.
+   * @param {string} language The IETF language code to set.
    */
-  setLanguage(language?: string) {
+  set language(language: string) {
     language = language || localStorage.getItem(languageKey);
     const isSupportedLanguage = includes(this.supportedLanguages, language);
 
@@ -56,7 +56,7 @@ export class I18nService {
    * Gets the current language.
    * @return {string} The current language code.
    */
-  getLanguage(): string {
+  get language(): string {
     return this.translateService.currentLang;
   }
 
