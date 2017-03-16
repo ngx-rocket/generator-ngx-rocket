@@ -21,10 +21,6 @@
     "selector-no-qualifying-type": true,
     "selector-no-universal": true,
     "unit-whitelist": ["px", "%", "rem", "vw", "vh", "deg"],
-    "max-line-length": 120,
-    "no-unsupported-browser-features": [true, {
-      "ignore": ["rem"],
-      "severity": "warning"
-    }]
+    "max-line-length": 120
   }
 }
