@@ -17,11 +17,12 @@ const excludeFiles = [
   'Thumbs.db'
 ];
 
-const folderRules = {
+const prefixRules = {
   _mobile:    (props) => props.target !== 'web',
   _web:       (props) => props.target !== 'mobile',
   _bootstrap: (props) => props.ui === 'bootstrap',
-  _ionic:     (props) => props.ui === 'ionic'
+  _ionic:     (props) => props.ui === 'ionic',
+  _auth:      (props) => !!props.auth
 };
 
 module.exports = class extends Generator {
@@ -123,7 +124,8 @@ module.exports = class extends Generator {
           let dest = path.relative(hasFolderCondition ? path.dirname(src).split(path.sep)[0] : '.', src);
 
           if (hasFileCondition) {
-            let fileName = path.basename(src).replace(/__.*?[.]/, '_');
+            let fileName = path.basename(src).replace(/__.*?[.]/, '');
+            isTemplate = _.startsWith(fileName, '_');
             dest = path.join(path.dirname(src), fileName);
           }
 
@@ -147,11 +149,11 @@ module.exports = class extends Generator {
 
   writing() {
     this.files.forEach((file) => {
-      let write = !file.hasFolderCondition || _.every(folderRules, (rule, folder) => {
+      let write = !file.hasFolderCondition || _.every(prefixRules, (rule, folder) => {
         return !_.startsWith(path.dirname(file.src), folder) || rule(this.props);
       });
 
-      write = write && (!file.hasFileCondition || _.every(folderRules, (rule, prefix) => {
+      write = write && (!file.hasFileCondition || _.every(prefixRules, (rule, prefix) => {
         return !_.startsWith(path.basename(file.src), '_' + prefix) || rule(this.props);
       }));
 
