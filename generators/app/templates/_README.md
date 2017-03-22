@@ -81,9 +81,7 @@ you can also use the command `ng generate` directly.
 Tasks are mostly based on the `angular-cli` tool. Use `ng help` to get more help or go check out the
 [Angular-CLI README](https://github.com/angular/angular-cli).
 
-# Current status
-
-## What's in the box
+# What's in the box
 
 The app template is based on [HTML5](http://whatwg.org/html), [TypeScript](http://www.typescriptlang.org) and
 [Sass](http://sass-lang.com). The translation files use the common [JSON](http://www.json.org) format.

@@ -93,7 +93,7 @@ Run `npm run generate -- component <name>` to generate a new component. You can 
 If you have installed [angular-cli](https://github.com/angular/angular-cli) globally with `npm install -g @angular/cli`,
 you can also use the command `ng generate` directly.
 
-## What's in the box
+# What's in the box
 
 The app template is based on [HTML5](http://whatwg.org/html), [TypeScript](http://www.typescriptlang.org) and
 [Sass](http://sass-lang.com). The translation files use the common [JSON](http://www.json.org) format.
