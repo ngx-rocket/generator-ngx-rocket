@@ -10,9 +10,9 @@ In addition, this project also follows the general [Angular style guide](https:/
 
 ## Naming conventions
 
-- Use `PascalCase` for type, classes, interfaces, constants and enum values.
+- Use `PascalCase` for types, classes, interfaces, constants and enum values.
 - Use `camelCase` for variables, properties and functions
-- Avoid prefixing interface with a capital `I`, see [Angular style guide](https://angular.io/styleguide#!#03-03)
+- Avoid prefixing interfaces with a capital `I`, see [Angular style guide](https://angular.io/styleguide#!#03-03)
 - Do not use `_` as a prefix for private properties. An exception can be made for backing fields like this:
   ```typescript
   private _foo: string;
