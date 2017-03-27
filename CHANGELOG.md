@@ -1,5 +1,16 @@
 # Change Log
 
+## [1.2.0](https://github.com/angular-starter-kit/generator-ngx-app/tree/1.2.0) (2017-03-27)
+[Full Changelog](https://github.com/angular-starter-kit/generator-ngx-app/compare/1.1.0...1.2.0)
+
+**Closed issues:**
+
+- Update to Angular 4 and cli 1.0 final [\#56](https://github.com/angular-starter-kit/generator-ngx-app/issues/56)
+
+**Merged pull requests:**
+
+- Feature/angular4 [\#57](https://github.com/angular-starter-kit/generator-ngx-app/pull/57)
+
 ## [1.1.0](https://github.com/angular-starter-kit/generator-ngx-app/tree/1.1.0) (2017-03-16)
 [Full Changelog](https://github.com/angular-starter-kit/generator-ngx-app/compare/1.0.1...1.1.0)
 
