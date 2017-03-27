@@ -8,7 +8,7 @@ CWD=`pwd`
 VERSION=`node -p -e "require('./package.json').version"`
 SCRIPT_FOLDER=$CWD/`dirname "${BASH_SOURCE[0]}"`
 DEPLOY_FOLDER=$CWD/deploy
-DEPLOY_APP_NAME="ngX Starter Kit"
+DEPLOY_APP_NAME="ngx Starter Kit"
 REPOSITORY=https://$GITHUB_TOKEN@github.com/angular-starter-kit/ngx-starter-kit.git
 
 function cleanup() {
