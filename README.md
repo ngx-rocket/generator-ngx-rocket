@@ -116,7 +116,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
 
 #### Libraries
 
-- [Angular 2](https://angular.io)
+- [Angular 4](https://angular.io)
 - [Bootstrap 4](https://v4-alpha.getbootstrap.com)
 - [Font Awesome](http://fontawesome.io)
 - [RxJS](http://reactivex.io/rxjs)
