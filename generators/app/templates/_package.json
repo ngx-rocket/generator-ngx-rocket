@@ -16,14 +16,14 @@
     "generate": "ng generate"
   },
   "dependencies": {
-    "@angular/common": "^2.4.0",
-    "@angular/compiler": "^2.4.0",
-    "@angular/core": "^2.4.0",
-    "@angular/forms": "^2.4.0",
-    "@angular/http": "^2.4.0",
-    "@angular/platform-browser": "^2.4.0",
-    "@angular/platform-browser-dynamic": "^2.4.0",
-    "@angular/router": "^3.4.0",
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/forms": "^4.0.0",
+    "@angular/http": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@angular/router": "^4.0.0",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.20",
     "@ngx-translate/core": "^6.0.0",
     "bootstrap": "4.0.0-alpha.6",
@@ -31,11 +31,11 @@
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
     "rxjs": "^5.1.0",
-    "zone.js": "^0.7.6"
+    "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "^1.0.0-rc.2",
-    "@angular/compiler-cli": "^2.4.0",
+    "@angular/cli": "^1.0.0",
+    "@angular/compiler-cli": "^4.0.0",
     "@biesbjerg/ng2-translate-extract": "^0.6.0",
     "@types/jasmine": "2.5.45",
     "@types/lodash": "^4.14.52",
@@ -49,7 +49,7 @@
     "jasmine-spec-reporter": "^3.2.0",
     "karma": "~1.5.0",
     "karma-cli": "~1.0.1",
-    "karma-coverage-istanbul-reporter": "^0.3.0",
+    "karma-coverage-istanbul-reporter": "^1.0.0",
     "karma-jasmine": "^1.1.0",
     "karma-junit-reporter": "^1.2.0",
     "karma-phantomjs-launcher": "^1.0.2",
@@ -57,7 +57,7 @@
     "protractor": "~5.1.0",
     "stylelint": "^7.7.1",
     "stylelint-config-standard": "^16.0.0",
-    "ts-node": "~2.1.0",
+    "ts-node": "~3.0.2",
     "tslint": "~4.5.1",
     "typescript": "~2.2.1"
   }
