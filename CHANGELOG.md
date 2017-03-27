@@ -1,5 +1,27 @@
 # Change Log
 
+## [1.1.0](https://github.com/angular-starter-kit/generator-ngx-app/tree/1.1.0) (2017-03-16)
+[Full Changelog](https://github.com/angular-starter-kit/generator-ngx-app/compare/1.0.1...1.1.0)
+
+**Enhancements**:
+
+- Allow update of existing projects [\#47](https://github.com/angular-starter-kit/generator-ngx-app/issues/47) [[feature](https://github.com/angular-starter-kit/generator-ngx-app/labels/feature)]
+
+**Fixed bugs:**
+
+- Broken jasmine typings  [\#55](https://github.com/angular-starter-kit/generator-ngx-app/issues/55)
+- Page title is not translated [\#51](https://github.com/angular-starter-kit/generator-ngx-app/issues/51)
+
+**Closed issues:**
+
+- Add project changelog [\#50](https://github.com/angular-starter-kit/generator-ngx-app/issues/50)
+
+**Merged pull requests:**
+
+- Feature/auth [\#54](https://github.com/angular-starter-kit/generator-ngx-app/pull/54)
+- Feature/update [\#53](https://github.com/angular-starter-kit/generator-ngx-app/pull/53)
+- Feature/updating [\#48](https://github.com/angular-starter-kit/generator-ngx-app/pull/48)
+
 ## [1.0.1](https://github.com/angular-starter-kit/generator-ngx-app/tree/1.0.1) (2017-03-06)
 [Full Changelog](https://github.com/angular-starter-kit/generator-ngx-app/compare/1.0.0...1.0.1)
 
