@@ -1,35 +1,17 @@
 'use strict';
 
-const _ = require('lodash');
 const yosay = require('yosay');
 const chalk = require('chalk');
-const dir = require('node-dir');
-const path = require('path');
 const Insight = require('insight');
-const Generator = require('yeoman-generator');
+const Generator = require('@ngx-rocket/core');
 
 const options = require('./options.json');
 const prompts = require('./prompts.json');
 const pkg = require('../../package.json');
 
-const excludeFiles = [
-  '.DS_Store',
-  'Thumbs.db'
-];
+class NgxGenerator extends Generator {
 
-const prefixRules = {
-  _mobile:    (props) => props.target !== 'web',
-  _web:       (props) => props.target !== 'mobile',
-  _bootstrap: (props) => props.ui === 'bootstrap',
-  _ionic:     (props) => props.ui === 'ionic',
-  _auth:      (props) => !!props.auth
-};
-
-module.exports = class extends Generator {
-
-  constructor(args, opts) {
-    super(args, opts);
-
+  initializing() {
     this.version = pkg.version;
     this.insight = new Insight({ trackingCode: 'UA-93069862-1', pkg });
 
@@ -39,18 +21,6 @@ module.exports = class extends Generator {
       required: false
     });
 
-    // Use options from json
-    options.forEach((option) => {
-      this.option(option.name, {
-        type: global[option.type],
-        required: option.required,
-        desc: option.desc,
-        defaults: option.defaults
-      });
-    });
-  }
-
-  initializing() {
     this.insight.optOut = !this.options['analytics'] || process.env.DISABLE_NGX_ANALYTICS;
 
     if (this.options['update']) {
@@ -64,6 +34,7 @@ module.exports = class extends Generator {
         process.exit(0);
       }
 
+      this.updating = true;
       this.log(`\nUpdating ${chalk.green(this.props.appName)} project (${chalk.yellow(fromVersion)} -> ${chalk.yellow(this.version)})\n`);
       this.log(`${chalk.yellow('Make sure you don\'t have uncommitted changes before overwriting files!')}`);
       this.insight.track('generator', 'update', fromVersion, 'to', this.version);
@@ -78,98 +49,14 @@ module.exports = class extends Generator {
   }
 
   prompting() {
-    this.props = this.props || {};
-    let processProps = (props) => {
-      props.appName = this.props.appName || props.appName || this.options.appName;
-      props.projectName = _.kebabCase(props.appName);
-      _.extend(this.props, props);
-    };
-
-    if (this.options.automate) {
-      // Do no prompt, use json file instead
-      let props = require(path.resolve(this.options.automate));
-      processProps(props);
-    } else {
-      let namePrompt = _.find(prompts, { name: 'appName' });
-      namePrompt.default = this.appname;
-      namePrompt.when = () => !this.options.appName;
-      _.remove(prompts, (p) => this.props[p.name] !== undefined);
-
-      return this.prompt(prompts).then(processProps);
-    }
+    return Promise.resolve()
+      .then(() => super.prompting())
+      .then(() => this.sharedProps = this.props);
   }
 
   preparing() {
-    return new Promise((resolve) => {
-      // TODO: update with chosen options
-      this.insight.track('generator', 'web', 'boostrap');
-
-      let filesPath = path.join(__dirname, 'templates');
-
-      dir.files(filesPath, (err, files) => {
-        if (err) throw err;
-
-        // Removes excluded files
-        _.remove(files, (file) => {
-          return !_.every(excludeFiles, (excludeFile) => {
-            return !_.includes(file, excludeFile);
-          });
-        });
-
-        this.files = _.map(files, (file) => {
-          let src = path.relative(filesPath, file);
-          let isTemplate = _.startsWith(path.basename(src), '_');
-          let hasFileCondition = _.startsWith(path.basename(src), '__');
-          let hasFolderCondition = _.startsWith(path.dirname(src), '_');
-          let dest = path.relative(hasFolderCondition ? path.dirname(src).split(path.sep)[0] : '.', src);
-
-          if (hasFileCondition) {
-            let fileName = path.basename(src).replace(/__.*?[.]/, '');
-            isTemplate = _.startsWith(fileName, '_');
-            dest = path.join(path.dirname(src), fileName);
-          }
-
-          if (isTemplate) {
-            dest = path.join(path.dirname(dest), path.basename(dest).slice(1));
-          }
-
-          return {
-            src: src,
-            dest: dest,
-            template: isTemplate,
-            hasFileCondition: hasFileCondition,
-            hasFolderCondition: hasFolderCondition
-          };
-        });
-
-        resolve();
-      });
-    });
-  }
-
-  writing() {
-    this.files.forEach((file) => {
-      let write = !file.hasFolderCondition || _.every(prefixRules, (rule, folder) => {
-        return !_.startsWith(path.dirname(file.src), folder) || rule(this.props);
-      });
-
-      write = write && (!file.hasFileCondition || _.every(prefixRules, (rule, prefix) => {
-        return !_.startsWith(path.basename(file.src), '_' + prefix) || rule(this.props);
-      }));
-
-      if (write) {
-        try {
-          if (file.template) {
-            this.fs.copyTpl(this.templatePath(file.src), this.destinationPath(file.dest), this);
-          } else {
-            this.fs.copy(this.templatePath(file.src), this.destinationPath(file.dest));
-          }
-        } catch (error) {
-          this.log(chalk.red(`\nTemplate processing error on file ${file.src}`));
-          throw error;
-        }
-      }
-    });
+    this.insight.track('generator', 'web', 'bootstrap');
+    return super.preparing();
   }
 
   install() {
@@ -199,6 +86,11 @@ module.exports = class extends Generator {
   }
 
   end() {
+    if (this.updating) {
+      this.log(`\nUpdated ${chalk.green(this.props.appName)} to ${chalk.yellow(this.version)} successfully!\n`);
+      return;
+    }
+
     this.log('\nAll done! Get started with these tasks:');
     this.log(`- $ ${chalk.green('npm start')}: start dev server with live reload on http://localhost:4200`);
     this.log(`- $ ${chalk.green('npm run build')}: build app for production`);
@@ -208,4 +100,11 @@ module.exports = class extends Generator {
     this.log(`- $ ${chalk.green('run docs')}: show docs and coding guides\n`);
   }
 
-};
+}
+
+module.exports = Generator.make({
+  baseDir: __dirname,
+  generator: NgxGenerator,
+  options: options,
+  prompts: prompts
+});
