@@ -1,6 +1,6 @@
 {
   "name": "generator-ngx-app",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Angular 2+ enterprise-grade project generator based on angular-cli with best practices from the community, a scalable starter template and a good learning base.",
   "repository": "angular-starter-kit/generator-ngx-app",
   "keywords": [
