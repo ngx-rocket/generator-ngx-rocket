@@ -6,7 +6,7 @@
     "ng": "ng",
     "build": "npm run env && ng build --aot --prod",
     "start": "ng serve --proxy-config proxy.conf.js",
-    "lint": "ng lint && stylelint \"src/**/*.scss\" --syntax scss && htmlhint \"src\"",
+    "lint": "ng lint && stylelint \"src/**/*.scss\" --syntax scss && htmlhint \"src\" --config .htmlhintrc",
     "test": "ng test",
     "test:ci": "npm run lint && ng test --single-run --code-coverage",
     "e2e": "ng e2e",
