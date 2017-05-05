@@ -32,7 +32,7 @@
     "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -m 'Updated changelog' && git push"
   },
   "dependencies": {
-    "@ngx-rocket/core": "^0.9.0",
+    "@ngx-rocket/core": "^0.9.3",
     "chalk": "^1.1.1",
     "insight": "^0.8.4",
     "yosay": "^2.0.0"

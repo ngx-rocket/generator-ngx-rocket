@@ -26,5 +26,12 @@
     "required": false,
     "desc": "Automate prompt answers using the specified JSON file",
     "defaults": ""
+  },
+  {
+    "name": "addons",
+    "type": "String",
+    "required": false,
+    "desc": "Use specified space-separated addons",
+    "defaults": ""
   }
 ]

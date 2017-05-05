@@ -46,20 +46,24 @@ class NgxGenerator extends Generator {
       this.log(yosay(`${chalk.green('Welcome!')}\nLet\'s generate an awesome Angular app!`));
     }
 
+    // Composition
+    const addons = this.options['addons'].split(' ');
+    addons.forEach(addon => this.composeWith(addon));
+
     this.insight.track('generator', this.version);
     this.insight.track('node', process.version);
     this.insight.track('platform', process.platform);
+    this.insight.track('addons', this.options['addons']);
   }
 
   prompting() {
     return Promise.resolve()
       .then(() => super.prompting())
-      .then(() => this.sharedProps = this.props);
+      .then(() => this.shareProps(this.props));
   }
 
-  preparing() {
+  configuring() {
     this.insight.track('generator', 'web', 'bootstrap');
-    return super.preparing();
   }
 
   install() {
