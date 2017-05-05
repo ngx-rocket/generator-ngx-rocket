@@ -47,13 +47,14 @@ class NgxGenerator extends Generator {
     }
 
     // Composition
-    const addons = this.options['addons'].split(' ');
+    const addonsOption = this.options['addons'];
+    const addons = addonsOption ? addonsOption.split(' ') : [];
     addons.forEach(addon => this.composeWith(addon));
 
     this.insight.track('generator', this.version);
     this.insight.track('node', process.version);
     this.insight.track('platform', process.platform);
-    this.insight.track('addons', this.options['addons']);
+    this.insight.track('addons', addonsOption);
   }
 
   prompting() {
