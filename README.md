@@ -1,15 +1,15 @@
-# generator-ngx-app
+# generator-ngx-rocket
 
-[![NPM version](https://img.shields.io/npm/v/generator-ngx-app.svg)](https://www.npmjs.com/package/generator-ngx-app)
-[![Build status](https://img.shields.io/travis/angular-starter-kit/generator-ngx-app/master.svg)](https://travis-ci.org/angular-starter-kit/generator-ngx-app)
+[![NPM version](https://img.shields.io/npm/v/generator-ngx-rocket.svg)](https://www.npmjs.com/package/generator-ngx-rocket)
+[![Build status](https://img.shields.io/travis/ngx-rocket/generator-ngx-rocket/master.svg)](https://travis-ci.org/ngx-rocket/generator-ngx-rocket)
 ![Node version](https://img.shields.io/badge/node-%3E%3D6.0.0-brightgreen.svg)
-[![Downloads](https://img.shields.io/npm/dt/generator-ngx-app.svg)](https://npmjs.org/package/generator-ngx-app)
+[![Downloads](https://img.shields.io/npm/dt/generator-ngx-rocket.svg)](https://npmjs.org/package/generator-ngx-rocket)
 
 Web project starter kit including modern tools and workflow based on
 [angular-cli](https://github.com/angular/angular-cli), best practices from the community, a scalable base template and
 a good learning base.
 
-See generated project example [here](https://github.com/angular-starter-kit/ngx-starter-kit).
+See generated project example [here](https://github.com/ngx-rocket/starter-kit).
 
 ### Benefits
 
@@ -25,12 +25,12 @@ See generated project example [here](https://github.com/angular-starter-kit/ngx-
 
 1. Install required tools:
  ```bash
- npm install -g yo generator-ngx-app
+ npm install -g yo generator-ngx-rocket
  ```
 
 2. Create your application:
  ```bash
- yo ngx-app
+ yo ngx-rocket
  ```
  
 # Project structure
@@ -127,20 +127,20 @@ Development, build and quality processes are based on [angular-cli](https://gith
 
 #### Coding guides
 
-- [Angular](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/coding-guides/angular.md)
-- [TypeScript](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/coding-guides/typescript.md)
-- [Sass](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/coding-guides/sass.md)
-- [HTML](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/coding-guides/html.md)
-- [Unit tests](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/coding-guides/unit-tests.md)
-- [End-to-end tests](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/coding-guides/e2e-tests.md)
+- [Angular](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/angular.md)
+- [TypeScript](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/typescript.md)
+- [Sass](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/sass.md)
+- [HTML](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/html.md)
+- [Unit tests](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/unit-tests.md)
+- [End-to-end tests](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/e2e-tests.md)
 
 #### Other documentation
 
-- [I18n guide](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/i18n.md)
-- [Working behind a corporate proxy](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/corporate-proxy.md)
-- [Updating dependencies and tools](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/updating.md)
-- [Using a backend proxy for development](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/backend-proxy.md)
-- [Browser routing](https://github.com/angular-starter-kit/ngx-starter-kit/blob/master/docs/routing.md)
+- [I18n guide](https://github.com/ngx-rocket/starter-kit/blob/master/docs/i18n.md)
+- [Working behind a corporate proxy](https://github.com/ngx-rocket/starter-kit/blob/master/docs/corporate-proxy.md)
+- [Updating dependencies and tools](https://github.com/ngx-rocket/starter-kit/blob/master/docs/updating.md)
+- [Using a backend proxy for development](https://github.com/ngx-rocket/starter-kit/blob/master/docs/backend-proxy.md)
+- [Browser routing](https://github.com/ngx-rocket/starter-kit/blob/master/docs/routing.md)
 
 # License
 
