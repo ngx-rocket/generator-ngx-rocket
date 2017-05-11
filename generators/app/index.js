@@ -58,9 +58,7 @@ class NgxGenerator extends Generator {
   }
 
   prompting() {
-    return Promise.resolve()
-      .then(() => super.prompting())
-      .then(() => this.shareProps(this.props));
+    return super.prompting().then(() => this.shareProps(this.props));
   }
 
   configuring() {
