@@ -3,6 +3,7 @@ sample/
 deploy/
 scripts/
 .gitignore
+.npmignore
 .travis.yml
 .DS_Store
 Thumbs.db
