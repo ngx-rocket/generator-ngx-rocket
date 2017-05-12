@@ -23,12 +23,15 @@ class NgxGenerator extends Generator {
 
     this.insight.optOut = !this.options['analytics'] || process.env.DISABLE_NGX_ANALYTICS;
 
+    // Updating
+    let fromVersion = null;
+
     if (this.options['update']) {
-      this.props = this.config.get('props');
+      this.props = this.config.get('props') || {};
+      fromVersion = this.config.get('version');
     }
 
-    if (this.props) {
-      let fromVersion = this.config.get('version');
+    if (fromVersion) {
       if (fromVersion >= this.version) {
         this.log(chalk.green('\nNothing to update, it\'s all good!\n'));
         process.exit(0);
