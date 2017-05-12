@@ -1,6 +1,6 @@
 # <%= props.appName %>
 
-This project was generated with [ngX Rocket](https://github.com/ngx-rocket/generator-ngx-rocket/)
+This project was generated with [ngX-Rocket](https://github.com/ngx-rocket/generator-ngx-rocket/)
 version <%= version %>
 
 # Getting started
