@@ -1,5 +1,16 @@
 # Change Log
 
+## [1.2.2](https://github.com/angular-starter-kit/generator-ngx-app/tree/1.2.2) (2017-05-12)
+[Full Changelog](https://github.com/angular-starter-kit/generator-ngx-app/compare/1.2.1...1.2.2)
+
+**Closed issues:**
+
+- The \<template\> element is deprecated [\#58](https://github.com/angular-starter-kit/generator-ngx-app/issues/58)
+
+**Merged pull requests:**
+
+- Updated ng-bootstrap minimum dependency to fix \#58 [\#64](https://github.com/angular-starter-kit/generator-ngx-app/pull/64)
+
 ## [1.2.1](https://github.com/angular-starter-kit/generator-ngx-app/tree/1.2.1) (2017-05-04)
 [Full Changelog](https://github.com/angular-starter-kit/generator-ngx-app/compare/1.2.0...1.2.1)
 
