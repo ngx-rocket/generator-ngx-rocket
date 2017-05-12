@@ -1,5 +1,17 @@
 # Change Log
 
+## [1.2.1](https://github.com/angular-starter-kit/generator-ngx-app/tree/1.2.1) (2017-05-04)
+[Full Changelog](https://github.com/angular-starter-kit/generator-ngx-app/compare/1.2.0...1.2.1)
+
+**Fixed bugs:**
+
+- htmlhint fails to find its config on Windows [\#62](https://github.com/angular-starter-kit/generator-ngx-app/issues/62)
+
+**Closed issues:**
+
+- Uncaught \(in promise\): Error: No provider for ConnectionBackend! [\#60](https://github.com/angular-starter-kit/generator-ngx-app/issues/60)
+- Is it just me or is URLSearchParams\(\) being ignored by the HttpService? [\#59](https://github.com/angular-starter-kit/generator-ngx-app/issues/59)
+
 ## [1.2.0](https://github.com/angular-starter-kit/generator-ngx-app/tree/1.2.0) (2017-03-27)
 [Full Changelog](https://github.com/angular-starter-kit/generator-ngx-app/compare/1.1.0...1.2.0)
 
