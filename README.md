@@ -1,4 +1,11 @@
-# generator-ngx-rocket
+# :rocket: ngx-rocket/generator-ngx-rocket
+
+**:loudspeaker: We have moved! :loudspeaker:** As you may have noticed, this generator
+[has moved](https://github.com/ngx-rocket/generator-ngx-rocket/issues/65) to the `ngx-rocket`
+organization, and has been renamed from `generator-ngx-app` to `generator-ngx-rocket`, so update
+your bookmarks/remotes! :rocket:
+
+---
 
 [![NPM version](https://img.shields.io/npm/v/generator-ngx-rocket.svg)](https://www.npmjs.com/package/generator-ngx-rocket)
 [![Build status](https://img.shields.io/travis/ngx-rocket/generator-ngx-rocket/master.svg)](https://travis-ci.org/ngx-rocket/generator-ngx-rocket)
