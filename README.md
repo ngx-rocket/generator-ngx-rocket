@@ -2,6 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/generator-ngx-app.svg)](https://www.npmjs.com/package/generator-ngx-app)
 [![Build status](https://img.shields.io/travis/angular-starter-kit/generator-ngx-app/master.svg)](https://travis-ci.org/angular-starter-kit/generator-ngx-app)
+![Node version](https://img.shields.io/badge/node-%3E%3D6.0.0-brightgreen.svg)
 [![Downloads](https://img.shields.io/npm/dt/generator-ngx-app.svg)](https://npmjs.org/package/generator-ngx-app)
 
 Web project starter kit including modern tools and workflow based on
