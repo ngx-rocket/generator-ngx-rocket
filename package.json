@@ -27,7 +27,8 @@
   "preferGlobal": true,
   "main": "./generators/app/index.js",
   "scripts": {
-    "test": "scripts/test.sh",
+    "lint": "eslint generators/app/*.js",
+    "test": "npm run lint && scripts/test.sh",
     "deploy": "scripts/deploy.sh",
     "postpublish": "git tag -a $npm_package_version -m '$npm_package_version' && git push --tags",
     "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -m 'Updated changelog' && git push"
@@ -38,8 +39,15 @@
     "chalk": "^1.1.1",
     "insight": "^0.8.4"
   },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-xo-space": "^0.16.0"
+  },
   "engines": {
     "node": ">=6.0.0"
+  },
+  "eslintConfig": {
+    "extends": "xo-space/esnext"
   },
   "files": [
     "generators/app"
