@@ -1,9 +1,9 @@
 'use strict';
 
-const yosay = require('yosay');
 const chalk = require('chalk');
 const Insight = require('insight');
 const Generator = require('@ngx-rocket/core');
+const asciiLogo = require('@ngx-rocket/ascii-logo');
 
 const options = require('./options.json');
 const prompts = require('./prompts.json');
@@ -43,7 +43,7 @@ class NgxGenerator extends Generator {
       this.insight.track('generator', 'update', fromVersion, 'to', this.version);
 
     } else if (!this.options['skip-welcome']) {
-      this.log(yosay(`${chalk.green('Welcome!')}\nLet\'s generate an awesome Angular app!`));
+      this.log(asciiLogo());
     }
 
     // Composition

@@ -8,8 +8,8 @@ CWD=`pwd`
 VERSION=`node -p -e "require('./package.json').version"`
 SCRIPT_FOLDER=$CWD/`dirname "${BASH_SOURCE[0]}"`
 DEPLOY_FOLDER=$CWD/deploy
-DEPLOY_APP_NAME="ngx Starter Kit"
-REPOSITORY=https://$GITHUB_TOKEN@github.com/angular-starter-kit/ngx-starter-kit.git
+DEPLOY_APP_NAME="ngX Rocket"
+REPOSITORY=https://$GITHUB_TOKEN@github.com/ngx-rocket/starter-kit.git
 
 function cleanup() {
     cd $CWD
@@ -51,11 +51,11 @@ trap cleanup ERR
 # Use web/bootstrap for master branch
 BRANCH=master
 prepare_repo
-yo ngx-app --skip-install --automate "$SCRIPT_FOLDER/tests/web/bootstrap-authentication.json" "$DEPLOY_APP_NAME"
+yo ngx-rocket --skip-install --automate "$SCRIPT_FOLDER/tests/web/bootstrap-authentication.json" "$DEPLOY_APP_NAME"
 update_repo
 
 # Use mobile/ionic for mobile branch
 #BRANCH=mobile
 #prepare_repo
-#yo ngx-app --skip-install --automate "$SCRIPT_FOLDER/test-cases/mobile/ionic.json" "$DEPLOY_APP_NAME"
+#yo ngx-rocket --skip-install --automate "$SCRIPT_FOLDER/test-cases/mobile/ionic.json" "$DEPLOY_APP_NAME"
 #update_repo

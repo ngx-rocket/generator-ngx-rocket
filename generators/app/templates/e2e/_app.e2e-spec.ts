@@ -1,13 +1,13 @@
 <% if (props.auth) { -%>
 import { browser } from 'protractor';
 <% } -%>
-import { NgxStarterKitPage } from './app.po';
+import { AppPage } from './app.po';
 
 describe('app', () => {
-  let page: NgxStarterKitPage;
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new NgxStarterKitPage();
+    page = new AppPage();
   });
 
 <% if (props.auth) { -%>
