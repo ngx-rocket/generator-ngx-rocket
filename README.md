@@ -150,6 +150,10 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - [Using a backend proxy for development](https://github.com/ngx-rocket/starter-kit/blob/master/docs/backend-proxy.md)
 - [Browser routing](https://github.com/ngx-rocket/starter-kit/blob/master/docs/routing.md)
 
+# Contributing
+
+See [contributing guide](CONTRIBUTING.md)
+
 # License
 
 [MIT](LICENSE)
