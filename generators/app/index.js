@@ -13,7 +13,7 @@ class NgxGenerator extends Generator {
 
   initializing() {
     this.version = pkg.version;
-    this.insight = new Insight({ trackingCode: 'UA-93069862-1', pkg });
+    this.insight = new Insight({trackingCode: 'UA-93069862-1', pkg});
 
     this.argument('appName', {
       desc: 'Name of the app to generate',
@@ -21,12 +21,12 @@ class NgxGenerator extends Generator {
       required: false
     });
 
-    this.insight.optOut = !this.options['analytics'] || process.env.DISABLE_NGX_ANALYTICS;
+    this.insight.optOut = !this.options.analytics || process.env.DISABLE_NGX_ANALYTICS;
 
     // Updating
     let fromVersion = null;
 
-    if (this.options['update']) {
+    if (this.options.update) {
       this.props = this.config.get('props') || {};
       fromVersion = this.config.get('version');
     }
@@ -41,13 +41,12 @@ class NgxGenerator extends Generator {
       this.log(`\nUpdating ${chalk.green(this.props.appName)} project (${chalk.yellow(fromVersion)} -> ${chalk.yellow(this.version)})\n`);
       this.log(`${chalk.yellow('Make sure you don\'t have uncommitted changes before overwriting files!')}`);
       this.insight.track('generator', 'update', fromVersion, 'to', this.version);
-
     } else if (!this.options['skip-welcome']) {
       this.log(asciiLogo());
     }
 
     // Composition
-    const addonsOption = this.options['addons'];
+    const addonsOption = this.options.addons;
     const addons = addonsOption ? addonsOption.split(' ') : [];
     addons.forEach(addon => this.composeWith(addon));
 
@@ -77,17 +76,9 @@ class NgxGenerator extends Generator {
     }
 
     this.installDependencies({
+      skipInstall,
       bower: false,
-      skipInstall: skipInstall,
-      skipMessage: true,
-      callback: () => {
-        // if (!this.options['skip-install']) {
-        //   // Prepare Cordova platforms
-        //   if (this.props.target !== 'web') {
-        //     this.spawnCommandSync('npm', ['prepare']);
-        //   }
-        // }
-      }
+      skipMessage: true
     });
   }
 
@@ -111,6 +102,6 @@ class NgxGenerator extends Generator {
 module.exports = Generator.make({
   baseDir: __dirname,
   generator: NgxGenerator,
-  options: options,
-  prompts: prompts
+  options,
+  prompts
 });
