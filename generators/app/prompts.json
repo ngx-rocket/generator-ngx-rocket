@@ -5,6 +5,40 @@
     "message": "What's the name of your app?"
   },
   {
+    "type": "list",
+    "name": "target",
+    "message": "What kind of app do you want to create?",
+    "choices": [
+      {
+        "value": "web",
+        "name": "Web"
+      },
+      {
+        "value": "mobile",
+        "name": "Mobile"
+      },
+      {
+        "value": "both",
+        "name": "Web + mobile"
+      }
+    ]
+  },
+  {
+    "type": "list",
+    "name": "ui",
+    "message": "Which UI framework do you want?",
+    "choices": [
+      {
+        "value": "bootstrap",
+        "name": "Bootstrap (more website-oriented)"
+      },
+      {
+        "value": "ionic",
+        "name": "Ionic (more mobile-oriented)"
+      }
+    ]
+  },
+  {
     "type": "confirm",
     "name": "auth",
     "message": "Do you want authentication?",

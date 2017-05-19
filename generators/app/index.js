@@ -61,7 +61,7 @@ class NgxGenerator extends Generator {
   }
 
   configuring() {
-    this.insight.track('generator', 'web', 'bootstrap');
+    this.insight.track('generator', this.props.target, this.props.ui, this.props.auth ? 'auth' : 'no-auth');
   }
 
   install() {
@@ -74,7 +74,15 @@ class NgxGenerator extends Generator {
     this.installDependencies({
       skipInstall,
       bower: false,
-      skipMessage: true
+      skipMessage: true,
+      callback: () => {
+        if (!this.options['skip-install']) {
+          // Prepare Cordova platforms
+          if (this.props.target !== 'web') {
+            this.spawnCommandSync('npm', ['prepare']);
+          }
+        }
+      }
     });
   }
 
