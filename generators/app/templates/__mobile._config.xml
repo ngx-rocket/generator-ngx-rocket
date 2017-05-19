@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.company.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name><%= props.appName =></name>
+  <description>
+    A mobile app based on Ionic and Cordova.
+  </description>
+  <author email="dev@company.com" href="http://company.com">
+    Development Team
+  </author>
+  <content src="index.html" />
+  <access origin="*" />
+  <allow-intent href="http://*/*" />
+  <allow-intent href="https://*/*" />
+  <allow-intent href="tel:*" />
+  <allow-intent href="sms:*" />
+  <allow-intent href="mailto:*" />
+  <allow-intent href="geo:*" />
+
+  <!-- Platforms -->
+  <engine name="android" spec="^6.2.3" />
+  <engine name="ios" spec="^4.4.0" />
+
+  <!-- Android specific -->
+  <platform name="android">
+    <allow-intent href="market:*" />
+    <preference name="android-minSdkVersion" value="16"/>
+    <preference name="android-manifest/application/activity/@android:theme" value="@android:style/Theme.DeviceDefault" />
+  </platform>
+
+  <!-- iOS specific -->
+  <platform name="ios">
+    <allow-intent href="itms:*" />
+    <allow-intent href="itms-apps:*" />
+    <preference name="deployment-target" value="9.0"/>
+    <preference name="UIWebViewBounce" value="false"/>
+
+    <!--
+      Don't store local data in an iCloud backup. Turn this to "cloud" to enable storage
+      to be sent to iCloud. Note: enabling this could result in Apple rejecting your app.
+    -->
+    <preference name="BackupWebStorage" value="none"/>
+  </platform>
+
+  <!-- Permissions -->
+  <feature name="StatusBar">
+    <param name="ios-package" onload="true" value="CDVStatusBar" />
+  </feature>
+
+  <!-- Common to all platforms -->
+  <preference name="Fullscreen" value="false"/>
+  <preference name="webviewbounce" value="true"/>
+  <preference name="Orientation" value="portrait"/>
+  <preference name="StatusBarStyle" value="default" />
+  <preference name="AutoHideSplashScreen" value="false"/>
+  <preference name="SplashScreen" value="screen"/>
+  <preference name="SplashScreenDelay" value="3000"/>
+  <preference name="ShowSplashScreenSpinner" value="false"/>
+  <preference name="SplashMaintainAspectRatio" value="true" />
+
+  <!-- Plugins -->
+  <plugin name="cordova-plugin-device" spec="^1.1.6" />
+  <plugin name="cordova-plugin-globalization" spec="^1.0.7" />
+  <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
+  <plugin name="cordova-plugin-statusbar" spec="^2.2.3" />
+  <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
+</widget>
