@@ -9,6 +9,11 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs/Observable';
+<% if (props.target !== 'web') { -%>
+import { Platform } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+<% } -%>
 
 import { environment } from '../environments/environment';
 import { Logger } from './core/logger.service';
@@ -22,8 +27,14 @@ const log = new Logger('App');
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
+<% if (props.target !== 'web') { -%>
+  constructor(private platform: Platform,
+              private statusBar: StatusBar,
+              private splashScreen: SplashScreen,
+              private router: Router,
+<% } else { -%>
   constructor(private router: Router,
+<% } -%>
               private activatedRoute: ActivatedRoute,
               private titleService: Title,
               private translateService: TranslateService,
@@ -58,6 +69,14 @@ export class AppComponent implements OnInit {
           this.titleService.setTitle(this.translateService.instant(title));
         }
       });
+<% if (props.target !== 'web') { -%>
+
+    // Cordova platform and plugins initialization
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+    });
+<% } -%>
   }
 
 }
