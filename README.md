@@ -1,4 +1,4 @@
-# :rocket: ngx-rocket/generator-ngx-rocket
+# :rocket: generator-ngx-rocket
 
 **:loudspeaker: We have moved! :loudspeaker:**
 
