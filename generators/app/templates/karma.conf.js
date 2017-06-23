@@ -13,17 +13,8 @@ module.exports = function(config) {
       require('@angular/cli/plugins/karma')
     ],
     client: {
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
-    },
-    // List of files/patterns to load in the browser
-    files: [
-      { pattern: './src/test.ts', watched: false }
-    ],
-    preprocessors: {
-      './src/test.ts': ['@angular/cli']
-    },
-    mime: {
-      'text/x-typescript': ['ts', 'tsx']
+      clearContext: false, // leave Jasmine Spec Runner output visible in browser
+      captureConsole: false
     },
     junitReporter: {
       outputDir: 'reports/junit/',
@@ -37,12 +28,9 @@ module.exports = function(config) {
       fixWebpackSourcePaths: true
     },
     angularCli: {
-      config: './.angular-cli.json',
       environment: 'dev'
     },
-    reporters: config.angularCli && config.angularCli.codeCoverage
-      ? ['progress', 'junit', 'coverage-istanbul']
-      : ['progress', 'junit'],
+    reporters: ['progress', 'junit'],
     port: 9876,
     colors: true,
     // Level of logging, can be: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
