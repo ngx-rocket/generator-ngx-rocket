@@ -7,6 +7,16 @@ import frFR from '../../translations/fr-FR.json';
 
 const languageKey = 'language';
 
+/**
+ * Pass-through function to mark a string for translation extraction.
+ * Running `npm translations:extract` will include the given string by using this.
+ * @param {string} s The string to extract for translation.
+ * @return {string} The same string.
+ */
+export function extract(s: string) {
+  return s;
+}
+
 @Injectable()
 export class I18nService {
 
