@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { _ as extract } from '@biesbjerg/ngx-translate-extract';
 
+import { extract } from '../core/i18n.service';
 import { LoginComponent } from './login.component';
 
 const routes: Routes = [
