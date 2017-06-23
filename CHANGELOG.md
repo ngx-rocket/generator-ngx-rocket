@@ -1,5 +1,47 @@
 # Change Log
 
+## [1.3.2](https://github.com/ngx-rocket/generator-ngx-rocket/tree/1.3.2) (2017-06-23)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/1.3.1...1.3.2)
+
+**Enhancements**:
+
+- Cannot extract translated strings from variables [\#39](https://github.com/ngx-rocket/generator-ngx-rocket/issues/39) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Upgraded ngx-translate-extract and added markers \(closes \#39\) [\#88](https://github.com/ngx-rocket/generator-ngx-rocket/pull/88) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Fixed bugs:**
+
+- Build broken [\#84](https://github.com/ngx-rocket/generator-ngx-rocket/issues/84)
+
+**Closed issues:**
+
+- Upgrade dependencies and angular-cli files [\#86](https://github.com/ngx-rocket/generator-ngx-rocket/issues/86)
+
+**Merged pull requests:**
+
+- Updated node versions [\#89](https://github.com/ngx-rocket/generator-ngx-rocket/pull/89)
+- Upgraded angular-cli files and dependencies \(close \#86\) [\#87](https://github.com/ngx-rocket/generator-ngx-rocket/pull/87)
+- Fixed duplicate typings \(fix \#84\) [\#85](https://github.com/ngx-rocket/generator-ngx-rocket/pull/85)
+
+## [1.3.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/1.3.1) (2017-05-29)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/1.3.0...1.3.1)
+
+**Enhancements**:
+
+- Contributing [\#52](https://github.com/ngx-rocket/generator-ngx-rocket/issues/52) [[documentation](https://github.com/ngx-rocket/generator-ngx-rocket/labels/documentation)]
+
+**Fixed bugs:**
+
+- Something wrong on Logger service [\#80](https://github.com/ngx-rocket/generator-ngx-rocket/issues/80)
+
+**Closed issues:**
+
+- Publish new npm package [\#66](https://github.com/ngx-rocket/generator-ngx-rocket/issues/66)
+
+**Merged pull requests:**
+
+- Fixed issue with logger \(fix \#80\) [\#81](https://github.com/ngx-rocket/generator-ngx-rocket/pull/81)
+- Feature/contributing [\#70](https://github.com/ngx-rocket/generator-ngx-rocket/pull/70)
+
 ## [1.3.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/1.3.0) (2017-05-16)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/1.2.2...1.3.0)
 
