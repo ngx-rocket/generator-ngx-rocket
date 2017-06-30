@@ -35,8 +35,8 @@
   },
   "dependencies": {
     "@ngx-rocket/ascii-logo": "^1.0.0",
-    "@ngx-rocket/core": "^0.9.5",
-    "chalk": "^1.1.1",
+    "@ngx-rocket/core": "^1.1.0",
+    "chalk": "^2.0.1",
     "insight": "^0.8.4"
   },
   "devDependencies": {

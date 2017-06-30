@@ -65,10 +65,6 @@ class NgxGenerator extends Generator {
   }
 
   install() {
-    this.config.set('version', this.version);
-    this.config.set('props', this.props);
-    this.config.save();
-
     const skipInstall = this.options['skip-install'];
 
     if (!skipInstall) {
