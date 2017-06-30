@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.3.3](https://github.com/ngx-rocket/generator-ngx-rocket/tree/1.3.3) (2017-06-30)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/1.3.2...1.3.3)
+
+**Merged pull requests:**
+
+- Feature/update [\#92](https://github.com/ngx-rocket/generator-ngx-rocket/pull/92)
+
 ## [1.3.2](https://github.com/ngx-rocket/generator-ngx-rocket/tree/1.3.2) (2017-06-23)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/1.3.1...1.3.2)
 
