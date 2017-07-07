@@ -1,14 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.company.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name><%= props.appName %></name>
-  <description>
-    A mobile app based on Ionic and Cordova.
-  </description>
-  <author email="dev@company.com" href="http://company.com">
-    Development Team
-  </author>
+  <description>A mobile app based on Ionic and Cordova.</description>
+  <author email="dev@company.com" href="http://company.com">Development Team</author>
   <content src="index.html" />
   <access origin="*" />
+  <allow-navigation href="http://ionic.local/*"/>
   <allow-intent href="http://*/*" />
   <allow-intent href="https://*/*" />
   <allow-intent href="tel:*" />
@@ -48,7 +45,7 @@
 
   <!-- Common to all platforms -->
   <preference name="Fullscreen" value="false"/>
-  <preference name="webviewbounce" value="true"/>
+  <preference name="webviewbounce" value="false"/>
   <preference name="Orientation" value="portrait"/>
   <preference name="StatusBarStyle" value="default" />
   <preference name="AutoHideSplashScreen" value="false"/>
@@ -56,6 +53,8 @@
   <preference name="SplashScreenDelay" value="3000"/>
   <preference name="ShowSplashScreenSpinner" value="false"/>
   <preference name="SplashMaintainAspectRatio" value="true" />
+  <preference name="FadeSplashScreenDuration" value="500"/>
+  <preference name="SplashShowOnlyFirstTime" value="true"/>
 
   <!-- Plugins -->
   <plugin name="cordova-plugin-device" spec="^1.1.6" />
@@ -63,4 +62,5 @@
   <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
   <plugin name="cordova-plugin-statusbar" spec="^2.2.3" />
   <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
+  <plugin name="ionic-plugin-keyboard" spec="~2.2.1"/>
 </widget>
