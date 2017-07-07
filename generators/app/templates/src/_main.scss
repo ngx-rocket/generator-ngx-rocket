@@ -7,8 +7,14 @@
 @import "theme/theme-variables";
 
 // 3rd party libraries
+<% if (props.ui === 'ionic') { -%>
+@import "~ionic-angular/themes/normalize";
+@import "~ionic-angular/themes/ionic.components";
+@import "~ionic-angular/themes/util";
+<% } else if (props.ui === 'bootstrap') { -%>
 @import "~bootstrap/scss/bootstrap";
 @import "~font-awesome/scss/font-awesome.scss";
+<% } -%>
 
 // Theme customization
 @import "theme/theme";
