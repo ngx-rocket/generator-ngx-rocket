@@ -1,0 +1,13 @@
+{
+  "name": "<%= props.appName %>",
+  "short_name": "<%= props.appName %>",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/angular-logo.svg",
+    "sizes": "512x512",
+    "type": "image/svg+xml"
+  }],
+  "background_color": "#488aff",
+  "theme_color": "#488aff"
+}

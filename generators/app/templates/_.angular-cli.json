@@ -6,10 +6,13 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "<%= props.target === 'web' ? 'dist' : 'www' %>",
+      "outDir": "<%= props.target === 'mobile' ? 'www' : 'dist' %>",
       "assets": [
         "assets",
         "favicon.ico",
+<% if (props.target === 'pwa') { -%>
+        "manifest.json",
+<% } -%>
         "robots.txt"
       ],
       "index": "index.html",
