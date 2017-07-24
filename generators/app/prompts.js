@@ -46,7 +46,8 @@ module.exports = [
         value: 'ionic',
         name: 'Ionic (more mobile-oriented)'
       }
-    ]
+    ],
+    default: props => props.target.includes('cordova') ? 'ionic' : 'bootstrap'
   },
   {
     type: 'confirm',
