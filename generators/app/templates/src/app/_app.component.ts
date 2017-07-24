@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
 <% if (props.target.includes('cordova')) { -%>
 <%  if (props.ui === 'ionic') { -%>
               private platform: Platform,
-<%   } else { %>
+<%   } else { -%>
               private zone: NgZone,
 <%   } -%>
               private keyboard: Keyboard,

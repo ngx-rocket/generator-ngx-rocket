@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 <% if (props.auth) { -%>
 import { AuthenticationService } from '../authentication/authentication.service';
-<% } %>
+<% } -%>
 import { I18nService } from '../i18n.service';
 
 @Component({
@@ -27,8 +27,8 @@ export class ShellComponent implements OnInit {
               private alertController: AlertController,
               private actionSheetController: ActionSheetController,
 <% if (props.auth) { -%>
-              private authenticationService: AuthenticationService
-<% } %>
+              private authenticationService: AuthenticationService,
+<% } -%>
               private i18nService: I18nService) { }
 
   ngOnInit() {
@@ -87,9 +87,9 @@ export class ShellComponent implements OnInit {
   }
 
   private changeLanguage() {
-<% } else { %>
+<% } else { -%>
   changeLanguage() {
-<% } %>
+<% } -%>
     this.alertController
       .create({
         title: this.translateService.instant('Change language'),
