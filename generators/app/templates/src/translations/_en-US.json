@@ -3,14 +3,14 @@
   "About": "About",
   "Hello world !": "Hello world !",
   "Home": "Home",
-<% if (props.ui.ionic) { -%>
+<% if (props.ui === 'ionic') { -%>
   "Cancel": "Cancel",
   "Change language": "Change language",
   "Language": "Language",
   "Ok": "Ok",
 <% } -%>
 <% if (props.auth) { -%>
-  <% if (props.ui.bootstrap) { -%>
+  <% if (props.ui === 'bootstrap') { -%>
   "Logged in as": "Logged in as",
   <% } -%>
   "Login": "Login",
