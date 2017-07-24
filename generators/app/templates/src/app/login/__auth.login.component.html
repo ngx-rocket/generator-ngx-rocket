@@ -48,7 +48,7 @@
                 <span translate>Remember me</span>
               </label>
             </div>
-            <button class="btn btn-primary w-100" type="submit" translate [disabled]="loginForm.invalid || isLoading">
+            <button class="btn btn-primary w-100" type="submit" [disabled]="loginForm.invalid || isLoading">
               <i class="fa fa-cog fa-spin" [hidden]="!isLoading"></i>
               <span translate>Login</span>
             </button>
