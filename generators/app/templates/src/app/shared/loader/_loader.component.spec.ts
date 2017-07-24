@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoaderComponent } from './loader.component';
+<% if (props.ui === 'ionic') { -%>
+import { IonicModule } from 'ionic-angular';
+<% } -%>
 
 describe('LoaderComponent', () => {
   let component: LoaderComponent;
@@ -8,6 +11,9 @@ describe('LoaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+<% if (props.ui === 'ionic') { -%>
+        imports: [IonicModule.forRoot(LoaderComponent)],
+<% } -%>
         declarations: [LoaderComponent]
       })
       .compileComponents();

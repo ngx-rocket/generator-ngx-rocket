@@ -1,0 +1,5 @@
+<% if (props.ui === 'bootstrap') { -%>
+.fa {
+  vertical-align: middle;
+}
+<% } -%>
