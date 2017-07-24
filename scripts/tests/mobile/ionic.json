@@ -1,0 +1,5 @@
+{
+  "target": "mobile",
+  "ui": "ionic",
+  "auth": false
+}
