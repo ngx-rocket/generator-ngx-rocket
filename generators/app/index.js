@@ -69,21 +69,8 @@ class NgxGenerator extends Generator {
 
     if (!skipInstall) {
       this.log(`\nRunning ${chalk.yellow('npm install')}, please wait...`);
+      this.npmInstall(null, {logLevel: 'error'});
     }
-
-    this.installDependencies({
-      skipInstall,
-      bower: false,
-      skipMessage: true,
-      callback: () => {
-        if (!this.options['skip-install']) {
-          // Prepare Cordova platforms
-          if (this.props.target !== 'web') {
-            this.spawnCommandSync('npm', ['prepare']);
-          }
-        }
-      }
-    });
   }
 
   end() {
