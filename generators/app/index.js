@@ -10,7 +10,6 @@ const prompts = require('./prompts.json');
 const pkg = require('../../package.json');
 
 class NgxGenerator extends Generator {
-
   initializing() {
     this.version = pkg.version;
     this.insight = new Insight({trackingCode: 'UA-93069862-1', pkg});
@@ -87,7 +86,6 @@ class NgxGenerator extends Generator {
     this.log(`- $ ${chalk.green('run e2e')}: launch e2e tests`);
     this.log(`- $ ${chalk.green('run docs')}: show docs and coding guides\n`);
   }
-
 }
 
 module.exports = Generator.make({

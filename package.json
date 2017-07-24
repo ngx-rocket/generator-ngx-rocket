@@ -28,19 +28,19 @@
   "main": "./generators/app/index.js",
   "scripts": {
     "lint": "eslint generators/app/*.js",
-    "test": "npm run lint && scripts/test.sh",
+    "test": "npm run lint -s && scripts/test.sh",
     "deploy": "scripts/deploy.sh",
     "postpublish": "git tag -a $npm_package_version -m '$npm_package_version' && git push --tags",
     "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -m 'Updated changelog' && git push"
   },
   "dependencies": {
     "@ngx-rocket/ascii-logo": "^1.0.0",
-    "@ngx-rocket/core": "^1.1.0",
+    "@ngx-rocket/core": "^1.2.0",
     "chalk": "^2.0.1",
     "insight": "^0.8.4"
   },
   "devDependencies": {
-    "eslint": "^3.19.0",
+    "eslint": "^4.3.0",
     "eslint-config-xo-space": "^0.16.0"
   },
   "engines": {
