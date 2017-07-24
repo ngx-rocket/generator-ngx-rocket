@@ -1,6 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
+<% if (props.ui === 'ionic') { -%>
+import { IonicModule } from 'ionic-angular';
+<% } -%>
+<% if (props.target === 'mobile') { -%>
+import { Keyboard } from '@ionic-native/keyboard';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+<% } -%>
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -9,11 +17,23 @@ describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
+<% if (props.ui === 'ionic') { -%>
+        IonicModule.forRoot(AppComponent),
+<% } -%>
         RouterTestingModule,
         TranslateModule.forRoot(),
         CoreModule
       ],
       declarations: [AppComponent],
+<% if (props.target === 'mobile') { -%>
+      providers: [
+        Keyboard,
+        StatusBar,
+        SplashScreen
+      ]
+<% } else { -%>
+      providers: []
+<% } -%>
     });
     TestBed.compileComponents();
   });

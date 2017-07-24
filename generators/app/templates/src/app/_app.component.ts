@@ -4,13 +4,24 @@ import 'rxjs/add/operator/first';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
+<% if (props.ui === 'ionic') { -%>
+import { Component, OnInit, ViewChild } from '@angular/core';
+<% } else { -%>
 import { Component, OnInit } from '@angular/core';
+<% } -%>
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs/Observable';
+<% if (props.ui === 'ionic') { -%>
+  <% if (props.target === 'mobile') { -%>
+import { IonicApp, Nav, Platform } from 'ionic-angular';
+  <% } else { -%>
+import { IonicApp, Nav } from 'ionic-angular';
+  <% } -%>
+<% } -%>
 <% if (props.target === 'mobile') { -%>
-import { Platform } from 'ionic-angular';
+import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 <% } -%>
@@ -27,17 +38,25 @@ const log = new Logger('App');
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-<% if (props.target === 'mobile') { -%>
-  constructor(private platform: Platform,
-              private statusBar: StatusBar,
-              private splashScreen: SplashScreen,
-              private router: Router,
-<% } else { -%>
-  constructor(private router: Router,
+<% if (props.ui === 'ionic') { -%>
+
+  @ViewChild(Nav) nav: Nav;
 <% } -%>
+
+  constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private titleService: Title,
               private translateService: TranslateService,
+<% if (props.target === 'mobile') { -%>
+  <% if (props.ui === 'ionic') { -%>
+              private platform: Platform,
+  <% } else { %>
+              private zone: NgZone,
+  <% } -%>
+              private keyboard: Keyboard,
+              private statusBar: StatusBar,
+              private splashScreen: SplashScreen,
+<% } -%>
               private i18nService: I18nService) { }
 
   ngOnInit() {
@@ -51,8 +70,9 @@ export class AppComponent implements OnInit {
     // Setup translations
     this.i18nService.init(environment.defaultLanguage, environment.supportedLanguages);
 
-    // Change page title on navigation or language change, based on route data
     const onNavigationEnd = this.router.events.filter(event => event instanceof NavigationEnd);
+
+    // Change page title on navigation or language change, based on route data
     Observable.merge(this.translateService.onLangChange, onNavigationEnd)
       .map(() => {
         let route = this.activatedRoute;
@@ -69,14 +89,41 @@ export class AppComponent implements OnInit {
           this.titleService.setTitle(this.translateService.instant(title));
         }
       });
-<% if (props.target === 'mobile') { -%>
+<% if (props.ui === 'ionic') { -%>
+
+    // Bind Ionic navigation to Angular router events
+    onNavigationEnd.subscribe(() => this.updateNav(this.activatedRoute));
+  <% if (props.target === 'mobile') { -%>
 
     // Cordova platform and plugins initialization
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
+    this.platform.ready().then(() => this.onCordovaReady());
+  <% } -%>
+<% } else if (props.target === 'mobile') { -%>
+    // Cordova platform and plugins initialization
+    document.addEventListener('deviceready', () => {
+      this.zone.run(() => this.onCordovaReady());
+    }, false);
 <% } -%>
+    }
+<% if (props.target === 'mobile') { -%>
+
+  private onCordovaReady() {
+    if (window['cordova']) {
+      this.keyboard.hideKeyboardAccessoryBar(true);
+      this.statusBar.styleLightContent();
+      this.splashScreen.hide();
+    }
   }
+<% } -%>
+<% if (props.ui === 'ionic') { -%>
+  private updateNav(route: ActivatedRoute) {
+    if (route.component === IonicApp) {
+      route = route.firstChild;
+      if (!this.nav.getActive() || this.nav.getActive().component !== route.component) {
+        this.nav.setRoot(route.component, route.params, { animate: true, direction: 'forward' });
+      }
+    }
+  }
+<% } -%>
 
 }
