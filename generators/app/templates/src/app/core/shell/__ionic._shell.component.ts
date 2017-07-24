@@ -5,7 +5,9 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { ActionSheetController, AlertController, Platform } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 
+<% if (props.auth) { -%>
 import { AuthenticationService } from '../authentication/authentication.service';
+<% } %>
 import { I18nService } from '../i18n.service';
 
 @Component({
@@ -24,8 +26,10 @@ export class ShellComponent implements OnInit {
               private platform: Platform,
               private alertController: AlertController,
               private actionSheetController: ActionSheetController,
-              private i18nService: I18nService,
-              private authenticationService: AuthenticationService) { }
+<% if (props.auth) { -%>
+              private authenticationService: AuthenticationService
+<% } %>
+              private i18nService: I18nService) { }
 
   ngOnInit() {
     this.updateNav(this.activatedRoute);
@@ -36,6 +40,7 @@ export class ShellComponent implements OnInit {
       .subscribe(() => this.updateNav(this.activatedRoute));
   }
 
+<% if (props.auth) { -%>
   showProfileActions() {
     const actionSheet = this.actionSheetController.create({ title: this.username });
     const buttons = [
@@ -76,7 +81,15 @@ export class ShellComponent implements OnInit {
     return credentials ? credentials.username : null;
   }
 
+  private logout() {
+    this.authenticationService.logout()
+    .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
+  }
+
   private changeLanguage() {
+<% } else { %>
+  changeLanguage() {
+<% } %>
     this.alertController
       .create({
         title: this.translateService.instant('Change language'),
@@ -100,11 +113,6 @@ export class ShellComponent implements OnInit {
         ]
       })
       .present();
-  }
-
-  private logout() {
-    this.authenticationService.logout()
-      .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
   }
 
   private updateNav(route: ActivatedRoute) {

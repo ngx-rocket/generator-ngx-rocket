@@ -2,6 +2,7 @@
   <ion-menu [content]="content">
     <ion-content>
       <div ion-fixed>
+<% if (props.auth) { -%>
         <div class="profile" text-center padding>
           <ion-icon class="profile-icon" name="contact"></ion-icon>
           <div>
@@ -11,6 +12,18 @@
             </button>
           </div>
         </div>
+<% } else { %>
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons end>
+              <button ion-button icon-only (click)="changeLanguage()">
+                <ion-icon name="globe"></ion-icon>
+              </button>
+            </ion-buttons>
+            <ion-title>{{'APP_TITLE' | translate}}</ion-title>
+          </ion-toolbar>
+        </ion-header>
+<% } %>
         <ion-list>
           <button menuClose ion-item routerLink="/home" routerLinkActive="active">
             <span translate>Home</span>
