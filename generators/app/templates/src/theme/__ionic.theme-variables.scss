@@ -37,7 +37,7 @@ $colors: (
     secondary:  #32db64,
     danger:     #f53d3d,
     light:      #f4f4f4,
-    dark:       #222
+    dark:       #333
 );
 
 
@@ -45,21 +45,22 @@ $colors: (
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
-
+$cordova-ios-statusbar-padding:           20px;
+$text-input-ios-show-invalid-highlight:   true;
 
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-
+$text-input-md-show-valid-highlight:      false;
 
 
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
 
-
+$text-input-wp-show-valid-highlight:      false;
 
 
 // App Theme
