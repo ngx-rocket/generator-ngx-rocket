@@ -1,0 +1,16 @@
+.logo {
+<% if (props.ui === 'ionic') { -%>
+  width: 150px;
+  margin: 0 auto;
+<% } else { -%>
+  width: 100px;
+<% } -%>
+}
+
+q {
+  font-style: italic;
+<% if (props.ui !== 'ionic') { -%>
+  font-size: 1.2rem;
+<% } -%>
+  quotes: "« " " »";
+}
