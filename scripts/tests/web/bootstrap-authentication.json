@@ -1,5 +1,5 @@
 {
-  "target": "web",
+  "target": ["web"],
   "ui": "bootstrap",
   "auth": true
 }

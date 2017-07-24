@@ -6,11 +6,11 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "<%= props.target === 'mobile' ? 'www' : 'dist' %>",
+      "outDir": "<%= props.target.includes('cordova') ? 'www' : 'dist' %>",
       "assets": [
         "assets",
         "favicon.ico",
-<% if (props.target === 'pwa') { -%>
+<% if (props.pwa) { -%>
         "manifest.json",
 <% } -%>
         "robots.txt"

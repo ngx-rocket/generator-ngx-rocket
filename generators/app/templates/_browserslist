@@ -2,7 +2,7 @@
 # See https://github.com/ai/browserslist
 
 Last 2 versions
-<% if (props.target === 'mobile') { -%>
+<% if (props.target.includes('cordova')) { -%>
 iOS >= 8
 Android >= 4.4
 Explorer >= 11

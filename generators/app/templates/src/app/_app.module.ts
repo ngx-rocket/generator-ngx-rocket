@@ -9,7 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { IonicModule } from 'ionic-angular';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 <% } -%>
-<% if (props.target === 'mobile') { -%>
+<% if (props.target.includes('cordova')) { -%>
 import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -48,7 +48,7 @@ import { LoginModule } from './login/login.module';
   ],
   declarations: [AppComponent],
   providers: [
-<% if (props.target === 'mobile') { -%>
+<% if (props.target.includes('cordova')) { -%>
     Keyboard,
     StatusBar,
   <% if (props.ui === 'ionic') { -%>

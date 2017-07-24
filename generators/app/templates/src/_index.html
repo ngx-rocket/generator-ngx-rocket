@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <title><%= props.appName %></title>
-<% if (props.target === 'mobile') { -%>
+<% if (props.target.includes('cordova')) { -%>
   <base href="./"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
   <meta name="msapplication-tap-highlight" content="no"/>
@@ -16,7 +16,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico"/>
 </head>
 <body>
-<% if (props.target === 'web') { -%>
+<% if (props.target.includes('web')) { -%>
   <!--[if lt IE 10]>
   <p>
     You are using an <strong>outdated</strong> browser.
@@ -24,7 +24,7 @@
   </p>
   <![endif]-->
 <% } -%>
-<% if (props.target === 'mobile') { -%>
+<% if (props.target.includes('cordova')) { -%>
   <!-- Include Cordova script only when needed -->
   <script>
     if (!/^http/.test(location.protocol)) {

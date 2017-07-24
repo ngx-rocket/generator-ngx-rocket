@@ -13,7 +13,7 @@
     "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean -sort --marker extract",
     "docs": "hads ./docs -o",
     "env": "ngx-scripts env2json npm_package_version",
-<% if (props.target === 'mobile') { -%>
+<% if (props.target.includes('cordova')) { -%>
     "prepare": "ngx-scripts unpin-ionic-dependencies",
     "cordova:prepare": "ngx-scripts cordova prepare",
     "cordova:package": "ngx-scripts cordova build --device --release --copy dist",
@@ -34,7 +34,7 @@
     "@angular/platform-browser-dynamic": "^4.2.6",
     "@angular/router": "^4.2.6",
     "@ngx-translate/core": "^7.0.0",
-<% if (props.target === 'mobile') { -%>
+<% if (props.target.includes('cordova')) { -%>
     "@ionic-native/core": "^4.0.0",
     "@ionic-native/keyboard": "^4.0.0",
     "@ionic-native/splash-screen": "^4.0.0",
@@ -55,7 +55,7 @@
     "zone.js": "^0.8.12"
   },
   "devDependencies": {
-<% if (props.target === 'mobile') { -%>
+<% if (props.target.includes('cordova')) { -%>
     "cordova": "^7.0.0",
 <% } -%>
     "@angular/cli": "^1.2.3",

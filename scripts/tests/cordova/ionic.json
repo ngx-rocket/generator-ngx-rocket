@@ -1,5 +1,5 @@
 {
-  "target": "mobile",
+  "target": ["cordova"],
   "ui": "ionic",
   "auth": false
 }

@@ -4,7 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 <% if (props.ui === 'ionic') { -%>
 import { IonicModule } from 'ionic-angular';
 <% } -%>
-<% if (props.target === 'mobile') { -%>
+<% if (props.target.includes('cordova')) { -%>
 import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -25,7 +25,7 @@ describe('AppComponent', () => {
         CoreModule
       ],
       declarations: [AppComponent],
-<% if (props.target === 'mobile') { -%>
+<% if (props.target.includes('cordova')) { -%>
       providers: [
         Keyboard,
         StatusBar,

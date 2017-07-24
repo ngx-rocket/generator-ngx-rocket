@@ -14,13 +14,13 @@ import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs/Observable';
 <% if (props.ui === 'ionic') { -%>
-  <% if (props.target === 'mobile') { -%>
+  <% if (props.target.includes('cordova')) { -%>
 import { IonicApp, Nav, Platform } from 'ionic-angular';
   <% } else { -%>
 import { IonicApp, Nav } from 'ionic-angular';
   <% } -%>
 <% } -%>
-<% if (props.target === 'mobile') { -%>
+<% if (props.target.includes('cordova')) { -%>
 import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private titleService: Title,
               private translateService: TranslateService,
-<% if (props.target === 'mobile') { -%>
+<% if (props.target.includes('cordova')) { -%>
   <% if (props.ui === 'ionic') { -%>
               private platform: Platform,
   <% } else { %>
@@ -93,19 +93,19 @@ export class AppComponent implements OnInit {
 
     // Bind Ionic navigation to Angular router events
     onNavigationEnd.subscribe(() => this.updateNav(this.activatedRoute));
-  <% if (props.target === 'mobile') { -%>
+  <% if (props.target.includes('cordova')) { -%>
 
     // Cordova platform and plugins initialization
     this.platform.ready().then(() => this.onCordovaReady());
   <% } -%>
-<% } else if (props.target === 'mobile') { -%>
+<% } else if (props.target.includes('cordova')) { -%>
     // Cordova platform and plugins initialization
     document.addEventListener('deviceready', () => {
       this.zone.run(() => this.onCordovaReady());
     }, false);
 <% } -%>
     }
-<% if (props.target === 'mobile') { -%>
+<% if (props.target.includes('cordova')) { -%>
 
   private onCordovaReady() {
     if (window['cordova']) {

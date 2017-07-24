@@ -5,8 +5,8 @@ const Insight = require('insight');
 const Generator = require('@ngx-rocket/core');
 const asciiLogo = require('@ngx-rocket/ascii-logo');
 
+const prompts = require('./prompts');
 const options = require('./options.json');
-const prompts = require('./prompts.json');
 const pkg = require('../../package.json');
 
 class NgxGenerator extends Generator {
