@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
+<% if (props.ui === 'bootstrap') { -%>
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+<% } else if (props.ui === 'ionic') { -%>
+import { IonicModule } from 'ionic-angular';
+<% } -%>
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
@@ -11,10 +15,19 @@ import { LoginComponent } from './login.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    NgbModule.forRoot(),
     TranslateModule,
+<% if (props.ui === 'bootstrap') { -%>
+    NgbModule.forRoot(),
+<% } else if (props.ui === 'ionic') { -%>
+    IonicModule,
+<% } -%>
     LoginRoutingModule
   ],
+<% if (props.ui === 'ionic') { -%>
+  entryComponents: [
+    LoginComponent
+  ],
+<% } -%>
   declarations: [
     LoginComponent
   ]

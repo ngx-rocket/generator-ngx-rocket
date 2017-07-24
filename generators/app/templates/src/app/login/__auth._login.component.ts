@@ -3,6 +3,9 @@ import 'rxjs/add/operator/finally';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+<% if (props.ui === 'ionic') { -%>
+import { LoadingController, Platform } from 'ionic-angular';
+<% } -%>
 
 import { environment } from '../../environments/environment';
 import { Logger } from '../core/logger.service';
@@ -20,11 +23,17 @@ export class LoginComponent implements OnInit {
 
   version: string = environment.version;
   error: string = null;
-  isLoading = false;
   loginForm: FormGroup;
+<% if (props.ui !== 'ionic') { -%>
+  isLoading = false;
+<% } -%>
 
   constructor(private router: Router,
               private formBuilder: FormBuilder,
+<% if (props.ui === 'ionic') { -%>
+              private platform: Platform,
+              private loadingController: LoadingController,
+<% } -%>
               private i18nService: I18nService,
               private authenticationService: AuthenticationService) {
     this.createForm();
@@ -33,11 +42,20 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
 
   login() {
+<% if (props.ui === 'ionic') { -%>
+    const loading = this.loadingController.create();
+    loading.present();
+<% } else { -%>
     this.isLoading = true;
+<% } -%>
     this.authenticationService.login(this.loginForm.value)
       .finally(() => {
-        this.isLoading = false;
         this.loginForm.markAsPristine();
+<% if (props.ui === 'ionic') { -%>
+        loading.dismiss();
+<% } else { -%>
+        this.isLoading = false;
+<% } -%>
       })
       .subscribe(credentials => {
         log.debug(`${credentials.username} successfully logged in`);
@@ -59,6 +77,12 @@ export class LoginComponent implements OnInit {
   get languages(): string[] {
     return this.i18nService.supportedLanguages;
   }
+<% if (props.ui === 'ionic') { -%>
+
+  get isWeb(): boolean {
+    return !this.platform.is('cordova');
+  }
+<% } -%>
 
   private createForm() {
     this.loginForm = this.formBuilder.group({
