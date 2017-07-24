@@ -1,12 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
+<% if (props.ui === 'ionic') { -%>
+import { ErrorHandler, NgModule } from '@angular/core';
+<% } else { -%>
 import { NgModule } from '@angular/core';
+<% } -%>
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { TranslateModule } from '@ngx-translate/core';
 <% if (props.ui === 'bootstrap') { -%>
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 <% } else if (props.ui === 'ionic') { -%>
-import { IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
