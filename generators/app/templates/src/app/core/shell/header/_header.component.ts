@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit {
 <% if (props.auth) { -%>
   logout() {
     this.authenticationService.logout()
-      .subscribe(() => this.router.navigate(['/login']));
+      .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
   }
 
 <% } -%>
