@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "ng": "ng",
-    "build": "npm run env -s && ng build --aot --prod",
+    "build": "npm run env -s && ng build --prod",
     "start": "ng serve --proxy-config proxy.conf.js",
     "lint": "ng lint --type-check && stylelint \"src/**/*.scss\" --syntax scss && htmlhint \"src\" --config .htmlhintrc",
     "test": "ng test",
@@ -58,7 +58,7 @@
 <% if (props.target.includes('cordova')) { -%>
     "cordova": "^7.0.0",
 <% } -%>
-    "@angular/cli": "^1.2.3",
+    "@angular/cli": "^1.2.4",
     "@angular/compiler-cli": "^4.2.6",
     "@angular/language-service": "^4.2.6",
     "@biesbjerg/ngx-translate-extract": "^2.3.1",
