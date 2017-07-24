@@ -55,7 +55,7 @@
     "zone.js": "^0.8.12"
   },
   "devDependencies": {
-<% if (props.target !== 'web') { -%>
+<% if (props.target === 'mobile') { -%>
     "cordova": "^7.0.0",
 <% } -%>
     "@angular/cli": "^1.2.3",
