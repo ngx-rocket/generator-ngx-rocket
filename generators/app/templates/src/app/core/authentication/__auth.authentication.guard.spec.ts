@@ -49,7 +49,7 @@ describe('AuthenticationGuard', () => {
     const result = authenticationGuard.canActivate();
 
     // Assert
-    expect(mockRouter.navigate).toHaveBeenCalledWith(['/login']);
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['/login'], {replaceUrl: true});
     expect(result).toBe(false);
   });
 });
