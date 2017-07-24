@@ -17,7 +17,7 @@ module.exports = [
         checked: true
       },
       {
-        value: 'mobile',
+        value: 'cordova',
         name: 'Mobile app (using Cordova)'
       }
       // {
