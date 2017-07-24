@@ -9,7 +9,6 @@
       "outDir": "<%= props.target === 'web' ? 'dist' : 'www' %>",
       "assets": [
         "assets",
-        "translations",
         "favicon.ico",
         "robots.txt"
       ],
