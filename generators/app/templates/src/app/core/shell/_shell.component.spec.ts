@@ -8,6 +8,9 @@ import { MockAuthenticationService } from '../authentication/authentication.serv
 <% } -%>
 import { ShellComponent } from './shell.component';
 import { CoreModule } from '../core.module';
+<% if (props.ui === 'ionic') { -%>
+import { IonicModule } from 'ionic-angular';
+<% } -%>
 
 describe('ShellComponent', () => {
   let component: ShellComponent;
@@ -18,6 +21,9 @@ describe('ShellComponent', () => {
       imports: [
         RouterTestingModule,
         TranslateModule.forRoot(),
+<% if (props.ui === 'ionic') { -%>
+        IonicModule.forRoot(ShellComponent),
+<% } -%>
         CoreModule
 <% if (props.auth) { -%>
       ],

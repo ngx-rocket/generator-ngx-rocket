@@ -2,11 +2,17 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpModule, Http, XHRBackend, ConnectionBackend, RequestOptions } from '@angular/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
+<% if (props.ui === 'bootstrap') { -%>
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+<% } else if (props.ui === 'ionic') { -%>
+import { IonicModule } from 'ionic-angular';
+<% } -%>
 
 import { ShellComponent } from './shell/shell.component';
+<% if (props.ui === 'bootstrap') { -%>
 import { HeaderComponent } from './shell/header/header.component';
+<% } -%>
 <% if (props.auth) { -%>
 import { AuthenticationService } from './authentication/authentication.service';
 import { AuthenticationGuard } from './authentication/authentication.guard';
@@ -26,15 +32,23 @@ export function createHttpService(backend: ConnectionBackend,
     CommonModule,
     HttpModule,
     TranslateModule,
-    RouterModule,
-    NgbModule.forRoot()
+<% if (props.ui === 'bootstrap') { -%>
+    NgbModule.forRoot(),
+<% } else if (props.ui === 'ionic') { -%>
+    IonicModule,
+<% } -%>
+    RouterModule
   ],
-  exports: [
-    HeaderComponent
+<% if (props.ui === 'ionic') { -%>
+  entryComponents: [
+    ShellComponent
   ],
+<% } -%>
   declarations: [
-    ShellComponent,
-    HeaderComponent
+<% if (props.ui === 'bootstrap') { -%>
+    HeaderComponent,
+<% } -%>
+    ShellComponent
   ],
   providers: [
 <% if (props.auth) { -%>

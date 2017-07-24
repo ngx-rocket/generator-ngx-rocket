@@ -1,0 +1,26 @@
+<ion-split-pane>
+  <ion-menu [content]="content">
+    <ion-content>
+      <div ion-fixed>
+        <div class="profile" text-center padding>
+          <ion-icon class="profile-icon" name="contact"></ion-icon>
+          <div>
+            <button class="profile-button" ion-button color="light" (click)="showProfileActions()"
+                    round outline small icon-start>
+              <ion-icon name="person"></ion-icon> {{username}}
+            </button>
+          </div>
+        </div>
+        <ion-list>
+          <button menuClose ion-item routerLink="/home" routerLinkActive="active">
+            <span translate>Home</span>
+          </button>
+          <button menuClose ion-item routerLink="/about" routerLinkActive="active">
+            <span translate>About</span>
+          </button>
+        </ion-list>
+      </div>
+    </ion-content>
+  </ion-menu>
+  <ion-nav main [root]="navRoot" #content swipeBackEnabled="false"></ion-nav>
+</ion-split-pane>
