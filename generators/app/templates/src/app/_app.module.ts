@@ -51,14 +51,14 @@ import { LoginModule } from './login/login.module';
 <% if (props.target.includes('cordova')) { -%>
     Keyboard,
     StatusBar,
-  <% if (props.ui === 'ionic') { -%>
+<%   if (props.ui === 'ionic') { -%>
     SplashScreen,
     // Needed as Ionic overrides default strategy, dunno why since they don't use angular router...
     { provide: LocationStrategy, useClass: PathLocationStrategy },
     { provide: ErrorHandler, useClass: IonicErrorHandler }
-  <% } else { -%>
+<%   } else { -%>
     SplashScreen
-  <% } -%>
+<%   } -%>
 <% } -%>
   ],
 <% if (props.ui === 'ionic') { -%>

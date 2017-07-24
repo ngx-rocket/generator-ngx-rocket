@@ -10,9 +10,9 @@
   "Ok": "Ok",
 <% } -%>
 <% if (props.auth) { -%>
-  <% if (props.ui === 'bootstrap') { -%>
+<%   if (props.ui === 'bootstrap') { -%>
   "Logged in as": "Connecté en tant que",
-  <% } -%>
+<%   } -%>
   "Login": "Connexion",
   "Logout": "Déconnexion",
   "Password": "Mot de passe",

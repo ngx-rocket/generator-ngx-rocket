@@ -14,11 +14,11 @@ import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs/Observable';
 <% if (props.ui === 'ionic') { -%>
-  <% if (props.target.includes('cordova')) { -%>
+<%   if (props.target.includes('cordova')) { -%>
 import { IonicApp, Nav, Platform } from 'ionic-angular';
-  <% } else { -%>
+<%   } else { -%>
 import { IonicApp, Nav } from 'ionic-angular';
-  <% } -%>
+<%   } -%>
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
 import { Keyboard } from '@ionic-native/keyboard';
@@ -48,11 +48,11 @@ export class AppComponent implements OnInit {
               private titleService: Title,
               private translateService: TranslateService,
 <% if (props.target.includes('cordova')) { -%>
-  <% if (props.ui === 'ionic') { -%>
+<%  if (props.ui === 'ionic') { -%>
               private platform: Platform,
-  <% } else { %>
+<%   } else { %>
               private zone: NgZone,
-  <% } -%>
+<%   } -%>
               private keyboard: Keyboard,
               private statusBar: StatusBar,
               private splashScreen: SplashScreen,
@@ -93,18 +93,18 @@ export class AppComponent implements OnInit {
 
     // Bind Ionic navigation to Angular router events
     onNavigationEnd.subscribe(() => this.updateNav(this.activatedRoute));
-  <% if (props.target.includes('cordova')) { -%>
+<%   if (props.target.includes('cordova')) { -%>
 
     // Cordova platform and plugins initialization
     this.platform.ready().then(() => this.onCordovaReady());
-  <% } -%>
+<%   } -%>
 <% } else if (props.target.includes('cordova')) { -%>
     // Cordova platform and plugins initialization
     document.addEventListener('deviceready', () => {
       this.zone.run(() => this.onCordovaReady());
     }, false);
 <% } -%>
-    }
+  }
 <% if (props.target.includes('cordova')) { -%>
 
   private onCordovaReady() {
