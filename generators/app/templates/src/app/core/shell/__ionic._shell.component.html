@@ -1,5 +1,17 @@
 <ion-split-pane>
   <ion-menu [content]="content">
+<% if (!props.auth) { -%>
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-buttons end>
+          <button ion-button icon-only (click)="changeLanguage()">
+            <ion-icon name="globe"></ion-icon>
+          </button>
+        </ion-buttons>
+        <ion-title>{{'APP_NAME' | translate}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+<% } -%>
     <ion-content>
       <div ion-fixed>
 <% if (props.auth) { -%>
@@ -12,17 +24,6 @@
             </button>
           </div>
         </div>
-<% } else { -%>
-        <ion-header>
-          <ion-toolbar>
-            <ion-buttons end>
-              <button ion-button icon-only (click)="changeLanguage()">
-                <ion-icon name="globe"></ion-icon>
-              </button>
-            </ion-buttons>
-            <ion-title>{{'APP_TITLE' | translate}}</ion-title>
-          </ion-toolbar>
-        </ion-header>
 <% } -%>
         <ion-list>
           <button menuClose ion-item routerLink="/home" routerLinkActive="active">
