@@ -16,8 +16,8 @@
 <% if (props.target.includes('cordova')) { -%>
     "prepare": "ngx-scripts unpin-ionic-dependencies",
     "cordova:prepare": "ngx-scripts cordova prepare",
-    "cordova:package": "ngx-scripts cordova build --device --release --copy dist",
     "cordova:run": "ngx-scripts cordova run",
+    "cordova:build": "ngx-scripts cordova build --device --release --copy dist",
     "cordova:clean": "ngx-scripts clean",
     "cordova": "ngx-scripts cordova",
 <% } -%>
