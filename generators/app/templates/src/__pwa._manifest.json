@@ -4,9 +4,9 @@
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
-    "src": "assets/angular-logo.svg",
+    "src": "assets/ngx-rocket-logo.png",
     "sizes": "512x512",
-    "type": "image/svg+xml"
+    "type": "image/png"
   }],
   "background_color": "#488aff",
   "theme_color": "#488aff"
