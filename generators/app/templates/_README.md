@@ -57,28 +57,28 @@ proxy.conf.js                backend proxy configuration
 
 Task automation is based on [NPM scripts](https://docs.npmjs.com/misc/scripts).
 
-Tasks                         | Description
-------------------------------|---------------------------------------------------------------------------------------
-npm start                     | Run development server on `http://localhost:4200/`
+Task                            | Description
+--------------------------------|--------------------------------------------------------------------------------------
+`npm start`                     | Run development server on `http://localhost:4200/`
 <% if (props.target.includes('web')) { -%>
 <%   if (props.target.includes('cordova')) { -%>
-npm run build [-- --env=prod] | Lint code and build web app for production in `www/` folder
+`npm run build [-- --env=prod]` | Lint code and build web app for production in `www/` folder
 <%   } else { -%>
-npm run build [-- --env=prod] | Lint code and build web app for production in `dist/` folder
+`npm run build [-- --env=prod]` | Lint code and build web app for production in `dist/` folder
 <%   } -%>
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
-npm run cordova:prepare       | Prepare for building mobile app (restore Cordova platforms and plugins)
-npm run cordova:run &lt;ios|android> [--device] | Run app on target platform device or simulator
-npm run cordova:build [-- --env=prod]           | Build mobile app for production in `dist/` folder
-npm run cordova:clean         | Removes `www/`, `platforms/` and `plugins/` folders
+`npm run cordova:prepare`       | Prepare for building mobile app (restore Cordova platforms and plugins)
+`npm run cordova:run <ios/android> [--device]` | Run app on target platform device or simulator
+`npm run cordova:build [-- --env=prod]`        | Build mobile app for production in `dist/` folder
+`npm run cordova:clean`         | Removes `www/`, `platforms/` and `plugins/` folders
 <% } -%>
-npm test                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
-npm run test:ci               | Lint code and run unit tests once for continuous integration
-npm run e2e                   | Run e2e tests using [Protractor](http://www.protractortest.org)
-npm run lint                  | Lint code
-npm run translations:extract  | Extract strings from code and templates to `src/app/translations/template.json`
-npm run docs                  | Display project documentation
+`npm test`                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
+`npm run test:ci`               | Lint code and run unit tests once for continuous integration
+`npm run e2e`                   | Run e2e tests using [Protractor](http://www.protractortest.org)
+`npm run lint`                  | Lint code
+`npm run translations:extract`  | Extract strings from code and templates to `src/app/translations/template.json`
+`npm run docs`                  | Display project documentation
 
 When building the application, you can specify the target environment using the additional flag `--env <name>` (do not
 forget to prepend `--` to pass arguments to npm scripts).
