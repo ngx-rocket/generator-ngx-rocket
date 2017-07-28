@@ -6,6 +6,8 @@ import 'rxjs/add/operator/mergeMap';
 
 <% if (props.ui === 'ionic') { -%>
 import { Component, OnInit, ViewChild } from '@angular/core';
+<% } else if (props.target.includes('cordova')) { -%>
+import { Component, OnInit, NgZone } from '@angular/core';
 <% } else { -%>
 import { Component, OnInit } from '@angular/core';
 <% } -%>
@@ -110,7 +112,11 @@ export class AppComponent implements OnInit {
   private onCordovaReady() {
     if (window['cordova']) {
       this.keyboard.hideKeyboardAccessoryBar(true);
+<% if (props.ui === 'ionic') { -%>
       this.statusBar.styleLightContent();
+<% } else { -%>
+      this.statusBar.styleDefault();
+<% } -%>
       this.splashScreen.hide();
     }
   }
