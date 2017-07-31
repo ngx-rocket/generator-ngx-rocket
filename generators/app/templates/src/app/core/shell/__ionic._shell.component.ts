@@ -86,8 +86,16 @@ export class ShellComponent implements OnInit {
     .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
   }
 
+  get isWeb(): boolean {
+    return !this.platform.is('cordova');
+  }
+
   private changeLanguage() {
 <% } else { -%>
+  get isWeb(): boolean {
+    return !this.platform.is('cordova');
+  }
+
   changeLanguage() {
 <% } -%>
     this.alertController

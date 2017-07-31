@@ -3,7 +3,7 @@
 <% if (!props.auth) { -%>
     <ion-header>
       <ion-toolbar color="primary">
-        <ion-buttons end>
+        <ion-buttons *ngIf="isWeb" end>
           <button ion-button icon-only (click)="changeLanguage()">
             <ion-icon name="globe"></ion-icon>
           </button>
