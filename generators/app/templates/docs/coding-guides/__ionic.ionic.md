@@ -12,7 +12,7 @@ Starting from Ionic v2, there are several limitations in the Ionic framework mak
 other Angular library.
   
 The most problematic ones are due to the strong ties between the framework and its tools, see
-[the next section](#why-not-using-ionic-cli) for more details:
+[the next section](#why-not-using-ionic-cli-) for more details:
 
 - Warnings are emitted on build, but they are safe to ignore:
   ```sh
