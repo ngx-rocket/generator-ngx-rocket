@@ -17,7 +17,7 @@ import { LoginComponent } from './login.component';
     ReactiveFormsModule,
     TranslateModule,
 <% if (props.ui === 'bootstrap') { -%>
-    NgbModule.forRoot(),
+    NgbModule,
 <% } else if (props.ui === 'ionic') { -%>
     IonicModule,
 <% } -%>

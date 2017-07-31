@@ -33,7 +33,7 @@ export function createHttpService(backend: ConnectionBackend,
     HttpModule,
     TranslateModule,
 <% if (props.ui === 'bootstrap') { -%>
-    NgbModule.forRoot(),
+    NgbModule,
 <% } else if (props.ui === 'ionic') { -%>
     IonicModule,
 <% } -%>
