@@ -13,9 +13,14 @@
   <allow-intent href="geo:*" />
 
   <!-- Platforms -->
+<% if (props.mobile.includes('android')) { -%>
   <engine name="android" spec="^6.2.3" />
+<% } -%>
+<% if (props.mobile.includes('ios')) { -%>
   <engine name="ios" spec="^4.4.0" />
+<% } -%>
 
+<% if (props.mobile.includes('android')) { -%>
   <!-- Android specific -->
   <platform name="android">
     <allow-intent href="market:*" />
@@ -43,6 +48,8 @@
     <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
   </platform>
 
+<% } -%>
+<% if (props.mobile.includes('ios')) { -%>
   <!-- iOS specific -->
   <platform name="ios">
     <allow-intent href="itms:*" />
@@ -80,6 +87,7 @@
     <param name="ios-package" onload="true" value="CDVStatusBar" />
   </feature>
 
+<% } -%>
   <!-- Common to all platforms -->
   <preference name="Fullscreen" value="false"/>
   <preference name="DisallowOverscroll" value="false"/>

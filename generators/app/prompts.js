@@ -34,6 +34,28 @@ module.exports = [
   //   when: props => props.target.includes('web')
   // },
   {
+    type: 'checkbox',
+    name: 'mobile',
+    message: 'Which mobile platform do you want to support?',
+    when: props => props.target.includes('cordova'),
+    choices: [
+      {
+        value: 'ios',
+        name: 'iOS',
+        checked: true
+      },
+      {
+        value: 'android',
+        name: 'Android',
+        checked: true
+      }
+      // {
+      //   value: 'windows',
+      //   name: 'Windows (Universal)'
+      // }
+    ]
+  },
+  {
     type: 'list',
     name: 'ui',
     message: 'Which UI framework do you want?',
