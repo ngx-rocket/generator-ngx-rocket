@@ -171,7 +171,7 @@ This behavior can be change to build a single package by modifying this line in 
 
 ### Using WKWebView on iOS
 
-The [WKWebView plugin](https://github.com/driftyco/cordova-plugin-wkwebview-engine) makes use of the new `WKWebView`
+The [WKWebView plugin](https://github.com/ionic-team/cordova-plugin-wkwebview-engine) makes use of the new `WKWebView`
 instead of `UIWebView`, enabling a huge increase in JavaScript performance.
 
 The new web view is only active on iOS 9+ (with a fallback for older version), and has some limitations (see the
@@ -182,7 +182,7 @@ plugin doc on github for more details), the biggest one being:
 
 To add or remove WKWebView:
 ```sh
-npm run cordova -- plugin <add|remove> https://github.com/driftyco/cordova-plugin-wkwebview-engine
+npm run cordova -- plugin <add|remove> https://github.com/ionic-team/cordova-plugin-wkwebview-engine
 ```
 
 ## Security considerations

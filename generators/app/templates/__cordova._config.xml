@@ -5,6 +5,9 @@
   <author email="dev@company.com" href="http://company.com">Development Team</author>
   <content src="index.html" />
   <access origin="*" />
+<% if (props.webview.includes('wkwebview')) { -%>
+  <allow-navigation href="http://localhost:8080/*"/>
+<% } -%>
   <allow-intent href="http://*/*" />
   <allow-intent href="https://*/*" />
   <allow-intent href="tel:*" />
@@ -61,6 +64,9 @@
       to be sent to iCloud. Note: enabling this could result in Apple rejecting your app.
     -->
     <preference name="BackupWebStorage" value="none"/>
+<%   if (props.webview.includes('wkwebview')) { -%>
+    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+<%   } -%>
     <icon height="57" src="resources/ios/icon/icon.png" width="57" />
     <icon height="114" src="resources/ios/icon/icon@2x.png" width="114" />
     <icon height="40" src="resources/ios/icon/icon-40.png" width="40" />
@@ -86,11 +92,16 @@
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar" />
   </feature>
+<%   if (props.webview.includes('wkwebview')) { -%>
+  <feature name="CDVWKWebViewEngine">
+    <param name="ios-package" value="CDVWKWebViewEngine" />
+  </feature>
+<%   } -%>
 
 <% } -%>
   <!-- Common to all platforms -->
   <preference name="Fullscreen" value="false"/>
-  <preference name="DisallowOverscroll" value="false"/>
+  <preference name="DisallowOverscroll" value="true"/>
   <preference name="Orientation" value="portrait"/>
 <% if (props.ui === 'ionic') { -%>
   <preference name="StatusBarStyle" value="lightcontent" />
@@ -111,5 +122,17 @@
   <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
   <plugin name="cordova-plugin-statusbar" spec="^2.2.3" />
   <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
-  <plugin name="ionic-plugin-keyboard" spec="~2.2.1"/>
+  <plugin name="ionic-plugin-keyboard" spec="^2.2.1"/>
+<% if (props.webview.includes('wkwebview')) { -%>
+  <plugin name="cordova-plugin-wkwebview-engine" spec="https://github.com/ionic-team/cordova-plugin-wkwebview-engine.git" />
+<% } -%>
+<% if (props.webview.includes('crosswalk')) { -%>
+  <plugin name="cordova-plugin-crosswalk-webview" spec="^2.3.0">
+    <variable name="XWALK_VERSION" value="23+" />
+    <variable name="XWALK_LITEVERSION" value="xwalk_core_library_canary:17+" />
+    <variable name="XWALK_COMMANDLINE" value="--disable-pull-to-refresh-effect" />
+    <variable name="XWALK_MODE" value="embedded" />
+    <variable name="XWALK_MULTIPLEAPK" value="true" />
+  </plugin>
+<% } -%>
 </widget>

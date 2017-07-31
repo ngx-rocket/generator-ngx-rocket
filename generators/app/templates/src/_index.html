@@ -30,7 +30,11 @@
 <% if (props.target.includes('cordova')) { -%>
   <!-- Include Cordova script only when needed -->
   <script>
+<%   if (props.webview.includes('wkwebview')) { -%>
+    if (!/^http/.test(location.protocol)|/^localhost:8080/.test(location.host)) {
+<%   } else { -%>
     if (!/^http/.test(location.protocol)) {
+<%   } -%>
       document.write('<script src="cordova.js"><\/script>');
     }
   </script>

@@ -56,6 +56,30 @@ module.exports = [
     ]
   },
   {
+    type: 'checkbox',
+    name: 'webview',
+    message: 'Use enhanced web view?',
+    when: props => props.target.includes('cordova'),
+    choices: props => {
+      const choices = [];
+      if (props.mobile.includes('ios')) {
+        choices.push({
+          value: 'wkwebview',
+          name: '[iOS] WKWebView (Ionic version)',
+          checked: true
+        });
+      }
+      if (props.mobile.includes('android')) {
+        choices.push({
+          value: 'crosswalk',
+          name: '[Android] Crosswalk',
+          checked: false
+        });
+      }
+      return choices;
+    }
+  },
+  {
     type: 'list',
     name: 'ui',
     message: 'Which UI framework do you want?',
