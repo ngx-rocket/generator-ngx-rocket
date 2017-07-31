@@ -39,6 +39,8 @@
     "@ionic-native/keyboard": "^4.0.0",
     "@ionic-native/splash-screen": "^4.0.0",
     "@ionic-native/status-bar": "^4.0.0",
+<% } -%>
+<% if (props.pwa) { -%>
     "sw-toolbox": "^3.6.0",
 <% } -%>
 <% if (props.ui === 'ionic') { -%>
