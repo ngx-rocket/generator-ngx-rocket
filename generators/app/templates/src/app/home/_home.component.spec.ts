@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Http, BaseRequestOptions } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 <% if (props.ui === 'ionic') { -%>
-  import { IonicModule } from 'ionic-angular';
+import { IonicModule } from 'ionic-angular';
 <% } -%>
 
 import { SharedModule } from '../shared/shared.module';
