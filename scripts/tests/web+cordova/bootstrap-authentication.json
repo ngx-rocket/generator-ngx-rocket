@@ -1,0 +1,5 @@
+{
+  "target": ["web", "cordova"],
+  "ui": "bootstrap",
+  "auth": true
+}
