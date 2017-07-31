@@ -5,7 +5,6 @@
   <author email="dev@company.com" href="http://company.com">Development Team</author>
   <content src="index.html" />
   <access origin="*" />
-  <allow-navigation href="http://ionic.local/*"/>
   <allow-intent href="http://*/*" />
   <allow-intent href="https://*/*" />
   <allow-intent href="tel:*" />
