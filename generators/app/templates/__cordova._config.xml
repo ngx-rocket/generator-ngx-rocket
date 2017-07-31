@@ -67,6 +67,19 @@
 <%   if (props.webview.includes('wkwebview')) { -%>
     <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
 <%   } -%>
+    <!-- Set status bar style during splash screen -->
+    <config-file parent="UIStatusBarStyle" platform="ios" target="*-Info.plist" mode="replace">
+      <string>UIStatusBarStyleLightContent</string>
+    </config-file>
+    <!-- Unlock screen rotation on ipad -->
+    <config-file parent="UISupportedInterfaceOrientations~ipad" platform="ios" target="*-Info.plist" mode="replace">
+      <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationPortraitUpsideDown</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+      </array>
+    </config-file>
     <icon height="57" src="resources/ios/icon/icon.png" width="57" />
     <icon height="114" src="resources/ios/icon/icon@2x.png" width="114" />
     <icon height="40" src="resources/ios/icon/icon-40.png" width="40" />
@@ -118,6 +131,7 @@
   <preference name="SplashShowOnlyFirstTime" value="true"/>
 
   <!-- Plugins -->
+  <plugin name="cordova-custom-config" spec="^4.0.2" />
   <plugin name="cordova-plugin-device" spec="^1.1.6" />
   <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
   <plugin name="cordova-plugin-statusbar" spec="^2.2.3" />
