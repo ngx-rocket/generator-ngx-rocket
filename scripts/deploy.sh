@@ -8,7 +8,7 @@ CWD=`pwd`
 VERSION=`node -p -e "require('./package.json').version"`
 SCRIPT_FOLDER=$CWD/`dirname "${BASH_SOURCE[0]}"`
 DEPLOY_FOLDER=$CWD/deploy
-DEPLOY_APP_NAME="ngX Rocket"
+DEPLOY_APP_NAME="ngX-Rocket"
 REPOSITORY=https://$GITHUB_TOKEN@github.com/ngx-rocket/starter-kit.git
 
 function cleanup() {
@@ -54,8 +54,8 @@ prepare_repo
 yo ngx-rocket --skip-install --automate "$SCRIPT_FOLDER/tests/web/bootstrap-authentication.json" "$DEPLOY_APP_NAME"
 update_repo
 
-# Use mobile/ionic for mobile branch
-#BRANCH=mobile
-#prepare_repo
-#yo ngx-rocket --skip-install --automate "$SCRIPT_FOLDER/test-cases/mobile/ionic.json" "$DEPLOY_APP_NAME"
-#update_repo
+# Add cordova/ionic as mobile example branch
+BRANCH=cordova/ionic
+prepare_repo
+yo ngx-rocket --skip-install --automate "$SCRIPT_FOLDER/test/cordova/ionic-authentication.json" "$DEPLOY_APP_NAME"
+update_repo
