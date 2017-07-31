@@ -56,11 +56,21 @@ class NgxGenerator extends Generator {
   }
 
   prompting() {
-    return super.prompting().then(() => this.shareProps(this.props));
+    return super.prompting()
+      .then(() => {
+        this.props.mobile = this.props.mobile || [];
+        this.shareProps(this.props)
+      });
   }
 
   configuring() {
-    this.insight.track('generator', this.props.target, this.props.ui, this.props.auth ? 'auth' : 'no-auth');
+    this.insight.track(
+      'generator',
+      this.props.target,
+      this.props.target.includes('cordova') ? this.props.mobile : '',
+      this.props.ui,
+      this.props.auth ? 'auth' : 'no-auth'
+    );
   }
 
   install() {
