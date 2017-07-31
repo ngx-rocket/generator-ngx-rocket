@@ -24,13 +24,27 @@ See generated project example [here](https://github.com/ngx-rocket/starter-kit).
 
 # Getting started
 
+## Using ngX-Rocket CLI
+
 1. Install required tools:
- ```bash
+ ```sh
+ npm install -g @ngx-rocket/cli
+ ```
+
+2. Create your application:
+ ```sh
+ ngx new
+ ```
+
+## Using Yeoman
+
+1. Install required tools:
+ ```sh
  npm install -g yo generator-ngx-rocket
  ```
 
 2. Create your application:
- ```bash
+ ```sh
  yo ngx-rocket
  ```
  
@@ -146,6 +160,7 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
 #### Coding guides
 
 - [Angular](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/angular.md)
+- [Ionic](https://github.com/ngx-rocket/starter-kit/blob/mobile/ionic/docs/coding-guides/ionic.md)
 - [TypeScript](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/typescript.md)
 - [Sass](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/sass.md)
 - [HTML](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/html.md)
@@ -159,6 +174,7 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
 - [Updating dependencies and tools](https://github.com/ngx-rocket/starter-kit/blob/master/docs/updating.md)
 - [Using a backend proxy for development](https://github.com/ngx-rocket/starter-kit/blob/master/docs/backend-proxy.md)
 - [Browser routing](https://github.com/ngx-rocket/starter-kit/blob/master/docs/routing.md)
+- [Cordova](https://github.com/ngx-rocket/starter-kit/blob/mobile/ionic/docs/cordova.md)
 
 # Contributing
 
