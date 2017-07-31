@@ -11,7 +11,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 <% } else if (props.ui === 'ionic') { -%>
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
 import { Keyboard } from '@ionic-native/keyboard';
@@ -39,7 +38,7 @@ import { LoginModule } from './login/login.module';
 <% if (props.ui === 'bootstrap') { -%>
     NgbModule.forRoot(),
 <% } else if (props.ui === 'ionic') { -%>
-    IonicModule.forRoot(AppComponent),
+    IonicModule.forRoot(AppComponent, {locationStrategy: 'path'}),
 <% } -%>
     CoreModule,
     SharedModule,
@@ -57,8 +56,6 @@ import { LoginModule } from './login/login.module';
     StatusBar,
 <%   if (props.ui === 'ionic') { -%>
     SplashScreen,
-    // Needed as Ionic overrides default strategy, dunno why since they don't use angular router...
-    { provide: LocationStrategy, useClass: PathLocationStrategy },
     { provide: ErrorHandler, useClass: IonicErrorHandler }
 <%   } else { -%>
     SplashScreen
