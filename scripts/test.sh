@@ -39,11 +39,11 @@ do
     echo -------------------------------------------------------------
     echo
 
-    yo ngx-rocket --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME"
+    yo ngx-rocket --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" > /dev/null
 
-    npm run test:ci
-    npm run e2e
-    npm run build
+    npm run test:ci > /dev/null
+    npm run e2e > /dev/null
+    npm run build > /dev/null
 
     mv node_modules $CACHE_FOLDER
 
