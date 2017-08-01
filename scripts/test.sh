@@ -39,10 +39,14 @@ do
     echo -------------------------------------------------------------
     echo
 
+    echo Generating project...
     yo ngx-rocket --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" > /dev/null
 
+    echo Running unit tests...
     npm run test:ci > /dev/null
+    echo Running e2e tests...
     npm run e2e > /dev/null
+    echo Building app...
     npm run build > /dev/null
 
     mv node_modules $CACHE_FOLDER
