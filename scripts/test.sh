@@ -10,7 +10,12 @@ SCRIPT_FOLDER=`dirname "${BASH_SOURCE[0]}"`
 TEST_FOLDER=$CWD/sample-app
 CACHE_FOLDER=$CWD/cache
 TEST_APP_NAME="Sample App"
-TEST_CASES=$SCRIPT_FOLDER/tests/**/*.json
+
+if [ -n "$1" ]; then
+  TEST_CASES=$SCRIPT_FOLDER/tests/$1.json
+else
+  TEST_CASES=$SCRIPT_FOLDER/tests/**/*.json
+fi
 
 function cleanup() {
     cd $CWD
@@ -34,22 +39,20 @@ do
     fi
 
     echo
-    echo -------------------------------------------------------------
+    echo -------------------------------------------------------------------------------
     echo Testing generator with $file
-    echo -------------------------------------------------------------
+    echo -------------------------------------------------------------------------------
     echo
 
-    echo Generating project...
-    yo ngx-rocket --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" > /dev/null
+    yo ngx-rocket --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME"
 
-    echo Running unit tests...
-    npm run test:ci > /dev/null
-    echo Running e2e tests...
-    npm run e2e > /dev/null
-    echo Building app...
-    npm run build > /dev/null
+    npm run test:ci
+    npm run e2e
+    npm run build
 
-    mv node_modules $CACHE_FOLDER
+    if [ -z "$1" ]; then
+        mv node_modules $CACHE_FOLDER
+    fi
 
     cd $CWD
     rm -rf $TEST_FOLDER

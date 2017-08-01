@@ -10,14 +10,23 @@ node_js:
   - stable
 
 addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
+  chrome: stable
 
 matrix:
   fast_finish: true
+
+env:
+  matrix:
+    - CASE=cordova/bootstrap
+    - CASE=cordova/bootstrap-authentication
+    - CASE=cordova/ionic
+    - CASE=cordova/ionic-authentication
+    - CASE=web/bootstrap
+    - CASE=web/bootstrap-authentication
+    - CASE=web/ionic
+    - CASE=web/ionic-authentication
+    - CASE=web+cordova/bootstrap-authentication
+    - CASE=web+cordova/ionic-authentication
 
 install:
   - npm install -g yo
@@ -30,4 +39,4 @@ before_script:
   - sh -e /etc/init.d/xvfb start
 
 script:
-  - npm test
+  - npm test $CASE
