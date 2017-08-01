@@ -1,12 +1,5 @@
 # :rocket: generator-ngx-rocket
 
-**:loudspeaker: We have moved! :loudspeaker:**
-
-As you may have noticed, this generator [has moved](https://github.com/ngx-rocket/generator-ngx-rocket/issues/65) to the `ngx-rocket`
-organization, and has been renamed from `generator-ngx-app` to `generator-ngx-rocket`, so update your bookmarks/remotes! :rocket:
-
----
-
 [![NPM version](https://img.shields.io/npm/v/generator-ngx-rocket.svg)](https://www.npmjs.com/package/generator-ngx-rocket)
 [![Build status](https://img.shields.io/travis/ngx-rocket/generator-ngx-rocket/master.svg)](https://travis-ci.org/ngx-rocket/generator-ngx-rocket)
 ![Node version](https://img.shields.io/badge/node-%3E%3D6.0.0-brightgreen.svg)
@@ -31,20 +24,34 @@ See generated project example [here](https://github.com/ngx-rocket/starter-kit).
 
 # Getting started
 
+## Using ngX-Rocket CLI
+
 1. Install required tools:
- ```bash
+ ```sh
+ npm install -g @ngx-rocket/cli
+ ```
+
+2. Create your application:
+ ```sh
+ ngx new
+ ```
+
+## Using Yeoman
+
+1. Install required tools:
+ ```sh
  npm install -g yo generator-ngx-rocket
  ```
 
 2. Create your application:
- ```bash
+ ```sh
  yo ngx-rocket
  ```
  
 # Project structure
 
 ```
-dist/                        compiled version
+dist/                        app production build
 docs/                        project docs and coding guides
 e2e/                         end-to-end tests
 src/                         project source code
@@ -72,16 +79,26 @@ proxy.conf.js                backend proxy configuration
 
 Task automation is based on [NPM scripts](https://docs.npmjs.com/misc/scripts).
 
-Tasks                         | Description
-------------------------------|---------------------------------------------------------------------------------------
-npm start                     | Run development server on `http://localhost:4200/`
-npm run build [-- --env=prod] | Lint code and build app for production in `dist/` folder
-npm test                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
-npm run test:ci               | Lint code and run unit tests once for continuous integration
-npm run e2e                   | Run e2e tests using [Protractor](http://www.protractortest.org)
-npm run lint                  | Lint code
-npm run translations:extract  | Extract strings from code and templates to `src/app/translations/template.json`
-npm run docs                  | Display project documentation
+Task                            | Description
+--------------------------------|---------------------------------------------------------------------------------------
+`npm start`                     | Run development server on `http://localhost:4200/`
+`npm run build [-- --env=prod]` | Lint code and build web app for production in `dist/` folder
+`npm test`                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
+`npm run test:ci`               | Lint code and run unit tests once for continuous integration
+`npm run e2e`                   | Run e2e tests using [Protractor](http://www.protractortest.org)
+`npm run lint`                  | Lint code
+`npm run translations:extract`  | Extract strings from code and templates to `src/app/translations/template.json`
+`npm run docs`                  | Display project documentation
+
+Additional tasks for Cordova-based projects:
+
+Task                            | Description
+--------------------------------|---------------------------------------------------------------------------------------
+`npm run cordova:prepare`       | Prepare for building mobile app (restore Cordova platforms and plugins)
+`npm run cordova:run <ios/android> [--device]` | Run app on target platform device or simulator
+`npm run cordova:build [-- --env=prod]`        | Build mobile app for production in `dist/` folder
+`npm run cordova:clean`         | Removes `www/`, `platforms/` and `plugins/` folders
+
 
 When building the application, you can specify the target environment using the additional flag `--env <name>` (do not
 forget to prepend `--` to pass arguments to npm scripts).
@@ -123,19 +140,31 @@ Development, build and quality processes are based on [angular-cli](https://gith
   [Stylelint](http://stylelint.io) and [HTMLHint](http://htmlhint.com/)
 - Local knowledgebase server using [Hads](https://github.com/sinedied/hads)
 
+Native mobile application bundling is based on [Cordova](https://cordova.apache.org).
+Alternative enhanced web views are also supported:
+- [WkWebView](https://github.com/ionic-team/cordova-plugin-wkwebview-engine) for iOS (Ionic fixed version)
+- [Crosswalk](https://crosswalk-project.org) for Android
+
+
 #### Libraries
 
-- [Angular 4](https://angular.io)
-- [Bootstrap 4](https://v4-alpha.getbootstrap.com)
-- [Font Awesome](http://fontawesome.io)
+- [Angular](https://angular.io)
 - [RxJS](http://reactivex.io/rxjs)
-- [ng-bootsrap](https://ng-bootstrap.github.io/)
 - [ngx-translate](https://github.com/ngx-translate/core)
 - [Lodash](https://lodash.com)
+- UI based on:
+  * Bootstrap
+    - [Bootstrap 4](https://v4-alpha.getbootstrap.com)
+    - [ng-bootsrap](https://ng-bootstrap.github.io/)
+    - [Font Awesome](http://fontawesome.io)
+  * Ionic:
+    - [Ionic](http://ionicframework.com)
+    - [Ionic Native](https://ionicframework.com/docs/native/)
 
 #### Coding guides
 
 - [Angular](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/angular.md)
+- [Ionic](https://github.com/ngx-rocket/starter-kit/blob/mobile/ionic/docs/coding-guides/ionic.md)
 - [TypeScript](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/typescript.md)
 - [Sass](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/sass.md)
 - [HTML](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/html.md)
@@ -149,6 +178,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - [Updating dependencies and tools](https://github.com/ngx-rocket/starter-kit/blob/master/docs/updating.md)
 - [Using a backend proxy for development](https://github.com/ngx-rocket/starter-kit/blob/master/docs/backend-proxy.md)
 - [Browser routing](https://github.com/ngx-rocket/starter-kit/blob/master/docs/routing.md)
+- [Cordova](https://github.com/ngx-rocket/starter-kit/blob/mobile/ionic/docs/cordova.md)
 
 # Contributing
 

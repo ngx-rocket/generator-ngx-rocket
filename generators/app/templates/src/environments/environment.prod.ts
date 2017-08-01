@@ -4,7 +4,7 @@ import env from './.env.json';
 export const environment = {
   production: true,
   version: env.npm_package_version,
-  serverUrl: '/api',
+  serverUrl: 'https://api.chucknorris.io',
   defaultLanguage: 'en-US',
   supportedLanguages: [
     'en-US',

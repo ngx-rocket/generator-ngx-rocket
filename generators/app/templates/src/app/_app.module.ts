@@ -1,9 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
+<% if (props.ui === 'ionic') { -%>
+import { ErrorHandler, NgModule } from '@angular/core';
+<% } else { -%>
 import { NgModule } from '@angular/core';
+<% } -%>
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
+<% if (props.ui === 'bootstrap') { -%>
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+<% } else if (props.ui === 'ionic') { -%>
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+<% } -%>
+<% if (props.target.includes('cordova')) { -%>
+import { Keyboard } from '@ionic-native/keyboard';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+<% } -%>
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,7 +35,11 @@ import { LoginModule } from './login/login.module';
     FormsModule,
     HttpModule,
     TranslateModule.forRoot(),
+<% if (props.ui === 'bootstrap') { -%>
     NgbModule.forRoot(),
+<% } else if (props.ui === 'ionic') { -%>
+    IonicModule.forRoot(AppComponent, {locationStrategy: 'path'}),
+<% } -%>
     CoreModule,
     SharedModule,
     HomeModule,
@@ -33,7 +50,22 @@ import { LoginModule } from './login/login.module';
     AppRoutingModule
   ],
   declarations: [AppComponent],
-  providers: [],
+  providers: [
+<% if (props.target.includes('cordova')) { -%>
+    Keyboard,
+    StatusBar,
+<%   if (props.ui === 'ionic') { -%>
+    SplashScreen,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
+<%   } else { -%>
+    SplashScreen
+<%   } -%>
+<% } -%>
+  ],
+<% if (props.ui === 'ionic') { -%>
+  bootstrap: [IonicApp]
+<% } else { -%>
   bootstrap: [AppComponent]
+<% } -%>
 })
 export class AppModule { }

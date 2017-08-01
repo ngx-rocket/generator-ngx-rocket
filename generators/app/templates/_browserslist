@@ -1,0 +1,12 @@
+# List of supported browsers, for autoprefixer
+# See https://github.com/ai/browserslist
+
+Last 2 versions
+<% if (props.target.includes('cordova')) { -%>
+iOS >= 8
+Android >= 4.4
+Explorer >= 11
+ExplorerMobile >= 11
+<% } else { -%>
+> 1%
+<% } -%>

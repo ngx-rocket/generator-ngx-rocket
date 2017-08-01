@@ -1,5 +1,5 @@
 {
-  "extends": "stylelint-config-standard",
+  "extends": ["stylelint-config-standard", "stylelint-config-recommended-scss"],
   "rules": {
     "font-family-name-quotes": "always-where-recommended",
     "function-url-quotes": ["always", { "except": ["empty"] }],
@@ -17,10 +17,11 @@
     "no-empty-source": null,
     "selector-class-pattern": "[a-z-]+",
     "selector-id-pattern": "[a-z-]+",
-    "selector-no-id": true,
+    "selector-max-id": 0,
     "selector-no-qualifying-type": true,
-    "selector-no-universal": true,
+    "selector-max-universal": 0,
     "unit-whitelist": ["px", "%", "rem", "vw", "vh", "deg"],
+    "max-empty-lines": 2,
     "max-line-length": 120
   }
 }

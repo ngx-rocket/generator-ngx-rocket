@@ -1,18 +1,26 @@
 {
   "APP_NAME": "<%= props.appName %>",
-  "Version": "Version",
-  "Home": "Home",
   "About": "About",
-<% if (props.auth) { -%>
-  "Logged in as": "Logged in as",
-  "Logout": "Logout",
-  "Username": "Username",
-  "Password": "Password",
-  "Username or password incorrect.": "Username or password incorrect.",
-  "Username is required": "Username is required",
-  "Password is required": "Password is required",
-  "Remember me": "Remember me",
-  "Login": "Login",
+  "Hello world !": "Hello world !",
+  "Home": "Home",
+<% if (props.ui === 'ionic') { -%>
+  "Cancel": "Cancel",
+  "Change language": "Change language",
+  "Language": "Language",
+  "Ok": "Ok",
 <% } -%>
-  "Hello world !": "Hello world !"
+<% if (props.auth) { -%>
+<%   if (props.ui === 'bootstrap') { -%>
+  "Logged in as": "Logged in as",
+<%   } -%>
+  "Login": "Login",
+  "Logout": "Logout",
+  "Password": "Password",
+  "Password is required": "Password is required",
+  "Username": "Username",
+  "Username is required": "Username is required",
+  "Username or password incorrect.": "Username or password incorrect.",
+  "Remember me": "Remember me",
+<% } -%>
+  "Version": "Version"
 }

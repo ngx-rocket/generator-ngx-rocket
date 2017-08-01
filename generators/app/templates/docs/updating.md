@@ -11,20 +11,24 @@ npm update
 ```
 
 - Upgrade packages manually
-```bash
+```sh
 npm install --save[-dev] <package_name>@latest
 ```
 
 Alternatively, you can use [npm-check](https://github.com/dylang/npm-check) to perform an interactive upgrade:
-```bash
+```sh
 npm-check -u --skip-unused
 ```
 
 ## Locking package versions
 
-It is recommended to use [npm shrinkwrap](https://docs.npmjs.com/cli/shrinkwrap) to lock down all your dependencies
-version and avoid unwanted package updates:
-```bash
+Starting from `npm@5` a new `package-lock.json` file is
+[automatically generated](https://docs.npmjs.com/files/package-locks) when using `npm install` commands, to ensure a
+reproducible dependency tree and avoid unwanted package updates.
+
+If you use a previous npm version, it is recommended to use [npm shrinkwrap](https://docs.npmjs.com/cli/shrinkwrap) to
+lock down all your dependencies version:
+```sh
 npm shrinkwrap --dev
 ```
 

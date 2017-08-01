@@ -8,6 +8,11 @@ import { MockAuthenticationService } from '../authentication/authentication.serv
 <% } -%>
 import { ShellComponent } from './shell.component';
 import { CoreModule } from '../core.module';
+<% if (props.ui === 'ionic') { -%>
+import { IonicModule } from 'ionic-angular';
+<% } else if (props.ui === 'bootstrap') { -%>
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+<% } -%>
 
 describe('ShellComponent', () => {
   let component: ShellComponent;
@@ -18,6 +23,11 @@ describe('ShellComponent', () => {
       imports: [
         RouterTestingModule,
         TranslateModule.forRoot(),
+<% if (props.ui === 'ionic') { -%>
+        IonicModule.forRoot(ShellComponent),
+<% } else if (props.ui === 'bootstrap') { -%>
+        NgbModule.forRoot(),
+<% } -%>
         CoreModule
 <% if (props.auth) { -%>
       ],

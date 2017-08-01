@@ -1,0 +1,7 @@
+{
+  "target": ["cordova"],
+  "mobile": ["ios", "android"],
+  "webview": ["wkwebview"],
+  "ui": "bootstrap",
+  "auth": true
+}

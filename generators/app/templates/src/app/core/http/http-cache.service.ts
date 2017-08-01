@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Response, ResponseOptions } from '@angular/http';
+import { ResponseOptions } from '@angular/http';
 import { each } from 'lodash';
 
 import { Logger } from '../logger.service';

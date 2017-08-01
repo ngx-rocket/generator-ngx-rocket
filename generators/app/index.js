@@ -5,12 +5,11 @@ const Insight = require('insight');
 const Generator = require('@ngx-rocket/core');
 const asciiLogo = require('@ngx-rocket/ascii-logo');
 
+const prompts = require('./prompts');
 const options = require('./options.json');
-const prompts = require('./prompts.json');
 const pkg = require('../../package.json');
 
 class NgxGenerator extends Generator {
-
   initializing() {
     this.version = pkg.version;
     this.insight = new Insight({trackingCode: 'UA-93069862-1', pkg});
@@ -48,7 +47,7 @@ class NgxGenerator extends Generator {
     // Composition
     const addonsOption = this.options.addons;
     const addons = addonsOption ? addonsOption.split(' ') : [];
-    addons.forEach(addon => this.composeWith(addon));
+    addons.forEach(addon => this.composeWith(addon, this.options));
 
     this.insight.track('generator', this.version);
     this.insight.track('node', process.version);
@@ -57,11 +56,22 @@ class NgxGenerator extends Generator {
   }
 
   prompting() {
-    return super.prompting().then(() => this.shareProps(this.props));
+    return super.prompting()
+      .then(() => {
+        this.props.mobile = this.props.mobile || [];
+        this.props.webview = this.props.webview || [];
+        this.shareProps(this.props);
+      });
   }
 
   configuring() {
-    this.insight.track('generator', 'web', 'bootstrap');
+    this.insight.track(
+      'generator',
+      this.props.target,
+      this.props.target.includes('cordova') ? this.props.mobile : '',
+      this.props.ui,
+      this.props.auth ? 'auth' : 'no-auth'
+    );
   }
 
   install() {
@@ -69,13 +79,8 @@ class NgxGenerator extends Generator {
 
     if (!skipInstall) {
       this.log(`\nRunning ${chalk.yellow('npm install')}, please wait...`);
+      this.npmInstall(null, {loglevel: 'error'});
     }
-
-    this.installDependencies({
-      skipInstall,
-      bower: false,
-      skipMessage: true
-    });
   }
 
   end() {
@@ -86,13 +91,22 @@ class NgxGenerator extends Generator {
 
     this.log('\nAll done! Get started with these tasks:');
     this.log(`- $ ${chalk.green('npm start')}: start dev server with live reload on http://localhost:4200`);
-    this.log(`- $ ${chalk.green('npm run build')}: build app for production`);
+
+    if (this.props.target.includes('web')) {
+      this.log(`- $ ${chalk.green('npm run build')}: build web app for production`);
+    }
+
+    if (this.props.target.includes('cordova')) {
+      this.log(`- $ ${chalk.green('npm run cordova:prepare')}: prepare for building mobile app`);
+      this.log(`- $ ${chalk.green('npm run cordova:run')}: run app on device or simulator`);
+      this.log(`- $ ${chalk.green('npm run cordova:build')}: build mobile app for production`);
+    }
+
     this.log(`- $ ${chalk.green('npm test')}: run unit tests in watch mode for TDD`);
     this.log(`- $ ${chalk.green('run test:ci')}: lint code and run units tests with coverage`);
     this.log(`- $ ${chalk.green('run e2e')}: launch e2e tests`);
     this.log(`- $ ${chalk.green('run docs')}: show docs and coding guides\n`);
   }
-
 }
 
 module.exports = Generator.make({

@@ -1,0 +1,45 @@
+@import "../../theme/theme-variables";
+
+.grid,
+.row {
+  min-height: 100%;
+  flex-grow: 1;
+}
+
+.login-header,
+.login-background {
+  background: color($colors, primary);
+}
+
+.item-select .label-md,
+.login-header,
+.login-background {
+  color: color-contrast($colors, primary);
+}
+
+// Force style down to child components
+// See https://angular.io/guide/component-styles#deep
+// stylelint-disable-next-line selector-max-compound-selectors
+:host /deep/ .select-icon .select-icon-inner {
+  color: color-contrast($colors, primary);
+}
+
+.login-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 50%;
+}
+
+.login-container {
+  background: $background-color;
+
+  .item {
+    @include padding-horizontal($content-margin, $content-margin);
+  }
+}
+
+.list > .item-block:first-child {
+  border-top: none;
+}

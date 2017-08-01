@@ -18,7 +18,14 @@ version <%= version %>
 # Project structure
 
 ```
-dist/                        compiled version
+<% if (props.target.includes('cordova')) { -%>
+<%   if (props.target.includes('web')) { -%>
+www/                         web app production build
+<%   } -%>
+dist/                        mobile app production build
+<% } else { -%>
+dist/                        web app production build
+<% } -%>
 docs/                        project docs and coding guides
 e2e/                         end-to-end tests
 src/                         project source code
@@ -38,6 +45,10 @@ src/                         project source code
 |- main.ts                   app entry point
 |- polyfills.ts              polyfills needed by Angular
 +- test.ts                   unit tests entry point
+<% if (props.target.includes('cordova')) { -%>
+platforms/                   Cordova platform-specific projects
+plugins/                     Cordova plugins
+<% } -%>
 reports/                     test and coverage reports
 proxy.conf.js                backend proxy configuration
 ```
@@ -46,16 +57,28 @@ proxy.conf.js                backend proxy configuration
 
 Task automation is based on [NPM scripts](https://docs.npmjs.com/misc/scripts).
 
-Tasks                         | Description
-------------------------------|---------------------------------------------------------------------------------------
-npm start                     | Run development server on `http://localhost:4200/`
-npm run build [-- --env=prod] | Lint code and build app for production in `dist/` folder
-npm test                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
-npm run test:ci               | Lint code and run unit tests once for continuous integration
-npm run e2e                   | Run e2e tests using [Protractor](http://www.protractortest.org)
-npm run lint                  | Lint code
-npm run translations:extract  | Extract strings from code and templates to `src/app/translations/template.json`
-npm run docs                  | Display project documentation
+Task                            | Description
+--------------------------------|--------------------------------------------------------------------------------------
+`npm start`                     | Run development server on `http://localhost:4200/`
+<% if (props.target.includes('web')) { -%>
+<%   if (props.target.includes('cordova')) { -%>
+`npm run build [-- --env=prod]` | Lint code and build web app for production in `www/` folder
+<%   } else { -%>
+`npm run build [-- --env=prod]` | Lint code and build web app for production in `dist/` folder
+<%   } -%>
+<% } -%>
+<% if (props.target.includes('cordova')) { -%>
+`npm run cordova:prepare`       | Prepare for building mobile app (restore Cordova platforms and plugins)
+`npm run cordova:run <ios/android> [--device]` | Run app on target platform device or simulator
+`npm run cordova:build [-- --env=prod]`        | Build mobile app for production in `dist/` folder
+`npm run cordova:clean`         | Removes `www/`, `platforms/` and `plugins/` folders
+<% } -%>
+`npm test`                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
+`npm run test:ci`               | Lint code and run unit tests once for continuous integration
+`npm run e2e`                   | Run e2e tests using [Protractor](http://www.protractortest.org)
+`npm run lint`                  | Lint code
+`npm run translations:extract`  | Extract strings from code and templates to `src/app/translations/template.json`
+`npm run docs`                  | Display project documentation
 
 When building the application, you can specify the target environment using the additional flag `--env <name>` (do not
 forget to prepend `--` to pass arguments to npm scripts).
@@ -104,11 +127,17 @@ Development, build and quality processes are based on [angular-cli](https://gith
 
 #### Libraries
 
-- [Angular 2](https://angular.io)
+- [Angular](https://angular.io)
+<% if (props.ui === 'bootstrap') { -%>
 - [Bootstrap 4](https://v4-alpha.getbootstrap.com)
-- [Font Awesome](http://fontawesome.io)
-- [RxJS](http://reactivex.io/rxjs)
 - [ng-bootsrap](https://ng-bootstrap.github.io/)
+- [Font Awesome](http://fontawesome.io)
+<% } -%>
+<% if (props.ui === 'ionic') { -%>
+- [Ionic](http://ionicframework.com)
+- [Ionic Native](https://ionicframework.com/docs/native/)
+<% } -%>
+- [RxJS](http://reactivex.io/rxjs)
 - [ngx-translate](https://github.com/ngx-translate/core)
 - [Lodash](https://lodash.com)
 

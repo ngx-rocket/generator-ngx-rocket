@@ -15,7 +15,7 @@ In Windows environments, add the `HTTP_PROXY` and `HTTPS_PROXY` system environme
 ### Unix
 
 Add these lines to your `~/.bash_profile` or `~/.profile`:
-```bash
+```sh
 export HTTP_PROXY="http://<username>:<password>@<proxy_server>:<proxy_port>"
 export HTTPS_PROXY="$HTTP_PROXY"
 ```
@@ -37,13 +37,13 @@ variable, in the same way as `HTTP_PROXY`:
 
 ### Unix
 
-```bash
+```sh
 export NO_PROXY="127.0.0.1, localhost, <your_local_server_ip_or_hostname>"
 ```
 
 ### Npm
 
 Run this command in your project directory:
-```bash
+```sh
 npm set strict-ssl false
 ```

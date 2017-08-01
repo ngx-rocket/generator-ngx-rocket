@@ -3,17 +3,48 @@
 <head>
   <meta charset="utf-8"/>
   <title><%= props.appName %></title>
+<% if (props.target.includes('cordova')) { -%>
+  <base href="./"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+  <meta name="msapplication-tap-highlight" content="no"/>
+  <meta name="theme-color" content="#4e8ef7"/>
+<% } else { -%>
   <base href="/"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<% } -%>
+<% if (props.pwa) { -%>
+  <link rel="manifest" href="manifest.json"/>
+<% } -%>
+<% if (props.target.includes('web')) { -%>
   <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<% } -%>
 </head>
 <body>
+<% if (props.target.includes('web')) { -%>
   <!--[if lt IE 10]>
   <p>
     You are using an <strong>outdated</strong> browser.
     Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
   </p>
   <![endif]-->
+<% } -%>
+<% if (props.target.includes('cordova')) { -%>
+  <!-- Include Cordova script only when needed -->
+  <script>
+<%   if (props.webview.includes('wkwebview')) { -%>
+    if (!/^http/.test(location.protocol)|/^localhost:8080/.test(location.host)) {
+<%   } else { -%>
+    if (!/^http/.test(location.protocol)) {
+<%   } -%>
+      document.write('<script src="cordova.js"><\/script>');
+    }
+  </script>
+<% } -%>
+<% if (props.ui === 'ionic') { -%>
+  <ion-app></ion-app>
+<% } else { -%>
   <app-root></app-root>
+<% } -%>
 </body>
 </html>
