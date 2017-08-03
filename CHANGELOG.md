@@ -1,5 +1,46 @@
 # Change Log
 
+## [2.0.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.0.0) (2017-08-03)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/1.3.3...2.0.0)
+
+**Enhancements**:
+
+- Add note on Ionic limitations with Angular CLI [\#111](https://github.com/ngx-rocket/generator-ngx-rocket/issues/111) [[documentation](https://github.com/ngx-rocket/generator-ngx-rocket/labels/documentation)]
+- Add support for multiple targets [\#105](https://github.com/ngx-rocket/generator-ngx-rocket/issues/105) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Use browser default language as default [\#103](https://github.com/ngx-rocket/generator-ngx-rocket/issues/103) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add update check and notification [\#96](https://github.com/ngx-rocket/generator-ngx-rocket/issues/96) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add addon generator in CLI [\#91](https://github.com/ngx-rocket/generator-ngx-rocket/issues/91) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add documentation for Cordova usage [\#79](https://github.com/ngx-rocket/generator-ngx-rocket/issues/79) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add mobile cordova platform choice [\#78](https://github.com/ngx-rocket/generator-ngx-rocket/issues/78) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add WKWebView and Crosswalk support for mobile [\#77](https://github.com/ngx-rocket/generator-ngx-rocket/issues/77) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add/improve npm scripts for mobile [\#76](https://github.com/ngx-rocket/generator-ngx-rocket/issues/76) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add recommended cordova plugins to mobile template [\#75](https://github.com/ngx-rocket/generator-ngx-rocket/issues/75) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add automatic language detection on mobile app startup [\#74](https://github.com/ngx-rocket/generator-ngx-rocket/issues/74) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add ionic authentication templates and navigation guard [\#73](https://github.com/ngx-rocket/generator-ngx-rocket/issues/73) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add the mobile specific app configuration and base templates [\#72](https://github.com/ngx-rocket/generator-ngx-rocket/issues/72) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- HTML minification \(angular-cli addon\) [\#41](https://github.com/ngx-rocket/generator-ngx-rocket/issues/41) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Port mobile template to NG2 [\#5](https://github.com/ngx-rocket/generator-ngx-rocket/issues/5) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Fixed bugs:**
+
+- NgbModule.forRoot\(\) used in feature module [\#112](https://github.com/ngx-rocket/generator-ngx-rocket/issues/112)
+- Add-ons modules do not inherit parent generator options [\#104](https://github.com/ngx-rocket/generator-ngx-rocket/issues/104)
+- Prevent back navigation on login/logout [\#102](https://github.com/ngx-rocket/generator-ngx-rocket/issues/102)
+- Translations files are copied to dist folder [\#101](https://github.com/ngx-rocket/generator-ngx-rocket/issues/101)
+- Type 'Observable\<{} | Response\>' is not assignable to type 'Observable\<Response\>'. [\#95](https://github.com/ngx-rocket/generator-ngx-rocket/issues/95)
+
+**Closed issues:**
+
+- Update to latest angular-cli and TypeScript 2.4 [\#115](https://github.com/ngx-rocket/generator-ngx-rocket/issues/115)
+- Add code of conduct and issue template [\#107](https://github.com/ngx-rocket/generator-ngx-rocket/issues/107)
+- File to import not found or unreadable [\#100](https://github.com/ngx-rocket/generator-ngx-rocket/issues/100)
+
+**Merged pull requests:**
+
+- Feature/update [\#116](https://github.com/ngx-rocket/generator-ngx-rocket/pull/116)
+- Added cordova/mobile template + bugfixes [\#113](https://github.com/ngx-rocket/generator-ngx-rocket/pull/113)
+- Added code of conduct and issue template \(closes \#107\) [\#110](https://github.com/ngx-rocket/generator-ngx-rocket/pull/110)
+
 ## [1.3.3](https://github.com/ngx-rocket/generator-ngx-rocket/tree/1.3.3) (2017-06-30)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/1.3.2...1.3.3)
 
