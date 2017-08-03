@@ -9,6 +9,10 @@ node_js:
   - '7'
   - stable
 
+cache:
+  directories:
+  - $HOME/.npm
+
 addons:
   chrome: stable
 
