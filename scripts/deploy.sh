@@ -57,5 +57,5 @@ update_repo
 # Add cordova/ionic as mobile example branch
 BRANCH=cordova/ionic
 prepare_repo
-yo ngx-rocket --skip-install --automate "$SCRIPT_FOLDER/test/cordova/ionic-authentication.json" "$DEPLOY_APP_NAME"
+yo ngx-rocket --skip-install --automate "$SCRIPT_FOLDER/tests/cordova/ionic-authentication.json" "$DEPLOY_APP_NAME"
 update_repo
