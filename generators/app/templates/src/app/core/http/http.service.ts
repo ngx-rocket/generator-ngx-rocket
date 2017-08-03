@@ -118,7 +118,7 @@ export class HttpService extends Http {
   private httpRequest(request: string|Request, options: RequestOptionsArgs): Observable<Response> {
     let req = super.request(request, options);
     if (!options.skipErrorHandler) {
-      req = req.catch(this.errorHandler.bind(this));
+      req = req.catch(error => this.errorHandler(error));
     }
     return req;
   }
