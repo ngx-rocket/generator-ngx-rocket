@@ -6,21 +6,40 @@
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![Downloads](https://img.shields.io/npm/dt/generator-ngx-rocket.svg)](https://npmjs.org/package/generator-ngx-rocket)
 
-Web project starter kit including modern tools and workflow based on
-[angular-cli](https://github.com/angular/angular-cli), best practices from the community, a scalable base template and
-a good learning base.
+![ngx-rocket logo](https://user-images.githubusercontent.com/593151/28924751-08023b32-7863-11e7-9186-c17d4647d861.png)
+
+> Web project starter kit including modern tools and workflow based on
+> [angular-cli](https://github.com/angular/angular-cli), best practices from the community, a scalable base template and
+> a good learning base.
 
 See generated project example [here](https://github.com/ngx-rocket/starter-kit).
 
-### Benefits
+### Benefits versus bare `angular-cli` projects
 
-- Quickstart a project in seconds and focus on features, not on frameworks or tools
+- **A complete starter template:** example app structure tailored for scalability, with examples and boilerplate code
+  for every common thing needed in enterprise projects, such as unit tests, routing, authentication, HTTPS service
+  extensions, i18n support with dynamic language change and automatic user language detection...
+  
+- **Improved tooling:** SCSS & HTML linting, stricter TSLint rules, markdown-based local wiki server for documentation,
+  automated localizable strings extraction, corporate proxy support, [Cordova](https://cordova.apache.org) integration
 
-- Industrial-grade tools, ready for usage in a continuous integration environment and DevOps
+- **Extensive base documentation:** [coding guides](#coding-guides) for TypeScript/SCSS/HTML, Angular onboarding guide,
+  corporate proxy and other tools [configuration and usage](#other-documentation)...
+  
+- **Ready-to-use UI components:** focus on your app, not on the stack! [Choose](#libraries) between a
+  [Bootstrap 4](https://v4-alpha.getbootstrap.com) or [Ionic](http://ionicframework.com) based UI with nicely looking,
+  responsive starter templates
+  
+- **Mobile app support:** choose between a web app, a mobile app (using [Cordova](https://cordova.apache.org)) or both
+  using the same code base
 
-- Scalable architecture with base app template including example components, services and tests
+- **API proxy example setup:** development and debug faster using a remote server
 
-![logo](https://cloud.githubusercontent.com/assets/593151/23604024/a9729c78-0257-11e7-8c60-0882a98bad41.png)
+- **Generator output customization:** with the provided
+  [add-on support](https://github.com/ngx-rocket/generator-ngx-rocket-addon), start multiple projects even faster by
+  plugging in additions that fit your needs, such as your enterprise theme, SSO authentication, services integrations...
+
+And there's even more! See [What's in the box](@whats-in-the-box) for more details.
 
 # Getting started
 
@@ -120,6 +139,8 @@ If you have installed [angular-cli](https://github.com/angular/angular-cli) glob
 you can also use the command `ng generate` directly.
 
 # What's in the box
+
+![starter kit](https://cloud.githubusercontent.com/assets/593151/23604024/a9729c78-0257-11e7-8c60-0882a98bad41.png)
 
 The app template is based on [HTML5](http://whatwg.org/html), [TypeScript](http://www.typescriptlang.org) and
 [Sass](http://sass-lang.com). The translation files use the common [JSON](http://www.json.org) format.

@@ -12,6 +12,7 @@
     "angular",
     "angular-cli",
     "bootstrap",
+    "ionic",
     "scalable",
     "enterprise",
     "scaffold",
@@ -19,6 +20,7 @@
     "seed",
     "typescript",
     "sass",
+    "cordova",
     "mobile",
     "web"
   ],
