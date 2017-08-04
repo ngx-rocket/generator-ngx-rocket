@@ -185,7 +185,7 @@ Alternative enhanced web views are also supported:
 #### Coding guides
 
 - [Angular](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/angular.md)
-- [Ionic](https://github.com/ngx-rocket/starter-kit/blob/mobile/ionic/docs/coding-guides/ionic.md)
+- [Ionic](https://github.com/ngx-rocket/starter-kit/blob/cordova/ionic/docs/coding-guides/ionic.md)
 - [TypeScript](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/typescript.md)
 - [Sass](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/sass.md)
 - [HTML](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/html.md)
@@ -199,7 +199,7 @@ Alternative enhanced web views are also supported:
 - [Updating dependencies and tools](https://github.com/ngx-rocket/starter-kit/blob/master/docs/updating.md)
 - [Using a backend proxy for development](https://github.com/ngx-rocket/starter-kit/blob/master/docs/backend-proxy.md)
 - [Browser routing](https://github.com/ngx-rocket/starter-kit/blob/master/docs/routing.md)
-- [Cordova](https://github.com/ngx-rocket/starter-kit/blob/mobile/ionic/docs/cordova.md)
+- [Cordova](https://github.com/ngx-rocket/starter-kit/blob/cordova/ionic/docs/cordova.md)
 
 # Contributing
 
