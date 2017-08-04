@@ -33,7 +33,7 @@ See generated project example [here](https://github.com/ngx-rocket/starter-kit).
 - **Mobile app support:** choose between a web app, a mobile app (using [Cordova](https://cordova.apache.org)) or both
   using the same code base
 
-- **API proxy example setup:** development and debug faster using a remote server
+- **API proxy example setup:** develop and debug faster using any remote server
 
 - **Generator output customization:** with the provided
   [add-on support](https://github.com/ngx-rocket/generator-ngx-rocket-addon), start multiple projects even faster by
