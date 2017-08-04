@@ -43,7 +43,7 @@ And there's even more! See [What's in the box](@whats-in-the-box) for more detai
 
 # Getting started
 
-## Using ngX-Rocket CLI
+## Using [ngX-Rocket CLI](https://github.com/ngx-rocket/cli)
 
 1. Install required tools:
  ```sh
