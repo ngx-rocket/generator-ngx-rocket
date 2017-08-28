@@ -33,7 +33,7 @@ See generated project example [here](https://github.com/ngx-rocket/starter-kit).
 - **Mobile app support:** choose between a web app, a mobile app (using [Cordova](https://cordova.apache.org)) or both
   using the same code base
 
-- **API proxy example setup:** development and debug faster using a remote server
+- **API proxy example setup:** develop and debug faster using any remote server
 
 - **Generator output customization:** with the provided
   [add-on support](https://github.com/ngx-rocket/generator-ngx-rocket-addon), start multiple projects even faster by
@@ -43,7 +43,7 @@ And there's even more! See [What's in the box](@whats-in-the-box) for more detai
 
 # Getting started
 
-## Using ngX-Rocket CLI
+## Using [ngX-Rocket CLI](https://github.com/ngx-rocket/cli)
 
 1. Install required tools:
  ```sh
@@ -185,7 +185,7 @@ Alternative enhanced web views are also supported:
 #### Coding guides
 
 - [Angular](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/angular.md)
-- [Ionic](https://github.com/ngx-rocket/starter-kit/blob/mobile/ionic/docs/coding-guides/ionic.md)
+- [Ionic](https://github.com/ngx-rocket/starter-kit/blob/cordova/ionic/docs/coding-guides/ionic.md)
 - [TypeScript](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/typescript.md)
 - [Sass](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/sass.md)
 - [HTML](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/html.md)
@@ -199,7 +199,7 @@ Alternative enhanced web views are also supported:
 - [Updating dependencies and tools](https://github.com/ngx-rocket/starter-kit/blob/master/docs/updating.md)
 - [Using a backend proxy for development](https://github.com/ngx-rocket/starter-kit/blob/master/docs/backend-proxy.md)
 - [Browser routing](https://github.com/ngx-rocket/starter-kit/blob/master/docs/routing.md)
-- [Cordova](https://github.com/ngx-rocket/starter-kit/blob/mobile/ionic/docs/cordova.md)
+- [Cordova](https://github.com/ngx-rocket/starter-kit/blob/cordova/ionic/docs/cordova.md)
 
 # Contributing
 
