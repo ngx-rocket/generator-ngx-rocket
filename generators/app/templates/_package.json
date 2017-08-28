@@ -49,8 +49,8 @@
     "ionic-angular": "^3.5.3",
     "ionicons": "^3.0.0",
 <% } else if (props.ui === 'bootstrap') { -%>
-    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.25",
-    "bootstrap": "4.0.0-alpha.6",
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.2",
+    "bootstrap": "4.0.0-beta",
     "font-awesome": "^4.7.0",
 <% } -%>
     "core-js": "^2.4.1",
