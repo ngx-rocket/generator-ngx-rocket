@@ -38,13 +38,12 @@ Here is a quick comparison:
 
 #### Limitations with Ionic CLI
 
-- Does not follow [Angular style guide](https://angular.io/styleguide): naming, structure...
-- Cannot organize projects by feature modules
+- Does not follow [Angular style guide](https://angular.io/styleguide): naming, structure, modules...
 - No cache busting by using hash on CSS/JavaScript filenames
-- No unit tests support
-- No end-to-end tests support
+- No built-in unit tests support
+- No built-in end-to-end tests support
 - No CSS encapsulation in components
-- No selective module lazy loading
+- More difficult to do selective module lazy loading (need to mix `@IonicPage` modules and regular modules)
   
 #### Limitations with Angular CLI
 
@@ -59,3 +58,6 @@ Here is a quick comparison:
   See these issues: 
   * https://github.com/ionic-team/ionic/issues/12285
   * https://github.com/angular/angular-cli/issues/7112
+
+- No built-in PWA (Progressive Web App) support. We are working to integrate this in
+  [ngX-Rocket tools](https://github.com/ngx-rocket) directly.
