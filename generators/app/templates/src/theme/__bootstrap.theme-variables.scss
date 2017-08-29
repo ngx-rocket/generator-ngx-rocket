@@ -39,14 +39,14 @@ $teal:    #20c997;
 $cyan:    #17a2b8;
 
 $theme-colors: (
-    primary: $blue,
-    secondary: $gray-600,
-    success: $green,
-    info: $cyan,
-    warning: $yellow,
-    danger: $red,
-    light: $gray-100,
-    dark: $gray-800
+  primary: $blue,
+  secondary: $gray-600,
+  success: $green,
+  info: $cyan,
+  warning: $yellow,
+  danger: $red,
+  light: $gray-100,
+  dark: $gray-800
 );
 
 // Use Bootstrap defaults for other variables, imported here so we can access all app variables in one place when used
