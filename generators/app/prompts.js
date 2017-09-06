@@ -7,7 +7,7 @@ module.exports = [
     message: 'What\'s the name of your app?'
   },
   {
-    type: 'checkbox',
+    type: 'list',
     name: 'target',
     message: 'What kind of app do you want to create?',
     choices: [
@@ -26,13 +26,12 @@ module.exports = [
       // }
     ]
   },
-  // {
-  //   type: 'confirm',
-  //   name: 'pwa',
-  //   message: 'Do you want progressive web app support? (manifest and service worker)',
-  //   default: true,
-  //   when: props => props.target.includes('web')
-  // },
+  {
+    type: 'confirm',
+    name: 'pwa',
+    message: 'Do you want progressive web app support? (manifest and service worker)',
+    default: true
+  },
   {
     type: 'checkbox',
     name: 'mobile',
