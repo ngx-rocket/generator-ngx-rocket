@@ -56,7 +56,7 @@
     "core-js": "^2.4.1",
     "lodash": "^4.17.4",
     "rxjs": "^5.4.0",
-    "zone.js": "^0.8.12"
+    "zone.js": "^0.8.14"
   },
   "devDependencies": {
 <% if (props.target.includes('cordova')) { -%>
@@ -89,7 +89,7 @@
     "stylelint-config-recommended-scss": "~2.0.0",
     "stylelint-config-standard": "~17.0.0",
     "stylelint-scss": "~2.1.0",
-    "ts-node": "^3.1.0",
+    "ts-node": "^3.2.0",
     "tslint": "~5.4.3",
     "typescript": "~2.4.2"
   }

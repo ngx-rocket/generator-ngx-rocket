@@ -32,9 +32,9 @@
     "member-access": false,
     "member-ordering": [
       true,
-      "public-before-private",
-      "static-before-instance",
-      "variables-before-functions"
+      {
+        "order": "statics-first"
+      }
     ],
     "no-arg": true,
     "no-bitwise": true,
@@ -60,6 +60,8 @@
       true,
       "ignore-params"
     ],
+    "no-misused-new": true,
+    "no-non-null-assertion": true,
     "no-shadowed-variable": true,
     "no-string-literal": false,
     "no-string-throw": true,
@@ -84,6 +86,7 @@
     ],
     "radix": true,
     "semicolon": [
+      true,
       "always"
     ],
     "triple-equals": [
