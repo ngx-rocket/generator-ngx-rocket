@@ -2,10 +2,13 @@
 sample/
 deploy/
 scripts/
-.gitignore
-.npmignore
-.github_changelog_generator
-.travis.yml
+/.gitignore
+/.npmignore
+/.editorconfig
+/.github_changelog_generator
+/.travis.yml
+/CODE_OF_CONDUCT.md
+/CONTRIBUTING.md
 .DS_Store
 Thumbs.db
 npm-debug.log
