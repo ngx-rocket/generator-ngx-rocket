@@ -1,6 +1,6 @@
 {
   "name": "generator-ngx-rocket",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Angular 4+ enterprise-grade project generator based on angular-cli with best practices from the community, a scalable starter template and a good learning base.",
   "repository": "ngx-rocket/generator-ngx-rocket",
   "keywords": [
