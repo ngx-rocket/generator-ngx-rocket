@@ -1,5 +1,3 @@
-import { RequestOptionsArgs } from '@angular/http';
-
 /**
  * Cache policy for HTTP requests.
  * With the value 'Never' the request is always made and the cache is not used.
