@@ -1,5 +1,12 @@
 # Change Log
 
+## [2.1.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.1.1) (2017-09-18)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.1.0...2.1.1)
+
+**Merged pull requests:**
+
+- Renamed .gitignore to avoid npmignore [\#133](https://github.com/ngx-rocket/generator-ngx-rocket/pull/133)
+
 ## [2.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.1.0) (2017-09-18)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.0.0...2.1.0)
 
