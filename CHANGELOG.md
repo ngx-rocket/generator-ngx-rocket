@@ -1,5 +1,15 @@
 # Change Log
 
+## [2.1.3](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.1.3) (2017-09-19)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.1.2...2.1.3)
+
+**Merged pull requests:**
+
+- Export currently used addons, removed extra newline at end [\#134](https://github.com/ngx-rocket/generator-ngx-rocket/pull/134)
+
+## [2.1.2](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.1.2) (2017-09-18)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.1.1...2.1.2)
+
 ## [2.1.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.1.1) (2017-09-18)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.1.0...2.1.1)
 
