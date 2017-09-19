@@ -46,8 +46,8 @@ class NgxGenerator extends Generator {
 
     // Composition
     const addonsOption = this.options.addons;
-    const addons = addonsOption ? addonsOption.split(' ') : [];
-    addons.forEach(addon => this.composeWith(addon, this.options));
+    this.addons = addonsOption ? addonsOption.split(' ') : [];
+    this.addons.forEach(addon => this.composeWith(addon, this.options));
 
     this.insight.track('generator', this.version);
     this.insight.track('node', process.version);
@@ -85,7 +85,7 @@ class NgxGenerator extends Generator {
 
   end() {
     if (this.updating) {
-      this.log(`\nUpdated ${chalk.green(this.props.appName)} to ${chalk.yellow(this.version)} successfully!\n`);
+      this.log(`\nUpdated ${chalk.green(this.props.appName)} to ${chalk.yellow(this.version)} successfully!`);
       return;
     }
 
@@ -105,7 +105,7 @@ class NgxGenerator extends Generator {
     this.log(`- $ ${chalk.green('npm test')}: run unit tests in watch mode for TDD`);
     this.log(`- $ ${chalk.green('run test:ci')}: lint code and run units tests with coverage`);
     this.log(`- $ ${chalk.green('run e2e')}: launch e2e tests`);
-    this.log(`- $ ${chalk.green('run docs')}: show docs and coding guides\n`);
+    this.log(`- $ ${chalk.green('run docs')}: show docs and coding guides`);
   }
 }
 
