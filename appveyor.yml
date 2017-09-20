@@ -11,9 +11,8 @@ install:
   - npm link
 
 test_script:
-  - node --version
-  - npm --version
-  - bash
-  - npm test
+  - node -v
+  - npm -v
+  - bash -c "npm test"
 
 build: off
