@@ -7,10 +7,12 @@
   <base href="./"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
   <meta name="msapplication-tap-highlight" content="no"/>
-  <meta name="theme-color" content="#4e8ef7"/>
 <% } else { -%>
   <base href="/"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<% } -%>
+<% if (props.target.includes('cordova') || props.pwa) { -%>
+  <meta name="theme-color" content="#4e8ef7"/>
 <% } -%>
 <% if (props.pwa) { -%>
   <link rel="manifest" href="manifest.json"/>
@@ -28,6 +30,11 @@
     Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
   </p>
   <![endif]-->
+  <noscript>
+    <p>
+      This page requires JavaScript to work properly. Please enable JavaScript in your browser.
+    </p>
+  </noscript>
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
   <!-- Include Cordova script only when needed -->

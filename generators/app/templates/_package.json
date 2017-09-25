@@ -43,7 +43,7 @@
     "@ionic-native/status-bar": "^4.0.0",
 <% } -%>
 <% if (props.pwa) { -%>
-    "sw-toolbox": "^3.6.0",
+    "@angular/service-worker": "^1.0.0-beta.16",
 <% } -%>
 <% if (props.ui === 'ionic') { -%>
     "ionic-angular": "^3.5.3",

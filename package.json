@@ -22,7 +22,8 @@
     "sass",
     "cordova",
     "mobile",
-    "web"
+    "web",
+    "pwa"
   ],
   "author": "Yohan Lasorsa",
   "license": "MIT",

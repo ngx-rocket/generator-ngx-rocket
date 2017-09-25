@@ -161,6 +161,9 @@ Development, build and quality processes are based on [angular-cli](https://gith
   [Stylelint](http://stylelint.io) and [HTMLHint](http://htmlhint.com/)
 - Local knowledgebase server using [Hads](https://github.com/sinedied/hads)
 
+[Progressive Web App (PWA)](https://developers.google.com/web/progressive-web-apps/) support provided by
+[@angular/service-worker](https://docs.google.com/document/d/1F0e0ROaZUnTFftmC0XovpREHWHjcXa4CggiFlmifjhw/). 
+
 Native mobile application bundling is based on [Cordova](https://cordova.apache.org).
 Alternative enhanced web views are also supported:
 - [WkWebView](https://github.com/ionic-team/cordova-plugin-wkwebview-engine) for iOS (Ionic fixed version)
