@@ -109,7 +109,7 @@ export class HttpCacheService {
     this.cleanCache();
     this.storage = persistence === 'local' || persistence === 'session' ? window[persistence + 'Storage'] : null;
     this.loadCacheData();
-  };
+  }
 
   private getCacheKey(url: string, params?: any): string {
     return url + (params ? JSON.stringify(params) : '');

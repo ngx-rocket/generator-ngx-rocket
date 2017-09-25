@@ -1,4 +1,4 @@
-<div class="login-container bg-faded">
+<div class="login-container bg-light">
   <div class="login-box">
     <h1 translate>APP_NAME</h1>
     <div>
@@ -7,7 +7,7 @@
         <button id="language-dropdown" class="btn btn-sm btn-secondary" ngbDropdownToggle>
           {{currentLanguage}}
         </button>
-        <div class="dropdown-menu" aria-labelledby="language-dropdown">
+        <div ngbDropdownMenu aria-labelledby="language-dropdown">
           <button class="dropdown-item" *ngFor="let language of languages" (click)="setLanguage(language)">
             {{language}}
           </button>
@@ -16,7 +16,7 @@
     </div>
     <div class="container">
       <div class="card col-md-6 mt-3 mx-auto">
-        <div class="card-block">
+        <div class="card-body">
           <h4 class="card-title text-center">
             <i class="fa fa-3x fa-user-circle-o text-muted"></i>
           </h4>

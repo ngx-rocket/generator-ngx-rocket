@@ -1,5 +1,45 @@
 # Change Log
 
+## [2.1.3](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.1.3) (2017-09-19)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.1.2...2.1.3)
+
+**Merged pull requests:**
+
+- Export currently used addons, removed extra newline at end [\#134](https://github.com/ngx-rocket/generator-ngx-rocket/pull/134)
+
+## [2.1.2](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.1.2) (2017-09-18)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.1.1...2.1.2)
+
+## [2.1.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.1.1) (2017-09-18)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.1.0...2.1.1)
+
+**Merged pull requests:**
+
+- Renamed .gitignore to avoid npmignore [\#133](https://github.com/ngx-rocket/generator-ngx-rocket/pull/133)
+
+## [2.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.1.0) (2017-09-18)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.0.0...2.1.0)
+
+**Enhancements**:
+
+- npm/yarn pass-through commands [\#97](https://github.com/ngx-rocket/generator-ngx-rocket/issues/97) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- More precision on limitations [\#118](https://github.com/ngx-rocket/generator-ngx-rocket/pull/118) [[documentation](https://github.com/ngx-rocket/generator-ngx-rocket/labels/documentation)]
+
+**Fixed bugs:**
+
+- The "npm run cordova: xxx" commands do not seem to work. [\#117](https://github.com/ngx-rocket/generator-ngx-rocket/issues/117)
+
+**Closed issues:**
+
+- Update base template from @angular/cli 1.4 [\#127](https://github.com/ngx-rocket/generator-ngx-rocket/issues/127)
+- Update to bootstrap 4 beta [\#119](https://github.com/ngx-rocket/generator-ngx-rocket/issues/119)
+
+**Merged pull requests:**
+
+- Feature/update [\#130](https://github.com/ngx-rocket/generator-ngx-rocket/pull/130)
+- Updated Angular intro [\#129](https://github.com/ngx-rocket/generator-ngx-rocket/pull/129)
+- Feature/bootstrap@4.0.0 beta [\#120](https://github.com/ngx-rocket/generator-ngx-rocket/pull/120)
+
 ## [2.0.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.0.0) (2017-08-03)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/1.3.3...2.0.0)
 
