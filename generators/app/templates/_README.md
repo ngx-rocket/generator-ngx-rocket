@@ -62,9 +62,9 @@ Task                            | Description
 `npm start`                     | Run development server on `http://localhost:4200/`
 <% if (props.target.includes('web')) { -%>
 <%   if (props.target.includes('cordova')) { -%>
-`npm run build [-- --env=prod]` | Lint code and build web app for production in `www/` folder
+`npm run build [-- --env=prod]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `www/` folder
 <%   } else { -%>
-`npm run build [-- --env=prod]` | Lint code and build web app for production in `dist/` folder
+`npm run build [-- --env=prod]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `dist/` folder
 <%   } -%>
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>

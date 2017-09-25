@@ -26,13 +26,13 @@ module.exports = [
       // }
     ]
   },
-  // {
-  //   type: 'confirm',
-  //   name: 'pwa',
-  //   message: 'Do you want progressive web app support? (manifest and service worker)',
-  //   default: true,
-  //   when: props => props.target.includes('web')
-  // },
+  {
+    type: 'confirm',
+    name: 'pwa',
+    message: 'Do you want progressive web app support? (manifest and service worker)',
+    default: true,
+    when: props => props.target.includes('web')
+  },
   {
     type: 'checkbox',
     name: 'mobile',

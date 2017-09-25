@@ -101,7 +101,7 @@ Task automation is based on [NPM scripts](https://docs.npmjs.com/misc/scripts).
 Task                            | Description
 --------------------------------|---------------------------------------------------------------------------------------
 `npm start`                     | Run development server on `http://localhost:4200/`
-`npm run build [-- --env=prod]` | Lint code and build web app for production in `dist/` folder
+`npm run build [-- --env=prod]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `dist/` 
 `npm test`                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
 `npm run test:ci`               | Lint code and run unit tests once for continuous integration
 `npm run e2e`                   | Run e2e tests using [Protractor](http://www.protractortest.org)
@@ -160,6 +160,9 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - Static code analysis: [TSLint](https://github.com/palantir/tslint), [Codelyzer](https://github.com/mgechev/codelyzer),
   [Stylelint](http://stylelint.io) and [HTMLHint](http://htmlhint.com/)
 - Local knowledgebase server using [Hads](https://github.com/sinedied/hads)
+
+[Progressive Web App (PWA)](https://developers.google.com/web/progressive-web-apps/) support provided by
+[@angular/service-worker](https://docs.google.com/document/d/1F0e0ROaZUnTFftmC0XovpREHWHjcXa4CggiFlmifjhw/). 
 
 Native mobile application bundling is based on [Cordova](https://cordova.apache.org).
 Alternative enhanced web views are also supported:
