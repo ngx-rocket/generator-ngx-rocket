@@ -44,7 +44,7 @@ do
     echo -------------------------------------------------------------------------------
     echo
 
-    yo ngx-rocket --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME"
+    yo ngx-rocket --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
 
     npm run test:ci
     npm run e2e

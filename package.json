@@ -35,7 +35,7 @@
   "main": "./generators/app/index.js",
   "scripts": {
     "lint": "eslint generators/app/*.js",
-    "test": "npm run lint -s && scripts/test.sh",
+    "test": "npm run lint -s && ./scripts/test.sh",
     "deploy": "scripts/deploy.sh",
     "postpublish": "git tag -a $npm_package_version -m '$npm_package_version' && git push --tags",
     "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -m 'Updated changelog'"
