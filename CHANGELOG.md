@@ -1,5 +1,28 @@
 # Change Log
 
+## [2.2.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.2.0) (2017-09-26)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.1.3...2.2.0)
+
+**Enhancements**:
+
+- Add service worker/PWA compatibility [\#93](https://github.com/ngx-rocket/generator-ngx-rocket/issues/93) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Fixed bugs:**
+
+- Error building Cordova App [\#137](https://github.com/ngx-rocket/generator-ngx-rocket/issues/137)
+
+**Closed issues:**
+
+- AOT support? [\#131](https://github.com/ngx-rocket/generator-ngx-rocket/issues/131)
+- Add CI tests on windows environment [\#99](https://github.com/ngx-rocket/generator-ngx-rocket/issues/99)
+
+**Merged pull requests:**
+
+- Feature/appveyor [\#141](https://github.com/ngx-rocket/generator-ngx-rocket/pull/141)
+- Bugfix/misc [\#139](https://github.com/ngx-rocket/generator-ngx-rocket/pull/139)
+- Added AOT mention for production build docs \(closes \#131\) [\#138](https://github.com/ngx-rocket/generator-ngx-rocket/pull/138)
+- Add support to generate PWA solution [\#126](https://github.com/ngx-rocket/generator-ngx-rocket/pull/126)
+
 ## [2.1.3](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.1.3) (2017-09-19)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.1.2...2.1.3)
 
