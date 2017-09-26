@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/generator-ngx-rocket.svg)](https://www.npmjs.com/package/generator-ngx-rocket)
 [![Build status](https://img.shields.io/travis/ngx-rocket/generator-ngx-rocket/master.svg)](https://travis-ci.org/ngx-rocket/generator-ngx-rocket)
-[![Windows build](https://img.shields.io/appveyor/ci/ngx-rocket/generator-ngx-rocket/master.svg)](https://ci.appveyor.com/project/sinedied/generator-ngx-rocket)
+[![Windows build](https://img.shields.io/appveyor/ci/sinedied/generator-ngx-rocket/master.svg)](https://ci.appveyor.com/project/sinedied/generator-ngx-rocket)
 ![Node version](https://img.shields.io/badge/node-%3E%3D6.0.0-brightgreen.svg)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![Downloads](https://img.shields.io/npm/dt/generator-ngx-rocket.svg)](https://npmjs.org/package/generator-ngx-rocket)
