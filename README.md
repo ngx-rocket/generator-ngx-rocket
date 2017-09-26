@@ -9,9 +9,9 @@
 
 ![ngx-rocket logo](https://user-images.githubusercontent.com/593151/28924751-08023b32-7863-11e7-9186-c17d4647d861.png)
 
-> Web project starter kit including modern tools and workflow based on
-> [angular-cli](https://github.com/angular/angular-cli), best practices from the community, a scalable base template and
-> a good learning base.
+> Extensible Angular 4+ enterprise-grade project generator based on
+> [angular-cli](https://github.com/angular/angular-cli) with best practices from the community.
+> Includes PWA and Cordova support, coding guides and more!
 
 See generated project example [here](https://github.com/ngx-rocket/starter-kit).
 
