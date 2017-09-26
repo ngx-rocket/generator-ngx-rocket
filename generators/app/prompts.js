@@ -29,15 +29,15 @@ module.exports = [
   {
     type: 'confirm',
     name: 'pwa',
-    message: 'Do you want progressive web app support? (manifest and service worker)',
+    message: 'Do you want progressive web app (PWA) support? (manifest and service worker)',
     default: true,
-    when: props => props.target.includes('web')
+    when: props => props.target && props.target.includes('web')
   },
   {
     type: 'checkbox',
     name: 'mobile',
     message: 'Which mobile platform do you want to support?',
-    when: props => props.target.includes('cordova'),
+    when: props => props.target && props.target.includes('cordova'),
     choices: [
       {
         value: 'ios',
@@ -59,7 +59,7 @@ module.exports = [
     type: 'checkbox',
     name: 'webview',
     message: 'Use enhanced web view?',
-    when: props => props.target.includes('cordova'),
+    when: props => props.target && props.target.includes('cordova'),
     choices: props => {
       const choices = [];
       if (props.mobile.includes('ios')) {
@@ -93,7 +93,7 @@ module.exports = [
         name: 'Ionic (more mobile-oriented)'
       }
     ],
-    default: props => props.target.includes('cordova') ? 'ionic' : 'bootstrap'
+    default: props => props.target && props.target.includes('cordova') ? 'ionic' : 'bootstrap'
   },
   {
     type: 'confirm',
