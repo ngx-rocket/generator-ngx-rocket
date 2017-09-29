@@ -40,7 +40,7 @@ See generated project example [here](https://github.com/ngx-rocket/starter-kit).
   [add-on support](https://github.com/ngx-rocket/generator-ngx-rocket-addon), start multiple projects even faster by
   plugging in additions that fit your needs, such as your enterprise theme, SSO authentication, services integrations...
 
-And there's even more! See [What's in the box](@whats-in-the-box) for more details.
+And there's even more! See [What's in the box](#whats-in-the-box) for more details.
 
 # Getting started
 
