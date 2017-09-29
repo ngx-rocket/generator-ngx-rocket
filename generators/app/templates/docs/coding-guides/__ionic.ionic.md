@@ -58,6 +58,3 @@ Here is a quick comparison:
   See these issues: 
   * https://github.com/ionic-team/ionic/issues/12285
   * https://github.com/angular/angular-cli/issues/7112
-
-- No built-in PWA (Progressive Web App) support. We are working to integrate this in
-  [ngX-Rocket tools](https://github.com/ngx-rocket) directly.
