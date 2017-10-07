@@ -46,7 +46,7 @@ When using `npm test` to run tests it will also run ESLint. You can also lint yo
 
 1. Clone this repo.
 
-2. Install dependencies: `npm install -g yeoman && npm install`
+2. Install dependencies: `npm install -g yo && npm install`
 
 3. Make the generator available globally, so that `yo ngx-rocket` uses your own version: `npm link .`
 
