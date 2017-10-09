@@ -1,5 +1,23 @@
 # Change Log
 
+## [2.2.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.2.1) (2017-10-09)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.2.0...2.2.1)
+
+**Fixed bugs:**
+
+- Typescript mismatch warning on build [\#145](https://github.com/ngx-rocket/generator-ngx-rocket/issues/145)
+
+**Closed issues:**
+
+- Route not created - generate component [\#142](https://github.com/ngx-rocket/generator-ngx-rocket/issues/142)
+- npm run generate -- component Throwing error [\#140](https://github.com/ngx-rocket/generator-ngx-rocket/issues/140)
+
+**Merged pull requests:**
+
+- Fix CONTRIBUTING documentation [\#149](https://github.com/ngx-rocket/generator-ngx-rocket/pull/149)
+- Fixed typescript mismatch warning \(closes \#145\) [\#146](https://github.com/ngx-rocket/generator-ngx-rocket/pull/146)
+- fix: link to what's in the box [\#143](https://github.com/ngx-rocket/generator-ngx-rocket/pull/143)
+
 ## [2.2.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.2.0) (2017-09-26)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.1.3...2.2.0)
 
