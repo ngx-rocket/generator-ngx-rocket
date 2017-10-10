@@ -7,7 +7,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { TranslateModule } from '@ngx-translate/core';
-<% if (props.ui === 'bootstrap') { -%>
+<% if (props.ui === 'material') { -%>
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+<% } else if (props.ui === 'bootstrap') { -%>
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 <% } else if (props.ui === 'ionic') { -%>
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -35,7 +38,10 @@ import { LoginModule } from './login/login.module';
     FormsModule,
     HttpModule,
     TranslateModule.forRoot(),
-<% if (props.ui === 'bootstrap') { -%>
+<% if (props.ui === 'material') { -%>
+	BrowserAnimationsModule,
+	MaterialModule,
+<% } else if (props.ui === 'bootstrap') { -%>
     NgbModule.forRoot(),
 <% } else if (props.ui === 'ionic') { -%>
     IonicModule.forRoot(AppComponent, {locationStrategy: 'path'}),

@@ -1,0 +1,41 @@
+<div class="login-container bg-light">
+  <div class="text-center">
+    <h1 translate>APP_NAME</h1>
+    <div>
+      <h6 class="d-inline-block">v{{version}}</h6>
+
+    </div>
+  </div>
+</div>
+<div class="login-container">
+  <mat-card class="login-box">
+    <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+      <div class="alert alert-danger" [hidden]="!error || isLoading" translate>
+        Username or password incorrect.
+      </div>
+      <div class="form-container">
+        <mat-form-field>
+          <input type="text" matInput formControlName="username" [placeholder]="'Username' | translate" />
+          <mat-error *ngIf="loginForm.controls.username.valid || loginForm.controls.username.untouched"><span translate>Username is required</span></mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="password" matInput formControlName="password" [placeholder]="'Password' | translate" required/>
+          <mat-error *ngIf="loginForm.controls.password.valid || loginForm.controls.password.untouched"><span translate>Password is required</span></mat-error>
+        </mat-form-field>
+        <mat-slide-toggle color="primary" formControlName="remember" translate>Remember me</mat-slide-toggle>
+        <hr/>
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isLoading" translate>Login</button>
+      </div>
+    </form>
+  </mat-card>
+</div>
+<div class="lang-container">
+<button mat-button [matMenuTriggerFor]="langMenu">
+    {{currentLanguage}}
+  </button>
+<mat-menu #langMenu="matMenu">
+  <button mat-menu-item *ngFor="let language of languages" (click)="setLanguage(language)">
+      {{language}}
+    </button>
+</mat-menu>
+</div>

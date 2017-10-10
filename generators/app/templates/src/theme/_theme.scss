@@ -1,0 +1,19 @@
+/*
+ * Global application theme.
+ * Framework overrides and customization goes here.
+ */
+
+<% if (props.ui === 'material') { -%>
+body {
+  font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  margin: 0;
+}
+
+.app-content {
+  padding: 20px 70px 50px;
+}
+
+.text-center {
+  text-align: center;
+}
+<% } -%>
