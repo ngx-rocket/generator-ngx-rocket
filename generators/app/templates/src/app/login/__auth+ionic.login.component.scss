@@ -19,8 +19,8 @@
 
 // Force style down to child components
 // See https://angular.io/guide/component-styles#deep
-// stylelint-disable-next-line selector-max-compound-selectors
-:host /deep/ .select-icon .select-icon-inner {
+// stylelint-disable-next-line selector-max-compound-selectors, selector-pseudo-element-no-unknown
+:host ::ng-deep .select-icon .select-icon-inner {
   color: color-contrast($colors, primary);
 }
 
