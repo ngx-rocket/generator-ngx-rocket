@@ -20,7 +20,7 @@ import { QuoteService } from './quote.service';
     CoreModule,
     SharedModule,
 <% if (props.ui === 'material') { -%>
-	MaterialModule,
+    MaterialModule,
 <% } else if (props.ui === 'ionic') { -%>
     IonicModule,
 <% } -%>

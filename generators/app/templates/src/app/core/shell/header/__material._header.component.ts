@@ -16,6 +16,8 @@ import { I18nService } from '../../i18n.service';
 export class HeaderComponent implements OnInit {
 
   menuHidden = true;
+  langMenu: Object;
+  userMenu: Object;
 
 <% if (props.auth) { -%>
   constructor(private router: Router,

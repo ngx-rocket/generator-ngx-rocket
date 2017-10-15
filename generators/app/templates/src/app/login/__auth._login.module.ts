@@ -21,7 +21,7 @@ import { LoginComponent } from './login.component';
 <% if (props.ui === 'bootstrap') { -%>
     NgbModule,
 <% } else if (props.ui === 'material') { -%>
-	MaterialModule,
+    MaterialModule,
 <% } else if (props.ui === 'ionic') { -%>
     IonicModule,
 <% } -%>

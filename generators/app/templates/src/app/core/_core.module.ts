@@ -37,7 +37,7 @@ export function createHttpService(backend: ConnectionBackend,
 <% if (props.ui === 'bootstrap') { -%>
     NgbModule,
 <% } else if (props.ui === 'material') { -%>
-	MaterialModule,
+    MaterialModule,
 <% } else if (props.ui === 'ionic') { -%>
     IonicModule,
 <% } -%>

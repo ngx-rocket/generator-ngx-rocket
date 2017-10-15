@@ -24,6 +24,9 @@ export class LoginComponent implements OnInit {
   version: string = environment.version;
   error: string = null;
   loginForm: FormGroup;
+<% if (props.ui === 'material') { -%>
+  langMenu: Object;
+<% } -%>
 <% if (props.ui !== 'ionic') { -%>
   isLoading = false;
 <% } -%>

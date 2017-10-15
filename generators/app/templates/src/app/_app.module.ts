@@ -39,8 +39,8 @@ import { LoginModule } from './login/login.module';
     HttpModule,
     TranslateModule.forRoot(),
 <% if (props.ui === 'material') { -%>
-	BrowserAnimationsModule,
-	MaterialModule,
+    BrowserAnimationsModule,
+    MaterialModule,
 <% } else if (props.ui === 'bootstrap') { -%>
     NgbModule.forRoot(),
 <% } else if (props.ui === 'ionic') { -%>

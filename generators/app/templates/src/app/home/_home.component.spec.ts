@@ -19,7 +19,7 @@ describe('HomeComponent', () => {
     TestBed.configureTestingModule({
         imports: [
 <% if (props.ui === 'material') { -%>
-		  MaterialModule,
+          MaterialModule,
 <% } else if (props.ui === 'ionic') { -%>
           IonicModule.forRoot(HomeComponent),
 <% } -%>

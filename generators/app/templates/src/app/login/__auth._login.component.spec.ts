@@ -6,6 +6,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from 'ionic-angular';
 <% } else if (props.ui === 'bootstrap') { -%>
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+<% } else if (props.ui === 'material') { -%>
+import { MaterialModule } from './../material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 <% } -%>
 
 import { CoreModule } from '../core/core.module';
@@ -22,6 +25,9 @@ describe('LoginComponent', () => {
         IonicModule.forRoot(LoginComponent),
 <% } else if (props.ui === 'bootstrap') { -%>
         NgbModule.forRoot(),
+<% } else if (props.ui === 'material') { -%>
+        MaterialModule,
+        BrowserAnimationsModule,
 <% } -%>
         RouterTestingModule,
         TranslateModule.forRoot(),

@@ -88,7 +88,7 @@ module.exports = [
         value: 'bootstrap',
         name: 'Bootstrap (more website-oriented)'
       },
-	  {
+      {
         value: 'material',
         name: 'Angular Material (more website-oriented)'
       },

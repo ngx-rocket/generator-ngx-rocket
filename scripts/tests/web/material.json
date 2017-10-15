@@ -1,0 +1,5 @@
+{
+  "target": ["web"],
+  "ui": "material",
+  "auth": false
+}
