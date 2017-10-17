@@ -119,7 +119,6 @@ Task                            | Description
 `npm run cordova:build [-- --env=prod]`        | Build mobile app for production in `dist/` folder
 `npm run cordova:clean`         | Removes `www/`, `platforms/` and `plugins/` folders
 
-
 When building the application, you can specify the target environment using the additional flag `--env <name>` (do not
 forget to prepend `--` to pass arguments to npm scripts).
 
@@ -156,7 +155,8 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - Cross-browser CSS with [autoprefixer](https://github.com/postcss/autoprefixer) and
   [browserslist](https://github.com/ai/browserslist)
 - Asset revisioning for [better cache management](https://webpack.github.io/docs/long-term-caching.html)
-- Unit tests using [Jasmine](http://jasmine.github.io) and [Karma](https://karma-runner.github.io)
+- Unit tests using [Jasmine](http://jasmine.github.io), [Karma](https://karma-runner.github.io) and
+  [headless Chrome](https://github.com/GoogleChrome/puppeteer)
 - End-to-end tests using [Protractor](https://github.com/angular/protractor)
 - Static code analysis: [TSLint](https://github.com/palantir/tslint), [Codelyzer](https://github.com/mgechev/codelyzer),
   [Stylelint](http://stylelint.io) and [HTMLHint](http://htmlhint.com/)
@@ -169,7 +169,6 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
 Alternative enhanced web views are also supported:
 - [WkWebView](https://github.com/ionic-team/cordova-plugin-wkwebview-engine) for iOS (Ionic fixed version)
 - [Crosswalk](https://crosswalk-project.org) for Android
-
 
 #### Libraries
 
