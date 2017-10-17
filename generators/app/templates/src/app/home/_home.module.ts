@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-<% if (props.ui === 'ionic') { -%>
+<% if (props.ui === 'material') { -%>
+import { MaterialModule } from './../material.module';
+<% } else if (props.ui === 'ionic') { -%>
 import { IonicModule } from 'ionic-angular';
 <% } -%>
 
@@ -17,7 +19,9 @@ import { QuoteService } from './quote.service';
     TranslateModule,
     CoreModule,
     SharedModule,
-<% if (props.ui === 'ionic') { -%>
+<% if (props.ui === 'material') { -%>
+    MaterialModule,
+<% } else if (props.ui === 'ionic') { -%>
     IonicModule,
 <% } -%>
     HomeRoutingModule

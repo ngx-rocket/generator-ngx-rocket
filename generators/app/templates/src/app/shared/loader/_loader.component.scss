@@ -2,4 +2,8 @@
 .fa {
   vertical-align: middle;
 }
+<% } else if (props.ui === 'material') { -%>
+.mat-spinner {
+  margin: 0 auto;
+}
 <% } -%>

@@ -5,12 +5,14 @@ import { HttpModule, Http, XHRBackend, ConnectionBackend, RequestOptions } from 
 import { TranslateModule } from '@ngx-translate/core';
 <% if (props.ui === 'bootstrap') { -%>
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+<% } else if (props.ui === 'material') { -%>
+import { MaterialModule } from './../material.module';
 <% } else if (props.ui === 'ionic') { -%>
 import { IonicModule } from 'ionic-angular';
 <% } -%>
 
 import { ShellComponent } from './shell/shell.component';
-<% if (props.ui === 'bootstrap') { -%>
+<% if (props.ui === 'bootstrap' || props.ui === 'material') { -%>
 import { HeaderComponent } from './shell/header/header.component';
 <% } -%>
 <% if (props.auth) { -%>
@@ -34,6 +36,8 @@ export function createHttpService(backend: ConnectionBackend,
     TranslateModule,
 <% if (props.ui === 'bootstrap') { -%>
     NgbModule,
+<% } else if (props.ui === 'material') { -%>
+    MaterialModule,
 <% } else if (props.ui === 'ionic') { -%>
     IonicModule,
 <% } -%>
@@ -45,7 +49,7 @@ export function createHttpService(backend: ConnectionBackend,
   ],
 <% } -%>
   declarations: [
-<% if (props.ui === 'bootstrap') { -%>
+<% if (props.ui === 'bootstrap' || props.ui === 'material') { -%>
     HeaderComponent,
 <% } -%>
     ShellComponent

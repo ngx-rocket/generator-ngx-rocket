@@ -89,6 +89,10 @@ module.exports = [
         name: 'Bootstrap (more website-oriented)'
       },
       {
+        value: 'material',
+        name: 'Angular Material (more website-oriented)'
+      },
+      {
         value: 'ionic',
         name: 'Ionic (more mobile-oriented)'
       }

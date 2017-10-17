@@ -1,7 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Http, BaseRequestOptions } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
-<% if (props.ui === 'ionic') { -%>
+<% if (props.ui === 'material') { -%>
+import { MaterialModule } from './../material.module';
+<% } else if (props.ui === 'ionic') { -%>
 import { IonicModule } from 'ionic-angular';
 <% } -%>
 
@@ -16,7 +18,9 @@ describe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
         imports: [
-<% if (props.ui === 'ionic') { -%>
+<% if (props.ui === 'material') { -%>
+          MaterialModule,
+<% } else if (props.ui === 'ionic') { -%>
           IonicModule.forRoot(HomeComponent),
 <% } -%>
           SharedModule

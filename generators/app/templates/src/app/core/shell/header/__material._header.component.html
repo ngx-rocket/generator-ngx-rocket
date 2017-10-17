@@ -1,0 +1,31 @@
+<mat-toolbar class="mat-elevation-z6 navbar" color="primary">
+  <span><a class="toolbar-brand" href="https://github.com/ngx-rocket" translate>APP_NAME</a></span>
+  <span class="example-spacer"></span>
+  <button mat-button routerLink="/home" routerLinkActive="active">
+    <i class="fa fa-home"></i>
+    <span translate>Home</span>
+  </button>
+  <button mat-button routerLink="/about" routerLinkActive="active">
+    <i class="fa fa-question-circle"></i>
+    <span translate>About</span>
+  </button>
+  <button mat-button [matMenuTriggerFor]="langMenu">
+      {{currentLanguage}}
+    </button>
+  <mat-menu #langMenu="matMenu">
+    <button mat-menu-item *ngFor="let language of languages" (click)="setLanguage(language)">
+        {{language}}
+      </button>
+  </mat-menu>
+<% if (props.auth) { -%>
+  <button mat-icon-button [matMenuTriggerFor]="userMenu">
+    <i class="fa fa-user-circle"></i>
+  </button>
+  <mat-menu #userMenu="matMenu">
+    <mat-list>
+      <mat-list-item><span translate>Logged in as</span>&nbsp;<b>{{username}}</b></mat-list-item>
+    </mat-list>
+    <button mat-menu-item (click)="logout()" translate>Logout</button>
+  </mat-menu>
+<% } -%>
+</mat-toolbar>

@@ -260,6 +260,8 @@
 <% } else if (props.ui === 'bootstrap') { -%>
 @import "~bootstrap/scss/bootstrap";
 @import "~font-awesome/scss/font-awesome.scss";
+<% } else if (props.ui === 'material') { -%>
+@import "~font-awesome/scss/font-awesome.scss";
 <% } -%>
 
 // Theme customization
