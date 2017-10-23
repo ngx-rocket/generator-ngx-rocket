@@ -79,7 +79,7 @@ class NgxGenerator extends Generator {
 
     if (!skipInstall) {
       this.log(`\nRunning ${chalk.yellow('npm install')}, please wait...`);
-      return this.npmInstall(null, {loglevel: 'error'});
+      this.npmInstall(null, {loglevel: 'error'});
     }
   }
 
