@@ -21,7 +21,7 @@
         <div class="login-error" [hidden]="!error || isLoading" translate>
           Username or password incorrect.
         </div>
-        <br>
+        <br/>
         <div fxLayout="column">
           <mat-form-field>
             <input type="text" matInput formControlName="username" [placeholder]="'Username' | translate"/>
@@ -36,7 +36,7 @@
             </mat-error>
           </mat-form-field>
           <mat-slide-toggle color="primary" formControlName="remember" translate>Remember me</mat-slide-toggle>
-          <br>
+          <br/>
           <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isLoading">
             <app-loader class="inline-loader" [isLoading]="isLoading"></app-loader>
             <span translate>Login</span>

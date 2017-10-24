@@ -4,11 +4,13 @@
  */
 
 <% if (props.ui === 'material') { -%>
+// stylelint-disable-next-line selector-max-universal
 * {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   display: flex;
   flex-direction: column;
   margin: 0;

@@ -55,8 +55,9 @@
 <% } else if (props.ui === 'material') { -%>
     "@angular/cdk": "^2.0.0-beta.12",
     "@angular/material": "^2.0.0-beta.12",
-    "@angular/flex-layout": "^2.0.0-beta.9",
+    "@angular/flex-layout": "2.0.0-beta.9",
     "material-design-icons": "^3.0.1",
+    "hammerjs": "^2.0.8",
 <% } -%>
     "core-js": "^2.4.1",
     "lodash": "^4.17.4",
