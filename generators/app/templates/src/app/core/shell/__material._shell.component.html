@@ -6,6 +6,7 @@
         <span translate>APP_NAME</span>
         <div fxFlex></div>
         <div>
+<% if (props.auth) { -%>
           <button mat-icon-button [matMenuTriggerFor]="userMenu" translate>
             <mat-icon>person</mat-icon>
           </button>
@@ -18,6 +19,7 @@
             </mat-list>
             <button mat-menu-item (click)="logout()" translate>Logout</button>
           </mat-menu>
+<% } -%>
         </div>
         <div>
           <button mat-icon-button [matMenuTriggerFor]="languageMenu">

@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ObservableMedia } from '@angular/flex-layout';
 
+<% if (props.auth) { -%>
 import { AuthenticationService } from '../authentication/authentication.service';
+<% } -%>
 import { I18nService } from '../i18n.service';
 
 @Component({
@@ -16,7 +18,9 @@ export class ShellComponent implements OnInit {
   constructor(private router: Router,
               private titleService: Title,
               private media: ObservableMedia,
+<% if (props.auth) { -%>
               private authenticationService: AuthenticationService,
+<% } -%>
               private i18nService: I18nService) { }
 
   ngOnInit() { }
@@ -25,18 +29,20 @@ export class ShellComponent implements OnInit {
     this.i18nService.language = language;
   }
 
+<% if (props.auth) { -%>
   logout() {
     this.authenticationService.logout()
       .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
   }
 
-  get languages(): string[] {
-    return this.i18nService.supportedLanguages;
-  }
-
   get username(): string {
     const credentials = this.authenticationService.credentials;
     return credentials ? credentials.username : null;
+  }
+
+<% } -%>
+  get languages(): string[] {
+    return this.i18nService.supportedLanguages;
   }
 
   get isMobile(): boolean {
