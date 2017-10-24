@@ -10,7 +10,7 @@
   "Ok": "Ok",
 <% } -%>
 <% if (props.auth) { -%>
-<%   if (props.ui === 'bootstrap') { -%>
+<%   if (props.ui !== 'ionic') { -%>
   "Logged in as": "Logged in as",
 <%   } -%>
   "Login": "Login",

@@ -3,7 +3,12 @@
   vertical-align: middle;
 }
 <% } else if (props.ui === 'material') { -%>
-.mat-spinner {
-  margin: 0 auto;
+.mat-progress-spinner {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.message {
+  margin-left: .5em;
 }
 <% } -%>

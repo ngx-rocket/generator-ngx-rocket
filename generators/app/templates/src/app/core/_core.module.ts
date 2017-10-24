@@ -6,13 +6,16 @@ import { TranslateModule } from '@ngx-translate/core';
 <% if (props.ui === 'bootstrap') { -%>
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 <% } else if (props.ui === 'material') { -%>
-import { MaterialModule } from './../material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 <% } else if (props.ui === 'ionic') { -%>
 import { IonicModule } from 'ionic-angular';
 <% } -%>
 
+<% if (props.ui === 'material') { -%>
+import { MaterialModule } from '../material.module';
+<% } -%>
 import { ShellComponent } from './shell/shell.component';
-<% if (props.ui === 'bootstrap' || props.ui === 'material') { -%>
+<% if (props.ui === 'bootstrap') { -%>
 import { HeaderComponent } from './shell/header/header.component';
 <% } -%>
 <% if (props.auth) { -%>
@@ -37,6 +40,7 @@ export function createHttpService(backend: ConnectionBackend,
 <% if (props.ui === 'bootstrap') { -%>
     NgbModule,
 <% } else if (props.ui === 'material') { -%>
+    FlexLayoutModule,
     MaterialModule,
 <% } else if (props.ui === 'ionic') { -%>
     IonicModule,
@@ -49,7 +53,7 @@ export function createHttpService(backend: ConnectionBackend,
   ],
 <% } -%>
   declarations: [
-<% if (props.ui === 'bootstrap' || props.ui === 'material') { -%>
+<% if (props.ui === 'bootstrap') { -%>
     HeaderComponent,
 <% } -%>
     ShellComponent

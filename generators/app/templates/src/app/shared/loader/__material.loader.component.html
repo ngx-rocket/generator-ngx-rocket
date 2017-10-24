@@ -1,3 +1,4 @@
-<div [hidden]="!isLoading" class="text-xs-center">
-  <mat-spinner></mat-spinner> <span>{{message}}</span>
+<div [hidden]="!isLoading" fxFlex fxLayoutAlign="center center">
+  <mat-progress-spinner mode="indeterminate" [strokeWidth]="2" [diameter]="32 * size"></mat-progress-spinner>
+  <span class="message">{{message}}</span>
 </div>

@@ -1,0 +1,10 @@
+<% if (props.ui === 'material') { -%>
+.container {
+  text-align: center;
+  padding: 1em;
+}
+
+.mat-icon {
+  vertical-align: middle;
+}
+<% } -%>
