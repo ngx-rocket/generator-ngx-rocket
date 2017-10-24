@@ -33,6 +33,8 @@ export class AppPage {
   getParagraphText() {
 <% if (props.ui === 'ionic') { -%>
     return element(by.css('app-root ion-card-title')).getText();
+<% } else if (props.ui === 'material') { -%>
+    return element(by.css('app-root mat-card-title')).getText();
 <% } else { -%>
     return element(by.css('app-root h1')).getText();
 <% } -%>
