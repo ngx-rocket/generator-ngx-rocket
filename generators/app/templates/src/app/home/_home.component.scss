@@ -1,3 +1,10 @@
+<% if (props.ui === 'material') { -%>
+.container {
+  text-align: center;
+  padding: 1em;
+}
+
+<% } -%>
 .logo {
 <% if (props.ui === 'bootstrap') { -%>
   width: 100px;
