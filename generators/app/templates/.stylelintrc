@@ -20,7 +20,7 @@
     "selector-max-id": 0,
     "selector-no-qualifying-type": true,
     "selector-max-universal": 0,
-    "unit-whitelist": ["px", "%", "rem", "vw", "vh", "deg"],
+    "unit-whitelist": ["px", "%", "em", "rem", "vw", "vh", "deg"],
     "max-empty-lines": 2,
     "max-line-length": 120
   }
