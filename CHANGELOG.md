@@ -1,5 +1,25 @@
 # Change Log
 
+## [2.3.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.3.0) (2017-10-25)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.2.1...2.3.0)
+
+**Enhancements**:
+
+- Use chrome headless instead of phantomjs for unit tests [\#128](https://github.com/ngx-rocket/generator-ngx-rocket/issues/128) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add angular-material UI choice [\#124](https://github.com/ngx-rocket/generator-ngx-rocket/issues/124) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Feature/material [\#158](https://github.com/ngx-rocket/generator-ngx-rocket/pull/158) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add angular-material UI choice [\#155](https://github.com/ngx-rocket/generator-ngx-rocket/pull/155) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Closed issues:**
+
+- Update shadow-piercing selectors [\#152](https://github.com/ngx-rocket/generator-ngx-rocket/issues/152)
+
+**Merged pull requests:**
+
+- Feature/update [\#161](https://github.com/ngx-rocket/generator-ngx-rocket/pull/161)
+- Updated deep selector \(closes \#152\) [\#153](https://github.com/ngx-rocket/generator-ngx-rocket/pull/153)
+- use ChromeHeadless instead of PhantomJS [\#151](https://github.com/ngx-rocket/generator-ngx-rocket/pull/151)
+
 ## [2.2.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.2.1) (2017-10-09)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.2.0...2.2.1)
 
