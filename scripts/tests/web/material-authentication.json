@@ -1,6 +1,6 @@
 {
   "target": ["web"],
   "pwa": true,
-  "ui": "bootstrap",
+  "ui": "material",
   "auth": true
 }

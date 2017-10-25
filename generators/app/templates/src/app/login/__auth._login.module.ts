@@ -6,8 +6,14 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 <% } else if (props.ui === 'ionic') { -%>
 import { IonicModule } from 'ionic-angular';
+<% } else if (props.ui === 'material') { -%>
+import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
 
+<% if (props.ui === 'material') { -%>
+import { MaterialModule } from '../material.module';
+import { SharedModule } from '../shared/shared.module';
+<% } -%>
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 
@@ -20,6 +26,10 @@ import { LoginComponent } from './login.component';
     NgbModule,
 <% } else if (props.ui === 'ionic') { -%>
     IonicModule,
+<% } else if (props.ui === 'material') { -%>
+    SharedModule,
+    FlexLayoutModule,
+    MaterialModule,
 <% } -%>
     LoginRoutingModule
   ],

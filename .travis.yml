@@ -29,12 +29,17 @@ env:
     - CASE=cordova/bootstrap-authentication
     - CASE=cordova/ionic
     - CASE=cordova/ionic-authentication
+    - CASE=cordova/material
+    - CASE=cordova/material-authentication
     - CASE=web/bootstrap
     - CASE=web/bootstrap-authentication
     - CASE=web/ionic
     - CASE=web/ionic-authentication
+    - CASE=web/material
+    - CASE=web/material-authentication
     - CASE=web+cordova/bootstrap-authentication
     - CASE=web+cordova/ionic-authentication
+    - CASE=web+cordova/material-authentication
 
 install:
   - npm install -g yo

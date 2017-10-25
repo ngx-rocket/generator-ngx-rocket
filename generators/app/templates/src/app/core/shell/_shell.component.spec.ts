@@ -12,6 +12,8 @@ import { CoreModule } from '../core.module';
 import { IonicModule } from 'ionic-angular';
 <% } else if (props.ui === 'bootstrap') { -%>
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+<% } else if (props.ui === 'material') { -%>
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 <% } -%>
 
 describe('ShellComponent', () => {
@@ -27,6 +29,8 @@ describe('ShellComponent', () => {
         IonicModule.forRoot(ShellComponent),
 <% } else if (props.ui === 'bootstrap') { -%>
         NgbModule.forRoot(),
+<% } else if (props.ui === 'material') { -%>
+        BrowserAnimationsModule,
 <% } -%>
         CoreModule
 <% if (props.auth) { -%>

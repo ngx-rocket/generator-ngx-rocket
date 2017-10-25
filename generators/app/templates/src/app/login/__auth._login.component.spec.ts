@@ -6,8 +6,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from 'ionic-angular';
 <% } else if (props.ui === 'bootstrap') { -%>
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+<% } else if (props.ui === 'material') { -%>
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
 
+<% if (props.ui === 'material') { -%>
+import { MaterialModule } from '../material.module';
+import { SharedModule } from '../shared/shared.module';
+<% } -%>
 import { CoreModule } from '../core/core.module';
 import { LoginComponent } from './login.component';
 
@@ -22,6 +29,11 @@ describe('LoginComponent', () => {
         IonicModule.forRoot(LoginComponent),
 <% } else if (props.ui === 'bootstrap') { -%>
         NgbModule.forRoot(),
+<% } else if (props.ui === 'material') { -%>
+        BrowserAnimationsModule,
+        FlexLayoutModule,
+        MaterialModule,
+        SharedModule,
 <% } -%>
         RouterTestingModule,
         TranslateModule.forRoot(),

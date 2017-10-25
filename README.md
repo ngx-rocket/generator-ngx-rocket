@@ -185,6 +185,11 @@ Alternative enhanced web views are also supported:
   * Ionic:
     - [Ionic](http://ionicframework.com)
     - [Ionic Native](https://ionicframework.com/docs/native/)
+  * Angular Material
+    - [Angular Material](https://material.angular.io)
+    - [Angular Flex Layout](https://github.com/angular/flex-layout)
+    - [Material Icons](https://material.io/icons/)
+
 
 #### Coding guides
 

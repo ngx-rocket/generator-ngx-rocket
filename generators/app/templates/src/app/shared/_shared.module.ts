@@ -2,13 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 <% if (props.ui === 'ionic') { -%>
 import { IonicModule } from 'ionic-angular';
+<% } else if (props.ui === 'material') { -%>
+import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
 
+<% if (props.ui === 'material') { -%>
+import { MaterialModule } from '../material.module';
+<% } -%>
 import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   imports: [
-<% if (props.ui === 'ionic') { -%>
+<% if (props.ui === 'material') { -%>
+    FlexLayoutModule,
+    MaterialModule,
+<% } else if (props.ui === 'ionic') { -%>
     IonicModule,
 <% } -%>
     CommonModule

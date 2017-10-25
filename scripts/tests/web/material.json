@@ -1,6 +1,6 @@
 {
   "target": ["web"],
   "pwa": false,
-  "ui": "ionic",
+  "ui": "material",
   "auth": false
 }

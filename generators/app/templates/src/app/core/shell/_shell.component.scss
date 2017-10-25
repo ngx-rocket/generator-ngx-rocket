@@ -25,4 +25,34 @@
   border-color: color-contrast($colors, primary);
   color: color-contrast($colors, primary);
 }
+<% } else if (props.ui === 'material') { -%>
+:host {
+  display: flex;
+  flex: 1;
+}
+
+.mat-sidenav {
+  min-width: 270px;
+  max-width: 28%;
+}
+
+.has-border {
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.menu-button {
+  margin-right: 1rem;
+}
+
+.mat-list {
+  padding-top: 0;
+}
+
+.mat-list-item {
+  text-decoration: none;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+}
 <% } -%>

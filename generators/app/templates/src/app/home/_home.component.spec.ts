@@ -3,8 +3,14 @@ import { Http, BaseRequestOptions } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 <% if (props.ui === 'ionic') { -%>
 import { IonicModule } from 'ionic-angular';
+<% } else if (props.ui === 'material') { -%>
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
 
+<% if (props.ui === 'material') { -%>
+import { MaterialModule } from '../material.module';
+<% } -%>
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home.component';
 import { QuoteService } from './quote.service';
@@ -18,6 +24,10 @@ describe('HomeComponent', () => {
         imports: [
 <% if (props.ui === 'ionic') { -%>
           IonicModule.forRoot(HomeComponent),
+<% } else if (props.ui === 'material') { -%>
+          BrowserAnimationsModule,
+          FlexLayoutModule,
+          MaterialModule,
 <% } -%>
           SharedModule
         ],

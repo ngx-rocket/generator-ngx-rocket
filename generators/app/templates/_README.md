@@ -132,10 +132,13 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - [Bootstrap 4](https://v4-alpha.getbootstrap.com)
 - [ng-bootsrap](https://ng-bootstrap.github.io/)
 - [Font Awesome](http://fontawesome.io)
-<% } -%>
-<% if (props.ui === 'ionic') { -%>
+<% } else if (props.ui === 'ionic') { -%>
 - [Ionic](http://ionicframework.com)
 - [Ionic Native](https://ionicframework.com/docs/native/)
+<% } else if (props.ui === 'material') { -%>
+- [Angular Material](https://material.angular.io)
+- [Angular Flex Layout](https://github.com/angular/flex-layout)
+- [Material Icons](https://material.io/icons/)
 <% } -%>
 - [RxJS](http://reactivex.io/rxjs)
 - [ngx-translate](https://github.com/ngx-translate/core)

@@ -1,9 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { LoaderComponent } from './loader.component';
 <% if (props.ui === 'ionic') { -%>
 import { IonicModule } from 'ionic-angular';
+<% } else if (props.ui === 'material') { -%>
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
+
+<% if (props.ui === 'material') { -%>
+import { MaterialModule } from '../../material.module';
+<% } -%>
+import { LoaderComponent } from './loader.component';
 
 describe('LoaderComponent', () => {
   let component: LoaderComponent;
@@ -13,6 +19,12 @@ describe('LoaderComponent', () => {
     TestBed.configureTestingModule({
 <% if (props.ui === 'ionic') { -%>
         imports: [IonicModule.forRoot(LoaderComponent)],
+<% } else if (props.ui === 'material') { -%>
+        imports: [
+          BrowserAnimationsModule,
+          FlexLayoutModule,
+          MaterialModule
+        ],
 <% } -%>
         declarations: [LoaderComponent]
       })

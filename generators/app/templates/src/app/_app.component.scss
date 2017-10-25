@@ -1,0 +1,6 @@
+<% if (props.ui === 'material') { -%>
+:host {
+  display: flex;
+  flex: 1;
+}
+<% } -%>

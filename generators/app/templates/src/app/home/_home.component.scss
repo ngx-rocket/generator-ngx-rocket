@@ -1,15 +1,22 @@
+<% if (props.ui === 'material') { -%>
+.container {
+  text-align: center;
+  padding: 1em;
+}
+
+<% } -%>
 .logo {
-<% if (props.ui === 'ionic') { -%>
+<% if (props.ui === 'bootstrap') { -%>
+  width: 100px;
+<% } else { -%>
   width: 150px;
   margin: 0 auto;
-<% } else { -%>
-  width: 100px;
 <% } -%>
 }
 
 q {
   font-style: italic;
-<% if (props.ui !== 'ionic') { -%>
+<% if (props.ui === 'bootstrap') { -%>
   font-size: 1.2rem;
 <% } -%>
   quotes: "« " " »";

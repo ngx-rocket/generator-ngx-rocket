@@ -46,9 +46,9 @@ do
 
     yo ngx-rocket --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
 
-    npm run test:ci
-    npm run e2e
-    npm run build
+    npm run test:ci -- --no-progress
+    npm run e2e -- --no-progress
+    npm run build -- --no-progress
 
     if [ -z "$1" ]; then
         mv node_modules $CACHE_FOLDER

@@ -3,8 +3,13 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 <% if (props.ui === 'ionic') { -%>
 import { IonicModule } from 'ionic-angular';
+<% } else if (props.ui === 'material') { -%>
+import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
 
+<% if (props.ui === 'material') { -%>
+import { MaterialModule } from '../material.module';
+<% } -%>
 import { CoreModule } from '../core/core.module';
 import { SharedModule } from '../shared/shared.module';
 import { HomeRoutingModule } from './home-routing.module';
@@ -19,6 +24,9 @@ import { QuoteService } from './quote.service';
     SharedModule,
 <% if (props.ui === 'ionic') { -%>
     IonicModule,
+<% } else if (props.ui === 'material') { -%>
+    FlexLayoutModule,
+    MaterialModule,
 <% } -%>
     HomeRoutingModule
   ],

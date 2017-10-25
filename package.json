@@ -13,6 +13,7 @@
     "angular-cli",
     "bootstrap",
     "ionic",
+    "material",
     "scalable",
     "enterprise",
     "scaffold",
@@ -42,7 +43,7 @@
   },
   "dependencies": {
     "@ngx-rocket/ascii-logo": "^1.0.0",
-    "@ngx-rocket/core": "^2.1.0",
+    "@ngx-rocket/core": "^3.0.0",
     "chalk": "^2.0.1",
     "insight": "^0.8.4"
   },
