@@ -43,13 +43,13 @@
   },
   "dependencies": {
     "@ngx-rocket/ascii-logo": "^1.0.0",
-    "@ngx-rocket/core": "^3.0.0",
-    "chalk": "^2.0.1",
+    "@ngx-rocket/core": "^3.0.1",
+    "chalk": "^2.3.0",
     "insight": "^0.8.4"
   },
   "devDependencies": {
-    "eslint": "^4.8.0",
-    "eslint-config-xo-space": "^0.16.0"
+    "eslint": "^4.9.0",
+    "eslint-config-xo-space": "^0.17.0"
   },
   "engines": {
     "node": ">=6.0.0"

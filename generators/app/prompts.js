@@ -13,7 +13,7 @@ module.exports = [
     choices: [
       {
         value: 'web',
-        name: 'Responsive web app',
+        name: 'Web app',
         checked: true
       },
       {
@@ -29,7 +29,7 @@ module.exports = [
   {
     type: 'confirm',
     name: 'pwa',
-    message: 'Do you want progressive web app (PWA) support? (manifest and service worker)',
+    message: 'Do you want a progressive web app? (with manifest and service worker)',
     default: true,
     when: props => props.target && props.target.includes('web')
   },
@@ -65,14 +65,14 @@ module.exports = [
       if (props.mobile.includes('ios')) {
         choices.push({
           value: 'wkwebview',
-          name: '[iOS] WKWebView (Ionic version)',
+          name: '[iOS] WKWebView (best for iOS 9+)',
           checked: true
         });
       }
       if (props.mobile.includes('android')) {
         choices.push({
           value: 'crosswalk',
-          name: '[Android] Crosswalk',
+          name: '[Android] Crosswalk (best for Android < 4.4 support)',
           checked: false
         });
       }
