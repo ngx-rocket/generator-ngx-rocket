@@ -28,8 +28,8 @@ See generated project example [here](https://github.com/ngx-rocket/starter-kit).
   corporate proxy and other tools [configuration and usage](#other-documentation)...
   
 - **Ready-to-use UI components:** focus on your app, not on the stack! [Choose](#libraries) between a
-  [Bootstrap 4](https://v4-alpha.getbootstrap.com) or [Ionic](http://ionicframework.com) based UI with nicely looking,
-  responsive starter templates
+  [Bootstrap 4](https://v4-alpha.getbootstrap.com), [Ionic](http://ionicframework.com) or
+  [Angular Material](https://material.angular.io) based UI with nicely looking, responsive starter templates
   
 - **Mobile app support:** choose between a web app, a mobile app (using [Cordova](https://cordova.apache.org)) or both
   using the same code base
