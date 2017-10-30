@@ -48,7 +48,7 @@
     "insight": "^0.8.4"
   },
   "devDependencies": {
-    "eslint": "^4.9.0",
+    "eslint": "^4.10.0",
     "eslint-config-xo-space": "^0.17.0"
   },
   "engines": {
