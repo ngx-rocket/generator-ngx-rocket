@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "build": "npm run env -s && ng build --prod",
-    "start": "ng serve --proxy-config proxy.conf.js",
+    "start": "ng serve --aot --proxy-config proxy.conf.js",
     "lint": "ng lint --type-check && stylelint \"src/**/*.scss\" --syntax scss && htmlhint \"src\" --config .htmlhintrc",
     "test": "ng test",
     "test:ci": "npm run lint -s && ng test --single-run --code-coverage",
@@ -26,15 +26,15 @@
     "generate": "ng generate"
   },
   "dependencies": {
-    "@angular/animations": "^4.2.6",
-    "@angular/common": "^4.2.6",
-    "@angular/compiler": "^4.2.6",
-    "@angular/core": "^4.2.6",
-    "@angular/forms": "^4.2.6",
-    "@angular/http": "^4.2.6",
-    "@angular/platform-browser": "^4.2.6",
-    "@angular/platform-browser-dynamic": "^4.2.6",
-    "@angular/router": "^4.2.6",
+    "@angular/animations": "^5.0.0",
+    "@angular/common": "^5.0.0",
+    "@angular/compiler": "^5.0.0",
+    "@angular/core": "^5.0.0",
+    "@angular/forms": "^5.0.0",
+    "@angular/http": "^5.0.0",
+    "@angular/platform-browser": "^5.0.0",
+    "@angular/platform-browser-dynamic": "^5.0.0",
+    "@angular/router": "^5.0.0",
     "@ngx-translate/core": "^8.0.0",
 <% if (props.target.includes('cordova')) { -%>
     "@ionic-native/core": "^4.0.0",
@@ -68,9 +68,9 @@
 <% if (props.target.includes('cordova')) { -%>
     "cordova": "^7.0.0",
 <% } -%>
-    "@angular/cli": "^1.4.2",
-    "@angular/compiler-cli": "^4.2.6",
-    "@angular/language-service": "^4.2.6",
+    "@angular/cli": "~1.5.0",
+    "@angular/compiler-cli": "^5.0.0",
+    "@angular/language-service": "^5.0.0",
     "@biesbjerg/ngx-translate-extract": "^2.3.1",
     "@ngx-rocket/scripts": "^1.0.4",
     "@types/jasmine": "^2.5.52",
