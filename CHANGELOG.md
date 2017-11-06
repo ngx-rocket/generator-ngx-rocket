@@ -1,5 +1,16 @@
 # Change Log
 
+## [2.3.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.3.1) (2017-11-06)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.3.0...2.3.1)
+
+**Fixed bugs:**
+
+- Translation dropdown doesn't do anything [\#165](https://github.com/ngx-rocket/generator-ngx-rocket/issues/165)
+
+**Merged pull requests:**
+
+- Fixed JSON imports with angular-cli@1.5 \(fix \#165\) [\#166](https://github.com/ngx-rocket/generator-ngx-rocket/pull/166)
+
 ## [2.3.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.3.0) (2017-10-25)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.2.1...2.3.0)
 
