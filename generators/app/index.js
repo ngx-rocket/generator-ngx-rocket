@@ -20,6 +20,12 @@ class NgxGenerator extends Generator {
       required: false
     });
 
+    this.option('external-chrome', {
+      type: Boolean,
+      description: 'Avoid downloading an extra Chrome binary',
+      default: false
+    });
+
     this.insight.optOut = !this.options.analytics || process.env.DISABLE_NGX_ANALYTICS;
 
     // Updating
