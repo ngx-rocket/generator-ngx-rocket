@@ -70,7 +70,7 @@ export class AppComponent implements OnInit {
     const onNavigationEnd = this.router.events.pipe(filter(event => event instanceof NavigationEnd));
 
     // Change page title on navigation or language change, based on route data
-    Observable.merge(this.translateService.onLangChange, onNavigationEnd)
+    merge(this.translateService.onLangChange, onNavigationEnd)
       .pipe(
         map(() => {
           let route = this.activatedRoute;
