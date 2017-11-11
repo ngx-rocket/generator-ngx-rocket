@@ -3,10 +3,27 @@ branches:
     - master
 
 environment:
+  nodejs_version: ""
+
   matrix:
-    - nodejs_version: "6"
-    - nodejs_version: "7"
-    - nodejs_version: ""
+    - CASE: "cordova/bootstrap"
+    - CASE: "cordova/bootstrap-authentication"
+    - CASE: "cordova/ionic"
+    - CASE: "cordova/ionic-authentication"
+    - CASE: "cordova/material"
+    - CASE: "cordova/material-authentication"
+    - CASE: "web/bootstrap"
+    - CASE: "web/bootstrap-authentication"
+    - CASE: "web/ionic"
+    - CASE: "web/ionic-authentication"
+    - CASE: "web/material"
+    - CASE: "web/material-authentication"
+    - CASE: "web+cordova/bootstrap-authentication"
+    - CASE: "web+cordova/ionic-authentication"
+    - CASE: "web+cordova/material-authentication"
+
+matrix:
+  fast_finish: true
 
 install:
   - ps: Install-Product node $env:nodejs_version
@@ -18,6 +35,6 @@ test_script:
   - node -v
   - npm -v
   - npm run lint
-  - bash -c "scripts/test.sh"
+  - bash -c "scripts/test.sh $CASE"
 
 build: off
