@@ -1,9 +1,7 @@
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { map, catchError } from 'rxjs/operators';
 
 const routes = {
   quote: (c: RandomQuoteContext) => `/jokes/random?category=${c.category}`
@@ -21,9 +19,11 @@ export class QuoteService {
 
   getRandomQuote(context: RandomQuoteContext): Observable<string> {
     return this.http.get(routes.quote(context), { cache: true })
-      .map((res: Response) => res.json())
-      .map(body => body.value)
-      .catch(() => Observable.of('Error, could not load joke :-('));
+      .pipe(
+        map((res: Response) => res.json()),
+        map(body => body.value),
+        catchError(() => Observable.of('Error, could not load joke :-('))
+      );
   }
 
 }
