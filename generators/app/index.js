@@ -74,6 +74,11 @@ class NgxGenerator extends Generator {
       this.props.auth ? 'auth' : 'no-auth'
     );
     this.insight.track('package-manager', this.packageManager);
+
+    if (this.props.target.includes('cordova') && this.packageManager === 'yarn') {
+      this.log(chalk.yellow('\nWarning: Using Yarn with Cordova is NOT recommended!'));
+      this.log(chalk.yellow('Cordova still uses NPM to fetch packages, causing issues with Yarn.\n'));
+    }
   }
 
   install() {
