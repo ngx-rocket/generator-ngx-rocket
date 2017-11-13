@@ -1,12 +1,12 @@
 # Updating npm dependencies
 
 - Check outdated packages
-```bash
+```sh
 <%= props.packageManager %> outdated
 ```
 
 - Update local packages according to `package.json`
-```bash
+```sh
 <% if (props.packageManager === 'yarn') { -%>
 yarn upgrade
 <% } else { -%>
