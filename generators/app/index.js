@@ -73,7 +73,7 @@ class NgxGenerator extends Generator {
       this.props.ui,
       this.props.auth ? 'auth' : 'no-auth'
     );
-    this.insight.track('package-manager', this.packageManager)
+    this.insight.track('package-manager', this.packageManager);
   }
 
   install() {
