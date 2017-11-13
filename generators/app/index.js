@@ -97,7 +97,7 @@ class NgxGenerator extends Generator {
     }
 
     this.log('\nAll done! Get started with these tasks:');
-    this.log(`- $ ${chalk.green(`${this.packageManager} run start`)}: start dev server with live reload on http://localhost:4200`);
+    this.log(`- $ ${chalk.green(`${this.packageManager} start`)}: start dev server with live reload on http://localhost:4200`);
 
     if (this.props.target.includes('web')) {
       this.log(`- $ ${chalk.green(`${this.packageManager} run build`)}: build web app for production`);
@@ -109,7 +109,7 @@ class NgxGenerator extends Generator {
       this.log(`- $ ${chalk.green(`${this.packageManager} run cordova:build`)}: build mobile app for production`);
     }
 
-    this.log(`- $ ${chalk.green(`${this.packageManager} run test`)}: run unit tests in watch mode for TDD`);
+    this.log(`- $ ${chalk.green(`${this.packageManager} test`)}: run unit tests in watch mode for TDD`);
     this.log(`- $ ${chalk.green(`${this.packageManager} run test:ci`)}: lint code and run units tests with coverage`);
     this.log(`- $ ${chalk.green(`${this.packageManager} run e2e`)}: launch e2e tests`);
     this.log(`- $ ${chalk.green(`${this.packageManager} run docs`)}: show docs and coding guides`);
