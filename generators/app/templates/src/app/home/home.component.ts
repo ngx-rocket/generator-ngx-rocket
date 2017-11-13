@@ -1,6 +1,5 @@
-import 'rxjs/add/operator/finally';
-
 import { Component, OnInit } from '@angular/core';
+import { finalize } from 'rxjs/operators';
 
 import { QuoteService } from './quote.service';
 
@@ -19,7 +18,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.isLoading = true;
     this.quoteService.getRandomQuote({ category: 'dev' })
-      .finally(() => { this.isLoading = false; })
+      .pipe(finalize(() => { this.isLoading = false; }))
       .subscribe((quote: string) => { this.quote = quote; });
   }
 

@@ -9,7 +9,7 @@
 
 ![ngx-rocket logo](https://user-images.githubusercontent.com/593151/28924751-08023b32-7863-11e7-9186-c17d4647d861.png)
 
-> Extensible Angular 4+ enterprise-grade project generator based on
+> Extensible Angular 5+ enterprise-grade project generator based on
 > [angular-cli](https://github.com/angular/angular-cli) with best practices from the community.
 > Includes PWA and Cordova support, coding guides and more!
 
@@ -28,7 +28,7 @@ See generated project example [here](https://github.com/ngx-rocket/starter-kit).
   corporate proxy and other tools [configuration and usage](#other-documentation)...
   
 - **Ready-to-use UI components:** focus on your app, not on the stack! [Choose](#libraries) between a
-  [Bootstrap 4](https://v4-alpha.getbootstrap.com), [Ionic](http://ionicframework.com) or
+  [Bootstrap 4](https://getbootstrap.com/), [Ionic](http://ionicframework.com) or
   [Angular Material](https://material.angular.io) based UI with nicely looking, responsive starter templates
   
 - **Mobile app support:** choose between a web app, a mobile app (using [Cordova](https://cordova.apache.org)) or both
@@ -178,7 +178,7 @@ Alternative enhanced web views are also supported:
 - [Lodash](https://lodash.com)
 - UI based on:
   * Bootstrap
-    - [Bootstrap 4](https://v4-alpha.getbootstrap.com)
+    - [Bootstrap 4](https://getbootstrap.com)
     - [ng-bootsrap](https://ng-bootstrap.github.io/)
     - [Font Awesome](http://fontawesome.io)
   * Ionic:

@@ -1,5 +1,30 @@
 # Change Log
 
+## [2.4.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.4.0) (2017-11-13)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.3.1...2.4.0)
+
+**Enhancements**:
+
+- Update to RxJS 5.5 lettable operators [\#167](https://github.com/ngx-rocket/generator-ngx-rocket/issues/167) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Update to Angular 5 [\#164](https://github.com/ngx-rocket/generator-ngx-rocket/issues/164) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Merged pull requests:**
+
+- Updated to RxJS@5.5 lettable operators [\#174](https://github.com/ngx-rocket/generator-ngx-rocket/pull/174)
+- Feature/angular5 [\#172](https://github.com/ngx-rocket/generator-ngx-rocket/pull/172)
+- Updated to latest Bootstrap beta [\#170](https://github.com/ngx-rocket/generator-ngx-rocket/pull/170)
+
+## [2.3.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.3.1) (2017-11-06)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.3.0...2.3.1)
+
+**Fixed bugs:**
+
+- Translation dropdown doesn't do anything [\#165](https://github.com/ngx-rocket/generator-ngx-rocket/issues/165)
+
+**Merged pull requests:**
+
+- Fixed JSON imports with angular-cli@1.5 \(fix \#165\) [\#166](https://github.com/ngx-rocket/generator-ngx-rocket/pull/166)
+
 ## [2.3.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.3.0) (2017-10-25)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.2.1...2.3.0)
 

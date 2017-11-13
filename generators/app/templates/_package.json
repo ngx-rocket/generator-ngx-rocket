@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "build": "<%= props.packageManager %> run env<%= props.packageManager === 'npm' ? ' -s' : '' %> && ng build --prod",
-    "start": "ng serve --proxy-config proxy.conf.js",
+    "start": "ng serve --aot --proxy-config proxy.conf.js",
     "lint": "ng lint --type-check && stylelint \"src/**/*.scss\" --syntax scss && htmlhint \"src\" --config .htmlhintrc",
     "test": "ng test",
     "test:ci": "<%= props.packageManager %> run lint<%= props.packageManager === 'npm' ? ' -s' : '' %> && ng test --single-run --code-coverage",
@@ -26,15 +26,15 @@
     "generate": "ng generate"
   },
   "dependencies": {
-    "@angular/animations": "^4.2.6",
-    "@angular/common": "^4.2.6",
-    "@angular/compiler": "^4.2.6",
-    "@angular/core": "^4.2.6",
-    "@angular/forms": "^4.2.6",
-    "@angular/http": "^4.2.6",
-    "@angular/platform-browser": "^4.2.6",
-    "@angular/platform-browser-dynamic": "^4.2.6",
-    "@angular/router": "^4.2.6",
+    "@angular/animations": "^5.0.0",
+    "@angular/common": "^5.0.0",
+    "@angular/compiler": "^5.0.0",
+    "@angular/core": "^5.0.0",
+    "@angular/forms": "^5.0.0",
+    "@angular/http": "^5.0.0",
+    "@angular/platform-browser": "^5.0.0",
+    "@angular/platform-browser-dynamic": "^5.0.0",
+    "@angular/router": "^5.0.0",
     "@ngx-translate/core": "^8.0.0",
 <% if (props.target.includes('cordova')) { -%>
     "@ionic-native/core": "^4.0.0",
@@ -46,16 +46,16 @@
     "@angular/service-worker": "^1.0.0-beta.16",
 <% } -%>
 <% if (props.ui === 'ionic') { -%>
-    "ionic-angular": "^3.5.3",
+    "ionic-angular": "^3.9.2",
     "ionicons": "^3.0.0",
 <% } else if (props.ui === 'bootstrap') { -%>
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.5",
-    "bootstrap": "4.0.0-beta",
+    "bootstrap": "4.0.0-beta.2",
     "font-awesome": "^4.7.0",
 <% } else if (props.ui === 'material') { -%>
     "@angular/cdk": "^2.0.0-beta.12",
     "@angular/material": "^2.0.0-beta.12",
-    "@angular/flex-layout": "2.0.0-beta.9",
+    "@angular/flex-layout": "2.0.0-beta.10-4905443",
     "material-design-icons": "^3.0.1",
     "hammerjs": "^2.0.8",
 <% } -%>
@@ -68,16 +68,16 @@
 <% if (props.target.includes('cordova')) { -%>
     "cordova": "^7.0.0",
 <% } -%>
-    "@angular/cli": "^1.4.2",
-    "@angular/compiler-cli": "^4.2.6",
-    "@angular/language-service": "^4.2.6",
+    "@angular/cli": "~1.5.0",
+    "@angular/compiler-cli": "^5.0.0",
+    "@angular/language-service": "^5.0.0",
     "@biesbjerg/ngx-translate-extract": "^2.3.1",
     "@ngx-rocket/scripts": "^1.0.4",
     "@types/jasmine": "^2.5.52",
     "@types/jasminewd2": "^2.0.2",
     "@types/lodash": "^4.14.52",
     "@types/node": "^8.0.10",
-    "codelyzer": "~3.2.0",
+    "codelyzer": "~4.0.1",
     "hads": "^1.3.4",
     "htmlhint": "^0.9.13",
     "https-proxy-agent": "^2.0.0",
@@ -89,14 +89,14 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "^1.1.0",
     "karma-junit-reporter": "^1.2.0",
-    "protractor": "~5.1.2",
-    "puppeteer": "^0.11.0",
-    "stylelint": "~8.1.0",
+    "protractor": "~5.2.0",
+    "puppeteer": "^0.12.0",
+    "stylelint": "~8.2.0",
     "stylelint-config-recommended-scss": "~2.0.0",
     "stylelint-config-standard": "~17.0.0",
     "stylelint-scss": "~2.1.0",
-    "ts-node": "^3.2.0",
-    "tslint": "~5.7.0",
+    "ts-node": "~3.3.0",
+    "tslint": "~5.8.0",
     "typescript": "~2.4.2"
   }
 }
