@@ -6,12 +6,12 @@ version <%= version %>
 # Getting started
 
 1. Go to project folder and install dependencies:
- ```bash
+ ```sh
  npm install
  ```
  
 2. Launch development server, and open `localhost:4200` in your browser:
- ```bash
+ ```sh
  npm start
  ```
  
@@ -129,7 +129,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
 
 - [Angular](https://angular.io)
 <% if (props.ui === 'bootstrap') { -%>
-- [Bootstrap 4](https://v4-alpha.getbootstrap.com)
+- [Bootstrap 4](https://getbootstrap.com)
 - [ng-bootsrap](https://ng-bootstrap.github.io/)
 - [Font Awesome](http://fontawesome.io)
 <% } else if (props.ui === 'ionic') { -%>
