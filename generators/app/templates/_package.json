@@ -53,8 +53,8 @@
     "bootstrap": "4.0.0-beta.2",
     "font-awesome": "^4.7.0",
 <% } else if (props.ui === 'material') { -%>
-    "@angular/cdk": "^2.0.0-beta.12",
-    "@angular/material": "^2.0.0-beta.12",
+    "@angular/cdk": "^5.0.0-rc0",
+    "@angular/material": "^5.0.0-rc0",
     "@angular/flex-layout": "2.0.0-beta.10-4905443",
     "material-design-icons": "^3.0.1",
     "hammerjs": "^2.0.8",
