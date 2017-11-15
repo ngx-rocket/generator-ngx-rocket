@@ -70,6 +70,8 @@ And there's even more! See [What's in the box](#whats-in-the-box) for more detai
  
 # Project structure
 
+The structure follows [Angular style guide](https://angular.io/styleguide).
+
 ```
 dist/                        app production build
 docs/                        project docs and coding guides
@@ -208,6 +210,18 @@ Alternative enhanced web views are also supported:
 - [Using a backend proxy for development](https://github.com/ngx-rocket/starter-kit/blob/master/docs/backend-proxy.md)
 - [Browser routing](https://github.com/ngx-rocket/starter-kit/blob/master/docs/routing.md)
 - [Cordova](https://github.com/ngx-rocket/starter-kit/blob/cordova/ionic/docs/cordova.md)
+
+## Generator options
+
+- `--packageManager [npm|yarn]`: specify whether to use [Yarn](https://yarnpkg.com) or NPM as your package manager
+ (default is NPM).
+ You can also use the environment variable `NGX_PACKAGE_MANAGER` to set this option globally. 
+- `--automate <json_file>`: automate prompt answers using specified JSON file (see
+  [here](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/scripts/tests) for examples).
+- `--addons <addon_name> [<addon_name>] ...`: space-separated list of add-on to use.
+- `--no-update`: do no update existing project.
+- `--no-analytics`: do not report anonymous usage analytics.
+  You can also use the environment variable `NGX_DISABLE_ANALYTICS` to set this option globally.
 
 # Contributing
 
