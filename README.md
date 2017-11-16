@@ -70,6 +70,8 @@ And there's even more! See [What's in the box](#whats-in-the-box) for more detai
  
 # Project structure
 
+The structure follows [Angular style guide](https://angular.io/styleguide).
+
 ```
 dist/                        app production build
 docs/                        project docs and coding guides
@@ -208,6 +210,32 @@ Alternative enhanced web views are also supported:
 - [Using a backend proxy for development](https://github.com/ngx-rocket/starter-kit/blob/master/docs/backend-proxy.md)
 - [Browser routing](https://github.com/ngx-rocket/starter-kit/blob/master/docs/routing.md)
 - [Cordova](https://github.com/ngx-rocket/starter-kit/blob/cordova/ionic/docs/cordova.md)
+
+## Generator options
+
+- `--packageManager [npm|yarn]`: specify whether to use [Yarn](https://yarnpkg.com) or NPM as your package manager
+ (default is NPM).
+ You can also use the environment variable `NGX_PACKAGE_MANAGER` to set this option globally. 
+- `--automate <json_file>`: automate prompt answers using specified JSON file (see
+  [here](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/scripts/tests) for examples).
+- `--addons <addon_name> [<addon_name>] ...`: space-separated list of add-on to use.
+- `--no-update`: do no update existing project (see also [updating generated projects](#updating-generated-projects)). 
+- `--no-analytics`: do not report anonymous usage analytics.
+  You can also use the environment variable `NGX_DISABLE_ANALYTICS` to set this option globally.
+
+## Updating generated projects
+
+As new features and newer libraries and tools are added to the generator, you may want to update your project at some
+point. Here is how we suggest you to do it:
+
+1. Make sure your working directory is clean (no pending / uncommited changes).
+2. Run `ngx update` using the [CLI](https://github.com/ngx-rocket/cli) inside your project folder.
+3. The generator will then run again using the same options you used initially, prompting you for each file change.
+   From there the recommended approach is simply to overwrite everything.
+4. Finally, use your source control to see the diff for each file and merge the changes manually.
+
+In the future, [an option](https://github.com/ngx-rocket/generator-ngx-rocket/issues/144) will be added to update only
+the dependencies and toolchain in order to limit the manual merge operations.
 
 # Contributing
 

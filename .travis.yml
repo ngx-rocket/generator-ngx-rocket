@@ -40,9 +40,10 @@ env:
     - CASE=web+cordova/bootstrap-authentication
     - CASE=web+cordova/ionic-authentication
     - CASE=web+cordova/material-authentication
+      NGX_PACKAGE_MANAGER=yarn
 
 install:
-  - npm install -g yo
+  - npm install -g yo yarn@latest
   - npm install
   - npm link
 

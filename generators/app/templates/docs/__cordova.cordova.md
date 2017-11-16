@@ -14,8 +14,13 @@ You can manage Cordova CLI updates like any [NPM package](updating.md).
 
 If you do not want this behavior and prefer using your global Cordova install, simply run:
 ```sh
+<% if (props.packageManager === 'yarn') { -%>
+yarn remove cordova
+yarn global add cordova
+<% } else { -%>
 npm remove cordova --save-dev
 npm install -g cordova
+<% } -%>
 ```
 The NPM scripts will then use the global version instead of a local one.
 
@@ -24,7 +29,11 @@ The NPM scripts will then use the global version instead of a local one.
 Each Cordova platform may require specific tools to be installed for the command to work properly.
 You can check anytime if your system meets the requirements for a given platform with:
 ```sh
+<% if (props.packageManager === 'yarn') { -%>
+yarn run cordova requirements <ios|android>
+<% } else { -%>
 npm run cordova -- requirements <ios|android>
+<% } -%>
 ```
 
 ### iOS
@@ -33,8 +42,13 @@ To build the iOS version, you need to install [XCode](https://itunes.apple.com/a
 
 To allow launching your app in simulator or device from command line, you need also:
 ```sh
+<% if (props.packageManager === 'yarn') { -%>
+yarn global add ios-sim
+yarn global add ios-deploy
+<% } else { -%>
 npm install -g ios-sim
 npm install -g ios-deploy
+<% } -%>
 ```
 
 See [Cordova documentation](https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html#requirements-and-support)
@@ -52,24 +66,36 @@ for additional information.
 
 ### Restoring platforms and plugins after a checkout
 ```sh
-npm run cordova:prepare
+<%= props.packageManager %> run cordova:prepare
 ```
 
 This will restore all your platforms and plugins according to your `config.xml` file.
 
 ### Adding a platform
 ```sh
+<% if (props.packageManager === 'yarn') { -%>
+yarn run cordova platform add <ios|android>
+<% } else { -%>
 npm run cordova -- platform add <ios|android>
+<% } -%>
 ```
 
 ### Adding a plugin
 ```sh
+<% if (props.packageManager === 'yarn') { -%>
+yarn run cordova plugin add <plugin-name>
+<% } else { -%>
 npm run cordova -- plugin add <plugin-name>
+<% } -%>
 ```
 
 ### Running the application
 ```sh
+<% if (props.packageManager === 'yarn') { -%>
+yarn run cordova:run <ios|android> [--device]
+<% } else { -%>
 npm run cordova:run <ios|android> [-- --device]
+<% } -%>
 ```
 
 Run your application in specified platform emulator or device if you add the `--device` option.
@@ -100,7 +126,7 @@ Here is an example configuration:
 }
 ```
  
-This information will be used by the `npm run cordova:build` task to generate production packages.
+This information will be used by the `<%= props.packageManager %> run cordova:build` task to generate production packages.
 
 You can find more detailed documentation in the
 [iOS signing guide](https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html#signing-an-app) or
@@ -110,23 +136,35 @@ You can find more detailed documentation in the
 
 To update a single plugin:
 ```sh
+<% if (props.packageManager === 'yarn') { -%>
+yarn run cordova plugin update <plugin_name>
+<% } else { -%>
 npm run cordova -- plugin update <plugin_name>
+<% } -%>
 ```
 
 Cordova does not include a mass update mechanism for plugins, but you can use the `cordova-check-plugins` tool:
 ```sh
+<% if (props.packageManager === 'yarn') { -%>
+yarn global add cordova-check-plugins
+<% } else { -%>
 npm install -g cordova-check-plugins
+<% } -%>
 ```
 
 Then run the following commands to perform an interactive update of outdated plugins and save the new versions:
 ```sh
 cordova-check-plugins --update=interactive
+<% if (props.packageManager === 'yarn') { -%>
+yarn run cordova plugin save
+<% } else { -%>
 npm run cordova -- plugin save
+<% } -%>
 ```
 
 ### Updating platforms
 ```sh
-npm run cordova platform update <ios|android>
+<%= props.packageManager %> run cordova platform update <ios|android>
 ```
 
 ## Icon and splash screen
@@ -160,7 +198,11 @@ modern browser APIs, at the cost of increased app size and memory footprint.
 
 To add or remove Crosswalk:
 ```sh
+<% if (props.packageManager === 'yarn') { -%>
+yarn run cordova plugin <add|remove> cordova-plugin-crosswalk-webview
+<% } else { -%>
 npm run cordova -- plugin <add|remove> cordova-plugin-crosswalk-webview
+<% } -%>
 ```
 
 By default, build commands will generate separate packages for x86 ad ARM architecture, to reduce download sizes.
@@ -171,7 +213,7 @@ This behavior can be change to build a single package by modifying this line in 
 
 ### Using WKWebView on iOS
 
-The [WKWebView plugin](https://github.com/ionic-team/cordova-plugin-wkwebview-engine) makes use of the new `WKWebView`
+The [Ionic WebView plugin](https://github.com/ionic-team/cordova-plugin-ionic-webview) makes use of the new `WKWebView`
 instead of `UIWebView`, enabling a huge increase in JavaScript performance.
 
 The new web view is only active on iOS 9+ (with a fallback for older version), and has some limitations (see the
@@ -182,7 +224,11 @@ plugin doc on github for more details), the biggest one being:
 
 To add or remove WKWebView:
 ```sh
-npm run cordova -- plugin <add|remove> https://github.com/ionic-team/cordova-plugin-wkwebview-engine
+<% if (props.packageManager === 'yarn') { -%>
+yarn run cordova plugin <add|remove> cordova-plugin-ionic-webview
+<% } else { -%>
+npm run cordova -- plugin <add|remove> cordova-plugin-ionic-webview
+<% } -%>
 ```
 
 ## Security considerations
