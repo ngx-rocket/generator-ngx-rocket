@@ -2,7 +2,7 @@
 
 ## Environment
 
-Most tools (including npm and git) use the `HTTP_PROXY` and `HTTPS_PROXY` environment variables to work with a
+Most tools (including <%= props.packageManager %> and git) use the `HTTP_PROXY` and `HTTPS_PROXY` environment variables to work with a
 corporate proxy.
 
 ### Windows
@@ -24,7 +24,7 @@ export HTTPS_PROXY="$HTTP_PROXY"
 
 Some proxy like **zscaler** use a custom SSL certificate to inspect request, which may cause npm commands to fail.
 
-To solve this problem, you can disable the `strict-ssl` option in npm.
+To solve this problem, you can disable the `strict-ssl` option in <%= props.packageManager %>.
 
 ## Proxy exceptions
 
@@ -41,9 +41,9 @@ variable, in the same way as `HTTP_PROXY`:
 export NO_PROXY="127.0.0.1, localhost, <your_local_server_ip_or_hostname>"
 ```
 
-### Npm
+### <%= props.packageManager === 'yarn' ? 'Yarn' : 'Npm' %>
 
 Run this command in your project directory:
 ```sh
-npm set strict-ssl false
+<%= props.packageManager %> set strict-ssl false
 ```

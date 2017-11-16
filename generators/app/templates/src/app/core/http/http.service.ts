@@ -1,11 +1,11 @@
-import 'rxjs/add/observable/throw';
-
 import { Injectable } from '@angular/core';
 import {
   Http, ConnectionBackend, RequestOptions, Request, Response, RequestOptionsArgs, RequestMethod, ResponseOptions
 } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Subscriber } from 'rxjs/Subscriber';
+import { _throw } from 'rxjs/observable/throw';
+import { catchError } from 'rxjs/operators';
 import { extend } from 'lodash';
 
 import { environment } from '../../../environments/environment';
@@ -118,7 +118,7 @@ export class HttpService extends Http {
   private httpRequest(request: string|Request, options: RequestOptionsArgs): Observable<Response> {
     let req = super.request(request, options);
     if (!options.skipErrorHandler) {
-      req = req.catch(error => this.errorHandler(error));
+      req = req.pipe(catchError(error => this.errorHandler(error)));
     }
     return req;
   }
@@ -128,7 +128,7 @@ export class HttpService extends Http {
     if (environment.production) {
       // Avoid unchaught exceptions on production
       log.error('Request error', response);
-      return Observable.throw(response);
+      return _throw(response);
     }
     throw response;
   }

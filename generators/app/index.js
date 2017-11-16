@@ -15,7 +15,7 @@ class NgxGenerator extends Generator {
     this.insight = new Insight({trackingCode: 'UA-93069862-1', pkg});
 
     this.argument('appName', {
-      desc: 'Name of the app to generate',
+      description: 'Name of the app to generate',
       type: String,
       required: false
     });
@@ -74,18 +74,30 @@ class NgxGenerator extends Generator {
     this.insight.track(
       'generator',
       this.props.target,
+      this.props.target.includes('web') && this.props.pwa ? 'pwa' : '',
       this.props.target.includes('cordova') ? this.props.mobile : '',
       this.props.ui,
       this.props.auth ? 'auth' : 'no-auth'
     );
+    this.insight.track('package-manager', this.packageManager);
+
+    if (this.props.target.includes('cordova') && this.packageManager === 'yarn') {
+      this.log(chalk.yellow('\nWarning: Using Yarn with Cordova is NOT recommended!'));
+      this.log(chalk.yellow('Cordova still uses NPM to fetch packages, causing issues with Yarn.\n'));
+    }
   }
 
   install() {
     const skipInstall = this.options['skip-install'];
 
     if (!skipInstall) {
-      this.log(`\nRunning ${chalk.yellow('npm install')}, please wait...`);
-      this.npmInstall(null, {loglevel: 'error'});
+      this.log(`\nRunning ${chalk.yellow(`${this.packageManager} install`)}, please wait...`);
+
+      if (this.packageManager === 'yarn') {
+        this.yarnInstall();
+      } else {
+        this.npmInstall(null, {loglevel: 'error'});
+      }
     }
   }
 
@@ -96,22 +108,22 @@ class NgxGenerator extends Generator {
     }
 
     this.log('\nAll done! Get started with these tasks:');
-    this.log(`- $ ${chalk.green('npm start')}: start dev server with live reload on http://localhost:4200`);
+    this.log(`- $ ${chalk.green(`${this.packageManager} start`)}: start dev server with live reload on http://localhost:4200`);
 
     if (this.props.target.includes('web')) {
-      this.log(`- $ ${chalk.green('npm run build')}: build web app for production`);
+      this.log(`- $ ${chalk.green(`${this.packageManager} run build`)}: build web app for production`);
     }
 
     if (this.props.target.includes('cordova')) {
-      this.log(`- $ ${chalk.green('npm run cordova:prepare')}: prepare for building mobile app`);
-      this.log(`- $ ${chalk.green('npm run cordova:run')}: run app on device or simulator`);
-      this.log(`- $ ${chalk.green('npm run cordova:build')}: build mobile app for production`);
+      this.log(`- $ ${chalk.green(`${this.packageManager} run cordova:prepare`)}: prepare for building mobile app`);
+      this.log(`- $ ${chalk.green(`${this.packageManager} run cordova:run`)}: run app on device or simulator`);
+      this.log(`- $ ${chalk.green(`${this.packageManager} run cordova:build`)}: build mobile app for production`);
     }
 
-    this.log(`- $ ${chalk.green('npm test')}: run unit tests in watch mode for TDD`);
-    this.log(`- $ ${chalk.green('npm run test:ci')}: lint code and run units tests with coverage`);
-    this.log(`- $ ${chalk.green('npm run e2e')}: launch e2e tests`);
-    this.log(`- $ ${chalk.green('npm run docs')}: show docs and coding guides`);
+    this.log(`- $ ${chalk.green(`${this.packageManager} test`)}: run unit tests in watch mode for TDD`);
+    this.log(`- $ ${chalk.green(`${this.packageManager} run test:ci`)}: lint code and run units tests with coverage`);
+    this.log(`- $ ${chalk.green(`${this.packageManager} run e2e`)}: launch e2e tests`);
+    this.log(`- $ ${chalk.green(`${this.packageManager} run docs`)}: show docs and coding guides`);
   }
 }
 

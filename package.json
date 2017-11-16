@@ -1,7 +1,7 @@
 {
   "name": "generator-ngx-rocket",
-  "version": "2.3.1",
-  "description": "Extensible Angular 4+ enterprise-grade project generator based on angular-cli with best practices from the community. Includes PWA and Cordova support, coding guides and more!",
+  "version": "2.4.0",
+  "description": "Extensible Angular 5+ enterprise-grade project generator based on angular-cli with best practices from the community. Includes PWA and Cordova support, coding guides and more!",
   "repository": "ngx-rocket/generator-ngx-rocket",
   "keywords": [
     "yeoman-generator",
@@ -43,12 +43,12 @@
   },
   "dependencies": {
     "@ngx-rocket/ascii-logo": "^1.0.0",
-    "@ngx-rocket/core": "^3.0.1",
+    "@ngx-rocket/core": "^3.1.0",
     "chalk": "^2.3.0",
     "insight": "^0.8.4"
   },
   "devDependencies": {
-    "eslint": "^4.9.0",
+    "eslint": "^4.11.0",
     "eslint-config-xo-space": "^0.17.0"
   },
   "engines": {
