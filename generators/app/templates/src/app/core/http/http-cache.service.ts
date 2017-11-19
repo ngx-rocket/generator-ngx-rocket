@@ -18,8 +18,8 @@ export interface HttpCacheEntry {
 @Injectable()
 export class HttpCacheService {
 
-  private cachedData: { [key: string]: HttpCacheEntry; } = {};
-  private storage: Storage = null;
+  private cachedData: { [key: string]: HttpCacheEntry | null; } = {};
+  private storage: Storage | null = null;
 
   constructor() {
     this.loadCacheData();
@@ -48,7 +48,7 @@ export class HttpCacheService {
    * @param {any=} params Optional request query parameters.
    * @return {?ResponseOptions} The cached data or null if no cached data exists for this request.
    */
-  getCacheData(url: string, params?: any): ResponseOptions {
+  getCacheData(url: string, params?: any): ResponseOptions | null {
     const cacheKey = this.getCacheKey(url, params);
     const cacheEntry = this.cachedData[cacheKey];
 
@@ -66,7 +66,7 @@ export class HttpCacheService {
    * @param {any=} params Optional request query parameters.
    * @return {?HttpCacheEntry} The cache entry or null if no cache entry exists for this request.
    */
-  getHttpCacheEntry(url: string, params?: any): HttpCacheEntry {
+  getHttpCacheEntry(url: string, params?: any): HttpCacheEntry | null {
     return this.cachedData[this.getCacheKey(url, params)] || null;
   }
 
@@ -77,7 +77,7 @@ export class HttpCacheService {
    */
   clearCache(url: string, params?: any): void {
     const cacheKey = this.getCacheKey(url, params);
-    this.cachedData[cacheKey] = undefined;
+    this.cachedData[cacheKey] = null;
     log.debug('Cache cleared for key: "' + cacheKey + '"');
     this.saveCacheData();
   }
@@ -105,7 +105,7 @@ export class HttpCacheService {
    * @param {'local'|'session'=} persistence How the cache should be persisted, it can be either local or session
    *   storage, or if no value is provided it will be only in-memory (default).
    */
-  setPersistence(persistence?: 'local'|'session') {
+  setPersistence(persistence?: 'local' | 'session') {
     this.cleanCache();
     this.storage = persistence === 'local' || persistence === 'session' ? window[persistence + 'Storage'] : null;
     this.loadCacheData();

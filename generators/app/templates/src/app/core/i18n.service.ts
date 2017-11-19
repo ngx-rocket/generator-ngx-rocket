@@ -40,7 +40,7 @@ export class I18nService {
   init(defaultLanguage: string, supportedLanguages: string[]) {
     this.defaultLanguage = defaultLanguage;
     this.supportedLanguages = supportedLanguages;
-    this.language = null;
+    this.language = '';
 
     this.translateService.onLangChange
       .subscribe((event: LangChangeEvent) => { localStorage.setItem(languageKey, event.lang); });
@@ -59,7 +59,7 @@ export class I18nService {
     // If no exact match is found, search without the region
     if (language && !isSupportedLanguage) {
       language = language.split('-')[0];
-      language = this.supportedLanguages.find(supportedLanguage => supportedLanguage.startsWith(language));
+      language = this.supportedLanguages.find(supportedLanguage => supportedLanguage.startsWith(language)) || '';
       isSupportedLanguage = Boolean(language);
     }
 

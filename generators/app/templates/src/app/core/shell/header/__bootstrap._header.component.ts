@@ -51,7 +51,7 @@ export class HeaderComponent implements OnInit {
   }
 
 <% if (props.auth) { -%>
-  get username(): string {
+  get username(): string | null {
     const credentials = this.authenticationService.credentials;
     return credentials ? credentials.username : null;
   }

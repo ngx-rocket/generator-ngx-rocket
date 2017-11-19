@@ -1,7 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { ResponseOptions } from '@angular/http';
 
-import { HttpCacheService } from './http-cache.service';
+import { HttpCacheService, HttpCacheEntry } from './http-cache.service';
 
 const cachePersistenceKey = 'httpCache';
 
@@ -57,8 +57,8 @@ describe('HttpCacheService', () => {
       httpCacheService.setCacheData('/hoho', null, response);
 
       // Assert
-      expect(httpCacheService.getHttpCacheEntry('/popo').lastUpdated).toBe(date);
-      expect(httpCacheService.getHttpCacheEntry('/hoho').lastUpdated).not.toBe(date);
+      expect((<HttpCacheEntry>httpCacheService.getHttpCacheEntry('/popo')).lastUpdated).toBe(date);
+      expect((<HttpCacheEntry>httpCacheService.getHttpCacheEntry('/hoho')).lastUpdated).not.toBe(date);
     });
   });
 
@@ -98,8 +98,9 @@ describe('HttpCacheService', () => {
       const entry = httpCacheService.getHttpCacheEntry('/hoho');
 
       // Assert
-      expect(entry.lastUpdated).toEqual(date);
-      expect(entry.data).toEqual(response);
+      expect(entry).not.toBeNull();
+      expect((<HttpCacheEntry>entry).lastUpdated).toEqual(date);
+      expect((<HttpCacheEntry>entry).data).toEqual(response);
     });
   });
 

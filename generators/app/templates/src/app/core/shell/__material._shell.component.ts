@@ -35,7 +35,7 @@ export class ShellComponent implements OnInit {
       .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
   }
 
-  get username(): string {
+  get username(): string | null {
     const credentials = this.authenticationService.credentials;
     return credentials ? credentials.username : null;
   }

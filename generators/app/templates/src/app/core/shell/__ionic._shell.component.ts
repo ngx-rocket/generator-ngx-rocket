@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { ActionSheetController, AlertController, Platform } from 'ionic-angular';
+import { ActionSheetController, AlertController, Platform, ActionSheetOptions } from 'ionic-angular';
+import { ActionSheetButton } from 'ionic-angular/components/action-sheet/action-sheet-options';
 import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs/operators';
 
@@ -41,17 +42,18 @@ export class ShellComponent implements OnInit {
 
 <% if (props.auth) { -%>
   showProfileActions() {
-    const actionSheet = this.actionSheetController.create({ title: this.username });
-    const buttons = [
+    const actionSheetOptions: ActionSheetOptions = { title: this.username || undefined };    
+    const actionSheet = this.actionSheetController.create(actionSheetOptions);
+    const buttons: ActionSheetButton[] = [
       {
         text: this.translateService.instant('Logout'),
-        icon: this.platform.is('ios') ? null : 'log-out',
+        icon: this.platform.is('ios') ? undefined : 'log-out',
         role: 'destructive',
         handler: () => this.logout()
       },
       {
         text: this.translateService.instant('Change language'),
-        icon: this.platform.is('ios') ? null : 'globe',
+        icon: this.platform.is('ios') ? undefined : 'globe',
         handler: () => {
           // Wait for action sheet dismiss animation to finish, see "Dismissing And Async Navigation" section in:
           // http://ionicframework.com/docs/api/components/action-sheet/ActionSheetController/#advanced
@@ -61,7 +63,7 @@ export class ShellComponent implements OnInit {
       },
       {
         text: this.translateService.instant('Cancel'),
-        icon: this.platform.is('ios') ? null : 'close',
+        icon: this.platform.is('ios') ? undefined : 'close',
         role: 'cancel'
       }
     ];
@@ -75,7 +77,7 @@ export class ShellComponent implements OnInit {
     actionSheet.present();
   }
 
-  get username(): string {
+  get username(): string | null {
     const credentials = this.authenticationService.credentials;
     return credentials ? credentials.username : null;
   }
@@ -123,9 +125,12 @@ export class ShellComponent implements OnInit {
   }
 
   private updateNav(route: ActivatedRoute) {
+    if (!route || !route.firstChild) {
+      return;
+    }
     // First component should always be IonicApp
     route = route.firstChild;
-    if (route && route.component === ShellComponent) {
+    if (route && route.component === ShellComponent && route.firstChild) {
       route = route.firstChild;
       this.navRoot = <Component>route.component;
     }

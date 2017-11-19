@@ -121,6 +121,9 @@ export class AppComponent implements OnInit {
 <% if (props.ui === 'ionic') { -%>
   private updateNav(route: ActivatedRoute) {
     if (route.component === IonicApp) {
+      if (!route.firstChild) {
+        return;
+      }
       route = route.firstChild;
       if (!this.nav.getActive() || this.nav.getActive().component !== route.component) {
         this.nav.setRoot(route.component, route.params, { animate: true, direction: 'forward' });
