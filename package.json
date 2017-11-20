@@ -36,7 +36,7 @@
   "preferGlobal": true,
   "main": "./generators/app/index.js",
   "scripts": {
-    "lint": "eslint \"generators/**/*.js\"",
+    "lint": "eslint \"generators/*/*.js\"",
     "test": "npm run lint -s && ./scripts/test.sh",
     "test:addon": "npm run lint -s && TEST_ADDON=1 ./scripts/test.sh",
     "deploy": "scripts/deploy.sh",

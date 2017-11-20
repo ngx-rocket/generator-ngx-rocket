@@ -13,8 +13,8 @@ TEST_APP_NAME="Sample App"
 
 if [ -n "$1" ]; then
   TEST_CASES=$SCRIPT_FOLDER/tests/$1.json
-else if [ -z "$TEST_ADDON" ]; then
-  TEST_CASES=$SCRIPT_FOLDER/tests/addon/**/*.json
+elif [ -n "$TEST_ADDON" ]; then
+  TEST_CASES=$SCRIPT_FOLDER/tests/addon/*.json
 else
   TEST_CASES=$SCRIPT_FOLDER/tests/app/**/*.json
 fi
@@ -46,10 +46,10 @@ do
     echo -------------------------------------------------------------------------------
     echo
 
-    if [ -z "$TEST_ADDON" ]; then
+    if [ -n "$TEST_ADDON" ]; then
 
       # generators/addon test
-      yo ngx-rocket:addon --no-analytics --automate "$CWD/$file" "$TEST_ADDON_NAME" --no-insights
+      yo ngx-rocket:addon --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
 
       npm run test
 
