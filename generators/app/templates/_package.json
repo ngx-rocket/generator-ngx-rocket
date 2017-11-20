@@ -66,8 +66,8 @@
   },
   "devDependencies": {
 <% if (props.target.includes('cordova')) { -%>
-    "cordova": "^7.0.0",
-    "npm": "^5.5.1",
+    "cordova": "^7.1.0",
+    "npm": "^3",
 <% } -%>
     "@angular/cli": "~1.5.0",
     "@angular/compiler-cli": "^5.0.0",
