@@ -59,7 +59,6 @@ class NgxGenerator extends Generator {
     return super.prompting()
       .then(() => {
         this.props.mobile = this.props.mobile || [];
-        this.props.webview = this.props.webview || [];
         this.shareProps(this.props);
       });
   }
