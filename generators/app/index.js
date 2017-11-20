@@ -41,7 +41,7 @@ class NgxGenerator extends Generator {
       this.log(`${chalk.yellow('Make sure you don\'t have uncommitted changes before overwriting files!')}`);
       this.insight.track('update', fromVersion, 'to', this.version);
     } else if (!this.options['skip-welcome']) {
-      this.log(asciiLogo());
+      this.log(asciiLogo(pkg.version));
     }
 
     // Composition
