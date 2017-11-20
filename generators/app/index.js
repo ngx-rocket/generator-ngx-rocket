@@ -39,7 +39,7 @@ class NgxGenerator extends Generator {
       this.updating = true;
       this.log(`\nUpdating ${chalk.green(this.props.appName)} project (${chalk.yellow(fromVersion)} -> ${chalk.yellow(this.version)})\n`);
       this.log(`${chalk.yellow('Make sure you don\'t have uncommitted changes before overwriting files!')}`);
-      this.insight.track('generator', 'update', fromVersion, 'to', this.version);
+      this.insight.track('update', fromVersion, 'to', this.version);
     } else if (!this.options['skip-welcome']) {
       this.log(asciiLogo());
     }
