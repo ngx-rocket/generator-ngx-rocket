@@ -38,11 +38,11 @@ export class ShellComponent implements OnInit {
     this.subscription = this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => this.updateNav(this.activatedRoute));
-  }
+    }
 
 <% if (props.auth) { -%>
   showProfileActions() {
-    const actionSheetOptions: ActionSheetOptions = { title: this.username || undefined };    
+    const actionSheetOptions: ActionSheetOptions = { title: this.username || undefined };
     const actionSheet = this.actionSheetController.create(actionSheetOptions);
     const buttons: ActionSheetButton[] = [
       {
