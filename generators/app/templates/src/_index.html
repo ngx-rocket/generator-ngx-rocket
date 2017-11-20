@@ -39,7 +39,7 @@
 <% if (props.target.includes('cordova')) { -%>
   <!-- Include Cordova script only when needed -->
   <script>
-<%   if (props.webview.includes('wkwebview')) { -%>
+<%   if (props.mobile.includes('ios')) { -%>
     if (!/^http/.test(location.protocol)|/^localhost:8080/.test(location.host)) {
 <%   } else { -%>
     if (!/^http/.test(location.protocol)) {

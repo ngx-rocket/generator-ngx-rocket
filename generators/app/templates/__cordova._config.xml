@@ -5,7 +5,7 @@
   <author email="dev@company.com" href="http://company.com">Development Team</author>
   <content src="index.html"/>
   <access origin="*"/>
-<% if (props.webview.includes('wkwebview')) { -%>
+<% if (props.mobile.includes('ios')) { -%>
   <allow-navigation href="http://localhost:8080/*"/>
 <% } -%>
   <allow-intent href="http://*/*"/>
@@ -17,10 +17,10 @@
 
   <!-- Platforms -->
 <% if (props.mobile.includes('android')) { -%>
-  <engine name="android" spec="^6.2.3"/>
+  <engine name="android" spec="^6.4.0"/>
 <% } -%>
 <% if (props.mobile.includes('ios')) { -%>
-  <engine name="ios" spec="^4.4.0"/>
+  <engine name="ios" spec="^4.5.3"/>
 <% } -%>
 
 <% if (props.mobile.includes('android')) { -%>
@@ -64,7 +64,7 @@
       to be sent to iCloud. Note: enabling this could result in Apple rejecting your app.
     -->
     <preference name="BackupWebStorage" value="none"/>
-<%   if (props.webview.includes('wkwebview')) { -%>
+<%   if (props.mobile.includes('ios')) { -%>
     <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine"/>
 <%   } -%>
     <!-- Set status bar style during splash screen -->
@@ -105,7 +105,7 @@
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar"/>
   </feature>
-<%   if (props.webview.includes('wkwebview')) { -%>
+<%   if (props.mobile.includes('ios')) { -%>
   <feature name="CDVWKWebViewEngine">
     <param name="ios-package" value="CDVWKWebViewEngine"/>
   </feature>
@@ -132,21 +132,12 @@
 
   <!-- Plugins -->
   <plugin name="cordova-custom-config" spec="^4.0.2"/>
-  <plugin name="cordova-plugin-device" spec="^1.1.6"/>
-  <plugin name="cordova-plugin-splashscreen" spec="^4.0.3"/>
-  <plugin name="cordova-plugin-statusbar" spec="^2.2.3"/>
-  <plugin name="cordova-plugin-whitelist" spec="^1.3.2"/>
+  <plugin name="cordova-plugin-device" spec="^1.1.7"/>
+  <plugin name="cordova-plugin-splashscreen" spec="^4.1.0"/>
+  <plugin name="cordova-plugin-statusbar" spec="^2.3.0"/>
+  <plugin name="cordova-plugin-whitelist" spec="^1.3.3"/>
   <plugin name="ionic-plugin-keyboard" spec="^2.2.1"/>
-<% if (props.webview.includes('wkwebview')) { -%>
-  <plugin name="cordova-plugin-wkwebview-engine" spec="https://github.com/ionic-team/cordova-plugin-wkwebview-engine.git"/>
-<% } -%>
-<% if (props.webview.includes('crosswalk')) { -%>
-  <plugin name="cordova-plugin-crosswalk-webview" spec="^2.3.0">
-    <variable name="XWALK_VERSION" value="23+"/>
-    <variable name="XWALK_LITEVERSION" value="xwalk_core_library_canary:17+"/>
-    <variable name="XWALK_COMMANDLINE" value="--disable-pull-to-refresh-effect"/>
-    <variable name="XWALK_MODE" value="embedded"/>
-    <variable name="XWALK_MULTIPLEAPK" value="true"/>
-  </plugin>
+<% if (props.mobile.includes('ios')) { -%>
+  <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16"/>
 <% } -%>
 </widget>
