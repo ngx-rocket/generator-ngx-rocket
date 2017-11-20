@@ -8,6 +8,7 @@
     "ngx",
     "rocket",
     "app",
+    "addon",
     "generator",
     "angular",
     "angular-cli",
@@ -35,8 +36,9 @@
   "preferGlobal": true,
   "main": "./generators/app/index.js",
   "scripts": {
-    "lint": "eslint generators/app/*.js",
+    "lint": "eslint \"generators/**/*.js\"",
     "test": "npm run lint -s && ./scripts/test.sh",
+    "test:addon": "npm run lint -s && TEST_ADDON=1 ./scripts/test.sh",
     "deploy": "scripts/deploy.sh",
     "postpublish": "git tag -a $npm_package_version -m '$npm_package_version' && git push --tags",
     "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -m 'Updated changelog'"
@@ -45,7 +47,9 @@
     "@ngx-rocket/ascii-logo": "^1.0.0",
     "@ngx-rocket/core": "^3.1.0",
     "chalk": "^2.3.0",
-    "insight": "^0.8.4"
+    "insight": "^0.8.4",
+    "lodash.camelcase": "^4.3.0",
+    "lodash.upperfirst": "^4.3.1"
   },
   "devDependencies": {
     "eslint": "^4.11.0",
@@ -58,6 +62,6 @@
     "extends": "xo-space/esnext"
   },
   "files": [
-    "generators/app"
+    "generators"
   ]
 }

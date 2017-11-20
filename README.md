@@ -37,8 +37,9 @@ See generated project example [here](https://github.com/ngx-rocket/starter-kit).
 - **API proxy example setup:** develop and debug faster using any remote server
 
 - **Generator output customization:** with the provided
-  [add-on support](https://github.com/ngx-rocket/generator-ngx-rocket-addon), start multiple projects even faster by
-  plugging in additions that fit your needs, such as your enterprise theme, SSO authentication, services integrations...
+  [add-on support](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/generators/addon), start multiple
+  projects even faster by plugging in additions that fit your needs, such as your enterprise theme, SSO authentication,
+  services integrations...
 
 And there's even more! See [What's in the box](#whats-in-the-box) for more details.
 
@@ -234,6 +235,24 @@ point. Here is how we suggest you to do it:
 
 In the future, [an option](https://github.com/ngx-rocket/generator-ngx-rocket/issues/144) will be added to update only
 the dependencies and toolchain in order to limit the manual merge operations.
+
+## Customize project generation
+
+You can customize the generator output to change or enhance it to better suit your needs using
+[add-ons](https://www.npmjs.com/search?q=ngx-rocket-addon).
+
+To create a new add-on, you can use the `addon` sub-generator:
+```sh
+yo ngx-rocket:addon
+```
+ 
+If you have the [ngX-Rocket CLI](https://github.com/ngx-rocket/cli) installed, you can also use:
+```sh
+ngx new --addon
+```
+
+See the [add-on generator documentation](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/generators/addon)
+for more information about add-on creation.
 
 # Contributing
 

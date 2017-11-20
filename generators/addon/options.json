@@ -1,0 +1,16 @@
+[
+  {
+    "name": "skip-welcome",
+    "type": "Boolean",
+    "required": false,
+    "desc": "Skip Yeoman's welcome message",
+    "defaults": false
+  },
+  {
+    "name": "analytics",
+    "type": "Boolean",
+    "required": false,
+    "desc": "Report anonymous usage analytics",
+    "defaults": true
+  }
+]
