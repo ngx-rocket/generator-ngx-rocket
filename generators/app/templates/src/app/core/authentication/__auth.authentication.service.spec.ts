@@ -1,6 +1,6 @@
 import { TestBed, inject, fakeAsync, tick } from '@angular/core/testing';
 
-import { AuthenticationService } from './authentication.service';
+import { AuthenticationService, Credentials} from './authentication.service';
 
 const credentialsKey = 'credentials';
 
@@ -56,8 +56,8 @@ describe('AuthenticationService', () => {
         expect(authenticationService.isAuthenticated()).toBe(true);
         expect(authenticationService.credentials).toBeDefined();
         expect(authenticationService.credentials).not.toBeNull();
-        expect(authenticationService.credentials.token).toBeDefined();
-        expect(authenticationService.credentials.token).not.toBeNull();
+        expect((<Credentials>authenticationService.credentials).token).toBeDefined();
+        expect((<Credentials>authenticationService.credentials).token).not.toBeNull();
       });
     }));
 

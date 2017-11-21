@@ -34,7 +34,7 @@ export class HttpService extends Http {
    * You can customize this method with your own extended behavior.
    */
   request(request: string|Request, options?: RequestOptionsArgs): Observable<Response> {
-    options = options || {};
+    const requestOptions = options || {};
     let url: string;
 
     if (typeof request === 'string') {
@@ -45,18 +45,19 @@ export class HttpService extends Http {
       request.url = environment.serverUrl + url;
     }
 
-    if (!options.cache) {
+    if (!requestOptions.cache) {
       // Do not use cache
-      return this.httpRequest(request, options);
+      return this.httpRequest(request, requestOptions);
     } else {
       return new Observable((subscriber: Subscriber<Response>) => {
-        const cachedData = options.cache === HttpCachePolicy.Update ? null : this.httpCacheService.getCacheData(url);
+        const cachedData = requestOptions.cache === HttpCachePolicy.Update ?
+        null : this.httpCacheService.getCacheData(url);
         if (cachedData !== null) {
           // Create new response to avoid side-effects
           subscriber.next(new Response(cachedData));
           subscriber.complete();
         } else {
-          this.httpRequest(request, options).subscribe(
+          this.httpRequest(request, requestOptions).subscribe(
             (response: Response) => {
               // Store the serializable version of the response
               this.httpCacheService.setCacheData(url, null, new ResponseOptions({
@@ -69,7 +70,7 @@ export class HttpService extends Http {
               }));
               subscriber.next(response);
             },
-            (error) => subscriber.error(error),
+            (error: any) => subscriber.error(error),
             () => subscriber.complete()
           );
         }
@@ -118,7 +119,7 @@ export class HttpService extends Http {
   private httpRequest(request: string|Request, options: RequestOptionsArgs): Observable<Response> {
     let req = super.request(request, options);
     if (!options.skipErrorHandler) {
-      req = req.pipe(catchError(error => this.errorHandler(error)));
+      req = req.pipe(catchError((error: any) => this.errorHandler(error)));
     }
     return req;
   }

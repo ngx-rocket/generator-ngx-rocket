@@ -11,7 +11,7 @@ export class LoaderComponent implements OnInit {
 <% if (props.ui === 'material') { -%>
   @Input() size = 1;
 <% } -%>
-  @Input() message: string = null;
+  @Input() message: string;
 
   constructor() { }
 
