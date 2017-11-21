@@ -125,7 +125,7 @@ Here is an example configuration:
   }
 }
 ```
- 
+
 This information will be used by the `<%= props.packageManager %> run cordova:build` task to generate production packages.
 
 You can find more detailed documentation in the
@@ -169,7 +169,7 @@ npm run cordova -- plugin save
 
 ## Icon and splash screen
 
-Take a look at the [Cordova documentation](https://cordova.apache.org/docs/en/latest/config_ref/images.html) to know 
+Take a look at the [Cordova documentation](https://cordova.apache.org/docs/en/latest/config_ref/images.html) to know
 the icon formats for each platform you want to support. The same goes for the
 [splash screen](https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-splashscreen/) images.
 
@@ -186,13 +186,17 @@ images should be stretched.
 To improve performance and/or compatibility of your app, it is possibly to customize the web view used by Cordova.
 This is especially useful for devices running Android 4.3 and older, as they use a slow, outdated web view.
 
-By default we enabled both Crosswalk and WKWebView.
+By default we enable Ionic WKWebView on iOS.
 
 ### Using Crosswalk on Android
 
-The [Crosswalk plugin](https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview) allows you to embed a 
+> Note: [Crosswalk](https://crosswalk-project.org) is not maintained anymore, and have
+> [issues](https://cordova.apache.org/announcements/2017/11/09/android-release.html) with `cordova-android` versions
+> later than `6.3.0`. If you need Crosswalk to support older Android versions, stick to `cordova-android@6.3.0`.
+
+The [Crosswalk plugin](https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview) allows you to embed a
 Chromium-based web view in your app instead of the Android system web view.
- 
+
 This allows to greatly improve compatibility and performance on systems using older or customized web views, and use
 modern browser APIs, at the cost of increased app size and memory footprint.
 
@@ -236,10 +240,10 @@ npm run cordova -- plugin <add|remove> cordova-plugin-ionic-webview
 On a new project, external domain navigation is disabled but loading resources from any domain is enabled by default.
 
 Before building for production, you should consider restricting domain access to improve your app security.
-You can find documentation on this regard in the 
+You can find documentation on this regard in the
 [Cordova whitelist guide](https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html).
 
-To go further in security considerations, you should consider adding a 
+To go further in security considerations, you should consider adding a
 [Content Security Policy](https://github.com/apache/cordova-plugin-whitelist#content-security-policy) in your
 `index.html`.
 

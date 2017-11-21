@@ -168,9 +168,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
 [@angular/service-worker](https://docs.google.com/document/d/1F0e0ROaZUnTFftmC0XovpREHWHjcXa4CggiFlmifjhw/). 
 
 Native mobile application bundling is based on [Cordova](https://cordova.apache.org).
-Alternative enhanced web views are also supported:
-- [WkWebView](https://github.com/ionic-team/cordova-plugin-wkwebview-engine) for iOS (Ionic fixed version)
-- [Crosswalk](https://crosswalk-project.org) for Android
+[Ionic WKWebView](https://github.com/ionic-team/cordova-plugin-ionic-webview) is used for iOS for better performance.
 
 #### Libraries
 

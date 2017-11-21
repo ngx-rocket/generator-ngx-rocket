@@ -56,30 +56,6 @@ module.exports = [
     ]
   },
   {
-    type: 'checkbox',
-    name: 'webview',
-    message: 'Use enhanced web view?',
-    when: props => props.target && props.target.includes('cordova'),
-    choices: props => {
-      const choices = [];
-      if (props.mobile.includes('ios')) {
-        choices.push({
-          value: 'wkwebview',
-          name: '[iOS] WKWebView (best for iOS 9+)',
-          checked: true
-        });
-      }
-      if (props.mobile.includes('android')) {
-        choices.push({
-          value: 'crosswalk',
-          name: '[Android] Crosswalk (best for Android < 4.4 support)',
-          checked: false
-        });
-      }
-      return choices;
-    }
-  },
-  {
     type: 'list',
     name: 'ui',
     message: 'Which UI framework do you want?',
