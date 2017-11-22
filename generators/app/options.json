@@ -19,5 +19,12 @@
     "required": false,
     "description": "Use specified space-separated addons",
     "defaults": ""
+  },
+  {
+    "name": "external-chrome",
+    "type": "Boolean",
+    "required": false,
+    "description": "Avoid downloading an extra Chrome binary",
+    "defaults": false
   }
 ]
