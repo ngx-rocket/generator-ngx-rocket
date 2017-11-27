@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 
 export interface Credentials {
   // Customize received credentials here
@@ -43,7 +44,7 @@ export class AuthenticationService {
       token: '123456'
     };
     this.setCredentials(data, context.remember);
-    return Observable.of(data);
+    return of(data);
   }
 
   /**
@@ -53,7 +54,7 @@ export class AuthenticationService {
   logout(): Observable<boolean> {
     // Customize credentials invalidation here
     this.setCredentials();
-    return Observable.of(true);
+    return of(true);
   }
 
   /**
