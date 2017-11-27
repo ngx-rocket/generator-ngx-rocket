@@ -3,5 +3,6 @@
   "pwa": false,
   "mobile": ["ios", "android"],
   "ui": "material",
+  "layout": "simple",
   "auth": true
 }

@@ -15,7 +15,7 @@ import { IonicModule } from 'ionic-angular';
 import { MaterialModule } from '../material.module';
 <% } -%>
 import { ShellComponent } from './shell/shell.component';
-<% if (props.ui === 'bootstrap') { -%>
+<% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple')) { -%>
 import { HeaderComponent } from './shell/header/header.component';
 <% } -%>
 <% if (props.auth) { -%>
@@ -53,7 +53,7 @@ export function createHttpService(backend: ConnectionBackend,
   ],
 <% } -%>
   declarations: [
-<% if (props.ui === 'bootstrap') { -%>
+<% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple')) { -%>
     HeaderComponent,
 <% } -%>
     ShellComponent

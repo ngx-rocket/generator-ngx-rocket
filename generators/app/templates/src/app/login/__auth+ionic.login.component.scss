@@ -1,4 +1,4 @@
-@import "../../theme/theme-variables";
+@import "src/theme/theme-variables";
 
 .grid,
 .row {
@@ -19,7 +19,7 @@
 
 // Force style down to child components
 // See https://angular.io/guide/component-styles#deep
-// stylelint-disable-next-line selector-max-compound-selectors, selector-pseudo-element-no-unknown
+// stylelint-disable-next-line selector-max-compound-selectors
 :host ::ng-deep .select-icon .select-icon-inner {
   color: color-contrast($colors, primary);
 }

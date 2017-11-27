@@ -124,5 +124,9 @@ module.exports = Generator.make({
   baseDir: __dirname,
   generator: NgxGenerator,
   options,
-  prompts
+  prompts,
+  prefixRules: Object.assign(Generator.defaultPrefixRules, {
+    'material-simple': props => props.ui === 'material' && props.layout === 'simple',
+    'material-side-menu': props => props.ui === 'material' && props.layout === 'side-menu'
+  })
 });

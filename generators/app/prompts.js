@@ -76,6 +76,23 @@ module.exports = [
     default: props => props.target && props.target.includes('cordova') ? 'ionic' : 'bootstrap'
   },
   {
+    type: 'list',
+    name: 'layout',
+    message: 'Which kind of layout do you want?',
+    choices: [
+      {
+        value: 'simple',
+        name: 'Simple responsive header bar (more website-oriented)'
+      },
+      {
+        value: 'side-menu',
+        name: 'Side menu with split panels (more app-oriented)'
+      }
+    ],
+    when: props => props.ui === 'material',
+    default: 'simple'
+  },
+  {
     type: 'confirm',
     name: 'auth',
     message: 'Do you want authentication?',

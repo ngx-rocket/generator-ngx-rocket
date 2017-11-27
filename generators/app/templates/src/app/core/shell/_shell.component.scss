@@ -1,5 +1,5 @@
 <% if (props.ui === 'ionic') { -%>
-@import "../../../theme/theme-variables";
+@import "src/theme/theme-variables";
 
 [ion-fixed] {
   width: 100%;
@@ -26,6 +26,10 @@
   color: color-contrast($colors, primary);
 }
 <% } else if (props.ui === 'material') { -%>
+<%   if (props.layout === 'simple') { -%>
+@import "src/theme/theme-variables";
+
+<%   } -%>
 :host {
   display: flex;
   flex: 1;
@@ -40,10 +44,6 @@
   border-right: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-.menu-button {
-  margin-right: 1rem;
-}
-
 .mat-list {
   padding-top: 0;
 }
@@ -55,4 +55,26 @@
     background: rgba(0, 0, 0, 0.05);
   }
 }
+
+<%   if (props.layout === 'simple') { -%>
+.mat-sidenav,
+.mat-drawer-content,
+// Force style down to child components
+// See https://angular.io/guide/component-styles#deep
+:host ::ng-deep .mat-drawer-backdrop {
+  top: 64px;
+}
+
+@media ($mat-xsmall) {
+  .mat-sidenav,
+  .mat-drawer-content,
+  :host ::ng-deep .mat-drawer-backdrop {
+    top: 56px;
+  }
+}
+<%   } else { -%>
+.menu-button {
+  margin-right: 1rem;
+}
+<%   } -%>
 <% } -%>
