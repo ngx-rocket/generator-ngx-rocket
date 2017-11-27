@@ -13,8 +13,10 @@ TEST_APP_NAME="Sample App"
 
 if [ -n "$1" ]; then
   TEST_CASES=$SCRIPT_FOLDER/tests/$1.json
+elif [ -n "$TEST_ADDON" ]; then
+  TEST_CASES=$SCRIPT_FOLDER/tests/addon/*.json
 else
-  TEST_CASES=$SCRIPT_FOLDER/tests/**/*.json
+  TEST_CASES=$SCRIPT_FOLDER/tests/app/**/*.json
 fi
 
 function cleanup() {
@@ -44,11 +46,24 @@ do
     echo -------------------------------------------------------------------------------
     echo
 
-    yo ngx-rocket --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
+    if [ -n "$TEST_ADDON" ]; then
 
-    npm run test:ci -- --no-progress
-    npm run e2e -- --no-progress
-    npm run build -- --no-progress
+      # generators/addon test
+      yo ngx-rocket:addon --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
+
+      npm run test
+
+    else
+
+      # generators/app test
+
+      yo ngx-rocket --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
+
+      npm run test:ci -- --no-progress
+      npm run e2e -- --no-progress
+      npm run build -- --no-progress
+
+    fi
 
     if [ -z "$1" ]; then
         mv node_modules $CACHE_FOLDER
