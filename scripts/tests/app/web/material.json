@@ -2,5 +2,6 @@
   "target": ["web"],
   "pwa": false,
   "ui": "material",
+  "layout": "simple",
   "auth": false
 }

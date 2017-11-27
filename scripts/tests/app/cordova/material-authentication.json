@@ -2,5 +2,6 @@
   "target": ["cordova"],
   "mobile": ["ios", "android"],
   "ui": "material",
+  "layout": "side-menu",
   "auth": true
 }

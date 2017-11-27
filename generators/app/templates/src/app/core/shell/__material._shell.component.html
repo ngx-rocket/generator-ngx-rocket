@@ -1,12 +1,15 @@
 <div fxFlex>
   <mat-sidenav-container fxFill>
+<% if (props.layout === 'simple') { -%>
+    <mat-sidenav #sidenav mode="over" ngClass.gt-sm="has-border">
+<% } else { -%>
     <mat-sidenav #sidenav [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile" [disableClose]="!isMobile"
                  ngClass.gt-sm="has-border">
       <mat-toolbar color="primary">
         <span translate>APP_NAME</span>
         <div fxFlex></div>
         <div>
-<% if (props.auth) { -%>
+<%   if (props.auth) { -%>
           <button mat-icon-button [matMenuTriggerFor]="userMenu" translate>
             <mat-icon>person</mat-icon>
           </button>
@@ -19,7 +22,7 @@
             </mat-list>
             <button mat-menu-item (click)="logout()" translate>Logout</button>
           </mat-menu>
-<% } -%>
+<%   } -%>
         </div>
         <div>
           <button mat-icon-button [matMenuTriggerFor]="languageMenu">
@@ -32,6 +35,7 @@
           </mat-menu>
         </div>
       </mat-toolbar>
+<% } -%>
       <nav>
         <mat-list>
           <mat-divider></mat-divider>
@@ -47,12 +51,16 @@
       </nav>
     </mat-sidenav>
     <mat-sidenav-content>
+<% if (props.layout === 'simple') { -%>
+      <app-header [sidenav]="sidenav"></app-header>
+<% } else { -%>
       <mat-toolbar color="primary" class="mat-elevation-z6">
         <button class="menu-button" mat-icon-button (click)="sidenav.toggle()" fxHide.gt-sm>
           <mat-icon>menu</mat-icon>
         </button>
         <span>{{title}}</span>
       </mat-toolbar>
+<% } -%>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
