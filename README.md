@@ -221,7 +221,11 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
 - `--no-update`: do no update existing project (see also [updating generated projects](#updating-generated-projects)). 
 - `--no-analytics`: do not report anonymous usage analytics.
   You can also use the environment variable `NGX_DISABLE_ANALYTICS` to set this option globally.
-
+- `--external-chrome`: use external Chrome executable and avoid downloading a Chromium binary via
+  [puppeteer](https://github.com/GoogleChrome/puppeteer) to run unit tests.
+  **Note:** You need a Chrome version `>= 59` that can run in 
+  [headless mode](https://developers.google.com/web/updates/2017/04/headless-chrome) or you will have errors.
+  
 ## Updating generated projects
 
 As new features and newer libraries and tools are added to the generator, you may want to update your project at some
