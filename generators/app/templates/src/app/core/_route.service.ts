@@ -19,13 +19,13 @@ export class Route {
     return [{
       path: '',
       component: ShellComponent,
-<% if (props.auth) { -%>
       children: routes,
-      canActivate: [AuthenticationGuard]
-<% } else { -%>
-      children: routes
+<% if (props.auth) { -%>
+      canActivate: [AuthenticationGuard],
 <% } -%>
-    }];
+      // Reuse ShellComponent instance when navigating between child views
+      data: { reuse: true }
+}];
   }
 
 }
