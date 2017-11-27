@@ -59,6 +59,8 @@
 <%   if (props.layout === 'simple') { -%>
 .mat-sidenav,
 .mat-drawer-content,
+// Force style down to child components
+// See https://angular.io/guide/component-styles#deep
 :host ::ng-deep .mat-drawer-backdrop {
   top: 64px;
 }

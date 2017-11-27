@@ -2,7 +2,12 @@
   "extends": ["stylelint-config-standard", "stylelint-config-recommended-scss"],
   "rules": {
     "font-family-name-quotes": "always-where-recommended",
-    "function-url-quotes": ["always", { "except": ["empty"] }],
+    "function-url-quotes": [
+      "always",
+      {
+        "except": ["empty"]
+      }
+    ],
     "selector-attribute-quotes": "always",
     "string-quotes": "double",
     "max-nesting-depth": 3,
@@ -20,6 +25,12 @@
     "selector-max-id": 0,
     "selector-no-qualifying-type": true,
     "selector-max-universal": 0,
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "ignorePseudoElements": ["ng-deep"]
+      }
+    ],
     "unit-whitelist": ["px", "%", "em", "rem", "vw", "vh", "deg"],
     "max-empty-lines": 2,
     "max-line-length": 120
