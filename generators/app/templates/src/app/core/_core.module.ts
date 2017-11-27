@@ -1,6 +1,6 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouteReuseStrategy, RouterModule } from '@angular/router';
 import { HttpModule, Http, XHRBackend, ConnectionBackend, RequestOptions } from '@angular/http';
 import { TranslateModule } from '@ngx-translate/core';
 <% if (props.ui === 'bootstrap') { -%>
@@ -18,6 +18,7 @@ import { ShellComponent } from './shell/shell.component';
 <% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple')) { -%>
 import { HeaderComponent } from './shell/header/header.component';
 <% } -%>
+import { RouteReusableStrategy } from './route-reusable-strategy';
 <% if (props.auth) { -%>
 import { AuthenticationService } from './authentication/authentication.service';
 import { AuthenticationGuard } from './authentication/authentication.guard';
@@ -69,6 +70,10 @@ export function createHttpService(backend: ConnectionBackend,
       provide: Http,
       deps: [XHRBackend, RequestOptions, HttpCacheService],
       useFactory: createHttpService
+    },
+    {
+      provide: RouteReuseStrategy,
+      useClass: RouteReusableStrategy
     }
   ]
 })
