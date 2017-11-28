@@ -1,5 +1,39 @@
 # Change Log
 
+## [3.0.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/3.0.0) (2017-11-28)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.4.0...3.0.0)
+
+**Enhancements**:
+
+- Best way to upgrade/update templated project [\#175](https://github.com/ngx-rocket/generator-ngx-rocket/issues/175) [[documentation](https://github.com/ngx-rocket/generator-ngx-rocket/labels/documentation)]
+- Add option flag to allow using existing Chrome install instead of puppeteer [\#171](https://github.com/ngx-rocket/generator-ngx-rocket/issues/171) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Not compatible with tsconfig strict: true [\#163](https://github.com/ngx-rocket/generator-ngx-rocket/issues/163) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add side menu / simple header choice for material UI [\#157](https://github.com/ngx-rocket/generator-ngx-rocket/issues/157) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add yarn option instead of npm [\#49](https://github.com/ngx-rocket/generator-ngx-rocket/issues/49) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Fixed bugs:**
+
+- Android platform restoration fails on Windows [\#121](https://github.com/ngx-rocket/generator-ngx-rocket/issues/121)
+- Multiple ShellComponent instance [\#109](https://github.com/ngx-rocket/generator-ngx-rocket/issues/109)
+
+**Closed issues:**
+
+- Translations broken in latest build [\#181](https://github.com/ngx-rocket/generator-ngx-rocket/issues/181)
+- Update to @angular/material RC [\#177](https://github.com/ngx-rocket/generator-ngx-rocket/issues/177)
+
+**Merged pull requests:**
+
+- Chore/update dependencies [\#192](https://github.com/ngx-rocket/generator-ngx-rocket/pull/192)
+- Feature/external chrome doc [\#191](https://github.com/ngx-rocket/generator-ngx-rocket/pull/191)
+- Added custom route reuse strategy [\#190](https://github.com/ngx-rocket/generator-ngx-rocket/pull/190)
+- Feature/material simple header [\#189](https://github.com/ngx-rocket/generator-ngx-rocket/pull/189)
+- Feature/merge addon generator [\#185](https://github.com/ngx-rocket/generator-ngx-rocket/pull/185)
+- Feature/cordova-updates [\#183](https://github.com/ngx-rocket/generator-ngx-rocket/pull/183)
+- Enable tsconfig strict mode and fix linked warnings [\#182](https://github.com/ngx-rocket/generator-ngx-rocket/pull/182)
+- Update Angular Material to 5.0.0-rc0 [\#179](https://github.com/ngx-rocket/generator-ngx-rocket/pull/179)
+- Feature/yarn [\#178](https://github.com/ngx-rocket/generator-ngx-rocket/pull/178)
+- Added option flag to allow using existing Chrome install [\#173](https://github.com/ngx-rocket/generator-ngx-rocket/pull/173)
+
 ## [2.4.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/2.4.0) (2017-11-13)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.3.1...2.4.0)
 
