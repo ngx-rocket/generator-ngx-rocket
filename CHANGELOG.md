@@ -19,6 +19,7 @@
 **Closed issues:**
 
 - Translations broken in latest build [\#181](https://github.com/ngx-rocket/generator-ngx-rocket/issues/181)
+- BREAKING CHANGE: Remove Crosswalk / enhanced webviews questions and Update cordova/plugins [\#180](https://github.com/ngx-rocket/generator-ngx-rocket/issues/180)
 - Update to @angular/material RC [\#177](https://github.com/ngx-rocket/generator-ngx-rocket/issues/177)
 
 **Merged pull requests:**
@@ -204,6 +205,10 @@
 ## [1.3.3](https://github.com/ngx-rocket/generator-ngx-rocket/tree/1.3.3) (2017-06-30)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/1.3.2...1.3.3)
 
+**Enhancements**:
+
+- CLI and composition with other possible addons generators [\#33](https://github.com/ngx-rocket/generator-ngx-rocket/issues/33) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
 **Merged pull requests:**
 
 - Feature/update [\#92](https://github.com/ngx-rocket/generator-ngx-rocket/pull/92)
@@ -303,6 +308,7 @@
 **Enhancements**:
 
 - Allow update of existing projects [\#47](https://github.com/ngx-rocket/generator-ngx-rocket/issues/47) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add authentication screens/workflow [\#32](https://github.com/ngx-rocket/generator-ngx-rocket/issues/32) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
 
 **Fixed bugs:**
 
