@@ -40,7 +40,7 @@
     "test": "npm run lint -s && ./scripts/test.sh",
     "test:addon": "npm run lint -s && TEST_ADDON=1 ./scripts/test.sh",
     "deploy": "scripts/deploy.sh",
-    "postpublish": "git tag -a $npm_package_version -m '$npm_package_version' && git push --tags",
+    "postpublish": "git tag -a $npm_package_version -m \"$npm_package_version\" && git push --tags",
     "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -m 'Updated changelog'"
   },
   "dependencies": {
@@ -52,7 +52,7 @@
     "lodash.upperfirst": "^4.3.1"
   },
   "devDependencies": {
-    "eslint": "^4.12.0",
+    "eslint": "^4.12.1",
     "eslint-config-xo-space": "^0.17.0"
   },
   "engines": {
