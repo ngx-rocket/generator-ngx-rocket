@@ -43,7 +43,7 @@ env:
       NGX_PACKAGE_MANAGER=yarn
 
 install:
-  - npm install -g yo yarn@latest
+  - npm install -g yarn@latest
   - npm install
   - npm link
 
