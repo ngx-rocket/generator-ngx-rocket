@@ -38,7 +38,7 @@
   "preferGlobal": true,
   "main": "./generators/app/index.js",
   "bin": {
-    "ngx": "./bin/ngx"
+    "ngx": "./cli/bin/ngx"
   },
   "scripts": {
     "lint": "eslint \"generators/*/*.js\" \"cli/*.js\"",

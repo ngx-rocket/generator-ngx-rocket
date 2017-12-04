@@ -15,7 +15,11 @@ const pkg = require('../package.json');
 
 const isWin = /^win/.test(process.platform);
 const addonKey = 'ngx-rocket-addon';
-const disabledAddons = 'disabled-addons';
+const disabledAddons = 'disabledAddons';
+const blacklistedNpmAddons = [
+  'generator-ngx-rocket',
+  'generator-ngx-rocket-addon'
+];
 const appName = path.basename(process.argv[1]);
 const help = `${chalk.bold(`Usage:`)} ${appName} ${chalk.blue(`[new|update|config|list|<script>]`)} [options]\n`;
 const detailedHelp = `
@@ -150,6 +154,7 @@ class NgxCli {
   configure() {
     this._findAddons().then(addons => {
       const disabled = this._config.get(disabledAddons);
+      console.log(disabled);
       inquirer
         .prompt({
           type: 'checkbox',
@@ -178,7 +183,7 @@ class NgxCli {
       promise = Promise
         .resolve(child.execSync(`npm search ${addonKey} --json`, {stdio: [0, null, 2]}))
         .then(addons => addons ? JSON.parse(addons) : [])
-        .then(addons => addons.filter(addon => addon.name !== 'generator-ngx-rocket-addon'));
+        .then(addons => addons.filter(addon => blacklistedNpmAddons.indexOf(addon.name) === -1));
     } else {
       promise = this._findAddons();
     }
