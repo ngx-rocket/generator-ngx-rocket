@@ -1,5 +1,16 @@
 # Change Log
 
+## [3.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/3.1.0) (2017-12-04)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/3.0.1...3.1.0)
+
+**Enhancements**:
+
+- Merge CLI repo in main generator repo [\#184](https://github.com/ngx-rocket/generator-ngx-rocket/issues/184) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Merged pull requests:**
+
+- Feature/merge cli [\#197](https://github.com/ngx-rocket/generator-ngx-rocket/pull/197)
+
 ## [3.0.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/3.0.1) (2017-12-04)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/3.0.0...3.0.1)
 
