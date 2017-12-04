@@ -25,7 +25,9 @@
     "cordova",
     "mobile",
     "web",
-    "pwa"
+    "pwa",
+    "tool",
+    "cli"
   ],
   "author": "Yohan Lasorsa",
   "license": "MIT",
@@ -35,8 +37,11 @@
   },
   "preferGlobal": true,
   "main": "./generators/app/index.js",
+  "bin": {
+    "ngx": "./bin/ngx"
+  },
   "scripts": {
-    "lint": "eslint \"generators/*/*.js\"",
+    "lint": "eslint \"generators/*/*.js\" \"cli/*.js\"",
     "test": "npm run lint -s && ./scripts/test.sh",
     "test:addon": "npm run lint -s && TEST_ADDON=1 ./scripts/test.sh",
     "deploy": "scripts/deploy.sh",
@@ -44,12 +49,18 @@
     "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -m 'Updated changelog'"
   },
   "dependencies": {
-    "@ngx-rocket/ascii-logo": "^1.0.0",
+    "@ngx-rocket/ascii-logo": "^1.0.1",
     "@ngx-rocket/core": "^3.1.0",
     "chalk": "^2.3.0",
+    "conf": "^1.3.1",
+    "figures": "^2.0.0",
+    "inquirer": "^4.0.1",
     "insight": "^0.8.4",
     "lodash.camelcase": "^4.3.0",
-    "lodash.upperfirst": "^4.3.1"
+    "lodash.upperfirst": "^4.3.1",
+    "minimist": "^1.2.0",
+    "update-notifier": "^2.3.0",
+    "yeoman-environment": "^2.0.5"
   },
   "devDependencies": {
     "eslint": "^4.12.1",

@@ -45,11 +45,11 @@ And there's even more! See [What's in the box](#whats-in-the-box) for more detai
 
 # Getting started
 
-## Using [ngX-Rocket CLI](https://github.com/ngx-rocket/cli)
+## Using [ngX-Rocket CLI](cli/README)
 
 1. Install required tools:
  ```sh
- npm install -g @ngx-rocket/cli
+ npm install -g generator-ngx-rocket
  ```
 
 2. Create your application:
@@ -57,18 +57,6 @@ And there's even more! See [What's in the box](#whats-in-the-box) for more detai
  ngx new
  ```
 
-## Using Yeoman
-
-1. Install required tools:
- ```sh
- npm install -g yo generator-ngx-rocket
- ```
-
-2. Create your application:
- ```sh
- yo ngx-rocket
- ```
- 
 # Project structure
 
 The structure follows [Angular style guide](https://angular.io/styleguide).
@@ -232,7 +220,7 @@ As new features and newer libraries and tools are added to the generator, you ma
 point. Here is how we suggest you to do it:
 
 1. Make sure your working directory is clean (no pending / uncommited changes).
-2. Run `ngx update` using the [CLI](https://github.com/ngx-rocket/cli) inside your project folder.
+2. Run `ngx update` using the [CLI](cli/README) inside your project folder.
 3. The generator will then run again using the same options you used initially, prompting you for each file change.
    From there the recommended approach is simply to overwrite everything.
 4. Finally, use your source control to see the diff for each file and merge the changes manually.
@@ -245,16 +233,11 @@ the dependencies and toolchain in order to limit the manual merge operations.
 You can customize the generator output to change or enhance it to better suit your needs using
 [add-ons](https://www.npmjs.com/search?q=ngx-rocket-addon).
 
-To create a new add-on, you can use the `addon` sub-generator:
-```sh
-yo ngx-rocket:addon
-```
- 
-If you have the [ngX-Rocket CLI](https://github.com/ngx-rocket/cli) installed, you can also use:
+To create a new add-on, you can use the `addon` sub-generator of the [CLI](cli/README):
 ```sh
 ngx new --addon
 ```
-
+ 
 See the [add-on generator documentation](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/generators/addon)
 for more information about add-on creation.
 
