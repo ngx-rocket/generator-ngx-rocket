@@ -1,5 +1,20 @@
 # Change Log
 
+## [3.0.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/3.0.1) (2017-12-04)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/3.0.0...3.0.1)
+
+**Enhancements**:
+
+- Merge addon generator as a subgenerator of ngx-rocket [\#176](https://github.com/ngx-rocket/generator-ngx-rocket/issues/176) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Fixed bugs:**
+
+- Error creating new project [\#194](https://github.com/ngx-rocket/generator-ngx-rocket/issues/194)
+
+**Merged pull requests:**
+
+- Bugfix/rxjs dependency [\#196](https://github.com/ngx-rocket/generator-ngx-rocket/pull/196)
+
 ## [3.0.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/3.0.0) (2017-11-28)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/2.4.0...3.0.0)
 
