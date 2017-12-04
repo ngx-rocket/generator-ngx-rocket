@@ -49,7 +49,7 @@ do
     if [ -n "$TEST_ADDON" ]; then
 
       # generators/addon test
-      yo ngx-rocket:addon --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
+      ngx new --addon --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
 
       npm run test
 
@@ -57,7 +57,7 @@ do
 
       # generators/app test
 
-      yo ngx-rocket --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
+      ngx new --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
 
       npm run test:ci -- --no-progress
       npm run e2e -- --no-progress
