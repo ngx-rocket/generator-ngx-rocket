@@ -73,6 +73,7 @@
     "extends": "xo-space/esnext"
   },
   "files": [
-    "generators"
+    "generators",
+    "cli"
   ]
 }
