@@ -45,7 +45,7 @@ And there's even more! See [What's in the box](#whats-in-the-box) for more detai
 
 # Getting started
 
-## Using [ngX-Rocket CLI](cli/README)
+## Using [ngX-Rocket CLI](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/cli)
 
 1. Install required tools:
  ```sh
@@ -233,7 +233,7 @@ the dependencies and toolchain in order to limit the manual merge operations.
 You can customize the generator output to change or enhance it to better suit your needs using
 [add-ons](https://www.npmjs.com/search?q=ngx-rocket-addon).
 
-To create a new add-on, you can use the `addon` sub-generator of the [CLI](cli/README):
+To create a new add-on, you can use the `addon` sub-generator of the [CLI](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/cli):
 ```sh
 ngx new --addon
 ```
