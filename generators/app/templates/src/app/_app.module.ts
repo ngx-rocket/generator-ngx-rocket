@@ -6,6 +6,9 @@ import { NgModule } from '@angular/core';
 <% } -%>
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+<% if (props.pwa) { -%>
+import { ServiceWorkerModule } from '@angular/service-worker';
+<% } -%>
 import { TranslateModule } from '@ngx-translate/core';
 <% if (props.ui === 'material') { -%>
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,10 +34,16 @@ import { AboutModule } from './about/about.module';
 <% if (props.auth) { -%>
 import { LoginModule } from './login/login.module';
 <% } -%>
+<% if (props.pwa) { -%>
+import { environment } from '../environments/environment';
+<% } -%>
 
 @NgModule({
   imports: [
     BrowserModule,
+<% if (props.pwa) { -%>
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
+<% } -%>
     FormsModule,
     HttpModule,
     TranslateModule.forRoot(),
