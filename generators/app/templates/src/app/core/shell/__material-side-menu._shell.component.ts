@@ -6,7 +6,7 @@ import { ObservableMedia } from '@angular/flex-layout';
 <% if (props.auth) { -%>
 import { AuthenticationService } from '../authentication/authentication.service';
 <% } -%>
-import { I18nService } from '../i18n.service';
+import { I18nService } from '@app/core/i18n.service';
 
 @Component({
   selector: 'app-shell',

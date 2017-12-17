@@ -6,7 +6,7 @@ import { MockBackend, MockConnection } from '@angular/http/testing';
 
 import { HttpService } from './http.service';
 import { HttpCacheService } from './http-cache.service';
-import { environment } from '../../../environments/environment';
+import { environment } from '@env/environment';
 import { HttpCachePolicy } from './request-options-args';
 
 describe('HttpService', () => {

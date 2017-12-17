@@ -11,7 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 <% } -%>
 
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
+import { CoreModule } from '@app/core';
 
 describe('AppComponent', () => {
   beforeEach(() => {

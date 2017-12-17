@@ -11,7 +11,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 <% if (props.ui === 'material') { -%>
 import { MaterialModule } from '../material.module';
 <% } -%>
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '@app/shared';
 import { HomeComponent } from './home.component';
 import { QuoteService } from './quote.service';
 

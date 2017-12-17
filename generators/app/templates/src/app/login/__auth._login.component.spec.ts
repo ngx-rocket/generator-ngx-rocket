@@ -15,7 +15,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../material.module';
 import { SharedModule } from '../shared/shared.module';
 <% } -%>
-import { CoreModule } from '../core/core.module';
+import { CoreModule } from '@app/core';
 import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {

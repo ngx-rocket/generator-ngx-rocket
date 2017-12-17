@@ -8,7 +8,7 @@ import { _throw } from 'rxjs/observable/throw';
 import { catchError } from 'rxjs/operators';
 import { extend } from 'lodash';
 
-import { environment } from '../../../environments/environment';
+import { environment } from '@env/environment';
 import { Logger } from '../logger.service';
 import { HttpCacheService } from './http-cache.service';
 import { HttpCachePolicy } from './request-options-args';

@@ -10,8 +10,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 <% if (props.ui === 'material') { -%>
 import { MaterialModule } from '../material.module';
 <% } -%>
-import { CoreModule } from '../core/core.module';
-import { SharedModule } from '../shared/shared.module';
+import { CoreModule } from '@app/core';
+import { SharedModule } from '@app/shared';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { QuoteService } from './quote.service';
