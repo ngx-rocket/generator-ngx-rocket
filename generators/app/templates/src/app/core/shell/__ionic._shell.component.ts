@@ -6,10 +6,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs/operators';
 
 <% if (props.auth) { -%>
-import { AuthenticationService } from '@app/core';
-<% } else { -%>
-import { I18nService } from '@app/core';
+import { AuthenticationService } from '../authentication/authentication.service';
 <% } -%>
+import { I18nService } from '../i18n.service';
 
 @Component({
   selector: 'app-shell',
