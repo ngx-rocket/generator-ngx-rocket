@@ -12,7 +12,7 @@
     "e2e": "ng e2e",
     "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean -sort --marker extract",
     "docs": "hads ./docs -o",
-    "env": "ngx-scripts env2json npm_package_version",
+    "env": "ngx-scripts env npm_package_version",
 <% if (props.ui === 'ionic') { -%>
     "prepare": "ngx-scripts unpin-ionic-dependencies",
 <% } -%>
@@ -73,7 +73,7 @@
     "@angular/compiler-cli": "^5.1.0",
     "@angular/language-service": "^5.1.0",
     "@biesbjerg/ngx-translate-extract": "^2.3.1",
-    "@ngx-rocket/scripts": "^1.1.0",
+    "@ngx-rocket/scripts": "^2.0.0",
     "@types/jasmine": "^2.5.52",
     "@types/jasminewd2": "^2.0.2",
     "@types/lodash": "^4.14.52",
