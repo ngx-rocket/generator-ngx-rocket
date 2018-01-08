@@ -43,10 +43,12 @@
                   Password is required
                 </small>
               </label>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" formControlName="remember"/>
-                <span translate>Remember me</span>
-              </label>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" formControlName="remember"/>
+                  <span translate>Remember me</span>
+                </label>
+              </div>
             </div>
             <button class="btn btn-primary w-100" type="submit" [disabled]="loginForm.invalid || isLoading">
               <i class="fa fa-cog fa-spin" [hidden]="!isLoading"></i>
