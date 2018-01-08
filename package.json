@@ -63,7 +63,7 @@
     "yeoman-environment": "^2.0.5"
   },
   "devDependencies": {
-    "eslint": "^4.12.1",
+    "eslint": "^4.13.0",
     "eslint-config-xo-space": "^0.17.0"
   },
   "engines": {
