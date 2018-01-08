@@ -1,5 +1,12 @@
 # Change Log
 
+## [3.1.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/3.1.1) (2017-12-05)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/3.1.0...3.1.1)
+
+**Fixed bugs:**
+
+- Error installing the generator [\#198](https://github.com/ngx-rocket/generator-ngx-rocket/issues/198)
+
 ## [3.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/3.1.0) (2017-12-04)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/3.0.1...3.1.0)
 
