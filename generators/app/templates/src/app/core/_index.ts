@@ -1,7 +1,7 @@
 export * from './core.module';
 <% if (props.auth) { -%>
 export * from './authentication/authentication.service';
-export * from './authentication/authentication.server.mock';
+export * from './authentication/authentication.service.mock';
 export * from './authentication/authentication.guard';
 <% } -%>
 export * from './i18n.service';
