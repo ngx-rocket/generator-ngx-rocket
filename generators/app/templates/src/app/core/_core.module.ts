@@ -12,7 +12,7 @@ import { IonicModule } from 'ionic-angular';
 <% } -%>
 
 <% if (props.ui === 'material') { -%>
-import { MaterialModule } from '../material.module';
+import { MaterialModule } from '@app/material.module';
 <% } -%>
 import { ShellComponent } from './shell/shell.component';
 <% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple')) { -%>

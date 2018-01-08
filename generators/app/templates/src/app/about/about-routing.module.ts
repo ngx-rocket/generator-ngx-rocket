@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { Route } from '@app/core/route.service';
-import { extract } from '@app/core/i18n.service';
+import { Route, extract } from '@app/core';
 import { AboutComponent } from './about.component';
 
 const routes: Routes = Route.withShell([

@@ -8,10 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
 
-<% if (props.ui === 'material') { -%>
-import { MaterialModule } from '../material.module';
-<% } -%>
 import { SharedModule } from '@app/shared';
+<% if (props.ui === 'material') { -%>
+import { MaterialModule } from '@app/material.module';
+<% } -%>
 import { HomeComponent } from './home.component';
 import { QuoteService } from './quote.service';
 

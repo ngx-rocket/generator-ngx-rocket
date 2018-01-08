@@ -1,10 +1,12 @@
 export * from './core.module';
-export * from './shell/shell.component';
-export * from './shell/header/header.component';
+<% if (props.auth) { -%>
 export * from './authentication/authentication.service';
+export * from './authentication/authentication.server.mock';
 export * from './authentication/authentication.guard';
+<% } -%>
 export * from './i18n.service';
 export * from './http/http.service';
 export * from './http/http-cache.service';
 export * from './route.service';
+export * from './route-reusable-strategy';
 export * from './logger.service';

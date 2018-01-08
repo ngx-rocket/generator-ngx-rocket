@@ -1,13 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
-
-<% if (props.auth) { -%>
-import { AuthenticationService } from '../authentication/authentication.service';
-import { MockAuthenticationService } from '../authentication/authentication.service.mock';
-<% } -%>
-import { ShellComponent } from './shell.component';
-import { CoreModule } from '../core.module';
 <% if (props.ui === 'ionic') { -%>
 import { IonicModule } from 'ionic-angular';
 <% } else if (props.ui === 'bootstrap') { -%>
@@ -15,6 +8,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 <% } else if (props.ui === 'material') { -%>
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 <% } -%>
+
+<% if (props.auth) { -%>
+import { AuthenticationService } from '../authentication/authentication.service';
+import { MockAuthenticationService } from '../authentication/authentication.service.mock';
+<% } -%>
+import { CoreModule } from '../core.module';
+import { ShellComponent } from './shell.component';
 
 describe('ShellComponent', () => {
   let component: ShellComponent;

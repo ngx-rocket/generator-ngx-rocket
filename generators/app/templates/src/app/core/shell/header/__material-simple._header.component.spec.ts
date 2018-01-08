@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { MaterialModule } from '../../../material.module';
+import { MaterialModule } from '@app/material.module';
 <% if (props.auth) { -%>
 import { AuthenticationService } from '../../authentication/authentication.service';
 import { MockAuthenticationService } from '../../authentication/authentication.service.mock';
