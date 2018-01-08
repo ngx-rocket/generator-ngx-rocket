@@ -5,14 +5,14 @@
   "scripts": {
     "ng": "ng",
     "build": "<%= props.packageManager %> run env<%= props.packageManager === 'npm' ? ' -s' : '' %> && ng build --prod",
-    "start": "ng serve --aot --proxy-config proxy.conf.js",
+    "start": "<%= props.packageManager %> run env<%= props.packageManager === 'npm' ? ' -s' : '' %> && ng serve --aot --proxy-config proxy.conf.js",
     "lint": "ng lint --type-check && stylelint \"src/**/*.scss\" --syntax scss && htmlhint \"src\" --config .htmlhintrc",
     "test": "ng test",
     "test:ci": "<%= props.packageManager %> run lint<%= props.packageManager === 'npm' ? ' -s' : '' %> && ng test --single-run --code-coverage",
-    "e2e": "ng e2e",
+    "e2e": "<%= props.packageManager %> run env<%= props.packageManager === 'npm' ? ' -s' : '' %> && ng e2e",
     "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean -sort --marker extract",
     "docs": "hads ./docs -o",
-    "env": "ngx-scripts env2json npm_package_version",
+    "env": "ngx-scripts env npm_package_version",
 <% if (props.ui === 'ionic') { -%>
     "prepare": "ngx-scripts unpin-ionic-dependencies",
 <% } -%>
@@ -43,7 +43,7 @@
     "@ionic-native/status-bar": "^4.0.0",
 <% } -%>
 <% if (props.pwa) { -%>
-    "@angular/service-worker": "^1.0.0-beta.16",
+    "@angular/service-worker": "^5.1.0",
 <% } -%>
 <% if (props.ui === 'ionic') { -%>
     "ionic-angular": "^3.9.2",
@@ -73,7 +73,7 @@
     "@angular/compiler-cli": "^5.1.0",
     "@angular/language-service": "^5.1.0",
     "@biesbjerg/ngx-translate-extract": "^2.3.1",
-    "@ngx-rocket/scripts": "^1.1.0",
+    "@ngx-rocket/scripts": "^2.0.0",
     "@types/jasmine": "^2.5.52",
     "@types/jasminewd2": "^2.0.2",
     "@types/lodash": "^4.14.52",
