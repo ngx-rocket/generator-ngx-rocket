@@ -11,11 +11,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
 
+import { CoreModule } from '@app/core';
 <% if (props.ui === 'material') { -%>
-import { MaterialModule } from '../material.module';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '@app/shared';
+import { MaterialModule } from '@app/material.module';
 <% } -%>
-import { CoreModule } from '../core/core.module';
 import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {
