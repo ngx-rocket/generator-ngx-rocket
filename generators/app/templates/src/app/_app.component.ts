@@ -23,9 +23,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 <% } -%>
 
-import { environment } from '../environments/environment';
-import { Logger } from './core/logger.service';
-import { I18nService } from './core/i18n.service';
+import { environment } from '@env/environment';
+import { Logger, I18nService } from '@app/core';
 
 const log = new Logger('App');
 

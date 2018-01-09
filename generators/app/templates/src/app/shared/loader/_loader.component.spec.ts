@@ -7,7 +7,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
 
 <% if (props.ui === 'material') { -%>
-import { MaterialModule } from '../../material.module';
+import { MaterialModule } from '@app/material.module';
 <% } -%>
 import { LoaderComponent } from './loader.component';
 
