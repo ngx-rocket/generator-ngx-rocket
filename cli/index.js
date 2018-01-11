@@ -154,7 +154,6 @@ class NgxCli {
   configure() {
     this._findAddons().then(addons => {
       const disabled = this._config.get(disabledAddons);
-      console.log(disabled);
       inquirer
         .prompt({
           type: 'checkbox',
