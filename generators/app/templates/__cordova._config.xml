@@ -67,6 +67,10 @@
 <%   if (props.mobile.includes('ios')) { -%>
     <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine"/>
 <%   } -%>
+<%   if (props.ui === 'bootstrap') { -%>
+    <!-- Fix Bootstrap-specific scroll issue with WKWebView -->
+    <preference name="ScrollEnabled" value="true" />
+<%   } -%>
     <!-- Set status bar style during splash screen -->
     <config-file parent="UIStatusBarStyle" platform="ios" target="*-Info.plist" mode="replace">
       <string>UIStatusBarStyleLightContent</string>
