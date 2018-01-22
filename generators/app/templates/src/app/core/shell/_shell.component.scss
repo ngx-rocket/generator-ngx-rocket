@@ -63,6 +63,9 @@
 // See https://angular.io/guide/component-styles#deep
 :host ::ng-deep .mat-drawer-backdrop {
   top: 64px;
+  bottom: 0;
+  height: auto;
+  position: absolute;
 }
 
 @media ($mat-xsmall) {
