@@ -1,12 +1,13 @@
-.idea/
-sample/
-deploy/
-scripts/
+/.idea/
+/sample/
+/deploy/
+/scripts/
 /.gitignore
 /.npmignore
 /.editorconfig
 /.github_changelog_generator
 /.travis.yml
+/appveyor.yml
 /CODE_OF_CONDUCT.md
 /CONTRIBUTING.md
 .DS_Store
