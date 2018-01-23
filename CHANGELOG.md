@@ -1,5 +1,44 @@
 # Change Log
 
+## [3.2.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/3.2.0) (2018-01-23)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/3.1.1...3.2.0)
+
+**Enhancements**:
+
+- Update PWA target to @angular/service-worker@5 [\#168](https://github.com/ngx-rocket/generator-ngx-rocket/issues/168) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add path alias and module re-exports [\#159](https://github.com/ngx-rocket/generator-ngx-rocket/issues/159) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Chore/cordova update [\#223](https://github.com/ngx-rocket/generator-ngx-rocket/pull/223) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Fixed bugs:**
+
+- Can't scroll on iOS [\#217](https://github.com/ngx-rocket/generator-ngx-rocket/issues/217)
+- Angular material template does not work on production build [\#205](https://github.com/ngx-rocket/generator-ngx-rocket/issues/205)
+
+**Closed issues:**
+
+- Update to Bootstrap 4 final [\#220](https://github.com/ngx-rocket/generator-ngx-rocket/issues/220)
+- New Android Mobile App Error when install jquery [\#219](https://github.com/ngx-rocket/generator-ngx-rocket/issues/219)
+- Update to Angular@5.2 [\#218](https://github.com/ngx-rocket/generator-ngx-rocket/issues/218)
+- Update to cordova@8 [\#212](https://github.com/ngx-rocket/generator-ngx-rocket/issues/212)
+-  NG Live Development Server LocalIP [\#210](https://github.com/ngx-rocket/generator-ngx-rocket/issues/210)
+- Heroku deployment fails :\( [\#209](https://github.com/ngx-rocket/generator-ngx-rocket/issues/209)
+- Update to bootstrap 4 beta 3 [\#208](https://github.com/ngx-rocket/generator-ngx-rocket/issues/208)
+- @angular/http is deprecated  change to @angular/common/http instead [\#207](https://github.com/ngx-rocket/generator-ngx-rocket/issues/207)
+- Can't implement routing correctly with a new component [\#206](https://github.com/ngx-rocket/generator-ngx-rocket/issues/206)
+- Update to Angular CLI 1.6 and TypeScript 2.5 [\#200](https://github.com/ngx-rocket/generator-ngx-rocket/issues/200)
+- Update to @angular/material 5.0.0 [\#199](https://github.com/ngx-rocket/generator-ngx-rocket/issues/199)
+- Problem with Angular 4 Routes and Ionic UI [\#193](https://github.com/ngx-rocket/generator-ngx-rocket/issues/193)
+- npm run build is failing [\#188](https://github.com/ngx-rocket/generator-ngx-rocket/issues/188)
+
+**Merged pull requests:**
+
+- Chore/dependencies update [\#224](https://github.com/ngx-rocket/generator-ngx-rocket/pull/224)
+- Removed extra console.log from CLI [\#214](https://github.com/ngx-rocket/generator-ngx-rocket/pull/214)
+- Update to Bootstrap 4 beta 3 [\#213](https://github.com/ngx-rocket/generator-ngx-rocket/pull/213)
+- Add path alias and module re-exports [\#211](https://github.com/ngx-rocket/generator-ngx-rocket/pull/211)
+- Update to @angular/service-worker@5 [\#202](https://github.com/ngx-rocket/generator-ngx-rocket/pull/202)
+- Update to Angular 5.1 / CLI 1.6 / Material 5 \(and others\) [\#201](https://github.com/ngx-rocket/generator-ngx-rocket/pull/201)
+
 ## [3.1.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/3.1.1) (2017-12-05)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/3.1.0...3.1.1)
 
