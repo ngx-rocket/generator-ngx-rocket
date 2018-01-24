@@ -55,6 +55,7 @@ class NgxAddonGenerator extends Generator {
     this.insight.track('generator', this.props.advanced ? 'advanced' : 'simple');
     this.insight.track('package-manager', this.packageManager);
     this.props.className = upperFirst(camelCase(this.props.appName));
+    this.props.isAddon = true;
   }
 
   install() {

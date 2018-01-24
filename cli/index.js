@@ -8,6 +8,7 @@ const inquirer = require('inquirer');
 const env = require('yeoman-environment').createEnv();
 const chalk = require('chalk');
 const figures = require('figures');
+const get = require('lodash.get');
 const minimist = require('minimist');
 const updateNotifier = require('update-notifier');
 const asciiLogo = require('@ngx-rocket/ascii-logo');
@@ -124,7 +125,7 @@ class NgxCli {
       console.log(asciiLogo(pkg.version));
     } else if (fs.existsSync('.yo-rc.json')) {
       const rc = JSON.parse(fs.readFileSync('.yo-rc.json'));
-      addon = Boolean(rc['generator-ngx-rocket']);
+      addon = Boolean(get(rc, 'generator-ngx-rocket.props.isAddon'));
     } else {
       this._exit(`No existing app found, use ${chalk.blue('ngx new')} instead`);
     }
