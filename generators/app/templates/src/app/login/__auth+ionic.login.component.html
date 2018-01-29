@@ -23,18 +23,18 @@
             <ion-list>
               <ion-item>
                 <ion-label floating>{{'Username' | translate}}</ion-label>
-                <ion-input type="text" formControlName="username"></ion-input>
+                <ion-input type="text" formControlName="username" autocomplete="username"></ion-input>
               </ion-item>
               <div padding [hidden]="loginForm.controls.username.valid || loginForm.controls.username.untouched"
-                     ion-text color="danger" translate>
+                   ion-text color="danger" translate>
                 Username is required
               </div>
               <ion-item>
                 <ion-label floating>{{'Password' | translate}}</ion-label>
-                <ion-input type="password" formControlName="password"></ion-input>
+                <ion-input type="password" formControlName="password" autocomplete="current-password"></ion-input>
               </ion-item>
               <div padding [hidden]="loginForm.controls.password.valid || loginForm.controls.password.untouched"
-                     ion-text color="danger" translate>
+                   ion-text color="danger" translate>
                 Password is required
               </div>
               <ion-item padding-top no-lines>
