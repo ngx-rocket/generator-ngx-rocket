@@ -97,5 +97,11 @@ module.exports = [
     name: 'auth',
     message: 'Do you want authentication?',
     default: true
+  },
+  {
+    type: 'confirm',
+    name: 'lazy',
+    message: 'Do you want lazy loading?',
+    default: false
   }
 ];

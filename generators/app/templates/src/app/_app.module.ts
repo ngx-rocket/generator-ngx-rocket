@@ -30,7 +30,9 @@ import { environment } from '@env/environment';
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { HomeModule } from './home/home.module';
+<% if (!props.lazy) { -%>
 import { AboutModule } from './about/about.module';
+<% } -%>
 <% if (props.auth) { -%>
 import { LoginModule } from './login/login.module';
 <% } -%>
@@ -57,7 +59,9 @@ import { AppRoutingModule } from './app-routing.module';
     CoreModule,
     SharedModule,
     HomeModule,
+<% if (!props.lazy) { -%>
     AboutModule,
+<% } -%>
 <% if (props.auth) { -%>
     LoginModule,
 <% } -%>
