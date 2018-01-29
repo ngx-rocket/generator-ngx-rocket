@@ -33,13 +33,12 @@ describe('Route', () => {
       const testRoutes = [{ path: 'test' }];
 
       // Act
-      const routes = Route.withShell(testRoutes);
+      const result = Route.withShell(testRoutes);
 
       // Assert
-      expect(routes.length).toBe(1);
-      expect(routes[0].path).toBe('');
-      expect(routes[0].children).toBe(testRoutes);
-      expect(routes[0].component).toBe(ShellComponent);
+      expect(result.path).toBe('');
+      expect(result.children).toBe(testRoutes);
+      expect(result.component).toBe(ShellComponent);
     });
   });
 });
