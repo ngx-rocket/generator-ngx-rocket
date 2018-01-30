@@ -24,13 +24,15 @@
         <br/>
         <div fxLayout="column">
           <mat-form-field>
-            <input type="text" matInput formControlName="username" [placeholder]="'Username' | translate"/>
+            <input type="text" matInput formControlName="username" autocomplete="username"
+                   [placeholder]="'Username' | translate"/>
             <mat-error *ngIf="loginForm.controls.username.valid || loginForm.controls.username.untouched">
               <span translate>Username is required</span>
             </mat-error>
           </mat-form-field>
           <mat-form-field>
-            <input type="password" matInput formControlName="password" [placeholder]="'Password' | translate" required/>
+            <input type="password" matInput formControlName="password" autocomplete="current-password"
+                   [placeholder]="'Password' | translate" required/>
             <mat-error *ngIf="loginForm.controls.password.valid || loginForm.controls.password.untouched">
               <span translate>Password is required</span>
             </mat-error>
