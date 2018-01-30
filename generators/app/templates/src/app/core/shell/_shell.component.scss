@@ -64,6 +64,8 @@
 :host ::ng-deep .mat-drawer-backdrop {
   top: 64px;
   bottom: 0;
+  left: 0;
+  right: 0;
   height: auto;
   position: absolute;
 }
