@@ -18,7 +18,7 @@ module.exports = function(config) {
     ],
     client: {
       clearContext: false, // leave Jasmine Spec Runner output visible in browser
-      captureConsole: false
+      captureConsole: Boolean(process.env.KARMA_ENABLE_CONSOLE)
     },
     junitReporter: {
       outputDir: 'reports/junit/',
