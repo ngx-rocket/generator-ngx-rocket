@@ -11,13 +11,13 @@ export class RouteReusableStrategy extends RouteReuseStrategy {
     return false;
   }
 
-  public store(route: ActivatedRouteSnapshot, detachedTree: DetachedRouteHandle): void { }
+  public store(route: ActivatedRouteSnapshot, detachedTree: DetachedRouteHandle | null): void { }
 
   public shouldAttach(route: ActivatedRouteSnapshot): boolean {
     return false;
   }
 
-  public retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle {
+  public retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle | null {
     return null;
   }
 
