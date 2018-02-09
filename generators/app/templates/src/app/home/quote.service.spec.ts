@@ -1,77 +1,72 @@
-import { TestBed, fakeAsync, inject, tick } from '@angular/core/testing';
-import { MockBackend, MockConnection } from '@angular/http/testing';
-import { BaseRequestOptions, Http, Response, ResponseOptions } from '@angular/http';
+import { TestBed, inject, async } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
+import { CoreModule, HttpCacheService } from '@app/core';
 import { QuoteService } from './quote.service';
 
 describe('QuoteService', () => {
   let quoteService: QuoteService;
-  let mockBackend: MockBackend;
+  let httpMock: HttpTestingController;
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        CoreModule,
+        HttpClientTestingModule
+      ],
       providers: [
-        QuoteService,
-        MockBackend,
-        BaseRequestOptions,
-        {
-          provide: Http,
-          useFactory: (backend: MockBackend, defaultOptions: BaseRequestOptions) => {
-            return new Http(backend, defaultOptions);
-          },
-          deps: [MockBackend, BaseRequestOptions]
-        }
+        HttpCacheService,
+        QuoteService
       ]
     });
-  });
+  }));
 
   beforeEach(inject([
+    HttpCacheService,
     QuoteService,
-    MockBackend
-  ], (_quoteService: QuoteService,
-      _mockBackend: MockBackend) => {
+    HttpTestingController
+  ], (htttpCacheService: HttpCacheService,
+      _quoteService: QuoteService,
+      _httpMock: HttpTestingController) => {
 
     quoteService = _quoteService;
-    mockBackend = _mockBackend;
+    httpMock = _httpMock;
+
+    htttpCacheService.cleanCache();
   }));
 
   afterEach(() => {
-    mockBackend.verifyNoPendingRequests();
+    httpMock.verify();
   });
 
   describe('getRandomQuote', () => {
-    it('should return a random Chuck Norris quote', fakeAsync(() => {
+    it('should return a random Chuck Norris quote', () => {
       // Arrange
-      const mockQuote = 'a random quote';
-      const response = new Response(new ResponseOptions({
-        body: { value: mockQuote }
-      }));
-      mockBackend.connections.subscribe((connection: MockConnection) => connection.mockRespond(response));
+      const mockQuote = { value: 'a random quote' };
 
       // Act
       const randomQuoteSubscription = quoteService.getRandomQuote({ category: 'toto' });
-      tick();
 
       // Assert
       randomQuoteSubscription.subscribe((quote: string) => {
-        expect(quote).toEqual(mockQuote);
+        expect(quote).toEqual(mockQuote.value);
       });
-    }));
+      httpMock.expectOne({}).flush(mockQuote);
+    });
 
-    it('should return a string in case of error', fakeAsync(() => {
-      // Arrange
-      const response = new Response(new ResponseOptions({ status: 500 }));
-      mockBackend.connections.subscribe((connection: MockConnection) => connection.mockError(response as any));
-
+    it('should return a string in case of error', () => {
       // Act
       const randomQuoteSubscription = quoteService.getRandomQuote({ category: 'toto' });
-      tick();
 
       // Assert
       randomQuoteSubscription.subscribe((quote: string) => {
         expect(typeof quote).toEqual('string');
         expect(quote).toContain('Error');
       });
-    }));
+      httpMock.expectOne({}).flush(null, {
+        status: 500,
+        statusText: 'error'
+      });
+    });
   });
 });

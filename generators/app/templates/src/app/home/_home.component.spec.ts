@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Http, BaseRequestOptions } from '@angular/http';
-import { MockBackend } from '@angular/http/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 <% if (props.ui === 'ionic') { -%>
 import { IonicModule } from 'ionic-angular';
 <% } else if (props.ui === 'material') { -%>
@@ -8,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
 
+import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 <% if (props.ui === 'material') { -%>
 import { MaterialModule } from '@app/material.module';
@@ -29,21 +29,12 @@ describe('HomeComponent', () => {
           FlexLayoutModule,
           MaterialModule,
 <% } -%>
-          SharedModule
+          CoreModule,
+          SharedModule,
+          HttpClientTestingModule
         ],
         declarations: [HomeComponent],
-        providers: [
-          QuoteService,
-          MockBackend,
-          BaseRequestOptions,
-          {
-            provide: Http,
-            useFactory: (backend: MockBackend, defaultOptions: BaseRequestOptions) => {
-              return new Http(backend, defaultOptions);
-            },
-            deps: [MockBackend, BaseRequestOptions]
-          }
-        ]
+        providers: [QuoteService]
       })
       .compileComponents();
   }));
