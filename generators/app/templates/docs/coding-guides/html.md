@@ -29,7 +29,7 @@
     
 ## Templates
 
-In accordance with the [Angular style guide](https://angular.io/styleguide), HTML templates should be extracted in
+In accordance with the [Angular style guide](https://angular.io/guide/styleguide), HTML templates should be extracted in
 separate files, when more than 3 lines.
 
 Only use inline templates sparingly in very simple components with less than 3 lines of HTML.

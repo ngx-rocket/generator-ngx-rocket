@@ -6,13 +6,13 @@ applications.
 Coding conventions and best practices comes from the
 [TypeScript guidelines](https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines), and are also detailed in the
 [TypeScript Deep Dive Style Guide](https://basarat.gitbooks.io/typescript/content/docs/styleguide/styleguide.html).
-In addition, this project also follows the general [Angular style guide](https://angular.io/styleguide).
+In addition, this project also follows the general [Angular style guide](https://angular.io/guide/styleguide).
 
 ## Naming conventions
 
 - Use `PascalCase` for types, classes, interfaces, constants and enum values.
 - Use `camelCase` for variables, properties and functions
-- Avoid prefixing interfaces with a capital `I`, see [Angular style guide](https://angular.io/styleguide#!#03-03)
+- Avoid prefixing interfaces with a capital `I`, see [Angular style guide](https://angular.io/guide/styleguide#!#03-03)
 - Do not use `_` as a prefix for private properties. An exception can be made for backing fields like this:
   ```typescript
   private _foo: string;
