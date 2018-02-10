@@ -7,8 +7,6 @@
  */
 
 import { NgModule } from '@angular/core';
-import { CdkTableModule } from '@angular/cdk/table';
-import { OverlayModule } from '@angular/cdk/overlay';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -16,17 +14,24 @@ import {
   MatCardModule,
   MatCheckboxModule,
   MatChipsModule,
+  MatCommonModule,
   MatDatepickerModule,
   MatDialogModule,
+  MatDividerModule,
   MatExpansionModule,
+  MatFormFieldModule,
   MatGridListModule,
   MatIconModule,
   MatInputModule,
+  MatLineModule,
   MatListModule,
   MatMenuModule,
   MatNativeDateModule,
+  MatOptionModule,
+  MatPaginatorModule,
   MatProgressBarModule,
   MatProgressSpinnerModule,
+  MatPseudoCheckboxModule,
   MatRadioModule,
   MatRippleModule,
   MatSelectModule,
@@ -34,6 +39,9 @@ import {
   MatSliderModule,
   MatSlideToggleModule,
   MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
@@ -41,27 +49,30 @@ import {
 
 @NgModule({
   exports: [
-    // CDK
-    CdkTableModule,
-    OverlayModule,
-
-    // Material
     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
+    MatCommonModule,
     MatDatepickerModule,
     MatDialogModule,
+    MatDividerModule,
     MatExpansionModule,
+    MatFormFieldModule,
     MatGridListModule,
     MatIconModule,
     MatInputModule,
+    MatLineModule,
     MatListModule,
     MatMenuModule,
+    MatNativeDateModule,
+    MatOptionModule,
+    MatPaginatorModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
+    MatPseudoCheckboxModule,
     MatRadioModule,
     MatRippleModule,
     MatSelectModule,
@@ -69,10 +80,12 @@ import {
     MatSlideToggleModule,
     MatSliderModule,
     MatSnackBarModule,
+    MatSortModule,
+    MatStepperModule,
+    MatTableModule,
     MatTabsModule,
     MatToolbarModule,
-    MatTooltipModule,
-    MatNativeDateModule,
+    MatTooltipModule
   ]
 })
 export class MaterialModule { }
