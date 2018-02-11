@@ -144,7 +144,7 @@ export class ShellComponent implements OnInit {
           child = null;
         }
       }
-      //fixed #19420 end
+      // Fixed #19420 end
 
       this.navRoot = <Component>route.component;
     }
