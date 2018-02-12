@@ -33,7 +33,7 @@ Until you know the full Angular API by heart, you may want to keep this
 
 ## Style guide
 
-This project follows the standard [Angular style guide](https://angular.io/styleguide).
+This project follows the standard [Angular style guide](https://angular.io/guide/styleguide).
 
 More that just coding rules, this style guide also gives advices and best practices for a good application architecture
 and is an **essential reading** for starters. Reading deeper, you can even find many explanations for some design
