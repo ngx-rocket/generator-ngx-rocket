@@ -18,7 +18,7 @@ const routes: Routes = [
 
 @NgModule({
 <% if (props.lazy) { -%>
-  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
 <% } else { -%>
   imports: [RouterModule.forRoot(routes)],
 <% } -%>
