@@ -38,7 +38,7 @@ Here is a quick comparison:
 
 #### Limitations with Ionic CLI
 
-- Does not follow [Angular style guide](https://angular.io/styleguide): naming, structure, modules...
+- Does not follow [Angular style guide](https://angular.io/guide/styleguide): naming, structure, modules...
 - No cache busting by using hash on CSS/JavaScript filenames
 - No built-in unit tests support
 - No built-in end-to-end tests support
