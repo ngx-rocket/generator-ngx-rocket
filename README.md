@@ -59,7 +59,7 @@ And there's even more! See [What's in the box](#whats-in-the-box) for more detai
 
 # Project structure
 
-The structure follows [Angular style guide](https://angular.io/styleguide).
+The structure follows [Angular style guide](https://angular.io/guide/styleguide).
 
 ```
 dist/                        app production build
