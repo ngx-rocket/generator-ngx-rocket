@@ -135,14 +135,8 @@ export class ShellComponent implements OnInit {
 
       // Fixed the bug#19420 : route.component is undefined if module is lazy
       // See: https://github.com/angular/angular/issues/19420
-      let child = route;
-      while (child) {
-        if (child.firstChild) {
-          child = child.firstChild;
-          route = child;
-        } else {
-          child = null;
-        }
+      while (route.firstChild) {
+        route = route.firstChild;
       }
       // Fixed #19420 end
 
