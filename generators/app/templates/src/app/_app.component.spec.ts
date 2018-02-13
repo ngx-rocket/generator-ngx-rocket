@@ -14,7 +14,7 @@ import { CoreModule } from '@app/core';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(() => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
 <% if (props.ui === 'ionic') { -%>
@@ -36,7 +36,7 @@ describe('AppComponent', () => {
 <% } -%>
     });
     TestBed.compileComponents();
-  });
+  }));
 
   it('should create the app', async(() => {
     const fixture = TestBed.createComponent(AppComponent);

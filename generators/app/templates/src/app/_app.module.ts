@@ -5,7 +5,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { NgModule } from '@angular/core';
 <% } -%>
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 <% if (props.pwa) { -%>
 import { ServiceWorkerModule } from '@angular/service-worker';
 <% } -%>
@@ -46,7 +46,7 @@ import { AppRoutingModule } from './app-routing.module';
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
 <% } -%>
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     TranslateModule.forRoot(),
 <% if (props.ui === 'material') { -%>
     BrowserAnimationsModule,

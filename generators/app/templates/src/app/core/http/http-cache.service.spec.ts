@@ -1,5 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { ResponseOptions } from '@angular/http';
+import { HttpResponse } from '@angular/common/http';
 
 import { HttpCacheService, HttpCacheEntry } from './http-cache.service';
 
@@ -7,7 +7,7 @@ const cachePersistenceKey = 'httpCache';
 
 describe('HttpCacheService', () => {
   let httpCacheService: HttpCacheService;
-  let response: ResponseOptions;
+  let response: HttpResponse<any>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -22,7 +22,7 @@ describe('HttpCacheService', () => {
   beforeEach(inject([HttpCacheService], (_httpCacheService: HttpCacheService) => {
     httpCacheService = _httpCacheService;
 
-    response = new ResponseOptions({ body: 'data' });
+    response = new HttpResponse({ body: 'data' });
   }));
 
   afterEach(() => {
@@ -32,7 +32,7 @@ describe('HttpCacheService', () => {
   describe('setCacheData', () => {
     it('should set cache data', () => {
       // Act
-      httpCacheService.setCacheData('/popo', null, response);
+      httpCacheService.setCacheData('/popo', response);
 
       // Assert
       expect(httpCacheService.getCacheData('/popo')).toEqual(response);
@@ -40,11 +40,11 @@ describe('HttpCacheService', () => {
 
     it('should replace existing data', () => {
       // Arrange
-      const newResponse = new ResponseOptions({ body: 'new data' });
+      const newResponse = new HttpResponse({ body: 'new data' });
 
       // Act
-      httpCacheService.setCacheData('/popo', null, response);
-      httpCacheService.setCacheData('/popo', null, newResponse);
+      httpCacheService.setCacheData('/popo', response);
+      httpCacheService.setCacheData('/popo', newResponse);
 
       // Assert
       expect(httpCacheService.getCacheData('/popo')).toEqual(newResponse);
@@ -53,8 +53,8 @@ describe('HttpCacheService', () => {
     it('should set cache date correctly', () => {
       // Act
       const date = new Date(123);
-      httpCacheService.setCacheData('/popo', null, response, date);
-      httpCacheService.setCacheData('/hoho', null, response);
+      httpCacheService.setCacheData('/popo', response, date);
+      httpCacheService.setCacheData('/hoho', response);
 
       // Assert
       expect((<HttpCacheEntry>httpCacheService.getHttpCacheEntry('/popo')).lastUpdated).toBe(date);
@@ -64,12 +64,12 @@ describe('HttpCacheService', () => {
 
   describe('getCacheData', () => {
     it('should return null if no cache', () => {
-      expect(httpCacheService.getCacheData('/hoho', null)).toBe(null);
+      expect(httpCacheService.getCacheData('/hoho')).toBe(null);
     });
 
     it('should return cached data if exists', () => {
       // Act
-      httpCacheService.setCacheData('/hoho', null, response);
+      httpCacheService.setCacheData('/hoho', response);
 
       // Assert
       expect(httpCacheService.getCacheData('/hoho')).toEqual(response);
@@ -77,16 +77,16 @@ describe('HttpCacheService', () => {
 
     it('should return cached data with url parameters if exists', () => {
       // Act
-      httpCacheService.setCacheData('/hoho', { pif: 'paf' }, response);
+      httpCacheService.setCacheData('/hoho?pif=paf', response);
 
       // Assert
-      expect(httpCacheService.getCacheData('/hoho', { pif: 'paf' })).toEqual(response);
+      expect(httpCacheService.getCacheData('/hoho?pif=paf')).toEqual(response);
     });
   });
 
   describe('getHttpCacheEntry', () => {
     it('should return null if no cache', () => {
-      expect(httpCacheService.getHttpCacheEntry('/hoho', null)).toBe(null);
+      expect(httpCacheService.getHttpCacheEntry('/hoho')).toBe(null);
     });
 
     it('should return cached data date  if exists', () => {
@@ -94,7 +94,7 @@ describe('HttpCacheService', () => {
       const date = new Date(123);
 
       // Act
-      httpCacheService.setCacheData('/hoho', null, response, date);
+      httpCacheService.setCacheData('/hoho', response, date);
       const entry = httpCacheService.getHttpCacheEntry('/hoho');
 
       // Assert
@@ -107,58 +107,58 @@ describe('HttpCacheService', () => {
   describe('clearCacheData', () => {
     it('should clear existing cache data', () => {
       // Set cache
-      httpCacheService.setCacheData('/hoho', null, response);
+      httpCacheService.setCacheData('/hoho', response);
       expect(httpCacheService.getCacheData('/hoho')).toEqual(response);
 
       // Clear cache
-      httpCacheService.clearCache('/hoho', null);
-      expect(httpCacheService.getCacheData('/hoho', null)).toBe(null);
+      httpCacheService.clearCache('/hoho');
+      expect(httpCacheService.getCacheData('/hoho')).toBe(null);
     });
 
     it('should do nothing if no cache exists', () => {
-      expect(httpCacheService.getCacheData('/lolo', null)).toBe(null);
-      httpCacheService.clearCache('/hoho', null);
-      expect(httpCacheService.getCacheData('/lolo', null)).toBe(null);
+      expect(httpCacheService.getCacheData('/lolo')).toBe(null);
+      httpCacheService.clearCache('/hoho');
+      expect(httpCacheService.getCacheData('/lolo')).toBe(null);
     });
   });
 
   describe('cleanCache', () => {
     it('should clear all cache if no date is specified', () => {
       // Set cache
-      httpCacheService.setCacheData('/hoho', null, response);
-      httpCacheService.setCacheData('/popo', null, response);
+      httpCacheService.setCacheData('/hoho', response);
+      httpCacheService.setCacheData('/popo', response);
       expect(httpCacheService.getCacheData('/hoho')).toBe(response);
       expect(httpCacheService.getCacheData('/popo')).toBe(response);
 
       // Clean cache
       httpCacheService.cleanCache();
-      expect(httpCacheService.getCacheData('/hoho', null)).toBe(null);
-      expect(httpCacheService.getCacheData('/popo', null)).toBe(null);
+      expect(httpCacheService.getCacheData('/hoho')).toBe(null);
+      expect(httpCacheService.getCacheData('/popo')).toBe(null);
     });
 
     it('should clear existing since specified date', () => {
       // Set cache
-      httpCacheService.setCacheData('/hoho', null, response);
+      httpCacheService.setCacheData('/hoho', response);
       expect(httpCacheService.getCacheData('/hoho')).toBe(response);
 
       // Clean cache
       httpCacheService.cleanCache(new Date());
-      expect(httpCacheService.getCacheData('/hoho', null)).toBe(null);
+      expect(httpCacheService.getCacheData('/hoho')).toBe(null);
     });
 
     it('should not affect cache entries newer than specified date', () => {
       // Set cache
-      httpCacheService.setCacheData('/hoho', null, response);
+      httpCacheService.setCacheData('/hoho', response);
       expect(httpCacheService.getCacheData('/hoho')).toBe(response);
 
       // Clean cache
       const date = new Date();
-      httpCacheService.setCacheData('/lolo', null, response, new Date(date.getTime() + 10));
+      httpCacheService.setCacheData('/lolo', response, new Date(date.getTime() + 10));
       httpCacheService.cleanCache(date);
 
       // Assert
-      expect(httpCacheService.getCacheData('/hoho', null)).toBe(null);
-      expect(httpCacheService.getCacheData('/lolo', null)).toBe(response);
+      expect(httpCacheService.getCacheData('/hoho')).toBe(null);
+      expect(httpCacheService.getCacheData('/lolo')).toBe(response);
     });
   });
 
@@ -177,7 +177,7 @@ describe('HttpCacheService', () => {
       expect(localStorage.getItem(cachePersistenceKey)).toBeNull();
 
       httpCacheService.setPersistence('local');
-      httpCacheService.setCacheData('/hoho', null, response);
+      httpCacheService.setCacheData('/hoho', response);
 
       expect(localStorage.getItem(cachePersistenceKey)).not.toBeNull();
     });
@@ -186,7 +186,7 @@ describe('HttpCacheService', () => {
       expect(sessionStorage.getItem(cachePersistenceKey)).toBeNull();
 
       httpCacheService.setPersistence('session');
-      httpCacheService.setCacheData('/hoho', null, response);
+      httpCacheService.setCacheData('/hoho', response);
 
       expect(sessionStorage.getItem(cachePersistenceKey)).not.toBeNull();
     });

@@ -1,137 +1,105 @@
-import { Injectable } from '@angular/core';
-import {
-  Http, ConnectionBackend, RequestOptions, Request, Response, RequestOptionsArgs, RequestMethod, ResponseOptions
-} from '@angular/http';
+import { Inject, Injectable, InjectionToken, Injector, Optional } from '@angular/core';
+import { HttpClient, HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { Subscriber } from 'rxjs/Subscriber';
-import { _throw } from 'rxjs/observable/throw';
-import { catchError } from 'rxjs/operators';
-import { extend } from 'lodash';
 
-import { environment } from '@env/environment';
-import { Logger } from '../logger.service';
-import { HttpCacheService } from './http-cache.service';
-import { HttpCachePolicy } from './request-options-args';
+import { ErrorHandlerInterceptor } from './error-handler.interceptor';
+import { CacheInterceptor } from './cache.interceptor';
 
-const log = new Logger('HttpService');
+// HttpClient is declared in a re-exported module, so we have to extend the original module to make it work properly
+// (see https://github.com/Microsoft/TypeScript/issues/13897)
+declare module '@angular/common/http/src/client' {
+
+  // Augment HttpClient with the added configuration methods from HttpService, to allow in-place replacement of
+  // HttpClient with HttpService using dependency injection
+  export interface HttpClient {
+
+    /**
+     * Enables caching for this request.
+     * @param {boolean} forceUpdate Forces request to be made and updates cache entry.
+     * @return {HttpClient} The new instance.
+     */
+    cache(forceUpdate?: boolean): HttpClient;
+
+    /**
+     * Skips default error handler for this request.
+     * @return {HttpClient} The new instance.
+     */
+    skipErrorHandler(): HttpClient;
+
+  }
+
+}
+
+// From @angular/common/http/src/interceptor: allows to chain interceptors
+class HttpInterceptorHandler implements HttpHandler {
+
+  constructor(private next: HttpHandler, private interceptor: HttpInterceptor) { }
+
+  handle(request: HttpRequest<any>): Observable<HttpEvent<any>> {
+    return this.interceptor.intercept(request, this.next);
+  }
+
+}
 
 /**
- * Provides a base framework for http service extension.
- * The default extension adds support for API prefixing, request caching and default error handler.
+ * Allows to override default dynamic interceptors that can be disabled with the HttpService extension.
+ * Except for very specific needs, you should better configure these interceptors directly in the constructor below
+ * for better readability.
+ *
+ * For static interceptors that should always be enabled (like ApiPrefixInterceptor), use the standard
+ * HTTP_INTERCEPTORS token.
+ */
+export const HTTP_DYNAMIC_INTERCEPTORS = new InjectionToken<HttpInterceptor>('HTTP_DYNAMIC_INTERCEPTORS');
+
+/**
+ * Extends HttpClient with per request configuration using dynamic interceptors.
  */
 @Injectable()
-export class HttpService extends Http {
+export class HttpService extends HttpClient {
 
-  constructor(backend: ConnectionBackend,
-              private defaultOptions: RequestOptions,
-              private httpCacheService: HttpCacheService) {
-    // Customize default options here if needed
-    super(backend, defaultOptions);
-  }
+  constructor(private httpHandler: HttpHandler,
+              private injector: Injector,
+              @Optional() @Inject(HTTP_DYNAMIC_INTERCEPTORS) private interceptors: HttpInterceptor[] = []) {
+    super(httpHandler);
 
-  /**
-   * Performs any type of http request.
-   * You can customize this method with your own extended behavior.
-   */
-  request(request: string|Request, options?: RequestOptionsArgs): Observable<Response> {
-    const requestOptions = options || {};
-    let url: string;
-
-    if (typeof request === 'string') {
-      url = request;
-      request = environment.serverUrl + url;
-    } else {
-      url = request.url;
-      request.url = environment.serverUrl + url;
-    }
-
-    if (!requestOptions.cache) {
-      // Do not use cache
-      return this.httpRequest(request, requestOptions);
-    } else {
-      return new Observable((subscriber: Subscriber<Response>) => {
-        const cachedData = requestOptions.cache === HttpCachePolicy.Update ?
-        null : this.httpCacheService.getCacheData(url);
-        if (cachedData !== null) {
-          // Create new response to avoid side-effects
-          subscriber.next(new Response(cachedData));
-          subscriber.complete();
-        } else {
-          this.httpRequest(request, requestOptions).subscribe(
-            (response: Response) => {
-              // Store the serializable version of the response
-              this.httpCacheService.setCacheData(url, null, new ResponseOptions({
-                body: response.text(),
-                status: response.status,
-                headers: response.headers,
-                statusText: response.statusText,
-                type: response.type,
-                url: response.url
-              }));
-              subscriber.next(response);
-            },
-            (error: any) => subscriber.error(error),
-            () => subscriber.complete()
-          );
-        }
-      });
+    if (!this.interceptors) {
+      // Configure default interceptors that can be disabled here
+      this.interceptors = [this.injector.get(ErrorHandlerInterceptor)];
     }
   }
 
-  get(url: string, options?: RequestOptionsArgs): Observable<Response> {
-    return this.request(url, extend({}, options, { method: RequestMethod.Get }));
+  cache(forceUpdate?: boolean): HttpClient {
+    const cacheInterceptor = this.injector.get(CacheInterceptor).configure({ update: forceUpdate });
+    return this.addInterceptor(cacheInterceptor);
   }
 
-  post(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
-    return this.request(url, extend({}, options, {
-      body: body,
-      method: RequestMethod.Post
-    }));
+  skipErrorHandler(): HttpClient {
+    return this.removeInterceptor(ErrorHandlerInterceptor);
   }
 
-  put(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
-    return this.request(url, extend({}, options, {
-      body: body,
-      method: RequestMethod.Put
-    }));
+  // Override the original method to wire interceptors when triggering the request.
+  request(method?: any, url?: any, options?: any): any {
+    const handler = this.interceptors.reduceRight(
+      (next, interceptor) => new HttpInterceptorHandler(next, interceptor),
+      this.httpHandler
+    );
+    return new HttpClient(handler).request(method, url, options);
   }
 
-  delete(url: string, options?: RequestOptionsArgs): Observable<Response> {
-    return this.request(url, extend({}, options, { method: RequestMethod.Delete }));
+  private removeInterceptor(interceptorType: Function): HttpService {
+    return new HttpService(
+      this.httpHandler,
+      this.injector,
+      this.interceptors.filter(i => !(i instanceof interceptorType))
+    );
   }
 
-  patch(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
-    return this.request(url, extend({}, options, {
-      body: body,
-      method: RequestMethod.Patch
-    }));
-  }
-
-  head(url: string, options?: RequestOptionsArgs): Observable<Response> {
-    return this.request(url, extend({}, options, { method: RequestMethod.Head }));
-  }
-
-  options(url: string, options?: RequestOptionsArgs): Observable<Response> {
-    return this.request(url, extend({}, options, { method: RequestMethod.Options }));
-  }
-
-  // Customize the default behavior for all http requests here if needed
-  private httpRequest(request: string|Request, options: RequestOptionsArgs): Observable<Response> {
-    let req = super.request(request, options);
-    if (!options.skipErrorHandler) {
-      req = req.pipe(catchError((error: any) => this.errorHandler(error)));
-    }
-    return req;
-  }
-
-  // Customize the default error handler here if needed
-  private errorHandler(response: Response): Observable<Response> {
-    if (environment.production) {
-      // Avoid unchaught exceptions on production
-      log.error('Request error', response);
-      return _throw(response);
-    }
-    throw response;
+  private addInterceptor(interceptor: HttpInterceptor): HttpService {
+    return new HttpService(
+      this.httpHandler,
+      this.injector,
+      this.interceptors.concat([interceptor])
+    );
   }
 
 }
