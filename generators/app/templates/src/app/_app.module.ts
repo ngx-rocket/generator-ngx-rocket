@@ -43,7 +43,7 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
 <% if (props.pwa) { -%>
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
 <% } -%>
     FormsModule,
     HttpClientModule,
@@ -54,7 +54,7 @@ import { AppRoutingModule } from './app-routing.module';
 <% } else if (props.ui === 'bootstrap') { -%>
     NgbModule.forRoot(),
 <% } else if (props.ui === 'ionic') { -%>
-    IonicModule.forRoot(AppComponent, {locationStrategy: 'path'}),
+    IonicModule.forRoot(AppComponent, { locationStrategy: 'path' }),
 <% } -%>
     CoreModule,
     SharedModule,
@@ -69,15 +69,17 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   declarations: [AppComponent],
   providers: [
+<% if (props.ui === 'ionic') { -%>
+<%   if (props.target.includes('cordova')) { -%>
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+<%   } else { -%>
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
+<%   } -%>
+<% } -%>
 <% if (props.target.includes('cordova')) { -%>
     Keyboard,
     StatusBar,
-<%   if (props.ui === 'ionic') { -%>
-    SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
-<%   } else { -%>
     SplashScreen
-<%   } -%>
 <% } -%>
   ],
 <% if (props.ui === 'ionic') { -%>
