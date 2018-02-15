@@ -1,0 +1,7 @@
+{
+  "target": ["web"],
+  "pwa": false,
+  "ui": "raw",
+  "auth": true,
+  "lazy": false
+}
