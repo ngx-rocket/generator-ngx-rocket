@@ -22,8 +22,8 @@ class NgxGenerator extends Generator {
 
     this.insight.optOut = !this.options.analytics || process.env.DISABLE_NGX_ANALYTICS;
 
-    if (this.options['raw']) {
-      this.props = { ui: 'raw' };
+    if (this.options.raw) {
+      this.props = {ui: 'raw'};
     }
 
     // Updating
@@ -132,6 +132,6 @@ module.exports = Generator.make({
   prefixRules: Object.assign(Generator.defaultPrefixRules, {
     'material-simple': props => props.ui === 'material' && props.layout === 'simple',
     'material-side-menu': props => props.ui === 'material' && props.layout === 'side-menu',
-    'raw': props => props.ui === 'raw'
+    raw: props => props.ui === 'raw'
   })
 });
