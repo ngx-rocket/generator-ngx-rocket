@@ -3,5 +3,6 @@
   "pwa": true,
   "ui": "material",
   "layout": "simple",
-  "auth": true
+  "auth": true,
+  "lazy": false
 }

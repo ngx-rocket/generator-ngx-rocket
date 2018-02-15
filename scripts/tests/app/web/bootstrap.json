@@ -2,5 +2,6 @@
   "target": ["web"],
   "pwa": false,
   "ui": "bootstrap",
-  "auth": false
+  "auth": false,
+  "lazy": false
 }
