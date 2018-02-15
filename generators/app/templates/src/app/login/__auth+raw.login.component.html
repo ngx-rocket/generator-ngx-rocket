@@ -1,0 +1,46 @@
+<div class="login-container">
+  <div class="login-box">
+    <h1 translate>APP_NAME</h1>
+    <div>
+      <strong>v{{version}}</strong>
+      <select (change)="setLanguage($event.target.value)">
+        <option *ngFor="let language of languages" [value]="language" [selected]="language === currentLanguage">
+          {{language}}
+        </option>
+      </select>
+    </div>
+    <div class="container">
+      <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+        <div class="error" [hidden]="!error || isLoading" translate>
+          Username or password incorrect.
+        </div>
+        <label class="form-control">
+          <input type="text" formControlName="username" autocomplete="username"
+                 [placeholder]="'Username' | translate"/>
+          <span hidden translate>Username</span>
+          <div [hidden]="loginForm.controls.username.valid || loginForm.controls.username.untouched"
+                 class="invalid">
+            <small translate>Username is required</small>
+          </div>
+        </label>
+        <label class="form-control">
+          <input type="password" formControlName="password" autocomplete="current-password"
+                 [placeholder]="'Password' | translate" required/>
+          <span hidden translate>Password</span>
+          <div [hidden]="loginForm.controls.password.valid || loginForm.controls.password.untouched"
+                 class="invalid">
+            <small translate>Password is required</small>
+          </div>
+        </label>
+        <label class="form-control">
+          <input type="checkbox" formControlName="remember"/>
+          <span translate>Remember me</span>
+        </label>
+        <button class="form-control" type="submit" [disabled]="loginForm.invalid || isLoading">
+          <i class="fa fa-cog fa-spin" [hidden]="!isLoading"></i>
+          <span translate>Login</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

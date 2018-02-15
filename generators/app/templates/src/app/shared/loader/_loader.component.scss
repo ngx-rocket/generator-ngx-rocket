@@ -11,4 +11,28 @@
 .message {
   margin-left: 0.5em;
 }
+<% } else if (props.ui === 'raw') { -%>
+.loader {
+  text-align: center;
+}
+
+.spinner {
+  vertical-align: middle;
+  width: 3em;
+  height: 3em;
+  margin: 1em auto;
+  border-radius: 100%;
+  background-color: #333;
+  animation: scaleout 1.0s infinite ease-in-out;
+}
+
+@keyframes scaleout {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}
 <% } -%>

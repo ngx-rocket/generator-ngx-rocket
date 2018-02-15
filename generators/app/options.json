@@ -26,5 +26,12 @@
     "required": false,
     "description": "Avoid downloading an extra Chrome binary",
     "defaults": false
+  },
+  {
+    "name": "raw",
+    "type": "Boolean",
+    "required": false,
+    "description": "Do not use any UI library",
+    "defaults": false
   }
 ]

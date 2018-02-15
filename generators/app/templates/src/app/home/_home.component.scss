@@ -4,19 +4,32 @@
   padding: 1em;
 }
 
+<% } else if (props.ui === 'raw') { -%>
+@import "src/theme/theme-variables";
+
+.container {
+  text-align: center;
+  padding: 1em;
+  border-radius: 0.5em;
+  background: $container-color;
+}
+
 <% } -%>
 .logo {
-<% if (props.ui === 'bootstrap') { -%>
+<% if (props.ui === 'bootstrap' || props.ui === 'raw') { -%>
   width: 100px;
 <% } else { -%>
   width: 150px;
   margin: 0 auto;
 <% } -%>
+<% if (props.ui === 'raw') { -%>
+  vertical-align: middle;
+<% } -%>
 }
 
 q {
   font-style: italic;
-<% if (props.ui === 'bootstrap') { -%>
+<% if (props.ui === 'bootstrap' || props.ui === 'raw') { -%>
   font-size: 1.2rem;
 <% } -%>
   quotes: "« " " »";
