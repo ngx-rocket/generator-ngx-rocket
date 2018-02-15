@@ -1,0 +1,40 @@
+@import "src/theme/theme-variables";
+
+.login-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $container-color;
+}
+
+.login-container, .login-box, .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background: #fff;
+  padding: 2em;
+  border-radius: 0.5em;
+}
+
+.container {
+  margin-top: 2em;
+}
+
+.form-control {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.ng-invalid.ng-touched:not(form) {
+  border-left: 4px solid #f00;
+}
+
+.invalid, .error {
+  color: #f00;
+}

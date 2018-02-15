@@ -276,6 +276,8 @@
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($app-theme);
+<% } else if (props.ui === 'raw') { -%>
+// Add your UI libraries here
 <% } -%>
 
 // Theme customization

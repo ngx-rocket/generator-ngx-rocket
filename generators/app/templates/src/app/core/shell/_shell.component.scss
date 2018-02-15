@@ -82,4 +82,8 @@
   margin-right: 1rem;
 }
 <%   } -%>
+<% } else if (props.ui === 'raw') { -%>
+.content {
+  padding: 1em;
+}
 <% } -%>

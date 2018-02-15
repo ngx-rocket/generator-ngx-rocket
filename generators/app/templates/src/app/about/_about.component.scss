@@ -7,4 +7,13 @@
 .mat-icon {
   vertical-align: middle;
 }
+<% } else if (props.ui === 'raw') { -%>
+@import "src/theme/theme-variables";
+
+.container {
+  text-align: center;
+  padding: 1em;
+  border-radius: 0.5em;
+  background: $container-color;
+}
 <% } -%>

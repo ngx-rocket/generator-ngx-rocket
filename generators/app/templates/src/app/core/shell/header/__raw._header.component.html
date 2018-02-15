@@ -1,0 +1,23 @@
+<header class="header">
+  <a class="brand" href="https://github.com/ngx-rocket" translate>APP_NAME</a>
+  <nav>
+    <a class="nav-item" routerLink="/home" routerLinkActive="active" translate>Home</a>
+    <a class="nav-item" routerLink="/about" routerLinkActive="active" translate>About</a>
+  </nav>
+  <div class="spacer"></div>
+  <div>
+    <select (change)="setLanguage($event.target.value)">
+      <option *ngFor="let language of languages" [value]="language" [selected]="language === currentLanguage">
+        {{language}}
+      </option>
+    </select>
+<% if (props.auth) { -%>
+    <div class="logout">
+      <div>
+        <span translate>Logged in as</span> <b>{{username}}</b>
+      </div>
+      <button (click)="logout()" translate>Logout</button>
+    </div>
+<% } -%>
+  </div>
+</header>
