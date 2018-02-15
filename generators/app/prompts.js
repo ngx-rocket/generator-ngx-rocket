@@ -102,6 +102,7 @@ module.exports = [
     type: 'confirm',
     name: 'lazy',
     message: 'Do you want lazy loading?',
-    default: false
+    default: false,
+    when: props => props.ui !== 'ionic'
   }
 ];
