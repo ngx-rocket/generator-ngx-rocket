@@ -1,0 +1,26 @@
+{
+  "APP_NAME": "<%= props.appName %>",
+  "About": "Über",
+  "Hello world !": "Hallo Welt !",
+  "Home": "Home",
+<% if (props.ui === 'ionic') { -%>
+  "Cancel": "Abbruch",
+  "Change language": "Sprache wechseln",
+  "Language": "Sprache",
+  "Ok": "Ok",
+<% } -%>
+<% if (props.auth) { -%>
+<%   if (props.ui !== 'ionic') { -%>
+  "Logged in as": "Angemeldet als",
+<%   } -%>
+  "Login": "Anmelden",
+  "Logout": "Abmelden",
+  "Password": "Passwort",
+  "Password is required": "Passwort wird benötigt",
+  "Username": "Benutzername",
+  "Username is required": "Benutzername wird benötigt",
+  "Username or password incorrect.": "Benutzername oder Passwort falsch.",
+  "Remember me": "Eingeloggt bleiben",
+<% } -%>
+  "Version": "Version"
+}
