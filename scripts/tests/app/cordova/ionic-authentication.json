@@ -2,5 +2,6 @@
   "target": ["cordova"],
   "mobile": ["ios", "android"],
   "ui": "ionic",
-  "auth": true
+  "auth": true,
+  "lazy": false
 }

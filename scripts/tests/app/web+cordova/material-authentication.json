@@ -4,5 +4,6 @@
   "mobile": ["ios", "android"],
   "ui": "material",
   "layout": "simple",
-  "auth": true
+  "auth": true,
+  "lazy": true
 }
