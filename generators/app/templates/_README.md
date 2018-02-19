@@ -61,7 +61,7 @@ Task                            | Description
 --------------------------------|--------------------------------------------------------------------------------------
 `npm start`                     | Run development server on `http://localhost:4200/`
 <% if (props.pwa) { -%>
-`npm serve:sw`                  | Run test server on `http://localhost:4200/` with service worker enabled
+`npm run serve:sw`              | Run test server on `http://localhost:4200/` with service worker enabled
 <% } -%>
 <% if (props.target.includes('web')) { -%>
 <%   if (props.target.includes('cordova')) { -%>
