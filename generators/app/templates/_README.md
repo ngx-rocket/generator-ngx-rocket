@@ -9,12 +9,12 @@ version <%= version %>
  ```sh
  npm install
  ```
- 
+
 2. Launch development server, and open `localhost:4200` in your browser:
  ```sh
  npm start
  ```
- 
+
 # Project structure
 
 ```
@@ -60,6 +60,9 @@ Task automation is based on [NPM scripts](https://docs.npmjs.com/misc/scripts).
 Task                            | Description
 --------------------------------|--------------------------------------------------------------------------------------
 `npm start`                     | Run development server on `http://localhost:4200/`
+<% if (props.pwa) { -%>
+`npm serve:sw`                  | Run test server on `http://localhost:4200/` with service worker enabled
+<% } -%>
 <% if (props.target.includes('web')) { -%>
 <%   if (props.target.includes('cordova')) { -%>
 `npm run build [-- --env=prod]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `www/` folder
