@@ -23,15 +23,16 @@
   margin: 1em auto;
   border-radius: 100%;
   background-color: #333;
-  animation: scaleout 1.0s infinite ease-in-out;
+  animation: scaleout 1s infinite ease-in-out;
 }
 
 @keyframes scaleout {
   0% {
     transform: scale(0);
   }
+
   100% {
-    transform: scale(1.0);
+    transform: scale(1);
     opacity: 0;
   }
 }
