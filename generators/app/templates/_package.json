@@ -6,6 +6,9 @@
     "ng": "ng",
     "build": "<%= props.packageManager %> run env<%= props.packageManager === 'npm' ? ' -s' : '' %> && ng build --prod",
     "start": "<%= props.packageManager %> run env<%= props.packageManager === 'npm' ? ' -s' : '' %> && ng serve --aot --proxy-config proxy.conf.js",
+<% if (props.pwa) { -%>
+    "serve:sw": "<%= props.packageManager %> run build<%= props.packageManager === 'npm' ? ' -s' : '' %> && npx http-server ./<%= props.target.includes('cordova') ? 'www': 'dist' %> -p 4200",
+<% } -%>
     "lint": "ng lint --type-check && stylelint \"src/**/*.scss\" --syntax scss && htmlhint \"src\" --config .htmlhintrc",
     "test": "ng test",
     "test:ci": "<%= props.packageManager %> run lint<%= props.packageManager === 'npm' ? ' -s' : '' %> && ng test --single-run --code-coverage",
