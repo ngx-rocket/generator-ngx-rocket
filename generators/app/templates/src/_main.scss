@@ -259,7 +259,10 @@
 /* stylelint-enable */
 <% } else if (props.ui === 'bootstrap') { -%>
 @import "~bootstrap/scss/bootstrap";
-@import "~font-awesome/scss/font-awesome.scss";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-brands.scss";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-regular.scss";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-solid.scss";
 <% } else if (props.ui === 'material') { -%>
 @import "~material-design-icons/iconfont/material-icons.css";
 

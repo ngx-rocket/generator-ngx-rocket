@@ -18,7 +18,7 @@
       <div class="card col-md-6 mt-3 mx-auto">
         <div class="card-body">
           <h4 class="card-title text-center">
-            <i class="fa fa-3x fa-user-circle-o text-muted"></i>
+            <i class="far fa-3x fa-user-circle text-muted"></i>
           </h4>
           <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
             <div class="alert alert-danger" [hidden]="!error || isLoading" translate>
@@ -51,7 +51,7 @@
               </div>
             </div>
             <button class="btn btn-primary w-100" type="submit" [disabled]="loginForm.invalid || isLoading">
-              <i class="fa fa-cog fa-spin" [hidden]="!isLoading"></i>
+              <i class="fas fa-cog fa-spin" [hidden]="!isLoading"></i>
               <span translate>Login</span>
             </button>
           </form>

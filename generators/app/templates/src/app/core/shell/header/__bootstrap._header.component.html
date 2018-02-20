@@ -8,11 +8,11 @@
     <div id="navbar-menu" class="collapse navbar-collapse float-xs-none" [ngbCollapse]="menuHidden">
       <div class="navbar-nav">
         <a class="nav-item nav-link text-uppercase" routerLink="/home" routerLinkActive="active">
-          <i class="fa fa-home"></i>
+          <i class="fas fa-home"></i>
           <span translate>Home</span>
         </a>
         <a class="nav-item nav-link text-uppercase" routerLink="/about" routerLinkActive="active">
-          <i class="fa fa-question-circle"></i>
+          <i class="fas fa-question-circle"></i>
           <span translate>About</span>
         </a>
       </div>
@@ -28,7 +28,7 @@
 <% if (props.auth) { -%>
         <div class="nav-item" ngbDropdown placement="bottom-right">
           <a id="user-dropdown" class="nav-link" ngbDropdownToggle>
-            <i class="fa fa-user-circle"></i>
+            <i class="fas fa-user-circle"></i>
           </a>
           <div ngbDropdownMenu aria-labelledby="user-dropdown">
             <h6 class="dropdown-header">
