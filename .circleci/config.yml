@@ -43,7 +43,7 @@ jobs:
             - *workspace_dir
           key: repository-{{ .Environment.CIRCLE_SHA1 }}
 
-  app-cordova-bootstrap:
+  test:
     <<: *defaults
     steps:
       - restore_cache:
@@ -55,11 +55,26 @@ jobs:
           name: Run tests
           command: npm test app/cordova/bootstrap
 
+  cordova-build-android:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          key: repository-{{ .Environment.CIRCLE_SHA1 }}
+      - run:
+          name: npm link
+          command: sudo npm link
+      - run:
+          name: Run tests
+          command: npm run cordova:build android
+
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
-      - app-cordova-bootstrap:
+      - test:
+          requires:
+            - build
+      - cordova-build-android:
           requires:
             - build
