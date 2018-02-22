@@ -39,11 +39,19 @@
       <nav>
         <mat-list>
           <mat-divider></mat-divider>
+<% if (props.layout === 'side-menu') { -%>
+          <a mat-list-item routerLink="/home" routerLinkActive="active" (click)="isMobile && sidenav.close()">
+<% } else { -%>
           <a mat-list-item routerLink="/home" routerLinkActive="active" (click)="sidenav.close()">
+<% } -%>
             <span translate>Home</span>
           </a>
           <mat-divider></mat-divider>
+<% if (props.layout === 'side-menu') { -%>
+          <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="isMobile && sidenav.close()">
+<% } else { -%>
           <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="sidenav.close()">
+<% } -%>
             <span translate>About</span>
           </a>
           <mat-divider></mat-divider>
