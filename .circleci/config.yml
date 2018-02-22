@@ -15,7 +15,7 @@ defaults: &defaults
   working_directory: *workspace_dir
 
 jobs:
-  build:
+  npm-install:
     <<: *defaults
     steps:
       - checkout
@@ -43,7 +43,7 @@ jobs:
             - *workspace_dir
           key: repository-{{ .Environment.CIRCLE_SHA1 }}
 
-  test:
+  build:
     <<: *defaults
     steps:
       - restore_cache:
@@ -59,9 +59,9 @@ jobs:
 
 workflows:
   version: 2
-  build_and_test:
+  build:
     jobs:
-      - build
-      - test:
+      - npm-install
+      - build:
           requires:
-            - build
+            - npm-install
