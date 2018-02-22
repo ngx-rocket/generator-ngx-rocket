@@ -10,9 +10,6 @@ jobs:
   build:
     docker:
       - image: circleci/node:8-browsers
-        env:
-          - DISPLAY=:99
-          - DBUS_SESSION_BUS_ADDRESS=/dev/null
     working_directory: ~/generator-ngx-rocket
     steps:
       - checkout
