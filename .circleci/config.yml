@@ -56,6 +56,9 @@ jobs:
       - restore_cache:
           key: repository-{{ .Environment.CIRCLE_SHA1 }}
       - run:
+          name: npm link
+          command: sudo npm link
+      - run:
           name: Run tests
           command: npm test app/cordova/bootstrap
 
