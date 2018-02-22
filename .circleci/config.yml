@@ -1,5 +1,8 @@
 version: 2
 
+aliases:
+  - &workspace_dir /workspace
+
 general:
   branches:
     only:
@@ -9,7 +12,7 @@ general:
 defaults: &defaults
   docker:
     - image: circleci/node:8-browsers
-  working_directory: /tmp
+  working_directory: /app
 
 jobs:
   build:
@@ -36,14 +39,14 @@ jobs:
             - node_modules
           key: npm-dependencies-{{ checksum "package.json" }}
       - persist_to_workspace:
-          root: /tmp
+          root: *workspace_dir
           paths: *
 
   test:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /tmp
+          at: *workspace_dir
       - run:
           name: Run tests
           command: npm test app/cordova/bootstrap
