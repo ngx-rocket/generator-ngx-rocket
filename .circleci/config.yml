@@ -46,6 +46,10 @@ jobs:
   test:
     <<: *defaults
     steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - npm-dependencies-{{ checksum "package.json" }}
       - restore_cache:
           key: repository-{{ .Environment.CIRCLE_SHA1 }}
       - run:
