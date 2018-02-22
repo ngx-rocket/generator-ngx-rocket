@@ -9,7 +9,7 @@ general:
 jobs:
   build:
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:8-browsers
         env:
           - DISPLAY=:99
           - DBUS_SESSION_BUS_ADDRESS=/dev/null
@@ -23,8 +23,6 @@ jobs:
           - npm-dependencies-{{ checksum "package.json" }}
           # fallback to using the latest cache if no exact match is found
           - npm-dependencies-
-
-      - run: sudo sh -e /etc/init.d/xvfb start
 
       - run:
           name: Install yarn
