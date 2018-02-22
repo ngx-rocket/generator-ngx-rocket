@@ -35,10 +35,15 @@ jobs:
           paths:
             - node_modules
           key: npm-dependencies-{{ checksum "package.json" }}
+      - persist_to_workspace:
+          root: .
+          paths: *
 
   test:
     <<: *defaults
     steps:
+      - attach_workspace:
+          at: .
       - run:
           name: Run tests
           command: npm test app/cordova/bootstrap
