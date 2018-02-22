@@ -45,6 +45,8 @@ jobs:
 
   build:
     <<: *defaults
+    docker:
+    - image: circleci/android:api-27-node8-alpha
     steps:
       - restore_cache:
           key: repository-{{ .Environment.CIRCLE_SHA1 }}
