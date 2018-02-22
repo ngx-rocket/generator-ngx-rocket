@@ -23,7 +23,7 @@ jobs:
 
       - run:
           name: install-yarn
-          command: npm install -g yarn@latest
+          command: sudo npm install -g yarn@latest
 
       - run:
           name: npm-install
@@ -31,7 +31,7 @@ jobs:
 
       - run:
           name: npm-link
-          command: npm link
+          command: sudo npm link
 
       - save_cache:
           paths:
