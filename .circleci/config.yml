@@ -47,6 +47,9 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - run:
+          name: Install yarn
+          command: sudo npm install -g yarn@latest
       - restore_cache:
           keys:
           - npm-dependencies-{{ checksum "package.json" }}
