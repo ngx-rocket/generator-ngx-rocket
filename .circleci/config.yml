@@ -46,13 +46,13 @@ jobs:
   test:
     <<: *defaults
     steps:
-      - checkout
-      - run:
-          name: Install yarn
-          command: sudo npm install -g yarn@latest
-      - restore_cache:
-          keys:
-          - npm-dependencies-{{ checksum "package.json" }}
+      # - checkout
+      # - run:
+      #     name: Install yarn
+      #     command: sudo npm install -g yarn@latest
+      # - restore_cache:
+      #     keys:
+      #     - npm-dependencies-{{ checksum "package.json" }}
       - restore_cache:
           key: repository-{{ .Environment.CIRCLE_SHA1 }}
       - run:
