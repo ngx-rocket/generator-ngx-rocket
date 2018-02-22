@@ -31,7 +31,7 @@
         "ignorePseudoElements": ["ng-deep"]
       }
     ],
-    "unit-whitelist": ["px", "%", "em", "rem", "vw", "vh", "deg"],
+    "unit-whitelist": ["px", "%", "em", "rem", "vw", "vh", "deg", "s"],
     "max-empty-lines": 2,
     "max-line-length": 120
   }

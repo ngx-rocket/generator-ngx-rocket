@@ -37,10 +37,16 @@ env:
     - CASE=app/web/ionic-authentication
     - CASE=app/web/material
     - CASE=app/web/material-authentication
+    - CASE=app/web/raw
+    - CASE=app/web/raw-authentication
     - CASE=app/web+cordova/bootstrap-authentication
     - CASE=app/web+cordova/ionic-authentication
     - CASE=app/web+cordova/material-authentication
       NGX_PACKAGE_MANAGER=yarn
+    - CASE=addon/simple
+      TEST_ADDON=1
+    - CASE=addon/advanced
+      TEST_ADDON=1
 
 install:
   - npm install -g yarn@latest

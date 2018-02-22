@@ -104,9 +104,9 @@
 <% if (!options['external-chrome']) { -%>
     "puppeteer": "^1.0.0",
 <% } -%>
-    "stylelint": "~8.4.0",
+    "stylelint": "~9.0.0",
     "stylelint-config-recommended-scss": "~3.0.0",
-    "stylelint-config-standard": "~18.0.0",
+    "stylelint-config-standard": "~18.1.0",
     "stylelint-scss": "~2.3.0",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
