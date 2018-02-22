@@ -36,14 +36,14 @@ jobs:
             - node_modules
           key: npm-dependencies-{{ checksum "package.json" }}
       - persist_to_workspace:
-          root: .
+          root: ~/generator-ngx-rocket
           paths: *
 
   test:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: .
+          at: ~/generator-ngx-rocket
       - run:
           name: Run tests
           command: npm test app/cordova/bootstrap
