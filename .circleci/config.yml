@@ -6,39 +6,48 @@ general:
       #- master
       - feature/circleci
 
+defaults: &defaults
+  docker:
+    - image: circleci/node:8-browsers
+  working_directory: ~/generator-ngx-rocket
+
 jobs:
   build:
-    docker:
-      - image: circleci/node:8-browsers
-    working_directory: ~/generator-ngx-rocket
+    <<: *defaults
     steps:
       - checkout
-
       # Download and cache dependencies
       - restore_cache:
           keys:
           - npm-dependencies-{{ checksum "package.json" }}
           # fallback to using the latest cache if no exact match is found
           - npm-dependencies-
-
       - run:
           name: Install yarn
           command: sudo npm install -g yarn@latest
-
       - run:
           name: npm install
           command: npm install
-
       - run:
           name: npm link
           command: sudo npm link
-
       - save_cache:
           paths:
             - node_modules
           key: npm-dependencies-{{ checksum "package.json" }}
 
+  test:
+    <<: *defaults
+    steps:
       - run:
           name: Run tests
           command: npm test app/cordova/bootstrap
 
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
