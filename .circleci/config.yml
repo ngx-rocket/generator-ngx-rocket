@@ -43,7 +43,7 @@ jobs:
             - *workspace_dir
           key: repository-{{ .Environment.CIRCLE_SHA1 }}
 
-  app/cordova/bootstrap:
+  app-cordova-bootstrap:
     <<: *defaults
     steps:
       - restore_cache:
@@ -60,6 +60,6 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - app/cordova/bootstrap:
+      - app-cordova-bootstrap:
           requires:
             - build
