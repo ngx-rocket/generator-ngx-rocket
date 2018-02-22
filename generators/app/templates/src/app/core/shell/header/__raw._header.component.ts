@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+<% if (props.auth) { -%>
 import { Router } from '@angular/router';
 
 import { AuthenticationService } from '../../authentication/authentication.service';
+<% } else { -%>
+
+<% } -%>
 import { I18nService } from '../../i18n.service';
 
 @Component({
@@ -11,38 +15,40 @@ import { I18nService } from '../../i18n.service';
 })
 export class HeaderComponent implements OnInit {
 
-  menuHidden = true;
+<% if (props.auth) { -%>
+constructor(private router: Router,
+  private authenticationService: AuthenticationService,
+  private i18nService: I18nService) { }
+<% } else { -%>
+constructor(private i18nService: I18nService) { }
+<% } -%>
 
-  constructor(private router: Router,
-              private authenticationService: AuthenticationService,
-              private i18nService: I18nService) { }
+ngOnInit() { }
 
-  ngOnInit() { }
+setLanguage(language: string) {
+  this.i18nService.language = language;
+}
 
-  toggleMenu() {
-    this.menuHidden = !this.menuHidden;
-  }
+<% if (props.auth) { -%>
+logout() {
+  this.authenticationService.logout()
+  .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
+}
 
-  setLanguage(language: string) {
-    this.i18nService.language = language;
-  }
+<% } -%>
+get currentLanguage(): string {
+  return this.i18nService.language;
+}
 
-  logout() {
-    this.authenticationService.logout()
-      .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
-  }
+get languages(): string[] {
+  return this.i18nService.supportedLanguages;
+}
 
-  get currentLanguage(): string {
-    return this.i18nService.language;
-  }
+<% if (props.auth) { -%>
+get username(): string | null {
+  const credentials = this.authenticationService.credentials;
+return credentials ? credentials.username : null;
+}
 
-  get languages(): string[] {
-    return this.i18nService.supportedLanguages;
-  }
-
-  get username(): string | null {
-    const credentials = this.authenticationService.credentials;
-    return credentials ? credentials.username : null;
-  }
-
+<% } -%>
 }

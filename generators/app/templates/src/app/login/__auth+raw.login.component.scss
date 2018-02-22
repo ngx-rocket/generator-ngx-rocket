@@ -9,7 +9,9 @@
   background: $container-color;
 }
 
-.login-container, .login-box, .form {
+.login-container,
+.login-box,
+.form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,6 +37,7 @@
   border-left: 4px solid #f00;
 }
 
-.invalid, .error {
+.invalid,
+.error {
   color: #f00;
 }
