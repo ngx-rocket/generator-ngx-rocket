@@ -64,6 +64,7 @@ do
         npm run build -- --no-progress
 
         if [ -n "$TEST_ANDROID" ]; then
+            npm run cordova:prepare -- --no-progress
             npm run cordova:build android -- --no-progress
         fi
 
