@@ -24,16 +24,18 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - npm-dependencies-
 
+      - run: sudo sh -e /etc/init.d/xvfb start
+
       - run:
-          name: install-yarn
+          name: Install yarn
           command: sudo npm install -g yarn@latest
 
       - run:
-          name: npm-install
+          name: npm install
           command: npm install
 
       - run:
-          name: npm-link
+          name: npm link
           command: sudo npm link
 
       - save_cache:
@@ -41,5 +43,7 @@ jobs:
             - node_modules
           key: npm-dependencies-{{ checksum "package.json" }}
 
-      - run: npm test app/cordova/bootstrap
+      - run:
+          name: Run tests
+          command: npm test app/cordova/bootstrap
 
