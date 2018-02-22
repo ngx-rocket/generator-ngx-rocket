@@ -52,20 +52,10 @@ jobs:
           name: npm link
           command: sudo npm link
       - run:
-          name: Run tests
+          name: Run tests and package android app
           command: npm test app/cordova/bootstrap
-
-  cordova-build-android:
-    <<: *defaults
-    steps:
-      - restore_cache:
-          key: repository-{{ .Environment.CIRCLE_SHA1 }}
-      - run:
-          name: npm link
-          command: sudo npm link
-      - run:
-          name: Run tests
-          command: npm run cordova:build android
+          environment:
+            TEST_ANDROID: 1
 
 workflows:
   version: 2
@@ -73,8 +63,5 @@ workflows:
     jobs:
       - build
       - test:
-          requires:
-            - build
-      - cordova-build-android:
           requires:
             - build
