@@ -43,16 +43,9 @@ jobs:
             - *workspace_dir
           key: repository-{{ .Environment.CIRCLE_SHA1 }}
 
-  test:
+  app/cordova/bootstrap:
     <<: *defaults
     steps:
-      # - checkout
-      # - run:
-      #     name: Install yarn
-      #     command: sudo npm install -g yarn@latest
-      # - restore_cache:
-      #     keys:
-      #     - npm-dependencies-{{ checksum "package.json" }}
       - restore_cache:
           key: repository-{{ .Environment.CIRCLE_SHA1 }}
       - run:
@@ -67,6 +60,6 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - test:
+      - app/cordova/bootstrap:
           requires:
             - build
