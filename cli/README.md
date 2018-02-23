@@ -12,7 +12,7 @@ Leverage [ngX-Rocket generator](https://github.com/ngx-rocket/generator-ngx-rock
 From scaffolding to deployment, use this CLI to accelerate your workflow.
 You can also
 [make your very own add-on](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/generators/addon) directly
-from the CLI, to make your next project even faster! 
+from the CLI, to make your next project even faster!
 
 ## Installation
 
@@ -36,10 +36,12 @@ n, new [name]
   Creates a new app.
   -a, --addon                 Creates an add-on instead.
   --packageManager <yarn|npm> Uses specified package manager.
-  --automate <json_file>      Automate prompt answers using JSON file.
+  --automate <json_file>      Automates prompt answers using JSON file.
+  --tools                     Generates only the toolchain
 
-u, update
+${chalk.blue('u, update')}
   Updates an existing app or add-on.
+  --tools                     Updates only the toolchain
 
 c, config
   Configures add-ons to use for new apps.
@@ -48,7 +50,7 @@ c, config
 l, list
   Lists available add-ons.
   -n, --npm    Show installable add-ons on NPM
-  
+
 <script>
   Runs specified script from your package.json.
   Works just like npm run <script>
@@ -79,6 +81,9 @@ ngx update
 
 The simplest and safest way is then to overwrite everything in case of conflict, then use your SCM to revert/merge
 changes one file at once.
+
+> Note: you can use the `--tools` option to generate only the toolchain and not application templates, thus reducing
+> the number of changes to merge.
 
 ## Managing add-ons
 
