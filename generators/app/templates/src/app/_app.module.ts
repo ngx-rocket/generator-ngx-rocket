@@ -62,7 +62,7 @@ import { AppRoutingModule } from './app-routing.module';
 <% } else if (props.ui === 'bootstrap') { -%>
     NgbModule.forRoot(),
 <% } else if (props.ui === 'ionic') { -%>
-    IonicModule.forRoot(AppComponent, { locationStrategy: <%= props.location  === 'hash' ? 'hash': 'path' %> }),
+    IonicModule.forRoot(AppComponent, { locationStrategy: <%- props.location  === 'hash' ? "'hash'": "'path'" %> }),
 <% } -%>
     CoreModule,
     SharedModule,
