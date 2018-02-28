@@ -7,8 +7,8 @@ import { IonicModule } from 'ionic-angular';
 import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
 
-import { CoreModule } from '@app/core';
-import { SharedModule } from '@app/shared';
+import { CoreModule } from '@core';
+import { SharedModule } from '@shared';
 <% if (props.ui === 'material') { -%>
 import { MaterialModule } from '@app/material.module';
 <% } -%>

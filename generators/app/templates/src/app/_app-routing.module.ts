@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 <% if (props.lazy) { -%>
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { Route } from '@app/core';
+import { Route } from '@core';
 <% } else { -%>
 import { Routes, RouterModule } from '@angular/router';
 <% } -%>

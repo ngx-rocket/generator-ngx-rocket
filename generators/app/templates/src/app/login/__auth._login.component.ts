@@ -7,7 +7,7 @@ import { LoadingController, Platform } from 'ionic-angular';
 import { finalize } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
-import { Logger, I18nService, AuthenticationService } from '@app/core';
+import { Logger, I18nService, AuthenticationService } from '@core';
 
 const log = new Logger('Login');
 

@@ -11,9 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
 
-import { CoreModule } from '@app/core';
+import { CoreModule } from '@core';
 <% if (props.ui === 'material') { -%>
-import { SharedModule } from '@app/shared';
+import { SharedModule } from '@shared';
 import { MaterialModule } from '@app/material.module';
 <% } -%>
 import { LoginComponent } from './login.component';

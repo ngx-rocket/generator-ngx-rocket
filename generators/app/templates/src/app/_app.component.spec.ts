@@ -10,7 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 <% } -%>
 
-import { CoreModule } from '@app/core';
+import { CoreModule } from '@core';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {

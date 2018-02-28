@@ -27,8 +27,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 <% if (props.pwa) { -%>
 import { environment } from '@env/environment';
 <% } -%>
-import { CoreModule } from '@app/core';
-import { SharedModule } from '@app/shared';
+import { CoreModule } from '@core';
+import { SharedModule } from '@shared';
 import { HomeModule } from './home/home.module';
 <% if (!props.lazy) { -%>
 import { AboutModule } from './about/about.module';

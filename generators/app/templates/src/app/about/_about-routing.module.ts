@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 <% if (props.lazy) { -%>
-import { extract } from '@app/core';
+import { extract } from '@core';
 <% } else { -%>
-import { Route, extract } from '@app/core';
+import { Route, extract } from '@core';
 <% } -%>
 import { AboutComponent } from './about.component';
 
