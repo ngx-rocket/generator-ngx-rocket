@@ -1,0 +1,2 @@
+# This file contains filters enabled with the --tools option, using the same syntax as .gitignore
+# See https://github.com/ngx-rocket/core#generating-only-tools

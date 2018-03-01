@@ -20,17 +20,17 @@ See generated project example [here](https://github.com/ngx-rocket/starter-kit).
 - **A complete starter template:** example app structure tailored for scalability, with examples and boilerplate code
   for every common thing needed in enterprise projects, such as unit tests, routing, authentication, HTTPS service
   extensions, i18n support with dynamic language change and automatic user language detection...
-  
+
 - **Improved tooling:** SCSS & HTML linting, stricter TSLint rules, markdown-based local wiki server for documentation,
   automated localizable strings extraction, corporate proxy support, [Cordova](https://cordova.apache.org) integration
 
 - **Extensive base documentation:** [coding guides](#coding-guides) for TypeScript/SCSS/HTML, Angular onboarding guide,
   corporate proxy and other tools [configuration and usage](#other-documentation)...
-  
+
 - **Ready-to-use UI components:** focus on your app, not on the stack! [Choose](#libraries) between a
   [Bootstrap 4](https://getbootstrap.com/), [Ionic](http://ionicframework.com) or
   [Angular Material](https://material.angular.io) based UI with nicely looking, responsive starter templates
-  
+
 - **Mobile app support:** choose between a web app, a mobile app (using [Cordova](https://cordova.apache.org)) or both
   using the same code base
 
@@ -94,7 +94,7 @@ Task                            | Description
 --------------------------------|---------------------------------------------------------------------------------------
 `npm start`                     | Run development server on `http://localhost:4200/`
 `npm run serve:sw`              | Run test server on `http://localhost:4200/` with service worker enabled
-`npm run build [-- --env=prod]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `dist/` 
+`npm run build [-- --env=prod]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `dist/`
 `npm test`                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
 `npm run test:ci`               | Lint code and run unit tests once for continuous integration
 `npm run e2e`                   | Run e2e tests using [Protractor](http://www.protractortest.org)
@@ -155,7 +155,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - Local knowledgebase server using [Hads](https://github.com/sinedied/hads)
 
 [Progressive Web App (PWA)](https://developers.google.com/web/progressive-web-apps/) support provided by
-[@angular/service-worker](https://docs.google.com/document/d/1F0e0ROaZUnTFftmC0XovpREHWHjcXa4CggiFlmifjhw/). 
+[@angular/service-worker](https://docs.google.com/document/d/1F0e0ROaZUnTFftmC0XovpREHWHjcXa4CggiFlmifjhw/).
 
 Native mobile application bundling is based on [Cordova](https://cordova.apache.org).
 [Ionic WKWebView](https://github.com/ionic-team/cordova-plugin-ionic-webview) is used for iOS for better performance.
@@ -203,19 +203,20 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
 
 - `--packageManager [npm|yarn]`: specify whether to use [Yarn](https://yarnpkg.com) or NPM as your package manager
  (default is NPM).
- You can also use the environment variable `NGX_PACKAGE_MANAGER` to set this option globally. 
+ You can also use the environment variable `NGX_PACKAGE_MANAGER` to set this option globally.
 - `--automate <json_file>`: automate prompt answers using specified JSON file (see
   [here](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/scripts/tests) for examples).
 - `--addons <addon_name> [<addon_name>] ...`: space-separated list of add-on to use.
-- `--no-update`: do no update existing project (see also [updating generated projects](#updating-generated-projects)). 
+- `--no-update`: do no update existing project (see also [updating generated projects](#updating-generated-projects)).
 - `--no-analytics`: do not report anonymous usage analytics.
   You can also use the environment variable `NGX_DISABLE_ANALYTICS` to set this option globally.
 - `--external-chrome`: use external Chrome executable and avoid downloading a Chromium binary via
   [puppeteer](https://github.com/GoogleChrome/puppeteer) to run unit tests.
-  **Note:** You need a Chrome version `>= 59` that can run in 
+  **Note:** You need a Chrome version `>= 59` that can run in
   [headless mode](https://developers.google.com/web/updates/2017/04/headless-chrome) or you will have errors.
 - `--raw`: do not use any UI library for templates
-  
+- `--tools`: generate only the toolchain, without application template
+
 ## Updating generated projects
 
 As new features and newer libraries and tools are added to the generator, you may want to update your project at some
@@ -227,8 +228,8 @@ point. Here is how we suggest you to do it:
    From there the recommended approach is simply to overwrite everything.
 4. Finally, use your source control to see the diff for each file and merge the changes manually.
 
-In the future, [an option](https://github.com/ngx-rocket/generator-ngx-rocket/issues/144) will be added to update only
-the dependencies and toolchain in order to limit the manual merge operations.
+> Note: you can use the `--tools` option to generate only the toolchain and not application templates, thus reducing
+> the number of changes to merge.
 
 ## Customize project generation
 
@@ -239,7 +240,7 @@ To create a new add-on, you can use the `addon` sub-generator of the [CLI](https
 ```sh
 ngx new --addon
 ```
- 
+
 See the [add-on generator documentation](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/generators/addon)
 for more information about add-on creation.
 
