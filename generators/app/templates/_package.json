@@ -79,7 +79,7 @@
 <% if (props.target.includes('cordova')) { -%>
     "cordova": "^8.0.0",
 <% } -%>
-    "@angular/cli": "~1.7.0",
+    "@angular/cli": "~1.7.2",
     "@angular/compiler-cli": "^5.2.5",
     "@angular/language-service": "^5.2.5",
     "@biesbjerg/ngx-translate-extract": "^2.3.1",
