@@ -104,21 +104,5 @@ module.exports = [
     message: 'Do you want lazy loading?',
     default: false,
     when: props => props.ui !== 'ionic'
-  },
-  {
-    type: 'list',
-    name: 'location',
-    message: 'Which location strategy do you want?',
-    choices: [
-      {
-        value: 'hash',
-        name: 'Hash(This strategy with base-href "./" allow to move the app to any subsite)'
-      },
-      {
-        value: 'path',
-        name: 'Path(Only if passed the --base-href argument at build & the server has url rewrite to index.html)'
-      }
-    ],
-    default: 'path'
   }
 ];
