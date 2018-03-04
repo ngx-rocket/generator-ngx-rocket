@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
 
+import { I18nModule } from '@i18n';
 import { CoreModule } from '@core';
 <% if (props.ui === 'material') { -%>
 import { SharedModule } from '@shared';
@@ -38,6 +39,7 @@ describe('LoginComponent', () => {
         RouterTestingModule,
         TranslateModule.forRoot(),
         ReactiveFormsModule,
+        I18nModule,
         CoreModule
       ],
       declarations: [LoginComponent]

@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 <% } -%>
 
+import { I18nModule } from '@i18n';
 <% if (props.auth) { -%>
 import { AuthenticationService } from '../authentication/authentication.service';
 import { MockAuthenticationService } from '../authentication/authentication.service.mock';
@@ -32,6 +33,7 @@ describe('ShellComponent', () => {
 <% } else if (props.ui === 'material') { -%>
         BrowserAnimationsModule,
 <% } -%>
+        I18nModule，
         CoreModule
 <% if (props.auth) { -%>
       ],
