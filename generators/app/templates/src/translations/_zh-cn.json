@@ -1,0 +1,26 @@
+{
+  "APP_NAME": "我爱我家",
+	"About": "关于",
+	"Hello world !": "你好世界！",
+	"Home": "首页",
+  "Change language": "切换语言",
+<% if (props.ui === 'ionic') { -%>
+  "Cancel": "取消",
+  "Language": "语言",
+  "Ok": "确定",
+<% } -%>
+<% if (props.auth) { -%>
+<%   if (props.ui !== 'ionic') { -%>
+	"Logged in as": "登录为",
+<%   } -%>
+  "Login": "登录",
+	"Logout": "注销",
+	"Password": "密码",
+	"Password is required": "密码必须填写",
+	"Username": "用户名",
+	"Username is required": "输入用户名必填",
+	"Username or password incorrect": "用户名或密码不对",
+	"Remember me": "记住我",
+<% } -%>
+	"Version": "版本"
+}

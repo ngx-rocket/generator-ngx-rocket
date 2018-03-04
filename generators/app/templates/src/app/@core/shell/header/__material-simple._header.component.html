@@ -17,14 +17,7 @@
     </button>
   </div>
   <span fxFlex></span>
-  <button mat-icon-button [matMenuTriggerFor]="languageMenu">
-    <mat-icon>language</mat-icon>
-  </button>
-  <mat-menu #languageMenu="matMenu">
-    <button mat-menu-item *ngFor="let language of languages" (click)="setLanguage(language)">
-        {{language}}
-      </button>
-  </mat-menu>
+  <i18n-language-selector></i18n-language-selector>
 <% if (props.auth) { -%>
   <button mat-icon-button [matMenuTriggerFor]="userMenu">
     <mat-icon>person</mat-icon>

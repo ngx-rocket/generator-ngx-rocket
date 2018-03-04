@@ -3,9 +3,9 @@
   "About": "A propos",
   "Hello world !": "Bonjour le monde !",
   "Home": "Accueil",
+  "Change language": "Changer la langue",
 <% if (props.ui === 'ionic') { -%>
   "Cancel": "Annuler",
-  "Change language": "Changer la langue",
   "Language": "Langue",
   "Ok": "Ok",
 <% } -%>

@@ -24,16 +24,7 @@
           </mat-menu>
 <%   } -%>
         </div>
-        <div>
-          <button mat-icon-button [matMenuTriggerFor]="languageMenu">
-            <mat-icon>language</mat-icon>
-          </button>
-          <mat-menu #languageMenu="matMenu">
-            <button mat-menu-item *ngFor="let language of languages" (click)="setLanguage(language)">
-              {{language}}
-            </button>
-          </mat-menu>
-        </div>
+        <i18n-language-selector></i18n-language-selector>
       </mat-toolbar>
 <% } -%>
       <nav>

@@ -1,0 +1,4 @@
+<button ion-button round outline float-right [color]="color" small [attr.icon-only]="!withText&&withIcon" (click)="changeLanguage()" [title]="'Change language' | translate">
+  <ion-icon name="globe" *ngIf="withIcon"></ion-icon>
+  <span *ngIf="withText">{{currentLanguage | translate}}&nbsp;</span>
+</button>

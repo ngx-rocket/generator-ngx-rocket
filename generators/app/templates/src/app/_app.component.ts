@@ -24,7 +24,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 <% } -%>
 
 import { environment } from '@env/environment';
-import { Logger, I18nService } from '@core';
+import { Logger } from '@core';
+import { I18nService } from '@i18n';
 
 const log = new Logger('App');
 

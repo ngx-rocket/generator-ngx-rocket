@@ -6,14 +6,12 @@
         <div class="login-header" text-center>
           <h1 translate>APP_NAME</h1>
           <h6>v{{version}}</h6>
-          <ion-list *ngIf="isWeb" color="primary" no-lines no-margin>
-            <ion-item color="primary">
-              <ion-label><span translate>Language</span></ion-label>
-              <ion-select [ngModel]="currentLanguage" (ngModelChange)="setLanguage($event)" interface="popover">
-                <ion-option *ngFor="let language of languages" [value]="language">{{language}}</ion-option>
-              </ion-select>
-            </ion-item>
-          </ion-list>
+          <ion-row *ngIf="isWeb" color="primary" no-padding>
+            <ion-col color="primary"><span float-left translate>Language</span></ion-col>
+            <ion-col align-self-end color="primary">
+              <i18n-language-selector color="light" [withIcon]="true" [withText]="true"></i18n-language-selector>
+            </ion-col>
+          </ion-row>
         </div>
         <div class="login-container">
           <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>

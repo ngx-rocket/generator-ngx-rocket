@@ -27,6 +27,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 <% if (props.pwa) { -%>
 import { environment } from '@env/environment';
 <% } -%>
+import { I18nModule } from '@i18n';
 import { CoreModule } from '@core';
 import { SharedModule } from '@shared';
 import { HomeModule } from './home/home.module';
@@ -56,6 +57,7 @@ import { AppRoutingModule } from './app-routing.module';
 <% } else if (props.ui === 'ionic') { -%>
     IonicModule.forRoot(AppComponent, { locationStrategy: 'path' }),
 <% } -%>
+    I18nModule.forRoot(),
     CoreModule,
     SharedModule,
     HomeModule,

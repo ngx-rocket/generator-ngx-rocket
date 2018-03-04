@@ -23,7 +23,7 @@ import { RouteReusableStrategy } from './route-reusable-strategy';
 import { AuthenticationService } from './authentication/authentication.service';
 import { AuthenticationGuard } from './authentication/authentication.guard';
 <% } -%>
-import { I18nService } from './i18n.service';
+import { I18nModule, I18nService } from '@i18n';
 import { HttpService } from './http/http.service';
 import { HttpCacheService } from './http/http-cache.service';
 import { ApiPrefixInterceptor } from './http/api-prefix.interceptor';
@@ -43,6 +43,7 @@ import { CacheInterceptor } from './http/cache.interceptor';
 <% } else if (props.ui === 'ionic') { -%>
     IonicModule,
 <% } -%>
+    I18nModule,
     RouterModule
   ],
 <% if (props.ui === 'ionic') { -%>

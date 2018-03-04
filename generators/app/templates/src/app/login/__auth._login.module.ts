@@ -10,6 +10,7 @@ import { IonicModule } from 'ionic-angular';
 import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
 
+import { I18nModule } from '@i18n';
 <% if (props.ui === 'material') { -%>
 import { SharedModule } from '@shared';
 import { MaterialModule } from '@app/material.module';
@@ -31,6 +32,7 @@ import { LoginComponent } from './login.component';
     FlexLayoutModule,
     MaterialModule,
 <% } -%>
+    I18nModule,
     LoginRoutingModule
   ],
 <% if (props.ui === 'ionic') { -%>

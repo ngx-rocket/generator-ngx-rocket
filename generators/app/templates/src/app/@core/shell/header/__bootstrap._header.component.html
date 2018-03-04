@@ -17,14 +17,7 @@
         </a>
       </div>
       <div class="navbar-nav ml-auto">
-        <div class="nav-item" ngbDropdown placement="bottom-right">
-          <a id="language-dropdown" class="nav-link" ngbDropdownToggle>{{currentLanguage}}</a>
-          <div ngbDropdownMenu aria-labelledby="language-dropdown">
-            <button class="dropdown-item" *ngFor="let language of languages" (click)="setLanguage(language)">
-              {{language}}
-            </button>
-          </div>
-        </div>
+        <i18n-language-selector></i18n-language-selector>
 <% if (props.auth) { -%>
         <div class="nav-item" ngbDropdown placement="bottom-right">
           <a id="user-dropdown" class="nav-link" ngbDropdownToggle>

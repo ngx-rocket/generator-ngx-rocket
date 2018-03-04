@@ -4,9 +4,7 @@
     <ion-header>
       <ion-toolbar color="primary">
         <ion-buttons *ngIf="isWeb" end>
-          <button ion-button icon-only (click)="changeLanguage()">
-            <ion-icon name="globe"></ion-icon>
-          </button>
+          <i18n-language-selector color="light" [withIcon]="true" [withText]="false"></i18n-language-selector>
         </ion-buttons>
         <ion-title>{{'APP_NAME' | translate}}</ion-title>
       </ion-toolbar>
@@ -22,6 +20,7 @@
                     round outline small icon-start>
               <ion-icon name="person"></ion-icon> {{username}}
             </button>
+            <i18n-language-selector color="light" [withIcon]="true" [withText]="false"></i18n-language-selector>
           </div>
         </div>
 <% } -%>

@@ -6,7 +6,7 @@ import { AuthenticationService } from '../../authentication/authentication.servi
 <% } else { -%>
 
 <% } -%>
-import { I18nService } from '../../i18n.service';
+import { I18nService } from '@i18n';
 
 @Component({
   selector: 'app-header',

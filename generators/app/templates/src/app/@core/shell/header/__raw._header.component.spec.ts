@@ -6,7 +6,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AuthenticationService } from '../../authentication/authentication.service';
 import { MockAuthenticationService } from '../../authentication/authentication.service.mock';
 <% } -%>
-import { I18nService } from '../../i18n.service';
+import { I18nService } from '@i18n';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {

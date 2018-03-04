@@ -6,7 +6,7 @@ import { MatSidenav } from '@angular/material';
 <% if (props.auth) { -%>
 import { AuthenticationService } from '../../authentication/authentication.service';
 <% } -%>
-import { I18nService } from '../../i18n.service';
+import { I18nService } from '@i18n';
 
 @Component({
   selector: 'app-header',

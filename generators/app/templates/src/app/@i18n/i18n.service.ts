@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { includes } from 'lodash';
 
-import { Logger } from './logger.service';
+import { Logger } from '@core/logger.service';
 import * as enUS from '../../translations/en-US.json';
 import * as frFR from '../../translations/fr-FR.json';
+import * as zhCN from '../../translations/zh-cn.json';
+import LOCALES from './i18n-locales';
 
 const log = new Logger('I18nService');
 const languageKey = 'language';
@@ -27,8 +29,9 @@ export class I18nService {
 
   constructor(private translateService: TranslateService) {
     // Embed languages to avoid extra HTTP requests
-    translateService.setTranslation('en-US', enUS);
-    translateService.setTranslation('fr-FR', frFR);
+    translateService.setTranslation('en-US', {...enUS, ...LOCALES});
+    translateService.setTranslation('fr-FR', {...frFR, ...LOCALES});
+    translateService.setTranslation('zh-CN', {...zhCN, ...LOCALES});
   }
 
   /**
@@ -40,19 +43,23 @@ export class I18nService {
   init(defaultLanguage: string, supportedLanguages: string[]) {
     this.defaultLanguage = defaultLanguage;
     this.supportedLanguages = supportedLanguages;
+    //first use the current browse language if possible.
     this.language = '';
 
     this.translateService.onLangChange
       .subscribe((event: LangChangeEvent) => { localStorage.setItem(languageKey, event.lang); });
+
   }
 
   /**
    * Sets the current language.
    * Note: The current language is saved to the local storage.
    * If no parameter is specified, the language is loaded from local storage (if present).
+   * else use the current browser language.
    * @param {string} language The IETF language code to set.
    */
   set language(language: string) {
+    //translateService.getBrowserCultureLang: get the current browser language.
     language = language || localStorage.getItem(languageKey) || this.translateService.getBrowserCultureLang();
     let isSupportedLanguage = includes(this.supportedLanguages, language);
 

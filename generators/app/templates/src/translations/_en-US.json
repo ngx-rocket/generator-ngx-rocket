@@ -3,9 +3,9 @@
   "About": "About",
   "Hello world !": "Hello world !",
   "Home": "Home",
+  "Change language": "Change language",
 <% if (props.ui === 'ionic') { -%>
   "Cancel": "Cancel",
-  "Change language": "Change language",
   "Language": "Language",
   "Ok": "Ok",
 <% } -%>
