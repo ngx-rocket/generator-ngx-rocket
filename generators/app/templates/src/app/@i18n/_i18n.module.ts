@@ -43,6 +43,6 @@ export class I18nModule {
       providers : [
         I18nService,
       ]
-    }
+    };
   }
 }

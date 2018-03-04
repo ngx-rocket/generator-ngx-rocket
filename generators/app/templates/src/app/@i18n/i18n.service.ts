@@ -43,7 +43,7 @@ export class I18nService {
   init(defaultLanguage: string, supportedLanguages: string[]) {
     this.defaultLanguage = defaultLanguage;
     this.supportedLanguages = supportedLanguages;
-    //first use the current browse language if possible.
+    // first use the current browse language if possible.
     this.language = '';
 
     this.translateService.onLangChange
@@ -59,7 +59,7 @@ export class I18nService {
    * @param {string} language The IETF language code to set.
    */
   set language(language: string) {
-    //translateService.getBrowserCultureLang: get the current browser language.
+    // translateService.getBrowserCultureLang: get the current browser language.
     language = language || localStorage.getItem(languageKey) || this.translateService.getBrowserCultureLang();
     let isSupportedLanguage = includes(this.supportedLanguages, language);
 

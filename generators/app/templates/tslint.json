@@ -136,7 +136,7 @@
     "component-selector": [
       true,
       "element",
-      "app",
+      ["app", "i18n"],
       "kebab-case"
     ],
     "no-output-on-prefix": true,
