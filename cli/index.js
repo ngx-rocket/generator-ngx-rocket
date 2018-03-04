@@ -28,11 +28,13 @@ ${chalk.blue('n, new')} [name]
   Creates a new app.
   -a, --addon                 Creates an add-on instead.
   --packageManager <yarn|npm> Uses specified package manager.
-  --automate <json_file>      Automate prompt answers using JSON file.
+  --automate <json_file>      Automates prompt answers using JSON file.
+  --tools                     Generates only the toolchain
   
 ${chalk.blue('u, update')}
   Updates an existing app or add-on.
-
+  --tools                     Updates only the toolchain
+  
 ${chalk.blue('c, config')}
   Configures add-ons to use for new apps.
   All available add-ons are used by default.

@@ -1,5 +1,8 @@
+/.github/
 /.idea/
 /sample/
+/cache/
+/sample-app/
 /deploy/
 /scripts/
 /.gitignore

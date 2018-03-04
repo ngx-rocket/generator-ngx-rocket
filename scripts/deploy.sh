@@ -51,17 +51,17 @@ trap cleanup ERR
 # Use web/bootstrap for master branch
 BRANCH=master
 prepare_repo
-yo ngx-rocket --skip-install --automate "$SCRIPT_FOLDER/tests/app/web/bootstrap-authentication.json" "$DEPLOY_APP_NAME"
+ngx new --skip-install --automate "$SCRIPT_FOLDER/tests/app/web/bootstrap-authentication.json" "$DEPLOY_APP_NAME"
 update_repo
 
 # Add cordova/ionic as mobile example branch
 BRANCH=cordova/ionic
 prepare_repo
-yo ngx-rocket --skip-install --automate "$SCRIPT_FOLDER/tests/app/cordova/ionic-authentication.json" "$DEPLOY_APP_NAME"
+ngx new --skip-install --automate "$SCRIPT_FOLDER/tests/app/cordova/ionic-authentication.json" "$DEPLOY_APP_NAME"
 update_repo
 
 # Add pwa/material branch
 BRANCH=pwa/material
 prepare_repo
-yo ngx-rocket --skip-install --automate "$SCRIPT_FOLDER/tests/app/web/material-authentication.json" "$DEPLOY_APP_NAME"
+ngx new --skip-install --automate "$SCRIPT_FOLDER/tests/app/web/material-authentication.json" "$DEPLOY_APP_NAME"
 update_repo
