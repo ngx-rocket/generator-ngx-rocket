@@ -12,8 +12,8 @@ import { I18nService } from './i18n.service';
   templateUrl: './i18n-lang-selector.component.html',
 })
 export class I18nLangSelectorComponent implements OnInit {
-  @Input() withIcon: boolean = false;
-  @Input() withText: boolean = true;
+  @Input() withIcon = false;
+  @Input() withText = true;
   @Input() color: string;
 
   constructor(
