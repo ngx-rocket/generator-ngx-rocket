@@ -38,7 +38,7 @@
     "name": "location-strategy",
     "type": "String",
     "required": false,
-    "description": "The location strategies in angular router: path/hash",
+    "description": "Location strategy to use in Angular router: \"path\" or \"hash\"",
     "defaults": "path"
   }
 ]
