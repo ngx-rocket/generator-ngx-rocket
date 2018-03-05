@@ -3,6 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 <% } else { -%>
 import { NgModule } from '@angular/core';
+import {
+  LocationStrategy,
+<% if (props.location === 'hash') { -%>
+  HashLocationStrategy,
+<% } else { -%>
+  PathLocationStrategy,
+<% } -%>
+} from '@angular/common';
 <% } -%>
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -54,7 +62,7 @@ import { AppRoutingModule } from './app-routing.module';
 <% } else if (props.ui === 'bootstrap') { -%>
     NgbModule.forRoot(),
 <% } else if (props.ui === 'ionic') { -%>
-    IonicModule.forRoot(AppComponent, { locationStrategy: 'path' }),
+    IonicModule.forRoot(AppComponent, { locationStrategy: <%- props.location  === 'hash' ? "'hash'": "'path'" %> }),
 <% } -%>
     CoreModule,
     SharedModule,
@@ -69,6 +77,18 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   declarations: [AppComponent],
   providers: [
+<% if (props.ui !== 'ionic') { -%>
+    {
+      provide: LocationStrategy,
+<%   if (props.location === 'hash') { -%>
+      // This strategy with base-href './' allow to move the app to any subsite and works
+      useClass: HashLocationStrategy
+<%   } else { -%>
+      // Only if passed the --base-href argument at build & the server has url rewrite to index.html
+      useClass: PathLocationStrategy
+<%   } -%>
+    },
+<% } -%>
 <% if (props.ui === 'ionic') { -%>
 <%   if (props.target.includes('cordova')) { -%>
     { provide: ErrorHandler, useClass: IonicErrorHandler },

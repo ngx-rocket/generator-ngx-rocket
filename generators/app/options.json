@@ -33,5 +33,12 @@
     "required": false,
     "description": "Do not use any UI library",
     "defaults": false
+  },
+  {
+    "name": "location-strategy",
+    "type": "String",
+    "required": false,
+    "description": "The location strategies in angular router: path/hash",
+    "defaults": "path"
   }
 ]

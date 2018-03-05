@@ -26,6 +26,11 @@ class NgxGenerator extends Generator {
       this.props = {ui: 'raw'};
     }
 
+    if (this.options['location-strategy']) {
+      this.props = this.config.get('props') || {};
+      this.props.location = this.options['location-strategy'];
+    }
+
     // Updating
     let fromVersion = null;
 
