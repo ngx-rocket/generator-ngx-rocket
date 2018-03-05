@@ -1,5 +1,5 @@
 {
-  "APP_NAME": "我爱我家",
+  "APP_NAME": "<%= props.appName %>",
 	"About": "关于",
 	"Hello world !": "你好世界！",
 	"Home": "首页",
