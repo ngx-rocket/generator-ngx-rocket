@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 <%   if (props.location === 'hash') { -%>
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 <%   } -%>
+<% } -%>
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 <% if (props.pwa) { -%>
