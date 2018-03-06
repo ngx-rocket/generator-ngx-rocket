@@ -46,7 +46,7 @@ module.exports = [
       return value;
     },
     required: false,
-    description: 'Location strategy to use in Angular router: \"path\" or \"hash\"',
+    description: 'Location strategy to use in Angular router: "path" or "hash"',
     defaults: 'path'
   }
 ];
