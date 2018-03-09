@@ -3,9 +3,9 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { includes } from 'lodash';
 
 import { Logger } from '@core/logger.service';
-import * as enUS from '../../translations/en-US.json';
-import * as frFR from '../../translations/fr-FR.json';
-import * as zhCN from '../../translations/zh-cn.json';
+<% for (let lang of props['i18n-langs']) { -%>
+import * as <%- lang.replace('-', '') %> from '../../translations/<%- lang %>.json'
+<% } -%>
 import LOCALES from './i18n-locales';
 
 const log = new Logger('I18nService');
@@ -29,9 +29,9 @@ export class I18nService {
 
   constructor(private translateService: TranslateService) {
     // Embed languages to avoid extra HTTP requests
-    translateService.setTranslation('en-US', {...enUS, ...LOCALES});
-    translateService.setTranslation('fr-FR', {...frFR, ...LOCALES});
-    translateService.setTranslation('zh-CN', {...zhCN, ...LOCALES});
+<% for (let lang of props['i18n-langs']) { -%>
+    translateService.setTranslation('<%- lang %>', {...<%- lang.replace('-', '') %>, ...LOCALES});
+<% } -%>
   }
 
   /**

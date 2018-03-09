@@ -7,10 +7,6 @@ export const environment = {
   production: false,
   version: '(dev)',
   serverUrl: '/api',
-  defaultLanguage: 'en-US',
-  supportedLanguages: [
-    'en-US',
-    'fr-FR',
-    'zh-CN'
-  ]
+  defaultLanguage: '<%=props['i18n-default'] || (props['i18n-langs'] && props['i18n-langs'][0])%>',
+  supportedLanguages:<%- JSON.stringify(props['i18n-langs'] || []).replace(/["]/g, '\'')  %>
 };

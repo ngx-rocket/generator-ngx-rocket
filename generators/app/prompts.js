@@ -1,5 +1,7 @@
 'use strict';
 
+const getLangs = require('./get-langs');
+
 module.exports = [
   {
     type: 'input',
@@ -104,5 +106,25 @@ module.exports = [
     message: 'Do you want lazy loading?',
     default: false,
     when: props => props.ui !== 'ionic'
+  },
+  {
+    type: 'confirm',
+    name: 'i18n',
+    message: 'Do you want language internationalization support?',
+    default: true,
+  },
+  {
+    type: 'checkbox',
+    name: 'i18n-langs',
+    message: 'Which languages do you want to support?',
+    when: props => props.i18n,
+    choices: props => getLangs().map(lang => ({value: lang, name: lang, checked: true})),
+  },
+  {
+    type: 'list',
+    name: 'i18n-default',
+    message: 'Which language are the default(fall back)?',
+    when: props => props.i18n && props['i18n-langs'].length,
+    choices: props => props['i18n-langs']
   }
 ];
