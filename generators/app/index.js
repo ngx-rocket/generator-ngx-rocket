@@ -24,7 +24,7 @@ class NgxGenerator extends Generator {
     this.insight.optOut = !this.options.analytics || process.env.DISABLE_NGX_ANALYTICS;
 
     if (this.options.raw) {
-      this.prop.ui = 'raw';
+      this.props.ui = 'raw';
     }
 
     if (this.options['location-strategy']) {
