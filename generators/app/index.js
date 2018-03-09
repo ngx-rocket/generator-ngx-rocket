@@ -6,13 +6,14 @@ const Generator = require('@ngx-rocket/core');
 const asciiLogo = require('@ngx-rocket/ascii-logo');
 
 const prompts = require('./prompts');
-const options = require('./options.json');
+const options = require('./options');
 const pkg = require('../../package.json');
 
 class NgxGenerator extends Generator {
   initializing() {
     this.version = pkg.version;
     this.insight = new Insight({trackingCode: 'UA-93069862-1', pkg});
+    this.props = {};
 
     this.argument('appName', {
       description: 'Name of the app to generate',
@@ -23,7 +24,11 @@ class NgxGenerator extends Generator {
     this.insight.optOut = !this.options.analytics || process.env.DISABLE_NGX_ANALYTICS;
 
     if (this.options.raw) {
-      this.props = {ui: 'raw'};
+      this.prop.ui = 'raw';
+    }
+
+    if (this.options['location-strategy']) {
+      this.props.location = this.options['location-strategy'];
     }
 
     // Updating

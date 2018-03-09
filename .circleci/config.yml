@@ -1,0 +1,16 @@
+version: 2
+
+general:
+  # work in progress
+  # activate circleci only on pending circleci branches
+  branches:
+    only:
+      #- master
+      - /feature\/circleci.*/
+
+jobs:
+   build:
+     docker:
+       - image: circleci/node:8-browsers
+     steps:
+       - checkout

@@ -3,5 +3,6 @@
   "pwa": true,
   "ui": "ionic",
   "auth": true,
-  "lazy": false
+  "lazy": false,
+  "location": "hash"
 }

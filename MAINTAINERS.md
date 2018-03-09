@@ -37,9 +37,25 @@ Then follow these steps:
 
 7. Run `npm run changelog`. This will create a commit with the new updated `CHANGELOG.md`, but it will not be pushed so
    you can check it up before pushing.
+   
+8. Rebase `ci/*` branches onto `master` (could be automated). This should also be done regularly outside release cycle,
+   after merging new PR for example.
 
-8. Done! :tropical_drink:
+9. Done! :tropical_drink:
 
+## Dedicated CI branches
+
+The `ci/*` branches are used to test different use cases to help guarantee compatibility of generated apps, outside
+the standard supported workflow:
+
+- `ci/canary` uses the `@next` tag of Angular CLI and the `@latest` version of TypeScript.
+- `ci/strict` enables TypeScript strict type checking mode.
+
+These branches should **NEVER** be merged into master, and are triggered regularly for CI builds using cron-like jobs.
+
+Currently these branches are not automatically updated with newest code pushes, so they should be rebased onto `master`
+branches as often as possible when new changes are merged into `master`. Ideally a script could do this update
+operations using the CI...
 
 ## Website notes
 

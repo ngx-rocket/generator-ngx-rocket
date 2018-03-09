@@ -4,5 +4,6 @@
   "ui": "material",
   "layout": "simple",
   "auth": false,
-  "lazy": false
+  "lazy": false,
+  "location": "hash"
 }
