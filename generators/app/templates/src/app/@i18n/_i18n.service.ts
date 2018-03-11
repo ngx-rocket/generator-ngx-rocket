@@ -4,7 +4,7 @@ import { includes } from 'lodash';
 
 import { Logger } from '@core/logger.service';
 <% for (let lang of props['i18n-langs']) { -%>
-import * as <%- lang.replace('-', '') %> from '../../translations/<%- lang %>.json'
+import * as <%- lang.replace('-', '') %> from '../../translations/<%- lang %>.json';
 <% } -%>
 import LOCALES from './i18n-locales';
 
