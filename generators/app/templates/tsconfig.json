@@ -20,10 +20,10 @@
     "baseUrl": "src",
     "paths": {
       "@app/*": ["app/*"],
-      "@i18n": ["app/@i18n"],
-      "@core": ["app/@core"],
-      "@core/*": ["app/@core/*"],
-      "@shared": ["app/@shared"],
+      "@i18n": ["app/i18n"],
+      "@core": ["app/core"],
+      "@core/*": ["app/core/*"],
+      "@shared": ["app/shared"],
       "@env/*": ["environments/*"]
     }
   },
