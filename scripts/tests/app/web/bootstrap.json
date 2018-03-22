@@ -3,5 +3,8 @@
   "pwa": false,
   "ui": "bootstrap",
   "auth": false,
-  "lazy": false
+  "lazy": false,
+  "angulartics": true,
+  "analyticsProvider": "ga",
+  "googleAnalyticsAccount": "UA-116237171-1"
 }
