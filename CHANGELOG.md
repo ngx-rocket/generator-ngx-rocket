@@ -1,5 +1,29 @@
 # Change Log
 
+## [4.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/4.1.0) (2018-03-22)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/4.0.0...4.1.0)
+
+**Enhancements**:
+
+- Facilitate backend integration in addons [\#272](https://github.com/ngx-rocket/generator-ngx-rocket/issues/272) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Closed issues:**
+
+- https://stackblitz.com/github/ngx-rocket/starter-kit not working [\#280](https://github.com/ngx-rocket/generator-ngx-rocket/issues/280)
+- help to request response error and in pass in success always [\#279](https://github.com/ngx-rocket/generator-ngx-rocket/issues/279)
+- Three \(3\) packages missing when running starter kit using StackBlitz [\#276](https://github.com/ngx-rocket/generator-ngx-rocket/issues/276)
+- HttpClient failed in Service providers [\#274](https://github.com/ngx-rocket/generator-ngx-rocket/issues/274)
+- --raw option is not working [\#267](https://github.com/ngx-rocket/generator-ngx-rocket/issues/267)
+
+**Merged pull requests:**
+
+- Chore/update deps [\#284](https://github.com/ngx-rocket/generator-ngx-rocket/pull/284)
+- Feature/fullstack [\#282](https://github.com/ngx-rocket/generator-ngx-rocket/pull/282)
+- \* \[bug\] the raw ui option can not work [\#275](https://github.com/ngx-rocket/generator-ngx-rocket/pull/275)
+- Added doc & tests for location strategy option [\#273](https://github.com/ngx-rocket/generator-ngx-rocket/pull/273)
+- Add minimalist circleci config [\#270](https://github.com/ngx-rocket/generator-ngx-rocket/pull/270)
+- + \[feat\] add the location strategy option [\#265](https://github.com/ngx-rocket/generator-ngx-rocket/pull/265)
+
 ## [4.0.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/4.0.0) (2018-03-02)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/3.2.1...4.0.0)
 
