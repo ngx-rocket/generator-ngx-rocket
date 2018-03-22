@@ -13,14 +13,19 @@
 <%   if (props.ui !== 'ionic') { -%>
   "Logged in as": "Connecté en tant que",
 <%   } -%>
+  "Confirm password": "Confirmer le mot de passe",
+  "Create an account": "Créer un compte",
   "Login": "Connexion",
   "Logout": "Déconnexion",
+  "Password lost?": "Mot de passe oublié ?",
   "Password": "Mot de passe",
   "Password is required": "Mot de passe requis",
   "Username": "Identifiant",
   "Username is required": "Identifiant requis",
   "Username or password incorrect.": "Identifiant ou mot de passe incorrect.",
   "Remember me": "Rester connecté",
+  "Renew password": "Renouveller le mot de passe",
+  "Sign Up!": "Créer un compte",
 <% } -%>
   "Version": "Version"
 }

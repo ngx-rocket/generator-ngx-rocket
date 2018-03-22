@@ -23,4 +23,17 @@ html {
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.ng-invalid.ng-touched:not(form) {
+  border-left: 4px solid #f00;
+}
+
+.invalid,
+.error {
+  color: #f00;
+}
+<% } else if (props.ui === 'bootstrap') { -%>
+.ng-invalid.ng-touched:not(form) {
+  border-left: 4px solid theme-color("danger");
+}
 <% } -%>

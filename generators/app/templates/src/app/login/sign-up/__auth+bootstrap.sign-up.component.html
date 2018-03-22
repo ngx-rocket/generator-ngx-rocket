@@ -1,0 +1,52 @@
+<div class="sign-up-container bg-light">
+  <div class="sign-up-box">
+    <h1 translate>Sign Up!</h1>
+    <div class="container">
+      <div class="card col-md-6 mt-3 mx-auto">
+        <div class="card-body">
+          <h4 class="card-title text-center">
+            <i class="fas fa-3x fa-user-plus text-muted"></i>
+          </h4>
+          <form (ngSubmit)="signUp()" [formGroup]="signUpForm" novalidate>
+            <div class="alert alert-danger" [hidden]="!error || isLoading" translate>
+              Username or password incorrect.
+            </div>
+            <div class="form-group">
+              <label class="d-block">
+                <input type="text" class="form-control" formControlName="username" autocomplete="username"
+                       [placeholder]="'Username' | translate"/>
+                <span hidden translate>Username</span>
+                <small [hidden]="signUpForm.controls.username.valid || signUpForm.controls.username.untouched"
+                       class="text-danger" translate>
+                  Username is required
+                </small>
+              </label>
+              <label class="d-block">
+                <input type="password" class="form-control" formControlName="password" autocomplete="current-password"
+                       [placeholder]="'Password' | translate" required/>
+                <span hidden translate>Password</span>
+                <small [hidden]="signUpForm.controls.password.valid || signUpForm.controls.password.untouched"
+                       class="text-danger" translate>
+                  Password is required
+                </small>
+              </label>
+              <label class="d-block">
+                <input type="password" class="form-control" formControlName="confirmPassword"
+                       [placeholder]="'Comfirm password' | translate" required/>
+                <span hidden translate>Comfirm password</span>
+                <small [hidden]="!signUpForm.controls.confirmPassword.errors?.matchPassword || signUpForm.controls.confirmPassword.value.length === 0"
+                       class="text-danger" translate>
+                  Password do not match
+                </small>
+              </label>
+            </div>
+            <button class="btn btn-primary w-100" type="submit" [disabled]="signUpForm.invalid || isLoading">
+              <i class="fas fa-cog fa-spin" [hidden]="!isLoading"></i>
+              <span translate>Sign Up</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

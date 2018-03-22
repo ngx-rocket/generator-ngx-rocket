@@ -1,7 +1,7 @@
 @import "src/theme/theme-variables";
 @import "~bootstrap/scss/mixins/_breakpoints";
 
-.login-container {
+.sign-up-container {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -9,7 +9,7 @@
   right: 0;
 }
 
-.login-box {
+.sign-up-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
