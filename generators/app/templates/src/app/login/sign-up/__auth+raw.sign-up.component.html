@@ -1,0 +1,44 @@
+<div class="sign-up-container">
+  <div class="sign-up-box">
+    <h1 translate>Sign Up!</h1>
+    <div class="container">
+      <form (ngSubmit)="signUp()" [formGroup]="signUpForm" novalidate>
+        <div class="alert alert-danger" [hidden]="!error || isLoading" translate>
+          Username or password incorrect.
+        </div>
+        <label class="form-control">
+          <input type="text" formControlName="username" autocomplete="username"
+                 [placeholder]="'Username' | translate"/>
+          <span hidden translate>Username</span>
+          <div [hidden]="signUpForm.controls.username.valid || signUpForm.controls.username.untouched"
+                 class="invalid" translate>
+            Username is required
+          </div>
+        </label>
+        <label class="form-control">
+          <input type="password" formControlName="password" autocomplete="current-password"
+                 [placeholder]="'Password' | translate" required/>
+          <span hidden translate>Password</span>
+          <div [hidden]="signUpForm.controls.password.valid || signUpForm.controls.password.untouched"
+                 class="invalid" translate>
+            Password is required
+          </div>
+        </label>
+        <label class="form-control">
+          <input type="password" formControlName="confirmPassword"
+                 [placeholder]="'Comfirm password' | translate" required/>
+          <span hidden translate>Comfirm password</span>
+          <div
+            [hidden]="!signUpForm.controls.confirmPassword.errors?.matchPassword || signUpForm.controls.confirmPassword.value.length === 0"
+            class="invalid" translate>
+            Password do not match
+          </div>
+        </label>
+        <button type="submit" [disabled]="signUpForm.invalid || isLoading">
+          <span [hidden]="!isLoading" translate>Loading</span>
+          <span translate>Sign Up</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -20,7 +20,7 @@
           <span hidden translate>Username</span>
           <div [hidden]="loginForm.controls.username.valid || loginForm.controls.username.untouched"
                  class="invalid">
-            <small translate>Username is required</small>
+            <div translate>Username is required</div>
           </div>
         </label>
         <label class="form-control">
@@ -29,7 +29,7 @@
           <span hidden translate>Password</span>
           <div [hidden]="loginForm.controls.password.valid || loginForm.controls.password.untouched"
                  class="invalid">
-            <small translate>Password is required</small>
+            <div translate>Password is required</div>
           </div>
         </label>
         <label class="form-control">
@@ -39,6 +39,14 @@
         <button class="form-control" type="submit" [disabled]="loginForm.invalid || isLoading">
           <i class="fa fa-cog fa-spin" [hidden]="!isLoading"></i>
           <span translate>Login</span>
+        </button>
+        <button class="btn col-sm-6"
+                routerLink="/sign-up">
+          <span translate>Create an account</span>
+        </button>
+        <button class="btn col-sm-6"
+                routerLink="/lost-password">
+          <span translate>Lost password?</span>
         </button>
       </form>
     </div>

@@ -1,6 +1,6 @@
 @import "src/theme/theme-variables";
 
-.login-container {
+.sign-up-container {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -9,8 +9,8 @@
   background: $container-color;
 }
 
-.login-container,
-.login-box,
+.sign-up-container,
+.sign-up-box,
 .form {
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@
   align-items: center;
 }
 
-.login-box {
+.sign-up-box {
   background: #fff;
   padding: 2em;
   border-radius: 0.5em;
