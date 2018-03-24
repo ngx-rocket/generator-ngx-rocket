@@ -111,14 +111,14 @@ module.exports = [
     type: 'confirm',
     name: 'i18n',
     message: 'Do you want language internationalization support?',
-    default: true,
+    default: true
   },
   {
     type: 'checkbox',
     name: 'i18n-langs',
     message: 'Which languages do you want to support?',
     when: props => props.i18n,
-    choices: props => getLangs().map(lang => ({value: lang, name: lang, checked: true})),
+    choices: () => getLangs().map(lang => ({value: lang, name: lang, checked: true}))
   },
   {
     type: 'list',

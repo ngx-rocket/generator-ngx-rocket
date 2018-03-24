@@ -74,10 +74,12 @@ class NgxGenerator extends Generator {
   }
 
   configuring() {
-    if (!this.props['i18n-langs']) {this.props['i18n-langs']= ['en-US'];}
-    getLangs().forEach(v =>
-      this._prefixRules[v] = (props => props['i18n-langs'].indexOf(v) >= 0)
-    );
+    if (!this.props['i18n-langs']) {
+      this.props['i18n-langs'] = ['en-US'];
+    }
+    getLangs().forEach(v => {
+      this._prefixRules[v] = (props => props['i18n-langs'].indexOf(v) >= 0);
+    });
 
     this.insight.track(
       'generator',
