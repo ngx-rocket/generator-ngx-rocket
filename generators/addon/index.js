@@ -87,7 +87,7 @@ module.exports = Generator.make({
   options,
   prompts,
   prefixRules: Object.assign(Generator.defaultPrefixRules, {
-    'fullstack': props => props.type === 'fullstack',
-    'not-fullstack': props => props.type !== 'fullstack',
+    fullstack: props => props.type === 'fullstack',
+    'not-fullstack': props => props.type !== 'fullstack'
   })
 });
