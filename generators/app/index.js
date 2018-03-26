@@ -35,7 +35,7 @@ class NgxGenerator extends Generator {
     let fromVersion = null;
 
     if (this.options.update) {
-      this.props = this.config.get('props') || {};
+      this.props = this.config.get('props') || this.props;
       fromVersion = this.config.get('version');
     }
 
