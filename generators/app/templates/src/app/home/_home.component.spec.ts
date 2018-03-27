@@ -6,6 +6,9 @@ import { IonicModule } from 'ionic-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
+<% if (props.angulartics) { -%>
+import { Angulartics2Module } from 'angulartics2';
+<% } -%>
 
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
@@ -28,6 +31,9 @@ describe('HomeComponent', () => {
           BrowserAnimationsModule,
           FlexLayoutModule,
           MaterialModule,
+<% } -%>
+<% if (props.angulartics) { -%>
+          Angulartics2Module,
 <% } -%>
           CoreModule,
           SharedModule,
