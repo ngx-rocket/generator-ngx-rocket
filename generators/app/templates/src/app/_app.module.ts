@@ -26,8 +26,10 @@ import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 <% } -%>
-<% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
+<% if (props.angulartics) { -%>
 import { Angulartics2Module } from 'angulartics2';
+<% } -%>
+<% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 <% } -%>
 
@@ -74,6 +76,8 @@ import { AppRoutingModule } from './app-routing.module';
 <% } -%>
 <% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
+<% } else if (props.angulartics ) { -%>
+    Angulartics2Module.forRoot([]),
 <% } -%>
     AppRoutingModule
   ],
