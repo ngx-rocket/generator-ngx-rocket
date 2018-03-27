@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
 <% if (props.angulartics) { -%>
+import { RouterTestingModule } from '@angular/router/testing';
 import { Angulartics2Module } from 'angulartics2';
 <% } -%>
 
@@ -33,7 +34,8 @@ describe('HomeComponent', () => {
           MaterialModule,
 <% } -%>
 <% if (props.angulartics) { -%>
-          Angulartics2Module,
+          RouterTestingModule,
+          Angulartics2Module.forRoot([]),
 <% } -%>
           CoreModule,
           SharedModule,
