@@ -1,5 +1,6 @@
 {
   "description": "Simple add-on",
   "author": "Testinator",
-  "advanced": false
+  "advanced": false,
+  "type": "client"
 }
