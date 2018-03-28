@@ -216,6 +216,12 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
   [headless mode](https://developers.google.com/web/updates/2017/04/headless-chrome) or you will have errors.
 - `--raw`: do not use any UI library for templates
 - `--tools`: generate only the toolchain, without application template
+- `--location-strategy [hash|path`: [location strategy](https://angular.io/api/common/LocationStrategy) to use in
+  Angular router (default is `path`).
+  
+When generating a *fullstack* project (with both client and server code), you can use the environment variables
+`NGX_CLIENT_PATH` and `NGX_SERVER_PATH` to customize the paths for client and server code. Be aware though that some
+add-ons may force specific paths that will preempt your changes.
 
 ## Updating generated projects
 
