@@ -67,7 +67,7 @@
     "@angular/cdk": "^5.2.1",
     "@angular/material": "^5.2.1",
     "@angular/flex-layout": "5.0.0-beta.13",
-    "material-design-icons": "^3.0.1",
+    "material-design-icons-iconfont": "^3.0.3",
     "hammerjs": "^2.0.8",
 <% } -%>
 <% if (props.angulartics) { -%>

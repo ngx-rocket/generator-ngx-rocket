@@ -85,5 +85,9 @@ module.exports = Generator.make({
   baseDir: __dirname,
   generator: NgxAddonGenerator,
   options,
-  prompts
+  prompts,
+  prefixRules: Object.assign(Generator.defaultPrefixRules, {
+    fullstack: props => props.type === 'fullstack',
+    'not-fullstack': props => props.type !== 'fullstack'
+  })
 });

@@ -33,7 +33,7 @@ Then follow these steps:
 5. Run `npm publish`. The new version will be tagged and pushed automatically through the `postpublish` script.
 
 6. Run `npm run deploy` to update the various branches of the [starter kit](https://github.com/ngx-rocket/starter-kit)
-   repository.
+   repository. **Make sure you do not have any add-on enabled!** 
 
 7. Run `npm run changelog`. This will create a commit with the new updated `CHANGELOG.md`, but it will not be pushed so
    you can check it up before pushing.

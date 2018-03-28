@@ -35,7 +35,6 @@ matrix:
 install:
   - choco install googlechrome
   - ps: Install-Product node $env:nodejs_version
-  - npm install -g yarn@latest
   - npm install
   - npm link
 
