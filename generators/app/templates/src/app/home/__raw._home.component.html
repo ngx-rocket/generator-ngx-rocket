@@ -5,4 +5,14 @@
   </h1>
   <app-loader [isLoading]="isLoading"></app-loader>
   <q [hidden]="isLoading">{{quote}}</q>
+<% if (props.angulartics) { -%>
+  <p>
+    <button
+      angulartics2On="click"
+      angularticsAction="Click button below quote"
+      [angularticsCategory]="quote">
+      Click me to send an Analytics event
+    </button>
+  </p>
+<% } -%>
 </div>

@@ -9,6 +9,17 @@
         <app-loader [isLoading]="isLoading" size="1.5"></app-loader>
         <q [hidden]="isLoading">{{quote}}</q>
       </mat-card-subtitle>
+<% if (props.angulartics) { -%>
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          angulartics2On="click"
+          angularticsAction="Click button below quote"
+          [angularticsCategory]="quote">
+          Click me to send an Analytics event
+        </button>
+      </mat-card-actions>
+<% } -%>
     </mat-card-content>
   </mat-card>
 </div>
