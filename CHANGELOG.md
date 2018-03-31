@@ -1,5 +1,26 @@
 # Change Log
 
+## [4.2.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/4.2.0) (2018-03-30)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/4.1.0...4.2.0)
+
+**Enhancements**:
+
+- Add server and fullstack option to addon generator [\#281](https://github.com/ngx-rocket/generator-ngx-rocket/issues/281) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Closed issues:**
+
+- Replace material-design-icons package [\#298](https://github.com/ngx-rocket/generator-ngx-rocket/issues/298)
+
+**Merged pull requests:**
+
+- Add support for analytics with Angulartics2. [\#294](https://github.com/ngx-rocket/generator-ngx-rocket/pull/294)
+- Chore/fix appveyor [\#293](https://github.com/ngx-rocket/generator-ngx-rocket/pull/293)
+- Feature/addon fullstack [\#290](https://github.com/ngx-rocket/generator-ngx-rocket/pull/290)
+- Updated license. [\#288](https://github.com/ngx-rocket/generator-ngx-rocket/pull/288)
+- Fix checkbox list display in issue template [\#286](https://github.com/ngx-rocket/generator-ngx-rocket/pull/286)
+- Remove NodeJS 7 from travis CI target [\#285](https://github.com/ngx-rocket/generator-ngx-rocket/pull/285)
+- Add version number in dev env [\#271](https://github.com/ngx-rocket/generator-ngx-rocket/pull/271)
+
 ## [4.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/4.1.0) (2018-03-22)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/4.0.0...4.1.0)
 

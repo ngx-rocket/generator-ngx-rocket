@@ -3,5 +3,6 @@
   "pwa": false,
   "ui": "ionic",
   "auth": false,
-  "lazy": false
+  "lazy": false,
+  "angulartics": false
 }

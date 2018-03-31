@@ -35,6 +35,9 @@ module.exports = Generator.make({
   generator: <%= props.className %>Generator,
 <% } -%>
 
+  // The type of your generator, can be 'client', 'server' or 'fullstack' (optional)
+  type: '<%= props.type -%>',
+
   // Your generator prompts (optional)
   // See https://github.com/sboudrias/Inquirer.js#objects for details
   prompts: [

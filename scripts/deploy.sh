@@ -31,7 +31,10 @@ function update_repo() {
     git reset HEAD README.md
     git checkout -- README.md
     git add -A
+
+    set +e
     git commit -m "Updated from generator v$VERSION"
+    set -e
 
     if [ "$BRANCH" == "master" ]; then
         git tag -a v$VERSION -m "v$VERSION";
