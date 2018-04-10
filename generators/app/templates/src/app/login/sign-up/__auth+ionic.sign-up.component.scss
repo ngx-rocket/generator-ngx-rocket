@@ -6,14 +6,14 @@
   flex-grow: 1;
 }
 
-.login-header,
-.login-background {
+.sign-up-header,
+.sign-up-background {
   background: color($colors, primary);
 }
 
 .item-select .label-md,
-.login-header,
-.login-background {
+.sign-up-header,
+.sign-up-background {
   color: color-contrast($colors, primary);
 }
 
@@ -24,7 +24,7 @@
   color: color-contrast($colors, primary);
 }
 
-.login-background {
+.sign-up-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -32,7 +32,7 @@
   bottom: 50%;
 }
 
-.login-container {
+.sign-up-container {
   background: $background-color;
 
   .item {
@@ -42,10 +42,4 @@
 
 .list > .item-block:first-child {
   border-top: none;
-}
-
-.buttons-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
 }

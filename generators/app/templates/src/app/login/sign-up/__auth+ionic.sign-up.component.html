@@ -1,0 +1,51 @@
+<ion-content no-bounce>
+  <div class="sign-up-background"></div>
+  <ion-grid no-padding>
+    <ion-row justify-content-center no-padding>
+      <ion-col col-sm-8 col-lg-6 col-xl-4 align-self-center no-padding>
+        <div class="sign-up-header" text-center>
+          <h1 translate>Sign Up!</h1>
+        </div>
+        <div class="sign-up-container">
+          <form (ngSubmit)="signUp()" [formGroup]="signUpForm" novalidate>
+            <div padding ion-text color="danger" [hidden]="!error || signUpForm.dirty" translate>
+              Username or password incorrect.
+            </div>
+            <ion-list>
+              <ion-item>
+                <ion-label floating>{{'Username' | translate}}</ion-label>
+                <ion-input type="text" formControlName="username" autocomplete="username"></ion-input>
+              </ion-item>
+              <div padding [hidden]="signUpForm.controls.username.valid || signUpForm.controls.username.untouched"
+                   ion-text color="danger" translate>
+                Username is required
+              </div>
+              <ion-item>
+                <ion-label floating>{{'Password' | translate}}</ion-label>
+                <ion-input type="password" formControlName="password" autocomplete="current-password"></ion-input>
+              </ion-item>
+              <div padding [hidden]="signUpForm.controls.password.valid || signUpForm.controls.password.untouched"
+                   ion-text color="danger" translate>
+                Password is required
+              </div>
+              <ion-item>
+                <ion-label floating>{{'Comfirm password' | translate}}</ion-label>
+                <ion-input type="password" formControlName="confirmPassword"></ion-input>
+              </ion-item>
+              <div padding [hidden]="!signUpForm.controls.confirmPassword.errors?.matchPassword || signUpForm.controls.confirmPassword.value.length === 0"
+                   ion-text color="danger" translate>
+                Password do not match
+              </div>
+            </ion-list>
+            <div padding-horizontal>
+              <button type="submit" [disabled]="signUpForm.invalid" ion-button color="primary" block>
+                <span translate>Sign Up</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

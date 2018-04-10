@@ -37,7 +37,9 @@ import { LostPasswordComponent } from './lost-password/lost-password.component';
   ],
 <% if (props.ui === 'ionic') { -%>
   entryComponents: [
-    LoginComponent
+    LoginComponent,
+    SignUpComponent,
+    LostPasswordComponent
   ],
 <% } -%>
   declarations: [
