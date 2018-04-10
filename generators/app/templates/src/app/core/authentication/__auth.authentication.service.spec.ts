@@ -141,4 +141,35 @@ describe('AuthenticationService', () => {
       });
     }));
   });
+
+  describe('signUp', () => {
+    it('should make proper sign up call and return result', fakeAsync(() => {
+      // Arrange
+      const signUpRequest = authenticationService.signUp({
+        username: 'toto',
+        password: '123'
+      });
+      tick();
+
+      // Assert
+      signUpRequest.subscribe(result => {
+        expect(result).toBeTruthy();
+      });
+    }));
+  });
+
+  describe('renewPassword', () => {
+    it('should make proper sign up call and return result', fakeAsync(() => {
+      // Arrange
+      const renewPasswordRequest = authenticationService.renewPassword({
+        username: 'toto'
+      });
+      tick();
+
+      // Assert
+      renewPasswordRequest.subscribe(result => {
+        expect(result).toBeTruthy();
+      });
+    }));
+  });
 });
