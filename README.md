@@ -142,11 +142,11 @@ The app template is based on [HTML5](http://whatwg.org/html), [TypeScript](http:
 Development, build and quality processes are based on [angular-cli](https://github.com/angular/angular-cli) and
 [NPM scripts](https://docs.npmjs.com/misc/scripts), which includes:
 
-- Optimized build and bundling process with [Webpack](https://webpack.github.io)
-- [Development server](https://webpack.github.io/docs/webpack-dev-server.html) with backend proxy and live reload
+- Optimized build and bundling process with [Webpack](https://webpack.js.org/)
+- [Development server](https://webpack.js.org/configuration/dev-server/) with backend proxy and live reload
 - Cross-browser CSS with [autoprefixer](https://github.com/postcss/autoprefixer) and
   [browserslist](https://github.com/ai/browserslist)
-- Asset revisioning for [better cache management](https://webpack.github.io/docs/long-term-caching.html)
+- Asset revisioning for [better cache management](https://webpack.js.org/guides/caching/)
 - Unit tests using [Jasmine](http://jasmine.github.io), [Karma](https://karma-runner.github.io) and
   [headless Chrome](https://github.com/GoogleChrome/puppeteer)
 - End-to-end tests using [Protractor](https://github.com/angular/protractor)
