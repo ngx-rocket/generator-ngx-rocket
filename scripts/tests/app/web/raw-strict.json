@@ -1,8 +1,8 @@
 {
   "target": ["web"],
   "pwa": false,
-  "ui": "ionic",
-  "auth": false,
+  "ui": "raw",
+  "auth": true,
   "lazy": false,
-  "angulartics": true
+  "strict": true
 }

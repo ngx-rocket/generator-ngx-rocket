@@ -1,0 +1,8 @@
+{
+  "target": ["web"],
+  "pwa": true,
+  "ui": "bootstrap",
+  "auth": true,
+  "lazy": false,
+  "strict": true
+}
