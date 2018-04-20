@@ -48,5 +48,12 @@ module.exports = [
     required: false,
     description: 'Location strategy to use in Angular router: "path" or "hash"',
     defaults: 'path'
+  },
+  {
+    name: 'strict',
+    type: 'Boolean',
+    required: false,
+    description: 'Enable TypeScript strict mode',
+    defaults: false
   }
 ];
