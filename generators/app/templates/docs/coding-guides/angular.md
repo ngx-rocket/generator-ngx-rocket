@@ -1,6 +1,6 @@
 # Introduction to Angular and modern design patterns
 
-[Angular](https://angular.io) (aka Angular 2, 4, 5...) is a new framework completely rewritten from the ground up,
+[Angular](https://angular.io) (aka Angular 2, 4, 5, 6...) is a new framework completely rewritten from the ground up,
 replacing the now well-known [AngularJS](https://angularjs.org) framework (aka Angular 1.x).
 
 More that just a framework, Angular should now be considered as a whole *platform* which comes with a complete set of
