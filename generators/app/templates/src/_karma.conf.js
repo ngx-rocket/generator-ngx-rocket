@@ -4,6 +4,7 @@
 
 process.env.CHROME_BIN = require('puppeteer').executablePath();
 <% } -%>
+const path = require('path');
 
 module.exports = function(config) {
   config.set({
@@ -21,14 +22,14 @@ module.exports = function(config) {
       captureConsole: Boolean(process.env.KARMA_ENABLE_CONSOLE)
     },
     junitReporter: {
-      outputDir: './reports/junit/',
+      outputDir: path.join(__dirname, '../reports/junit/'),
       outputFile: 'TESTS-xunit.xml',
       useBrowserName: false,
       suite: '' // Will become the package name attribute in xml testsuite element
     },
     coverageIstanbulReporter: {
       reports: ['html', 'lcovonly', 'text-summary'],
-      dir: './reports/coverage',
+      dir: path.join(__dirname, '../reports/coverage'),
       fixWebpackSourcePaths: true
     },
     angularCli: {
