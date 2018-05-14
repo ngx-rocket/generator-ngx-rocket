@@ -7,13 +7,9 @@
       "resources": {
         "files": [
           "/favicon.ico",
-          "/manifest.json",
-          "/index.html"
-        ],
-        "versionedFiles": [
-          "/*.bundle.css",
-          "/*.bundle.js",
-          "/*.chunk.js"
+          "/index.html",
+          "/*.css",
+          "/*.js"
         ]
       }
     },

@@ -31,7 +31,7 @@
               "src/robots.txt"
             ],
             "styles": [
-              "main.scss"
+              "src/main.scss"
             ],
             "scripts": []
           },
@@ -48,7 +48,6 @@
               "buildOptimizer": true,
 <% if (props.pwa) { -%>
               "serviceWorker": true,
-              "ngswConfigPath": "/src/ngsw-config.json",
 <% } -%>
               "fileReplacements": [
                 {
