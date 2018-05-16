@@ -23,12 +23,15 @@
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
             "assets": [
-              "src/assets",
+<% if (props.target.includes('web')) { -%>
               "src/favicon.ico",
+              "src/apple-touch-icon.png",
+              "src/robots.txt",
+<% } -%>
 <% if (props.pwa) { -%>
               "src/manifest.json",
 <% } -%>
-              "src/robots.txt"
+              "src/assets"
             ],
             "styles": [
               "src/main.scss"
@@ -87,12 +90,15 @@
               "src/main.scss"
             ],
             "assets": [
-              "src/assets",
+<% if (props.target.includes('web')) { -%>
               "src/favicon.ico",
+              "src/apple-touch-icon.png",
+              "src/robots.txt",
+<% } -%>
 <% if (props.pwa) { -%>
               "src/manifest.json",
 <% } -%>
-              "src/robots.txt"
+              "src/assets"
             ]
           }
         },
