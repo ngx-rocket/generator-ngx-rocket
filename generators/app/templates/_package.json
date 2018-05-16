@@ -59,7 +59,6 @@
 <% if (props.ui === 'ionic') { -%>
     "ionic-angular": "^3.9.2",
     "ionicons": "^3.0.0",
-    "rxjs-compat": "^6.1.0",
 <% } else if (props.ui === 'bootstrap') { -%>
     "@ng-bootstrap/ng-bootstrap": "^2.0.0",
     "bootstrap": "^4.1.1",
@@ -77,6 +76,9 @@
     "core-js": "^2.5.6",
     "lodash": "^4.17.10",
     "rxjs": "^6.1.0",
+<% if (props.ui === 'ionic' || props.target.includes('cordova')) { -%>
+    "rxjs-compat": "^6.1.0",
+<% } -%>
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
