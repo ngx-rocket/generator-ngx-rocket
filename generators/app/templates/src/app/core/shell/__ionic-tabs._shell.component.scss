@@ -1,0 +1,32 @@
+$tabs-height: 8.2rem;
+
+.tabs::ng-deep {
+  .content {
+    .scroll-content,
+    .fixed-content {
+      height: 100%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .tabbar {
+      height: 100%;
+      width: $tabs-height;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      .tab-button {
+        width: 100%;
+        height: $tabs-height;
+        flex: 0 1 auto;
+      }
+    }
+
+    .header,
+    .content {
+      left: $tabs-height;
+      right: 0;
+      width: calc(100% - #{$tabs-height});
+    }
+  }
+}
