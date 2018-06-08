@@ -100,7 +100,7 @@ module.exports = [
         .filter(choice => choice.when);
     },
     when: props => props.ui === 'material' || props.ui === 'ionic',
-    default: 'simple'
+    default: 'side-menu'
   },
   {
     type: 'confirm',

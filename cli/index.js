@@ -141,9 +141,7 @@ class NgxCli {
     } else {
       const disabled = this._config.get(disabledAddons);
       return this._findAddons()
-        .then(addons => {
-          return addons.filter(addon => !disabled[addon]);
-        })
+        .then(addons => addons.filter(addon => !disabled[addon]))
         .then(addons => {
           return new Promise(resolve => env.lookup(() => env.run(['ngx-rocket'].concat(args), {
             update,

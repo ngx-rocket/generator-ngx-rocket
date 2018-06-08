@@ -43,7 +43,7 @@ import { HomeModule } from '@app/home/home.module';
 import { AboutModule } from '@app/about/about.module';
 <% } -%>
 <% if (props.layout === 'tabs') { -%>
-import { SettingsModule } from "@app/settings/settings.module";
+import { SettingsModule } from '@app/settings/settings.module';
 <% } -%>
 <% if (props.auth) { -%>
 import { LoginModule } from '@app/login/login.module';

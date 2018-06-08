@@ -5,7 +5,7 @@ import { Tab } from 'ionic-angular';
 import { filter } from 'rxjs/operators';
 import { findIndex } from 'lodash';
 
-import { _settingsComponent } from '@app/settings/settings.component';
+import { SettingsComponent } from '@app/settings/settings.component';
 import { AboutComponent } from '@app/about/about.component';
 import { HomeComponent } from '@app/home/home.component';
 
@@ -19,7 +19,7 @@ export class ShellComponent implements OnInit {
   tabs = [
     { component: HomeComponent, route: 'home', title: 'Home', icon: 'home' },
     { component: AboutComponent, route: 'about', title: 'About', icon: 'logo-angular' },
-    { component: _settingsComponent, route: 'settings', title: 'Settings', icon: 'cog' }
+    { component: SettingsComponent, route: 'settings', title: 'Settings', icon: 'cog' }
   ];
   selectedTabIndex: number;
   subscription: any;

@@ -143,6 +143,7 @@ module.exports = Generator.make({
   prompts,
   prefixRules: Object.assign(Generator.defaultPrefixRules, {
     'ionic-tabs': props => props.ui === 'ionic' && props.layout === 'tabs',
+    'ionic-side-menu': props => props.ui === 'ionic' && props.layout === 'side-menu',
     'material-simple': props => props.ui === 'material' && props.layout === 'simple',
     'material-side-menu': props => props.ui === 'material' && props.layout === 'side-menu',
     raw: props => props.ui === 'raw'
