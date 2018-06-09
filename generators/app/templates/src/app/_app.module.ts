@@ -69,17 +69,13 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   declarations: [AppComponent],
   providers: [
-<% if (props.ui === 'ionic') { -%>
-<%   if (props.target.includes('cordova')) { -%>
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-<%   } else { -%>
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
-<%   } -%>
-<% } -%>
 <% if (props.target.includes('cordova')) { -%>
     Keyboard,
     StatusBar,
     SplashScreen
+<%   if (props.ui === 'ionic') { -%>
+    ,{ provide: ErrorHandler, useClass: IonicErrorHandler }
+<%   } -%>
 <% } -%>
   ],
 <% if (props.ui === 'ionic') { -%>
