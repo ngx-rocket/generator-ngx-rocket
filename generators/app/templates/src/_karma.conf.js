@@ -4,31 +4,32 @@
 
 process.env.CHROME_BIN = require('puppeteer').executablePath();
 <% } -%>
+const path = require('path');
 
 module.exports = function(config) {
   config.set({
-    basePath: '',
-    frameworks: ['jasmine', '@angular/cli'],
+    basePath: '..',
+    frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-junit-reporter'),
       require('karma-coverage-istanbul-reporter'),
-      require('@angular/cli/plugins/karma')
+      require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
       clearContext: false, // leave Jasmine Spec Runner output visible in browser
       captureConsole: Boolean(process.env.KARMA_ENABLE_CONSOLE)
     },
     junitReporter: {
-      outputDir: 'reports/junit/',
+      outputDir: path.join(__dirname, '../reports/junit/'),
       outputFile: 'TESTS-xunit.xml',
       useBrowserName: false,
       suite: '' // Will become the package name attribute in xml testsuite element
     },
     coverageIstanbulReporter: {
       reports: ['html', 'lcovonly', 'text-summary'],
-      dir: './reports/coverage',
+      dir: path.join(__dirname, '../reports/coverage'),
       fixWebpackSourcePaths: true
     },
     angularCli: {

@@ -1,5 +1,117 @@
 # Change Log
 
+## [5.0.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/5.0.0) (2018-05-17)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/4.2.0...5.0.0)
+
+**Enhancements**:
+
+- Angular 6 support [\#301](https://github.com/ngx-rocket/generator-ngx-rocket/issues/301) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Make api prefix interceptor optional [\#300](https://github.com/ngx-rocket/generator-ngx-rocket/issues/300) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Update to cordova-custom-config@5 [\#299](https://github.com/ngx-rocket/generator-ngx-rocket/issues/299) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- BREAKING CHANGE: Angular 6 support [\#323](https://github.com/ngx-rocket/generator-ngx-rocket/pull/323) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Added method to disable api prefix on an http request \(closes \#300\) [\#310](https://github.com/ngx-rocket/generator-ngx-rocket/pull/310) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Merged pull requests:**
+
+- Update README.md with webpack links [\#306](https://github.com/ngx-rocket/generator-ngx-rocket/pull/306)
+- Publish to gh-pages \#278 - Service Workers relative path [\#289](https://github.com/ngx-rocket/generator-ngx-rocket/pull/289)
+
+## [4.2.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/4.2.0) (2018-03-30)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/4.1.0...4.2.0)
+
+**Enhancements**:
+
+- Add server and fullstack option to addon generator [\#281](https://github.com/ngx-rocket/generator-ngx-rocket/issues/281) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Closed issues:**
+
+- Replace material-design-icons package [\#298](https://github.com/ngx-rocket/generator-ngx-rocket/issues/298)
+
+**Merged pull requests:**
+
+- Add support for analytics with Angulartics2. [\#294](https://github.com/ngx-rocket/generator-ngx-rocket/pull/294)
+- Chore/fix appveyor [\#293](https://github.com/ngx-rocket/generator-ngx-rocket/pull/293)
+- Feature/addon fullstack [\#290](https://github.com/ngx-rocket/generator-ngx-rocket/pull/290)
+- Updated license. [\#288](https://github.com/ngx-rocket/generator-ngx-rocket/pull/288)
+- Fix checkbox list display in issue template [\#286](https://github.com/ngx-rocket/generator-ngx-rocket/pull/286)
+- Remove NodeJS 7 from travis CI target [\#285](https://github.com/ngx-rocket/generator-ngx-rocket/pull/285)
+- Add version number in dev env [\#271](https://github.com/ngx-rocket/generator-ngx-rocket/pull/271)
+
+## [4.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/4.1.0) (2018-03-22)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/4.0.0...4.1.0)
+
+**Enhancements**:
+
+- Facilitate backend integration in addons [\#272](https://github.com/ngx-rocket/generator-ngx-rocket/issues/272) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Closed issues:**
+
+- https://stackblitz.com/github/ngx-rocket/starter-kit not working [\#280](https://github.com/ngx-rocket/generator-ngx-rocket/issues/280)
+- help to request response error and in pass in success always [\#279](https://github.com/ngx-rocket/generator-ngx-rocket/issues/279)
+- Three \(3\) packages missing when running starter kit using StackBlitz [\#276](https://github.com/ngx-rocket/generator-ngx-rocket/issues/276)
+- HttpClient failed in Service providers [\#274](https://github.com/ngx-rocket/generator-ngx-rocket/issues/274)
+- --raw option is not working [\#267](https://github.com/ngx-rocket/generator-ngx-rocket/issues/267)
+
+**Merged pull requests:**
+
+- Chore/update deps [\#284](https://github.com/ngx-rocket/generator-ngx-rocket/pull/284)
+- Feature/fullstack [\#282](https://github.com/ngx-rocket/generator-ngx-rocket/pull/282)
+- \* \[bug\] the raw ui option can not work [\#275](https://github.com/ngx-rocket/generator-ngx-rocket/pull/275)
+- Added doc & tests for location strategy option [\#273](https://github.com/ngx-rocket/generator-ngx-rocket/pull/273)
+- Add minimalist circleci config [\#270](https://github.com/ngx-rocket/generator-ngx-rocket/pull/270)
+- + \[feat\] add the location strategy option [\#265](https://github.com/ngx-rocket/generator-ngx-rocket/pull/265)
+
+## [4.0.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/4.0.0) (2018-03-02)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/3.2.1...4.0.0)
+
+**Enhancements**:
+
+- Hard to make a new component fill the rest of body [\#266](https://github.com/ngx-rocket/generator-ngx-rocket/issues/266) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Serve app with service worker enabled [\#250](https://github.com/ngx-rocket/generator-ngx-rocket/issues/250) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add autofill attributes to login form [\#228](https://github.com/ngx-rocket/generator-ngx-rocket/issues/228) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Implement lazy loading  [\#195](https://github.com/ngx-rocket/generator-ngx-rocket/issues/195) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add an option to generate template without any UI library [\#150](https://github.com/ngx-rocket/generator-ngx-rocket/issues/150) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Allow to only generate the toolchain [\#144](https://github.com/ngx-rocket/generator-ngx-rocket/issues/144) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Switch to new HttpClient API [\#94](https://github.com/ngx-rocket/generator-ngx-rocket/issues/94) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Feature/tools only [\#263](https://github.com/ngx-rocket/generator-ngx-rocket/pull/263) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Added script to serve app with service worker \(closes \#250\) [\#251](https://github.com/ngx-rocket/generator-ngx-rocket/pull/251) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Feature/no ui library [\#246](https://github.com/ngx-rocket/generator-ngx-rocket/pull/246) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Feature/Strict mode compatibility [\#242](https://github.com/ngx-rocket/generator-ngx-rocket/pull/242) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Update angular style guide links [\#240](https://github.com/ngx-rocket/generator-ngx-rocket/pull/240) [[documentation](https://github.com/ngx-rocket/generator-ngx-rocket/labels/documentation)]
+- Updated tooling [\#238](https://github.com/ngx-rocket/generator-ngx-rocket/pull/238) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- BREAKING CHANGE: Switch to new HttpClient API \(closes \#94\) [\#237](https://github.com/ngx-rocket/generator-ngx-rocket/pull/237) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Feature/autocomplete [\#235](https://github.com/ngx-rocket/generator-ngx-rocket/pull/235) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- BREAKING CHANGE: Added lazy loading option \(closes \#195\) [\#229](https://github.com/ngx-rocket/generator-ngx-rocket/pull/229) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Fixed bugs:**
+
+- Unable to create new project or use any of the ngx commands  [\#264](https://github.com/ngx-rocket/generator-ngx-rocket/issues/264)
+- Ionic template SPA server not working properly [\#249](https://github.com/ngx-rocket/generator-ngx-rocket/issues/249)
+- HttpCacheService.loadCacheData\(\) [\#244](https://github.com/ngx-rocket/generator-ngx-rocket/issues/244)
+- MatTableModule is missing in MaterialModule [\#236](https://github.com/ngx-rocket/generator-ngx-rocket/issues/236)
+- Fixed material side-menu closing when navigating in desktop mode [\#254](https://github.com/ngx-rocket/generator-ngx-rocket/pull/254)
+- ionic: invalid view to insert when route to lazy loading page [\#241](https://github.com/ngx-rocket/generator-ngx-rocket/pull/241)
+- Fixed missing material module imports \(fixes \#236\) [\#239](https://github.com/ngx-rocket/generator-ngx-rocket/pull/239)
+- Bugfix/material simple [\#234](https://github.com/ngx-rocket/generator-ngx-rocket/pull/234)
+
+**Closed issues:**
+
+- ionic project crashing after npm install \(TypeError: Cannot read property 'glob' of null\) [\#255](https://github.com/ngx-rocket/generator-ngx-rocket/issues/255)
+- Implement ngx-bootstrap [\#232](https://github.com/ngx-rocket/generator-ngx-rocket/issues/232)
+
+**Merged pull requests:**
+
+- Updated dependencies [\#269](https://github.com/ngx-rocket/generator-ngx-rocket/pull/269)
+- Doc/maintainers [\#258](https://github.com/ngx-rocket/generator-ngx-rocket/pull/258)
+- Update to FontAwesome 5 [\#256](https://github.com/ngx-rocket/generator-ngx-rocket/pull/256)
+- Use \<base href="/"\> with override for Cordova projects \(fixes \#249\) [\#253](https://github.com/ngx-rocket/generator-ngx-rocket/pull/253)
+- Added missing tests in CI [\#252](https://github.com/ngx-rocket/generator-ngx-rocket/pull/252)
+- Create \_de-DE.json [\#248](https://github.com/ngx-rocket/generator-ngx-rocket/pull/248)
+- Chore/update dependencies [\#247](https://github.com/ngx-rocket/generator-ngx-rocket/pull/247)
+- Feature/tests lazy [\#245](https://github.com/ngx-rocket/generator-ngx-rocket/pull/245)
+- Fixed Ionic ErrorHandler import and some spacing [\#243](https://github.com/ngx-rocket/generator-ngx-rocket/pull/243)
+- Chore/update libs [\#233](https://github.com/ngx-rocket/generator-ngx-rocket/pull/233)
+
 ## [3.2.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/3.2.1) (2018-01-24)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/3.2.0...3.2.1)
 

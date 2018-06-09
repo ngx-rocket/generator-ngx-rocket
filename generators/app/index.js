@@ -2,17 +2,25 @@
 
 const chalk = require('chalk');
 const Insight = require('insight');
+const semver = require('semver');
 const Generator = require('@ngx-rocket/core');
 const asciiLogo = require('@ngx-rocket/ascii-logo');
 
 const prompts = require('./prompts');
-const options = require('./options.json');
+const options = require('./options');
 const pkg = require('../../package.json');
 
 class NgxGenerator extends Generator {
   initializing() {
     this.version = pkg.version;
     this.insight = new Insight({trackingCode: 'UA-93069862-1', pkg});
+    this.props = {};
+
+    if (semver.lt(process.version, '8.9.0')) {
+      this.log(chalk.yellow('Angular CLI v6 needs NodeJS v8.9 or greater.'));
+      this.log(chalk.yellow(`You are using ${process.version} which is unsupported, please upgrade.\n`));
+      process.exit(-1);
+    }
 
     this.argument('appName', {
       description: 'Name of the app to generate',
@@ -23,14 +31,18 @@ class NgxGenerator extends Generator {
     this.insight.optOut = !this.options.analytics || process.env.DISABLE_NGX_ANALYTICS;
 
     if (this.options.raw) {
-      this.props = {ui: 'raw'};
+      this.props.ui = 'raw';
+    }
+
+    if (this.options['location-strategy']) {
+      this.props.location = this.options['location-strategy'];
     }
 
     // Updating
     let fromVersion = null;
 
     if (this.options.update) {
-      this.props = this.config.get('props') || {};
+      this.props = this.config.get('props') || this.props;
       fromVersion = this.config.get('version');
     }
 
@@ -120,7 +132,7 @@ class NgxGenerator extends Generator {
     if (this.props.target.includes('electron')) {
       this.log(`- $ ${chalk.green(`${this.packageManager} run electron:build`)}: build app for electron`);
       this.log(`- $ ${chalk.green(`${this.packageManager} run electron:run`)}: run app in electron`);
-      this.log(`- $ ${chalk.green(`${this.packageManager} run electron:package:win`)}: building windows executable app`);
+      this.log(`- $ ${chalk.green(`${this.packageManager} run electron:package:win`)}: build windows executable app`);
     }
 
     this.log(`- $ ${chalk.green(`${this.packageManager} test`)}: run unit tests in watch mode for TDD`);
