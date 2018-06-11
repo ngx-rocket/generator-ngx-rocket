@@ -90,7 +90,6 @@ $tabs-height: 8.2rem;
     background: rgba(0, 0, 0, 0.05);
   }
 }
-
 <%   if (props.layout === 'simple') { -%>
 .mat-sidenav,
 .mat-drawer-content,
