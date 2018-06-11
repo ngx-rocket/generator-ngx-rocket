@@ -52,9 +52,9 @@
     "@ngx-rocket/ascii-logo": "^1.0.1",
     "@ngx-rocket/core": "^3.3.0",
     "chalk": "^2.4.1",
-    "conf": "^1.4.0",
+    "conf": "^2.0.0",
     "figures": "^2.0.0",
-    "inquirer": "^5.2.0",
+    "inquirer": "^6.0.0",
     "insight": "^0.10.1",
     "lodash.camelcase": "^4.3.0",
     "lodash.get": "^4.4.2",
@@ -62,7 +62,7 @@
     "minimist": "^1.2.0",
     "semver": "^5.5.0",
     "update-notifier": "^2.5.0",
-    "yeoman-environment": "^2.1.1"
+    "yeoman-environment": "^2.2.0"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
