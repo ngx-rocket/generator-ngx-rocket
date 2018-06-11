@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss']
 })
-export class _settingsComponent implements OnInit {
+export class SettingsComponent implements OnInit {
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,

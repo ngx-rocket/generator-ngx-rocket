@@ -4,7 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { IonicModule } from 'ionic-angular';
 
 import { SettingsRoutingModule } from './settings-routing.module';
-import { _settingsComponent } from './settings.component';
+import { SettingsComponent } from './settings.component';
 
 @NgModule({
   imports: [
@@ -14,10 +14,10 @@ import { _settingsComponent } from './settings.component';
     SettingsRoutingModule
   ],
   entryComponents: [
-    _settingsComponent
+    SettingsComponent
   ],
   declarations: [
-    _settingsComponent
+    SettingsComponent
   ]
 })
 export class SettingsModule { }
