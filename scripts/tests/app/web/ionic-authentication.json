@@ -2,6 +2,7 @@
   "target": ["web"],
   "pwa": true,
   "ui": "ionic",
+  "layout": "side-menu",
   "auth": true,
   "lazy": false,
   "location": "hash"

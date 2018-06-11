@@ -59,7 +59,6 @@ $tabs-height: 8.2rem;
   border-color: color-contrast($colors, primary);
   color: color-contrast($colors, primary);
 }
-  
 <%   } -%>
 <% } else if (props.ui === 'material') { -%>
 <%   if (props.layout === 'simple') { -%>
