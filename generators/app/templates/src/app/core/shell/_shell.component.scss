@@ -31,7 +31,7 @@ $tabs-height: 8.2rem;
       width: calc(100% - #{$tabs-height});
     }
   }
-}  
+}
 <%   } else if (props.layout === 'side-menu') { -%>
 @import "src/theme/theme-variables";
 
