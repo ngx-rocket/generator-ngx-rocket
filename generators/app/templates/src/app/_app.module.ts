@@ -38,15 +38,18 @@ import { environment } from '@env/environment';
 <% } -%>
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
-import { HomeModule } from './home/home.module';
+import { HomeModule } from '@app/home/home.module';
 <% if (!props.lazy) { -%>
-import { AboutModule } from './about/about.module';
+import { AboutModule } from '@app/about/about.module';
+<% } -%>
+<% if (props.layout === 'tabs') { -%>
+import { SettingsModule } from '@app/settings/settings.module';
 <% } -%>
 <% if (props.auth) { -%>
-import { LoginModule } from './login/login.module';
+import { LoginModule } from '@app/login/login.module';
 <% } -%>
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from '@app/app.component';
+import { AppRoutingModule } from '@app/app-routing.module';
 
 @NgModule({
   imports: [
@@ -73,6 +76,9 @@ import { AppRoutingModule } from './app-routing.module';
 <% } -%>
 <% if (props.auth) { -%>
     LoginModule,
+<% } -%>
+<% if (props.layout === 'tabs'){ -%>
+    SettingsModule,
 <% } -%>
 <% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
