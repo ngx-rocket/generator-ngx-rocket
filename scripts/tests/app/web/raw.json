@@ -3,5 +3,7 @@
   "pwa": false,
   "ui": "raw",
   "auth": false,
-  "lazy": false
+  "lazy": false,
+  "angulartics": true,
+  "analyticsProvider": "other"
 }

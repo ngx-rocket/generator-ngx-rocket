@@ -1,13 +1,14 @@
 {
   "name": "<%= props.appName %>",
   "short_name": "<%= props.appName %>",
-  "start_url": "index.html",
+  "theme_color": "#488aff",
+  "background_color": "#488aff",
+  "scope": "/",
+  "start_url": "/",
   "display": "standalone",
   "icons": [{
     "src": "assets/ngx-rocket-logo.png",
     "sizes": "512x512",
     "type": "image/png"
-  }],
-  "background_color": "#488aff",
-  "theme_color": "#488aff"
+  }]
 }

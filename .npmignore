@@ -1,5 +1,9 @@
+/.github/
+/.circleci/
 /.idea/
 /sample/
+/cache/
+/sample-app/
 /deploy/
 /scripts/
 /.gitignore
