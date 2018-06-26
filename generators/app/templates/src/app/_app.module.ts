@@ -102,9 +102,6 @@ import { AppRoutingModule } from './app-routing.module';
     Keyboard,
     StatusBar,
     SplashScreen
-<%   if (props.ui === 'ionic') { -%>
-    ,{ provide: ErrorHandler, useClass: IonicErrorHandler }
-<%   } -%>
 <% } -%>
   ],
 <% if (props.ui === 'ionic') { -%>
