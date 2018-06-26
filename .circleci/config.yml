@@ -48,7 +48,7 @@ jobs:
   build:
     <<: *defaults
     docker:
-    - image: circleci/android:api-28-node8-alpha-browsers # todo browsers
+    - image: circleci/node:8-browsers #circleci/android:api-28-node8-alpha # todo browsers
     steps:
       - restore_cache:
           key: repository-{{ .Environment.CIRCLE_SHA1 }}
