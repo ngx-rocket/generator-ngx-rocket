@@ -1,5 +1,12 @@
 # Change Log
 
+## [5.0.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/5.0.1) (2018-06-11)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/5.0.0...5.0.1)
+
+**Fixed bugs:**
+
+- fix json format for manifest file [\#332](https://github.com/ngx-rocket/generator-ngx-rocket/pull/332)
+
 ## [5.0.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/5.0.0) (2018-05-17)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/4.2.0...5.0.0)
 
@@ -7,7 +14,6 @@
 
 - Angular 6 support [\#301](https://github.com/ngx-rocket/generator-ngx-rocket/issues/301) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
 - Make api prefix interceptor optional [\#300](https://github.com/ngx-rocket/generator-ngx-rocket/issues/300) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
-- Update to cordova-custom-config@5 [\#299](https://github.com/ngx-rocket/generator-ngx-rocket/issues/299) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
 - BREAKING CHANGE: Angular 6 support [\#323](https://github.com/ngx-rocket/generator-ngx-rocket/pull/323) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
 - Added method to disable api prefix on an http request \(closes \#300\) [\#310](https://github.com/ngx-rocket/generator-ngx-rocket/pull/310) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
 
