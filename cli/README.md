@@ -52,8 +52,8 @@ l, list
   -n, --npm    Show installable add-ons on NPM
 
 <script>
-  Runs specified script from your package.json.
-  Works just like npm run <script>
+  Runs specified script from your package.json
+  Works like npm run <script> with fuzzy matching
 ```
 
 ## Generating and serving a project via a development server
@@ -111,7 +111,7 @@ See [ngx-rocket/core](https://github.com/ngx-rocket/core) for the complete docum
 
 In a generated project folder, you can use the command `ngx <script>` to run any `package.json` script.
 This is only a convenience shortcut, it works exactly like `npm run <script>`, except that you do need to add `--` to
-pass arguments to the underlying command.
+pass arguments to the underlying command, and script name is fuzzy matched.
 
 For example in a ngX-Rocket project you can use these commands:
 ```sh
@@ -129,6 +129,11 @@ ngx b --build-optimizer
 
 If there is more than one script matching, the first one will be used.
 You can then use any number of additional letters to discriminate the script you want to run.
+
+For example you can use first letters of sub-commands:
+```sh
+ngx cr ios  // start cordova:run script
+```
 
 # License
 
