@@ -33,7 +33,7 @@ describe('ShellComponent', () => {
 <% } else if (props.ui === 'material') { -%>
         BrowserAnimationsModule,
 <% } -%>
-        I18nModule，
+        I18nModule,
         CoreModule
 <% if (props.auth) { -%>
       ],
