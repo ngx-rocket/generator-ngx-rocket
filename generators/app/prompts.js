@@ -126,5 +126,35 @@ module.exports = [
     message: 'Which language are the default(fall back)?',
     when: props => props.i18n && props['i18n-langs'].length,
     choices: props => props['i18n-langs']
+    name: 'angulartics',
+    message: 'Do you want analytics support (with Angulartics2)?',
+    default: false
+  },
+  {
+    type: 'list',
+    name: 'analyticsProvider',
+    message: 'What analytics provider are you using?',
+    choices: [
+      {
+        value: 'ga',
+        name: 'Google Analytics'
+      },
+      {
+        value: 'gtm',
+        name: 'Google Tag Manager'
+      },
+      {
+        value: 'other',
+        name: 'Other'
+      }
+    ],
+    when: props => props.angulartics,
+    default: 'ga'
+  },
+  {
+    type: 'input',
+    name: 'googleAnalyticsAccount',
+    message: 'What is your Google Analytics account (e.g. UA-1234567-1)?',
+    when: props => props.angulartics && props.analyticsProvider === 'ga'
   }
 ];

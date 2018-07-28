@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
-import { merge } from 'rxjs/observable/merge';
+import { merge } from 'rxjs';
 import { filter, map, mergeMap } from 'rxjs/operators';
 <% if (props.ui === 'ionic') { -%>
 <%   if (props.target.includes('cordova')) { -%>
@@ -21,6 +21,9 @@ import { IonicApp, Nav } from 'ionic-angular';
 import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+<% } -%>
+<% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 <% } -%>
 
 import { environment } from '@env/environment';
@@ -54,6 +57,11 @@ export class AppComponent implements OnInit {
               private statusBar: StatusBar,
               private splashScreen: SplashScreen,
 <% } -%>
+<% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
+              // do not remove the analytics injection, even if the call in ngOnInit() is removed
+              // this injection initializes page tracking through the router
+              private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
+<% } -%>
               private i18nService: I18nService) { }
 
   ngOnInit() {
@@ -63,6 +71,10 @@ export class AppComponent implements OnInit {
     }
 
     log.debug('init');
+
+<% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
+    this.angulartics2GoogleAnalytics.eventTrack(environment.version, {category: 'App initialized'});
+<% } -%>
 
     // Setup translations
     this.i18nService.init(environment.defaultLanguage, environment.supportedLanguages);

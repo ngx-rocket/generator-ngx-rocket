@@ -26,8 +26,5 @@
       "@shared": ["app/shared"],
       "@env/*": ["environments/*"]
     }
-  },
-  "angularCompilerOptions": {
-    "preserveWhitespaces": false
   }
 }

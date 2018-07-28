@@ -2,6 +2,7 @@
 
 const chalk = require('chalk');
 const Insight = require('insight');
+const semver = require('semver');
 const Generator = require('@ngx-rocket/core');
 const asciiLogo = require('@ngx-rocket/ascii-logo');
 
@@ -15,6 +16,12 @@ class NgxGenerator extends Generator {
     this.version = pkg.version;
     this.insight = new Insight({trackingCode: 'UA-93069862-1', pkg});
     this.props = {};
+
+    if (semver.lt(process.version, '8.9.0')) {
+      this.log(chalk.yellow('Angular CLI v6 needs NodeJS v8.9 or greater.'));
+      this.log(chalk.yellow(`You are using ${process.version} which is unsupported, please upgrade.\n`));
+      process.exit(-1);
+    }
 
     this.argument('appName', {
       description: 'Name of the app to generate',
@@ -36,7 +43,7 @@ class NgxGenerator extends Generator {
     let fromVersion = null;
 
     if (this.options.update) {
-      this.props = this.config.get('props') || {};
+      this.props = this.config.get('props') || this.props;
       fromVersion = this.config.get('version');
     }
 

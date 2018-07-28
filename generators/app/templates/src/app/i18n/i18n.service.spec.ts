@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 
 import { extract, I18nService } from './i18n.service';
 

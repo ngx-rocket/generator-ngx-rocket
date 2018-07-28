@@ -6,6 +6,10 @@ import { IonicModule } from 'ionic-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
+<% if (props.angulartics) { -%>
+import { RouterTestingModule } from '@angular/router/testing';
+import { Angulartics2Module } from 'angulartics2';
+<% } -%>
 
 import { CoreModule } from '@core';
 import { SharedModule } from '@shared';
@@ -28,6 +32,10 @@ describe('HomeComponent', () => {
           BrowserAnimationsModule,
           FlexLayoutModule,
           MaterialModule,
+<% } -%>
+<% if (props.angulartics) { -%>
+          RouterTestingModule,
+          Angulartics2Module.forRoot([]),
 <% } -%>
           CoreModule,
           SharedModule,

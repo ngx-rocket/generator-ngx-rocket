@@ -3,13 +3,13 @@
 [![NPM version](https://img.shields.io/npm/v/generator-ngx-rocket.svg)](https://www.npmjs.com/package/generator-ngx-rocket)
 [![Build status](https://img.shields.io/travis/ngx-rocket/generator-ngx-rocket/master.svg)](https://travis-ci.org/ngx-rocket/generator-ngx-rocket)
 [![Windows build status](https://ci.appveyor.com/api/projects/status/github/ngx-rocket/generator-ngx-rocket?svg=true&branch=master)](https://ci.appveyor.com/project/sinedied/generator-ngx-rocket/branch/master)
-![Node version](https://img.shields.io/badge/node-%3E%3D6.0.0-brightgreen.svg)
+![Node version](https://img.shields.io/node/v/generator-ngx-rocket.svg)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![Downloads](https://img.shields.io/npm/dt/generator-ngx-rocket.svg)](https://npmjs.org/package/generator-ngx-rocket)
 
 ![ngx-rocket logo](https://user-images.githubusercontent.com/593151/28924751-08023b32-7863-11e7-9186-c17d4647d861.png)
 
-> Extensible Angular 5+ enterprise-grade project generator based on
+> Extensible Angular 6+ enterprise-grade project generator based on
 > [angular-cli](https://github.com/angular/angular-cli) with best practices from the community.
 > Includes PWA and Cordova support, coding guides and more!
 
@@ -143,11 +143,11 @@ The app template is based on [HTML5](http://whatwg.org/html), [TypeScript](http:
 Development, build and quality processes are based on [angular-cli](https://github.com/angular/angular-cli) and
 [NPM scripts](https://docs.npmjs.com/misc/scripts), which includes:
 
-- Optimized build and bundling process with [Webpack](https://webpack.github.io)
-- [Development server](https://webpack.github.io/docs/webpack-dev-server.html) with backend proxy and live reload
+- Optimized build and bundling process with [Webpack](https://webpack.js.org/)
+- [Development server](https://webpack.js.org/configuration/dev-server/) with backend proxy and live reload
 - Cross-browser CSS with [autoprefixer](https://github.com/postcss/autoprefixer) and
   [browserslist](https://github.com/ai/browserslist)
-- Asset revisioning for [better cache management](https://webpack.github.io/docs/long-term-caching.html)
+- Asset revisioning for [better cache management](https://webpack.js.org/guides/caching/)
 - Unit tests using [Jasmine](http://jasmine.github.io), [Karma](https://karma-runner.github.io) and
   [headless Chrome](https://github.com/GoogleChrome/puppeteer)
 - End-to-end tests using [Protractor](https://github.com/angular/protractor)

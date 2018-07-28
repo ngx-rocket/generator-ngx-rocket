@@ -6,6 +6,9 @@ import { IonicModule } from 'ionic-angular';
 <% } else if (props.ui === 'material') { -%>
 import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
+<% if (props.angulartics) { -%>
+import { Angulartics2Module } from 'angulartics2';
+<% } -%>
 
 import { CoreModule } from '@core';
 import { SharedModule } from '@shared';
@@ -27,6 +30,9 @@ import { QuoteService } from './quote.service';
 <% } else if (props.ui === 'material') { -%>
     FlexLayoutModule,
     MaterialModule,
+<% } -%>
+<% if (props.angulartics) { -%>
+    Angulartics2Module,
 <% } -%>
     HomeRoutingModule
   ],

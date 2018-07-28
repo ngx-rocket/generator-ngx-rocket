@@ -9,6 +9,10 @@ import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 <% } -%>
+<% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+<% } -%>
 
 import { CoreModule } from '@core';
 import { AppComponent } from './app.component';
@@ -19,6 +23,9 @@ describe('AppComponent', () => {
       imports: [
 <% if (props.ui === 'ionic') { -%>
         IonicModule.forRoot(AppComponent),
+<% } -%>
+<% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
+        Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
 <% } -%>
         RouterTestingModule,
         TranslateModule.forRoot(),

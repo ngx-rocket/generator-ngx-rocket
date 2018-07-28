@@ -1,5 +1,48 @@
 # Change Log
 
+## [5.0.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/5.0.1) (2018-06-11)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/5.0.0...5.0.1)
+
+**Fixed bugs:**
+
+- fix json format for manifest file [\#332](https://github.com/ngx-rocket/generator-ngx-rocket/pull/332)
+
+## [5.0.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/5.0.0) (2018-05-17)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/4.2.0...5.0.0)
+
+**Enhancements**:
+
+- Angular 6 support [\#301](https://github.com/ngx-rocket/generator-ngx-rocket/issues/301) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Make api prefix interceptor optional [\#300](https://github.com/ngx-rocket/generator-ngx-rocket/issues/300) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- BREAKING CHANGE: Angular 6 support [\#323](https://github.com/ngx-rocket/generator-ngx-rocket/pull/323) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Added method to disable api prefix on an http request \(closes \#300\) [\#310](https://github.com/ngx-rocket/generator-ngx-rocket/pull/310) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Merged pull requests:**
+
+- Update README.md with webpack links [\#306](https://github.com/ngx-rocket/generator-ngx-rocket/pull/306)
+- Publish to gh-pages \#278 - Service Workers relative path [\#289](https://github.com/ngx-rocket/generator-ngx-rocket/pull/289)
+
+## [4.2.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/4.2.0) (2018-03-30)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/4.1.0...4.2.0)
+
+**Enhancements**:
+
+- Add server and fullstack option to addon generator [\#281](https://github.com/ngx-rocket/generator-ngx-rocket/issues/281) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Closed issues:**
+
+- Replace material-design-icons package [\#298](https://github.com/ngx-rocket/generator-ngx-rocket/issues/298)
+
+**Merged pull requests:**
+
+- Add support for analytics with Angulartics2. [\#294](https://github.com/ngx-rocket/generator-ngx-rocket/pull/294)
+- Chore/fix appveyor [\#293](https://github.com/ngx-rocket/generator-ngx-rocket/pull/293)
+- Feature/addon fullstack [\#290](https://github.com/ngx-rocket/generator-ngx-rocket/pull/290)
+- Updated license. [\#288](https://github.com/ngx-rocket/generator-ngx-rocket/pull/288)
+- Fix checkbox list display in issue template [\#286](https://github.com/ngx-rocket/generator-ngx-rocket/pull/286)
+- Remove NodeJS 7 from travis CI target [\#285](https://github.com/ngx-rocket/generator-ngx-rocket/pull/285)
+- Add version number in dev env [\#271](https://github.com/ngx-rocket/generator-ngx-rocket/pull/271)
+
 ## [4.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/4.1.0) (2018-03-22)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/4.0.0...4.1.0)
 
