@@ -126,6 +126,9 @@ module.exports = [
     message: 'Which language are the default(fall back)?',
     when: props => props.i18n && props['i18n-langs'].length,
     choices: props => props['i18n-langs']
+  },
+  {
+    type: 'confirm',
     name: 'angulartics',
     message: 'Do you want analytics support (with Angulartics2)?',
     default: false
