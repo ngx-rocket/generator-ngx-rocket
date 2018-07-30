@@ -12,9 +12,9 @@ const get = require('lodash.get');
 const minimist = require('minimist');
 const updateNotifier = require('update-notifier');
 const asciiLogo = require('@ngx-rocket/ascii-logo');
+const fuzzyRun = require('fuzz-run');
 const pkg = require('../package.json');
 
-const isWin = /^win/.test(process.platform);
 const addonKey = 'ngx-rocket-addon';
 const disabledAddons = 'disabledAddons';
 const blacklistedNpmAddons = [
@@ -45,7 +45,7 @@ ${chalk.blue('l, list')}
   
 ${chalk.blue('<script>')}
   Runs specified script from your ${chalk.bold(`package.json`)}.
-  Works just like ${chalk.bold(`npm run <script>`)}
+  Works like ${chalk.bold(`npm run <script>`)} with fuzzy matching
 `;
 
 class NgxCli {
@@ -92,34 +92,11 @@ class NgxCli {
   }
 
   runScript(args) {
-    const name = args[0];
-    const packageFile = this._findPackageJson(process.cwd());
+    if (!args[0]) {
+      return this._help();
+    }
     const packageManager = this._packageManager();
-    const projectPackage = packageFile ? require(packageFile) : null;
-    if (!projectPackage) {
-      this._help();
-    }
-
-    let scriptName = name;
-    if (!projectPackage.scripts[name]) {
-      const matches = this._findMatches(name, Object.keys(projectPackage.scripts));
-      if (!matches) {
-        this._help();
-      }
-      scriptName = matches[0];
-      if (matches.length > 1) {
-        console.warn(chalk.yellow(`Warning, multiple matching scripts. Try to be more specific.`));
-      }
-    }
-
-    child.spawnSync(
-      packageManager,
-      ['run', scriptName].concat(packageManager === 'npm' ? ['--'] : [], args.splice(1)),
-      {
-        stdio: 'inherit',
-        shell: isWin
-      }
-    );
+    fuzzyRun(args, packageManager);
   }
 
   generate(update, args, addon) {
@@ -225,7 +202,7 @@ class NgxCli {
       if (!components.length) {
         return null;
       }
-      const dir = path.join.apply(path, components);
+      const dir = path.join(...components);
       const packageFile = path.join(dir, 'package.json');
       return fs.existsSync(packageFile) ? packageFile : find(components.slice(0, -1));
     };
@@ -255,16 +232,6 @@ class NgxCli {
   _help(details) {
     console.log(asciiLogo(pkg.version));
     this._exit(help + (details ? detailedHelp : `Use ${chalk.white(`--help`)} for more info.\n`));
-  }
-
-  _findMatches(search, strings) {
-    const matches = [];
-    for (const s of strings) {
-      if (s.startsWith(search)) {
-        matches.push(s);
-      }
-    }
-    return matches.length > 0 ? matches : null;
   }
 
   _exit(error, code = 1) {
