@@ -62,7 +62,7 @@ jobs:
   cordova:
     <<: *defaults
     docker:
-    - image: ekhozie/generate-ngx-rocket-cordova:0.0.1 #marcoturi/ionic #beevelop/ionic #circleci/android:api-28-node8-alpha
+    - image: circleci/android:api-28-node8-alpha #ekhozie/generate-ngx-rocket-cordova:0.0.1 #marcoturi/ionic #beevelop/ionic #circleci/android:api-28-node8-alpha
     steps:
       - restore_cache:
           key: repository-{{ .Environment.CIRCLE_SHA1 }}
