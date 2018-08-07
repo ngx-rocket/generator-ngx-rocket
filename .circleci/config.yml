@@ -53,17 +53,7 @@ jobs:
             - *workspace_dir
           key: *repository-cache
 
-  app/cordova/bootstrap:
-    <<: *defaults
-    steps:
-      - restore_cache:
-          *restore-repository-cache
-      - run: *npm-link
-      - run:
-          name: test app/cordova/bootstrap
-          command: npm test app/cordova/bootstrap
-
-  cordova_android:
+  build_cordova_android:
     <<: *defaults
     docker:
     - image: ekhozie/generate-ngx-rocket-cordova:0.0.1 #circleci/android:api-28-node8-alpha
@@ -73,18 +63,29 @@ jobs:
       - run: *npm-link
       - run:
           name: Run tests and package android app
-          command: npm test app/cordova/bootstrap
+          command: npm test
           environment:
             TEST_ANDROID: 1
+
+  cordova-bootstrap:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          *restore-repository-cache
+      - run: *npm-link
+      - run:
+          name: test app/cordova/bootstrap
+          command: npm test app/cordova/bootstrap
+
 
 workflows:
   version: 2
   build:
     jobs:
       - install
-      - app/cordova/bootstrap:
+      - cordova-bootstrap:
           requires:
             - install
-      - cordova_android:
+      - build_cordova_android:
           requires:
             - install
