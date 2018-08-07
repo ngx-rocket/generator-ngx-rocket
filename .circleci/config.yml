@@ -77,8 +77,9 @@ jobs:
 
   cordova_ios:
     <<: *defaults
-    docker:
-    - image: ekhozie/generate-ngx-rocket-cordova:0.0.1 #circleci/android:api-28-node8-alpha
+    machine:
+      xcode:
+        version: 9.2
     steps:
       - restore_cache:
           key: repository-{{ .Environment.CIRCLE_SHA1 }}
