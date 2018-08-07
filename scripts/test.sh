@@ -53,6 +53,11 @@ do
 
         npm run test
 
+    elif [ -n "$TEST_ANDROID" ]; then
+
+        npm run cordova:prepare -- --no-progress
+        npm run cordova:build android -- --no-progress
+
     else
 
         # generators/app test
@@ -62,11 +67,6 @@ do
         npm run test:ci -- --no-progress
         npm run e2e -- --no-progress
         npm run build -- --no-progress
-
-        if [ -n "$TEST_ANDROID" ]; then
-            npm run cordova:prepare -- --no-progress
-            npm run cordova:build android -- --no-progress
-        fi
 
     fi
 

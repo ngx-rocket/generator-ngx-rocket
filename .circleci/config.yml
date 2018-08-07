@@ -17,7 +17,7 @@ defaults: &defaults
   working_directory: *workspace_dir
 
 jobs:
-  npm-install:
+  install:
     <<: *defaults
     steps:
       - checkout
@@ -45,10 +45,24 @@ jobs:
             - *workspace_dir
           key: repository-{{ .Environment.CIRCLE_SHA1 }}
 
-  build:
+  test:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          key: repository-{{ .Environment.CIRCLE_SHA1 }}
+      - run:
+          name: npm link
+          command: sudo npm link
+      - run:
+          name: Run tests and package android app
+          command: npm test app/cordova/bootstrap
+          # environment:
+          #   TEST_ANDROID: 1
+
+  cordova:
     <<: *defaults
     docker:
-    - image: circleci/android:api-28-node8-alpha # circleci/node:8-browsers circleci/android:api-28-node8-alpha # todo browsers
+    - image: circleci/android:api-28-node8-alpha # circleci/node:8-browsers    # todo browsers
     steps:
       - restore_cache:
           key: repository-{{ .Environment.CIRCLE_SHA1 }}
@@ -65,7 +79,10 @@ workflows:
   version: 2
   build:
     jobs:
-      - npm-install
-      - build:
+      - install
+      - test:
           requires:
-            - npm-install
+            - install
+      - cordova:
+          requires:
+            - install
