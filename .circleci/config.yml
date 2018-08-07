@@ -82,9 +82,11 @@ jobs:
 
   cordova_ios:
     working_directory: *workspace_dir
-    machine:
-      xcode:
-        version: 9.2
+    # machine:
+    #   xcode:
+    #     version: 9.2
+    macos:
+      xcode: "9.2.0"
     steps:
       - restore_cache:
           *restore-repository-cache
