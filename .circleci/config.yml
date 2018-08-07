@@ -53,6 +53,16 @@ jobs:
             - *workspace_dir
           key: *repository-cache
 
+  test:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          *restore-repository-cache
+      - run: *npm-link
+      - run:
+          name: npm test
+          command: npm test
+
   build_cordova_android:
     <<: *defaults
     docker:
@@ -62,28 +72,18 @@ jobs:
           *restore-repository-cache
       - run: *npm-link
       - run:
-          name: Run tests and package android app
-          command: npm test
-          environment:
-            TEST_ANDROID: 1
-
-  cordova-bootstrap:
-    <<: *defaults
-    steps:
-      - restore_cache:
-          *restore-repository-cache
-      - run: *npm-link
+          name: cordova:prepare
+          command: cordova:prepare
       - run:
-          name: test app/cordova/bootstrap
-          command: npm test app/cordova/bootstrap
-
+          name: cordova:build android
+          command: cordova:build android
 
 workflows:
   version: 2
   build:
     jobs:
       - install
-      - cordova-bootstrap:
+      - test:
           requires:
             - install
       - build_cordova_android:
