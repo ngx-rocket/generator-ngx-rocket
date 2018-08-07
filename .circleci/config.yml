@@ -23,6 +23,15 @@ defaults: &defaults
     - image: circleci/node:8-browsers
   working_directory: *workspace_dir
 
+test_defaults: &test_defaults
+  <<: *defaults
+  steps:
+    - restore_cache:
+        *restore-repository-cache
+    - run:
+        name: npm link
+        command: sudo npm link
+
 jobs:
   install:
     <<: *defaults
@@ -40,9 +49,6 @@ jobs:
       - run:
           name: npm install
           command: npm install
-      - run:
-          name: npm link
-          command: sudo npm link
       - save_cache:
           paths:
             - node_modules
@@ -53,13 +59,7 @@ jobs:
           key: *repository-cache
 
   test:
-    <<: *defaults
-    steps:
-      - restore_cache:
-          *restore-repository-cache
-      - run:
-          name: npm link
-          command: sudo npm link
+    <<: *test_defaults
       - run:
           name: tests
           command: npm test app/cordova/bootstrap
