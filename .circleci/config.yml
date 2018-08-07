@@ -10,6 +10,10 @@ aliases:
   - &restore-repository-cache
       key: *repository-cache
 
+  - &npm-link
+      name: npm link
+      command: sudo npm link
+
 general:
   # work in progress
   # activate circleci only on pending circleci branches
@@ -22,15 +26,6 @@ defaults: &defaults
   docker:
     - image: circleci/node:8-browsers
   working_directory: *workspace_dir
-
-test_defaults: &test_defaults
-  <<: *defaults
-  steps:
-    - restore_cache:
-        *restore-repository-cache
-    - run:
-        name: npm link
-        command: sudo npm link
 
 jobs:
   install:
@@ -59,9 +54,13 @@ jobs:
           key: *repository-cache
 
   test:
-    <<: *test_defaults
+    <<: *defaults
+    steps:
+      - restore_cache:
+          *restore-repository-cache
+      - run: *npm-link
       - run:
-          name: tests
+          name: app/cordova/bootstrap
           command: npm test app/cordova/bootstrap
 
   cordova_android:
@@ -71,9 +70,7 @@ jobs:
     steps:
       - restore_cache:
           *restore-repository-cache
-      - run:
-          name: npm link
-          command: sudo npm link
+      - run: *npm-link
       - run:
           name: Run tests and package android app
           command: npm test app/cordova/bootstrap
