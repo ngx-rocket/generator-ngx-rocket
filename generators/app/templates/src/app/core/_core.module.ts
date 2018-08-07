@@ -14,10 +14,6 @@ import { IonicModule } from 'ionic-angular';
 <% if (props.ui === 'material') { -%>
 import { MaterialModule } from '@app/material.module';
 <% } -%>
-import { ShellComponent } from './shell/shell.component';
-<% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple') || props.ui === 'raw') { -%>
-import { HeaderComponent } from './shell/header/header.component';
-<% } -%>
 import { RouteReusableStrategy } from './route-reusable-strategy';
 <% if (props.auth) { -%>
 import { AuthenticationService } from './authentication/authentication.service';
@@ -44,17 +40,6 @@ import { CacheInterceptor } from './http/cache.interceptor';
     IonicModule,
 <% } -%>
     RouterModule
-  ],
-<% if (props.ui === 'ionic') { -%>
-  entryComponents: [
-    ShellComponent
-  ],
-<% } -%>
-  declarations: [
-<% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple') || props.ui === 'raw') { -%>
-    HeaderComponent,
-<% } -%>
-    ShellComponent
   ],
   providers: [
 <% if (props.auth) { -%>

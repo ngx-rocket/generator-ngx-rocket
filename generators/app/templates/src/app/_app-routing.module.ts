@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 <% if (props.lazy) { -%>
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { Route } from '@app/core';
+import { Shell } from '@app/shell';
 <% } else { -%>
 import { Routes, RouterModule } from '@angular/router';
 <% } -%>
 
 const routes: Routes = [
 <% if (props.lazy) { -%>
-  Route.withShell([
+  Shell.childRoutes([
     { path: 'about', loadChildren: 'app/about/about.module#AboutModule' }
   ]),
 <% } -%>

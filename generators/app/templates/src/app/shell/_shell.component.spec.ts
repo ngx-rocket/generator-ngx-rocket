@@ -10,11 +10,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 <% } -%>
 
 <% if (props.auth) { -%>
-import { AuthenticationService } from '../authentication/authentication.service';
-import { MockAuthenticationService } from '../authentication/authentication.service.mock';
+import { AuthenticationService, CoreModule, MockAuthenticationService } from '@app/core';
+<% } else {-%>
+import { CoreModule } from '@app/core';
 <% } -%>
-import { CoreModule } from '../core.module';
+
 import { ShellComponent } from './shell.component';
+import { HeaderComponent } from './header/header.component';
 
 describe('ShellComponent', () => {
   let component: ShellComponent;
@@ -38,8 +40,9 @@ describe('ShellComponent', () => {
       providers: [
         { provide: AuthenticationService, useClass: MockAuthenticationService }
 <% } -%>
-      ]
-    })
+      ],
+      declarations: [ShellComponent, HeaderComponent]
+  })
     .compileComponents();
   }));
 
