@@ -18,7 +18,7 @@ import { CoreModule } from '@app/core';
 <% } -%>
 
 import { ShellComponent } from './shell.component';
-<% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple')) { -%>
+<% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple') || props.ui === 'raw') { -%>
 import { HeaderComponent } from './header/header.component';
 <% } -%>
 
@@ -48,7 +48,7 @@ describe('ShellComponent', () => {
 <% } -%>
       ],
       declarations: [
-<% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple')) { -%>
+<% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple') || props.ui === 'raw') { -%>
         HeaderComponent,
 <% } -%>
         ShellComponent
