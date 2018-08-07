@@ -72,11 +72,10 @@ jobs:
           *restore-repository-cache
       - run: *npm-link
       - run:
-          name: cordova:prepare
-          command: cordova:prepare
-      - run:
-          name: cordova:build android
-          command: cordova:build android
+          name: Run tests and build android app
+          command: npm test app/cordova/bootstrap
+          environment:
+            TEST_ANDROID: 1
 
 workflows:
   version: 2

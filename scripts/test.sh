@@ -58,8 +58,8 @@ do
         ngx new --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
 
         # cordova android
-        npm run cordova:prepare -- --no-progress
-        npm run cordova:build android -- --no-progress
+        npm run cordova:prepare --no-progress
+        npm run cordova:build android --no-progress
 
     else
 
