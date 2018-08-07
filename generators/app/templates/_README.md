@@ -76,6 +76,14 @@ Task                            | Description
 `npm run cordova:build [-- --env=prod]`        | Build mobile app for production in `dist/` folder
 `npm run cordova:clean`         | Removes `www/`, `platforms/` and `plugins/` folders
 <% } -%>
+<% if (props.target.includes('electron')) { -%>
+`npm run electron:build`        | Build desktop app
+`npm run electron:run`          | Run app on electron
+`npm run electron:package:win32`| Package windows executable app fo 32 bit architecture
+`npm run electron:package:win64`| Package windows executable app fo 64 bit architecture
+`npm run electron:package:linux`| Package linux executable app fo 64 bit architecture
+`npm run electron:package:mac`  | Package mac (darwin) app fo 64 bit architecture
+<% } -%>
 `npm test`                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
 `npm run test:ci`               | Lint code and run unit tests once for continuous integration
 `npm run e2e`                   | Run e2e tests using [Protractor](http://www.protractortest.org)
