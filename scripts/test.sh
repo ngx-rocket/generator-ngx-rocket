@@ -61,10 +61,17 @@ do
         npm run cordova:prepare -- --no-progress
         npm run cordova:build android -- --no-progress
 
+    elif [ -n "$TEST_IOS" ]; then
+
+        ngx new --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
+
+        # cordova
+        npm run cordova:prepare -- --no-progress
+        npm run cordova:build ios -- --no-progress
+
     else
 
         # generators/app test
-
         ngx new --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
 
         npm run test:ci -- --no-progress
