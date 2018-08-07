@@ -113,7 +113,19 @@
               "**/node_modules/**"
             ]
           }
+<% if (props.universal) {-%>
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/<%= props.appName %>-server",
+            "main": "src/main.server.ts",
+            "tsConfig": "src/tsconfig.server.json"
+          }
         }
+<% } else { -%>
+        }
+<% } -%>
       }
     },
     "<%= props.projectName %>-e2e": {

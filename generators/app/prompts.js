@@ -107,6 +107,12 @@ module.exports = [
   },
   {
     type: 'confirm',
+    name: 'universal',
+    message: 'Do you want Server Side Rendering?',
+    default: false
+  },
+  {
+    type: 'confirm',
     name: 'angulartics',
     message: 'Do you want analytics support (with Angulartics2)?',
     default: false

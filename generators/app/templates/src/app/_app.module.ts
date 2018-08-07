@@ -1,4 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
+<% if (props.universal) { -%>
+  import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
+<% } else { -%>
+  import { BrowserModule } from '@angular/platform-browser';
+<% } -%>
 <% if (props.ui === 'ionic') { -%>
 import { ErrorHandler, NgModule } from '@angular/core';
 <% } else { -%>
@@ -50,7 +54,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   imports: [
+<% if (props.universal) { -%>
+    BrowserModule.withServerTransition({ appId: '<%= props.appName %>-server' }),
+    BrowserTransferStateModule,
+<% } else { -%>
     BrowserModule,
+<% } -%>
 <% if (props.pwa) { -%>
     ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
 <% } -%>
