@@ -55,6 +55,9 @@ do
 
     elif [ -n "$TEST_ANDROID" ]; then
 
+        ngx new --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
+
+        # cordova
         npm run cordova:prepare -- --no-progress
         npm run cordova:build android -- --no-progress
 
