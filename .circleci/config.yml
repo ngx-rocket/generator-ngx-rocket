@@ -82,17 +82,18 @@ jobs:
 
   cordova_ios:
     working_directory: *workspace_dir
-    # machine:
-    #   xcode:
-    #     version: 9.2
-    macos:
-      xcode: "9.2.0"
+    machine:
+      xcode:
+        version: 8.2
+    dependencies:
+    pre:
+      - brew install node
     steps:
       - restore_cache:
           *restore-repository-cache
-      - run:
-          name: install node
-          command: brew install node
+      # - run:
+      #     name: install node
+      #     command: brew install node
       - run:
           name: npm link
           command: sudo npm link
