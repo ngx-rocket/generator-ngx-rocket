@@ -7,6 +7,8 @@ import { IonicModule } from 'ionic-angular';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 <% } else if (props.ui === 'material') { -%>
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MaterialModule } from '@app/material.module';
 <% } -%>
 
 <% if (props.auth) { -%>
@@ -16,7 +18,9 @@ import { CoreModule } from '@app/core';
 <% } -%>
 
 import { ShellComponent } from './shell.component';
+<% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple')) { -%>
 import { HeaderComponent } from './header/header.component';
+<% } -%>
 
 describe('ShellComponent', () => {
   let component: ShellComponent;
@@ -33,6 +37,8 @@ describe('ShellComponent', () => {
         NgbModule.forRoot(),
 <% } else if (props.ui === 'material') { -%>
         BrowserAnimationsModule,
+        FlexLayoutModule,
+        MaterialModule,
 <% } -%>
         CoreModule
 <% if (props.auth) { -%>
@@ -41,7 +47,12 @@ describe('ShellComponent', () => {
         { provide: AuthenticationService, useClass: MockAuthenticationService }
 <% } -%>
       ],
-      declarations: [ShellComponent, HeaderComponent]
+      declarations: [
+<% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple')) { -%>
+        HeaderComponent,
+<% } -%>
+        ShellComponent
+      ]
   })
     .compileComponents();
   }));

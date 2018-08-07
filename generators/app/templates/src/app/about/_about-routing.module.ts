@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { extract } from '@app/core';
 <% if (!props.lazy) { -%>
-import { Shell } from '@app/shell';
+import { Shell } from '@app/shell/shell.service';
 <% } -%>
 import { AboutComponent } from './about.component';
 
