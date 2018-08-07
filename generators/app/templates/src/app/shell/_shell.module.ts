@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { RouterModule } from '@angular/router';
 <% if (props.ui === 'bootstrap') { -%>
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 <% } else if (props.ui === 'material') { -%>
@@ -8,7 +9,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 <% } else if (props.ui === 'ionic') { -%>
 import { IonicModule } from 'ionic-angular';
 <% } -%>
-
 <% if (props.ui === 'material') { -%>
 import { MaterialModule } from '@app/material.module';
 <% } -%>
@@ -21,7 +21,6 @@ import { HeaderComponent } from './header/header.component';
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule,
     TranslateModule,
 <% if (props.ui === 'bootstrap') { -%>
     NgbModule,
