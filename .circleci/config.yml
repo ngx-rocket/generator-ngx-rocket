@@ -80,26 +80,6 @@ jobs:
           environment:
             TEST_ANDROID: 1
 
-  cordova_ios:
-    working_directory: *workspace_dir
-    machine:
-      xcode:
-        version: 8.2
-    steps:
-      - restore_cache:
-          *restore-repository-cache
-      - run:
-          name: install node
-          command: brew install node
-      - run:
-          name: npm link
-          command: sudo npm link
-      - run:
-          name: Run tests and package android app
-          command: npm test app/cordova/bootstrap
-          environment:
-            TEST_IOS: 1
-
 workflows:
   version: 2
   build:
@@ -109,8 +89,5 @@ workflows:
           requires:
             - install
       - cordova_android:
-          requires:
-            - install
-      - cordova_ios:
           requires:
             - install
