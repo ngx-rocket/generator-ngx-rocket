@@ -3,6 +3,13 @@ version: 2
 aliases:
   - &workspace_dir ~/generator-ngx-rocket
 
+  - &npm-cache npm-dependencies-{{ checksum "package.json" }}
+
+  - &repository-cache repository-{{ .Environment.CIRCLE_SHA1 }}
+
+  - &restore-repository-cache
+      key: *repository-cache
+
 general:
   # work in progress
   # activate circleci only on pending circleci branches
@@ -24,7 +31,7 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - npm-dependencies-{{ checksum "package.json" }}
+          - *npm-cache
           # fallback to using the latest cache if no exact match is found
           - npm-dependencies-
       - run:
@@ -39,25 +46,23 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: npm-dependencies-{{ checksum "package.json" }}
+          key: *npm-cache
       - save_cache:
           paths:
             - *workspace_dir
-          key: repository-{{ .Environment.CIRCLE_SHA1 }}
+          key: *repository-cache
 
   test:
     <<: *defaults
     steps:
       - restore_cache:
-          key: repository-{{ .Environment.CIRCLE_SHA1 }}
+          *restore-repository-cache
       - run:
           name: npm link
           command: sudo npm link
       - run:
           name: tests
           command: npm test app/cordova/bootstrap
-          # environment:
-          #   TEST_ANDROID: 1
 
   cordova_android:
     <<: *defaults
@@ -65,7 +70,7 @@ jobs:
     - image: ekhozie/generate-ngx-rocket-cordova:0.0.1 #circleci/android:api-28-node8-alpha
     steps:
       - restore_cache:
-          key: repository-{{ .Environment.CIRCLE_SHA1 }}
+          *restore-repository-cache
       - run:
           name: npm link
           command: sudo npm link
@@ -76,13 +81,13 @@ jobs:
             TEST_ANDROID: 1
 
   cordova_ios:
-    <<: *defaults
+    working_directory: *workspace_dir
     machine:
       xcode:
         version: 9.2
     steps:
       - restore_cache:
-          key: repository-{{ .Environment.CIRCLE_SHA1 }}
+          *restore-repository-cache
       - run:
           name: npm link
           command: sudo npm link
