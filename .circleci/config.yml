@@ -54,7 +54,7 @@ jobs:
           name: npm link
           command: sudo npm link
       - run:
-          name: Run tests and package android app
+          name: tests
           command: npm test app/cordova/bootstrap
           # environment:
           #   TEST_ANDROID: 1
@@ -62,7 +62,7 @@ jobs:
   cordova:
     <<: *defaults
     docker:
-    - image: circleci/android:api-28-node8-alpha # circleci/node:8-browsers    # todo browsers
+    - image: beevelop/ionic # circleci/android:api-28-node8-alpha
     steps:
       - restore_cache:
           key: repository-{{ .Environment.CIRCLE_SHA1 }}
