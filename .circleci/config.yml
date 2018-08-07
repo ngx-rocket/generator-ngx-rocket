@@ -53,14 +53,14 @@ jobs:
             - *workspace_dir
           key: *repository-cache
 
-  test:
+  app/cordova/bootstrap:
     <<: *defaults
     steps:
       - restore_cache:
           *restore-repository-cache
       - run: *npm-link
       - run:
-          name: app/cordova/bootstrap
+          name: test app/cordova/bootstrap
           command: npm test app/cordova/bootstrap
 
   cordova_android:
@@ -82,7 +82,7 @@ workflows:
   build:
     jobs:
       - install
-      - test:
+      - app/cordova/bootstrap:
           requires:
             - install
       - cordova_android:
