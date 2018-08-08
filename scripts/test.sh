@@ -57,7 +57,7 @@ do
 
       # generators/app test
 
-      ngx new --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
+      ngx new --no-analytics --external-chrome --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
 
       npm run test:ci -- --no-progress
       npm run e2e -- --no-progress

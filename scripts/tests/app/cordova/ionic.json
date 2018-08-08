@@ -2,6 +2,7 @@
   "target": ["cordova"],
   "mobile": ["ios", "android"],
   "ui": "ionic",
+  "layout": "side-menu",
   "auth": false,
   "lazy": false
 }

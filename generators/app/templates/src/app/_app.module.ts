@@ -45,6 +45,9 @@ import { AboutModule } from './about/about.module';
 <% if (props.auth) { -%>
 import { LoginModule } from './login/login.module';
 <% } -%>
+<% if (props.layout === 'tabs') { -%>
+import { SettingsModule } from './settings/settings.module';
+<% } -%>
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -68,6 +71,9 @@ import { AppRoutingModule } from './app-routing.module';
     CoreModule,
     SharedModule,
     HomeModule,
+<% if (props.layout === 'tabs'){ -%>
+    SettingsModule,
+<% } -%>
 <% if (!props.lazy) { -%>
     AboutModule,
 <% } -%>
