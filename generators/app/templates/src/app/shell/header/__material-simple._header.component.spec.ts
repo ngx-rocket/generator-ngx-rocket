@@ -1,13 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
+import { MaterialModule } from '@app/material.module';
 <% if (props.auth) { -%>
-import { AuthenticationService } from '../../authentication/authentication.service';
-import { MockAuthenticationService } from '../../authentication/authentication.service.mock';
-<% } -%>
-import { I18nService } from '../../i18n.service';
+import { AuthenticationService, I18nService, MockAuthenticationService } from '@app/core';
+<% } else {-%>
+import { I18nService } from '@app/core';
+<% }-%>
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
@@ -18,7 +18,7 @@ describe('HeaderComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        NgbModule.forRoot(),
+        MaterialModule,
         TranslateModule.forRoot()
       ],
       declarations: [HeaderComponent],

@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-<% if (props.auth) { -%>
+import { Title } from '@angular/platform-browser';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatSidenav } from '@angular/material';
 
-import { AuthenticationService } from '../../authentication/authentication.service';
+<% if (props.auth) { -%>
+import { AuthenticationService, I18nService } from '@app/core';
 <% } else { -%>
-
+import { I18nService } from '@app/core';
 <% } -%>
-import { I18nService } from '../../i18n.service';
 
 @Component({
   selector: 'app-header',
@@ -15,21 +16,18 @@ import { I18nService } from '../../i18n.service';
 })
 export class HeaderComponent implements OnInit {
 
-  menuHidden = true;
+  @Input() sidenav: MatSidenav;
 
 <% if (props.auth) { -%>
   constructor(private router: Router,
+              private titleService: Title,
               private authenticationService: AuthenticationService,
-              private i18nService: I18nService) { }
 <% } else { -%>
-  constructor(private i18nService: I18nService) { }
+  constructor(private titleService: Title,
 <% } -%>
+              private i18nService: I18nService) { }
 
   ngOnInit() { }
-
-  toggleMenu() {
-    this.menuHidden = !this.menuHidden;
-  }
 
   setLanguage(language: string) {
     this.i18nService.language = language;
@@ -51,10 +49,14 @@ export class HeaderComponent implements OnInit {
   }
 
 <% if (props.auth) { -%>
-  get username(): string | null {
+  get username(): string {
     const credentials = this.authenticationService.credentials;
     return credentials ? credentials.username : null;
   }
 
 <% } -%>
+  get title(): string {
+    return this.titleService.getTitle();
+  }
+
 }
