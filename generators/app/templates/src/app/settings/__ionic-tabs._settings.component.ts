@@ -20,9 +20,9 @@ export class SettingsComponent implements OnInit {
               private platform: Platform,
               private alertController: AlertController,
               private actionSheetController: ActionSheetController,
-              <% if (props.auth) { -%>
+<% if (props.auth) { -%>
               private authenticationService: AuthenticationService,
-              <% } -%>
+<% } -%>
               private i18nService: I18nService) { }
 
   ngOnInit() { }

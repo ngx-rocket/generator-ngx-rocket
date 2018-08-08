@@ -1,5 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateModule } from '@ngx-translate/core';
+import { IonicModule } from 'ionic-angular';
 
+import { SharedModule } from '@app/shared';
+import { CoreModule } from '@app/core';
 import { SettingsComponent } from './settings.component';
 
 describe('SettingsComponent', () => {
@@ -8,9 +13,16 @@ describe('SettingsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SettingsComponent ]
-    })
-    .compileComponents();
+        imports: [
+          RouterTestingModule,
+          TranslateModule.forRoot(),
+          IonicModule.forRoot(SettingsComponent),
+          CoreModule,
+          SharedModule
+        ],
+        declarations: [ SettingsComponent ]
+      })
+      .compileComponents();
   }));
 
   beforeEach(() => {

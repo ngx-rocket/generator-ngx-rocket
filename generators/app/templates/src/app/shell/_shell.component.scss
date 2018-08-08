@@ -1,6 +1,7 @@
 <% if (props.ui === 'ionic') { -%>
 <%   if (props.layout === 'tabs') { -%>
 $tabs-height: 8.2rem;
+
 .tabs::ng-deep {
   .content {
     .scroll-content,
@@ -8,18 +9,21 @@ $tabs-height: 8.2rem;
       height: 100%;
     }
   }
+
   @media (min-width: 768px) {
     .tabbar {
       height: 100%;
       width: $tabs-height;
       flex-direction: column;
       justify-content: flex-start;
+
       .tab-button {
         width: 100%;
         height: $tabs-height;
         flex: 0 1 auto;
       }
     }
+
     .header,
     .content {
       left: $tabs-height;
