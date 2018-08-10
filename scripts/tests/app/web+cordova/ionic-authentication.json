@@ -3,6 +3,7 @@
   "pwa": false,
   "mobile": ["ios", "android"],
   "ui": "ionic",
+  "layout": "side-menu",
   "auth": true,
   "lazy": false
 }

@@ -3,11 +3,20 @@
   "About": "About",
   "Hello world !": "Hello world !",
   "Home": "Home",
-<% if (props.ui === 'ionic') { -%>
+  <% if (props.ui === 'ionic') { -%>
   "Cancel": "Cancel",
   "Change language": "Change language",
   "Language": "Language",
   "Ok": "Ok",
+  <%   if (props.layout === 'tabs') { -%>
+  "Settings": "Settings",
+  "Notifications": "Notifications",
+  "Preferences": "Preferences",
+  "Account": "Account",
+  <%     if (props.auth) { -%>
+  "Profile": "Profile",
+  <%     } -%>
+<%   } -%>
 <% } -%>
 <% if (props.auth) { -%>
 <%   if (props.ui !== 'ionic') { -%>

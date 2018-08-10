@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title><span translate>Settings</span></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <% if (props.auth) { -%>
+  <div>
+    <div class="profile" text-center padding>
+      <ion-icon class="profile-icon" name="contact"></ion-icon>
+      <div class="profile-title">{{username}}</div>
+    </div>
+  </div>
+  <ion-list-header>
+    <ion-label translate>Account</ion-label>
+  </ion-list-header>
+  <button ion-item>
+    <ion-icon name="contact" item-start></ion-icon>
+    <ion-label translate>Profile</ion-label>
+  </button>
+  <ion-item (click)="logout()">
+    <ion-icon name="md-log-out" item-start></ion-icon>
+    <ion-label translate>Logout</ion-label>
+  </ion-item>
+  <% } -%>
+  <ion-list-header>
+    <ion-label translate>Preferences</ion-label>
+  </ion-list-header>
+  <button *ngIf="isWeb" ion-item (click)="changeLanguage()">
+    <ion-icon name="md-globe" item-start></ion-icon>
+    <ion-label translate>Change language</ion-label>
+  </button>
+  <ion-item>
+    <ion-icon name="notifications" item-start></ion-icon>
+    <ion-label translate>Notifications</ion-label>
+    <ion-toggle></ion-toggle>
+  </ion-item>
+</ion-content>

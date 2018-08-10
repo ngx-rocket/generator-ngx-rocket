@@ -42,6 +42,9 @@ import { HomeModule } from './home/home.module';
 <% if (!props.lazy) { -%>
 import { AboutModule } from './about/about.module';
 <% } -%>
+<% if (props.layout === 'tabs') { -%>
+import { SettingsModule } from './settings/settings.module';
+<% } -%>
 <% if (props.auth) { -%>
 import { LoginModule } from './login/login.module';
 <% } -%>
@@ -73,6 +76,9 @@ import { AppRoutingModule } from './app-routing.module';
 <% } -%>
 <% if (props.auth) { -%>
     LoginModule,
+<% } -%>
+<% if (props.layout === 'tabs'){ -%>
+    SettingsModule,
 <% } -%>
 <% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
