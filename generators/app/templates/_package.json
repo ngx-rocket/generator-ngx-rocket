@@ -74,7 +74,6 @@
     "angulartics2": "^6.0.0",
 <% } -%>
     "core-js": "^2.5.6",
-    "lodash": "^4.17.10",
     "rxjs": "^6.1.0",
 <% if (props.ui === 'ionic' || props.target.includes('cordova')) { -%>
     "rxjs-compat": "^6.1.0",
@@ -93,7 +92,6 @@
     "@ngx-rocket/scripts": "^2.1.0",
     "@types/jasmine": "^2.8.7",
     "@types/jasminewd2": "^2.0.2",
-    "@types/lodash": "^4.14.108",
     "@types/node": "^8.10.13",
     "codelyzer": "^4.3.0",
     "hads": "^1.7.0",
