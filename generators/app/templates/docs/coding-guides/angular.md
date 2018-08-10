@@ -39,6 +39,17 @@ More that just coding rules, this style guide also gives advices and best practi
 and is an **essential reading** for starters. Reading deeper, you can even find many explanations for some design
 choices of the framework.
 
+## FAQ
+
+There is a lot to dig in Angular and some questions frequently bother people. In fact, most of unclear stuff seems to be
+related to modules, for example the dreaded
+[**"Core vs Shared modules"**](https://angular.io/guide/ngmodule-faq#what-kinds-of-modules-should-i-have-and-how-should-i-use-them)
+question.
+
+The guys at Angular may have noticed that since you can now find
+[a nice FAQ on their website](https://angular.io/guide/ngmodule-faq#ngmodule-faqs) answering all the common questions
+regarding modules. Don't hesitate to take a look at it, even if you think you are experienced enough with Angular :wink:.
+
 ## Going deeper
 
 Even though they are not mandatory, Angular was designed for the use of design patterns you may not be accustomed to,
@@ -132,21 +143,30 @@ The *redux* design pattern is based on these [3 principles](http://redux.js.org/
 The core concepts behind these principles are nicely explained in
 [this example](http://redux.js.org/docs/introduction/CoreConcepts.html) *(3 min)*.
 
+For those interested, the redux pattern was notably inspired by
+[The Elm Architecture](https://guide.elm-lang.org/architecture/) and the [CQRS](https://martinfowler.com/bliki/CQRS.html)
+pattern.
+
 ##### Which library to use?
 
 You can make Angular work with any state management library you like, but your best bet would be to use
-[@ngrx/store](https://github.com/ngrx/store). It works the same as the popular [Redux](http://redux.js.org) library,
-but with a tight integration with Angular and [RxJS](http://reactivex.io/rxjs/), with some nice additional developer
-utilities.
+[NGXS](http://ngxs.io) or [@ngrx](https://github.com/ngrx/platform). Both works the same as the popular
+[Redux](http://redux.js.org) library, but with a tight integration with Angular and [RxJS](http://reactivex.io/rxjs/),
+with some nice additional developer utilities.
+
+NGXS is based on the same concepts as @ngrx, but with less boilerplate and a nicer syntax, making it less intimidating.
 
 Here are some resources to get started:
 
+- [Angular NGXS tutorial with example from scratch](https://appdividend.com/2018/07/03/angular-ngxs-tutorial-with-example-from-scratch/),
+  a guided tutorial for NGXS *(10 min)*
+
 - [Build a better Angular 2 application with redux and ngrx](http://onehungrymind.com/build-better-angular-2-application-redux-ngrx/),
-  a nice tutorial for @ngrx/store *(30 min)*
+  a nice tutorial for @ngrx *(30 min)*
 
 - [Comprehensive introduction to @ngrx/store](https://gist.github.com/btroncone/a6e4347326749f938510), an in-depth
   walkthrough to this library usage in Angular *(60 min)*
-
+  
 ##### When to use it?
 
 You may have noticed that the starter template does not include a centralized state management system out of the box.
