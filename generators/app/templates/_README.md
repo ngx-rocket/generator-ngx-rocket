@@ -125,7 +125,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - Unit tests using [Jasmine](http://jasmine.github.io) and [Karma](https://karma-runner.github.io)
 - End-to-end tests using [Protractor](https://github.com/angular/protractor)
 - Static code analysis: [TSLint](https://github.com/palantir/tslint), [Codelyzer](https://github.com/mgechev/codelyzer),
-  [Stylelint](http://stylelint.io) and [HTMLHint](http://htmlhint.com/)
+  [Stylelint](http://stylelint.io) and [htmllint](http://htmllint.github.io)
 - Local knowledgebase server using [Hads](https://github.com/sinedied/hads)
 
 #### Libraries
