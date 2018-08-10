@@ -97,7 +97,6 @@
     "angulartics2": "^7.2.4",
 <% } -%>
     "core-js": "^2.6.3",
-    "lodash": "^4.17.10",
     "rxjs": "^6.4.0",
     "zone.js": "^0.8.29"
   },
@@ -113,7 +112,6 @@
     "@ngx-rocket/scripts": "^3.0.0",
     "@types/jasmine": "^3.3.8",
     "@types/jasminewd2": "^2.0.3",
-    "@types/lodash": "^4.14.120",
     "@types/node": "^8.10.13",
     "codelyzer": "^4.4.4",
 <% if (props.target.includes('electron')) { -%>

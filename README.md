@@ -171,7 +171,6 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
 - [Angular](https://angular.io)
 - [RxJS](http://reactivex.io/rxjs)
 - [ngx-translate](https://github.com/ngx-translate/core)
-- [Lodash](https://lodash.com)
 - UI based on:
   * Bootstrap
     - [Bootstrap 4](https://getbootstrap.com)
