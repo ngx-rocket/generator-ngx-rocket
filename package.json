@@ -54,6 +54,7 @@
     "chalk": "^2.4.1",
     "conf": "^2.0.0",
     "figures": "^2.0.0",
+    "fuzz-run": "^1.0.1",
     "inquirer": "^6.0.0",
     "insight": "^0.10.1",
     "lodash.camelcase": "^4.3.0",
@@ -62,11 +63,11 @@
     "minimist": "^1.2.0",
     "semver": "^5.5.0",
     "update-notifier": "^2.5.0",
-    "yeoman-environment": "^2.2.0"
+    "yeoman-environment": "^2.3.1"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-xo-space": "^0.18.0"
+    "eslint": "^5.2.0",
+    "eslint-config-xo-space": "^0.19.0"
   },
   "engines": {
     "node": ">=8.9.0"
