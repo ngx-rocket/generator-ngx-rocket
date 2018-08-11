@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { Tab } from 'ionic-angular';
+import { Tab } from '@ionic/angular';
 import { filter } from 'rxjs/operators';
 import { findIndex } from 'lodash';
 import { SettingsComponent } from '@app/settings/settings.component';

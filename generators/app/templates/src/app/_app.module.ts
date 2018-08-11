@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 <% if (props.ui === 'ionic') { -%>
-import { ErrorHandler, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 <% } else { -%>
 import { NgModule } from '@angular/core';
 <%   if (props.location === 'hash') { -%>
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 <%   } -%>
 <% } -%>
+import { RouteReuseStrategy } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 <% if (props.pwa) { -%>
@@ -19,12 +20,12 @@ import { MaterialModule } from './material.module';
 <% } else if (props.ui === 'bootstrap') { -%>
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 <% } else if (props.ui === 'ionic') { -%>
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
-import { Keyboard } from '@ionic-native/keyboard';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { Keyboard } from '@ionic-native/keyboard/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 <% } -%>
 <% if (props.angulartics) { -%>
 import { Angulartics2Module } from 'angulartics2';
@@ -98,11 +99,7 @@ import { AppRoutingModule } from './app-routing.module';
 <%   } -%>
 <% } -%>
 <% if (props.ui === 'ionic') { -%>
-<%   if (props.target.includes('cordova')) { -%>
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-<%   } else { -%>
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
-<%   } -%>
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
     Keyboard,
@@ -110,10 +107,6 @@ import { AppRoutingModule } from './app-routing.module';
     SplashScreen
 <% } -%>
   ],
-<% if (props.ui === 'ionic') { -%>
-  bootstrap: [IonicApp]
-<% } else { -%>
   bootstrap: [AppComponent]
-<% } -%>
 })
 export class AppModule { }

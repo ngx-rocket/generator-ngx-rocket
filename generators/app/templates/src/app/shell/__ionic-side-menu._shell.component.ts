@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { ActionSheetController, AlertController, Platform, ActionSheetOptions } from 'ionic-angular';
+import { ActionSheetController, AlertController, Platform, ActionSheetOptions } from '@ionic/angular';
 import { ActionSheetButton } from 'ionic-angular/components/action-sheet/action-sheet-options';
 import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs/operators';

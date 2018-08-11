@@ -5,7 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 <% if (props.ui === 'bootstrap') { -%>
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 <% } else if (props.ui === 'ionic') { -%>
-import { IonicModule } from 'ionic-angular';
+import { IonicModule } from '@ionic/angular';
 <% } else if (props.ui === 'material') { -%>
 import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>

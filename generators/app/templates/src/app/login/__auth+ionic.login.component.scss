@@ -1,4 +1,5 @@
 @import "src/theme/theme-variables";
+@import "~@ionic/angular/dist/themes/ionic.theme.default";
 
 .grid,
 .row {
@@ -8,20 +9,22 @@
 
 .login-header,
 .login-background {
-  background: color($colors, primary);
+  background: var(--ion-color-primary);
 }
 
 .item-select .label-md,
 .login-header,
 .login-background {
-  color: color-contrast($colors, primary);
+  // color: color-contrast($colors, primary); // @todo v3
+  background: var(--ion-color-primary);
 }
 
 // Force style down to child components
 // See https://angular.io/guide/component-styles#deep
 // stylelint-disable-next-line selector-max-compound-selectors
 :host ::ng-deep .select-icon .select-icon-inner {
-  color: color-contrast($colors, primary);
+  // color: color-contrast($colors, primary); // @todo v3
+  background: var(--ion-color-primary);
 }
 
 .login-background {
