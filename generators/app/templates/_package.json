@@ -30,8 +30,9 @@
     "cordova": "cordova",
 <% } -%>
 <% if (props.target.includes('electron')) { -%>
-  "electron:run": "electron .",
-    "electron:build": "npm run env -s && ng build --prod --base-href ./dist.electron --output-path dist.electron",
+    "electron:tsc": "tsc electron.main.ts",
+    "electron:run": "electron .",
+    "electron:build": "npm run electron:tsc && npm run env -s && ng build --prod --base-href ./dist.electron --output-path dist.electron",
     "electron:package:win32": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=dist.electron/out --icon=./resources/win/icon.ico",
     "electron:package:win64": "electron-packager . --overwrite --platform=win32 --arch=x64 --out=dist.electron/out  --icon=./resources/win/icon.ico",
     "electron:package:linux": "electron-packager . --overwrite --platform=linux --out=dist.electron/out --icon=./resources/win/icon.ico",
