@@ -30,6 +30,7 @@ env:
     - CASE=app/cordova/ionic-authentication
     - CASE=app/cordova/material
     - CASE=app/cordova/material-authentication
+    - CASE=app/electron/bootstrap
     - CASE=app/web/bootstrap
     - CASE=app/web/bootstrap-authentication
     - CASE=app/web/ionic
