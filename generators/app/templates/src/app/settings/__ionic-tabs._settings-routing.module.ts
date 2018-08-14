@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { Route, extract } from '@app/core';
+import { extract } from '@app/core';
 import { SettingsComponent } from '@app/settings/settings.component';
+import { Shell } from '@app/shell/shell.service';
 
 const routes: Routes = [
-  Route.withShell([
+  Shell.childRoutes([
     { path: 'settings', component: SettingsComponent, data: { title: extract('Settings') } }
   ])
 ];

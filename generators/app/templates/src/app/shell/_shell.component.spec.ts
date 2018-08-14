@@ -18,6 +18,14 @@ import { CoreModule } from '@app/core';
 <% } -%>
 
 import { ShellComponent } from './shell.component';
+<% if (props.ui === 'ionic' && props.layout === 'tabs') { -%>
+import { AboutComponent } from '@app/about/about.component';
+import { SettingsComponent } from '@app/settings/settings.component';
+import { HomeComponent } from '@app/home/home.component';
+import { HomeModule } from '@app/home/home.module';
+import { AboutModule } from '@app/about/about.module';
+import { SettingsModule } from '@app/settings/settings.module';
+<% } -%>
 <% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple') || props.ui === 'raw') { -%>
 import { HeaderComponent } from './header/header.component';
 <% } -%>
@@ -33,6 +41,11 @@ describe('ShellComponent', () => {
         TranslateModule.forRoot(),
 <% if (props.ui === 'ionic') { -%>
         IonicModule.forRoot(ShellComponent),
+<%   if (props.layout === 'tabs') { -%>
+        HomeModule,
+        AboutModule,
+        SettingsModule,
+<%   } -%>
 <% } else if (props.ui === 'bootstrap') { -%>
         NgbModule.forRoot(),
 <% } else if (props.ui === 'material') { -%>
@@ -54,6 +67,13 @@ describe('ShellComponent', () => {
         ShellComponent
       ]
   })
+<% if (props.ui === 'ionic' && props.layout === 'tabs') { -%>
+    .overrideComponent(ShellComponent, {
+        set: {
+          entryComponents: [HomeComponent, AboutComponent, SettingsComponent]
+        }
+      })
+<% } -%>
     .compileComponents();
   }));
 
