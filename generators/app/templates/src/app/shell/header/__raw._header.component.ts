@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 <% if (props.auth) { -%>
 import { Router } from '@angular/router';
 
-import { AuthenticationService } from '../../authentication/authentication.service';
+import { AuthenticationService, I18nService } from '@app/core';
 <% } else { -%>
 
+import { I18nService } from '@app/core';
 <% } -%>
-import { I18nService } from '../../i18n.service';
 
 @Component({
   selector: 'app-header',

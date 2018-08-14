@@ -4,9 +4,10 @@ import { Router } from '@angular/router';
 import { ObservableMedia } from '@angular/flex-layout';
 
 <% if (props.auth) { -%>
-import { AuthenticationService } from '../authentication/authentication.service';
+import { AuthenticationService, I18nService } from '@app/core';
+<% } else { -%>
+import { I18nService } from '@app/core';
 <% } -%>
-import { I18nService } from '../i18n.service';
 
 @Component({
   selector: 'app-shell',
