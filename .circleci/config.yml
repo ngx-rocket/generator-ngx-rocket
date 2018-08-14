@@ -53,16 +53,6 @@ jobs:
             - *workspace_dir
           key: *repository-cache
 
-  test:
-    <<: *defaults
-    steps:
-      - restore_cache:
-          *restore-repository-cache
-      - run: *npm-link
-      - run:
-          name: npm test
-          command: npm test
-
   build_cordova_android:
     <<: *defaults
     docker:
@@ -82,9 +72,6 @@ workflows:
   build:
     jobs:
       - install
-      - test:
-          requires:
-            - install
       - build_cordova_android:
           requires:
             - install
