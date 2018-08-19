@@ -72,8 +72,7 @@ jobs:
     macos:
       xcode: "9.3.0"
     steps:
-      - restore_cache:
-          *restore-repository-cache
+      - checkout
       - run:
           name: install node
           command: brew install node
