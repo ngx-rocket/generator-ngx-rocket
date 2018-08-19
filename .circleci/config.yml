@@ -15,12 +15,9 @@ aliases:
       command: sudo npm link
 
 general:
-  # work in progress
-  # activate circleci only on pending circleci branches
   branches:
     only:
-      #- master
-      - /feature\/circleci.*/
+      - master
 
 defaults: &defaults
   docker:
