@@ -66,8 +66,8 @@ do
         ngx new --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
 
         # cordova
-        npm run cordova:prepare -- --no-progress
-        npm run cordova:build ios -- --no-progress
+        npm run cordova:prepare --no-progress
+        npm run cordova:build ios --no-progress
 
     else
 

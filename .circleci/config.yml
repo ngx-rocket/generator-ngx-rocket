@@ -67,7 +67,7 @@ jobs:
           environment:
             TEST_ANDROID: 1
 
-  cordova_ios:
+  build_cordova_ios:
     working_directory: *workspace_dir
     machine:
       xcode:
@@ -83,7 +83,7 @@ jobs:
           command: sudo npm link
       - run:
           name: Run tests and package android app
-          command: npm test app/cordova/bootstrap
+          command: npm test app/cordova/ionic
           environment:
             TEST_IOS: 1
 
@@ -95,6 +95,6 @@ workflows:
       - build_cordova_android:
           requires:
             - install
-      - cordova_ios:
+      - build_cordova_ios:
           requires:
             - install
