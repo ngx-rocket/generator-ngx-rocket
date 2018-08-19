@@ -69,9 +69,8 @@ jobs:
 
   build_cordova_ios:
     working_directory: *workspace_dir
-    machine:
-      xcode:
-        version: 8.2
+    macos:
+      xcode: "9.3.0"
     steps:
       - restore_cache:
           *restore-repository-cache
