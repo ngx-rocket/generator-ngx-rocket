@@ -63,7 +63,7 @@ jobs:
       - run: *npm-link
       - run:
           name: Run tests and build android app
-          command: npm test app/cordova/bootstrap
+          command: npm test app/cordova/ionic
           environment:
             TEST_ANDROID: 1
 
