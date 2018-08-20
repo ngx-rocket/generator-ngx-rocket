@@ -1,39 +1,34 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 <% if (props.auth) { -%>
-import { AuthenticationService } from './authentication/authentication.service';
-import { MockAuthenticationService } from './authentication/authentication.service.mock';
-import { AuthenticationGuard } from './authentication/authentication.guard';
+import { AuthenticationGuard, AuthenticationService, MockAuthenticationService } from '@app/core';
 <% } -%>
-import { ShellComponent } from './shell/shell.component';
-import { Route } from './route.service';
+import { ShellComponent } from './shell.component';
+import { Shell } from './shell.service';
 
-describe('Route', () => {
-  let route: Route;
+describe('Shell', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
+      declarations: [
+        ShellComponent
 <% if (props.auth) { -%>
+      ],
+      providers: [
         AuthenticationGuard,
         { provide: AuthenticationService, useClass: MockAuthenticationService },
 <% } -%>
-        Route
       ]
     });
   });
 
-  beforeEach(inject([Route], (_route: Route) => {
-    route = _route;
-  }));
-
-  describe('withShell', () => {
+  describe('childRoutes', () => {
     it('should create routes as children of shell', () => {
       // Prepare
       const testRoutes = [{ path: 'test' }];
 
       // Act
-      const result = Route.withShell(testRoutes);
+      const result = Shell.childRoutes(testRoutes);
 
       // Assert
       expect(result.path).toBe('');
