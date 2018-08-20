@@ -67,7 +67,7 @@ do
 
         # cordova
         npm run cordova:prepare --no-progress
-        npm run cordova:build ios --no-progress
+        npm run cordova:build ios --debug --no-progress
 
     else
 
