@@ -54,6 +54,10 @@
 <%   } else { -%>
     if (!/^http/.test(location.protocol)) {
 <%   } -%>
+      /**
+       * https://github.com/angular/angular/issues/22509
+       * Prevent cordova.js 5.2.4+ routing bug
+      **/
       window.addEventListener = function () {
           EventTarget.prototype.addEventListener.apply(this, arguments);
       };
