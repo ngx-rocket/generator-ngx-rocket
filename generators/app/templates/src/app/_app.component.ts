@@ -12,15 +12,15 @@ import { merge } from 'rxjs';
 import { filter, map, mergeMap } from 'rxjs/operators';
 <% if (props.ui === 'ionic') { -%>
 <%   if (props.target.includes('cordova')) { -%>
-import { IonicApp, Nav, Platform } from 'ionic-angular';
+import { IonicApp, Nav, Platform } from '@ionic/angular';
 <%   } else { -%>
-import { IonicApp, Nav } from 'ionic-angular';
+import { IonicApp, Nav } from '@ionic/angular';
 <%   } -%>
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
-import { Keyboard } from '@ionic-native/keyboard';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { Keyboard } from '@ionic-native/keyboard/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 <% } -%>
 <% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';

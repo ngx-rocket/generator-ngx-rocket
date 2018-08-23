@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 <% if (props.ui === 'ionic') { -%>
-import { LoadingController, Platform } from 'ionic-angular';
+import { LoadingController, Platform } from '@ionic/angular';
 <% } -%>
 import { finalize } from 'rxjs/operators';
 
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
   login() {
 <% if (props.ui === 'ionic') { -%>
     const loading = this.loadingController.create();
-    loading.present();
+    loading.present(); // @todo Fix for v4 needed
 <% } else { -%>
     this.isLoading = true;
 <% } -%>
@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
       .pipe(finalize(() => {
         this.loginForm.markAsPristine();
 <% if (props.ui === 'ionic') { -%>
-        loading.dismiss();
+        loading.dismiss(); // @todo Fix for v4 needed
 <% } else { -%>
         this.isLoading = false;
 <% } -%>

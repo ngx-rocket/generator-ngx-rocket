@@ -2,6 +2,7 @@
   "target": ["web"],
   "pwa": false,
   "ui": "ionic",
+  "layout": "tabs",
   "auth": false,
   "lazy": false,
   "angulartics": false

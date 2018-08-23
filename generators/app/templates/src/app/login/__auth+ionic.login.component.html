@@ -10,7 +10,7 @@
             <ion-item color="primary">
               <ion-label><span translate>Language</span></ion-label>
               <ion-select [ngModel]="currentLanguage" (ngModelChange)="setLanguage($event)" interface="popover">
-                <ion-option *ngFor="let language of languages" [value]="language">{{language}}</ion-option>
+                <ion-select-option *ngFor="let language of languages" [value]="language">{{language}}</ion-select-option>
               </ion-select>
             </ion-item>
           </ion-list>
@@ -43,9 +43,9 @@
               </ion-item>
             </ion-list>
             <div padding-horizontal>
-              <button type="submit" [disabled]="loginForm.invalid" ion-button color="primary" block>
+              <ion-button type="submit" [disabled]="loginForm.invalid" color="primary" block>
                 <span translate>Login</span>
-              </button>
+              </ion-button>
             </div>
           </form>
         </div>
