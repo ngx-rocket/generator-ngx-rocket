@@ -27,7 +27,7 @@
   <!-- Android specific -->
   <platform name="android">
     <allow-intent href="market:*"/>
-    <preference name="android-minSdkVersion" value="16"/>
+    <preference name="android-minSdkVersion" value="19"/>
     <preference name="android-manifest/application/activity/@android:theme" value="@android:style/Theme.DeviceDefault"/>
     <!-- Copy files in the resources/android/extra folder to Android native resources -->
     <hook src="node_modules/@ngx-rocket/scripts/hooks/after_prepare/copy-android-resources.js" type="after_prepare"/>
