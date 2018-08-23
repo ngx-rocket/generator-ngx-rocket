@@ -1,8 +1,9 @@
 # :rocket: generator-ngx-rocket
 
 [![NPM version](https://img.shields.io/npm/v/generator-ngx-rocket.svg)](https://www.npmjs.com/package/generator-ngx-rocket)
-[![Build status](https://img.shields.io/travis/ngx-rocket/generator-ngx-rocket/master.svg)](https://travis-ci.org/ngx-rocket/generator-ngx-rocket)
-[![Windows build status](https://ci.appveyor.com/api/projects/status/github/ngx-rocket/generator-ngx-rocket?svg=true&branch=master)](https://ci.appveyor.com/project/sinedied/generator-ngx-rocket/branch/master)
+[![Travis build status](https://img.shields.io/travis/ngx-rocket/generator-ngx-rocket/master.svg?logo=travis)](https://travis-ci.org/ngx-rocket/generator-ngx-rocket)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/ngx-rocket/generator-ngx-rocket?svg=true&branch=master)](https://ci.appveyor.com/project/sinedied/generator-ngx-rocket/branch/master)
+[![CircleCi build status](https://img.shields.io/circleci/project/github/ngx-rocket/generator-ngx-rocket/master.svg?logo=circleci)](https://circleci.com/gh/ngx-rocket/generator-ngx-rocket/tree/master)
 ![Node version](https://img.shields.io/node/v/generator-ngx-rocket.svg)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![Downloads](https://img.shields.io/npm/dt/generator-ngx-rocket.svg)](https://npmjs.org/package/generator-ngx-rocket)
