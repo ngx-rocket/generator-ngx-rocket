@@ -67,6 +67,6 @@ export class SettingsComponent implements OnInit {
           }
         ]
       });
-    await altertController.present();
+    await alertController.present();
   }
 }

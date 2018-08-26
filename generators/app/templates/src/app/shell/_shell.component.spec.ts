@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 <% if (props.ui === 'ionic') { -%>
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 <% } else if (props.ui === 'bootstrap') { -%>
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 <% } else if (props.ui === 'material') { -%>
@@ -56,7 +56,7 @@ describe('ShellComponent', () => {
 <% } -%>
         CoreModule
       ],
-<% if (props.auth) || (props.ui === 'ionic') { -%>
+<% if ((props.auth) || (props.ui === 'ionic')) { -%>
       providers: [
 <%   if (props.ui === 'ionic') { -%>
         NavController,

@@ -97,10 +97,6 @@ import { AppRoutingModule } from './app-routing.module';
     SplashScreen
 <% } -%>
   ],
-<% if (props.ui === 'ionic') { -%>
-  bootstrap: [IonicApp]
-<% } else { -%>
   bootstrap: [AppComponent]
-<% } -%>
 })
 export class AppModule { }
