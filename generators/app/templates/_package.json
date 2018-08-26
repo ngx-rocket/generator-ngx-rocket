@@ -16,9 +16,6 @@
     "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean -sort --marker extract",
     "docs": "hads ./docs -o",
     "env": "ngx-scripts env npm_package_version",
-<% if (props.ui === 'ionic') { -%>
-    "prepare": "ngx-scripts unpin-ionic-dependencies",
-<% } -%>
 <% if (props.target.includes('cordova')) { -%>
     "cordova:prepare": "ngx-scripts cordova prepare",
     "cordova:run": "ngx-scripts cordova run",
@@ -29,35 +26,34 @@
     "generate": "ng generate"
   },
   "dependencies": {
-    "@angular/animations": "^6.0.1",
-    "@angular/common": "^6.0.1",
-    "@angular/compiler": "^6.0.1",
-    "@angular/core": "^6.0.1",
-    "@angular/forms": "^6.0.1",
-    "@angular/http": "^6.0.1",
-    "@angular/platform-browser": "^6.0.1",
-    "@angular/platform-browser-dynamic": "^6.0.1",
-    "@angular/router": "^6.0.1",
-    "@ngx-translate/core": "^10.0.1",
+    "@angular/animations": "~6.1.1",
+    "@angular/common": "~6.1.1",
+    "@angular/core": "~6.1.1",
+    "@angular/forms": "~6.1.1",
+    "@angular/http": "~6.1.1",
+    "@angular/platform-browser": "~6.1.1",
+    "@angular/platform-browser-dynamic": "~6.1.1",
+    "@angular/router": "~6.1.1",
+<% if (props.pwa) { -%>
+    "@angular/service-worker": "~6.1.1",
+<% } -%>
 <% if (props.target.includes('cordova')) { -%>
-    "@ionic-native/core": "^4.5.3",
-    "@ionic-native/keyboard": "^4.5.3",
-    "@ionic-native/splash-screen": "^4.5.3",
-    "@ionic-native/status-bar": "^4.5.3",
+    "@ionic-native/core": "5.0.0-beta.14",
+    "@ionic-native/splash-screen": "5.0.0-beta.14",
+    "@ionic-native/status-bar": "5.0.0-beta.14",
     "cordova-android": "^7.0.0",
     "cordova-custom-config": "^5.0.2",
     "cordova-ios": "^4.5.4",
-    "cordova-plugin-device": "^2.0.1",
-    "cordova-plugin-ionic-webview": "^1.1.16",
+    "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-ionic-keyboard": "^2.1.2",
+    "cordova-plugin-ionic-webview": "^2.1.0",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.1",
     "cordova-plugin-whitelist": "^1.3.3",
 <% } -%>
-<% if (props.pwa) { -%>
-    "@angular/service-worker": "^6.0.1",
-<% } -%>
+    "@ngx-translate/core": "^10.0.1",
 <% if (props.ui === 'ionic') { -%>
-    "ionic-angular": "^3.9.2",
+    "@ionic/angular": "^4.0.0-beta.3",
     "ionicons": "^3.0.0",
 <% } else if (props.ui === 'bootstrap') { -%>
     "@ng-bootstrap/ng-bootstrap": "^2.0.0",
@@ -75,9 +71,9 @@
 <% } -%>
     "core-js": "^2.5.6",
     "lodash": "^4.17.10",
-    "rxjs": "^6.1.0",
+    "rxjs": "^6.2.2",
 <% if (props.ui === 'ionic' || props.target.includes('cordova')) { -%>
-    "rxjs-compat": "^6.1.0",
+    "rxjs-compat": "^6.2.2",
 <% } -%>
     "zone.js": "^0.8.26"
   },
@@ -85,29 +81,36 @@
 <% if (props.target.includes('cordova')) { -%>
     "cordova": "^8.0.0",
 <% } -%>
-    "@angular/cli": "~6.0.1",
-    "@angular/compiler-cli": "^6.0.1",
-    "@angular/language-service": "^6.0.1",
-    "@angular-devkit/build-angular": "~0.6.0",
+    "@angular/cli": "~6.1.1",
+    "@angular/compiler": "6.1.1",
+    "@angular/compiler-cli": "6.1.1",
+    "@angular/language-service": "~6.1.1",
+    "@angular-devkit/architect": "~0.7.5",
+    "@angular-devkit/build-angular": "~0.7.5",
+    "@angular-devkit/core": "~0.7.5",
+    "@angular-devkit/schematics": "~0.7.5",
     "@biesbjerg/ngx-translate-extract": "^2.3.4",
+    "@ionic/ng-toolkit": "^1.0.0",
+    "@ionic/schematics-angular": "^1.0.0",
     "@ngx-rocket/scripts": "^2.1.0",
     "@types/jasmine": "^2.8.7",
-    "@types/jasminewd2": "^2.0.2",
+    "@types/jasminewd2": "^2.0.3",
     "@types/lodash": "^4.14.108",
-    "@types/node": "^8.10.13",
-    "codelyzer": "^4.3.0",
+    "@types/node": "~10.7.1",
+    "codelyzer": "^4.4.2",
     "hads": "^1.3.4",
     "htmlhint": "^0.9.13",
     "https-proxy-agent": "^2.0.0",
     "jasmine-core": "~2.99.1",
-    "jasmine-spec-reporter": "^4.1.0",
-    "karma": "~2.0.0",
+    "jasmine-spec-reporter": "^4.2.0",
+    "karma": "~3.0.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-cli": "~1.0.1",
-    "karma-coverage-istanbul-reporter": "^1.2.1",
+    "karma-coverage-istanbul-reporter": "^2.0.0",
     "karma-jasmine": "^1.1.2",
+    "karma-jasmine-html-reporter": "^0.2.2",
     "karma-junit-reporter": "^1.2.0",
-    "protractor": "~5.3.0",
+    "protractor": "~5.4.0",
 <% if (!options['external-chrome']) { -%>
     "puppeteer": "^1.4.0",
 <% } -%>
@@ -115,8 +118,8 @@
     "stylelint-config-recommended-scss": "~3.2.0",
     "stylelint-config-standard": "~18.2.0",
     "stylelint-scss": "~3.1.0",
-    "ts-node": "~6.0.3",
-    "tslint": "~5.10.0",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.11.0",
     "typescript": "~2.7.2"
 <% if (props.target.includes('cordova')) { -%>
   },
@@ -131,8 +134,8 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-whitelist": {},
-      "ionic-plugin-keyboard": {},
-      "cordova-plugin-ionic-webview": {}
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-keyboard": {}
     }
   }
 <% } else { -%>

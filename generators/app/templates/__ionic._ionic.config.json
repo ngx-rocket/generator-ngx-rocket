@@ -1,0 +1,7 @@
+{
+  "name": "<%= props.projectName %>",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,5 +1,5 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "$schema": "./node_modules/@angular-devkit/core/src/workspace/workspace-schema.json",
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -30,6 +30,13 @@
 <% } -%>
 <% if (props.pwa) { -%>
               "src/manifest.json",
+<% } -%>
+<% if (props.ui === 'ionic') { -%>
+              {
+                "glob": "**/*",
+                "input": "node_modules/@ionic/angular/dist/ionic/svg",
+                "output": "svg"
+              },
 <% } -%>
               "src/assets"
             ],
@@ -114,6 +121,32 @@
             ]
           }
         }
+<% if (props.target.includes('cordova')) { -%>,
+        "ionic-cordova-build": {
+          "builder": "@ionic/ng-toolkit:cordova-build",
+          "options": {
+            "browserTarget": "<%= props.projectName %>:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "<%= props.projectName %>:build:production"
+            }
+          }
+        },
+        "ionic-cordova-serve": {
+          "builder": "@ionic/ng-toolkit:cordova-serve",
+          "options": {
+            "cordovaBuildTarget": "<%= props.projectName %>:ionic-cordova-build",
+            "devServerTarget": "<%= props.projectName %>:serve"
+          },
+          "configurations": {
+            "production": {
+              "cordovaBuildTarget": "<%= props.projectName %>:ionic-cordova-build:production",
+              "devServerTarget": "<%= props.projectName %>:serve:production"
+            }
+          }
+        }
+<% } -%>
       }
     },
     "<%= props.projectName %>-e2e": {
@@ -141,5 +174,18 @@
       }
     }
   },
+<% if (props.ui === 'ionic') { -%>
+  "cli": {
+    "defaultCollection": "@ionic/schematics-angular"
+  },
+  "schematics": {
+    "@ionic/schematics-angular:component": {
+      "styleext": "scss"
+    },
+    "@ionic/schematics-angular:page": {
+      "styleext": "scss"
+    }
+  },
+<% } -%>
   "defaultProject": "<%= props.projectName %>"
 }

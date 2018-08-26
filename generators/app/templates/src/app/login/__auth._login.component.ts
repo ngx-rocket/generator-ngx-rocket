@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 <% if (props.ui === 'ionic') { -%>
-import { LoadingController, Platform } from 'ionic-angular';
+import { LoadingController, Platform } from '@ionic/angular';
 <% } -%>
 import { finalize } from 'rxjs/operators';
 
@@ -38,11 +38,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() { }
 
-  login() {
 <% if (props.ui === 'ionic') { -%>
-    const loading = this.loadingController.create();
-    loading.present();
+  async login() {
+    const loading = await this.loadingController.create();
+    await loading.present();
 <% } else { -%>
+  login() {
     this.isLoading = true;
 <% } -%>
     this.authenticationService.login(this.loginForm.value)

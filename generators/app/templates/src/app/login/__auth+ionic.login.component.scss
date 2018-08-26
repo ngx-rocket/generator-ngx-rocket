@@ -1,27 +1,24 @@
-@import "src/theme/theme-variables";
+@import "~@ionic/angular/dist/themes/ionic.globals";
 
-.grid,
-.row {
+ion-grid,
+ion-row {
   min-height: 100%;
-  flex-grow: 1;
+  flex: 1;
 }
 
 .login-header,
 .login-background {
-  background: color($colors, primary);
+  background-color: var(--ion-color-primary);
 }
 
-.item-select .label-md,
 .login-header,
 .login-background {
-  color: color-contrast($colors, primary);
+  color: var(--ion-color-primary-contrast);
 }
 
-// Force style down to child components
-// See https://angular.io/guide/component-styles#deep
-// stylelint-disable-next-line selector-max-compound-selectors
-:host ::ng-deep .select-icon .select-icon-inner {
-  color: color-contrast($colors, primary);
+ion-select {
+  color: var(--ion-color-primary-contrast);
+  --icon-color: var(--ion-color-primary-contrast);
 }
 
 .login-background {
@@ -33,13 +30,10 @@
 }
 
 .login-container {
-  background: $background-color;
+  background-color: var(--ion-background-color);
 
-  .item {
-    @include padding-horizontal($content-margin, $content-margin);
+  ion-item {
+    @include padding-horizontal(var(--ion-content-margin), var(--ion-content-margin));
   }
 }
 
-.list > .item-block:first-child {
-  border-top: none;
-}
