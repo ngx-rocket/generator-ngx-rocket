@@ -41,12 +41,12 @@ $tabs-height: 8.2rem;
 }
 
 .profile {
-  background: color($colors, primary);
+  background: var(--ion-color-primary);
 }
 
 .profile-icon {
   font-size: 6rem;
-  color: color-contrast($colors, primary);
+  color: var(--ion-color-primary-contrast);
 
   // Use parent class from outside component context
   // See https://angular.io/guide/component-styles#host-context
@@ -56,8 +56,8 @@ $tabs-height: 8.2rem;
 }
 
 .profile-button {
-  border-color: color-contrast($colors, primary);
-  color: color-contrast($colors, primary);
+  border-color: var(--ion-color-primary-contrast);
+  color: var(--ion-color-primary-contrast);
 }
 <%   } -%>
 <% } else if (props.ui === 'material') { -%>

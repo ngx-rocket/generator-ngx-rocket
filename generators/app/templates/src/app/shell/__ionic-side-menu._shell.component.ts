@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { ActionSheetController, AlertController, Platform, ActionSheetOptions } from 'ionic-angular';
-import { ActionSheetButton } from 'ionic-angular/components/action-sheet/action-sheet-options';
+import { ActionSheetController, AlertController, Platform } from '@ionic/angular';
+import { ActionSheetButton, ActionSheetOptions } from '@ionic/core';
+import { TextFieldTypes } from '@ionic/core';
 import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs/operators';
 
@@ -42,9 +43,7 @@ export class ShellComponent implements OnInit {
     }
 
 <% if (props.auth) { -%>
-  showProfileActions() {
-    const actionSheetOptions: ActionSheetOptions = { title: this.username || undefined };
-    const actionSheet = this.actionSheetController.create(actionSheetOptions);
+  async showProfileActions() {
     const buttons: ActionSheetButton[] = [
       {
         text: this.translateService.instant('Logout'),
@@ -74,8 +73,13 @@ export class ShellComponent implements OnInit {
       buttons.splice(1, 1);
     }
 
-    buttons.forEach(button => actionSheet.addButton(button));
-    actionSheet.present();
+    const actionSheetOptions: ActionSheetOptions = {
+      header: (this.username || undefined),
+      buttons: buttons
+    };
+
+    const actionSheet = await this.actionSheetController.create(actionSheetOptions);
+    await actionSheet.present();
   }
 
   get username(): string | null {
@@ -92,7 +96,7 @@ export class ShellComponent implements OnInit {
     return !this.platform.is('cordova');
   }
 
-  private changeLanguage() {
+  private async changeLanguage() {
 <% } else { -%>
   get isWeb(): boolean {
     return !this.platform.is('cordova');
@@ -100,11 +104,11 @@ export class ShellComponent implements OnInit {
 
   changeLanguage() {
 <% } -%>
-    this.alertController
-      .create({
-        title: this.translateService.instant('Change language'),
+    const alertController = await this.alertController.create({
+        header: this.translateService.instant('Change language'),
         inputs: this.i18nService.supportedLanguages.map(language => ({
-          type: 'radio',
+          type: 'radio' as TextFieldTypes,
+          name: language,
           label: language,
           value: language,
           checked: language === this.i18nService.language
@@ -121,8 +125,8 @@ export class ShellComponent implements OnInit {
             }
           }
         ]
-      })
-      .present();
+      });
+    await alertController.present();
   }
 
   private updateNav(route: ActivatedRoute) {

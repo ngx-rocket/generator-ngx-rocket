@@ -1,12 +1,14 @@
 <ion-split-pane>
-  <ion-menu [content]="content">
+  <ion-menu contentId="shell-content">
 <% if (!props.auth) { -%>
     <ion-header>
       <ion-toolbar color="primary">
         <ion-buttons *ngIf="isWeb" end>
-          <button ion-button icon-only (click)="changeLanguage()">
+          <ion-button class="profile-button" color="light" (click)="showProfileActions()"
+            round fill="outline" size="small" slot="start"
+          >
             <ion-icon name="globe"></ion-icon>
-          </button>
+          </ion-button>
         </ion-buttons>
         <ion-title>{{'APP_NAME' | translate}}</ion-title>
       </ion-toolbar>
@@ -26,15 +28,15 @@
         </div>
 <% } -%>
         <ion-list>
-          <button menuClose ion-item routerLink="/home" routerLinkActive="active">
-            <span translate>Home</span>
-          </button>
-          <button menuClose ion-item routerLink="/about" routerLinkActive="active">
-            <span translate>About</span>
-          </button>
+          <ion-item button menuClose routerLink="/home" routerLinkActive="active">
+            <ion-label><span translate>Home</span></ion-label>
+          </ion-item>
+          <ion-item button menuClose routerLink="/about" routerLinkActive="active">
+            <ion-label><span translate>About</span></ion-label>
+          </ion-item>
         </ion-list>
       </div>
     </ion-content>
   </ion-menu>
-  <ion-nav main [root]="navRoot" #content swipeBackEnabled="false"></ion-nav>
+  <ion-nav main id="shell-content" [root]="navRoot" #content swipeBackEnabled="false"></ion-nav>
 </ion-split-pane>
