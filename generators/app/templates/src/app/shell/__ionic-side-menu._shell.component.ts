@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { ActionSheetController, AlertController, Platform } from '@ionic/angular';
 import { ActionSheetButton, ActionSheetOptions } from '@ionic/core';
 import { TextFieldTypes } from '@ionic/core';
@@ -23,7 +23,6 @@ export class ShellComponent implements OnInit {
   subscription: any;
 
   constructor(private router: Router,
-              private activatedRoute: ActivatedRoute,
               private translateService: TranslateService,
               private platform: Platform,
               private alertController: AlertController,
@@ -32,15 +31,6 @@ export class ShellComponent implements OnInit {
               private authenticationService: AuthenticationService,
 <% } -%>
               private i18nService: I18nService) { }
-
-  ngOnInit() {
-    this.updateNav(this.activatedRoute);
-
-    // Bind Ionic navigation to Angular router events
-    this.subscription = this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => this.updateNav(this.activatedRoute));
-    }
 
 <% if (props.auth) { -%>
   async showProfileActions() {
@@ -127,22 +117,6 @@ export class ShellComponent implements OnInit {
         ]
       });
     await alertController.present();
-  }
-
-  private updateNav(route: ActivatedRoute) {
-    if (!route || !route.firstChild) {
-      return;
-    }
-    // First component should always be IonicApp
-    route = route.firstChild;
-    if (route && route.component === ShellComponent && route.firstChild) {
-      // Loop needed for lazy-loaded routes, see: https://github.com/angular/angular/issues/19420
-      while (route.firstChild) {
-        route = route.firstChild;
-      }
-
-      this.navRoot = <Component>route.component;
-    }
   }
 
 }

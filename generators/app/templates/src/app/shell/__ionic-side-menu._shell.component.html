@@ -28,15 +28,17 @@
         </div>
 <% } -%>
         <ion-list>
-          <ion-item button menuClose routerLink="/home" routerLinkActive="active">
-            <ion-label><span translate>Home</span></ion-label>
-          </ion-item>
-          <ion-item button menuClose routerLink="/about" routerLinkActive="active">
-            <ion-label><span translate>About</span></ion-label>
-          </ion-item>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item button menuClose [routerDirection]="'root'" routerLink="/home" routerLinkActive="active">
+              <ion-label><span translate>Home</span></ion-label>
+            </ion-item>
+            <ion-item button menuClose [routerDirection]="'root'" routerLink="/about" routerLinkActive="active">
+              <ion-label><span translate>About</span></ion-label>
+            </ion-item>
+          </ion-menu-toggle>
         </ion-list>
       </div>
     </ion-content>
   </ion-menu>
-  <ion-nav main id="shell-content" [root]="navRoot" #content swipeBackEnabled="false"></ion-nav>
+  <ion-router-outlet main></ion-router-outlet>
 </ion-split-pane>
