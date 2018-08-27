@@ -7,9 +7,15 @@ import { browser, element, by } from 'protractor';
 
 export class AppPage {
 <% if (props.auth) { -%>
+<%   if (props.ui === 'ionic') { -%>
+  usernameField = element(by.css('ion-input[formControlName="username"]'));
+  passwordField = element(by.css('ion-input[formControlName="password"]'));
+  loginButton = element(by.css('ion-button[type="submit"]'));
+<%   } else { -%>
   usernameField = element(by.css('input[formControlName="username"]'));
   passwordField = element(by.css('input[formControlName="password"]'));
   loginButton = element(by.css('button[type="submit"]'));
+<%   } -%>
 
 <% } -%>
   constructor() {
@@ -27,6 +33,9 @@ export class AppPage {
     this.usernameField.sendKeys('test');
     this.passwordField.sendKeys('123');
     this.loginButton.click();
+<% if (props.ui === 'ionic') { -%>
+    browser.sleep(5000);
+<% } -%>
   }
 
 <% } -%>

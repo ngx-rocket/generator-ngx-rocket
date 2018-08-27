@@ -28,7 +28,7 @@ export class ShellComponent implements OnInit {
   }
   onTabChange(selectedTabElm: Tab) {
     const selectedTab = find(this.tabs, { name: selectedTabElm.name });
-    this.navCtrl.goRoot(selectedTab.route);
+    this.navCtrl.navigateRoot(selectedTab.route);
   }
   private updateTab(route: ActivatedRoute) {
     if (!route || !route.firstChild) {

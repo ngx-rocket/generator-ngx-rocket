@@ -38,9 +38,9 @@
     "@angular/service-worker": "~6.1.1",
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
-    "@ionic-native/core": "5.0.0-beta.14",
-    "@ionic-native/splash-screen": "5.0.0-beta.14",
-    "@ionic-native/status-bar": "5.0.0-beta.14",
+    "@ionic-native/core": "5.0.0-beta.15",
+    "@ionic-native/splash-screen": "5.0.0-beta.15",
+    "@ionic-native/status-bar": "5.0.0-beta.15",
     "cordova-android": "^7.0.0",
     "cordova-custom-config": "^5.0.2",
     "cordova-ios": "^4.5.4",
@@ -53,7 +53,7 @@
 <% } -%>
     "@ngx-translate/core": "^10.0.1",
 <% if (props.ui === 'ionic') { -%>
-    "@ionic/angular": "^4.0.0-beta.3",
+    "@ionic/angular": "^4.0.0-beta.5",
 <% } else if (props.ui === 'bootstrap') { -%>
     "@ng-bootstrap/ng-bootstrap": "^2.0.0",
     "bootstrap": "^4.1.1",
@@ -95,17 +95,17 @@
     "@types/jasmine": "^2.8.7",
     "@types/jasminewd2": "^2.0.3",
     "@types/lodash": "^4.14.108",
-    "@types/node": "~10.7.1",
+    "@types/node": "~10.9.2",
     "codelyzer": "^4.4.2",
     "hads": "^1.3.4",
     "htmlhint": "^0.9.13",
     "https-proxy-agent": "^2.0.0",
     "jasmine-core": "~2.99.1",
-    "jasmine-spec-reporter": "^4.2.1",
+    "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.0.0",
-    "karma-chrome-launcher": "^2.2.0",
+    "karma-chrome-launcher": "~2.2.0",
     "karma-cli": "~1.0.1",
-    "karma-coverage-istanbul-reporter": "^2.0.0",
+    "karma-coverage-istanbul-reporter": "~2.0.0",
     "karma-jasmine": "^1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-junit-reporter": "^1.2.0",
@@ -119,7 +119,7 @@
     "stylelint-scss": "~3.1.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~2.7.2"
+    "typescript": "~2.9.2"
 <% if (props.target.includes('cordova')) { -%>
   },
   "cordova": {
