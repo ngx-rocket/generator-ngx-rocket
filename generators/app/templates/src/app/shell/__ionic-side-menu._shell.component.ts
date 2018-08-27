@@ -17,7 +17,7 @@ import { I18nService } from '@app/core';
   templateUrl: './shell.component.html',
   styleUrls: ['./shell.component.scss']
 })
-export class ShellComponent implements OnInit {
+export class ShellComponent {
 
   navRoot: Component;
   subscription: any;
