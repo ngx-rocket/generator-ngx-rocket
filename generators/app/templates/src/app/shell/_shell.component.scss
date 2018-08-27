@@ -47,11 +47,6 @@ $tabs-height: 8.2rem;
 .profile-icon {
   font-size: 6rem;
   color: var(--ion-color-primary-contrast);
-
-  // Use parent class from outside component context
-  // See https://angular.io/guide/component-styles#host-context
-  :host-context(.platform-ios) & {
-  }
 }
 
 .profile-button {
