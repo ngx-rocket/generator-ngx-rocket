@@ -1,5 +1,5 @@
 <ion-split-pane>
-  <ion-menu contentId="shell-content">
+  <ion-menu>
 <% if (!props.auth) { -%>
     <ion-header>
       <ion-toolbar color="primary">
@@ -32,6 +32,8 @@
             <ion-item button menuClose [routerDirection]="'root'" routerLink="/home" routerLinkActive="active">
               <ion-label><span translate>Home</span></ion-label>
             </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
             <ion-item button menuClose [routerDirection]="'root'" routerLink="/about" routerLinkActive="active">
               <ion-label><span translate>About</span></ion-label>
             </ion-item>
