@@ -93,7 +93,7 @@ export class ShellComponent {
     return !this.platform.is('cordova');
   }
 
-  changeLanguage() {
+  async changeLanguage() {
 <% } -%>
     const alertController = await this.alertController.create({
         header: this.translateService.instant('Change language'),

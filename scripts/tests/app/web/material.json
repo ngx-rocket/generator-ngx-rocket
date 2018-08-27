@@ -5,5 +5,5 @@
   "layout": "simple",
   "auth": false,
   "lazy": false,
-  "angulartics": false,
+  "angulartics": false
 }
