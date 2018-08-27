@@ -34,6 +34,7 @@ export class ShellComponent {
 
 <% if (props.auth) { -%>
   async showProfileActions() {
+    let actionSheet: any;
     const buttons: ActionSheetButton[] = [
       {
         text: this.translateService.instant('Logout'),
@@ -68,7 +69,7 @@ export class ShellComponent {
       buttons: buttons
     };
 
-    const actionSheet = await this.actionSheetController.create(actionSheetOptions);
+    actionSheet = await this.actionSheetController.create(actionSheetOptions);
     await actionSheet.present();
   }
 
