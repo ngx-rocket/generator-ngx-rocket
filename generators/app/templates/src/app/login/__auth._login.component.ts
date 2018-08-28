@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
 <% if (props.ui === 'ionic') { -%>
   async login() {
     const loading = await this.loadingController.create();
-    await loading.present();
+    const loadingPresentedPromise = loading.present();
 <% } else { -%>
   login() {
     this.isLoading = true;
@@ -49,18 +49,26 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.loginForm.value)
       .pipe(finalize(() => {
         this.loginForm.markAsPristine();
-<% if (props.ui === 'ionic') { -%>
-        loading.dismiss();
-<% } else { -%>
+<% if (props.ui !== 'ionic') { -%>
         this.isLoading = false;
 <% } -%>
       }))
       .subscribe(credentials => {
         log.debug(`${credentials.username} successfully logged in`);
+<% if (props.ui === 'ionic') { -%>
+        Promise.all([
+          this.router.navigate(['/'], { replaceUrl: true }),
+          loadingPresentedPromise,
+        ]).then(() => loading.dismiss());
+<% } else { -%>
         this.router.navigate(['/'], { replaceUrl: true });
+<% } -%>
       }, error => {
         log.debug(`Login error: ${error}`);
         this.error = error;
+<% if (props.ui === 'ionic') { -%>
+        loadingPresentedPromise.then(() => loading.dismiss());
+<% } -%>
       });
   }
 

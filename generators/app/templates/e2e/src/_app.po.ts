@@ -33,9 +33,6 @@ export class AppPage {
     this.usernameField.sendKeys('test');
     this.passwordField.sendKeys('123');
     this.loginButton.click();
-<% if (props.ui === 'ionic') { -%>
-    browser.sleep(5000);
-<% } -%>
   }
 
 <% } -%>
