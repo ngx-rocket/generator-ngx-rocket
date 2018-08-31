@@ -53,7 +53,7 @@
 <% } -%>
     "@ngx-translate/core": "^10.0.1",
 <% if (props.ui === 'ionic') { -%>
-    "@ionic/angular": "^4.0.0-beta.5",
+    "@ionic/angular": "^4.0.0-beta.7",
 <% } else if (props.ui === 'bootstrap') { -%>
     "@ng-bootstrap/ng-bootstrap": "^2.0.0",
     "bootstrap": "^4.1.1",
