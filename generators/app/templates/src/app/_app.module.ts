@@ -39,6 +39,7 @@ import { environment } from '@env/environment';
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { HomeModule } from './home/home.module';
+import { ShellModule } from './shell/shell.module';
 <% if (!props.lazy) { -%>
 import { AboutModule } from './about/about.module';
 <% } -%>
@@ -70,6 +71,7 @@ import { AppRoutingModule } from './app-routing.module';
 <% } -%>
     CoreModule,
     SharedModule,
+    ShellModule,
     HomeModule,
 <% if (props.layout === 'tabs'){ -%>
     SettingsModule,
