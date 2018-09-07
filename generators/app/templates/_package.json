@@ -90,7 +90,7 @@
     "@angular/language-service": "^6.1.6",
     "@angular-devkit/build-angular": "~0.7.5",
     "@biesbjerg/ngx-translate-extract": "^2.3.4",
-    "@ngx-rocket/scripts": "^2.1.0",
+    "@ngx-rocket/scripts": "^3.0.0",
     "@types/jasmine": "^2.8.7",
     "@types/jasminewd2": "^2.0.2",
     "@types/lodash": "^4.14.108",
