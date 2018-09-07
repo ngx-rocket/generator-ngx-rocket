@@ -49,11 +49,7 @@
 <% if (props.target.includes('cordova')) { -%>
   <!-- Include Cordova script only when needed -->
   <script>
-<%   if (props.mobile.includes('ios')) { -%>
     if (!/^http/.test(location.protocol)|/^localhost:8080/.test(location.host)) {
-<%   } else { -%>
-    if (!/^http/.test(location.protocol)) {
-<%   } -%>
       /**
        * https://github.com/angular/angular/issues/22509
        * Prevent cordova.js 5.2.4+ routing bug
