@@ -1,5 +1,44 @@
 # Change Log
 
+## [5.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/5.1.0) (2018-09-10)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/5.0.1...5.1.0)
+
+**Enhancements**:
+
+- ApiPrefixInterceptor - avoid to change URL if it starts with http/https [\#338](https://github.com/ngx-rocket/generator-ngx-rocket/issues/338) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add responsive tabs ionic template [\#106](https://github.com/ngx-rocket/generator-ngx-rocket/issues/106) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add CircleCI config to build Cordova/Android paths [\#364](https://github.com/ngx-rocket/generator-ngx-rocket/pull/364) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add ionic tabs after shell integration as component [\#361](https://github.com/ngx-rocket/generator-ngx-rocket/pull/361) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Updated angular guide with a FAQ section and added NGXS references [\#357](https://github.com/ngx-rocket/generator-ngx-rocket/pull/357) [[documentation](https://github.com/ngx-rocket/generator-ngx-rocket/labels/documentation)]
+- Added fuzzy matching to ngx \<script\> command [\#346](https://github.com/ngx-rocket/generator-ngx-rocket/pull/346) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Fixed bugs:**
+
+- Ionic / Cordova build is broken on current master [\#372](https://github.com/ngx-rocket/generator-ngx-rocket/issues/372)
+- wdm: Failed to compile on new project [\#352](https://github.com/ngx-rocket/generator-ngx-rocket/issues/352)
+- Update \_index.html, fix cordova routing bug [\#365](https://github.com/ngx-rocket/generator-ngx-rocket/pull/365)
+
+**Closed issues:**
+
+- App failed to compile upon save [\#367](https://github.com/ngx-rocket/generator-ngx-rocket/issues/367)
+- ERROR in ./src/app/app.module.ngfactory.js [\#366](https://github.com/ngx-rocket/generator-ngx-rocket/issues/366)
+- \[Feature request\] Add option for non-flex UI  [\#360](https://github.com/ngx-rocket/generator-ngx-rocket/issues/360)
+-  Can't resolve '@angular/router.ngfactory [\#359](https://github.com/ngx-rocket/generator-ngx-rocket/issues/359)
+- Change AuthGuard Route [\#348](https://github.com/ngx-rocket/generator-ngx-rocket/issues/348)
+- Angular Ionic module lazy load problem [\#342](https://github.com/ngx-rocket/generator-ngx-rocket/issues/342)
+- Data path ".baseHref" should be string. [\#336](https://github.com/ngx-rocket/generator-ngx-rocket/issues/336)
+- Redundancy in route [\#204](https://github.com/ngx-rocket/generator-ngx-rocket/issues/204)
+
+**Merged pull requests:**
+
+- Disable ng serve AOT for Ionic \(\#372\) [\#375](https://github.com/ngx-rocket/generator-ngx-rocket/pull/375)
+- Fixed Ionic/Cordova build \(closes \#372\) [\#374](https://github.com/ngx-rocket/generator-ngx-rocket/pull/374)
+- Updated ngx-scripts and docs [\#373](https://github.com/ngx-rocket/generator-ngx-rocket/pull/373)
+- Fix typo in i18n docs [\#368](https://github.com/ngx-rocket/generator-ngx-rocket/pull/368)
+- Updated dependencies and fixed npm vulnerabilities warnings [\#354](https://github.com/ngx-rocket/generator-ngx-rocket/pull/354)
+- Extract shell into a new module [\#351](https://github.com/ngx-rocket/generator-ngx-rocket/pull/351)
+- Avoid interception of full-path specified urls [\#339](https://github.com/ngx-rocket/generator-ngx-rocket/pull/339)
+
 ## [5.0.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/5.0.1) (2018-06-11)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/5.0.0...5.0.1)
 
