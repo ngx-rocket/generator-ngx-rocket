@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "build": "<%= props.packageManager %> run env<%= props.packageManager === 'npm' ? ' -s' : '' %> && ng build --prod",
-    "start": "<%= props.packageManager %> run env<%= props.packageManager === 'npm' ? ' -s' : '' %> && ng serve --aot --proxy-config proxy.conf.js",
+    "start": "<%= props.packageManager %> run env<%= props.packageManager === 'npm' ? ' -s' : '' %> && ng serve <%= props.ui !== 'ionic' ? '--aot ' : '' %>--proxy-config proxy.conf.js",
 <% if (props.pwa) { -%>
     "serve:sw": "<%= props.packageManager %> run build<%= props.packageManager === 'npm' ? ' -s' : '' %> && npx http-server ./<%= props.target.includes('cordova') ? 'www': 'dist' %> -p 4200",
 <% } -%>
