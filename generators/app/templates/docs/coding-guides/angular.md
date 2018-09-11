@@ -189,3 +189,15 @@ make sure you deliver the best experience to your customers.
 After going through the checklist, make sure to also run an audit of your page through
 [**Lighthouse**](https://developers.google.com/web/tools/lighthouse/), the latest Google tool that gives you meaningful
 insight about your app performance, accessibility, mobile compatibility and more.
+
+## Keeping Angular up-to-date
+
+Angular development is moving fast, and updates to the core libs and tools are pushed regularly.
+
+Fortunately, the Angular team provides tools to help you follow through the updates:
+
+- `npm run ng update` allows you to update your app and its dependencies
+
+- The [Angular update website](https://update.angular.io) guides you through Angular changes and migrations, providing
+  step by step guides from one version to another.
+

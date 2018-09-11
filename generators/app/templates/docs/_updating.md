@@ -58,7 +58,6 @@ This will create a file `npm-shrinkwrap.json` alongside your `package.json` file
 > Do not forget  to run shrinkwrap each time you manually update your dependencies!
 <% } -%>
 
-# Updating angular-cli
+# Updating angular-related dependencies
 
-The `angular-cli` package needs extra care with updating, see
-[this doc](https://github.com/angular/angular-cli#updating-angular-cli).
+See the [Angular update website](https://update.angular.io) to guide you through the updating/upgrading steps.
