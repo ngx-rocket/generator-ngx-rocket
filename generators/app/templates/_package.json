@@ -29,15 +29,15 @@
     "generate": "ng generate"
   },
   "dependencies": {
-    "@angular/animations": "^6.1.6",
-    "@angular/common": "^6.1.6",
-    "@angular/compiler": "^6.1.6",
-    "@angular/core": "^6.1.6",
-    "@angular/forms": "^6.1.6",
-    "@angular/http": "^6.1.6",
-    "@angular/platform-browser": "^6.1.6",
-    "@angular/platform-browser-dynamic": "^6.1.6",
-    "@angular/router": "^6.1.6",
+    "@angular/animations": "^6.1.7",
+    "@angular/common": "^6.1.7",
+    "@angular/compiler": "^6.1.7",
+    "@angular/core": "^6.1.7",
+    "@angular/forms": "^6.1.7",
+    "@angular/http": "^6.1.7",
+    "@angular/platform-browser": "^6.1.7",
+    "@angular/platform-browser-dynamic": "^6.1.7",
+    "@angular/router": "^6.1.7",
     "@ngx-translate/core": "^10.0.1",
 <% if (props.target.includes('cordova')) { -%>
     "@ionic-native/core": "^4.5.3",
@@ -55,13 +55,13 @@
     "cordova-plugin-whitelist": "^1.3.3",
 <% } -%>
 <% if (props.pwa) { -%>
-    "@angular/service-worker": "^6.1.6",
+    "@angular/service-worker": "^6.1.7",
 <% } -%>
 <% if (props.ui === 'ionic') { -%>
     "ionic-angular": "^3.9.2",
     "ionicons": "^3.0.0",
 <% } else if (props.ui === 'bootstrap') { -%>
-    "@ng-bootstrap/ng-bootstrap": "^2.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^3.2.0",
     "bootstrap": "^4.1.1",
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
 <% } else if (props.ui === 'material') { -%>
@@ -86,10 +86,10 @@
 <% if (props.target.includes('cordova')) { -%>
     "cordova": "^8.0.0",
 <% } -%>
-    "@angular/cli": "~6.1.5",
-    "@angular/compiler-cli": "^6.1.6",
-    "@angular/language-service": "^6.1.6",
-    "@angular-devkit/build-angular": "~0.7.5",
+    "@angular/cli": "~6.2.1",
+    "@angular/compiler-cli": "^6.1.7",
+    "@angular/language-service": "^6.1.7",
+    "@angular-devkit/build-angular": "~0.8.1",
     "@biesbjerg/ngx-translate-extract": "^2.3.4",
     "@ngx-rocket/scripts": "^3.0.0",
     "@types/jasmine": "^2.8.7",
