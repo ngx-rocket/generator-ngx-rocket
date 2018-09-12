@@ -3,7 +3,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 <% if (props.ui === 'ionic') { -%>
-import { FormsModule, FormBuilder } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { IonicModule, LoadingController, Platform } from '@ionic/angular';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 <% } else if (props.ui === 'bootstrap') { -%>
@@ -48,7 +48,6 @@ describe('LoginComponent', () => {
       providers: [
         Platform,
         LoadingController,
-        FormBuilder,
       ],
 <% } -%>
       declarations: [LoginComponent]

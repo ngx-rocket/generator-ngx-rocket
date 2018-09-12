@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActionSheetController, AlertController, Platform } from '@ionic/angular';
-import { ActionSheetButton, ActionSheetOptions } from '@ionic/core';
-import { TextFieldTypes } from '@ionic/core';
+import { ActionSheetButton, ActionSheetOptions, TextFieldTypes } from '@ionic/core';
 import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs/operators';
 
