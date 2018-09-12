@@ -17,8 +17,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "progress": false,
-            "aot": true,
             "outputPath": "<%= props.target.includes('cordova') ? 'www' : 'dist' %>",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -123,32 +121,6 @@
             ]
           }
         }
-<% if (props.target.includes('cordova')) { -%>,
-        "ionic-cordova-build": {
-          "builder": "@ionic/ng-toolkit:cordova-build",
-          "options": {
-            "browserTarget": "<%= props.projectName %>:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "<%= props.projectName %>:build:production"
-            }
-          }
-        },
-        "ionic-cordova-serve": {
-          "builder": "@ionic/ng-toolkit:cordova-serve",
-          "options": {
-            "cordovaBuildTarget": "<%= props.projectName %>:ionic-cordova-build",
-            "devServerTarget": "<%= props.projectName %>:serve"
-          },
-          "configurations": {
-            "production": {
-              "cordovaBuildTarget": "<%= props.projectName %>:ionic-cordova-build:production",
-              "devServerTarget": "<%= props.projectName %>:serve:production"
-            }
-          }
-        }
-<% } -%>
       }
     },
     "<%= props.projectName %>-e2e": {
@@ -176,18 +148,5 @@
       }
     }
   },
-<% if (props.ui === 'ionic') { -%>
-  "cli": {
-    "defaultCollection": "@ionic/schematics-angular"
-  },
-  "schematics": {
-    "@ionic/schematics-angular:component": {
-      "styleext": "scss"
-    },
-    "@ionic/schematics-angular:page": {
-      "styleext": "scss"
-    }
-  },
-<% } -%>
   "defaultProject": "<%= props.projectName %>"
 }
