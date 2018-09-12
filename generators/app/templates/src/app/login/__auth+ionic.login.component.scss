@@ -28,9 +28,5 @@ ion-select {
 
 .login-container {
   background-color: var(--ion-background-color);
-
-  ion-item {
-    @include padding-horizontal(var(--ion-content-margin), var(--ion-content-margin));
-  }
 }
 
