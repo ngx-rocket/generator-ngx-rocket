@@ -66,9 +66,9 @@ do
         # generators/app test
         ngx new --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
 
-        npm run test:ci --
-        npm run e2e --
-        npm run build --
+        npm run test:ci -- --no-progress
+        npm run e2e
+        npm run build -- --no-progress
 
     fi
 

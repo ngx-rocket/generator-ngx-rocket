@@ -52,10 +52,10 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
+              "aot": <%= props.ui !== 'ionic' %>,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true,
+              "buildOptimizer": <%= props.ui !== 'ionic' %>,
 <% if (props.pwa) { -%>
               "serviceWorker": true,
 <% } -%>

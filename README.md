@@ -57,6 +57,10 @@ And there's even more! See [What's in the box](#whats-in-the-box) for more detai
  ```sh
  ngx new
  ```
+ 
+> :bulb: Pro tip: the `ngx` CLI can do more that just bootstrapping new projects! You can use it to run your
+> NPM scripts with fuzzy matching (try `ngx ci` for example) or help you maintaining your project up-to-date.
+> Take a look at the [full documentation](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/cli)!
 
 # Project structure
 
@@ -95,7 +99,7 @@ Task                            | Description
 --------------------------------|---------------------------------------------------------------------------------------
 `npm start`                     | Run development server on `http://localhost:4200/`
 `npm run serve:sw`              | Run test server on `http://localhost:4200/` with service worker enabled
-`npm run build [-- --env=prod]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `dist/`
+`npm run build [-- --configuration=production]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `dist/`
 `npm test`                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
 `npm run test:ci`               | Lint code and run unit tests once for continuous integration
 `npm run e2e`                   | Run e2e tests using [Protractor](http://www.protractortest.org)
@@ -108,14 +112,14 @@ Additional tasks for Cordova-based projects:
 Task                            | Description
 --------------------------------|---------------------------------------------------------------------------------------
 `npm run cordova:prepare`       | Prepare for building mobile app (restore Cordova platforms and plugins)
-`npm run cordova:run <ios/android> [--device]` | Run app on target platform device or simulator
-`npm run cordova:build [-- --env=prod]`        | Build mobile app for production in `dist/` folder
+`npm run cordova:run <ios/android> [--device]`          | Run app on target platform device or simulator
+`npm run cordova:build [-- --configuration=production]` | Build mobile app for production in `dist/` folder
 `npm run cordova:clean`         | Removes `www/`, `platforms/` and `plugins/` folders
 
-When building the application, you can specify the target environment using the additional flag `--env <name>` (do not
-forget to prepend `--` to pass arguments to npm scripts).
+When building the application, you can specify the target configuration using the additional flag
+`--configuration <name>` (do not forget to prepend `--` to pass arguments to npm scripts).
 
-The default build environment is `prod`.
+The default build configuration is `production`.
 
 ## Development server
 
