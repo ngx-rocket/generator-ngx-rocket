@@ -97,9 +97,11 @@ class NgxGenerator extends Generator {
   }
 
   install() {
-    const skipInstall = this.options['skip-install'];
+    if (!this.options.git) {
+      this.spawnCommandSync('git', ['init', '--quiet']);
+    }
 
-    if (!skipInstall) {
+    if (!this.options['skip-install']) {
       this.log(`\nRunning ${chalk.yellow(`${this.packageManager} install`)}, please wait...`);
 
       if (this.packageManager === 'yarn') {
@@ -133,6 +135,10 @@ class NgxGenerator extends Generator {
     this.log(`- $ ${chalk.green(`${this.packageManager} run test:ci`)}: lint code and run units tests with coverage`);
     this.log(`- $ ${chalk.green(`${this.packageManager} run e2e`)}: launch e2e tests`);
     this.log(`- $ ${chalk.green(`${this.packageManager} run docs`)}: show docs and coding guides`);
+
+    if (this.props.prettier) {
+      this.log(`- $ ${chalk.green(`${this.packageManager} run prettier`)}: format your code automatically`);
+    }
   }
 }
 
