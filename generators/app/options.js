@@ -55,5 +55,5 @@ module.exports = [
     required: false,
     description: 'Initialize git repository',
     defaults: true
-  },
+  }
 ];

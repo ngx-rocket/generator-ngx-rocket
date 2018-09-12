@@ -153,5 +153,5 @@ module.exports = [
     name: 'prettier',
     message: 'Do you want automatic code formatting with Prettier?',
     default: false
-  },
+  }
 ];
