@@ -8,7 +8,6 @@ import { finalize } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
 import { Logger, AuthenticationService } from '@core';
-import { I18nService } from '@i18n';
 
 const log = new Logger('Login');
 
@@ -32,7 +31,6 @@ export class LoginComponent implements OnInit {
               private platform: Platform,
               private loadingController: LoadingController,
 <% } -%>
-              private i18nService: I18nService,
               private authenticationService: AuthenticationService) {
     this.createForm();
   }
@@ -64,17 +62,6 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  setLanguage(language: string) {
-    this.i18nService.language = language;
-  }
-
-  get currentLanguage(): string {
-    return this.i18nService.language;
-  }
-
-  get languages(): string[] {
-    return this.i18nService.supportedLanguages;
-  }
 <% if (props.ui === 'ionic') { -%>
 
   get isWeb(): boolean {
