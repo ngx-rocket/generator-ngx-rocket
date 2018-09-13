@@ -4,10 +4,9 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { MaterialModule } from '@app/material.module';
 <% if (props.auth) { -%>
-import { AuthenticationService, I18nService, MockAuthenticationService } from '@app/core';
-<% } else {-%>
-import { I18nService } from '@i18n';
+import { AuthenticationService, MockAuthenticationService } from '@app/core';
 <% }-%>
+import { I18nModule, I18nService } from '@i18n';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
@@ -19,7 +18,8 @@ describe('HeaderComponent', () => {
       imports: [
         RouterTestingModule,
         MaterialModule,
-        TranslateModule.forRoot()
+        TranslateModule.forRoot(),
+        I18nModule
       ],
       declarations: [HeaderComponent],
       providers: [

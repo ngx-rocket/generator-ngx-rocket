@@ -5,7 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 <% if (props.auth) { -%>
 import { AuthenticationService, MockAuthenticationService } from '@app/core';
 <% } -%>
-import { I18nService } from '@i18n';
+import { I18nModule, I18nService } from '@i18n';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
@@ -16,7 +16,8 @@ describe('HeaderComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        TranslateModule.forRoot()
+        TranslateModule.forRoot(),
+        I18nModule
       ],
       declarations: [HeaderComponent],
       providers: [
