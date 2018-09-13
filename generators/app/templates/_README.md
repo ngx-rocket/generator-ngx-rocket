@@ -66,15 +66,15 @@ Task                            | Description
 <% } -%>
 <% if (props.target.includes('web')) { -%>
 <%   if (props.target.includes('cordova')) { -%>
-`npm run build [-- --env=prod]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `www/` folder
+`npm run build [-- --configuration=production]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `www/` folder
 <%   } else { -%>
-`npm run build [-- --env=prod]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `dist/` folder
+`npm run build [-- --configuration=production]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `dist/` folder
 <%   } -%>
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
 `npm run cordova:prepare`       | Prepare for building mobile app (restore Cordova platforms and plugins)
-`npm run cordova:run <ios/android> [--device]` | Run app on target platform device or simulator
-`npm run cordova:build [-- --env=prod]`        | Build mobile app for production in `dist/` folder
+`npm run cordova:run <ios/android> [--device]`          | Run app on target platform device or simulator
+`npm run cordova:build [-- --configuration=production]` | Build mobile app for production in `dist/` folder
 `npm run cordova:clean`         | Removes `www/`, `platforms/` and `plugins/` folders
 <% } -%>
 `npm test`                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
@@ -84,10 +84,10 @@ Task                            | Description
 `npm run translations:extract`  | Extract strings from code and templates to `src/app/translations/template.json`
 `npm run docs`                  | Display project documentation
 
-When building the application, you can specify the target environment using the additional flag `--env <name>` (do not
-forget to prepend `--` to pass arguments to npm scripts).
+When building the application, you can specify the target configuration using the additional flag
+`--configuration <name>` (do not forget to prepend `--` to pass arguments to npm scripts).
 
-The default build environment is `prod`.
+The default build configuration is `prod`.
 
 ## Development server
 

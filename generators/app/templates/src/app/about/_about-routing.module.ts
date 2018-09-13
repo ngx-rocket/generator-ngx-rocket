@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { extract } from '@i18n';
 <% if (!props.lazy) { -%>
-import { Route } from '@core';
+import { Shell } from '@app/shell/shell.service';
 <% } -%>
 import { AboutComponent } from './about.component';
 
@@ -12,7 +12,7 @@ const routes: Routes = [
   // Module is lazy loaded, see app-routing.module.ts
   { path: '', component: AboutComponent, data: { title: extract('About') } }
 <% } else { -%>
-  Route.withShell([
+  Shell.childRoutes([
     { path: 'about', component: AboutComponent, data: { title: extract('About') } }<% if (props.lazy) { %> as Route <% } %>
   ])
 <% } -%>

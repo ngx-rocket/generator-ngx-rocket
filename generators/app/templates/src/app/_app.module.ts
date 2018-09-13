@@ -36,15 +36,18 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 <% if (props.pwa) { -%>
 import { environment } from '@env/environment';
 <% } -%>
-import { I18nModule } from '@i18n';
 import { CoreModule } from '@core';
 import { SharedModule } from '@shared';
 import { HomeModule } from './home/home.module';
+import { ShellModule } from './shell/shell.module';
 <% if (!props.lazy) { -%>
 import { AboutModule } from './about/about.module';
 <% } -%>
 <% if (props.auth) { -%>
 import { LoginModule } from './login/login.module';
+<% } -%>
+<% if (props.layout === 'tabs') { -%>
+import { SettingsModule } from './settings/settings.module';
 <% } -%>
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -66,10 +69,13 @@ import { AppRoutingModule } from './app-routing.module';
 <% } else if (props.ui === 'ionic') { -%>
     IonicModule.forRoot(AppComponent, { locationStrategy: '<%= props.location === 'hash' ? 'hash' : 'path' %>' }),
 <% } -%>
-    I18nModule.forRoot(),
     CoreModule,
     SharedModule,
+    ShellModule,
     HomeModule,
+<% if (props.layout === 'tabs'){ -%>
+    SettingsModule,
+<% } -%>
 <% if (!props.lazy) { -%>
     AboutModule,
 <% } -%>

@@ -9,6 +9,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 <% if (props.ui === 'material') { -%>
 import { MaterialModule } from '@app/material.module';
 <% } -%>
+import { I18nModule, I18nLangSelectorComponent } from '@i18n';
 import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
@@ -19,13 +20,15 @@ import { LoaderComponent } from './loader/loader.component';
 <% } else if (props.ui === 'ionic') { -%>
     IonicModule,
 <% } -%>
-    CommonModule
+    CommonModule,
+    I18nModule
   ],
   declarations: [
     LoaderComponent
   ],
   exports: [
-    LoaderComponent
+    LoaderComponent,
+    I18nLangSelectorComponent
   ]
 })
 export class SharedModule { }

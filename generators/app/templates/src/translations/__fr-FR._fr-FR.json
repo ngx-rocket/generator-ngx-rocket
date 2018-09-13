@@ -8,6 +8,15 @@
   "Cancel": "Annuler",
   "Language": "Langue",
   "Ok": "Ok",
+<%   if (props.layout === 'tabs') { -%>
+  "Settings": "Paramètres",
+  "Notifications": "Notifications",
+  "Preferences": "Préférences",
+  "Account": "Mon compte",
+<%     if (props.auth) { -%>
+  "Profile": "Profil",
+<%     } -%>
+<%    } -%>
 <% } -%>
 <% if (props.auth) { -%>
 <%   if (props.ui !== 'ionic') { -%>

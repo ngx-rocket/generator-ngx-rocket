@@ -12,11 +12,11 @@ CACHE_FOLDER=$CWD/cache
 TEST_APP_NAME="Sample App"
 
 if [ -n "$1" ]; then
-  TEST_CASES=$SCRIPT_FOLDER/tests/$1.json
+    TEST_CASES=$SCRIPT_FOLDER/tests/$1.json
 elif [ -n "$TEST_ADDON" ]; then
-  TEST_CASES=$SCRIPT_FOLDER/tests/addon/*.json
+    TEST_CASES=$SCRIPT_FOLDER/tests/addon/*.json
 else
-  TEST_CASES=$SCRIPT_FOLDER/tests/app/**/*.json
+    TEST_CASES=$SCRIPT_FOLDER/tests/app/**/*.json
 fi
 
 function cleanup() {
@@ -48,20 +48,27 @@ do
 
     if [ -n "$TEST_ADDON" ]; then
 
-      # generators/addon test
-      ngx new --addon --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
+        # generators/addon test
+        ngx new --addon --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
 
-      npm run test
+        npm run test
+
+    elif [ -n "$TEST_ANDROID" ]; then
+
+        ngx new --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
+
+        # cordova android
+        npm run cordova:prepare --no-progress
+        npm run cordova:build android --no-progress
 
     else
 
-      # generators/app test
+        # generators/app test
+        ngx new --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
 
-      ngx new --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
-
-      npm run test:ci -- --no-progress
-      npm run e2e -- --no-progress
-      npm run build -- --no-progress
+        npm run test:ci -- --no-progress
+        npm run e2e
+        npm run build -- --no-progress
 
     fi
 

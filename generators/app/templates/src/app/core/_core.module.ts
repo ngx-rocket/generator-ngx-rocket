@@ -3,21 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouteReuseStrategy, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-<% if (props.ui === 'bootstrap') { -%>
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-<% } else if (props.ui === 'material') { -%>
-import { FlexLayoutModule } from '@angular/flex-layout';
-<% } else if (props.ui === 'ionic') { -%>
-import { IonicModule } from 'ionic-angular';
-<% } -%>
-
-<% if (props.ui === 'material') { -%>
-import { MaterialModule } from '@app/material.module';
-<% } -%>
-import { ShellComponent } from './shell/shell.component';
-<% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple') || props.ui === 'raw') { -%>
-import { HeaderComponent } from './shell/header/header.component';
-<% } -%>
 import { RouteReusableStrategy } from './route-reusable-strategy';
 <% if (props.auth) { -%>
 import { AuthenticationService } from './authentication/authentication.service';
@@ -35,27 +20,8 @@ import { CacheInterceptor } from './http/cache.interceptor';
     CommonModule,
     HttpClientModule,
     TranslateModule,
-<% if (props.ui === 'bootstrap') { -%>
-    NgbModule,
-<% } else if (props.ui === 'material') { -%>
-    FlexLayoutModule,
-    MaterialModule,
-<% } else if (props.ui === 'ionic') { -%>
-    IonicModule,
-<% } -%>
-    I18nModule,
+    I18nModule.forRoot(),
     RouterModule
-  ],
-<% if (props.ui === 'ionic') { -%>
-  entryComponents: [
-    ShellComponent
-  ],
-<% } -%>
-  declarations: [
-<% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple') || props.ui === 'raw') { -%>
-    HeaderComponent,
-<% } -%>
-    ShellComponent
   ],
   providers: [
 <% if (props.auth) { -%>

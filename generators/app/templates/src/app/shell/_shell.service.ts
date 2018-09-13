@@ -1,21 +1,21 @@
-import { Route as ngRoute, Routes } from '@angular/router';
+import { Routes, Route } from '@angular/router';
 
-import { ShellComponent } from './shell/shell.component';
 <% if (props.auth) { -%>
-import { AuthenticationGuard } from './authentication/authentication.guard';
+import { AuthenticationGuard } from '@app/core';
 <% } -%>
+import { ShellComponent } from './shell.component';
 
 /**
  * Provides helper methods to create routes.
  */
-export class Route {
+export class Shell {
 
   /**
    * Creates routes using the shell component and authentication.
    * @param routes The routes to add.
    * @return {Route} The new route using shell as the base.
    */
-  static withShell(routes: Routes): ngRoute {
+  static childRoutes(routes: Routes): Route {
     return {
       path: '',
       component: ShellComponent,
@@ -27,5 +27,4 @@ export class Route {
       data: { reuse: true }
     };
   }
-
 }
