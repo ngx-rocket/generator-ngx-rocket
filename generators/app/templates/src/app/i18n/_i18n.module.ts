@@ -22,6 +22,8 @@ import { MaterialModule } from '@app/material.module';
 <% if (props.ui === 'material') { -%>
     FlexLayoutModule,
     MaterialModule,
+<% } else if (props.ui === 'bootstrap') { -%>
+    NgbModule,
 <% } else if (props.ui === 'ionic') { -%>
     IonicModule,
 <% } -%>

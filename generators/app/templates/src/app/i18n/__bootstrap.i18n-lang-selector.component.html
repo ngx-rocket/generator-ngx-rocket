@@ -1,8 +1,8 @@
 <div class="nav-item" ngbDropdown placement="bottom-right">
-  <a id="language-dropdown" class="nav-link" [title]="'Change language' | translate" ngbDropdownToggle>{{currentLanguage}}</a>
+  <a id="language-dropdown" class="nav-link" [title]="'Change language' | translate" ngbDropdownToggle>{{currentLanguage | translate}}</a>
   <div ngbDropdownMenu aria-labelledby="language-dropdown">
     <button class="dropdown-item" *ngFor="let language of languages" (click)="setLanguage(language)">
-      {{language}}
+      {{language | translate}}
     </button>
   </div>
 </div>
