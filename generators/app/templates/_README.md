@@ -117,7 +117,7 @@ All `.ts`, `.js` & `.scss` files in this project are formatted automatically usi
 and enforced via the `test:ci` script.
 <% if (options.git) { -%>
 
-A pre-commit git hook have been configured on this project to automatically format staged files, using
+A pre-commit git hook has been configured on this project to automatically format staged files, using
 (pretty-quick)[https://github.com/azz/pretty-quick], so you don't have to care for it.
 
 You can also force code formatting by running the command `npm run prettier`.
