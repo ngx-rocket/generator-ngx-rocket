@@ -15,6 +15,9 @@ export class I18nLangSelectorComponent implements OnInit {
   @Input() withIcon = false;
   @Input() withText = true;
   @Input() color: string;
+  @Input() outline = true;
+  @Input() round = true;
+  @Input() pos = 'right';
 
   constructor(
 <% if (props.ui === 'ionic') { -%>

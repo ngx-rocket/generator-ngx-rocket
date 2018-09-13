@@ -27,10 +27,12 @@
   <ion-list-header>
     <ion-label translate>Preferences</ion-label>
   </ion-list-header>
-  <button *ngIf="isWeb" ion-item (click)="changeLanguage()">
+  <ion-item>
     <ion-icon name="md-globe" item-start></ion-icon>
-    <ion-label translate>Change language</ion-label>
-  </button>
+    <ion-label>
+      <i18n-language-selector *ngIf="isWeb" pos="left" [round]="false" [outline]="false" [withIcon]="false" [withText]="true"></i18n-language-selector>
+    </ion-label>
+  </ion-item>
   <ion-item>
     <ion-icon name="notifications" item-start></ion-icon>
     <ion-label translate>Notifications</ion-label>

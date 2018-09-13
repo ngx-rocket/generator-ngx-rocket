@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController, AlertController, Platform } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
-import { I18nService } from '@app/core/i18n.service';
+import { I18nService } from '@i18n';
 <% if (props.auth) { -%>
 import { AuthenticationService } from '@app/core/authentication/authentication.service';
 <% } -%>
@@ -43,29 +43,4 @@ export class SettingsComponent implements OnInit {
   }
 <% } -%>
 
-  changeLanguage() {
-    this.alertController
-      .create({
-        title: this.translateService.instant('Change language'),
-        inputs: this.i18nService.supportedLanguages.map(language => ({
-          type: 'radio',
-          label: language,
-          value: language,
-          checked: language === this.i18nService.language
-        })),
-        buttons: [
-          {
-            text: this.translateService.instant('Cancel'),
-            role: 'cancel'
-          },
-          {
-            text: this.translateService.instant('Ok'),
-            handler: language => {
-              this.i18nService.language = language;
-            }
-          }
-        ]
-      })
-      .present();
-  }
 }
