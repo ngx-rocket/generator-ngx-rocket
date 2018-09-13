@@ -158,6 +158,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - Static code analysis: [TSLint](https://github.com/palantir/tslint), [Codelyzer](https://github.com/mgechev/codelyzer),
   [Stylelint](http://stylelint.io) and [HTMLHint](http://htmlhint.com/)
 - Local knowledgebase server using [Hads](https://github.com/sinedied/hads)
+- Automatic code formatting with [Prettier](https://prettier.io)
 
 [Progressive Web App (PWA)](https://developers.google.com/web/progressive-web-apps/) support provided by
 [@angular/service-worker](https://docs.google.com/document/d/1F0e0ROaZUnTFftmC0XovpREHWHjcXa4CggiFlmifjhw/).
@@ -223,6 +224,7 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
 - `--tools`: generate only the toolchain, without application template
 - `--location-strategy [hash|path`: [location strategy](https://angular.io/api/common/LocationStrategy) to use in
   Angular router (default is `path`).
+- `--no-git`: do not initialize git repository
   
 When generating a *fullstack* project (with both client and server code), you can use the environment variables
 `NGX_CLIENT_PATH` and `NGX_SERVER_PATH` to customize the paths for client and server code. Be aware though that some

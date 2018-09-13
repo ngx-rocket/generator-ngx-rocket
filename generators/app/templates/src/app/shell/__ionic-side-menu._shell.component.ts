@@ -89,13 +89,14 @@ export class ShellComponent {
     return !this.platform.is('cordova');
   }
 
+  private changeLanguage() {
 <% } else { -%>
   get isWeb(): boolean {
     return !this.platform.is('cordova');
   }
 
-<% } -%>
   changeLanguage() {
+<% } -%>
     this.alertController.create(
       {
         header: this.translateService.instant('Change language'),

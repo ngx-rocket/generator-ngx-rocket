@@ -1,4 +1,9 @@
 {
+<% if (props.prettier) { -%>
+  "extends": [
+    "tslint-config-prettier"
+  ],
+<% } -%>
   "rulesDirectory": [
     "node_modules/codelyzer"
   ],

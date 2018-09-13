@@ -1,5 +1,13 @@
 {
-  "extends": ["stylelint-config-standard", "stylelint-config-recommended-scss"],
+  "extends": [
+    "stylelint-config-standard",
+<% if (props.prettier) { -%>
+    "stylelint-config-recommended-scss",
+    "stylelint-config-prettier"
+<% } else { -%>
+    "stylelint-config-recommended-scss"
+<% } -%>
+  ],
   "rules": {
     "font-family-name-quotes": "always-where-recommended",
     "function-url-quotes": [
