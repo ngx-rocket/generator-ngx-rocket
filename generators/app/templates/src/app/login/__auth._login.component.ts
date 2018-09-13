@@ -38,37 +38,29 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() { }
 
-<% if (props.ui === 'ionic') { -%>
-  async login() {
-    const loading = await this.loadingController.create();
-    const loadingPresentedPromise = loading.present();
-<% } else { -%>
   login() {
+<% if (props.ui === 'ionic') { -%>
+    const loadingPromise = this.loadingController.create();
+    const loadingPresentedPromise = loadingPromise
+      .then(loading => loading.present());
+<% } else { -%>
     this.isLoading = true;
 <% } -%>
     this.authenticationService.login(this.loginForm.value)
       .pipe(finalize(() => {
         this.loginForm.markAsPristine();
-<% if (props.ui !== 'ionic') { -%>
+<% if (props.ui === 'ionic') { -%>
+        loadingPresentedPromise.then(() => loadingPromise.then(loading => loading.dismiss()));
+<% } else { -%>
         this.isLoading = false;
 <% } -%>
       }))
       .subscribe(credentials => {
         log.debug(`${credentials.username} successfully logged in`);
-<% if (props.ui === 'ionic') { -%>
-        Promise.all([
-          this.router.navigate(['/'], { replaceUrl: true }),
-          loadingPresentedPromise,
-        ]).then(() => loading.dismiss());
-<% } else { -%>
         this.router.navigate(['/'], { replaceUrl: true });
-<% } -%>
       }, error => {
         log.debug(`Login error: ${error}`);
         this.error = error;
-<% if (props.ui === 'ionic') { -%>
-        loadingPresentedPromise.then(() => loading.dismiss());
-<% } -%>
       });
   }
 

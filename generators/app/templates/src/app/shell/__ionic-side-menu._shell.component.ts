@@ -32,8 +32,8 @@ export class ShellComponent {
               private i18nService: I18nService) { }
 
 <% if (props.auth) { -%>
-  async showProfileActions() {
-    let actionSheet: any;
+  showProfileActions() {
+    let createdActionSheet: any;
     const buttons: ActionSheetButton[] = [
       {
         text: this.translateService.instant('Logout'),
@@ -47,7 +47,7 @@ export class ShellComponent {
         handler: () => {
           // Wait for action sheet dismiss animation to finish, see "Dismissing And Async Navigation" section in:
           // http://ionicframework.com/docs/api/components/action-sheet/ActionSheetController/#advanced
-          actionSheet.dismiss().then(() => this.changeLanguage());
+          createdActionSheet.dismiss().then(() => this.changeLanguage());
           return false;
         }
       },
@@ -68,8 +68,11 @@ export class ShellComponent {
       buttons: buttons
     };
 
-    actionSheet = await this.actionSheetController.create(actionSheetOptions);
-    await actionSheet.present();
+    this.actionSheetController.create(actionSheetOptions)
+      .then(actionSheet => {
+        createdActionSheet = actionSheet;
+        actionSheet.present();
+      });
   }
 
   get username(): string | null {
@@ -86,15 +89,15 @@ export class ShellComponent {
     return !this.platform.is('cordova');
   }
 
-  private async changeLanguage() {
 <% } else { -%>
   get isWeb(): boolean {
     return !this.platform.is('cordova');
   }
 
-  async changeLanguage() {
 <% } -%>
-    const alertController = await this.alertController.create({
+  changeLanguage() {
+    this.alertController.create(
+      {
         header: this.translateService.instant('Change language'),
         inputs: this.i18nService.supportedLanguages.map(language => ({
           type: 'radio' as TextFieldTypes,
@@ -115,8 +118,8 @@ export class ShellComponent {
             }
           }
         ]
-      });
-    await alertController.present();
+      }
+    ).then(alertController => alertController.present());
   }
 
 }
