@@ -1,21 +1,30 @@
+<% const run = command => `${props.packageManager} run ${command}${props.packageManager === 'npm' ? ' -s' : ''}` -%>
 {
   "name": "<%= props.projectName %>",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "ng": "ng",
-    "build": "<%= props.packageManager %> run env<%= props.packageManager === 'npm' ? ' -s' : '' %> && ng build --prod",
-    "start": "<%= props.packageManager %> run env<%= props.packageManager === 'npm' ? ' -s' : '' %> && ng serve <%= props.ui !== 'ionic' ? '--aot ' : '' %>--proxy-config proxy.conf.js",
+    "build": "<%= run('env') %> && ng build --prod",
+    "start": "<%= run('env') %> && ng serve <%= props.ui !== 'ionic' ? '--aot ' : '' %>--proxy-config proxy.conf.js",
 <% if (props.pwa) { -%>
-    "serve:sw": "<%= props.packageManager %> run build<%= props.packageManager === 'npm' ? ' -s' : '' %> && npx http-server ./<%= props.target.includes('cordova') ? 'www': 'dist' %> -p 4200",
+    "serve:sw": "<%= run('build') %> && npx http-server ./<%= props.target.includes('cordova') ? 'www': 'dist' %> -p 4200",
 <% } -%>
     "lint": "ng lint && stylelint \"src/**/*.scss\" --syntax scss && htmlhint \"src\" --config .htmlhintrc",
-    "test": "<%= props.packageManager %> run env<%= props.packageManager === 'npm' ? ' -s' : '' %> && ng test",
-    "test:ci": "<%= props.packageManager %> run env<%= props.packageManager === 'npm' ? ' -s' : '' %> && <%= props.packageManager %> run lint<%= props.packageManager === 'npm' ? ' -s' : '' %> && ng test --code-coverage --watch=false",
-    "e2e": "<%= props.packageManager %> run env<%= props.packageManager === 'npm' ? ' -s' : '' %> && ng e2e",
+    "test": "<%= run('env') %> && ng test",
+    "test:ci": "<%= run('env') %> && <%= run('lint') %> && ng test --code-coverage --watch=false",
+    "e2e": "<%= run('env') %> && ng e2e",
     "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean -sort --marker extract",
     "docs": "hads ./docs -o",
     "env": "ngx-scripts env npm_package_version",
+<% if (props.prettier) { -%>
+    "prettier": "prettier --write \"./{src,e2e}/**/*.{ts,js,scss}\"",
+    "prettier:check": "prettier --list-different \"./{src,e2e}/**/*.{ts,js,scss}\"",
+    "postinstall": "<%= run('prettier') %>",
+<%   if (options.git) { -%>
+    "precommit": "pretty-quick --staged",
+<%   } -%>
+<% } -%>
 <% if (props.ui === 'ionic') { -%>
     "prepare": "ngx-scripts unpin-ionic-dependencies",
 <% } -%>
@@ -108,6 +117,15 @@
     "karma-coverage-istanbul-reporter": "^2.0.2",
     "karma-jasmine": "^1.1.2",
     "karma-junit-reporter": "^1.2.0",
+<% if (props.prettier) { -%>
+    "prettier": "^1.14.0",
+    "tslint-config-prettier": "^1.14.0",
+    "stylelint-config-prettier": "^4.0.0",
+<%   if (options.git) { -%>
+    "pretty-quick": "^1.6.0",
+    "husky": "^0.14.3",
+<%   } -%>
+<% } -%>
     "protractor": "~5.4.0",
 <% if (!options['external-chrome']) { -%>
     "puppeteer": "^1.4.0",
@@ -119,6 +137,19 @@
     "ts-node": "~7.0.1",
     "tslint": "~5.11.0",
     "typescript": "~2.9.2"
+<% if (props.prettier) { -%>
+  },
+  "prettier": {
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.scss",
+        "options": {
+          "singleQuote": false
+        }
+      }
+    ]
+<% } -%>
 <% if (props.target.includes('cordova')) { -%>
   },
   "cordova": {
@@ -135,8 +166,6 @@
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {}
     }
-  }
-<% } else { -%>
-  }
 <% } -%>
+  }
 }

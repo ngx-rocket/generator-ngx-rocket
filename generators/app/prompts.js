@@ -147,5 +147,11 @@ module.exports = [
     name: 'googleAnalyticsAccount',
     message: 'What is your Google Analytics account (e.g. UA-1234567-1)?',
     when: props => props.angulartics && props.analyticsProvider === 'ga'
+  },
+  {
+    type: 'confirm',
+    name: 'prettier',
+    message: 'Do you want automatic code formatting with Prettier?',
+    default: false
   }
 ];
