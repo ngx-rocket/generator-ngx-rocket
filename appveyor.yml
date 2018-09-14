@@ -33,7 +33,7 @@ matrix:
   fast_finish: true
 
 install:
-  - choco install googlechrome
+  - choco install googlechrome --ignore-checksums
   - ps: Install-Product node $env:nodejs_version
   - npm install
   - npm link
