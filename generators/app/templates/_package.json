@@ -25,9 +25,6 @@
     "precommit": "pretty-quick --staged",
 <%   } -%>
 <% } -%>
-<% if (props.ui === 'ionic') { -%>
-    "prepare": "ngx-scripts unpin-ionic-dependencies",
-<% } -%>
 <% if (props.target.includes('cordova')) { -%>
     "cordova:prepare": "ngx-scripts cordova prepare",
     "cordova:run": "ngx-scripts cordova run",

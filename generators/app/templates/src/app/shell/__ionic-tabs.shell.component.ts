@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Tab, NavController } from '@ionic/angular';
 import { filter } from 'rxjs/operators';
-import { findIndex, find } from 'lodash';
 import { SettingsComponent } from '@app/settings/settings.component';
 import { AboutComponent } from '@app/about/about.component';
 import { HomeComponent } from '@app/home/home.component';
@@ -27,7 +26,7 @@ export class ShellComponent implements OnInit {
     this.updateTab(this.activatedRoute);
   }
   onTabChange(selectedTabElm: Tab) {
-    const selectedTab = find(this.tabs, { name: selectedTabElm.name });
+    const selectedTab = this.tabs.find(tab => tab.name === selectedTabElm.name);
     this.navCtrl.navigateRoot(selectedTab.route);
   }
   private updateTab(route: ActivatedRoute) {
@@ -42,7 +41,7 @@ export class ShellComponent implements OnInit {
         route = route.firstChild;
       }
       // Fixed #19420 end
-      this.selectedTabIndex = findIndex(this.tabs, { route: route.routeConfig.path });
+      this.selectedTabIndex = this.tabs.findIndex(tab => tab.route === route.routeConfig.path);
     }
   }
 }

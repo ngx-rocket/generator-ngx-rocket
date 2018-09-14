@@ -19,8 +19,8 @@ import { MaterialModule } from './material.module';
 <% } else if (props.ui === 'bootstrap') { -%>
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 <% } else if (props.ui === 'ionic') { -%>
-import { RouterModule, RouteReuseStrategy } from '@angular/router';
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -91,8 +91,13 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   declarations: [AppComponent],
   providers: [
-<% if (props.ui === 'ionic') { -%>
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+<% if (props.location === 'hash') { -%>
+    // This strategy with base-href './' allows to move the app to any subsite
+<%   if (props.target.includes('cordova')) { -%>
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+<%   } else { -%>
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+<%   } -%>
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
     StatusBar,

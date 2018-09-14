@@ -4,8 +4,6 @@ import { TranslateModule } from '@ngx-translate/core';
 <% if (props.ui === 'ionic') { -%>
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { IonicRouteStrategy } from '@ionic/angular';
-import { RouteReuseStrategy } from '@angular/router';
 <%   if (props.target.includes('cordova')) { -%>
 import { Platform } from '@ionic/angular';
 <%   } -%>
