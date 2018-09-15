@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 <% if (props.ui === 'ionic') { -%>
 import { LoadingController, Platform } from '@ionic/angular';
-import { switchMap } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { from } from 'rxjs';
 <% } -%>
 import { finalize } from 'rxjs/operators';
@@ -51,9 +51,9 @@ export class LoginComponent implements OnInit {
 <% } -%>
       .pipe(
 <% if (props.ui === 'ionic') { -%>
-        switchMap(loading => {
+        map(loading => {
           this.loading = loading;
-          return from(loading.present());
+          loading.present();
         }),
         switchMap(() => login$),
 <% } -%>
