@@ -23,9 +23,7 @@ export class LoginComponent implements OnInit {
   version: string = environment.version;
   error: string;
   loginForm: FormGroup;
-<% if (props.ui === 'ionic') { -%>
-  private loading: any;
-<% } else { -%>
+<% if (props.ui !== 'ionic') { -%>
   isLoading = false;
 <% } -%>
 
@@ -43,26 +41,20 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
 
   login() {
-    const login$ = this.authenticationService.login(this.loginForm.value);
 <% if (props.ui === 'ionic') { -%>
-    from(this.loadingController.create())
+    const loadingPromise = this.loadingController.create();
+    const loadingPresentedPromise = loadingPromise
+      .then(loading => loading.present());
 <% } else { -%>
-    login$
+    this.isLoading = true;
 <% } -%>
-      .pipe(
+    this.authenticationService.login(this.loginForm.value)
+      .pipe(finalize(() => {
+        this.loginForm.markAsPristine();
 <% if (props.ui === 'ionic') { -%>
-        map(loading => {
-          this.loading = loading;
-          loading.present();
-        }),
-        switchMap(() => login$),
-<% } -%>
-        finalize(() => {
-          this.loginForm.markAsPristine();
-<% if (props.ui === 'ionic') { -%>
-          this.loading.dismiss();
+        loadingPresentedPromise.then(() => loadingPromise.then(loading => loading.dismiss()));
 <% } else { -%>
-          this.isLoading = false;
+        this.isLoading = false;
 <% } -%>
       }))
       .subscribe(credentials => {
