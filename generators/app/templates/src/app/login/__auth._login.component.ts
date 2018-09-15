@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 <% if (props.ui === 'ionic') { -%>
 import { LoadingController, Platform } from '@ionic/angular';
+import { switchMap } from 'rxjs/operators';
+import { from } from 'rxjs';
 <% } -%>
 import { finalize } from 'rxjs/operators';
 
@@ -21,7 +23,9 @@ export class LoginComponent implements OnInit {
   version: string = environment.version;
   error: string;
   loginForm: FormGroup;
-<% if (props.ui !== 'ionic') { -%>
+<% if (props.ui === 'ionic') { -%>
+  private loading: any;
+<% } else { -%>
   isLoading = false;
 <% } -%>
 
@@ -39,20 +43,26 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
 
   login() {
+    const login$ = this.authenticationService.login(this.loginForm.value);
 <% if (props.ui === 'ionic') { -%>
-    const loadingPromise = this.loadingController.create();
-    const loadingPresentedPromise = loadingPromise
-      .then(loading => loading.present());
+    from(this.loadingController.create())
 <% } else { -%>
-    this.isLoading = true;
+    login$
 <% } -%>
-    this.authenticationService.login(this.loginForm.value)
-      .pipe(finalize(() => {
-        this.loginForm.markAsPristine();
+      .pipe(
 <% if (props.ui === 'ionic') { -%>
-        loadingPresentedPromise.then(() => loadingPromise.then(loading => loading.dismiss()));
+        switchMap(loading => {
+          this.loading = loading;
+          return from(loading.present());
+        }),
+        switchMap(() => login$),
+<% } -%>
+        finalize(() => {
+          this.loginForm.markAsPristine();
+<% if (props.ui === 'ionic') { -%>
+          this.loading.dismiss();
 <% } else { -%>
-        this.isLoading = false;
+          this.isLoading = false;
 <% } -%>
       }))
       .subscribe(credentials => {

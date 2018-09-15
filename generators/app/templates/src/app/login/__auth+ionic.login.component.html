@@ -18,28 +18,22 @@
         <div class="login-container">
           <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
             <ion-text color="danger" [hidden]="!error || loginForm.dirty">
-              <div padding translate>
-                Username or password incorrect.
-              </div>
+              <span padding translate>Username or password incorrect.</span>
             </ion-text>
             <ion-list lines="none">
               <ion-item>
                 <ion-label position="floating">{{'Username' | translate}}</ion-label>
                 <ion-input type="text" formControlName="username" autocomplete="username"></ion-input>
               </ion-item>
-              <ion-text color="danger" [hidden]="loginForm.get('username').valid || loginForm.get('username').untouched">
-                <div padding translate>
-                  Username is required
-                </div>
+              <ion-text color="danger" [hidden]="loginForm.controls.username.valid || loginForm.controls.username.untouched">
+                <span padding translate>Username is required</span>
               </ion-text>
               <ion-item>
                 <ion-label position="floating">{{'Password' | translate}}</ion-label>
                 <ion-input type="password" formControlName="password" autocomplete="current-password"></ion-input>
               </ion-item>
-              <ion-text color="danger" [hidden]="loginForm.get('password').valid || loginForm.get('password').untouched">
-                <div padding translate>
-                  Password is required
-                </div>
+              <ion-text color="danger" [hidden]="loginForm.controls.password.valid || loginForm.controls.password.untouched">
+                <span padding translate>Password is required</span>
               </ion-text>
               <ion-item padding-top lines="none">
                 <ion-checkbox formControlName="remember"></ion-checkbox>

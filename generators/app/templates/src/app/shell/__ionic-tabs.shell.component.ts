@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { Tab, NavController } from '@ionic/angular';
+import { Tab } from '@ionic/angular';
 import { filter } from 'rxjs/operators';
 import { SettingsComponent } from '@app/settings/settings.component';
 import { AboutComponent } from '@app/about/about.component';
@@ -19,7 +19,6 @@ export class ShellComponent implements OnInit {
   selectedTabIndex: number;
   subscription: any;
   constructor(private router: Router,
-              private navCtrl: NavController,
               private activatedRoute: ActivatedRoute) {
   }
   ngOnInit() {
@@ -27,7 +26,7 @@ export class ShellComponent implements OnInit {
   }
   onTabChange(selectedTabElm: Tab) {
     const selectedTab = this.tabs.find(tab => tab.name === selectedTabElm.name);
-    this.navCtrl.navigateRoot(selectedTab.route);
+    this.router.navigate([selectedTab.route]);
   }
   private updateTab(route: ActivatedRoute) {
     if (!route || !route.firstChild) {

@@ -3,9 +3,8 @@
 <% if (!props.auth) { -%>
     <ion-header>
       <ion-toolbar color="primary">
-        <ion-buttons *ngIf="isWeb" end>
-          <ion-button class="profile-button" color="light" (click)="showProfileActions()"
-            round fill="outline" size="small" slot="start">
+        <ion-buttons *ngIf="isWeb" slot="end">
+          <ion-button class="profile-button" (click)="changeLanguage()" slot="start">
             <ion-icon name="globe"></ion-icon>
           </ion-button>
         </ion-buttons>
@@ -19,10 +18,10 @@
         <div class="profile" text-center padding>
           <ion-icon class="profile-icon" name="contact"></ion-icon>
           <div>
-            <button class="profile-button" ion-button color="light" (click)="showProfileActions()"
-                    round outline small icon-start>
+            <ion-button class="profile-button" color="light" (click)="showProfileActions()"
+                    shape="round" fill="outline" size="small" slot="start">
               <ion-icon name="person"></ion-icon> {{username}}
-            </button>
+            </ion-button>
           </div>
         </div>
 <% } -%>

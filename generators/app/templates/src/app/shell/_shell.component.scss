@@ -48,16 +48,6 @@ $tabs-height: 8.2rem;
   font-size: 6rem;
   color: var(--ion-color-primary-contrast);
 }
-
-.profile-button {
-  border-color: var(--ion-color-primary-contrast);
-  border-radius: 15px;
-  border-style: solid;
-  border-width: 1px;
-  padding: 5px;
-  background-color: transparent;
-  color: var(--ion-color-primary-contrast);
-}
 <%   } -%>
 <% } else if (props.ui === 'material') { -%>
 <%   if (props.layout === 'simple') { -%>
