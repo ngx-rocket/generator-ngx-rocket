@@ -1,11 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-<% if (props.ui === 'ionic') { -%>
 import { NgModule } from '@angular/core';
-<% } else { -%>
-import { NgModule } from '@angular/core';
-<%   if (props.location === 'hash') { -%>
+<% if (props.location === 'hash') { -%>
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-<%   } -%>
 <% } -%>
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
