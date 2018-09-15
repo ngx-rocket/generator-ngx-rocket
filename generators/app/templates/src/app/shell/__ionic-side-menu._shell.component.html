@@ -4,9 +4,11 @@
     <ion-header>
       <ion-toolbar color="primary">
         <ion-buttons *ngIf="isWeb" slot="end">
-          <ion-button class="profile-button" (click)="changeLanguage()" slot="start">
-            <ion-icon name="globe"></ion-icon>
-          </ion-button>
+          <ion-menu-toggle auto-hide="false">
+            <ion-button class="profile-button" (click)="changeLanguage()">
+              <ion-icon name="globe"></ion-icon>
+            </ion-button>
+          </ion-menu-toggle>
         </ion-buttons>
         <ion-title>{{'APP_NAME' | translate}}</ion-title>
       </ion-toolbar>
@@ -18,10 +20,12 @@
         <div class="profile" text-center padding>
           <ion-icon class="profile-icon" name="contact"></ion-icon>
           <div>
-            <ion-button class="profile-button" color="light" (click)="showProfileActions()"
-                    shape="round" fill="outline" size="small" slot="start">
-              <ion-icon name="person"></ion-icon> {{username}}
-            </ion-button>
+            <ion-menu-toggle auto-hide="false">
+              <ion-button class="profile-button" color="light" (click)="showProfileActions()"
+                      shape="round" fill="outline" size="small">
+                <ion-icon name="person"></ion-icon> {{username}}
+              </ion-button>
+            </ion-menu-toggle>
           </div>
         </div>
 <% } -%>
