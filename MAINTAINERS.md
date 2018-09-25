@@ -40,8 +40,8 @@ Then follow these steps:
    
 8. Rebase `ci/*` branches onto `master` (could be automated). This should also be done regularly outside release cycle,
    after merging new PR for example.
-
-9. Done! :tropical_drink:
+   
+9. Done! :tropical_drink: Now you can tell the world a new version is out! :speaker:
 
 ## Dedicated CI branches
 
