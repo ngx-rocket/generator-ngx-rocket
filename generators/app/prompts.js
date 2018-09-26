@@ -133,7 +133,7 @@ module.exports = [
   {
     type: 'list',
     name: 'i18n-default',
-    message: 'Which language are the default(fall back)?',
+    message: 'Which language is the default (fall back)?',
     when: props => props.i18n && props['i18n-langs'].length,
     choices: props => props['i18n-langs']
   },
