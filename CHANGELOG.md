@@ -1,5 +1,30 @@
 # Change Log
 
+## [5.2.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/5.2.0) (2018-09-25)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/5.1.0...5.2.0)
+
+**Enhancements**:
+
+- Infinite loop when moving `AppRoutingModule` before `LoginModule ` in `imports` in `AppModule` [\#384](https://github.com/ngx-rocket/generator-ngx-rocket/issues/384) [[documentation](https://github.com/ngx-rocket/generator-ngx-rocket/labels/documentation)]
+- Prettier support [\#303](https://github.com/ngx-rocket/generator-ngx-rocket/issues/303) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+-  Added prettier support \(closes \#303\) and init git repo by default [\#380](https://github.com/ngx-rocket/generator-ngx-rocket/pull/380) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Added Angular update guide and updated maintainers doc [\#379](https://github.com/ngx-rocket/generator-ngx-rocket/pull/379) [[documentation](https://github.com/ngx-rocket/generator-ngx-rocket/labels/documentation)]
+
+**Fixed bugs:**
+
+- npm start gets dependency failure. Flexbox with rxjs [\#376](https://github.com/ngx-rocket/generator-ngx-rocket/issues/376)
+- Skip checksum checking for Chrome install on Appveyor to fix CI [\#382](https://github.com/ngx-rocket/generator-ngx-rocket/pull/382)
+
+**Closed issues:**
+
+- Cannot run cordova build  [\#363](https://github.com/ngx-rocket/generator-ngx-rocket/issues/363)
+- Auth guard triggering only once in lazy loaded modules [\#312](https://github.com/ngx-rocket/generator-ngx-rocket/issues/312)
+
+**Merged pull requests:**
+
+- Commented the importance of module import order [\#386](https://github.com/ngx-rocket/generator-ngx-rocket/pull/386)
+- Updated dependencies and fixed translations imports with angular/cli@6.2 [\#378](https://github.com/ngx-rocket/generator-ngx-rocket/pull/378)
+
 ## [5.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/5.1.0) (2018-09-10)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/5.0.1...5.1.0)
 
