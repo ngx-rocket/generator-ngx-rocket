@@ -9,7 +9,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 <% if (props.ui === 'material') { -%>
 import { MaterialModule } from '@app/material.module';
 <% } -%>
-import { I18nModule, I18nLangSelectorComponent } from '@i18n';
+import { I18nModule, LanguageSelectorComponent } from '@i18n';
 import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
@@ -28,7 +28,7 @@ import { LoaderComponent } from './loader/loader.component';
   ],
   exports: [
     LoaderComponent,
-    I18nLangSelectorComponent
+    LanguageSelectorComponent
   ]
 })
 export class SharedModule { }
