@@ -10,7 +10,7 @@ import { IonicModule } from 'ionic-angular';
 <% } -%>
 
 import { I18nService } from './i18n.service';
-import { LanguageSelectorComponent } from './i18n-lang-selector.component';
+import { LanguageSelectorComponent } from './language-selector.component';
 <% if (props.ui === 'material') { -%>
 import { MaterialModule } from '@app/material.module';
 <% } -%>
