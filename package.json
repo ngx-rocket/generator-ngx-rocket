@@ -1,6 +1,6 @@
 {
   "name": "generator-ngx-rocket",
-  "version": "5.1.0",
+  "version": "5.2.0",
   "description": "Extensible Angular 6+ enterprise-grade project generator based on angular-cli with best practices from the community. Includes PWA and Cordova support, coding guides and more!",
   "repository": "ngx-rocket/generator-ngx-rocket",
   "keywords": [
@@ -66,7 +66,7 @@
     "yeoman-environment": "^2.3.3"
   },
   "devDependencies": {
-    "eslint": "^5.5.0",
+    "eslint": "^5.6.0",
     "eslint-config-xo-space": "^0.20.0"
   },
   "engines": {
