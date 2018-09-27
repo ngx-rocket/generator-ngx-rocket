@@ -1,6 +1,7 @@
 branches:
   only:
     - master
+    - /release\/.*/
 
 environment:
   nodejs_version: ""

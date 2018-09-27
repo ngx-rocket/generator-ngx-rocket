@@ -5,7 +5,8 @@ git:
 
 branches:
   only:
-    - 'master'
+    - master
+    - /release\/.*/
 
 language: node_js
 node_js:
