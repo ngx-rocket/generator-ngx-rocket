@@ -128,7 +128,10 @@ module.exports = [
     name: 'i18nLanguages',
     message: 'Which languages do you want to support?',
     when: props => props.i18n,
-    choices: () => getLangs().map(lang => ({value: lang, name: lang, checked: true}))
+    choices: () => getLangs().map(lang => ({value: lang, name: lang, checked: true})),
+    validate: value => {
+      return value.length > 0 ? true: 'You should pick one language at least.';
+    }
   },
   {
     type: 'list',
