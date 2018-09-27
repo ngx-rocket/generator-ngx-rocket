@@ -5,6 +5,6 @@ export const environment = {
   production: true,
   version: env.npm_package_version,
   serverUrl: 'https://api.chucknorris.io',
-  defaultLanguage: '<%=props['i18n-default'] || (props['i18n-langs'] && props['i18n-langs'][0])%>',
-  supportedLanguages: [<%- (props['i18n-langs'] || []).map( lang => `'${lang}'`).join(', ') %>]
+  defaultLanguage: '<%=props['i18nDefault'] || (props['i18nLanguages'] && props['i18nLanguages'][0])%>',
+  supportedLanguages: [<%- (props['i18nLanguages'] || []).map( lang => `'${lang}'`).join(', ') %>]
 };

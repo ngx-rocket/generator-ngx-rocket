@@ -125,17 +125,17 @@ module.exports = [
   },
   {
     type: 'checkbox',
-    name: 'i18n-langs',
+    name: 'i18nLanguages',
     message: 'Which languages do you want to support?',
     when: props => props.i18n,
     choices: () => getLangs().map(lang => ({value: lang, name: lang, checked: true}))
   },
   {
     type: 'list',
-    name: 'i18n-default',
+    name: 'i18nDefault',
     message: 'Which language is the default (fall back)?',
-    when: props => props.i18n && props['i18n-langs'].length,
-    choices: props => props['i18n-langs']
+    when: props => props.i18n && props.i18nLanguages.length,
+    choices: props => props.i18nLanguages
   },
   {
     type: 'confirm',
