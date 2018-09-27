@@ -18,6 +18,7 @@ general:
   branches:
     only:
       - master
+      - /release\/.*/
 
 defaults: &defaults
   docker:
