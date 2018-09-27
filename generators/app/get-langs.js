@@ -3,15 +3,6 @@
 const fs = require('fs');
 const path = require('path');
 
-function inExists(arr, value) {
-  for (const i of arr) {
-    if (i === value) {
-      return true;
-    }
-  }
-  return false;
-}
-
 function getFiles(dir, exts) {
   const files = [];
   if (typeof exts === 'string') {
@@ -19,7 +10,7 @@ function getFiles(dir, exts) {
   }
   fs.readdirSync(dir).forEach(file => {
     if (!fs.statSync(path.join(dir, file)).isDirectory()) {
-      if (!exts || inExists(exts, path.extname(file))) {
+      if (!exts || exts.includes(path.extname(file))) {
         files.push(file);
       }
     }
