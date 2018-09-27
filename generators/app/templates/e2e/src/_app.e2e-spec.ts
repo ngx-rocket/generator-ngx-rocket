@@ -1,25 +1,43 @@
-<% if (props.auth) { -%>
 import { browser } from 'protractor';
+<% if (props.auth) { -%>
+import { LoginPage } from './page-objects/login.po';
 <% } -%>
-import { AppPage } from './app.po';
+import { AppSharedPage } from './page-objects/app-shared.po';
+import { ShellPage } from './page-objects/shell.po';
 
-describe('app', () => {
-  let page: AppPage;
+describe('when the app loads', () => {
+<% if (props.auth) { -%>
+  const login = new LoginPage();
+<% } -%>
+  const app = new AppSharedPage();
+  const shell = new ShellPage();
 
-  beforeEach(() => {
-    page = new AppPage();
+  beforeAll(() => {
+    app.navigateAndSetLanguage();
   });
 
 <% if (props.auth) { -%>
-  it('should display login page and login into app', () => {
-    page.navigateTo();
+  it('should display the login page', () => {
     expect(browser.getCurrentUrl()).toContain('/login');
-    page.login();
+  });
+
+<% } else { -%>
+  it('should display the shell page', () => {
+    expect(browser.getCurrentUrl()).toContain('/');
   });
 
 <% } -%>
-  it('should display hello message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Hello world !');
+<% if (props.auth) { -%>
+  describe('and the user logs in', () => {
+    beforeAll(() => {
+      login.login();
+    });
+
+<% } else { -%>
+  describe('and the page loads', () => {
+<% } -%>
+    it('should display the hello message', () => {
+      expect(shell.getParagraphText()).toEqual('Hello world !');
+    });
   });
 });
