@@ -115,14 +115,14 @@ pass arguments to the underlying command, and script name is fuzzy matched.
 
 For example in a ngX-Rocket project you can use these commands:
 ```sh
-ngx start --env=prod
+ngx start --configuration=production
 ngx generate component myComponent --module myModule
 ngx build --build-optimizer
 ```
 
 Instead of typing the full script name, you can also type only the first letters:
 ```sh
-ngx s --env=prod
+ngx s --configuration=production
 ngx g component myComponent --module myModule
 ngx b --build-optimizer
 ```

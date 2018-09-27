@@ -65,15 +65,15 @@ Task                            | Description
 <% } -%>
 <% if (props.target.includes('web')) { -%>
 <%   if (props.target.includes('cordova')) { -%>
-`npm run build [-- --env=prod]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `www/` folder
+`npm run build [-- --configuration=production]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `www/` folder
 <%   } else { -%>
-`npm run build [-- --env=prod]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `dist/` folder
+`npm run build [-- --configuration=production]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `dist/` folder
 <%   } -%>
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
 `npm run cordova:prepare`       | Prepare for building mobile app (restore Cordova platforms and plugins)
-`npm run cordova:run <ios/android> [--device]` | Run app on target platform device or simulator
-`npm run cordova:build [-- --env=prod]`        | Build mobile app for production in `dist/` folder
+`npm run cordova:run <ios/android> [--device]`          | Run app on target platform device or simulator
+`npm run cordova:build [-- --configuration=production]` | Build mobile app for production in `dist/` folder
 `npm run cordova:clean`         | Removes `www/`, `platforms/` and `plugins/` folders
 <% } -%>
 <% if (props.target.includes('electron')) { -%>
@@ -90,11 +90,14 @@ Task                            | Description
 `npm run lint`                  | Lint code
 `npm run translations:extract`  | Extract strings from code and templates to `src/app/translations/template.json`
 `npm run docs`                  | Display project documentation
+<% if (props.prettier) { -%>
+`npm run prettier`              | Automatically format all `.ts`, `.js` & `.scss` files
+<% } -%>
 
-When building the application, you can specify the target environment using the additional flag `--env <name>` (do not
-forget to prepend `--` to pass arguments to npm scripts).
+When building the application, you can specify the target configuration using the additional flag
+`--configuration <name>` (do not forget to prepend `--` to pass arguments to npm scripts).
 
-The default build environment is `prod`.
+The default build configuration is `prod`.
 
 ## Development server
 
@@ -115,6 +118,29 @@ you can also use the command `ng generate` directly.
 Tasks are mostly based on the `angular-cli` tool. Use `ng help` to get more help or go check out the
 [Angular-CLI README](https://github.com/angular/angular-cli).
 
+<% if (props.prettier) { -%>
+## Code formatting
+
+All `.ts`, `.js` & `.scss` files in this project are formatted automatically using [Prettier](https://prettier.io),
+and enforced via the `test:ci` script.
+<% if (options.git) { -%>
+
+A pre-commit git hook has been configured on this project to automatically format staged files, using
+(pretty-quick)[https://github.com/azz/pretty-quick], so you don't have to care for it.
+
+You can also force code formatting by running the command `npm run prettier`.
+<% } else { -%>
+
+You can force code formatting by running the command `npm run prettier`.
+
+To improve your workflow, you should consider adding a [pre-commit hook](https://prettier.io/docs/en/precommit.html)
+to make sure that code is formatted properly. 
+
+You can also take a look at [editors integration](https://prettier.io/docs/en/editors.html) if you do not want to
+setup a pre-commit hook.
+<% } -%>
+
+<% } -%>
 # What's in the box
 
 The app template is based on [HTML5](http://whatwg.org/html), [TypeScript](http://www.typescriptlang.org) and
@@ -135,6 +161,9 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - Static code analysis: [TSLint](https://github.com/palantir/tslint), [Codelyzer](https://github.com/mgechev/codelyzer),
   [Stylelint](http://stylelint.io) and [HTMLHint](http://htmlhint.com/)
 - Local knowledgebase server using [Hads](https://github.com/sinedied/hads)
+<% if (props.prettier) { -%>
+- Automatic code formatting with [Prettier](https://prettier.io)
+<% } -%>
 
 #### Libraries
 

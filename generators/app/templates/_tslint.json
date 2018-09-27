@@ -1,4 +1,9 @@
 {
+<% if (props.prettier) { -%>
+  "extends": [
+    "tslint-config-prettier"
+  ],
+<% } -%>
   "rulesDirectory": [
     "node_modules/codelyzer"
   ],
@@ -37,10 +42,19 @@
       true,
       {
         "order": [
-          "static-field",
-          "instance-field",
-          "static-method",
-          "instance-method"
+          "public-static-field",
+          "protected-static-field",
+          "private-static-field",
+          "public-instance-field",
+          "protected-instance-field",
+          "private-instance-field",
+          "public-static-method",
+          "protected-static-method",
+          "private-static-method",
+          "constructor",
+          "public-instance-method",
+          "protected-instance-method",
+          "private-instance-method"
         ]
       }
     ],
@@ -49,7 +63,6 @@
     "no-console": [
       true,
       "debug",
-      "info",
       "time",
       "timeEnd",
       "trace"

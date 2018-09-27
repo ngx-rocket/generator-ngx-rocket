@@ -1,0 +1,19 @@
+@import "src/theme/theme-variables";
+
+[ion-fixed] {
+  width: 100%;
+  height: 100%;
+}
+
+.profile {
+  background: color($colors, primary);
+}
+
+.profile-icon {
+  font-size: 6rem;
+  color: color-contrast($colors, primary);
+}
+
+.profile-title {
+  color: color-contrast($colors, primary);
+}

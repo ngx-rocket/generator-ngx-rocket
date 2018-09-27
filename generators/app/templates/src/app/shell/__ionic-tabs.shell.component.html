@@ -1,0 +1,3 @@
+<ion-tabs #navTabs *ngIf="tabs" [selectedIndex]="selectedTabIndex" (ionChange)="onTabChange($event)">
+  <ion-tab *ngFor="let t of tabs" [root]="t.component" [tabTitle]="t.title | translate" [tabIcon]="t.icon"></ion-tab>
+</ion-tabs>
