@@ -118,17 +118,10 @@ module.exports = [
     when: props => props.ui !== 'ionic'
   },
   {
-    type: 'confirm',
-    name: 'i18n',
-    message: 'Do you want language internationalization support?',
-    default: true
-  },
-  {
     type: 'checkbox',
     name: 'i18nLanguages',
     message: 'Which languages do you want to support?',
-    when: props => props.i18n,
-    choices: () => getLangs().map(lang => ({value: lang, name: lang, checked: true})),
+    choices: () => getLangs().map(lang => ({value: lang, name: lang, checked: lang==='en-US'})),
     validate: value => {
       return value.length > 0 ? true: 'You should pick one language at least.';
     }
@@ -137,7 +130,7 @@ module.exports = [
     type: 'list',
     name: 'i18nDefault',
     message: 'Which language is the default (fall back)?',
-    when: props => props.i18n && props.i18nLanguages.length,
+    when: props => props.i18nLanguages.length > 1,
     choices: props => props.i18nLanguages
   },
   {
