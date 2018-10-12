@@ -9,6 +9,8 @@ export class MockAuthenticationService {
     token: '123'
   };
 
+  redirectUrl: string | null = '/about';
+
   login(context: LoginContext): Observable<Credentials> {
     return of({
       username: context.username,
