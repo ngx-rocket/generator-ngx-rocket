@@ -42,6 +42,14 @@ export class LoginComponent implements OnInit {
 
   login() {
 <% if (props.ui === 'ionic') { -%>
+<% /**
+     * currently a workaround for ionic zone handling - needs rewrite for readability.
+     * See: https://github.com/ngx-rocket/generator-ngx-rocket/pull/369#discussion_r217625108
+     * Revert https://github.com/ngx-rocket/generator-ngx-rocket/pull/369/commits/4969a42a7a56a03e699498c70d987a23eea1aee4
+     * when ionic overlay zone handling works again
+     * Also see https://github.com/angular/zone.js/issues/1142
+     */
+-%>
     const loadingPromise = this.loadingController.create();
     const loadingPresentedPromise = loadingPromise
       .then(loading => loading.present());
