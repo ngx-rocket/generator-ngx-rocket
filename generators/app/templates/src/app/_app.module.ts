@@ -22,7 +22,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
-import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 <% } -%>
@@ -107,7 +106,6 @@ import { AppRoutingModule } from './app-routing.module';
 <%   } -%>
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
-    Keyboard,
     StatusBar,
     SplashScreen
 <% } -%>
