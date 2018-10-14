@@ -50,9 +50,9 @@ export class LoginComponent implements OnInit {
      * Also see https://github.com/angular/zone.js/issues/1142
      */
 -%>
-    const loadingPromise = this.loadingController.create();
-    const loadingPresentedPromise = loadingPromise
-      .then(loading => loading.present());
+    // const loadingPromise = this.loadingController.create();
+    // const loadingPresentedPromise = loadingPromise
+    //  .then(loading => loading.present());
 <% } else { -%>
     this.isLoading = true;
 <% } -%>
@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
       .pipe(finalize(() => {
         this.loginForm.markAsPristine();
 <% if (props.ui === 'ionic') { -%>
-        loadingPresentedPromise.then(() => loadingPromise.then(loading => loading.dismiss()));
+        // loadingPresentedPromise.then(() => loadingPromise.then(loading => loading.dismiss()));
 <% } else { -%>
         this.isLoading = false;
 <% } -%>
