@@ -27,7 +27,6 @@ import { environment } from '@env/environment';
 import { Logger, I18nService } from '@app/core';
 
 <% if (props.target.includes('cordova')) { -%>
-declare var Keyboard: any;
 
 <% } -%>
 const log = new Logger('App');
@@ -113,7 +112,7 @@ export class AppComponent implements OnInit {
 
   private onCordovaReady() {
     if (window['cordova']) {
-      Keyboard.hideFormAccessoryBar(true);
+      window['Keyboard'].hideFormAccessoryBar(true);
 <% if (props.ui === 'ionic') { -%>
       this.statusBar.styleLightContent();
 <% } else { -%>
