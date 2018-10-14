@@ -5,8 +5,7 @@
 
 import { browser, element, by } from 'protractor';
 
-export class AppPage {
-<% if (props.auth) { -%>
+export class LoginPage {
 <%   if (props.ui === 'ionic') { -%>
   usernameField = element(by.css('ion-input[formControlName="username"]'));
   passwordField = element(by.css('ion-input[formControlName="password"]'));
@@ -17,32 +16,12 @@ export class AppPage {
   loginButton = element(by.css('button[type="submit"]'));
 <%   } -%>
 
-<% } -%>
   constructor() {
-    // Forces default language
-    this.navigateTo();
-    browser.executeScript(() => localStorage.setItem('language', 'en-US'));
   }
 
-  navigateTo() {
-    return browser.get('/');
-  }
-
-<% if (props.auth) { -%>
   login() {
     this.usernameField.sendKeys('test');
     this.passwordField.sendKeys('123');
     this.loginButton.click();
-  }
-
-<% } -%>
-  getParagraphText() {
-<% if (props.ui === 'ionic') { -%>
-    return element(by.css('app-root ion-card-title')).getText();
-<% } else if (props.ui === 'material') { -%>
-    return element(by.css('app-root mat-card-title')).getText();
-<% } else { -%>
-    return element(by.css('app-root h1')).getText();
-<% } -%>
   }
 }
