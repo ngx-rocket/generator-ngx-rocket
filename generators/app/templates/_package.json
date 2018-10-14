@@ -63,7 +63,7 @@
     "@angular/service-worker": "^6.1.7",
 <% } -%>
 <% if (props.ui === 'ionic') { -%>
-    "@ionic/angular": "^4.0.0-beta.12",
+    "@ionic/angular": "4.0.0-beta.12",
 <% } else if (props.ui === 'bootstrap') { -%>
     "@ng-bootstrap/ng-bootstrap": "^3.2.0",
     "bootstrap": "^4.1.1",
