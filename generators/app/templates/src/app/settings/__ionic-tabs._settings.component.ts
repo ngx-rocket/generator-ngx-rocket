@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActionSheetController, AlertController, Platform } from 'ionic-angular';
+import { ActionSheetController, AlertController, Platform } from '@ionic/angular';
+import { TextFieldTypes } from '@ionic/core';
 import { TranslateService } from '@ngx-translate/core';
 import { I18nService } from '@app/core/i18n.service';
 <% if (props.auth) { -%>
@@ -44,11 +45,12 @@ export class SettingsComponent implements OnInit {
 <% } -%>
 
   changeLanguage() {
-    this.alertController
-      .create({
-        title: this.translateService.instant('Change language'),
+    this.alertController.create(
+      {
+        header: this.translateService.instant('Change language'),
         inputs: this.i18nService.supportedLanguages.map(language => ({
-          type: 'radio',
+          type: 'radio' as TextFieldTypes,
+          name: language,
           label: language,
           value: language,
           checked: language === this.i18nService.language
@@ -65,7 +67,7 @@ export class SettingsComponent implements OnInit {
             }
           }
         ]
-      })
-      .present();
+      }
+    ).then(alertController => alertController.present());
   }
 }

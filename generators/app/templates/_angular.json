@@ -1,5 +1,5 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "$schema": "./node_modules/@angular-devkit/core/src/workspace/workspace-schema.json",
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -30,6 +30,13 @@
 <% } -%>
 <% if (props.pwa) { -%>
               "src/manifest.json",
+<% } -%>
+<% if (props.ui === 'ionic') { -%>
+              {
+                "glob": "**/*",
+                "input": "node_modules/@ionic/angular/dist/ionic/svg",
+                "output": "svg"
+              },
 <% } -%>
               "src/assets"
             ],
