@@ -6,9 +6,15 @@
 import { browser, element, by } from 'protractor';
 
 export class LoginPage {
+<%   if (props.ui === 'ionic') { -%>
+  usernameField = element(by.css('ion-input[formControlName="username"]'));
+  passwordField = element(by.css('ion-input[formControlName="password"]'));
+  loginButton = element(by.css('ion-button[type="submit"]'));
+<%   } else { -%>
   usernameField = element(by.css('input[formControlName="username"]'));
   passwordField = element(by.css('input[formControlName="password"]'));
   loginButton = element(by.css('button[type="submit"]'));
+<%   } -%>
 
   constructor() {
   }
