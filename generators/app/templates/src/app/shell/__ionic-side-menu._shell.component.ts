@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { ActionSheetController, AlertController, Platform, ActionSheetOptions } from 'ionic-angular';
-import { ActionSheetButton } from 'ionic-angular/components/action-sheet/action-sheet-options';
+import { Router } from '@angular/router';
+import { ActionSheetController, AlertController, Platform } from '@ionic/angular';
+import { ActionSheetButton, ActionSheetOptions, TextFieldTypes } from '@ionic/core';
 import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs/operators';
 
@@ -16,13 +16,12 @@ import { I18nService } from '@app/core';
   templateUrl: './shell.component.html',
   styleUrls: ['./shell.component.scss']
 })
-export class ShellComponent implements OnInit {
+export class ShellComponent {
 
   navRoot: Component;
   subscription: any;
 
   constructor(private router: Router,
-              private activatedRoute: ActivatedRoute,
               private translateService: TranslateService,
               private platform: Platform,
               private alertController: AlertController,
@@ -32,19 +31,9 @@ export class ShellComponent implements OnInit {
 <% } -%>
               private i18nService: I18nService) { }
 
-  ngOnInit() {
-    this.updateNav(this.activatedRoute);
-
-    // Bind Ionic navigation to Angular router events
-    this.subscription = this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => this.updateNav(this.activatedRoute));
-    }
-
 <% if (props.auth) { -%>
   showProfileActions() {
-    const actionSheetOptions: ActionSheetOptions = { title: this.username || undefined };
-    const actionSheet = this.actionSheetController.create(actionSheetOptions);
+    let createdActionSheet: any;
     const buttons: ActionSheetButton[] = [
       {
         text: this.translateService.instant('Logout'),
@@ -58,7 +47,7 @@ export class ShellComponent implements OnInit {
         handler: () => {
           // Wait for action sheet dismiss animation to finish, see "Dismissing And Async Navigation" section in:
           // http://ionicframework.com/docs/api/components/action-sheet/ActionSheetController/#advanced
-          actionSheet.dismiss().then(() => this.changeLanguage());
+          createdActionSheet.dismiss().then(() => this.changeLanguage());
           return false;
         }
       },
@@ -74,8 +63,16 @@ export class ShellComponent implements OnInit {
       buttons.splice(1, 1);
     }
 
-    buttons.forEach(button => actionSheet.addButton(button));
-    actionSheet.present();
+    const actionSheetOptions: ActionSheetOptions = {
+      header: (this.username || undefined),
+      buttons: buttons
+    };
+
+    this.actionSheetController.create(actionSheetOptions)
+      .then(actionSheet => {
+        createdActionSheet = actionSheet;
+        actionSheet.present();
+      });
   }
 
   get username(): string | null {
@@ -100,11 +97,12 @@ export class ShellComponent implements OnInit {
 
   changeLanguage() {
 <% } -%>
-    this.alertController
-      .create({
-        title: this.translateService.instant('Change language'),
+    this.alertController.create(
+      {
+        header: this.translateService.instant('Change language'),
         inputs: this.i18nService.supportedLanguages.map(language => ({
-          type: 'radio',
+          type: 'radio' as TextFieldTypes,
+          name: language,
           label: language,
           value: language,
           checked: language === this.i18nService.language
@@ -121,24 +119,8 @@ export class ShellComponent implements OnInit {
             }
           }
         ]
-      })
-      .present();
-  }
-
-  private updateNav(route: ActivatedRoute) {
-    if (!route || !route.firstChild) {
-      return;
-    }
-    // First component should always be IonicApp
-    route = route.firstChild;
-    if (route && route.component === ShellComponent && route.firstChild) {
-      // Loop needed for lazy-loaded routes, see: https://github.com/angular/angular/issues/19420
-      while (route.firstChild) {
-        route = route.firstChild;
       }
-
-      this.navRoot = <Component>route.component;
-    }
+    ).then(alertController => alertController.present());
   }
 
 }

@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 <% if (props.ui === 'ionic') { -%>
-import { LoadingController, Platform } from 'ionic-angular';
+import { LoadingController, Platform } from '@ionic/angular';
+import { map, switchMap } from 'rxjs/operators';
+import { from } from 'rxjs';
 <% } -%>
 import { finalize } from 'rxjs/operators';
 
@@ -40,8 +42,17 @@ export class LoginComponent implements OnInit {
 
   login() {
 <% if (props.ui === 'ionic') { -%>
-    const loading = this.loadingController.create();
-    loading.present();
+<% /**
+     * currently a workaround for ionic zone handling - needs rewrite for readability.
+     * See: https://github.com/ngx-rocket/generator-ngx-rocket/pull/369#discussion_r217625108
+     * Revert https://github.com/ngx-rocket/generator-ngx-rocket/pull/369/commits/4969a42a7a56a03e699498c70d987a23eea1aee4
+     * when ionic overlay zone handling works again
+     * Also see https://github.com/angular/zone.js/issues/1142
+     */
+-%>
+    // const loadingPromise = this.loadingController.create();
+    // const loadingPresentedPromise = loadingPromise
+    //  .then(loading => loading.present());
 <% } else { -%>
     this.isLoading = true;
 <% } -%>
@@ -49,7 +60,7 @@ export class LoginComponent implements OnInit {
       .pipe(finalize(() => {
         this.loginForm.markAsPristine();
 <% if (props.ui === 'ionic') { -%>
-        loading.dismiss();
+        // loadingPresentedPromise.then(() => loadingPromise.then(loading => loading.dismiss()));
 <% } else { -%>
         this.isLoading = false;
 <% } -%>

@@ -148,6 +148,7 @@
     "component-selector": [
       true,
       "element",
+      "page",
       "app",
       "kebab-case"
     ],
