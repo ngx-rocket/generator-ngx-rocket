@@ -23,14 +23,14 @@ const credentialsKey = 'credentials';
 export class AuthenticationService {
 
   private _credentials: Credentials | null;
-  private _redirectUrl: string;
+  redirectUrl: string;
 
   constructor() {
     const savedCredentials = sessionStorage.getItem(credentialsKey) || localStorage.getItem(credentialsKey);
     if (savedCredentials) {
       this._credentials = JSON.parse(savedCredentials);
     }
-    this._redirectUrl = '';
+    this.redirectUrl = '';
   }
 
   /**
@@ -93,19 +93,4 @@ export class AuthenticationService {
     }
   }
 
-  /**
-   * Getter redirectUrl
-   * @return {string}
-   */
-  public get redirectUrl(): string {
-    return this._redirectUrl;
-  }
-
-  /**
-   * Setter redirectUrl
-   * @param {string} value
-   */
-  public set redirectUrl(value: string) {
-    this._redirectUrl = value;
-  }
 }

@@ -56,12 +56,8 @@ export class LoginComponent implements OnInit {
       }))
       .subscribe(credentials => {
         log.debug(`${credentials.username} successfully logged in`);
-        if (this.authenticationService.redirectUrl) {
-          this.router.navigate([this.authenticationService.redirectUrl], { replaceUrl: true});
-          this.authenticationService.redirectUrl = '';
-        } else {
-          this.router.navigate(['/'], { replaceUrl: true });
-        }
+        this.router.navigate([this.authenticationService.redirectUrl || '/'], { replaceUrl: true});
+        this.authenticationService.redirectUrl = '';
       }, error => {
         log.debug(`Login error: ${error}`);
         this.error = error;
