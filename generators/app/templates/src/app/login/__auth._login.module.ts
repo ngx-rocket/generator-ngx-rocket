@@ -5,7 +5,8 @@ import { TranslateModule } from '@ngx-translate/core';
 <% if (props.ui === 'bootstrap') { -%>
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 <% } else if (props.ui === 'ionic') { -%>
-import { IonicModule } from 'ionic-angular';
+import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
 <% } else if (props.ui === 'material') { -%>
 import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
@@ -26,6 +27,7 @@ import { LoginComponent } from './login.component';
 <% if (props.ui === 'bootstrap') { -%>
     NgbModule,
 <% } else if (props.ui === 'ionic') { -%>
+    FormsModule,
     IonicModule,
 <% } else if (props.ui === 'material') { -%>
     SharedModule,

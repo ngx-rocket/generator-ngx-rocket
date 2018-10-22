@@ -7,7 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 <% } else if (props.ui === 'material') { -%>
 import { FlexLayoutModule } from '@angular/flex-layout';
 <% } else if (props.ui === 'ionic') { -%>
-import { IonicModule } from 'ionic-angular';
+import { IonicModule } from '@ionic/angular';
 <% } -%>
 <% if (props.ui === 'material') { -%>
 import { MaterialModule } from '@app/material.module';

@@ -12,15 +12,12 @@ import { merge } from 'rxjs';
 import { filter, map, mergeMap } from 'rxjs/operators';
 <% if (props.ui === 'ionic') { -%>
 <%   if (props.target.includes('cordova')) { -%>
-import { IonicApp, Nav, Platform } from 'ionic-angular';
-<%   } else { -%>
-import { IonicApp, Nav } from 'ionic-angular';
+import { Platform } from '@ionic/angular';
 <%   } -%>
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
-import { Keyboard } from '@ionic-native/keyboard';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 <% } -%>
 <% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
@@ -30,6 +27,9 @@ import { environment } from '@env/environment';
 import { Logger } from '@core';
 import { I18nService } from '@i18n';
 
+<% if (props.target.includes('cordova')) { -%>
+
+<% } -%>
 const log = new Logger('App');
 
 @Component({
@@ -38,10 +38,6 @@ const log = new Logger('App');
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-<% if (props.ui === 'ionic') { -%>
-
-  @ViewChild(Nav) nav: Nav;
-<% } -%>
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
@@ -53,7 +49,6 @@ export class AppComponent implements OnInit {
 <%   } else { -%>
               private zone: NgZone,
 <%   } -%>
-              private keyboard: Keyboard,
               private statusBar: StatusBar,
               private splashScreen: SplashScreen,
 <% } -%>
@@ -102,8 +97,6 @@ export class AppComponent implements OnInit {
       });
 <% if (props.ui === 'ionic') { -%>
 
-    // Bind Ionic navigation to Angular router events
-    onNavigationEnd.subscribe(() => this.updateNav(this.activatedRoute));
 <%   if (props.target.includes('cordova')) { -%>
 
     // Cordova platform and plugins initialization
@@ -120,26 +113,13 @@ export class AppComponent implements OnInit {
 
   private onCordovaReady() {
     if (window['cordova']) {
-      this.keyboard.hideKeyboardAccessoryBar(true);
+      window['Keyboard'].hideFormAccessoryBar(true);
 <% if (props.ui === 'ionic') { -%>
       this.statusBar.styleLightContent();
 <% } else { -%>
       this.statusBar.styleDefault();
 <% } -%>
       this.splashScreen.hide();
-    }
-  }
-<% } -%>
-<% if (props.ui === 'ionic') { -%>
-  private updateNav(route: ActivatedRoute) {
-    if (route.component === IonicApp) {
-      if (!route.firstChild) {
-        return;
-      }
-      route = route.firstChild;
-      if (!this.nav.getActive() || this.nav.getActive().component !== route.component) {
-        this.nav.setRoot(route.component, route.params, { animate: true, direction: 'forward' });
-      }
     }
   }
 <% } -%>

@@ -2,7 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 <% if (props.ui === 'ionic') { -%>
-import { IonicModule } from 'ionic-angular';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 <% } else if (props.ui === 'bootstrap') { -%>
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 <% } else if (props.ui === 'material') { -%>
@@ -41,7 +42,7 @@ describe('ShellComponent', () => {
         RouterTestingModule,
         TranslateModule.forRoot(),
 <% if (props.ui === 'ionic') { -%>
-        IonicModule.forRoot(ShellComponent),
+        IonicModule.forRoot(),
 <%   if (props.layout === 'tabs') { -%>
         HomeModule,
         AboutModule,
@@ -56,12 +57,17 @@ describe('ShellComponent', () => {
 <% } -%>
         I18nModule,
         CoreModule
-<% if (props.auth) { -%>
       ],
+<% if ((props.auth) || (props.ui === 'ionic')) { -%>
       providers: [
+<%   if (props.auth) { -%>
         { provide: AuthenticationService, useClass: MockAuthenticationService }
-<% } -%>
+<%   } -%>
       ],
+<% } -%>
+<% if (props.ui === 'ionic') { -%>
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+<% } -%>
       declarations: [
 <% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple') || props.ui === 'raw') { -%>
         HeaderComponent,

@@ -1,11 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-<% if (props.ui === 'ionic') { -%>
-import { ErrorHandler, NgModule } from '@angular/core';
-<% } else { -%>
 import { NgModule } from '@angular/core';
-<%   if (props.location === 'hash') { -%>
+<% if (props.location === 'hash') { -%>
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-<%   } -%>
 <% } -%>
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,12 +15,12 @@ import { MaterialModule } from './material.module';
 <% } else if (props.ui === 'bootstrap') { -%>
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 <% } else if (props.ui === 'ionic') { -%>
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { RouterModule } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
-import { Keyboard } from '@ionic-native/keyboard';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 <% } -%>
 <% if (props.angulartics) { -%>
 import { Angulartics2Module } from 'angulartics2';
@@ -67,7 +63,7 @@ import { AppRoutingModule } from './app-routing.module';
 <% } else if (props.ui === 'bootstrap') { -%>
     NgbModule.forRoot(),
 <% } else if (props.ui === 'ionic') { -%>
-    IonicModule.forRoot(AppComponent, { locationStrategy: '<%= props.location === 'hash' ? 'hash' : 'path' %>' }),
+    IonicModule.forRoot(),
 <% } -%>
     CoreModule,
     SharedModule,
@@ -91,7 +87,7 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   declarations: [AppComponent],
   providers: [
-<% if (props.ui !== 'ionic' && props.location === 'hash') { -%>
+<% if (props.location === 'hash') { -%>
     // This strategy with base-href './' allows to move the app to any subsite
 <%   if (props.target.includes('cordova')) { -%>
     { provide: LocationStrategy, useClass: HashLocationStrategy },
@@ -99,23 +95,11 @@ import { AppRoutingModule } from './app-routing.module';
     { provide: LocationStrategy, useClass: HashLocationStrategy }
 <%   } -%>
 <% } -%>
-<% if (props.ui === 'ionic') { -%>
-<%   if (props.target.includes('cordova')) { -%>
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-<%   } else { -%>
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
-<%   } -%>
-<% } -%>
 <% if (props.target.includes('cordova')) { -%>
-    Keyboard,
     StatusBar,
     SplashScreen
 <% } -%>
   ],
-<% if (props.ui === 'ionic') { -%>
-  bootstrap: [IonicApp]
-<% } else { -%>
   bootstrap: [AppComponent]
-<% } -%>
 })
 export class AppModule { }

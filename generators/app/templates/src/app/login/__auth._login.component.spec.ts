@@ -3,7 +3,9 @@ import { TranslateModule } from '@ngx-translate/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 <% if (props.ui === 'ionic') { -%>
-import { IonicModule } from 'ionic-angular';
+import { FormsModule } from '@angular/forms';
+import { IonicModule, LoadingController, Platform } from '@ionic/angular';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 <% } else if (props.ui === 'bootstrap') { -%>
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 <% } else if (props.ui === 'material') { -%>
@@ -27,7 +29,8 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       imports: [
 <% if (props.ui === 'ionic') { -%>
-        IonicModule.forRoot(LoginComponent),
+        IonicModule.forRoot(),
+        FormsModule,
 <% } else if (props.ui === 'bootstrap') { -%>
         NgbModule.forRoot(),
 <% } else if (props.ui === 'material') { -%>
@@ -42,6 +45,13 @@ describe('LoginComponent', () => {
         I18nModule,
         CoreModule
       ],
+<% if (props.ui === 'ionic') { -%>
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers: [
+        Platform,
+        LoadingController,
+      ],
+<% } -%>
       declarations: [LoginComponent]
     })
     .compileComponents();

@@ -1,3 +1,12 @@
-<ion-tabs #navTabs *ngIf="tabs" [selectedIndex]="selectedTabIndex" (ionChange)="onTabChange($event)">
-  <ion-tab *ngFor="let t of tabs" [root]="t.component" [tabTitle]="t.title | translate" [tabIcon]="t.icon"></ion-tab>
+<ion-tabs #navTabs *ngIf="tabs" (ionChange)="onTabChange($event.detail.tab)" useRouter="false">
+  <ion-tab
+    *ngFor="let t of tabs; index as tabIndex"
+    [name]="t.name"
+    [label]="t.title | translate"
+    [icon]="t.icon"
+    show="true"
+    [active]="tabIndex==selectedTabIndex"
+    [selected]="tabIndex==selectedTabIndex">
+  </ion-tab>
+  <ion-router-outlet></ion-router-outlet>
 </ion-tabs>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActionSheetController, AlertController, Platform } from 'ionic-angular';
+import { ActionSheetController, AlertController, Platform } from '@ionic/angular';
+import { TextFieldTypes } from '@ionic/core';
 import { TranslateService } from '@ngx-translate/core';
 import { I18nService } from '@i18n';
 <% if (props.auth) { -%>
@@ -42,5 +43,4 @@ export class SettingsComponent implements OnInit {
       .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
   }
 <% } -%>
-
 }

@@ -6,14 +6,14 @@
 }
 
 .profile {
-  background: color($colors, primary);
+  background-color: var(--ion-color-primary);
 }
 
 .profile-icon {
   font-size: 6rem;
-  color: color-contrast($colors, primary);
+  color: var(--ion-color-primary-contrast);
 }
 
 .profile-title {
-  color: color-contrast($colors, primary);
+  color: var(--ion-color-primary-contrast);
 }

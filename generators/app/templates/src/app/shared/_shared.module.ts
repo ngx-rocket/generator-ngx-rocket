@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 <% if (props.ui === 'ionic') { -%>
-import { IonicModule } from 'ionic-angular';
+import { IonicModule } from '@ionic/angular';
 <% } else if (props.ui === 'material') { -%>
 import { FlexLayoutModule } from '@angular/flex-layout';
 <% } -%>
