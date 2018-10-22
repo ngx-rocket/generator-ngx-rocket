@@ -22,7 +22,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
-import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 <% } -%>
@@ -39,11 +38,15 @@ import { environment } from '@env/environment';
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { HomeModule } from './home/home.module';
+import { ShellModule } from './shell/shell.module';
 <% if (!props.lazy) { -%>
 import { AboutModule } from './about/about.module';
 <% } -%>
 <% if (props.auth) { -%>
 import { LoginModule } from './login/login.module';
+<% } -%>
+<% if (props.layout === 'tabs') { -%>
+import { SettingsModule } from './settings/settings.module';
 <% } -%>
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -67,7 +70,11 @@ import { AppRoutingModule } from './app-routing.module';
 <% } -%>
     CoreModule,
     SharedModule,
+    ShellModule,
     HomeModule,
+<% if (props.layout === 'tabs'){ -%>
+    SettingsModule,
+<% } -%>
 <% if (!props.lazy) { -%>
     AboutModule,
 <% } -%>
@@ -79,7 +86,7 @@ import { AppRoutingModule } from './app-routing.module';
 <% } else if (props.angulartics ) { -%>
     Angulartics2Module.forRoot([]),
 <% } -%>
-    AppRoutingModule
+    AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],
   declarations: [AppComponent],
   providers: [
@@ -99,7 +106,6 @@ import { AppRoutingModule } from './app-routing.module';
 <%   } -%>
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
-    Keyboard,
     StatusBar,
     SplashScreen
 <% } -%>

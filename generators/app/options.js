@@ -48,5 +48,12 @@ module.exports = [
     required: false,
     description: 'Location strategy to use in Angular router: "path" or "hash"',
     defaults: 'path'
+  },
+  {
+    name: 'git',
+    type: 'Boolean',
+    required: false,
+    description: 'Initialize git repository',
+    defaults: true
   }
 ];

@@ -1,8 +1,9 @@
 # :rocket: generator-ngx-rocket
 
 [![NPM version](https://img.shields.io/npm/v/generator-ngx-rocket.svg)](https://www.npmjs.com/package/generator-ngx-rocket)
-[![Build status](https://img.shields.io/travis/ngx-rocket/generator-ngx-rocket/master.svg)](https://travis-ci.org/ngx-rocket/generator-ngx-rocket)
-[![Windows build status](https://ci.appveyor.com/api/projects/status/github/ngx-rocket/generator-ngx-rocket?svg=true&branch=master)](https://ci.appveyor.com/project/sinedied/generator-ngx-rocket/branch/master)
+[![Travis build status](https://img.shields.io/travis/ngx-rocket/generator-ngx-rocket/master.svg?logo=travis)](https://travis-ci.org/ngx-rocket/generator-ngx-rocket)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/ngx-rocket/generator-ngx-rocket?svg=true&branch=master)](https://ci.appveyor.com/project/sinedied/generator-ngx-rocket/branch/master)
+[![CircleCi build status](https://img.shields.io/circleci/project/github/ngx-rocket/generator-ngx-rocket/master.svg?logo=circleci)](https://circleci.com/gh/ngx-rocket/generator-ngx-rocket/tree/master)
 ![Node version](https://img.shields.io/node/v/generator-ngx-rocket.svg)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![Downloads](https://img.shields.io/npm/dt/generator-ngx-rocket.svg)](https://npmjs.org/package/generator-ngx-rocket)
@@ -56,6 +57,10 @@ And there's even more! See [What's in the box](#whats-in-the-box) for more detai
  ```sh
  ngx new
  ```
+ 
+> :bulb: Pro tip: the `ngx` CLI can do more that just bootstrapping new projects! You can use it to run your
+> NPM scripts with fuzzy matching (try `ngx ci` for example) or help you maintaining your project up-to-date.
+> Take a look at the [full documentation](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/cli)!
 
 # Project structure
 
@@ -94,7 +99,7 @@ Task                            | Description
 --------------------------------|---------------------------------------------------------------------------------------
 `npm start`                     | Run development server on `http://localhost:4200/`
 `npm run serve:sw`              | Run test server on `http://localhost:4200/` with service worker enabled
-`npm run build [-- --env=prod]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `dist/`
+`npm run build [-- --configuration=production]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `dist/`
 `npm test`                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
 `npm run test:ci`               | Lint code and run unit tests once for continuous integration
 `npm run e2e`                   | Run e2e tests using [Protractor](http://www.protractortest.org)
@@ -107,14 +112,14 @@ Additional tasks for Cordova-based projects:
 Task                            | Description
 --------------------------------|---------------------------------------------------------------------------------------
 `npm run cordova:prepare`       | Prepare for building mobile app (restore Cordova platforms and plugins)
-`npm run cordova:run <ios/android> [--device]` | Run app on target platform device or simulator
-`npm run cordova:build [-- --env=prod]`        | Build mobile app for production in `dist/` folder
+`npm run cordova:run <ios/android> [--device]`          | Run app on target platform device or simulator
+`npm run cordova:build [-- --configuration=production]` | Build mobile app for production in `dist/` folder
 `npm run cordova:clean`         | Removes `www/`, `platforms/` and `plugins/` folders
 
-When building the application, you can specify the target environment using the additional flag `--env <name>` (do not
-forget to prepend `--` to pass arguments to npm scripts).
+When building the application, you can specify the target configuration using the additional flag
+`--configuration <name>` (do not forget to prepend `--` to pass arguments to npm scripts).
 
-The default build environment is `prod`.
+The default build configuration is `production`.
 
 ## Development server
 
@@ -153,6 +158,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - Static code analysis: [TSLint](https://github.com/palantir/tslint), [Codelyzer](https://github.com/mgechev/codelyzer),
   [Stylelint](http://stylelint.io) and [htmllint](http://htmllint.github.io)
 - Local knowledgebase server using [Hads](https://github.com/sinedied/hads)
+- Automatic code formatting with [Prettier](https://prettier.io)
 
 [Progressive Web App (PWA)](https://developers.google.com/web/progressive-web-apps/) support provided by
 [@angular/service-worker](https://docs.google.com/document/d/1F0e0ROaZUnTFftmC0XovpREHWHjcXa4CggiFlmifjhw/).
@@ -218,6 +224,7 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
 - `--tools`: generate only the toolchain, without application template
 - `--location-strategy [hash|path`: [location strategy](https://angular.io/api/common/LocationStrategy) to use in
   Angular router (default is `path`).
+- `--no-git`: do not initialize git repository
   
 When generating a *fullstack* project (with both client and server code), you can use the environment variables
 `NGX_CLIENT_PATH` and `NGX_SERVER_PATH` to customize the paths for client and server code. Be aware though that some

@@ -18,7 +18,6 @@ import { IonicApp, Nav } from 'ionic-angular';
 <%   } -%>
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
-import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 <% } -%>
@@ -52,7 +51,6 @@ export class AppComponent implements OnInit {
 <%   } else { -%>
               private zone: NgZone,
 <%   } -%>
-              private keyboard: Keyboard,
               private statusBar: StatusBar,
               private splashScreen: SplashScreen,
 <% } -%>
@@ -119,7 +117,7 @@ export class AppComponent implements OnInit {
 
   private onCordovaReady() {
     if (window['cordova']) {
-      this.keyboard.hideKeyboardAccessoryBar(true);
+      window['Keyboard'].hideFormAccessoryBar(true);
 <% if (props.ui === 'ionic') { -%>
       this.statusBar.styleLightContent();
 <% } else { -%>

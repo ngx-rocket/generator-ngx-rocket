@@ -5,7 +5,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { IonicModule } from 'ionic-angular';
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
-import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 <% } -%>
@@ -34,7 +33,6 @@ describe('AppComponent', () => {
       declarations: [AppComponent],
 <% if (props.target.includes('cordova')) { -%>
       providers: [
-        Keyboard,
         StatusBar,
         SplashScreen
       ]

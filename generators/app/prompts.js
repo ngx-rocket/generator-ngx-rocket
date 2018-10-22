@@ -79,18 +79,28 @@ module.exports = [
     type: 'list',
     name: 'layout',
     message: 'Which kind of layout do you want?',
-    choices: [
-      {
-        value: 'simple',
-        name: 'Simple responsive header bar (more website-oriented)'
-      },
-      {
-        value: 'side-menu',
-        name: 'Side menu with split panels (more app-oriented)'
-      }
-    ],
-    when: props => props.ui === 'material',
-    default: 'simple'
+    choices: props => {
+      return [
+        {
+          value: 'simple',
+          name: 'Simple responsive header bar (more website-oriented)',
+          when: props.ui === 'material'
+        },
+        {
+          value: 'side-menu',
+          name: 'Side menu with split panels (more app-oriented)',
+          when: true
+        },
+        {
+          value: 'tabs',
+          name: 'Tabs menu (more app-oriented)',
+          when: props.ui === 'ionic'
+        }
+      ]
+        .filter(choice => choice.when);
+    },
+    when: props => props.ui === 'material' || props.ui === 'ionic',
+    default: 'side-menu'
   },
   {
     type: 'confirm',
@@ -137,5 +147,11 @@ module.exports = [
     name: 'googleAnalyticsAccount',
     message: 'What is your Google Analytics account (e.g. UA-1234567-1)?',
     when: props => props.angulartics && props.analyticsProvider === 'ga'
+  },
+  {
+    type: 'confirm',
+    name: 'prettier',
+    message: 'Do you want automatic code formatting with Prettier?',
+    default: false
   }
 ];
