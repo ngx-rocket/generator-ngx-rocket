@@ -2,7 +2,6 @@ import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 const untilDestroyedSymbol = Symbol('untilDestroyed');
-const isFunction = (value: any) => typeof value === 'function';
 
 /**
  * RxJS operator that unsubscribe from observables on destory.
@@ -35,24 +34,29 @@ const isFunction = (value: any) => typeof value === 'function';
  * }
  * ```
  */
-export function untilDestroyed(instance: Object, destroyMethodName = 'ngOnDestroy') {
+export function untilDestroyed(instance: Object, destroyMethodName: string = 'ngOnDestroy') {
   return <T>(source: Observable<T>) => {
     const originalDestroy = instance[destroyMethodName];
+    const hasDestroyFunction = typeof originalDestroy === 'function';
 
-    if (!isFunction(originalDestroy)) {
-      throw new Error(`${instance.constructor.name} is using untilDestroyed but doesn't implement ${destroyMethodName}`);
+    if (!hasDestroyFunction) {
+      throw new Error(
+        `${instance.constructor.name} is using untilDestroyed but doesn't implement ${destroyMethodName}`
+      );
     }
 
     if (!instance[untilDestroyedSymbol]) {
       instance[untilDestroyedSymbol] = new Subject();
 
       instance[destroyMethodName] = function () {
-        isFunction(originalDestroy) && originalDestroy.apply(this, arguments);
+        if (hasDestroyFunction) {
+          originalDestroy.apply(this, arguments);
+        }
         instance[untilDestroyedSymbol].next();
         instance[untilDestroyedSymbol].complete();
       };
     }
 
     return source.pipe(takeUntil<T>(instance[untilDestroyedSymbol]));
-  }
+  };
 }
