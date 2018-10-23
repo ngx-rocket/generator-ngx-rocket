@@ -129,10 +129,6 @@ describe('untilDestroyed', () => {
     // Arrange
     const spy = createObserver();
 
-    class LoginComponent {
-      dummy = new Subject().pipe(untilDestroyed(this)).subscribe(spy);
-    }
-
     class A implements OnDestroy {
       ngOnDestroy() {}
     }
