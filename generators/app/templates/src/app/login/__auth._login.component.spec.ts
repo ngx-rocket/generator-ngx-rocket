@@ -31,7 +31,7 @@ describe('LoginComponent', () => {
         IonicModule.forRoot(),
         FormsModule,
 <% } else if (props.ui === 'bootstrap') { -%>
-        NgbModule.forRoot(),
+        NgbModule,
 <% } else if (props.ui === 'material') { -%>
         BrowserAnimationsModule,
         FlexLayoutModule,

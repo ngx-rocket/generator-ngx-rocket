@@ -1,9 +1,9 @@
 <% if (props.ui === 'ionic') { -%>
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 <% } else if (props.target.includes('cordova')) { -%>
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
 <% } else { -%>
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 <% } -%>
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
@@ -24,7 +24,7 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 <% } -%>
 
 import { environment } from '@env/environment';
-import { Logger, I18nService } from '@app/core';
+import { Logger, I18nService, untilDestroyed } from '@app/core';
 
 <% if (props.target.includes('cordova')) { -%>
 
@@ -36,7 +36,7 @@ const log = new Logger('App');
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
@@ -86,7 +86,8 @@ export class AppComponent implements OnInit {
           return route;
         }),
         filter(route => route.outlet === 'primary'),
-        mergeMap(route => route.data)
+        mergeMap(route => route.data),
+        untilDestroyed(this)
       )
       .subscribe(event => {
         const title = event['title'];
@@ -107,6 +108,10 @@ export class AppComponent implements OnInit {
       this.zone.run(() => this.onCordovaReady());
     }, false);
 <% } -%>
+  }
+
+  ngOnDestroy() {
+    this.i18nService.destroy();
   }
 <% if (props.target.includes('cordova')) { -%>
 
