@@ -109,6 +109,10 @@ export class AppComponent implements OnInit, OnDestroy {
     }, false);
 <% } -%>
   }
+
+  ngOnDestroy() {
+    this.i18nService.destroy();
+  }
 <% if (props.target.includes('cordova')) { -%>
 
   private onCordovaReady() {
@@ -123,9 +127,5 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 <% } -%>
-
-  ngOnDestroy() {
-    this.i18nService.destroy();
-  }
 
 }
