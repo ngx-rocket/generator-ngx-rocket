@@ -52,20 +52,22 @@ describe('AuthenticationGuard', () => {
     const result = authenticationGuard.canActivate(null, mockSnapshot);
 
     // Assert
-    expect(mockRouter.navigate).toHaveBeenCalledWith(['/login'], {replaceUrl: true});
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['/login'], {
+      queryParams: { redirect: undefined },
+      replaceUrl: true
+    });
     expect(result).toBe(false);
   });
 
-  it('should save url if user is not authenticated', () => {
-    authenticationService = {
-      'credentials': null,
-      'redirectUrl': '/about',
-      'isAuthenticated':  null,
-      'login': null,
-      'logout': null
-    };
+  it('should save url as queryParam if user is not authenticated', () => {
+    authenticationService.credentials = null;
     mockRouter.url = '/about';
+    mockSnapshot.url = '/about';
+
     authenticationGuard.canActivate(null, mockSnapshot);
-    expect(authenticationService.redirectUrl).toBe('/about');
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['/login'], {
+      queryParams: { redirect: mockRouter.url },
+      replaceUrl: true
+    });
   });
 });

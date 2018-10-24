@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 <% if (props.ui === 'ionic') { -%>
 import { LoadingController, Platform } from 'ionic-angular';
@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
 <% } -%>
 
   constructor(private router: Router,
+              private route: ActivatedRoute,
               private formBuilder: FormBuilder,
 <% if (props.ui === 'ionic') { -%>
               private platform: Platform,
@@ -56,8 +57,9 @@ export class LoginComponent implements OnInit {
       }))
       .subscribe(credentials => {
         log.debug(`${credentials.username} successfully logged in`);
-        this.router.navigate([this.authenticationService.redirectUrl || '/'], { replaceUrl: true});
-        this.authenticationService.redirectUrl = '';
+        this.route.queryParams.subscribe(
+          params => this.router.navigate([ params.redirect || '/'], { replaceUrl: true })
+        );
       }, error => {
         log.debug(`Login error: ${error}`);
         this.error = error;
