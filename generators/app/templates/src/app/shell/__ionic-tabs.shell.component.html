@@ -1,7 +1,7 @@
 <ion-tabs #navTabs *ngIf="tabs" (ionChange)="onTabChange($event.detail.tab)" useRouter="false">
   <ion-tab *ngFor="let tab of tabs; index as tabIndex" [name]="tab.name" [label]="tab.title | translate"
            [icon]="tab.icon" show="true" [active]="tabIndex === selectedTabIndex"
-           [selected]="tabIndex == selectedTabIndex">
+           [selected]="tabIndex === selectedTabIndex">
   </ion-tab>
   <ion-router-outlet animated="false"></ion-router-outlet>
 </ion-tabs>
