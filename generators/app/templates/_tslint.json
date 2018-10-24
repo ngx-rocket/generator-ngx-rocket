@@ -4,6 +4,9 @@
     "tslint-config-prettier"
   ],
 <% } -%>
+  "extends": [
+    "rxjs-tslint-rules"
+  ],
   "rulesDirectory": [
     "node_modules/codelyzer"
   ],
@@ -160,6 +163,10 @@
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
-    "directive-class-suffix": true
+    "directive-class-suffix": true,
+    "rxjs-no-operator": true,
+    "rxjs-no-patched": true,
+    "rxjs-no-wholesale": true,
+    "rxjs-no-unused-add": true
   }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 import { map, catchError } from 'rxjs/operators';
 
 const routes = {

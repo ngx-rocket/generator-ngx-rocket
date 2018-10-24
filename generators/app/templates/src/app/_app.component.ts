@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
-import { merge } from 'rxjs';
+import { merge } from 'rxjs/observable/merge';
 import { filter, map, mergeMap } from 'rxjs/operators';
 <% if (props.ui === 'ionic') { -%>
 <%   if (props.target.includes('cordova')) { -%>

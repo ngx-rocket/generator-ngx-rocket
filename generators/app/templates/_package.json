@@ -129,6 +129,7 @@
 <% if (!options['external-chrome']) { -%>
     "puppeteer": "^1.4.0",
 <% } -%>
+    "rxjs-tslint-rules": "4.10.0",
     "stylelint": "~9.5.0",
     "stylelint-config-recommended-scss": "~3.2.0",
     "stylelint-config-standard": "~18.2.0",
