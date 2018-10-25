@@ -4,7 +4,7 @@ module.exports = [
   {
     type: 'input',
     name: 'appName',
-    message: 'What\'s the name of your app?'
+    message: "What's the name of your app?"
   },
   {
     type: 'checkbox',
@@ -73,7 +73,7 @@ module.exports = [
         name: 'Ionic (more mobile-oriented)'
       }
     ],
-    default: props => props.target && props.target.includes('cordova') ? 'ionic' : 'bootstrap'
+    default: props => (props.target && props.target.includes('cordova') ? 'ionic' : 'bootstrap')
   },
   {
     type: 'list',
@@ -96,8 +96,7 @@ module.exports = [
           name: 'Tabs menu (more app-oriented)',
           when: props.ui === 'ionic'
         }
-      ]
-        .filter(choice => choice.when);
+      ].filter(choice => choice.when);
     },
     when: props => props.ui === 'material' || props.ui === 'ionic',
     default: 'side-menu'

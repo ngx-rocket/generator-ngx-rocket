@@ -1,7 +1,7 @@
 {
   "name": "generator-ngx-rocket",
   "version": "5.2.0",
-  "description": "Extensible Angular 6+ enterprise-grade project generator based on angular-cli with best practices from the community. Includes PWA and Cordova support, coding guides and more!",
+  "description": "Extensible Angular 7+ enterprise-grade project generator based on angular-cli with best practices from the community. Includes PWA and Cordova support, coding guides and more!",
   "repository": "ngx-rocket/generator-ngx-rocket",
   "keywords": [
     "yeoman-generator",
@@ -41,7 +41,8 @@
     "ngx": "./cli/bin/ngx"
   },
   "scripts": {
-    "lint": "eslint \"generators/*/*.js\" \"cli/*.js\"",
+    "lint": "xo \"generators/*/*.js\" \"cli/*.js\"",
+    "lint:fix": "npm run lint -s -- --fix",
     "test": "npm run lint -s && ./scripts/test.sh",
     "test:addon": "npm run lint -s && TEST_ADDON=1 ./scripts/test.sh",
     "deploy": "scripts/deploy.sh",
@@ -50,7 +51,7 @@
   },
   "dependencies": {
     "@ngx-rocket/ascii-logo": "^1.0.1",
-    "@ngx-rocket/core": "^3.3.0",
+    "@ngx-rocket/core": "^4.0.0",
     "chalk": "^2.4.1",
     "conf": "^2.0.0",
     "figures": "^2.0.0",
@@ -61,19 +62,19 @@
     "lodash.get": "^4.4.2",
     "lodash.upperfirst": "^4.3.1",
     "minimist": "^1.2.0",
-    "semver": "^5.5.1",
+    "semver": "^5.6.0",
     "update-notifier": "^2.5.0",
     "yeoman-environment": "^2.3.3"
   },
   "devDependencies": {
-    "eslint": "^5.6.0",
-    "eslint-config-xo-space": "^0.20.0"
+    "xo": "^0.23.0"
   },
   "engines": {
     "node": ">=8.9.0"
   },
-  "eslintConfig": {
-    "extends": "xo-space/esnext"
+  "xo": {
+    "space": true,
+    "prettier": true
   },
   "files": [
     "generators",
