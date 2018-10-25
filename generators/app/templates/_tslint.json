@@ -4,11 +4,9 @@
     "tslint-config-prettier"
   ],
 <% } -%>
-  "extends": [
-    "rxjs-tslint-rules"
-  ],
   "rulesDirectory": [
-    "node_modules/codelyzer"
+    "node_modules/codelyzer",
+    "node_modules/rxjs-tslint"
   ],
   "rules": {
     "arrow-return-shorthand": true,
@@ -164,9 +162,9 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true,
-    "rxjs-no-operator": true,
-    "rxjs-no-patched": true,
-    "rxjs-no-wholesale": true,
-    "rxjs-no-unused-add": true
+    "rxjs-collapse-imports": true,
+    "rxjs-pipeable-operators-only": true,
+    "rxjs-no-static-observable-methods": true,
+    "rxjs-proper-imports": true
   }
 }
