@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@ngx-rocket/ascii-logo": "^1.0.1",
-    "@ngx-rocket/core": "^4.0.0",
+    "@ngx-rocket/core": "^4.0.1",
     "chalk": "^2.4.1",
     "conf": "^2.0.0",
     "figures": "^2.0.0",
