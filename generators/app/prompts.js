@@ -4,7 +4,7 @@ module.exports = [
   {
     type: 'input',
     name: 'appName',
-    message: "What's the name of your app?"
+    message: 'What is the name of your app?'
   },
   {
     type: 'checkbox',
