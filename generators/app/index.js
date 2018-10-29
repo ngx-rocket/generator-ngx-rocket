@@ -101,7 +101,7 @@ class NgxGenerator extends Generator {
   }
 
   install() {
-    if (!this.options.git) {
+    if (this.options.git) {
       this.spawnCommandSync('git', ['init', '--quiet']);
     }
 
