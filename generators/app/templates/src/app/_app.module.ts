@@ -64,7 +64,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     MaterialModule,
 <% } else if (props.ui === 'bootstrap') { -%>
-    NgbModule.forRoot(),
+    NgbModule,
 <% } else if (props.ui === 'ionic') { -%>
     IonicModule.forRoot(AppComponent, { locationStrategy: '<%= props.location === 'hash' ? 'hash' : 'path' %>' }),
 <% } -%>

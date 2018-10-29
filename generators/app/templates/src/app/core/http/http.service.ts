@@ -16,20 +16,20 @@ declare module '@angular/common/http/src/client' {
 
     /**
      * Enables caching for this request.
-     * @param {boolean} forceUpdate Forces request to be made and updates cache entry.
-     * @return {HttpClient} The new instance.
+     * @param forceUpdate Forces request to be made and updates cache entry.
+     * @return The new instance.
      */
     cache(forceUpdate?: boolean): HttpClient;
 
     /**
      * Skips default error handler for this request.
-     * @return {HttpClient} The new instance.
+     * @return The new instance.
      */
     skipErrorHandler(): HttpClient;
 
     /**
      * Do not use API prefix for this request.
-     * @return {HttpClient} The new instance.
+     * @return The new instance.
      */
     disableApiPrefix(): HttpClient;
 

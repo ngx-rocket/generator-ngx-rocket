@@ -47,7 +47,7 @@ describe('ShellComponent', () => {
         SettingsModule,
 <%   } -%>
 <% } else if (props.ui === 'bootstrap') { -%>
-        NgbModule.forRoot(),
+        NgbModule,
 <% } else if (props.ui === 'material') { -%>
         BrowserAnimationsModule,
         FlexLayoutModule,
