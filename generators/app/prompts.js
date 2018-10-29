@@ -19,11 +19,11 @@ module.exports = [
       {
         value: 'cordova',
         name: 'Mobile app (using Cordova)'
+      },
+      {
+        value: 'electron',
+        name: 'Desktop app (using Electron)'
       }
-      // {
-      //   value: 'electron',
-      //   name: 'Desktop app (using Cordova)'
-      // }
     ]
   },
   {

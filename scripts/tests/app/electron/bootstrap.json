@@ -1,0 +1,8 @@
+{
+  "target": ["electron"],
+  "pwa": false,
+  "ui": "bootstrap",
+  "auth": false,
+  "lazy": false,
+  "angulartics": false
+}
