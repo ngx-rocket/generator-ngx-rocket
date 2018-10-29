@@ -3,6 +3,9 @@
   "name": "<%= props.projectName %>",
   "version": "1.0.0",
   "private": true,
+  <% if (props.target.includes('electron')) { -%>
+     "main": "electron.main.js",
+  <% } -%>
   "scripts": {
     "ng": "ng",
     "build": "<%= run('env') %> && ng build --prod",
@@ -31,6 +34,16 @@
     "cordova:build": "ngx-scripts cordova build --device --release --copy dist",
     "cordova:clean": "ngx-scripts clean",
     "cordova": "cordova",
+<% } -%>
+<% if (props.target.includes('electron')) { -%>
+    "electron:tsc": "tsc electron.main.ts",
+    "electron:run": "electron .",
+    "electron:build": "npm run electron:tsc && npm run env -s && ng build --prod --base-href ./dist.electron --output-path dist.electron",
+    "electron:package:win32": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=dist.electron/out --icon=./resources/win/icon.ico",
+    "electron:package:win64": "electron-packager . --overwrite --platform=win32 --arch=x64 --out=dist.electron/out  --icon=./resources/win/icon.ico",
+    "electron:package:linux": "electron-packager . --overwrite --platform=linux --out=dist.electron/out --icon=./resources/win/icon.ico",
+    "electron:package:mac": "electron-packager . --overwrite --platform=darwin --out=dist.electron/out --icon=./resources/mac/icon.icns",
+    "electron:package": "npm run electron:package:win32 && npm run electron:package:win64 && npm run electron:package:linux && npm run electron:package:mac",
 <% } -%>
     "generate": "ng generate"
   },
@@ -101,6 +114,10 @@
     "@types/lodash": "^4.14.108",
     "@types/node": "^8.10.13",
     "codelyzer": "^4.4.4",
+<% if (props.target.includes('electron')) { -%>
+    "electron": "^2.0.6",
+    "electron-packager": "^12.1.0",
+<% } -%>
     "hads": "^1.7.0",
     "htmlhint": "^0.10.0",
     "https-proxy-agent": "^2.0.0",

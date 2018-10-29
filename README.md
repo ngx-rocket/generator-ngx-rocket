@@ -105,7 +105,7 @@ Task                            | Description
 `npm run e2e`                   | Run e2e tests using [Protractor](http://www.protractortest.org)
 `npm run lint`                  | Lint code
 `npm run translations:extract`  | Extract strings from code and templates to `src/app/translations/template.json`
-`npm run docs`                  | Display project documentation
+`npm run docs`                  | Display project documentation&
 
 Additional tasks for Cordova-based projects:
 
