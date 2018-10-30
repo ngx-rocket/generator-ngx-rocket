@@ -5,7 +5,7 @@ module.exports = [
     name: 'skip-welcome',
     type: 'Boolean',
     required: false,
-    description: 'Skip Yeoman\'s welcome message',
+    description: "Skip Yeoman's welcome message",
     defaults: false
   },
   {
@@ -41,6 +41,7 @@ module.exports = [
     type: value => {
       if (value !== 'hash' && value !== 'path') {
         console.error('Invalid location strategy: can be either "hash" or "path"');
+        // eslint-disable-next-line unicorn/no-process-exit
         process.exit(-1);
       }
       return value;

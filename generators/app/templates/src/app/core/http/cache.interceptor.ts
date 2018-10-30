@@ -17,8 +17,8 @@ export class CacheInterceptor implements HttpInterceptor {
 
   /**
    * Configures interceptor options
-   * @param {{update: boolean}} options If update option is enabled, forces request to be made and updates cache entry.
-   * @return {CacheInterceptor} The configured instance.
+   * @param options If update option is enabled, forces request to be made and updates cache entry.
+   * @return The configured instance.
    */
   configure(options?: { update?: boolean } | null): CacheInterceptor {
     const instance = new CacheInterceptor(this.httpCacheService);
