@@ -33,8 +33,8 @@ export class AuthenticationService {
 
   /**
    * Authenticates the user.
-   * @param {LoginContext} context The login parameters.
-   * @return {Observable<Credentials>} The user credentials.
+   * @param context The login parameters.
+   * @return The user credentials.
    */
   login(context: LoginContext): Observable<Credentials> {
     // Replace by proper authentication call
@@ -48,7 +48,7 @@ export class AuthenticationService {
 
   /**
    * Logs out the user and clear credentials.
-   * @return {Observable<boolean>} True if the user was logged out successfully.
+   * @return True if the user was logged out successfully.
    */
   logout(): Observable<boolean> {
     // Customize credentials invalidation here
@@ -58,7 +58,7 @@ export class AuthenticationService {
 
   /**
    * Checks is the user is authenticated.
-   * @return {boolean} True if the user is authenticated.
+   * @return True if the user is authenticated.
    */
   isAuthenticated(): boolean {
     return !!this.credentials;
@@ -66,7 +66,7 @@ export class AuthenticationService {
 
   /**
    * Gets the user credentials.
-   * @return {Credentials} The user credentials or null if the user is not authenticated.
+   * @return The user credentials or null if the user is not authenticated.
    */
   get credentials(): Credentials | null {
     return this._credentials;
@@ -76,8 +76,8 @@ export class AuthenticationService {
    * Sets the user credentials.
    * The credentials may be persisted across sessions by setting the `remember` parameter to true.
    * Otherwise, the credentials are only persisted for the current session.
-   * @param {Credentials=} credentials The user credentials.
-   * @param {boolean=} remember True to remember credentials across sessions.
+   * @param credentials The user credentials.
+   * @param remember True to remember credentials across sessions.
    */
   private setCredentials(credentials?: Credentials, remember?: boolean) {
     this._credentials = credentials || null;
