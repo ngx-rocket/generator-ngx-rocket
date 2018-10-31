@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 import { includes } from 'lodash';
 
 import { Logger } from './logger.service';
@@ -25,6 +26,8 @@ export class I18nService {
   defaultLanguage: string;
   supportedLanguages: string[];
 
+  private langChangeSubscription: Subscription;
+
   constructor(private translateService: TranslateService) {
     // Embed languages to avoid extra HTTP requests
     translateService.setTranslation('en-US', enUS);
@@ -42,8 +45,16 @@ export class I18nService {
     this.supportedLanguages = supportedLanguages;
     this.language = '';
 
-    this.translateService.onLangChange
+    // Warning: this subscription will always be alive for the app's lifetime
+    this.langChangeSubscription = this.translateService.onLangChange
       .subscribe((event: LangChangeEvent) => { localStorage.setItem(languageKey, event.lang); });
+  }
+
+  /**
+   * Cleans up language change subscription.
+   */
+  destroy() {
+    this.langChangeSubscription.unsubscribe();
   }
 
   /**

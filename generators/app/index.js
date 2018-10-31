@@ -137,6 +137,15 @@ class NgxGenerator extends Generator {
       this.log(`- $ ${chalk.green(`${this.packageManager} run cordova:build`)}: build mobile app for production`);
     }
 
+    if (this.props.target.includes('electron')) {
+      this.log(`- $ ${chalk.green(`${this.packageManager} run electron:build`)}: build app for electron`);
+      this.log(`- $ ${chalk.green(`${this.packageManager} run electron:run`)}: run app in electron`);
+      this.log(`- $ ${chalk.green(`${this.packageManager} run electron:package:win32`)}: package windows executable app fo 32 bit architecture`);
+      this.log(`- $ ${chalk.green(`${this.packageManager} run electron:package:win64`)}: package windows executable app fo 64 bit architecture`);
+      this.log(`- $ ${chalk.green(`${this.packageManager} run electron:package:linux`)}: package linux executable app fo 64 bit architecture`);
+      this.log(`- $ ${chalk.green(`${this.packageManager} run electron:package:mac`)}: package mac (darwin) executable app fo 64 bit architecture`);
+    }
+
     this.log(`- $ ${chalk.green(`${this.packageManager} test`)}: run unit tests in watch mode for TDD`);
     this.log(`- $ ${chalk.green(`${this.packageManager} run test:ci`)}: lint code and run units tests with coverage`);
     this.log(`- $ ${chalk.green(`${this.packageManager} run e2e`)}: launch e2e tests`);
