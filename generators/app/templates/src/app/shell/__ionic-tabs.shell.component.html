@@ -1,6 +1,6 @@
 <ion-tabs #navTabs useRouter="true">
   <ion-router-outlet></ion-router-outlet>
-  <ion-tab-bar slot="bottom" [selectedTab]="selectedTabName">
+  <ion-tab-bar slot="bottom" [selectedTab]="selectedTabName$ | async">
     <ion-tab-button *ngFor="let t of tabs; index as tabIndex" [tab]="t.name" show="true" [href]="t.route">
       <ion-icon [name]="t.icon"></ion-icon>
       <ion-label>{{ t.title | translate }}</ion-label>
