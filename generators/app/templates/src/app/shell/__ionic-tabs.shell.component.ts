@@ -1,12 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { SettingsComponent } from '@app/settings/settings.component';
-import { AboutComponent } from '@app/about/about.component';
-import { HomeComponent } from '@app/home/home.component';
 import { ActivatedRoute, Router, Event, NavigationEnd } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 import { merge } from 'rxjs/observable/merge';
+
+import { SettingsComponent } from '@app/settings/settings.component';
+import { AboutComponent } from '@app/about/about.component';
+import { HomeComponent } from '@app/home/home.component';
+
 @Component({
   selector: 'app-shell',
   templateUrl: './shell.component.html',
@@ -39,7 +41,7 @@ export class ShellComponent {
         route = route.firstChild;
       }
       // Fixed #19420 end
-      return this.tabs.find(tabElement => tabElement.route == route.routeConfig.path).name;
+      return this.tabs.find(tabElement => tabElement.route === route.routeConfig.path).name;
     }
   }
 }
