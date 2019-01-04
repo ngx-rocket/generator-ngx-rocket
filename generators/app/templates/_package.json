@@ -120,8 +120,9 @@
     "@types/node": "^8.10.13",
     "codelyzer": "^4.4.4",
 <% if (props.target.includes('electron')) { -%>
-    "electron": "^2.0.6",
-    "electron-packager": "^12.1.0",
+    "electron": "^4.0.0",
+    "electron-packager": "^13.0.1",
+    "electron-reload": "^1.4.0",
 <% } -%>
     "hads": "^1.7.0",
     "htmlhint": "^0.10.0",
