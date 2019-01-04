@@ -38,7 +38,7 @@
 <% if (props.target.includes('electron')) { -%>
     "electron:compile": "tsc electron.main.ts",
     "electron:run": "<%= run('electron:compile') %> && electron .",
-    "electron:build": "<%= run('electron:compile') %> && <%= run('env') && ng build --prod --base-href ./dist.electron --output-path dist.electron",
+    "electron:build": "<%= run('electron:compile') %> && <%= run('env') %> && ng build --prod --base-href ./dist.electron --output-path dist.electron",
 <%   if (props.desktop.includes('windows')) { -%>
     "electron:package:windows": "electron-packager . --overwrite --platform=win32 --arch=x64 --out=dist.electron/out  --icon=./resources/win/icon.ico",
 <%   } -%>
