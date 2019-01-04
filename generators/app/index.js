@@ -140,7 +140,11 @@ class NgxGenerator extends Generator {
     if (this.props.target.includes('electron')) {
       this.log(`- $ ${chalk.green(`${this.packageManager} run electron:build`)}: build app for electron`);
       this.log(`- $ ${chalk.green(`${this.packageManager} run electron:run`)}: run app in electron`);
-      this.log(`- $ ${chalk.green(`${this.packageManager} run electron:package`)}: package executables for all selected platforms`);
+      this.log(
+        `- $ ${chalk.green(
+          `${this.packageManager} run electron:package`
+        )}: package executables for all selected platforms`
+      );
     }
 
     this.log(`- $ ${chalk.green(`${this.packageManager} test`)}: run unit tests in watch mode for TDD`);
