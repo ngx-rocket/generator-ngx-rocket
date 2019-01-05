@@ -13,7 +13,11 @@ const routes: Routes = [
   ]),
 <% } -%>
   // Fallback when no prior route is matched
+<% if (props.ui === 'ionic' && props.layout === 'tabs') { -%>
+  { path: '**', redirectTo: '/tabs/home', pathMatch: 'full' }
+<% } else { -%>
   { path: '**', redirectTo: '', pathMatch: 'full' }
+<% } -%>
 ];
 
 @NgModule({
