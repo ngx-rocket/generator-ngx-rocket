@@ -1,5 +1,6 @@
 {
   "target": ["electron"],
+  "desktop": ["windows", "mac", "linux"],
   "pwa": false,
   "ui": "bootstrap",
   "auth": false,
