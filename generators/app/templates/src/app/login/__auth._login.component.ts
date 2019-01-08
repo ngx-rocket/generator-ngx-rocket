@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 <% if (props.ui === 'ionic') { -%>
@@ -9,7 +9,7 @@ import { forkJoin, from } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
-import { Logger, I18nService, AuthenticationService } from '@app/core';
+import { Logger, I18nService, AuthenticationService, untilDestroyed } from '@app/core';
 
 const log = new Logger('Login');
 
@@ -18,7 +18,7 @@ const log = new Logger('Login');
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   version: string = environment.version;
   error: string;
@@ -42,6 +42,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() { }
 
+  ngOnDestroy() { }
+
   login() {
     this.isLoading = true;
     const login$ = this.authenticationService.login(this.loginForm.value);
@@ -57,6 +59,7 @@ export class LoginComponent implements OnInit {
 <% } else { -%>
     login$.pipe(
 <% } -%>
+      untilDestroyed(this),
       finalize(() => {
         this.loginForm.markAsPristine();
 <% if (props.ui === 'ionic') { -%>
