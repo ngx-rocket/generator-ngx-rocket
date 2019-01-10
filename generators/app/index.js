@@ -142,23 +142,8 @@ class NgxGenerator extends Generator {
       this.log(`- $ ${chalk.green(`${this.packageManager} run electron:run`)}: run app in electron`);
       this.log(
         `- $ ${chalk.green(
-          `${this.packageManager} run electron:package:win32`
-        )}: package windows executable app fo 32 bit architecture`
-      );
-      this.log(
-        `- $ ${chalk.green(
-          `${this.packageManager} run electron:package:win64`
-        )}: package windows executable app fo 64 bit architecture`
-      );
-      this.log(
-        `- $ ${chalk.green(
-          `${this.packageManager} run electron:package:linux`
-        )}: package linux executable app fo 64 bit architecture`
-      );
-      this.log(
-        `- $ ${chalk.green(
-          `${this.packageManager} run electron:package:mac`
-        )}: package mac (darwin) executable app fo 64 bit architecture`
+          `${this.packageManager} run electron:package`
+        )}: package executables for all selected platforms`
       );
     }
 
@@ -183,6 +168,9 @@ module.exports = Generator.make({
     'ionic-side-menu': props => props.ui === 'ionic' && props.layout === 'side-menu',
     'material-simple': props => props.ui === 'material' && props.layout === 'simple',
     'material-side-menu': props => props.ui === 'material' && props.layout === 'side-menu',
-    raw: props => props.ui === 'raw'
+    raw: props => props.ui === 'raw',
+    'electron-windows': props => props.desktop && props.desktop.includes('windows'),
+    'electron-mac': props => props.desktop && props.desktop.includes('mac'),
+    'electron-linux': props => props.desktop && props.desktop.includes('linux')
   })
 });

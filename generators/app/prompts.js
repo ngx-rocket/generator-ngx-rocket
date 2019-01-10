@@ -49,10 +49,29 @@ module.exports = [
         name: 'Android',
         checked: true
       }
-      // {
-      //   value: 'windows',
-      //   name: 'Windows (Universal)'
-      // }
+    ]
+  },
+  {
+    type: 'checkbox',
+    name: 'desktop',
+    message: 'Which desktop platform do you want to support?',
+    when: props => props.target && props.target.includes('electron'),
+    choices: [
+      {
+        value: 'windows',
+        name: 'Windows',
+        checked: true
+      },
+      {
+        value: 'mac',
+        name: 'macOS',
+        checked: true
+      },
+      {
+        value: 'linux',
+        name: 'Linux',
+        checked: true
+      }
     ]
   },
   {

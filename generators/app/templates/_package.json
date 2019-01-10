@@ -36,14 +36,19 @@
     "cordova": "cordova",
 <% } -%>
 <% if (props.target.includes('electron')) { -%>
-    "electron:tsc": "tsc electron.main.ts",
-    "electron:run": "electron .",
-    "electron:build": "npm run electron:tsc && npm run env -s && ng build --prod --base-href ./dist.electron --output-path dist.electron",
-    "electron:package:win32": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=dist.electron/out --icon=./resources/win/icon.ico",
-    "electron:package:win64": "electron-packager . --overwrite --platform=win32 --arch=x64 --out=dist.electron/out  --icon=./resources/win/icon.ico",
-    "electron:package:linux": "electron-packager . --overwrite --platform=linux --out=dist.electron/out --icon=./resources/win/icon.ico",
+    "electron:compile": "tsc electron.main.ts",
+    "electron:run": "<%= run('electron:compile') %> && electron .",
+    "electron:build": "<%= run('electron:compile') %> && <%= run('env') %> && ng build --prod --base-href ./dist.electron --output-path dist.electron",
+<%   if (props.desktop.includes('windows')) { -%>
+    "electron:package:windows": "electron-packager . --overwrite --platform=win32 --arch=x64 --out=dist.electron/out  --icon=./resources/win/icon.ico",
+<%   } -%>
+<%   if (props.desktop.includes('mac')) { -%>
     "electron:package:mac": "electron-packager . --overwrite --platform=darwin --out=dist.electron/out --icon=./resources/mac/icon.icns",
-    "electron:package": "npm run electron:package:win32 && npm run electron:package:win64 && npm run electron:package:linux && npm run electron:package:mac",
+<%   } -%>
+<%   if (props.desktop.includes('linux')) { -%>
+    "electron:package:linux": "electron-packager . --overwrite --platform=linux --out=dist.electron/out",
+<%   } -%>
+    "electron:package": "<%- props.desktop.reduce((out, platform) => (out ? out + ' && ' : '') + run('electron:package:' + platform), null) %>",
 <% } -%>
     "generate": "ng generate"
   },
@@ -115,8 +120,9 @@
     "@types/node": "^8.10.13",
     "codelyzer": "^4.4.4",
 <% if (props.target.includes('electron')) { -%>
-    "electron": "^2.0.6",
-    "electron-packager": "^12.1.0",
+    "electron": "^4.0.0",
+    "electron-packager": "^13.0.1",
+    "electron-reload": "^1.4.0",
 <% } -%>
     "hads": "^1.7.0",
     "htmlhint": "^0.10.0",
