@@ -59,14 +59,14 @@ export class LoginComponent implements OnInit, OnDestroy {
 <% } else { -%>
     login$.pipe(
 <% } -%>
-      untilDestroyed(this),
       finalize(() => {
         this.loginForm.markAsPristine();
 <% if (props.ui === 'ionic') { -%>
         this.loadingOverlay.dismiss();
 <% } -%>
         this.isLoading = false;
-      })
+      }),
+      untilDestroyed(this)
     ).subscribe(credentials => {
       log.debug(`${credentials.username} successfully logged in`);
       this.router.navigate([ this.route.snapshot.queryParams.redirect || '/'], { replaceUrl: true });
