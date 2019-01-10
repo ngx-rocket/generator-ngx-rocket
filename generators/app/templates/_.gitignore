@@ -4,7 +4,6 @@
 /dist
 /tmp
 /out-tsc
-/dist.electron
 
 # Dependencies
 /node_modules
@@ -13,6 +12,10 @@
 /www
 /plugins
 /platforms
+
+# Electron
+/dist.electron
+/electron.main.js
 
 # IDEs and editors
 .idea/*
