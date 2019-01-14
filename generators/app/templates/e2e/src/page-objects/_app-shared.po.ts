@@ -9,13 +9,13 @@ export class AppSharedPage {
   constructor() {
   }
 
-  navigateAndSetLanguage() {
+  async navigateAndSetLanguage() {
     // Forces default language
-    this.navigateTo();
-    browser.executeScript(() => localStorage.setItem('language', 'en-US'));
+    await this.navigateTo();
+    await browser.executeScript(() => localStorage.setItem('language', 'en-US'));
   }
 
-  navigateTo() {
-    return browser.get('/');
+  async navigateTo() {
+    await browser.get('/');
   }
 }
