@@ -12,32 +12,32 @@ describe('when the app loads', () => {
   const app = new AppSharedPage();
   const shell = new ShellPage();
 
-  beforeAll(() => {
-    app.navigateAndSetLanguage();
+  beforeAll(async () => {
+    await app.navigateAndSetLanguage();
   });
 
 <% if (props.auth) { -%>
-  it('should display the login page', () => {
-    expect(browser.getCurrentUrl()).toContain('/login');
+  it('should display the login page', async () => {
+    expect(await browser.getCurrentUrl()).toContain('/login');
   });
 
 <% } else { -%>
-  it('should display the shell page', () => {
-    expect(browser.getCurrentUrl()).toContain('/');
+  it('should display the shell page', async () => {
+    expect(await browser.getCurrentUrl()).toContain('/');
   });
 
 <% } -%>
 <% if (props.auth) { -%>
   describe('and the user logs in', () => {
-    beforeAll(() => {
-      login.login();
+    beforeAll(async () => {
+      await login.login();
     });
 
 <% } else { -%>
   describe('and the page loads', () => {
 <% } -%>
-    it('should display the hello message', () => {
-      expect(shell.getParagraphText()).toEqual('Hello world !');
+    it('should display the hello message', async () => {
+      expect(await shell.getParagraphText()).toEqual('Hello world !');
     });
   });
 });

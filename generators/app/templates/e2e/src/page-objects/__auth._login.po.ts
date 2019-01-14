@@ -20,9 +20,9 @@ export class LoginPage {
   constructor() {
   }
 
-  login() {
-    this.usernameField.sendKeys('test');
-    this.passwordField.sendKeys('123');
-    this.loginButton.click();
+  async login() {
+    await this.usernameField.sendKeys('test');
+    await this.passwordField.sendKeys('123');
+    await this.loginButton.click();
   }
 }
