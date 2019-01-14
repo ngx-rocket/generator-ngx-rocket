@@ -17,7 +17,7 @@ export class ShellPage {
   constructor() {
   }
 
-  getParagraphText() {
-    return this.welcomeText.getText();
+  async getParagraphText() {
+    return await this.welcomeText.getText();
   }
 }
