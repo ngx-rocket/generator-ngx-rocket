@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 <% if (props.ui === 'ionic') { -%>
 import { LoadingController, Platform } from '@ionic/angular';
 import { map, switchMap } from 'rxjs/operators';
-import { from } from 'rxjs';
+import { forkJoin, from } from 'rxjs';
 <% } -%>
 import { finalize } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
-import { Logger, I18nService, AuthenticationService } from '@app/core';
+import { Logger, I18nService, AuthenticationService, untilDestroyed } from '@app/core';
 
 const log = new Logger('Login');
 
@@ -18,13 +18,14 @@ const log = new Logger('Login');
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   version: string = environment.version;
   error: string;
   loginForm: FormGroup;
-<% if (props.ui !== 'ionic') { -%>
   isLoading = false;
+<% if (props.ui === 'ionic') { -%>
+  private loadingOverlay: HTMLIonLoadingElement;
 <% } -%>
 
   constructor(private router: Router,
@@ -41,40 +42,38 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() { }
 
+  ngOnDestroy() { }
+
   login() {
-<% if (props.ui === 'ionic') { -%>
-<% /**
-     * currently a workaround for ionic zone handling - needs rewrite for readability.
-     * See: https://github.com/ngx-rocket/generator-ngx-rocket/pull/369#discussion_r217625108
-     * Revert https://github.com/ngx-rocket/generator-ngx-rocket/pull/369/commits/4969a42a7a56a03e699498c70d987a23eea1aee4
-     * when ionic overlay zone handling works again
-     * Also see https://github.com/angular/zone.js/issues/1142
-     */
--%>
-    // const loadingPromise = this.loadingController.create();
-    // const loadingPresentedPromise = loadingPromise
-    //  .then(loading => loading.present());
-<% } else { -%>
     this.isLoading = true;
+    const login$ = this.authenticationService.login(this.loginForm.value);
+<% if (props.ui === 'ionic') { -%>
+    const loading$ = from(
+      this.loadingController.create().then(loadingOverlay => {
+        this.loadingOverlay = loadingOverlay;
+        return loadingOverlay.present();
+      })
+    );
+    forkJoin(login$, loading$).pipe(
+      map(([credentials, ...rest]) => credentials),
+<% } else { -%>
+    login$.pipe(
 <% } -%>
-    this.authenticationService.login(this.loginForm.value)
-      .pipe(finalize(() => {
+      finalize(() => {
         this.loginForm.markAsPristine();
 <% if (props.ui === 'ionic') { -%>
-        // loadingPresentedPromise.then(() => loadingPromise.then(loading => loading.dismiss()));
-<% } else { -%>
-        this.isLoading = false;
+        this.loadingOverlay.dismiss();
 <% } -%>
-      }))
-      .subscribe(credentials => {
-        log.debug(`${credentials.username} successfully logged in`);
-        this.route.queryParams.subscribe(
-          params => this.router.navigate([ params.redirect || '/'], { replaceUrl: true })
-        );
-      }, error => {
-        log.debug(`Login error: ${error}`);
-        this.error = error;
-      });
+        this.isLoading = false;
+      }),
+      untilDestroyed(this)
+    ).subscribe(credentials => {
+      log.debug(`${credentials.username} successfully logged in`);
+      this.router.navigate([ this.route.snapshot.queryParams.redirect || '/'], { replaceUrl: true });
+    }, error => {
+      log.debug(`Login error: ${error}`);
+      this.error = error;
+    });
   }
 
   setLanguage(language: string) {
