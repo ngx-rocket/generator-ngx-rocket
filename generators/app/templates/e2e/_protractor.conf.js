@@ -31,14 +31,5 @@ exports.config = {
 
     // Better console spec reporter
     jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
-<% if (props.ui === 'ionic') { -%>
-
-    // Allow to search within a shadow DOM element (By.deepCss() does not work for interactive elements)
-    by.addLocator('shadowCss', (selector, inShadowSelector, root) =>
-      (root || document)
-        .querySelector(selector)
-        .shadowRoot
-        .querySelector(inShadowSelector));
-<% } -%>
   }
 };
