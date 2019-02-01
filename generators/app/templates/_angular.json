@@ -52,10 +52,17 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": <%= props.ui !== 'ionic' %>,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": <%= props.ui !== 'ionic' %>,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
 <% if (props.pwa) { -%>
               "serviceWorker": true,
 <% } -%>
@@ -65,6 +72,9 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
+            },
+            "ci": {
+              "progress": false
             }
           }
         },
@@ -76,6 +86,9 @@
           "configurations": {
             "production": {
               "browserTarget": "<%= props.projectName %>:build:production"
+            },
+            "ci": {
+              "progress": false
             }
           }
         },
@@ -114,6 +127,12 @@
 <% } -%>
               "src/assets"
             ]
+          },
+          "configurations": {
+            "ci": {
+              "progress": false,
+              "watch": false
+            }
           }
         },
         "lint": {
