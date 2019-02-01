@@ -25,16 +25,16 @@ export class ShellComponent {
       filter(event => event instanceof NavigationEnd),
       map(() => activatedRoute)
     );
-    this.selectedTabName$ = merge(firstRoute$, navEventRoutes$).pipe(map(route => this.routeToTabId(route)));
+    this.selectedTabName$ = merge(firstRoute$, navEventRoutes$).pipe(map(route => this.routeToTabName(route)));
   }
 
-  private routeToTabId(route: ActivatedRoute): string {
+  private routeToTabName(route: ActivatedRoute): string {
     if (!route || !route.firstChild) {
       return;
     }
     if (route && route.component === ShellComponent && route.firstChild) {
       route = route.firstChild;
-      return this.tabs.find(tabElement => tabElement.route === route.routeConfig.path).name;
+      return this.tabs.find(tab => tab.route === route.routeConfig.path).name;
     }
   }
 }
