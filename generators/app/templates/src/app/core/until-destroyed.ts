@@ -10,8 +10,8 @@ const untilDestroyedSymbol = Symbol('untilDestroyed');
  * IMPORTANT: Add the `untilDestroyed` operator as the last one to prevent leaks with intermediate observables in the
  * operator chain.
  *
- * @param {Object} instance The parent Angular component or object instance.
- * @param {String=} destroyMethodName The method to hook on (default: 'ngOnDestroy').
+ * @param instance The parent Angular component or object instance.
+ * @param destroyMethodName The method to hook on (default: 'ngOnDestroy').
  * @example
  * ```
  * import { untilDestroyed } from '@app/core';

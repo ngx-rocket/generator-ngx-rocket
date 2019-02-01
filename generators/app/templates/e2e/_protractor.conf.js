@@ -4,12 +4,16 @@
 const { SpecReporter } = require('jasmine-spec-reporter');
 
 exports.config = {
+  SELENIUM_PROMISE_MANAGER: false,
   allScriptsTimeout: 11000,
   specs: [
     './src/**/*.e2e-spec.ts'
   ],
   capabilities: {
-    'browserName': process.env.PROTRACTOR_BROWSER || 'chrome'
+    browserName: process.env.PROTRACTOR_BROWSER || 'chrome',
+    chromeOptions: {
+      args: ['lang=en-US']
+    }
   },
   // Only works with Chrome and Firefox
   directConnect: true,
@@ -24,7 +28,17 @@ exports.config = {
     require('ts-node').register({
       project: require('path').join(__dirname, './tsconfig.e2e.json')
     });
+
     // Better console spec reporter
     jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
+<% if (props.ui === 'ionic') { -%>
+
+    // Allow to search within a shadow DOM element (By.deepCss() does not work for interactive elements)
+    by.addLocator('shadowCss', (selector, inShadowSelector, root) =>
+      (root || document)
+        .querySelector(selector)
+        .shadowRoot
+        .querySelector(inShadowSelector));
+<% } -%>
   }
 };

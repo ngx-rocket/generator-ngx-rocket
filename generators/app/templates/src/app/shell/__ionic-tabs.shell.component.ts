@@ -1,52 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { Tab } from '@ionic/angular';
-
-import { SettingsComponent } from '@app/settings/settings.component';
-import { AboutComponent } from '@app/about/about.component';
-import { HomeComponent } from '@app/home/home.component';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router, Event, NavigationEnd } from '@angular/router';
+import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
+import { of } from 'rxjs/observable/of';
+import { merge } from 'rxjs/observable/merge';
 
 @Component({
   selector: 'app-shell',
   templateUrl: './shell.component.html',
   styleUrls: ['./shell.component.scss']
 })
-export class ShellComponent implements OnInit {
+export class ShellComponent {
 
   tabs = [
-    { component: HomeComponent, name: 'home', route: 'home', title: 'Home', icon: 'home' },
-    { component: AboutComponent, name: 'about', route: 'about', title: 'About', icon: 'logo-angular' },
-    { component: SettingsComponent, name: 'settings', route: 'settings', title: 'Settings', icon: 'cog' }
+    { name: 'home', route: 'home', title: 'Home', icon: 'home' },
+    { name: 'about', route: 'about', title: 'About', icon: 'logo-angular' },
+    { name: 'settings', route: 'settings', title: 'Settings', icon: 'cog' }
   ];
+  selectedTabName$: Observable<string>;
 
-  selectedTabIndex: number;
-
-  constructor(private router: Router,
-              private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+    const firstRoute$ = of(activatedRoute);
+    const navEventRoutes$ = router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+      map(() => activatedRoute)
+    );
+    this.selectedTabName$ = merge(firstRoute$, navEventRoutes$).pipe(map(route => this.routeToTabId(route)));
   }
 
-  ngOnInit() {
-    this.updateTab(this.activatedRoute);
-  }
-
-  onTabChange(selectedTabElm: Tab) {
-    const selectedTab = this.tabs.find(tab => tab.name === selectedTabElm.name);
-    this.router.navigate([selectedTab.route]);
-  }
-
-  private updateTab(route: ActivatedRoute) {
+  private routeToTabId(route: ActivatedRoute): string {
     if (!route || !route.firstChild) {
       return;
     }
     if (route && route.component === ShellComponent && route.firstChild) {
       route = route.firstChild;
-      // Fixed #19420: route.component is undefined if module is lazy
-      // See: https://github.com/angular/angular/issues/19420
-      while (route.firstChild) {
-        route = route.firstChild;
-      }
-
-      this.selectedTabIndex = this.tabs.findIndex(tab => tab.route === route.routeConfig.path);
+      return this.tabs.find(tabElement => tabElement.route === route.routeConfig.path).name;
     }
   }
 }

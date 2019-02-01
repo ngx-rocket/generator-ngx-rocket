@@ -1,5 +1,15 @@
 # Change Log
 
+## [5.3.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/5.3.0) (2018-10-29)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/5.2.0...5.3.0)
+
+**Enhancements**:
+
+- Contribution: Redirect to previously saved url after login, if you are not authenticated. [\#388](https://github.com/ngx-rocket/generator-ngx-rocket/issues/388) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Updated tslint rules, polyfills and some fixes [\#402](https://github.com/ngx-rocket/generator-ngx-rocket/pull/402) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Migrated generator code base to xo + prettier and async/await [\#401](https://github.com/ngx-rocket/generator-ngx-rocket/pull/401) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Update to Angular 7 [\#398](https://github.com/ngx-rocket/generator-ngx-rocket/pull/398) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
 ## [5.2.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/5.2.0) (2018-09-25)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/5.1.0...5.2.0)
 

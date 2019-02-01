@@ -4,7 +4,7 @@ module.exports = [
   {
     type: 'input',
     name: 'appName',
-    message: 'What\'s the name of your app?'
+    message: 'What is the name of your app?'
   },
   {
     type: 'checkbox',
@@ -49,10 +49,29 @@ module.exports = [
         name: 'Android',
         checked: true
       }
-      // {
-      //   value: 'windows',
-      //   name: 'Windows (Universal)'
-      // }
+    ]
+  },
+  {
+    type: 'checkbox',
+    name: 'desktop',
+    message: 'Which desktop platform do you want to support?',
+    when: props => props.target && props.target.includes('electron'),
+    choices: [
+      {
+        value: 'windows',
+        name: 'Windows',
+        checked: true
+      },
+      {
+        value: 'mac',
+        name: 'macOS',
+        checked: true
+      },
+      {
+        value: 'linux',
+        name: 'Linux',
+        checked: true
+      }
     ]
   },
   {
@@ -73,7 +92,7 @@ module.exports = [
         name: 'Ionic (more mobile-oriented)'
       }
     ],
-    default: props => props.target && props.target.includes('cordova') ? 'ionic' : 'bootstrap'
+    default: props => (props.target && props.target.includes('cordova') ? 'ionic' : 'bootstrap')
   },
   {
     type: 'list',
@@ -96,8 +115,7 @@ module.exports = [
           name: 'Tabs menu (more app-oriented)',
           when: props.ui === 'ionic'
         }
-      ]
-        .filter(choice => choice.when);
+      ].filter(choice => choice.when);
     },
     when: props => props.ui === 'material' || props.ui === 'ionic',
     default: 'side-menu'
@@ -112,8 +130,7 @@ module.exports = [
     type: 'confirm',
     name: 'lazy',
     message: 'Do you want lazy loading?',
-    default: false,
-    when: props => props.ui !== 'ionic'
+    default: false
   },
   {
     type: 'confirm',

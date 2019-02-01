@@ -33,9 +33,9 @@
 <% } -%>
 <% if (props.ui === 'ionic') { -%>
               {
-                "glob": "**/*",
-                "input": "node_modules/@ionic/angular/dist/ionic/svg",
-                "output": "svg"
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
               },
 <% } -%>
               "src/assets"
@@ -104,6 +104,13 @@
 <% } -%>
 <% if (props.pwa) { -%>
               "src/manifest.json",
+<% } -%>
+<% if (props.ui === 'ionic') { -%>
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              },
 <% } -%>
               "src/assets"
             ]

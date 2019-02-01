@@ -17,10 +17,7 @@ const pkg = require('../package.json');
 
 const addonKey = 'ngx-rocket-addon';
 const disabledAddons = 'disabledAddons';
-const blacklistedNpmAddons = [
-  'generator-ngx-rocket',
-  'generator-ngx-rocket-addon'
-];
+const blacklistedNpmAddons = ['generator-ngx-rocket', 'generator-ngx-rocket-addon'];
 const appName = path.basename(process.argv[1]);
 const help = `${chalk.bold(`Usage:`)} ${appName} ${chalk.blue(`[new|update|config|list|<script>]`)} [options]\n`;
 const detailedHelp = `
@@ -99,7 +96,7 @@ class NgxCli {
     fuzzyRun(args, packageManager);
   }
 
-  generate(update, args, addon) {
+  async generate(update, args, addon) {
     if (!update) {
       console.log(asciiLogo(pkg.version));
     } else if (fs.existsSync('.yo-rc.json')) {
@@ -110,74 +107,78 @@ class NgxCli {
     }
     if (addon) {
       args = args.filter(arg => arg !== '--addon' && arg !== '-a');
-      env.lookup(() => env.run(['ngx-rocket:addon'].concat(args), {
-        update,
-        packageManager: this._packageManager(),
-        'skip-welcome': true
-      }));
+      env.lookup(() =>
+        env.run(['ngx-rocket:addon'].concat(args), {
+          update,
+          packageManager: this._packageManager(),
+          'skip-welcome': true
+        })
+      );
     } else {
       const disabled = this._config.get(disabledAddons);
-      return this._findAddons()
-        .then(addons => addons.filter(addon => !disabled[addon]))
-        .then(addons => {
-          return new Promise(resolve => env.lookup(() => env.run(['ngx-rocket'].concat(args), {
-            update,
-            packageManager: this._packageManager(),
-            addons: addons.join(' '),
-            'skip-welcome': true
-          }, resolve)));
-        })
-        .then(() => console.log());
+      let addons = await this._findAddons();
+      addons = addons.filter(addon => !disabled[addon]);
+
+      await new Promise(resolve =>
+        env.lookup(() =>
+          env.run(
+            ['ngx-rocket'].concat(args),
+            {
+              update,
+              packageManager: this._packageManager(),
+              addons: addons.join(' '),
+              'skip-welcome': true
+            },
+            resolve
+          )
+        )
+      );
+      console.log();
     }
   }
 
-  configure() {
-    this._findAddons().then(addons => {
-      const disabled = this._config.get(disabledAddons);
-      inquirer
-        .prompt({
-          type: 'checkbox',
-          name: 'addons',
-          message: 'Choose add-ons to use for new apps',
-          choices: addons.map(addon => ({
-            name: addon,
-            checked: !disabled[addon]
-          }))
-        })
-        .then(answers => {
-          this._config.set(disabledAddons, addons
-            .filter(addon => !answers.addons.includes(addon))
-            .reduce((r, addon) => {
-              r[addon] = true;
-              return r;
-            }, {}));
-          console.log('Configuration saved.');
-        });
+  async configure() {
+    const addons = await this._findAddons();
+    const disabled = this._config.get(disabledAddons);
+    const answers = await inquirer.prompt({
+      type: 'checkbox',
+      name: 'addons',
+      message: 'Choose add-ons to use for new apps',
+      choices: addons.map(addon => ({
+        name: addon,
+        checked: !disabled[addon]
+      }))
     });
+
+    this._config.set(
+      disabledAddons,
+      addons.filter(addon => !answers.addons.includes(addon)).reduce((r, addon) => {
+        r[addon] = true;
+        return r;
+      }, {})
+    );
+    console.log('Configuration saved.');
   }
 
-  list(npm) {
-    let promise;
+  async list(npm) {
+    let addons;
     if (npm) {
-      promise = Promise
-        .resolve(child.execSync(`npm search ${addonKey} --json`, {stdio: [0, null, 2]}))
-        .then(addons => addons ? JSON.parse(addons) : [])
-        .then(addons => addons.filter(addon => blacklistedNpmAddons.indexOf(addon.name) === -1));
+      addons = await Promise.resolve(child.execSync(`npm search ${addonKey} --json`, {stdio: [0, null, 2]}));
+      addons = addons ? JSON.parse(addons) : [];
+      addons = addons.filter(addon => blacklistedNpmAddons.indexOf(addon.name) === -1);
     } else {
-      promise = this._findAddons();
+      addons = await this._findAddons();
     }
-    promise.then(addons => {
-      const disabled = this._config.get(disabledAddons);
-      console.log(chalk.blue(`Available add-ons${npm ? ' on NPM' : ''}:`));
+    const disabled = this._config.get(disabledAddons);
+    console.log(chalk.blue(`Available add-ons${npm ? ' on NPM' : ''}:`));
 
-      if (!addons.length) {
-        console.log('  No add-ons found.');
-      } else if (npm) {
-        addons.forEach(addon => console.log(`  ${addon.name}@${addon.version} - ${addon.description}`));
-      } else {
-        addons.forEach(addon => console.log(`${chalk.green(disabled[addon] ? ' ' : figures.tick)} ${addon}`));
-      }
-    });
+    if (addons.length === 0) {
+      console.log('  No add-ons found.');
+    } else if (npm) {
+      addons.forEach(addon => console.log(`  ${addon.name}@${addon.version} - ${addon.description}`));
+    } else {
+      addons.forEach(addon => console.log(`${chalk.green(disabled[addon] ? ' ' : figures.tick)} ${addon}`));
+    }
   }
 
   _findAddons() {
@@ -199,7 +200,7 @@ class NgxCli {
 
   _findPackageJson(basePath) {
     const find = components => {
-      if (!components.length) {
+      if (components.length === 0) {
         return null;
       }
       const dir = path.join(...components);
@@ -208,7 +209,7 @@ class NgxCli {
     };
 
     const components = basePath.split(/[/\\]/);
-    if (components.length && !components[0].length) {
+    if (components.length !== 0 && components[0].length === 0) {
       // When path starts with a slash, the first path component is empty string
       components[0] = path.sep;
     }
@@ -223,7 +224,7 @@ class NgxCli {
     try {
       const rc = require(path.join(process.cwd(), '.yo-rc.json'));
       pm = rc['generator-ngx-rocket'].props.packageManager;
-    } catch (err) {
+    } catch (error) {
       // Do nothing
     }
     return pm || process.env.NGX_PACKAGE_MANAGER || 'npm';
@@ -236,6 +237,7 @@ class NgxCli {
 
   _exit(error, code = 1) {
     console.error(error);
+    // eslint-disable-next-line unicorn/no-process-exit
     process.exit(code);
   }
 }

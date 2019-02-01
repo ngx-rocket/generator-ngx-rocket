@@ -23,20 +23,13 @@ import { AppComponent } from './app.component';
 describe('AppComponent', () => {
 <% if (props.target.includes('cordova')) { -%>
 
-  let statusBarSpy: any, splashScreenSpy: any, platformReadySpy: any;
-<%   if (props.ui === 'ionic') { -%>
-  let platformSpy: any;
-<%   } -%>
+  let statusBarSpy: any, splashScreenSpy: any;
 
 <% } -%>
   beforeEach(async(() => {
 <% if (props.target.includes('cordova')) { -%>
     statusBarSpy = jasmine.createSpyObj('StatusBar', ['styleDefault']);
     splashScreenSpy = jasmine.createSpyObj('SplashScreen', ['hide']);
-    platformReadySpy = Promise.resolve();
-<%   if (props.ui === 'ionic') { -%>
-    platformSpy = jasmine.createSpyObj('Platform', { ready: platformReadySpy });
-<%   } -%>
 
 <% } -%>
     TestBed.configureTestingModule({
@@ -59,9 +52,6 @@ describe('AppComponent', () => {
       providers: [
         { provide: StatusBar, useValue: statusBarSpy },
         { provide: SplashScreen, useValue: splashScreenSpy },
-<%   if (props.ui === 'ionic') { -%>
-        { provide: Platform, useValue: platformSpy },
-<%   } -%>
       ]
 <% } else { -%>
       providers: []
