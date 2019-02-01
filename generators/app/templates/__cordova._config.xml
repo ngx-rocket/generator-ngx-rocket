@@ -57,7 +57,7 @@
   <platform name="ios">
     <allow-intent href="itms:*"/>
     <allow-intent href="itms-apps:*"/>
-    <preference name="deployment-target" value="9.0"/>
+    <preference name="deployment-target" value="11.0"/>
     <preference name="UIWebViewBounce" value="false"/>
     <!--
       Don't store local data in an iCloud backup. Turn this to "cloud" to enable storage
