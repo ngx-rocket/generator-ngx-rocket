@@ -15,6 +15,7 @@ describe('Logger', () => {
     });
     savedLevel = Logger.level;
     savedOutputs = Logger.outputs;
+    Logger.level = LogLevel.Debug;
   });
 
   afterAll(() => {
