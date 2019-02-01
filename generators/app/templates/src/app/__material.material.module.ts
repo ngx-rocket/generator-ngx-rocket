@@ -9,6 +9,7 @@
 import { NgModule } from '@angular/core';
 import {
   MatAutocompleteModule,
+  MatBadgeModule,
   MatButtonModule,
   MatButtonToggleModule,
   MatCardModule,
@@ -45,11 +46,13 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
+  MatTreeModule
 } from '@angular/material';
 
 @NgModule({
   exports: [
     MatAutocompleteModule,
+    MatBadgeModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatCardModule,
@@ -85,7 +88,8 @@ import {
     MatTableModule,
     MatTabsModule,
     MatToolbarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatTreeModule
   ]
 })
 export class MaterialModule { }
