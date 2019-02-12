@@ -69,7 +69,7 @@
     "ionic-angular": "^3.9.2",
     "ionicons": "^3.0.0",
 <% } else if (props.ui === 'bootstrap') { -%>
-    "@ng-bootstrap/ng-bootstrap": "^3.3.0",
+    "@ng-bootstrap/ng-bootstrap": "^4.0.0",
     "bootstrap": "^4.1.1",
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
 <% } else if (props.ui === 'material') { -%>
