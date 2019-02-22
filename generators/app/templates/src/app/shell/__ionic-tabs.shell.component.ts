@@ -11,27 +11,30 @@ import { merge } from 'rxjs/observable/merge';
   styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent {
+
   tabs = [
     { name: 'home', route: 'home', title: 'Home', icon: 'home' },
     { name: 'about', route: 'about', title: 'About', icon: 'logo-angular' },
     { name: 'settings', route: 'settings', title: 'Settings', icon: 'cog' }
   ];
   selectedTabName$: Observable<string>;
+
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     const firstRoute$ = of(activatedRoute);
     const navEventRoutes$ = router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       map(() => activatedRoute)
     );
-    this.selectedTabName$ = merge(firstRoute$, navEventRoutes$).pipe(map(route => this.routeToTabId(route)));
+    this.selectedTabName$ = merge(firstRoute$, navEventRoutes$).pipe(map(route => this.routeToTabName(route)));
   }
-  private routeToTabId(route: ActivatedRoute) {
+
+  private routeToTabName(route: ActivatedRoute): string {
     if (!route || !route.firstChild) {
       return;
     }
     if (route && route.component === ShellComponent && route.firstChild) {
       route = route.firstChild;
-      return this.tabs.find(tabElement => tabElement.route === route.routeConfig.path).name;
+      return this.tabs.find(tab => tab.route === route.routeConfig.path).name;
     }
   }
 }

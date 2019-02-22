@@ -32,7 +32,7 @@ setLanguage(language: string) {
 <% if (props.auth) { -%>
 logout() {
   this.authenticationService.logout()
-  .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
+    .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
 }
 
 <% } -%>
@@ -47,7 +47,7 @@ get languages(): string[] {
 <% if (props.auth) { -%>
 get username(): string | null {
   const credentials = this.authenticationService.credentials;
-return credentials ? credentials.username : null;
+  return credentials ? credentials.username : null;
 }
 
 <% } -%>

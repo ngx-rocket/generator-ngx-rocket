@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { ActionSheetController, AlertController, Platform } from '@ionic/angular';
 import { ActionSheetButton, ActionSheetOptions, TextFieldTypes } from '@ionic/core';
 import { TranslateService } from '@ngx-translate/core';
-import { filter } from 'rxjs/operators';
 
 <% if (props.auth) { -%>
 import { AuthenticationService, I18nService } from '@app/core';
@@ -17,9 +16,6 @@ import { I18nService } from '@app/core';
   styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent {
-
-  navRoot: Component;
-  subscription: any;
 
   constructor(private router: Router,
               private translateService: TranslateService,
@@ -82,7 +78,7 @@ export class ShellComponent {
 
   private logout() {
     this.authenticationService.logout()
-    .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
+      .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
   }
 
   get isWeb(): boolean {
@@ -97,8 +93,7 @@ export class ShellComponent {
 
   changeLanguage() {
 <% } -%>
-    this.alertController.create(
-      {
+    this.alertController.create({
         header: this.translateService.instant('Change language'),
         inputs: this.i18nService.supportedLanguages.map(language => ({
           type: 'radio' as TextFieldTypes,
@@ -119,8 +114,8 @@ export class ShellComponent {
             }
           }
         ]
-      }
-    ).then(alertController => alertController.present());
+      })
+      .then(alertController => alertController.present());
   }
 
 }

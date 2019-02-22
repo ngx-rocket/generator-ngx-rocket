@@ -62,7 +62,7 @@
     "@angular/platform-browser": "^7.1.4",
     "@angular/platform-browser-dynamic": "^7.1.4",
     "@angular/router": "^7.1.4",
-    "@ngx-translate/core": "^10.0.1",
+    "@ngx-translate/core": "^11.0.1",
 <% if (props.target.includes('cordova')) { -%>
     "@ionic-native/core": "5.0.0-beta.21",
     "@ionic-native/splash-screen": "5.0.0-beta.21",
@@ -83,7 +83,7 @@
 <% if (props.ui === 'ionic') { -%>
     "@ionic/angular": "4.0.0-rc.1",
 <% } else if (props.ui === 'bootstrap') { -%>
-    "@ng-bootstrap/ng-bootstrap": "^3.3.0",
+    "@ng-bootstrap/ng-bootstrap": "^4.0.4",
     "bootstrap": "^4.1.1",
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
 <% } else if (props.ui === 'material') { -%>
@@ -94,7 +94,7 @@
     "hammerjs": "^2.0.8",
 <% } -%>
 <% if (props.angulartics) { -%>
-    "angulartics2": "^6.0.0",
+    "angulartics2": "^7.2.4",
 <% } -%>
     "core-js": "^2.5.6",
     "lodash": "^4.17.10",
@@ -108,10 +108,10 @@
 <% if (props.target.includes('cordova')) { -%>
     "cordova": "^8.0.0",
 <% } -%>
-    "@angular/cli": "~7.0.2",
+    "@angular/cli": "~7.3.3",
     "@angular/compiler-cli": "^7.0.0",
     "@angular/language-service": "^7.0.0",
-    "@angular-devkit/build-angular": "^0.12.1",
+    "@angular-devkit/build-angular": "^0.13.3",
     "@biesbjerg/ngx-translate-extract": "^2.3.4",
     "@ngx-rocket/scripts": "^3.0.0",
     "@types/jasmine": "^2.8.7",
@@ -129,15 +129,15 @@
     "https-proxy-agent": "^2.0.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~3.0.0",
+    "karma": "~4.0.0",
     "karma-chrome-launcher": "^2.2.0",
-    "karma-cli": "~1.0.1",
+    "karma-cli": "~2.0.0",
     "karma-coverage-istanbul-reporter": "^2.0.2",
-    "karma-jasmine": "^1.1.2",
-    "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-jasmine": "^2.0.1",
+    "karma-jasmine-html-reporter": "^1.4.0",
     "karma-junit-reporter": "^1.2.0",
 <% if (props.prettier) { -%>
-    "prettier": "^1.14.0",
+    "prettier": "^1.15.0",
     "tslint-config-prettier": "^1.14.0",
     "stylelint-config-prettier": "^4.0.0",
 <%   if (options.git) { -%>
@@ -149,12 +149,12 @@
 <% if (!options['external-chrome']) { -%>
     "puppeteer": "^1.4.0",
 <% } -%>
-    "stylelint": "~9.6.0",
+    "stylelint": "~9.10.1",
     "stylelint-config-recommended-scss": "~3.2.0",
     "stylelint-config-standard": "~18.2.0",
-    "stylelint-scss": "~3.3.0",
-    "ts-node": "~7.0.1",
-    "tslint": "~5.11.0",
+    "stylelint-scss": "~3.5.3",
+    "ts-node": "~8.0.2",
+    "tslint": "~5.12.0",
     "typescript": "~3.1.3"
 <% if (props.prettier) { -%>
   },

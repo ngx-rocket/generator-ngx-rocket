@@ -67,6 +67,7 @@ export class AppComponent implements OnInit, OnDestroy {
     log.debug('init');
 
 <% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
+    this.angulartics2GoogleAnalytics.startTracking();
     this.angulartics2GoogleAnalytics.eventTrack(environment.version, {category: 'App initialized'});
 <% } -%>
 
