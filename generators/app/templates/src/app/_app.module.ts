@@ -78,10 +78,8 @@ import { AppRoutingModule } from './app-routing.module';
 <% if (props.auth) { -%>
     LoginModule,
 <% } -%>
-<% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
-    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
-<% } else if (props.angulartics ) { -%>
-    Angulartics2Module.forRoot([]),
+<% } if (props.angulartics ) { -%>
+    Angulartics2Module.forRoot(),
 <% } -%>
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],

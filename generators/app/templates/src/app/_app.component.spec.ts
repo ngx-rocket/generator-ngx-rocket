@@ -41,7 +41,7 @@ describe('AppComponent', () => {
         IonicModule.forRoot(),
 <% } -%>
 <% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
-        Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
+        Angulartics2Module.forRoot(),
 <% } -%>
         RouterTestingModule,
         TranslateModule.forRoot(),

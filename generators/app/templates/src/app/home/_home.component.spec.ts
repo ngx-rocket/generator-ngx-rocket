@@ -36,7 +36,7 @@ describe('HomeComponent', () => {
 <% } -%>
 <% if (props.angulartics) { -%>
           RouterTestingModule,
-          Angulartics2Module.forRoot([]),
+          Angulartics2Module.forRoot(),
 <% } -%>
           CoreModule,
           SharedModule,
