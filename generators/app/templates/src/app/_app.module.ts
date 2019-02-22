@@ -78,7 +78,7 @@ import { AppRoutingModule } from './app-routing.module';
 <% if (props.auth) { -%>
     LoginModule,
 <% } -%>
-<% } if (props.angulartics ) { -%>
+<% if (props.angulartics ) { -%>
     Angulartics2Module.forRoot(),
 <% } -%>
     AppRoutingModule // must be imported as the last module as it contains the fallback route
