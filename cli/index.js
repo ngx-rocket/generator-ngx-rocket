@@ -70,6 +70,7 @@ class NgxCli {
     if (this._options.help) {
       return this._help(true);
     }
+
     switch (this._args[0]) {
       case 'n':
       case 'new':
@@ -92,6 +93,7 @@ class NgxCli {
     if (!args[0]) {
       return this._help();
     }
+
     const packageManager = this._packageManager();
     fuzzyRun(args, packageManager);
   }
@@ -105,6 +107,7 @@ class NgxCli {
     } else {
       this._exit(`No existing app found, use ${chalk.blue('ngx new')} instead`);
     }
+
     if (addon) {
       args = args.filter(arg => arg !== '--addon' && arg !== '-a');
       env.lookup(() =>
@@ -152,10 +155,12 @@ class NgxCli {
 
     this._config.set(
       disabledAddons,
-      addons.filter(addon => !answers.addons.includes(addon)).reduce((r, addon) => {
-        r[addon] = true;
-        return r;
-      }, {})
+      addons
+        .filter(addon => !answers.addons.includes(addon))
+        .reduce((r, addon) => {
+          r[addon] = true;
+          return r;
+        }, {})
     );
     console.log('Configuration saved.');
   }
@@ -169,6 +174,7 @@ class NgxCli {
     } else {
       addons = await this._findAddons();
     }
+
     const disabled = this._config.get(disabledAddons);
     console.log(chalk.blue(`Available add-ons${npm ? ' on NPM' : ''}:`));
 
@@ -203,6 +209,7 @@ class NgxCli {
       if (components.length === 0) {
         return null;
       }
+
       const dir = path.join(...components);
       const packageFile = path.join(dir, 'package.json');
       return fs.existsSync(packageFile) ? packageFile : find(components.slice(0, -1));
@@ -213,6 +220,7 @@ class NgxCli {
       // When path starts with a slash, the first path component is empty string
       components[0] = path.sep;
     }
+
     return find(components);
   }
 
@@ -220,6 +228,7 @@ class NgxCli {
     if (this._options.packageManager) {
       return this._options.packageManager === 'yarn' ? 'yarn' : 'npm';
     }
+
     let pm = null;
     try {
       const rc = require(path.join(process.cwd(), '.yo-rc.json'));
@@ -227,6 +236,7 @@ class NgxCli {
     } catch (error) {
       // Do nothing
     }
+
     return pm || process.env.NGX_PACKAGE_MANAGER || 'npm';
   }
 
