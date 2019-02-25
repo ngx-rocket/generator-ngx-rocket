@@ -20,10 +20,12 @@
       <ion-icon name="contact" slot="start"></ion-icon>
       <ion-label translate>Profile</ion-label>
     </ion-item>
+    <% if (props.auth) { -%>
     <ion-item button (click)="logout()">
       <ion-icon name="md-log-out" slot="start"></ion-icon>
       <ion-label translate>Logout</ion-label>
     </ion-item>
+    <% } -%>
     <ng-container *ngIf="isWeb">
       <ion-list-header>
         <ion-label translate>Preferences</ion-label>
