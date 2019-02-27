@@ -8,24 +8,15 @@
 
 // 3rd party libraries
 <% if (props.ui === 'ionic') { -%>
-
-// Ionic components, based on ionic-angular/themes/ionic.components
-// Included fixed version here because of https://github.com/ionic-team/ionic/issues/12284
-// @import "~ionic-angular/themes/ionic.components";
-
-/* stylelint-disable */
 @import "~@ionic/angular/css/core.css";
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-
 @import "~@ionic/angular/css/padding.css";
 @import "~@ionic/angular/css/float-elements.css";
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
-
-/* stylelint-enable */
 <% } else if (props.ui === 'bootstrap') { -%>
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss";

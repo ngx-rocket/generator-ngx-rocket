@@ -1,8 +1,17 @@
-<ion-router-outlet></ion-router-outlet>
-<ion-tab-bar slot="bottom" [selectedTab]="selectedTabName$ | async">
-  <ion-tab-button *ngFor="let t of tabs; index as tabIndex" show="true" [tab]="t.name" routerDirection="top"
-                  [routerLink]="'/' + t.route">
-    <ion-icon [name]="t.icon"></ion-icon>
-    <ion-label>{{ t.title | translate }}</ion-label>
-  </ion-tab-button>
-</ion-tab-bar>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="home"></ion-icon>
+      <ion-label translate>Home</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="about">
+      <ion-icon name="logo-angular"></ion-icon>
+      <ion-label translate>About</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="settings">
+      <ion-icon name="cog"></ion-icon>
+      <ion-label translate>Settings</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+

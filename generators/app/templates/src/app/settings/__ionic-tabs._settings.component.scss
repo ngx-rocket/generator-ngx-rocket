@@ -4,6 +4,7 @@
   width: 100%;
   height: 100%;
 }
+<% if (props.auth) { -%>
 
 .profile {
   background-color: var(--ion-color-primary);
@@ -17,3 +18,4 @@
 .profile-title {
   color: var(--ion-color-primary-contrast);
 }
+<% } -%>

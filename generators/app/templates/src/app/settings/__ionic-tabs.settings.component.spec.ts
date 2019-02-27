@@ -23,7 +23,7 @@ describe('SettingsComponent', () => {
           SharedModule
         ],
         schemas: [CUSTOM_ELEMENTS_SCHEMA],
-        declarations: [ SettingsComponent ],
+        declarations: [SettingsComponent],
         providers: [
           Platform,
           AlertController,

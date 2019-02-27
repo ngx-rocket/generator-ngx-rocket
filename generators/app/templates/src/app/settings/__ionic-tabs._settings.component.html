@@ -11,30 +11,29 @@
       <div class="profile-title">{{username}}</div>
     </div>
   </div>
-  <ion-list-header>
-    <ion-label translate>Account</ion-label>
-  </ion-list-header>
-  <ion-item button>
-    <ion-icon name="contact" item-start></ion-icon>
-    <ion-label translate>Profile</ion-label>
-  </ion-item>
-  <ion-item (click)="logout()">
-    <ion-icon name="md-log-out" item-start></ion-icon>
-    <ion-label translate>Logout</ion-label>
-  </ion-item>
   <% } -%>
-
-  <ion-list-header>
-    <ion-label translate>Preferences</ion-label>
-  </ion-list-header>
-  <ion-item button *ngIf="isWeb" (click)="changeLanguage()">
-    <ion-icon name="md-globe" item-start></ion-icon>
-    <ion-label translate>Change language</ion-label>
-  </ion-item>
-  <ion-item>
-    <ion-icon name="notifications" item-start></ion-icon>
-    <ion-label translate>Notifications</ion-label>
-    <ion-toggle></ion-toggle>
-  </ion-item>
-
+  <ion-list>
+    <ion-list-header>
+      <ion-label translate>Account</ion-label>
+    </ion-list-header>
+    <ion-item button>
+      <ion-icon name="contact" slot="start"></ion-icon>
+      <ion-label translate>Profile</ion-label>
+    </ion-item>
+    <% if (props.auth) { -%>
+    <ion-item button (click)="logout()">
+      <ion-icon name="md-log-out" slot="start"></ion-icon>
+      <ion-label translate>Logout</ion-label>
+    </ion-item>
+    <% } -%>
+    <ng-container *ngIf="isWeb">
+      <ion-list-header>
+        <ion-label translate>Preferences</ion-label>
+      </ion-list-header>
+      <ion-item button (click)="changeLanguage()">
+        <ion-icon name="md-globe" slot="start"></ion-icon>
+        <ion-label translate>Change language</ion-label>
+      </ion-item>
+    </ng-container>
+  </ion-list>
 </ion-content>

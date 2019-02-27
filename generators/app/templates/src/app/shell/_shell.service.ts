@@ -17,7 +17,7 @@ export class Shell {
    */
   static childRoutes(routes: Routes): Route {
     return {
-      path: '',
+      path: '<%= props.ui === 'ionic' && props.layout === 'tabs' ? 'tabs' : '' -%>',
       component: ShellComponent,
       children: routes,
 <% if (props.auth) { -%>

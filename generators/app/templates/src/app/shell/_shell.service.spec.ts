@@ -31,7 +31,7 @@ describe('Shell', () => {
       const result = Shell.childRoutes(testRoutes);
 
       // Assert
-      expect(result.path).toBe('');
+      expect(result.path).toBe('<%= props.ui === 'ionic' && props.layout === 'tabs' ? 'tabs' : '' -%>');
       expect(result.children).toBe(testRoutes);
       expect(result.component).toBe(ShellComponent);
     });
