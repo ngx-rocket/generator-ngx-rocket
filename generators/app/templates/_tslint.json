@@ -163,9 +163,12 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true,
+    "rxjs-no-operator": true,
+    "rxjs-no-add": true,
+    "rxjs-no-unused-add": true
     "rxjs-collapse-imports": true,
     "rxjs-pipeable-operators-only": true,
     "rxjs-no-static-observable-methods": true,
-    "rxjs-proper-imports": true
+    "rxjs-proper-imports": true,
   }
 }
