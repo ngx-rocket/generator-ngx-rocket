@@ -1,12 +1,12 @@
 {
-<% if (props.prettier) { -%>
   "extends": [
-    "tslint-config-prettier"
+    "rxjs-tslint-rules",
+<% if (props.prettier) { -%>
+      "tslint-config-prettier"
+ <% } -%>
   ],
-<% } -%>
   "rulesDirectory": [
-    "node_modules/codelyzer",
-    "node_modules/rxjs-tslint"
+    "node_modules/codelyzer"
   ],
   "rules": {
     "arrow-return-shorthand": true,
