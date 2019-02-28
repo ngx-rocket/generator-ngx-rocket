@@ -1,9 +1,9 @@
 {
   "extends": [
-    "rxjs-tslint-rules",
 <% if (props.prettier) { -%>
-      "tslint-config-prettier"
-<% } -%>
+    "tslint-config-prettier",
+<% } -%>,
+    "rxjs-tslint-rules"
   ],
   "rulesDirectory": [
     "node_modules/codelyzer"
