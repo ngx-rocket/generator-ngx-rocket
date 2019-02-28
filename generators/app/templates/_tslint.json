@@ -1,20 +1,8 @@
 {
   "extends": [
-    <
-    %
-    if
-    (props.prettier)
-    {
-      -
-      %
-      >
-      "tslint-config-prettier",
-      <
-      %
-    }
-    -
-    %
-    >,
+<% if (props.prettier) { -%>
+    "tslint-config-prettier",
+<% } -%>,
     "rxjs-tslint-rules"
   ],
   "rulesDirectory": [
