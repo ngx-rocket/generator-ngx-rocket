@@ -3,7 +3,7 @@
     "rxjs-tslint-rules",
 <% if (props.prettier) { -%>
       "tslint-config-prettier"
- <% } -%>
+<% } -%>
   ],
   "rulesDirectory": [
     "node_modules/codelyzer"
