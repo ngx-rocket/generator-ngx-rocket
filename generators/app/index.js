@@ -78,6 +78,9 @@ class NgxGenerator extends Generator {
   }
 
   async prompting() {
+    // Allow to pre-set any props in an add-on generator
+    Object.assign(this.props, this.sharedProps);
+
     await super.prompting();
     this.props.mobile = this.props.mobile || [];
     this.shareProps(this.props);

@@ -16,11 +16,15 @@ class <%= props.className %>Generator extends Generator {
     // Setting version allows Yeoman to notify the user of updates
     this.version = pkg.version;
     this.log(`Using ${chalk.cyan('<%= props.projectName %>')} ${chalk.green(this.version)}`);
+
+    // Allow to pre-set any props in another add-on generator
+    // If don't want your generator prompts to be overridable, remove this line.
+    Object.assign(this.props, this.sharedProps);
   }
 
   beforeWriting() {
-    // Augment this generator's properties with shared properties so it can be
-    // used in templates
+    // Augment this generator's properties with shared properties after prompts,
+    // so it can be used in templates
     Object.assign(this.props, this.sharedProps);
   }
 }
