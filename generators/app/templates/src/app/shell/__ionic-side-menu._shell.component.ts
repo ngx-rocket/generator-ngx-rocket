@@ -5,7 +5,7 @@ import { ActionSheetButton, ActionSheetOptions, TextFieldTypes } from '@ionic/co
 import { TranslateService } from '@ngx-translate/core';
 
 <% if (props.auth) { -%>
-import { AuthenticationService, I18nService } from '@app/core';
+import { AuthenticationService, CredentialsService, I18nService } from '@app/core';
 <% } else {-%>
 import { I18nService } from '@app/core';
 <% } -%>
@@ -24,6 +24,7 @@ export class ShellComponent {
               private actionSheetController: ActionSheetController,
 <% if (props.auth) { -%>
               private authenticationService: AuthenticationService,
+              private credentialsService: CredentialsService,
 <% } -%>
               private i18nService: I18nService) { }
 
@@ -72,7 +73,7 @@ export class ShellComponent {
   }
 
   get username(): string | null {
-    const credentials = this.authenticationService.credentials;
+    const credentials = this.credentialsService.credentials;
     return credentials ? credentials.username : null;
   }
 
