@@ -11,13 +11,9 @@ describe('CredentialsService', () => {
     TestBed.configureTestingModule({
       providers: [CredentialsService]
     });
-  });
 
-  beforeEach(inject([
-    CredentialsService
-  ], (_credentialsService: CredentialsService) => {
-    credentialsService = _credentialsService;
-  }));
+    credentialsService = TestBed.get(CredentialsService);
+  });
 
   afterEach(() => {
     // Cleanup

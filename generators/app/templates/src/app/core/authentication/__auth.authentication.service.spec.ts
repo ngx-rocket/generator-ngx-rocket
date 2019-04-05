@@ -1,4 +1,4 @@
-import { TestBed, inject, fakeAsync, tick } from '@angular/core/testing';
+import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 
 import { AuthenticationService } from './authentication.service';
 import { CredentialsService, Credentials } from './credentials.service';
@@ -12,17 +12,12 @@ describe('AuthenticationService', () => {
     TestBed.configureTestingModule({
       providers: [{ provide: CredentialsService, useClass: MockCredentialsService }, AuthenticationService]
     });
-  });
 
-  beforeEach(inject(
-    [AuthenticationService, CredentialsService],
-    (_authenticationService: AuthenticationService, _credentialsService: MockCredentialsService) => {
-      authenticationService = _authenticationService;
-      credentialsService = _credentialsService;
-      credentialsService.credentials = null;
-      spyOn(credentialsService, 'setCredentials').and.callThrough();
-    }
-  ));
+    authenticationService = TestBed.get(AuthenticationService);
+    credentialsService = TestBed.get(CredentialsService);
+    credentialsService.credentials = null;
+    spyOn(credentialsService, 'setCredentials').and.callThrough();
+  });
 
   describe('login', () => {
     it('should return credentials', fakeAsync(() => {

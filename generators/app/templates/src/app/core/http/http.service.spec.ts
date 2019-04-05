@@ -1,4 +1,4 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient, HttpInterceptor } from '@angular/common/http';
 
@@ -27,20 +27,11 @@ describe('HttpService', () => {
         },
       ]
     });
+
+    http = TestBed.get(HttpClient);
+    httpMock = TestBed.get(HttpTestingController);
+    httpCacheService = TestBed.get(HttpCacheService);
   });
-
-  beforeEach(inject([
-    HttpClient,
-    HttpTestingController,
-    HttpCacheService
-  ], (_http: HttpClient,
-      _httpMock: HttpTestingController,
-      _httpCacheService: HttpCacheService) => {
-
-    http = _http;
-    httpMock = _httpMock;
-    httpCacheService = _httpCacheService;
-  }));
 
   afterEach(() => {
     httpCacheService.cleanCache();

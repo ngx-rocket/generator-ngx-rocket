@@ -1,4 +1,4 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 
@@ -23,17 +23,10 @@ describe('ErrorHandlerInterceptor', () => {
         multi: true
       }]
     });
+
+    http = TestBed.get(HttpClient);
+    httpMock = TestBed.get(HttpTestingController);
   });
-
-  beforeEach(inject([
-    HttpClient,
-    HttpTestingController
-  ], (_http: HttpClient,
-      _httpMock: HttpTestingController) => {
-
-    http = _http;
-    httpMock = _httpMock;
-  }));
 
   afterEach(() => {
     httpMock.verify();
