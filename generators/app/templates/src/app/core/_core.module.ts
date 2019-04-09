@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { RouteReusableStrategy } from './route-reusable-strategy';
 <% if (props.auth) { -%>
 import { AuthenticationService } from './authentication/authentication.service';
+import { CredentialsService } from './authentication/credentials.service';
 import { AuthenticationGuard } from './authentication/authentication.guard';
 <% } -%>
 import { I18nService } from './i18n.service';
@@ -25,6 +26,7 @@ import { CacheInterceptor } from './http/cache.interceptor';
   providers: [
 <% if (props.auth) { -%>
     AuthenticationService,
+    CredentialsService,
     AuthenticationGuard,
 <% } -%>
     I18nService,

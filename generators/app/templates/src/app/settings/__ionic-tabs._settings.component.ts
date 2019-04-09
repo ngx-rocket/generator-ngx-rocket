@@ -4,9 +4,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { ActionSheetController, AlertController, Platform } from '@ionic/angular';
 import { TextFieldTypes } from '@ionic/core';
 
-import { I18nService } from '@app/core/i18n.service';
 <% if (props.auth) { -%>
-import { AuthenticationService } from '@app/core/authentication/authentication.service';
+import { AuthenticationService, CredentialsService, I18nService } from '@app/core';
+<% } else { -%>
+import { I18nService } from '@app/core';
 <% } -%>
 
 @Component({
@@ -24,6 +25,7 @@ export class SettingsComponent implements OnInit {
               private actionSheetController: ActionSheetController,
 <% if (props.auth) { -%>
               private authenticationService: AuthenticationService,
+              private credentialsService: CredentialsService,
 <% } -%>
               private i18nService: I18nService) { }
 
@@ -35,7 +37,7 @@ export class SettingsComponent implements OnInit {
 
 <% if (props.auth) { -%>
   get username(): string | null {
-    const credentials = this.authenticationService.credentials;
+    const credentials = this.credentialsService.credentials;
     return credentials ? credentials.username : null;
   }
 

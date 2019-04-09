@@ -1,13 +1,13 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { Router, RouterStateSnapshot } from '@angular/router';
 
-import { AuthenticationService } from './authentication.service';
-import { MockAuthenticationService } from './authentication.service.mock';
+import { CredentialsService } from './credentials.service';
+import { MockCredentialsService } from './credentials.service.mock';
 import { AuthenticationGuard } from './authentication.guard';
 
 describe('AuthenticationGuard', () => {
   let authenticationGuard: AuthenticationGuard;
-  let authenticationService: MockAuthenticationService;
+  let credentialsService: MockCredentialsService;
   let mockRouter: any;
   let mockSnapshot: RouterStateSnapshot;
 
@@ -20,7 +20,7 @@ describe('AuthenticationGuard', () => {
     TestBed.configureTestingModule({
       providers: [
         AuthenticationGuard,
-        { provide: AuthenticationService, useClass: MockAuthenticationService },
+        { provide: CredentialsService, useClass: MockCredentialsService },
         { provide: Router, useValue: mockRouter },
       ]
     });
@@ -28,12 +28,12 @@ describe('AuthenticationGuard', () => {
 
   beforeEach(inject([
     AuthenticationGuard,
-    AuthenticationService
+    CredentialsService
   ], (_authenticationGuard: AuthenticationGuard,
-      _authenticationService: MockAuthenticationService) => {
+      _credentialsService: MockCredentialsService) => {
 
     authenticationGuard = _authenticationGuard;
-    authenticationService = _authenticationService;
+    credentialsService = _credentialsService;
   }));
 
   it('should have a canActivate method', () => {
@@ -46,7 +46,7 @@ describe('AuthenticationGuard', () => {
 
   it('should return false and redirect to login if user is not authenticated', () => {
     // Arrange
-    authenticationService.credentials = null;
+    credentialsService.credentials = null;
 
     // Act
     const result = authenticationGuard.canActivate(null, mockSnapshot);
@@ -60,7 +60,7 @@ describe('AuthenticationGuard', () => {
   });
 
   it('should save url as queryParam if user is not authenticated', () => {
-    authenticationService.credentials = null;
+    credentialsService.credentials = null;
     mockRouter.url = '/about';
     mockSnapshot.url = '/about';
 

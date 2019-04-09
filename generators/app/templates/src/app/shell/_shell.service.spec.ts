@@ -1,7 +1,8 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 <% if (props.auth) { -%>
-import { AuthenticationGuard, AuthenticationService, MockAuthenticationService } from '@app/core';
+import { AuthenticationGuard, AuthenticationService } from '@app/core';
+import { MockAuthenticationService } from '@app/core/authentication/authentication.service.mock';
 <% } -%>
 import { ShellComponent } from './shell.component';
 import { Shell } from './shell.service';

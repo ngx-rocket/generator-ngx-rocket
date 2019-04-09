@@ -13,7 +13,9 @@ import { MaterialModule } from '@app/material.module';
 <% } -%>
 
 <% if (props.auth) { -%>
-import { AuthenticationService, CoreModule, MockAuthenticationService } from '@app/core';
+import { AuthenticationService, CredentialsService, CoreModule } from '@app/core';
+import { MockAuthenticationService } from '@app/core/authentication/authentication.service.mock';
+import { MockCredentialsService } from '@app/core/authentication/credentials.service.mock';
 <% } else {-%>
 import { CoreModule } from '@app/core';
 <% } -%>
@@ -59,7 +61,8 @@ describe('ShellComponent', () => {
 <% if ((props.auth) || (props.ui === 'ionic')) { -%>
       providers: [
 <%   if (props.auth) { -%>
-        { provide: AuthenticationService, useClass: MockAuthenticationService }
+        { provide: AuthenticationService, useClass: MockAuthenticationService },
+        { provide: CredentialsService, useClass: MockCredentialsService }
 <%   } -%>
       ],
 <% } -%>

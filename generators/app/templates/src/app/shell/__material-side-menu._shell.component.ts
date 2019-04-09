@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ObservableMedia } from '@angular/flex-layout';
 
 <% if (props.auth) { -%>
-import { AuthenticationService, I18nService } from '@app/core';
+import { AuthenticationService, CredentialsService, I18nService } from '@app/core';
 <% } else { -%>
 import { I18nService } from '@app/core';
 <% } -%>
@@ -21,6 +21,7 @@ export class ShellComponent implements OnInit {
               private media: ObservableMedia,
 <% if (props.auth) { -%>
               private authenticationService: AuthenticationService,
+              private credentialsService: CredentialsService,
 <% } -%>
               private i18nService: I18nService) { }
 
@@ -37,7 +38,7 @@ export class ShellComponent implements OnInit {
   }
 
   get username(): string | null {
-    const credentials = this.authenticationService.credentials;
+    const credentials = this.credentialsService.credentials;
     return credentials ? credentials.username : null;
   }
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 <% if (props.auth) { -%>
 import { Router } from '@angular/router';
 
-import { AuthenticationService, I18nService } from '@app/core';
+import { AuthenticationService, CredentialsService, I18nService } from '@app/core';
 <% } else { -%>
 
 import { I18nService } from '@app/core';
@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
 <% if (props.auth) { -%>
 constructor(private router: Router,
   private authenticationService: AuthenticationService,
+  private credentialsService: CredentialsService,
   private i18nService: I18nService) { }
 <% } else { -%>
 constructor(private i18nService: I18nService) { }
@@ -46,7 +47,7 @@ get languages(): string[] {
 
 <% if (props.auth) { -%>
 get username(): string | null {
-  const credentials = this.authenticationService.credentials;
+  const credentials = this.credentialsService.credentials;
   return credentials ? credentials.username : null;
 }
 
