@@ -1,4 +1,4 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { HttpResponse } from '@angular/common/http';
 
 import { HttpCacheService, HttpCacheEntry } from './http-cache.service';
@@ -17,13 +17,11 @@ describe('HttpCacheService', () => {
     // Start fresh
     window.sessionStorage.removeItem(cachePersistenceKey);
     window.localStorage.removeItem(cachePersistenceKey);
-  });
 
-  beforeEach(inject([HttpCacheService], (_httpCacheService: HttpCacheService) => {
-    httpCacheService = _httpCacheService;
+    httpCacheService = TestBed.get(HttpCacheService);
 
     response = new HttpResponse({ body: 'data' });
-  }));
+  });
 
   afterEach(() => {
     httpCacheService.cleanCache();

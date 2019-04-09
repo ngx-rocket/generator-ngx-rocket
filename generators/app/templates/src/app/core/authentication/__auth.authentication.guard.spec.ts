@@ -1,4 +1,4 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { Router, RouterStateSnapshot } from '@angular/router';
 
 import { CredentialsService } from './credentials.service';
@@ -24,17 +24,10 @@ describe('AuthenticationGuard', () => {
         { provide: Router, useValue: mockRouter },
       ]
     });
+
+    authenticationGuard = TestBed.get(AuthenticationGuard);
+    credentialsService = TestBed.get(CredentialsService);
   });
-
-  beforeEach(inject([
-    AuthenticationGuard,
-    CredentialsService
-  ], (_authenticationGuard: AuthenticationGuard,
-      _credentialsService: MockCredentialsService) => {
-
-    authenticationGuard = _authenticationGuard;
-    credentialsService = _credentialsService;
-  }));
 
   it('should have a canActivate method', () => {
     expect(typeof authenticationGuard.canActivate).toBe('function');
