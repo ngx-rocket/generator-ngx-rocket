@@ -21,8 +21,8 @@
     "docs": "hads ./docs -o",
     "env": "ngx-scripts env npm_package_version",
 <% if (props.prettier) { -%>
-    "prettier": "prettier --write \"./{src,e2e}/**/*.{ts,js,scss}\"",
-    "prettier:check": "prettier --list-different \"./{src,e2e}/**/*.{ts,js,scss}\"",
+    "prettier": "prettier --write \"./{src,e2e}/**/*.{ts,js,html,scss}\"",
+    "prettier:check": "prettier --list-different \"./{src,e2e}/**/*.{ts,js,html,scss}\"",
     "postinstall": "<%= run('prettier') %>",
 <%   if (options.git) { -%>
     "precommit": "pretty-quick --staged",
