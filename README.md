@@ -183,6 +183,11 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
     - [Angular Material](https://material.angular.io)
     - [Angular Flex Layout](https://github.com/angular/flex-layout)
     - [Material Icons](https://material.io/icons/)
+- Optional utility libraries:
+  * [Lodash](https://lodash.com)
+  * [Ramda](https://ramdajs.com)
+  * [Moment.js](https://momentjs.com)
+  * [Date-fns](https://date-fns.org)
 
 
 #### Coding guides

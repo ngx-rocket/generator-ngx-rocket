@@ -182,6 +182,18 @@ Development, build and quality processes are based on [angular-cli](https://gith
 <% } -%>
 - [RxJS](http://reactivex.io/rxjs)
 - [ngx-translate](https://github.com/ngx-translate/core)
+<% if (props.utility.includes('lodash')) { -%>
+- [Lodash](https://lodash.com)
+<% } -%>
+<% if (props.utility.includes('ramda')) { -%>
+- [Ramda](https://ramdajs.com)
+<% } -%>
+<% if (props.utility.includes('moment')) { -%>
+- [Moment.js](https://momentjs.com)
+<% } -%>
+<% if (props.utility.includes('datefns')) { -%>
+- [Date-fns](https://date-fns.org)
+<% } -%>
 
 #### Coding guides
 

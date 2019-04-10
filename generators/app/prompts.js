@@ -170,5 +170,28 @@ module.exports = [
     name: 'prettier',
     message: 'Do you want automatic code formatting with Prettier?',
     default: false
+  },
+  {
+    type: 'checkbox',
+    name: 'utility',
+    message: 'Do you want additional libraries?',
+    choices: [
+      {
+        value: 'lodash',
+        name: 'Lodash (collection & general utilities)'
+      },
+      {
+        value: 'ramda',
+        name: 'Ramda (Lodash FP alternative)'
+      },
+      {
+        value: 'moment',
+        name: 'Moment.js (date management)'
+      },
+      {
+        value: 'datefns',
+        name: 'Date-fns (Moment.js FP alternative)'
+      }
+    ]
   }
 ];
