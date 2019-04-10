@@ -85,6 +85,7 @@ class NgxGenerator extends Generator {
     this.props.mobile = this.props.mobile || [];
     this.props.desktop = this.props.desktop || [];
     this.props.utility = this.props.utility || [];
+    this.props.tools = this.props.tools || [];
     this.shareProps(this.props);
   }
 
@@ -155,9 +156,16 @@ class NgxGenerator extends Generator {
     this.log(`- $ ${chalk.green(`${this.packageManager} test`)}: run unit tests in watch mode for TDD`);
     this.log(`- $ ${chalk.green(`${this.packageManager} run test:ci`)}: lint code and run units tests with coverage`);
     this.log(`- $ ${chalk.green(`${this.packageManager} run e2e`)}: launch e2e tests`);
-    this.log(`- $ ${chalk.green(`${this.packageManager} run docs`)}: show docs and coding guides`);
 
-    if (this.props.prettier) {
+    if (this.props.tools.includes('hads')) {
+      this.log(`- $ ${chalk.green(`${this.packageManager} run docs`)}: show docs and coding guides`);
+    }
+
+    if (this.props.tools.includes('compodoc')) {
+      this.log(`- $ ${chalk.green(`${this.packageManager} run compodoc`)}: generates docs from code`);
+    }
+
+    if (this.props.tools.includes('prettier')) {
       this.log(`- $ ${chalk.green(`${this.packageManager} run prettier`)}: format your code automatically`);
     }
   }
@@ -176,6 +184,7 @@ module.exports = Generator.make({
     raw: props => props.ui === 'raw',
     'electron-windows': props => props.desktop && props.desktop.includes('windows'),
     'electron-mac': props => props.desktop && props.desktop.includes('mac'),
-    'electron-linux': props => props.desktop && props.desktop.includes('linux')
+    'electron-linux': props => props.desktop && props.desktop.includes('linux'),
+    'tools-hads': props => props.tools && props.tools.includes('hads')
   })
 });

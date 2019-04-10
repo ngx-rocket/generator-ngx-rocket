@@ -1,5 +1,5 @@
 {
-<% if (props.prettier) { -%>
+<% if (props.tools.includes('prettier')) { -%>
   "extends": [
     "tslint-config-prettier"
   ],

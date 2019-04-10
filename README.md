@@ -105,7 +105,7 @@ Task                            | Description
 `npm run e2e`                   | Run e2e tests using [Protractor](http://www.protractortest.org)
 `npm run lint`                  | Lint code
 `npm run translations:extract`  | Extract strings from code and templates to `src/app/translations/template.json`
-`npm run docs`                  | Display project documentation&
+`npm run docs`                  | Display project documentation
 
 Additional tasks for Cordova-based projects:
 
@@ -115,6 +115,14 @@ Task                            | Description
 `npm run cordova:run <ios/android> [--device]`          | Run app on target platform device or simulator
 `npm run cordova:build [-- --configuration=production]` | Build mobile app for production in `dist/` folder
 `npm run cordova:clean`         | Removes `www/`, `platforms/` and `plugins/` folders
+
+Additional tasks for Electron-based projects:
+
+Task                            | Description
+--------------------------------|---------------------------------------------------------------------------------------
+`npm run electron:build`        | Build desktop app
+`npm run electron:run`          | Run app on electron
+`npm run electron:package`      | Package app for all supported platforms
 
 When building the application, you can specify the target configuration using the additional flag
 `--configuration <name>` (do not forget to prepend `--` to pass arguments to npm scripts).

@@ -18,9 +18,14 @@
     "test:ci": "<%= run('env') %> && <%= run('lint') %> && ng test --code-coverage --watch=false",
     "e2e": "<%= run('env') %> && ng e2e",
     "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean -sort --marker extract",
+<% if (props.tools.includes('hads')) { -%>
     "docs": "hads ./docs -o",
+<% } -%>
+<% if (props.tools.includes('compodoc')) { -%>
+    "compodoc": "compodoc -p src/tsconfig.app.json -d docs/generated -s -o",
+<% } -%>
     "env": "ngx-scripts env npm_package_version",
-<% if (props.prettier) { -%>
+<% if (props.tools.includes('prettier')) { -%>
     "prettier": "prettier --write \"./{src,e2e}/**/*.{ts,js,html,scss}\"",
     "prettier:check": "prettier --list-different \"./{src,e2e}/**/*.{ts,js,html,scss}\"",
     "postinstall": "<%= run('prettier') %>",
@@ -137,7 +142,12 @@
     "electron-packager": "^13.0.1",
     "electron-reload": "^1.4.0",
 <% } -%>
+<% if (props.tools.includes('hads')) { -%>
     "hads": "^1.7.0",
+<% } -%>
+<% if (props.tools.includes('compodoc')) { -%>
+    "@compodoc/compodoc": "^1.1.9",
+<% } -%>
     "htmlhint": "^0.10.0",
     "https-proxy-agent": "^2.0.0",
     "jasmine-core": "~3.3.0",
@@ -149,7 +159,7 @@
     "karma-jasmine": "^2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
     "karma-junit-reporter": "^1.2.0",
-<% if (props.prettier) { -%>
+<% if (props.tools.includes('prettier')) { -%>
     "prettier": "^1.16.3",
     "tslint-config-prettier": "^1.14.0",
     "stylelint-config-prettier": "^4.0.0",
@@ -169,7 +179,7 @@
     "ts-node": "~8.0.2",
     "tslint": "~5.12.1",
     "typescript": "~3.2.0"
-<% if (props.prettier) { -%>
+<% if (props.tools.includes('prettier')) { -%>
   },
   "prettier": {
     "singleQuote": true,

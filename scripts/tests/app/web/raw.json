@@ -6,5 +6,6 @@
   "lazy": false,
   "angulartics": true,
   "analyticsProvider": "other",
+  "tools": ["compodoc"],
   "utility": ["lodash", "moment"]
 }

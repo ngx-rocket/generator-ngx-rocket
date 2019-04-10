@@ -1,7 +1,7 @@
 {
   "extends": [
     "stylelint-config-standard",
-<% if (props.prettier) { -%>
+<% if (props.tools.includes('prettier')) { -%>
     "stylelint-config-recommended-scss",
     "stylelint-config-prettier"
 <% } else { -%>

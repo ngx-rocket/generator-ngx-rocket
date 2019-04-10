@@ -166,10 +166,25 @@ module.exports = [
     when: props => props.angulartics && props.analyticsProvider === 'ga'
   },
   {
-    type: 'confirm',
-    name: 'prettier',
-    message: 'Do you want automatic code formatting with Prettier?',
-    default: false
+    type: 'checkbox',
+    name: 'tools',
+    message: 'Do you want additional tools?',
+    choices: [
+      {
+        value: 'prettier',
+        name: 'Prettier (automatic code formatting)',
+        checked: true
+      },
+      {
+        value: 'hads',
+        name: 'Hads (markdown-based doc system)',
+        checked: true
+      },
+      {
+        value: 'compodoc',
+        name: 'Compodoc (Angular doc generator)'
+      }
+    ]
   },
   {
     type: 'checkbox',
