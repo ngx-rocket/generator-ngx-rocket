@@ -53,6 +53,11 @@ testem.log
 /src/translations/template.*
 /src/environments/.env.*
 
+<% if (props.tools.includes('compodoc')) { -%>
+# Generated doc
+/docs/generated
+
+<% } -%>
 # System Files
 .DS_Store
 Thumbs.db

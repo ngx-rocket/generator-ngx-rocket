@@ -79,18 +79,20 @@ Task                            | Description
 <% if (props.target.includes('electron')) { -%>
 `npm run electron:build`        | Build desktop app
 `npm run electron:run`          | Run app on electron
-`npm run electron:package:win32`| Package windows executable app fo 32 bit architecture
-`npm run electron:package:win64`| Package windows executable app fo 64 bit architecture
-`npm run electron:package:linux`| Package linux executable app fo 64 bit architecture
-`npm run electron:package:mac`  | Package mac (darwin) app fo 64 bit architecture
+`npm run electron:package`      | Package app for all supported platforms
 <% } -%>
 `npm test`                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
 `npm run test:ci`               | Lint code and run unit tests once for continuous integration
 `npm run e2e`                   | Run e2e tests using [Protractor](http://www.protractortest.org)
 `npm run lint`                  | Lint code
 `npm run translations:extract`  | Extract strings from code and templates to `src/app/translations/template.json`
-`npm run docs`                  | Display project documentation
-<% if (props.prettier) { -%>
+<% if (props.tools.includes('hads')) { -%>
+`npm run docs`                  | Display project documentation and coding guides
+<% } -%>
+<% if (props.tools.includes('compodoc')) { -%>
+`npm run compodoc`              | Generates and display generates documentation from code
+<% } -%>
+<% if (props.tools.includes('prettier')) { -%>
 `npm run prettier`              | Automatically format all `.ts`, `.js` & `.scss` files
 <% } -%>
 
@@ -118,7 +120,7 @@ you can also use the command `ng generate` directly.
 Tasks are mostly based on the `angular-cli` tool. Use `ng help` to get more help or go check out the
 [Angular-CLI README](https://github.com/angular/angular-cli).
 
-<% if (props.prettier) { -%>
+<% if (props.tools.includes('prettier')) { -%>
 ## Code formatting
 
 All `.ts`, `.js` & `.scss` files in this project are formatted automatically using [Prettier](https://prettier.io),
@@ -160,8 +162,13 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - End-to-end tests using [Protractor](https://github.com/angular/protractor)
 - Static code analysis: [TSLint](https://github.com/palantir/tslint), [Codelyzer](https://github.com/mgechev/codelyzer),
   [Stylelint](http://stylelint.io) and [HTMLHint](http://htmlhint.com/)
+<% if (props.tools.includes('hads')) { -%>
 - Local knowledgebase server using [Hads](https://github.com/sinedied/hads)
-<% if (props.prettier) { -%>
+<% } -%>
+<% if (props.tools.includes('compodoc')) { -%>
+- Automatic Angular documentation generation using [Compodoc](https://compodoc.app)
+<% } -%>
+<% if (props.tools.includes('prettier')) { -%>
 - Automatic code formatting with [Prettier](https://prettier.io)
 <% } -%>
 
