@@ -171,7 +171,6 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
 - [Angular](https://angular.io)
 - [RxJS](http://reactivex.io/rxjs)
 - [ngx-translate](https://github.com/ngx-translate/core)
-- [Lodash](https://lodash.com)
 - UI based on:
   * Bootstrap
     - [Bootstrap 4](https://getbootstrap.com)
@@ -184,6 +183,11 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
     - [Angular Material](https://material.angular.io)
     - [Angular Flex Layout](https://github.com/angular/flex-layout)
     - [Material Icons](https://material.io/icons/)
+- Optional utility libraries:
+  * [Lodash](https://lodash.com)
+  * [Ramda](https://ramdajs.com)
+  * [Moment.js](https://momentjs.com)
+  * [Date-fns](https://date-fns.org)
 
 
 #### Coding guides

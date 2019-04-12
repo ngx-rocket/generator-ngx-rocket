@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { includes } from 'lodash';
 
 import { Logger } from './logger.service';
 import enUS from '../../translations/en-US.json';
@@ -65,7 +64,7 @@ export class I18nService {
    */
   set language(language: string) {
     language = language || localStorage.getItem(languageKey) || this.translateService.getBrowserCultureLang();
-    let isSupportedLanguage = includes(this.supportedLanguages, language);
+    let isSupportedLanguage = this.supportedLanguages.includes(language);
 
     // If no exact match is found, search without the region
     if (language && !isSupportedLanguage) {

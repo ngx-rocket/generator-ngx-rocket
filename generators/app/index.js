@@ -83,6 +83,8 @@ class NgxGenerator extends Generator {
 
     await super.prompting();
     this.props.mobile = this.props.mobile || [];
+    this.props.desktop = this.props.desktop || [];
+    this.props.utility = this.props.utility || [];
     this.shareProps(this.props);
   }
 

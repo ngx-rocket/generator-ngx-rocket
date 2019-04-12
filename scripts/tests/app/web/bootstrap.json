@@ -6,5 +6,6 @@
   "lazy": false,
   "angulartics": true,
   "analyticsProvider": "ga",
-  "googleAnalyticsAccount": "UA-116237171-1"
+  "googleAnalyticsAccount": "UA-116237171-1",
+  "utility": ["ramda", "date-fns"]
 }
