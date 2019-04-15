@@ -14,7 +14,7 @@
     "test": "<%= run('env') %> && ng test",
     "test:ci": "<%= run('env') %> && <%= run('lint') %> && ng test --code-coverage --watch=false",
     "e2e": "<%= run('env') %> && ng e2e",
-    "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean -sort --marker extract",
+    "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean --sort --marker extract",
     "docs": "hads ./docs -o",
     "env": "ngx-scripts env npm_package_version",
 <% if (props.prettier) { -%>
@@ -69,7 +69,7 @@
     "ionic-angular": "^3.9.2",
     "ionicons": "^3.0.0",
 <% } else if (props.ui === 'bootstrap') { -%>
-    "@ng-bootstrap/ng-bootstrap": "^3.3.0",
+    "@ng-bootstrap/ng-bootstrap": "^4.0.0",
     "bootstrap": "^4.1.1",
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
 <% } else if (props.ui === 'material') { -%>
