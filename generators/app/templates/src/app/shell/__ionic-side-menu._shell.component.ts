@@ -29,7 +29,7 @@ export class ShellComponent {
               private i18nService: I18nService) { }
 
 <% if (props.auth) { -%>
-  showProfileActions() {
+  async showProfileActions() {
     let createdActionSheet: any;
     const buttons: ActionSheetButton[] = [
       {
@@ -41,10 +41,11 @@ export class ShellComponent {
       {
         text: this.translateService.instant('Change language'),
         icon: this.platform.is('ios') ? undefined : 'globe',
-        handler: () => {
+        handler: async () => {
           // Wait for action sheet dismiss animation to finish, see "Dismissing And Async Navigation" section in:
           // http://ionicframework.com/docs/api/components/action-sheet/ActionSheetController/#advanced
-          createdActionSheet.dismiss().then(() => this.changeLanguage());
+          await createdActionSheet.dismiss();
+          this.changeLanguage();
           return false;
         }
       },
@@ -65,11 +66,8 @@ export class ShellComponent {
       buttons: buttons
     };
 
-    this.actionSheetController.create(actionSheetOptions)
-      .then(actionSheet => {
-        createdActionSheet = actionSheet;
-        actionSheet.present();
-      });
+    createdActionSheet = await this.actionSheetController.create(actionSheetOptions);
+    createdActionSheet.present();
   }
 
   get username(): string | null {
@@ -86,15 +84,15 @@ export class ShellComponent {
     return !this.platform.is('cordova');
   }
 
-  private changeLanguage() {
+  private async changeLanguage() {
 <% } else { -%>
   get isWeb(): boolean {
     return !this.platform.is('cordova');
   }
 
-  changeLanguage() {
+  async changeLanguage() {
 <% } -%>
-    this.alertController.create({
+    const alertController = await this.alertController.create({
         header: this.translateService.instant('Change language'),
         inputs: this.i18nService.supportedLanguages.map(language => ({
           type: 'radio' as TextFieldTypes,
@@ -116,7 +114,7 @@ export class ShellComponent {
           }
         ]
       })
-      .then(alertController => alertController.present());
+      alertController.present();
   }
 
 }

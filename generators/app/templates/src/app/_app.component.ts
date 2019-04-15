@@ -58,7 +58,11 @@ export class AppComponent implements OnInit, OnDestroy {
 <% } -%>
               private i18nService: I18nService) { }
 
+<%   if (props.target.includes('cordova')) { -%>
+  async ngOnInit() {
+<%   } else { -%>
   ngOnInit() {
+<%   } -%>
     // Setup logger
     if (environment.production) {
       Logger.enableProductionMode();
@@ -101,7 +105,8 @@ export class AppComponent implements OnInit, OnDestroy {
 <%   if (props.target.includes('cordova')) { -%>
 
     // Cordova platform and plugins initialization
-    this.platform.ready().then(() => this.onCordovaReady());
+    await this.platform.ready();
+    this.onCordovaReady();
 <%   } -%>
 <% } else if (props.target.includes('cordova')) { -%>
     // Cordova platform and plugins initialization

@@ -44,16 +44,16 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() { }
 
+<% if (props.ui === 'ionic') { -%>
+  async login() {
+<% } else { -%>
   login() {
+<% } -%>
     this.isLoading = true;
     const login$ = this.authenticationService.login(this.loginForm.value);
 <% if (props.ui === 'ionic') { -%>
-    const loading$ = from(
-      this.loadingController.create().then(loadingOverlay => {
-        this.loadingOverlay = loadingOverlay;
-        return loadingOverlay.present();
-      })
-    );
+    this.loadingOverlay = await this.loadingController.create();
+    const loading$ = from(this.loadingOverlay.present());
     forkJoin(login$, loading$).pipe(
       map(([credentials, ...rest]) => credentials),
 <% } else { -%>
