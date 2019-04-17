@@ -11,12 +11,12 @@ This *meta* generator creates all the boilerplate needed for your own ngX-Rocket
 
 1. Install required tools:
  ```sh
- npm install -g yo generator-ngx-rocket
+ npm install -g generator-ngx-rocket
  ```
 
 2. Create your add-on:
  ```sh
- yo ngx-rocket:addon
+ ngx new --addon
  ```
 
 ## Add-on creation
