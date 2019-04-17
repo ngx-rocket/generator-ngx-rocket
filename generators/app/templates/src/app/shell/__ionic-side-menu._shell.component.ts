@@ -113,7 +113,7 @@ export class ShellComponent {
             }
           }
         ]
-      })
+      });
       alertController.present();
   }
 
