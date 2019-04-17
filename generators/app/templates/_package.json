@@ -83,7 +83,7 @@
     "angulartics2": "^6.0.0",
 <% } -%>
     "core-js": "^2.5.6",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.11",
     "rxjs": "^6.3.1",
 <% if (props.ui === 'ionic' || props.target.includes('cordova')) { -%>
     "rxjs-compat": "^6.1.0",
