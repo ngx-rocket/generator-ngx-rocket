@@ -54,7 +54,7 @@ jobs:
   build_cordova_android:
     <<: *defaults
     docker:
-    - image: ngxrocket/circleci-dockerfiles:cordova
+    - image: ngxrocket/circleci:cordova
     steps:
       - restore_cache:
           *restore-repository-cache
