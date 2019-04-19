@@ -47,8 +47,8 @@ export class SettingsComponent implements OnInit {
   }
 <% } -%>
 
-  changeLanguage() {
-    this.alertController.create({
+  async changeLanguage() {
+    const alertController = await this.alertController.create({
         header: this.translateService.instant('Change language'),
         inputs: this.i18nService.supportedLanguages.map(language => ({
           type: 'radio' as TextFieldTypes,
@@ -69,7 +69,7 @@ export class SettingsComponent implements OnInit {
             }
           }
         ]
-      })
-      .then(alertController => alertController.present());
+      });
+      alertController.present();
   }
 }
