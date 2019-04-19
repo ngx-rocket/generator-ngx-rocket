@@ -216,6 +216,7 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
 - [Using a backend proxy for development](https://github.com/ngx-rocket/starter-kit/blob/master/docs/backend-proxy.md)
 - [Browser routing](https://github.com/ngx-rocket/starter-kit/blob/master/docs/routing.md)
 - [Cordova](https://github.com/ngx-rocket/starter-kit/blob/cordova/ionic/docs/cordova.md)
+- [Electron](https://github.com/ngx-rocket/starter-kit/blob/electron/ionic/docs/electron.md)
 
 ## Generator options
 
