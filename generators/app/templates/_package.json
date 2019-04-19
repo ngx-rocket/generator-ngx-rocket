@@ -95,8 +95,8 @@
 <% } else if (props.ui === 'material') { -%>
     "@angular/cdk": "^7.0.1",
     "@angular/material": "^7.0.1",
-    "@angular/flex-layout": "7.0.0-beta.19",
-    "material-design-icons-iconfont": "^3.0.3",
+    "@angular/flex-layout": "^7.0.0-beta.24",
+    "material-design-icons-iconfont": "^4.0.5",
     "hammerjs": "^2.0.8",
 <% } -%>
 <% if (props.angulartics) { -%>
