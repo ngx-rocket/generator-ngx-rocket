@@ -122,7 +122,11 @@ export class AppComponent implements OnInit, OnDestroy {
 <% if (props.target.includes('cordova')) { -%>
 
   private onCordovaReady() {
+    log.debug('device ready');
+
     if (window['cordova']) {
+      log.debug('Cordova init');
+
       window['Keyboard'].hideFormAccessoryBar(true);
 <% if (props.ui === 'ionic') { -%>
       this.statusBar.styleLightContent();

@@ -17,7 +17,7 @@
     "test": "<%= run('env') %> && ng test",
     "test:ci": "<%= run('env') %> && <%= run('lint') %> && ng test --code-coverage --watch=false",
     "e2e": "<%= run('env') %> && ng e2e",
-    "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean -sort --marker extract",
+    "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean --sort --marker extract",
 <% if (props.tools.includes('hads')) { -%>
     "docs": "hads ./docs -o",
 <% } -%>
@@ -29,9 +29,6 @@
     "prettier": "prettier --write \"./{src,e2e}/**/*.{ts,js,html,scss}\"",
     "prettier:check": "prettier --list-different \"./{src,e2e}/**/*.{ts,js,html,scss}\"",
     "postinstall": "<%= run('prettier') %>",
-<%   if (options.git) { -%>
-    "precommit": "pretty-quick --staged",
-<%   } -%>
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
     "cordova:prepare": "ngx-scripts cordova prepare",
@@ -44,14 +41,15 @@
     "electron:compile": "tsc electron.main.ts",
     "electron:run": "<%= run('electron:compile') %> && electron .",
     "electron:build": "<%= run('electron:compile') %> && <%= run('env') %> && ng build --prod --base-href ./dist.electron --output-path dist.electron",
+    "electron:package:common": "electron-packager . --overwrite --out=dist.packages --ignore=\"/(platforms|plugins|docs|www|reports|e2e|src)\"",
 <%   if (props.desktop.includes('windows')) { -%>
-    "electron:package:windows": "electron-packager . --overwrite --platform=win32 --arch=x64 --out=dist.electron/out  --icon=./resources/win/icon.ico",
+    "electron:package:windows": "<%= run('electron:package:common') %> -- --platform=win32 --arch=x64 --icon=./resources/win/icon.ico",
 <%   } -%>
 <%   if (props.desktop.includes('mac')) { -%>
-    "electron:package:mac": "electron-packager . --overwrite --platform=darwin --out=dist.electron/out --icon=./resources/mac/icon.icns",
+    "electron:package:mac": "<%= run('electron:package:common') %> -- --platform=darwin --icon=./resources/mac/icon.icns",
 <%   } -%>
 <%   if (props.desktop.includes('linux')) { -%>
-    "electron:package:linux": "electron-packager . --overwrite --platform=linux --out=dist.electron/out",
+    "electron:package:linux": "<%= run('electron:package:common') %> --platform=linux",
 <%   } -%>
     "electron:package": "<%- props.desktop.reduce((out, platform) => (out ? out + ' && ' : '') + run('electron:package:' + platform), null) %>",
 <% } -%>
@@ -72,11 +70,11 @@
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.0.0",
-    "cordova-android": "^7.0.0",
+    "cordova-android": "^8.0.0",
     "cordova-custom-config": "^5.0.2",
-    "cordova-ios": "^4.5.4",
+    "cordova-ios": "^5.0.0",
     "cordova-plugin-device": "^2.0.2",
-    "cordova-plugin-ionic-webview": "^3.1.1",
+    "cordova-plugin-ionic-webview": "^4.0.1",
     "cordova-plugin-ionic-keyboard": "^2.1.2",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.1",
@@ -94,8 +92,8 @@
 <% } else if (props.ui === 'material') { -%>
     "@angular/cdk": "^7.0.1",
     "@angular/material": "^7.0.1",
-    "@angular/flex-layout": "7.0.0-beta.19",
-    "material-design-icons-iconfont": "^3.0.3",
+    "@angular/flex-layout": "^7.0.0-beta.24",
+    "material-design-icons-iconfont": "^4.0.5",
     "hammerjs": "^2.0.8",
 <% } -%>
 <% if (props.angulartics) { -%>
@@ -113,13 +111,13 @@
 <% if (props.utility.includes('datefns')) { -%>
     "date-fns": "^1.30.1",
 <% } -%>
-    "core-js": "^2.6.3",
+    "core-js": "^3.0.1",
     "rxjs": "^6.4.0",
-    "zone.js": "^0.8.29"
+    "zone.js": "^0.9.0"
   },
   "devDependencies": {
 <% if (props.target.includes('cordova')) { -%>
-    "cordova": "^8.0.0",
+    "cordova": "^9.0.0",
 <% } -%>
     "@angular/cli": "~7.3.0",
     "@angular/compiler-cli": "^7.2.3",
@@ -136,7 +134,7 @@
 <% if (props.utility.includes('ramda')) { -%>
     "@types/ramda": "^0.26.6",
 <% } -%>
-    "codelyzer": "^4.4.4",
+    "codelyzer": "^5.0.0",
 <% if (props.target.includes('electron')) { -%>
     "electron": "^4.0.3",
     "electron-packager": "^13.0.1",
@@ -148,11 +146,11 @@
 <% if (props.tools.includes('compodoc')) { -%>
     "@compodoc/compodoc": "^1.1.9",
 <% } -%>
-    "htmlhint": "^0.10.0",
+    "htmlhint": "^0.11.0",
     "https-proxy-agent": "^2.0.0",
-    "jasmine-core": "~3.3.0",
+    "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~4.0.0",
+    "karma": "~4.1.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-cli": "~2.0.0",
     "karma-coverage-istanbul-reporter": "^2.0.2",
@@ -162,22 +160,22 @@
 <% if (props.tools.includes('prettier')) { -%>
     "prettier": "^1.16.3",
     "tslint-config-prettier": "^1.14.0",
-    "stylelint-config-prettier": "^4.0.0",
+    "stylelint-config-prettier": "^5.1.0",
 <%   if (options.git) { -%>
     "pretty-quick": "^1.10.0",
-    "husky": "^0.14.3",
+    "husky": "^1.3.1",
 <%   } -%>
 <% } -%>
     "protractor": "~5.4.0",
 <% if (!options['external-chrome']) { -%>
     "puppeteer": "^1.12.0",
 <% } -%>
-    "stylelint": "~9.10.1",
+    "stylelint": "~10.0.1",
     "stylelint-config-recommended-scss": "~3.2.0",
-    "stylelint-config-standard": "~18.2.0",
-    "stylelint-scss": "~3.5.3",
-    "ts-node": "~8.0.2",
-    "tslint": "~5.12.1",
+    "stylelint-config-standard": "~18.3.0",
+    "stylelint-scss": "~3.6.0",
+    "ts-node": "~8.1.0",
+    "tslint": "~5.16.0",
     "typescript": "~3.2.0"
 <% if (props.tools.includes('prettier')) { -%>
   },
@@ -191,6 +189,13 @@
         }
       }
     ]
+<% } -%>
+<% if (props.tools.includes('prettier') && options.git) { -%>
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
   },

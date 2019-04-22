@@ -1,7 +1,7 @@
 import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ObservableMedia } from '@angular/flex-layout';
+import { MediaObserver } from '@angular/flex-layout';
 
 <% if (props.auth) { -%>
 import { AuthenticationService, CredentialsService, I18nService } from '@app/core';
@@ -18,7 +18,7 @@ export class ShellComponent implements OnInit {
 
   constructor(private router: Router,
               private titleService: Title,
-              private media: ObservableMedia,
+              private media: MediaObserver,
 <% if (props.auth) { -%>
               private authenticationService: AuthenticationService,
               private credentialsService: CredentialsService,

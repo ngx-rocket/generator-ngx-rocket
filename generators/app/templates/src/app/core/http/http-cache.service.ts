@@ -105,12 +105,12 @@ export class HttpCacheService {
 
   private saveCacheData() {
     if (this.storage) {
-      this.storage[cachePersistenceKey] = JSON.stringify(this.cachedData);
+      this.storage.setItem(cachePersistenceKey, JSON.stringify(this.cachedData));
     }
   }
 
   private loadCacheData() {
-    const data = this.storage ? this.storage[cachePersistenceKey] : null;
+    const data = this.storage ? this.storage.getItem(cachePersistenceKey) : null;
     this.cachedData = data ? JSON.parse(data) : {};
   }
 

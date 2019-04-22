@@ -21,3 +21,6 @@ $app-warn:    mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+
+// Material design icons font path
+$material-design-icons-font-path: "~material-design-icons-iconfont/dist/fonts/";
