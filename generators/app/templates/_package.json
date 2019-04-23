@@ -38,7 +38,7 @@
     "cordova": "cordova",
 <% } -%>
 <% if (props.target.includes('electron')) { -%>
-    "electron:compile": "tsc electron.main.ts",
+    "electron:compile": "tsc --project tsconfig.electron.json",
     "electron:run": "<%= run('electron:compile') %> && electron .",
     "electron:build": "<%= run('electron:compile') %> && <%= run('env') %> && ng build --prod --base-href ./dist.electron --output-path dist.electron",
     "electron:package:common": "electron-packager . --overwrite --out=dist.packages --ignore=\"/(platforms|plugins|docs|www|reports|e2e|src)\"",
@@ -171,7 +171,7 @@
     "puppeteer": "^1.12.0",
 <% } -%>
     "stylelint": "~10.0.1",
-    "stylelint-config-recommended-scss": "~3.2.0",
+    "stylelint-config-recommended-scss": "~3.3.0",
     "stylelint-config-standard": "~18.3.0",
     "stylelint-scss": "~3.6.0",
     "ts-node": "~8.1.0",

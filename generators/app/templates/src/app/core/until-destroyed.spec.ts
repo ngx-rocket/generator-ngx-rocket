@@ -18,7 +18,7 @@ describe('untilDestroyed', () => {
     const spy2 = createObserver();
 
     class Test implements OnDestroy {
-      obs: Subscription;
+      obs!: Subscription;
 
       ngOnDestroy() {}
 

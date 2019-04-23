@@ -6,5 +6,6 @@
   "auth": false,
   "lazy": false,
   "angulartics": false,
-  "location": "hash"
+  "location": "hash",
+  "strict": true
 }

@@ -4,9 +4,6 @@ import { TranslateModule } from '@ngx-translate/core';
 <% if (props.ui === 'ionic') { -%>
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-<%   if (props.target.includes('cordova')) { -%>
-import { Platform } from '@ionic/angular';
-<%   } -%>
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -14,7 +11,6 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 <% } -%>
 <% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
 import { Angulartics2Module } from 'angulartics2';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 <% } -%>
 
 import { CoreModule } from '@app/core';
