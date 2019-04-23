@@ -45,7 +45,7 @@ export enum LogLevel {
 /**
  * Log output handler function.
  */
-export type LogOutput = (source: string, level: LogLevel, ...objects: any[]) => void;
+export type LogOutput = (source: string | undefined, level: LogLevel, ...objects: any[]) => void;
 
 export class Logger {
 

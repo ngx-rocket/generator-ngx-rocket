@@ -33,7 +33,7 @@ describe('CredentialsService', () => {
 
     it('should clean authentication', () => {
       // Act
-      credentialsService.setCredentials(null);
+      credentialsService.setCredentials();
 
       // Assert
       expect(credentialsService.isAuthenticated()).toBe(false);

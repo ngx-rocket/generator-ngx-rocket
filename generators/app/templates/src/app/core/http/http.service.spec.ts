@@ -12,6 +12,7 @@ describe('HttpService', () => {
   let httpCacheService: HttpCacheService;
   let http: HttpClient;
   let httpMock: HttpTestingController;
+  let interceptors: HttpInterceptor[];
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -24,13 +25,19 @@ describe('HttpService', () => {
         {
           provide: HttpClient,
           useClass: HttpService
-        },
+        }
       ]
     });
 
     http = TestBed.get(HttpClient);
     httpMock = TestBed.get(HttpTestingController);
     httpCacheService = TestBed.get(HttpCacheService);
+
+    const realRequest = http.request;
+    spyOn(HttpService.prototype, 'request').and.callFake(function(this: any, method: string, url: string, options?: any) {
+      interceptors = this.interceptors;
+      return realRequest.call(this, method, url, options);
+    });
   });
 
   afterEach(() => {
@@ -39,14 +46,6 @@ describe('HttpService', () => {
   });
 
   it('should use error handler, API prefix and no cache by default', () => {
-    // Arrange
-    let interceptors: HttpInterceptor[];
-    const realRequest = http.request;
-    spyOn(HttpService.prototype, 'request').and.callFake(function(this: any) {
-      interceptors = this.interceptors;
-      return realRequest.apply(this, arguments);
-    });
-
     // Act
     const request = http.get('/toto');
 
@@ -61,18 +60,8 @@ describe('HttpService', () => {
   });
 
   it('should use cache', () => {
-    // Arrange
-    let interceptors: HttpInterceptor[];
-    const realRequest = http.request;
-    spyOn(HttpService.prototype, 'request').and.callFake(function(this: any) {
-      interceptors = this.interceptors;
-      return realRequest.apply(this, arguments);
-    });
-
     // Act
-    const request = http
-      .cache()
-      .get('/toto');
+    const request = http.cache().get('/toto');
 
     // Assert
     request.subscribe(() => {
@@ -84,18 +73,8 @@ describe('HttpService', () => {
   });
 
   it('should skip error handler', () => {
-    // Arrange
-    let interceptors: HttpInterceptor[];
-    const realRequest = http.request;
-    spyOn(HttpService.prototype, 'request').and.callFake(function(this: any) {
-      interceptors = this.interceptors;
-      return realRequest.apply(this, arguments);
-    });
-
     // Act
-    const request = http
-      .skipErrorHandler()
-      .get('/toto');
+    const request = http.skipErrorHandler().get('/toto');
 
     // Assert
     request.subscribe(() => {
@@ -107,18 +86,8 @@ describe('HttpService', () => {
   });
 
   it('should not use API prefix', () => {
-    // Arrange
-    let interceptors: HttpInterceptor[];
-    const realRequest = http.request;
-    spyOn(HttpService.prototype, 'request').and.callFake(function(this: any) {
-      interceptors = this.interceptors;
-      return realRequest.apply(this, arguments);
-    });
-
     // Act
-    const request = http
-      .disableApiPrefix()
-      .get('/toto');
+    const request = http.disableApiPrefix().get('/toto');
 
     // Assert
     request.subscribe(() => {

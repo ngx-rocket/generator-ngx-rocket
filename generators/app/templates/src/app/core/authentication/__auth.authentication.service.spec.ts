@@ -49,8 +49,8 @@ describe('AuthenticationService', () => {
       request.subscribe(() => {
         expect(credentialsService.isAuthenticated()).toBe(true);
         expect(credentialsService.credentials).not.toBeNull();
-        expect(credentialsService.credentials.token).toBeDefined();
-        expect(credentialsService.credentials.token).not.toBeNull();
+        expect((<Credentials>credentialsService.credentials).token).toBeDefined();
+        expect((<Credentials>credentialsService.credentials).token).not.toBeNull();
       });
     }));
 

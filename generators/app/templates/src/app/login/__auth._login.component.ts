@@ -21,8 +21,8 @@ const log = new Logger('Login');
 export class LoginComponent implements OnInit, OnDestroy {
 
   version: string = environment.version;
-  error: string;
-  loginForm: FormGroup;
+  error: string | undefined;
+  loginForm!: FormGroup;
   isLoading = false;
 <% if (props.ui === 'ionic') { -%>
   private loadingOverlay: HTMLIonLoadingElement;
