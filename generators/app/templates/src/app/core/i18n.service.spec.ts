@@ -9,7 +9,7 @@ const supportedLanguages = ['eo', 'en-US', 'fr-FR'];
 
 class MockTranslateService {
 
-  currentLang: string = '';
+  currentLang = '';
   onLangChange = new Subject();
 
   use(language: string) {

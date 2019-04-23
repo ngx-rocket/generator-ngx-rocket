@@ -34,10 +34,12 @@ describe('HttpService', () => {
     httpCacheService = TestBed.get(HttpCacheService);
 
     const realRequest = http.request;
-    spyOn(HttpService.prototype, 'request').and.callFake(function(this: any, method: string, url: string, options?: any) {
-      interceptors = this.interceptors;
-      return realRequest.call(this, method, url, options);
-    });
+    spyOn(HttpService.prototype, 'request').and.callFake(
+      function(this: any, method: string, url: string, options?: any) {
+        interceptors = this.interceptors;
+        return realRequest.call(this, method, url, options);
+      }
+    );
   });
 
   afterEach(() => {
