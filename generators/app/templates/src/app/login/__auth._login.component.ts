@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 <% if (props.ui === 'ionic') { -%>
 import { LoadingController, Platform } from '@ionic/angular';
-import { map, switchMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { forkJoin, from } from 'rxjs';
 <% } -%>
 import { finalize } from 'rxjs/operators';
@@ -24,9 +24,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   error: string | undefined;
   loginForm!: FormGroup;
   isLoading = false;
-<% if (props.ui === 'ionic') { -%>
-  private loadingOverlay: HTMLIonLoadingElement;
-<% } -%>
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -52,8 +49,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     const login$ = this.authenticationService.login(this.loginForm.value);
 <% if (props.ui === 'ionic') { -%>
-    this.loadingOverlay = await this.loadingController.create();
-    const loading$ = from(this.loadingOverlay.present());
+    const loadingOverlay = await this.loadingController.create();
+    const loading$ = from(loadingOverlay.present());
     forkJoin(login$, loading$).pipe(
       map(([credentials, ...rest]) => credentials),
 <% } else { -%>
@@ -61,10 +58,10 @@ export class LoginComponent implements OnInit, OnDestroy {
 <% } -%>
       finalize(() => {
         this.loginForm.markAsPristine();
-<% if (props.ui === 'ionic') { -%>
-        this.loadingOverlay.dismiss();
-<% } -%>
         this.isLoading = false;
+<% if (props.ui === 'ionic') { -%>
+        loadingOverlay.dismiss();
+<% } -%>
       }),
       untilDestroyed(this)
     ).subscribe(credentials => {
