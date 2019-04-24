@@ -1,8 +1,8 @@
-import { app, BrowserWindow, screen } = require('electron');
+import { app, BrowserWindow, screen } from 'electron';
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow;
+let mainWindow: BrowserWindow | null;
 
 // Enable live reload if process is started with the --serve argument
 const liveReload = process.argv.slice(2).some(arg => arg === '--serve');

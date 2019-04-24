@@ -15,7 +15,7 @@ const credentialsKey = 'credentials';
 @Injectable()
 export class CredentialsService {
 
-  private _credentials: Credentials | null;
+  private _credentials: Credentials | null = null;
 
   constructor() {
     const savedCredentials = sessionStorage.getItem(credentialsKey) || localStorage.getItem(credentialsKey);

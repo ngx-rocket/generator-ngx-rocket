@@ -2,9 +2,9 @@
   "target": ["electron"],
   "desktop": ["windows", "mac", "linux"],
   "pwa": false,
-  "ui": "bootstrap",
-  "auth": false,
+  "ui": "ionic",
+  "layout": "tabs",
+  "auth": true,
   "lazy": false,
-  "angulartics": false,
   "strict": true
 }

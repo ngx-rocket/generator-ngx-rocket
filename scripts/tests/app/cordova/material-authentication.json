@@ -4,5 +4,6 @@
   "ui": "material",
   "layout": "side-menu",
   "auth": true,
-  "lazy": false
+  "lazy": false,
+  "strict": true
 }

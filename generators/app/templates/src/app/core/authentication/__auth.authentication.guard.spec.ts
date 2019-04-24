@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { Router, RouterStateSnapshot } from '@angular/router';
+import { Router, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
 
 import { CredentialsService } from './credentials.service';
 import { MockCredentialsService } from './credentials.service.mock';
@@ -21,7 +21,7 @@ describe('AuthenticationGuard', () => {
       providers: [
         AuthenticationGuard,
         { provide: CredentialsService, useClass: MockCredentialsService },
-        { provide: Router, useValue: mockRouter },
+        { provide: Router, useValue: mockRouter }
       ]
     });
 
@@ -34,7 +34,7 @@ describe('AuthenticationGuard', () => {
   });
 
   it('should return true if user is authenticated', () => {
-    expect(authenticationGuard.canActivate(null, mockSnapshot)).toBe(true);
+    expect(authenticationGuard.canActivate(new ActivatedRouteSnapshot(), mockSnapshot)).toBe(true);
   });
 
   it('should return false and redirect to login if user is not authenticated', () => {
@@ -42,7 +42,7 @@ describe('AuthenticationGuard', () => {
     credentialsService.credentials = null;
 
     // Act
-    const result = authenticationGuard.canActivate(null, mockSnapshot);
+    const result = authenticationGuard.canActivate(new ActivatedRouteSnapshot(), mockSnapshot);
 
     // Assert
     expect(mockRouter.navigate).toHaveBeenCalledWith(['/login'], {
@@ -57,7 +57,7 @@ describe('AuthenticationGuard', () => {
     mockRouter.url = '/about';
     mockSnapshot.url = '/about';
 
-    authenticationGuard.canActivate(null, mockSnapshot);
+    authenticationGuard.canActivate(new ActivatedRouteSnapshot(), mockSnapshot);
     expect(mockRouter.navigate).toHaveBeenCalledWith(['/login'], {
       queryParams: { redirect: mockRouter.url },
       replaceUrl: true

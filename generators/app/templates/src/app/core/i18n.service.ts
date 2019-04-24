@@ -22,10 +22,10 @@ export function extract(s: string) {
 @Injectable()
 export class I18nService {
 
-  defaultLanguage: string;
-  supportedLanguages: string[];
+  defaultLanguage!: string;
+  supportedLanguages!: string[];
 
-  private langChangeSubscription: Subscription;
+  private langChangeSubscription!: Subscription;
 
   constructor(private translateService: TranslateService) {
     // Embed languages to avoid extra HTTP requests

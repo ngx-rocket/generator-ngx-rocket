@@ -57,5 +57,12 @@ module.exports = [
     required: false,
     description: 'Initialize git repository',
     defaults: true
+  },
+  {
+    name: 'strict',
+    type: 'Boolean',
+    required: false,
+    description: 'Enable TypeScript strict mode',
+    defaults: false
   }
 ];

@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { CredentialsService } from './credentials.service';
+import { CredentialsService, Credentials } from './credentials.service';
 
 const credentialsKey = 'credentials';
 
@@ -28,12 +28,12 @@ describe('CredentialsService', () => {
 
       // Assert
       expect(credentialsService.isAuthenticated()).toBe(true);
-      expect(credentialsService.credentials.username).toBe('me');
+      expect((<Credentials>credentialsService.credentials).username).toBe('me');
     });
 
     it('should clean authentication', () => {
       // Act
-      credentialsService.setCredentials(null);
+      credentialsService.setCredentials();
 
       // Assert
       expect(credentialsService.isAuthenticated()).toBe(false);

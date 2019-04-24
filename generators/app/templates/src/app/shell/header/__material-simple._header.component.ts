@@ -16,7 +16,7 @@ import { I18nService } from '@app/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() sidenav: MatSidenav;
+  @Input() sidenav!: MatSidenav;
 
 <% if (props.auth) { -%>
   constructor(private router: Router,

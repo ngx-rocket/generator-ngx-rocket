@@ -1,6 +1,6 @@
 {
   "name": "generator-ngx-rocket",
-  "version": "5.3.0",
+  "version": "6.0.0",
   "description": "Extensible Angular 7+ enterprise-grade project generator based on angular-cli with best practices from the community. Includes PWA and Cordova support, coding guides and more!",
   "repository": "ngx-rocket/generator-ngx-rocket",
   "keywords": [
@@ -47,22 +47,22 @@
     "test:addon": "npm run lint -s && TEST_ADDON=1 ./scripts/test.sh",
     "deploy": "scripts/deploy.sh",
     "postpublish": "git tag -a $npm_package_version -m \"$npm_package_version\" && git push --tags",
-    "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -m 'Updated changelog'"
+    "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -m 'Update changelog'"
   },
   "dependencies": {
     "@ngx-rocket/ascii-logo": "^1.0.1",
     "@ngx-rocket/core": "^4.0.1",
     "chalk": "^2.4.2",
-    "conf": "^2.2.0",
-    "figures": "^2.0.0",
+    "conf": "^4.0.1",
+    "figures": "^3.0.0",
     "fuzz-run": "^1.0.2",
-    "inquirer": "^6.2.2",
-    "insight": "^0.10.1",
+    "inquirer": "^6.3.1",
+    "insight": "^0.10.3",
     "lodash.camelcase": "^4.3.0",
     "lodash.get": "^4.4.2",
     "lodash.upperfirst": "^4.3.1",
     "minimist": "^1.2.0",
-    "semver": "^5.6.0",
+    "semver": "^6.0.0",
     "update-notifier": "^2.5.0",
     "yeoman-environment": "^2.3.4"
   },
