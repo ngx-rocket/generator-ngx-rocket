@@ -1,7 +1,9 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
-import { IonicModule } from 'ionic-angular';
+import { ActionSheetController, AlertController, Platform } from '@ionic/angular';
+import { IonicModule } from '@ionic/angular';
 
 import { SharedModule } from '@app/shared';
 import { CoreModule } from '@app/core';
@@ -16,11 +18,17 @@ describe('SettingsComponent', () => {
         imports: [
           RouterTestingModule,
           TranslateModule.forRoot(),
-          IonicModule.forRoot(SettingsComponent),
+          IonicModule.forRoot(),
           CoreModule,
           SharedModule
         ],
-        declarations: [ SettingsComponent ]
+        schemas: [CUSTOM_ELEMENTS_SCHEMA],
+        declarations: [SettingsComponent],
+        providers: [
+          Platform,
+          AlertController,
+          ActionSheetController,
+        ]
       })
       .compileComponents();
   }));

@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { ActionSheetController, AlertController, Platform, ActionSheetOptions } from 'ionic-angular';
-import { ActionSheetButton } from 'ionic-angular/components/action-sheet/action-sheet-options';
+import { Router } from '@angular/router';
+import { ActionSheetController, AlertController, Platform } from '@ionic/angular';
+import { ActionSheetButton, ActionSheetOptions, TextFieldTypes } from '@ionic/core';
 import { TranslateService } from '@ngx-translate/core';
-import { filter } from 'rxjs/operators';
 
 <% if (props.auth) { -%>
-import { AuthenticationService, I18nService } from '@app/core';
+import { AuthenticationService, CredentialsService, I18nService } from '@app/core';
 <% } else {-%>
 import { I18nService } from '@app/core';
 <% } -%>
@@ -16,35 +15,22 @@ import { I18nService } from '@app/core';
   templateUrl: './shell.component.html',
   styleUrls: ['./shell.component.scss']
 })
-export class ShellComponent implements OnInit {
-
-  navRoot: Component;
-  subscription: any;
+export class ShellComponent {
 
   constructor(private router: Router,
-              private activatedRoute: ActivatedRoute,
               private translateService: TranslateService,
               private platform: Platform,
               private alertController: AlertController,
               private actionSheetController: ActionSheetController,
 <% if (props.auth) { -%>
               private authenticationService: AuthenticationService,
+              private credentialsService: CredentialsService,
 <% } -%>
               private i18nService: I18nService) { }
 
-  ngOnInit() {
-    this.updateNav(this.activatedRoute);
-
-    // Bind Ionic navigation to Angular router events
-    this.subscription = this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => this.updateNav(this.activatedRoute));
-    }
-
 <% if (props.auth) { -%>
-  showProfileActions() {
-    const actionSheetOptions: ActionSheetOptions = { title: this.username || undefined };
-    const actionSheet = this.actionSheetController.create(actionSheetOptions);
+  async showProfileActions() {
+    let createdActionSheet: any;
     const buttons: ActionSheetButton[] = [
       {
         text: this.translateService.instant('Logout'),
@@ -55,10 +41,11 @@ export class ShellComponent implements OnInit {
       {
         text: this.translateService.instant('Change language'),
         icon: this.platform.is('ios') ? undefined : 'globe',
-        handler: () => {
+        handler: async () => {
           // Wait for action sheet dismiss animation to finish, see "Dismissing And Async Navigation" section in:
           // http://ionicframework.com/docs/api/components/action-sheet/ActionSheetController/#advanced
-          actionSheet.dismiss().then(() => this.changeLanguage());
+          await createdActionSheet.dismiss();
+          this.changeLanguage();
           return false;
         }
       },
@@ -74,37 +61,42 @@ export class ShellComponent implements OnInit {
       buttons.splice(1, 1);
     }
 
-    buttons.forEach(button => actionSheet.addButton(button));
-    actionSheet.present();
+    const actionSheetOptions: ActionSheetOptions = {
+      header: (this.username || undefined),
+      buttons: buttons
+    };
+
+    createdActionSheet = await this.actionSheetController.create(actionSheetOptions);
+    createdActionSheet.present();
   }
 
   get username(): string | null {
-    const credentials = this.authenticationService.credentials;
+    const credentials = this.credentialsService.credentials;
     return credentials ? credentials.username : null;
   }
 
   private logout() {
     this.authenticationService.logout()
-    .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
+      .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
   }
 
   get isWeb(): boolean {
     return !this.platform.is('cordova');
   }
 
-  private changeLanguage() {
+  private async changeLanguage() {
 <% } else { -%>
   get isWeb(): boolean {
     return !this.platform.is('cordova');
   }
 
-  changeLanguage() {
+  async changeLanguage() {
 <% } -%>
-    this.alertController
-      .create({
-        title: this.translateService.instant('Change language'),
+    const alertController = await this.alertController.create({
+        header: this.translateService.instant('Change language'),
         inputs: this.i18nService.supportedLanguages.map(language => ({
-          type: 'radio',
+          type: 'radio' as TextFieldTypes,
+          name: language,
           label: language,
           value: language,
           checked: language === this.i18nService.language
@@ -121,24 +113,8 @@ export class ShellComponent implements OnInit {
             }
           }
         ]
-      })
-      .present();
-  }
-
-  private updateNav(route: ActivatedRoute) {
-    if (!route || !route.firstChild) {
-      return;
-    }
-    // First component should always be IonicApp
-    route = route.firstChild;
-    if (route && route.component === ShellComponent && route.firstChild) {
-      // Loop needed for lazy-loaded routes, see: https://github.com/angular/angular/issues/19420
-      while (route.firstChild) {
-        route = route.firstChild;
-      }
-
-      this.navRoot = <Component>route.component;
-    }
+      });
+      alertController.present();
   }
 
 }

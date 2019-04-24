@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 <% if (props.ui === 'ionic') { -%>
-import { LoadingController, Platform } from 'ionic-angular';
+import { LoadingController, Platform } from '@ionic/angular';
+import { map } from 'rxjs/operators';
+import { forkJoin, from } from 'rxjs';
 <% } -%>
 import { finalize } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
-import { Logger, I18nService, AuthenticationService } from '@app/core';
+import { Logger, I18nService, AuthenticationService, untilDestroyed } from '@app/core';
 
 const log = new Logger('Login');
 
@@ -16,14 +18,12 @@ const log = new Logger('Login');
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   version: string = environment.version;
-  error: string;
-  loginForm: FormGroup;
-<% if (props.ui !== 'ionic') { -%>
+  error: string | undefined;
+  loginForm!: FormGroup;
   isLoading = false;
-<% } -%>
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -39,31 +39,38 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() { }
 
+  ngOnDestroy() { }
+
+<% if (props.ui === 'ionic') { -%>
+  async login() {
+<% } else { -%>
   login() {
-<% if (props.ui === 'ionic') { -%>
-    const loading = this.loadingController.create();
-    loading.present();
-<% } else { -%>
+<% } -%>
     this.isLoading = true;
-<% } -%>
-    this.authenticationService.login(this.loginForm.value)
-      .pipe(finalize(() => {
-        this.loginForm.markAsPristine();
+    const login$ = this.authenticationService.login(this.loginForm.value);
 <% if (props.ui === 'ionic') { -%>
-        loading.dismiss();
+    const loadingOverlay = await this.loadingController.create();
+    const loading$ = from(loadingOverlay.present());
+    forkJoin(login$, loading$).pipe(
+      map(([credentials, ...rest]) => credentials),
 <% } else { -%>
-        this.isLoading = false;
+    login$.pipe(
 <% } -%>
-      }))
-      .subscribe(credentials => {
-        log.debug(`${credentials.username} successfully logged in`);
-        this.route.queryParams.subscribe(
-          params => this.router.navigate([ params.redirect || '/'], { replaceUrl: true })
-        );
-      }, error => {
-        log.debug(`Login error: ${error}`);
-        this.error = error;
-      });
+      finalize(() => {
+        this.loginForm.markAsPristine();
+        this.isLoading = false;
+<% if (props.ui === 'ionic') { -%>
+        loadingOverlay.dismiss();
+<% } -%>
+      }),
+      untilDestroyed(this)
+    ).subscribe(credentials => {
+      log.debug(`${credentials.username} successfully logged in`);
+      this.router.navigate([ this.route.snapshot.queryParams.redirect || '/'], { replaceUrl: true });
+    }, error => {
+      log.debug(`Login error: ${error}`);
+      this.error = error;
+    });
   }
 
   setLanguage(language: string) {

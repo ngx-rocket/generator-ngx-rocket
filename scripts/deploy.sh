@@ -68,3 +68,9 @@ BRANCH=pwa/material
 prepare_repo
 ngx new --skip-install --automate "$SCRIPT_FOLDER/tests/app/web/material-authentication.json" "$DEPLOY_APP_NAME"
 update_repo
+
+# Add electron/ionic as desktop example branch
+BRANCH=electron/ionic
+prepare_repo
+ngx new --skip-install --automate "$SCRIPT_FOLDER/tests/app/electron/ionic-authentication.json" "$DEPLOY_APP_NAME"
+update_repo

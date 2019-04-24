@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ActionSheetController, AlertController, Platform } from 'ionic-angular';
-import { TranslateService } from '@ngx-translate/core';
-import { I18nService } from '@app/core/i18n.service';
-<% if (props.auth) { -%>
-import { AuthenticationService } from '@app/core/authentication/authentication.service';
-<% } -%>
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { ActionSheetController, AlertController, Platform } from '@ionic/angular';
+import { TextFieldTypes } from '@ionic/core';
+
+<% if (props.auth) { -%>
+import { AuthenticationService, CredentialsService, I18nService } from '@app/core';
+<% } else { -%>
+import { I18nService } from '@app/core';
+<% } -%>
 
 @Component({
   selector: 'app-settings',
@@ -22,6 +25,7 @@ export class SettingsComponent implements OnInit {
               private actionSheetController: ActionSheetController,
 <% if (props.auth) { -%>
               private authenticationService: AuthenticationService,
+              private credentialsService: CredentialsService,
 <% } -%>
               private i18nService: I18nService) { }
 
@@ -33,7 +37,7 @@ export class SettingsComponent implements OnInit {
 
 <% if (props.auth) { -%>
   get username(): string | null {
-    const credentials = this.authenticationService.credentials;
+    const credentials = this.credentialsService.credentials;
     return credentials ? credentials.username : null;
   }
 
@@ -43,12 +47,12 @@ export class SettingsComponent implements OnInit {
   }
 <% } -%>
 
-  changeLanguage() {
-    this.alertController
-      .create({
-        title: this.translateService.instant('Change language'),
+  async changeLanguage() {
+    const alertController = await this.alertController.create({
+        header: this.translateService.instant('Change language'),
         inputs: this.i18nService.supportedLanguages.map(language => ({
-          type: 'radio',
+          type: 'radio' as TextFieldTypes,
+          name: language,
           label: language,
           value: language,
           checked: language === this.i18nService.language
@@ -65,7 +69,7 @@ export class SettingsComponent implements OnInit {
             }
           }
         ]
-      })
-      .present();
+      });
+      alertController.present();
   }
 }

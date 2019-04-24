@@ -1,3 +1,17 @@
-<ion-tabs #navTabs *ngIf="tabs" [selectedIndex]="selectedTabIndex" (ionChange)="onTabChange($event)">
-  <ion-tab *ngFor="let t of tabs" [root]="t.component" [tabTitle]="t.title | translate" [tabIcon]="t.icon"></ion-tab>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="home"></ion-icon>
+      <ion-label translate>Home</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="about">
+      <ion-icon name="logo-angular"></ion-icon>
+      <ion-label translate>About</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="settings">
+      <ion-icon name="cog"></ion-icon>
+      <ion-label translate>Settings</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
 </ion-tabs>
+

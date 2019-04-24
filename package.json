@@ -52,22 +52,22 @@
   "dependencies": {
     "@ngx-rocket/ascii-logo": "^1.0.1",
     "@ngx-rocket/core": "^4.0.1",
-    "chalk": "^2.4.1",
-    "conf": "^2.0.0",
-    "figures": "^2.0.0",
+    "chalk": "^2.4.2",
+    "conf": "^4.0.1",
+    "figures": "^3.0.0",
     "fuzz-run": "^1.0.2",
-    "inquirer": "^6.2.0",
-    "insight": "^0.10.1",
+    "inquirer": "^6.3.1",
+    "insight": "^0.10.3",
     "lodash.camelcase": "^4.3.0",
     "lodash.get": "^4.4.2",
     "lodash.upperfirst": "^4.3.1",
     "minimist": "^1.2.0",
-    "semver": "^5.6.0",
+    "semver": "^6.0.0",
     "update-notifier": "^2.5.0",
-    "yeoman-environment": "^2.3.3"
+    "yeoman-environment": "^2.3.4"
   },
   "devDependencies": {
-    "xo": "^0.23.0"
+    "xo": "^0.24.0"
   },
   "engines": {
     "node": ">=8.9.0"

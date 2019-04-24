@@ -1,5 +1,5 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "$schema": "./node_modules/@angular-devkit/core/src/workspace/workspace-schema.json",
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -31,6 +31,13 @@
 <% if (props.pwa) { -%>
               "src/manifest.json",
 <% } -%>
+<% if (props.ui === 'ionic') { -%>
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              },
+<% } -%>
               "src/assets"
             ],
             "styles": [
@@ -45,10 +52,17 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": <%= props.ui !== 'ionic' %>,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": <%= props.ui !== 'ionic' %>,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
 <% if (props.pwa) { -%>
               "serviceWorker": true,
 <% } -%>
@@ -58,6 +72,9 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
+            },
+            "ci": {
+              "progress": false
             }
           }
         },
@@ -69,6 +86,9 @@
           "configurations": {
             "production": {
               "browserTarget": "<%= props.projectName %>:build:production"
+            },
+            "ci": {
+              "progress": false
             }
           }
         },
@@ -98,8 +118,21 @@
 <% if (props.pwa) { -%>
               "src/manifest.json",
 <% } -%>
+<% if (props.ui === 'ionic') { -%>
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              },
+<% } -%>
               "src/assets"
             ]
+          },
+          "configurations": {
+            "ci": {
+              "progress": false,
+              "watch": false
+            }
           }
         },
         "lint": {

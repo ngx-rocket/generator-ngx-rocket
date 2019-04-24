@@ -2,82 +2,108 @@
  * Application global variables.
  */
 
-// Ionic Variables and Theming. For more info, please see: http://ionicframework.com/docs/v2/theming/
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
 
-// Font path is used to include ionicons, roboto, and noto sans fonts
-$font-path: "~ionic-angular/fonts";
-$ionicons-font-path: "~ionicons/dist/fonts";
+:root {
+  /** primary **/
+  --ion-color-primary: #3880ff;
+  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-primary-contrast: #fff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #3171e0;
+  --ion-color-primary-tint: #4c8dff;
 
+  /** secondary **/
+  --ion-color-secondary: #0cd1e8;
+  --ion-color-secondary-rgb: 12, 209, 232;
+  --ion-color-secondary-contrast: #fff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #0bb8cc;
+  --ion-color-secondary-tint: #24d6ea;
 
-// The app direction is used to include rtl styles in your app. For more info, please see:
-// http://ionicframework.com/docs/theming/rtl-support/
-$app-direction: ltr;
+  /** tertiary **/
+  --ion-color-tertiary: #7044ff;
+  --ion-color-tertiary-rgb: 112, 68, 255;
+  --ion-color-tertiary-contrast: #fff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #633ce0;
+  --ion-color-tertiary-tint: #7e57ff;
 
+  /** success **/
+  --ion-color-success: #10dc60;
+  --ion-color-success-rgb: 16, 220, 96;
+  --ion-color-success-contrast: #fff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #0ec254;
+  --ion-color-success-tint: #28e070;
 
-@import "~ionic-angular/themes/ionic.globals";
+  /** warning **/
+  --ion-color-warning: #ffce00;
+  --ion-color-warning-rgb: 255, 206, 0;
+  --ion-color-warning-contrast: #fff;
+  --ion-color-warning-contrast-rgb: 255, 255, 255;
+  --ion-color-warning-shade: #e0b500;
+  --ion-color-warning-tint: #ffd31a;
 
+  /** danger **/
+  --ion-color-danger: #f04141;
+  --ion-color-danger-rgb: 245, 61, 61;
+  --ion-color-danger-contrast: #fff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #d33939;
+  --ion-color-danger-tint: #f25454;
 
-// Shared Variables
-// --------------------------------------------------
-// To customize the look and feel of this app, you can override the Sass variables found in Ionic's source scss files.
-// To view all the possible Ionic variables, see: http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+  /** dark **/
+  --ion-color-dark: #222428;
+  --ion-color-dark-rgb: 34, 34, 34;
+  --ion-color-dark-contrast: #fff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #1e2023;
+  --ion-color-dark-tint: #383a3e;
 
+  /** medium **/
+  --ion-color-medium: #989aa2;
+  --ion-color-medium-rgb: 152, 154, 162;
+  --ion-color-medium-contrast: #fff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #86888f;
+  --ion-color-medium-tint: #a2a4ab;
 
-// Named Color Variables
-// --------------------------------------------------
-// Named colors makes it easy to reuse colors on various components.
-// It's highly recommended to change the default colors to match your app's branding. Ionic uses a Sass map of colors
-// so you can add, rename and remove colors as needed.
-// The "primary" color is the only required color in the map.
+  /** light **/
+  --ion-color-light: #f4f5f8;
+  --ion-color-light-rgb: 244, 244, 244;
+  --ion-color-light-contrast: #000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #d7d8da;
+  --ion-color-light-tint: #f5f6f9;
 
-$colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #333
-);
+  /** background **/
+  --ion-background-color: #fff;
+  --ion-background-color-rgb: 255, 255, 255;
+  --ion-background-color-step-50: #f2f2f2;
+  --ion-background-color-step-100: #e6e6e6;
+  --ion-background-color-step-150: #d9d9d9;
+  --ion-background-color-step-200: #ccc;
+  --ion-background-color-step-250: #bfbfbf;
+  --ion-background-color-step-300: #b3b3b3;
+  --ion-background-color-step-350: #a6a6a6;
+  --ion-background-color-step-400: #999;
+  --ion-background-color-step-450: #8c8c8c;
+  --ion-background-color-step-500: #808080;
+  --ion-background-color-step-550: #737373;
+  --ion-background-color-step-600: #666;
+  --ion-background-color-step-650: #595959;
+  --ion-background-color-step-700: #4d4d4d;
+  --ion-background-color-step-750: #404040;
+  --ion-background-color-step-800: #333;
+  --ion-background-color-step-850: #262626;
+  --ion-background-color-step-900: #191919;
+  --ion-background-color-step-950: #0d0d0d;
+  --ion-background-color-step-1000: #000;
 
+  /** content margin and padding **/
+  --ion-content-margin: 16px;
+  --ion-content-padding: 16px;
+}
 
-// App iOS Variables
-// --------------------------------------------------
-// iOS only Sass variables can go here
-
-$cordova-ios-statusbar-padding:           20px;
-$text-input-ios-show-invalid-highlight:   true;
-
-
-// App Material Design Variables
-// --------------------------------------------------
-// Material Design only Sass variables can go here
-
-$text-input-md-show-valid-highlight:      false;
-
-
-// App Windows Variables
-// --------------------------------------------------
-// Windows only Sass variables can go here
-
-$text-input-wp-show-valid-highlight:      false;
-
-
-// App Theme
-// --------------------------------------------------
-// Ionic apps can have different themes applied, which can then be future customized. This import comes last so that
-// the above variables are used and Ionic's default are overridden.
-
-@import "~ionic-angular/themes/ionic.theme.default";
-
-
-// Ionicons
-// --------------------------------------------------
-// The premium icon font for Ionic. For more info, please see: http://ionicframework.com/docs/v2/ionicons/
-
-@import "~ionicons/dist/scss/ionicons";
-
-
-// Fonts
-// --------------------------------------------------
-
-@import "~ionic-angular/fonts/roboto";
-@import "~ionic-angular/fonts/noto-sans";

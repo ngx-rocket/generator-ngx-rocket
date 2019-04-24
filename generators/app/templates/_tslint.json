@@ -1,5 +1,5 @@
 {
-<% if (props.prettier) { -%>
+<% if (props.tools.includes('prettier')) { -%>
   "extends": [
     "tslint-config-prettier"
   ],
@@ -149,16 +149,17 @@
     "component-selector": [
       true,
       "element",
+      "page",
       "app",
       "kebab-case"
     ],
     "no-output-on-prefix": true,
-    "use-input-property-decorator": true,
-    "use-output-property-decorator": true,
-    "use-host-property-decorator": true,
+    "no-inputs-metadata-property": true,
+    "no-outputs-metadata-property": true,
+    "no-host-metadata-property": true,
     "no-input-rename": true,
     "no-output-rename": true,
-    "use-life-cycle-interface": true,
+    "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true

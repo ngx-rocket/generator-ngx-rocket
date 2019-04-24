@@ -1,27 +1,12 @@
-@import "src/theme/theme-variables";
-
-.grid,
-.row {
-  min-height: 100%;
-  flex-grow: 1;
+ion-grid,
+ion-row {
+  height: 100%;
 }
 
 .login-header,
 .login-background {
-  background: color($colors, primary);
-}
-
-.item-select .label-md,
-.login-header,
-.login-background {
-  color: color-contrast($colors, primary);
-}
-
-// Force style down to child components
-// See https://angular.io/guide/component-styles#deep
-// stylelint-disable-next-line selector-max-compound-selectors
-:host ::ng-deep .select-icon .select-icon-inner {
-  color: color-contrast($colors, primary);
+  background-color: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast);
 }
 
 .login-background {
@@ -33,13 +18,5 @@
 }
 
 .login-container {
-  background: $background-color;
-
-  .item {
-    @include padding-horizontal($content-margin, $content-margin);
-  }
-}
-
-.list > .item-block:first-child {
-  border-top: none;
+  background-color: var(--ion-background-color);
 }

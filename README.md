@@ -116,6 +116,14 @@ Task                            | Description
 `npm run cordova:build [-- --configuration=production]` | Build mobile app for production in `dist/` folder
 `npm run cordova:clean`         | Removes `www/`, `platforms/` and `plugins/` folders
 
+Additional tasks for Electron-based projects:
+
+Task                            | Description
+--------------------------------|---------------------------------------------------------------------------------------
+`npm run electron:build`        | Build desktop app
+`npm run electron:run`          | Run app on electron
+`npm run electron:package`      | Package app for all supported platforms
+
 When building the application, you can specify the target configuration using the additional flag
 `--configuration <name>` (do not forget to prepend `--` to pass arguments to npm scripts).
 
@@ -171,7 +179,6 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
 - [Angular](https://angular.io)
 - [RxJS](http://reactivex.io/rxjs)
 - [ngx-translate](https://github.com/ngx-translate/core)
-- [Lodash](https://lodash.com)
 - UI based on:
   * Bootstrap
     - [Bootstrap 4](https://getbootstrap.com)
@@ -184,6 +191,11 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
     - [Angular Material](https://material.angular.io)
     - [Angular Flex Layout](https://github.com/angular/flex-layout)
     - [Material Icons](https://material.io/icons/)
+- Optional utility libraries:
+  * [Lodash](https://lodash.com)
+  * [Ramda](https://ramdajs.com)
+  * [Moment.js](https://momentjs.com)
+  * [Date-fns](https://date-fns.org)
 
 
 #### Coding guides
@@ -204,6 +216,7 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
 - [Using a backend proxy for development](https://github.com/ngx-rocket/starter-kit/blob/master/docs/backend-proxy.md)
 - [Browser routing](https://github.com/ngx-rocket/starter-kit/blob/master/docs/routing.md)
 - [Cordova](https://github.com/ngx-rocket/starter-kit/blob/cordova/ionic/docs/cordova.md)
+- [Electron](https://github.com/ngx-rocket/starter-kit/blob/electron/ionic/docs/electron.md)
 
 ## Generator options
 
@@ -220,11 +233,12 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
   [puppeteer](https://github.com/GoogleChrome/puppeteer) to run unit tests.
   **Note:** You need a Chrome version `>= 59` that can run in
   [headless mode](https://developers.google.com/web/updates/2017/04/headless-chrome) or you will have errors.
-- `--raw`: do not use any UI library for templates
-- `--tools`: generate only the toolchain, without application template
-- `--location-strategy [hash|path`: [location strategy](https://angular.io/api/common/LocationStrategy) to use in
+- `--raw`: do not use any UI library for templates.
+- `--tools`: generate only the toolchain, without application template.
+- `--location-strategy [hash|path]`: [location strategy](https://angular.io/api/common/LocationStrategy) to use in
   Angular router (default is `path`).
-- `--no-git`: do not initialize git repository
+- `--no-git`: do not initialize git repository.
+- `--strict`: enable all TypeScript strict type checking options.
   
 When generating a *fullstack* project (with both client and server code), you can use the environment variables
 `NGX_CLIENT_PATH` and `NGX_SERVER_PATH` to customize the paths for client and server code. Be aware though that some

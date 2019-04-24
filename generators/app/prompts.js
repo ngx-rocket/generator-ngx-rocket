@@ -19,11 +19,11 @@ module.exports = [
       {
         value: 'cordova',
         name: 'Mobile app (using Cordova)'
+      },
+      {
+        value: 'electron',
+        name: 'Desktop app (using Electron)'
       }
-      // {
-      //   value: 'electron',
-      //   name: 'Desktop app (using Cordova)'
-      // }
     ]
   },
   {
@@ -49,10 +49,29 @@ module.exports = [
         name: 'Android',
         checked: true
       }
-      // {
-      //   value: 'windows',
-      //   name: 'Windows (Universal)'
-      // }
+    ]
+  },
+  {
+    type: 'checkbox',
+    name: 'desktop',
+    message: 'Which desktop platform do you want to support?',
+    when: props => props.target && props.target.includes('electron'),
+    choices: [
+      {
+        value: 'windows',
+        name: 'Windows',
+        checked: true
+      },
+      {
+        value: 'mac',
+        name: 'macOS',
+        checked: true
+      },
+      {
+        value: 'linux',
+        name: 'Linux',
+        checked: true
+      }
     ]
   },
   {
@@ -111,8 +130,7 @@ module.exports = [
     type: 'confirm',
     name: 'lazy',
     message: 'Do you want lazy loading?',
-    default: false,
-    when: props => props.ui !== 'ionic'
+    default: false
   },
   {
     type: 'confirm',
@@ -148,9 +166,47 @@ module.exports = [
     when: props => props.angulartics && props.analyticsProvider === 'ga'
   },
   {
-    type: 'confirm',
-    name: 'prettier',
-    message: 'Do you want automatic code formatting with Prettier?',
-    default: false
+    type: 'checkbox',
+    name: 'tools',
+    message: 'Do you want additional tools?',
+    choices: [
+      {
+        value: 'prettier',
+        name: 'Prettier (automatic code formatting)',
+        checked: true
+      },
+      {
+        value: 'hads',
+        name: 'Hads (markdown-based doc system)',
+        checked: true
+      },
+      {
+        value: 'compodoc',
+        name: 'Compodoc (Angular doc generator)'
+      }
+    ]
+  },
+  {
+    type: 'checkbox',
+    name: 'utility',
+    message: 'Do you want additional libraries?',
+    choices: [
+      {
+        value: 'lodash',
+        name: 'Lodash (collection & general utilities)'
+      },
+      {
+        value: 'ramda',
+        name: 'Ramda (Lodash FP alternative)'
+      },
+      {
+        value: 'moment',
+        name: 'Moment.js (date management)'
+      },
+      {
+        value: 'datefns',
+        name: 'Date-fns (Moment.js FP alternative)'
+      }
+    ]
   }
 ];
