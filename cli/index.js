@@ -56,6 +56,7 @@ class NgxCli {
       }
     });
     this._config = new Conf({
+      projectName: 'generator-ngx-rocket',
       defaults: {
         disabledAddons: {}
       }
