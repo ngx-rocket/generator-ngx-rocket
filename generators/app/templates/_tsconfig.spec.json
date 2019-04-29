@@ -3,12 +3,18 @@
   "compilerOptions": {
     "outDir": "../out-tsc/spec",
     "types": [
+<% if (props.tools.includes('jest')) { -%>
+      "jest",
+<% } else { -%>
       "jasmine",
+<% } -%>
       "node"
     ]
   },
   "files": [
+<% if (!props.tools.includes('jest')) { -%>
     "src/test.ts",
+<% } -%>
     "src/polyfills.ts"
   ],
   "include": [
