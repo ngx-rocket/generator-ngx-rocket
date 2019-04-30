@@ -19,18 +19,18 @@ describe('LoaderComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
 <% if (props.ui === 'ionic') { -%>
-        schemas: [CUSTOM_ELEMENTS_SCHEMA],
-        imports: [IonicModule.forRoot()],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      imports: [IonicModule.forRoot()],
 <% } else if (props.ui === 'material') { -%>
-        imports: [
-          BrowserAnimationsModule,
-          FlexLayoutModule,
-          MaterialModule
-        ],
+      imports: [
+        BrowserAnimationsModule,
+        FlexLayoutModule,
+        MaterialModule
+      ],
 <% } -%>
-        declarations: [LoaderComponent]
-      })
-      .compileComponents();
+      declarations: [LoaderComponent]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
@@ -67,7 +67,7 @@ describe('LoaderComponent', () => {
     const span = element.querySelectorAll('span')[0];
 
     // Assert
-    expect(span.innerText).toBe('');
+    expect(span.textContent).toBe('');
   });
 
   it('should display specified message', () => {
@@ -80,6 +80,6 @@ describe('LoaderComponent', () => {
     fixture.detectChanges();
 
     // Assert
-    expect(span.innerText).toBe('testing');
+    expect(span.textContent).toBe('testing');
   });
 });
