@@ -2,6 +2,9 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/spec",
+<% if (props.tools.includes('jest')) { -%>
+    "allowJs": true,
+<% } -%>
     "types": [
 <% if (props.tools.includes('jest')) { -%>
       "jest",

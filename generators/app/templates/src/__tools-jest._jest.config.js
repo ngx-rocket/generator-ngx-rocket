@@ -7,5 +7,9 @@ module.exports = {
     '@app/(.*)': '<rootDir>/src/app/$1',
     '@env': '<rootDir>/src/environments/environment'
   },
+<% if (props.ui === 'ionic') { -%>
   transformIgnorePatterns: ['node_modules/(?!(jest-test))']
+<% } else { -%>
+  transformIgnorePatterns: ['node_modules/(?!(jest-test|@ionic|@ionic-native))'],
+<% } -%>
 };
