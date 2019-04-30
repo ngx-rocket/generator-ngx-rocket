@@ -58,11 +58,13 @@ do
 
         # generators/app test
         ngx new --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
-        npm run test:ci -- --no-progress
+
+        npm run test:ci
 
         # force usage of local chrome binary, in headless mode
         PROTRACTOR_CHROME_BIN=$(node -p "require('puppeteer').executablePath()") \
         PROTRACTOR_CHROME_ARGS='["lang=en-US","--headless","--disable-gpu","--window-size=1024,768"]' \
+
         npm run e2e
 
         npm run build -- --no-progress

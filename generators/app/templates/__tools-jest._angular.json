@@ -107,7 +107,8 @@
             "ci": {
               "watch": false,
               "ci": true,
-              "coverage": true
+              "coverage": true,
+              "silent": true
             }
           }
         },

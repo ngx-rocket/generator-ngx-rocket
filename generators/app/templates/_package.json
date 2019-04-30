@@ -15,11 +15,7 @@
 <% } -%>
     "lint": "ng lint && stylelint \"src/**/*.scss\" --syntax scss && htmlhint \"src\" --config .htmlhintrc",
     "test": "<%= run('env') %> && ng test",
-<% if (props.tools.includes('jest')) { -%>
     "test:ci": "<%= run('env') %> && <%= run('lint') %> && ng test --configuration=ci",
-<% } else { -%>
-    "test:ci": "<%= run('env') %> && <%= run('lint') %> && ng test --code-coverage --watch=false",
-<% } -%>
     "e2e": "<%= run('env') %> && ng e2e",
     "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean --sort --marker extract",
 <% if (props.tools.includes('hads')) { -%>
@@ -137,7 +133,7 @@
 <% } else { -%>
     "@types/jasmine": "^3.3.13",
     "@types/jasminewd2": "^2.0.3",
-<% } -%>>
+<% } -%>
     "@types/node": "^10.9.0",
 <% if (props.utility.includes('lodash')) { -%>
     "@types/lodash": "^4.14.112",
