@@ -1,5 +1,10 @@
 import { TestBed } from '@angular/core/testing';
+<% if (props.tools.includes('jest')) {
+-%>
+import { Router, ActivatedRouteSnapshot } from '@angular/router';
+<% } else { -%>
 import { Router, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
+<% } -%>
 
 import { CredentialsService } from './credentials.service';
 import { MockCredentialsService } from './credentials.service.mock';
@@ -9,13 +14,27 @@ describe('AuthenticationGuard', () => {
   let authenticationGuard: AuthenticationGuard;
   let credentialsService: MockCredentialsService;
   let mockRouter: any;
+<% if (props.tools.includes('jest')) { -%>
+  let mockSnapshot: any;
+<% } else { -%>
   let mockSnapshot: RouterStateSnapshot;
+<% } -%>
 
   beforeEach(() => {
     mockRouter = {
+<% if (props.tools.includes('jest')) { -%>
+      navigate: jest.fn()
+<% } else { -%>
       navigate: jasmine.createSpy('navigate')
+<% } -%>
     };
+  <% if (props.tools.includes('jest')) { -%>
+    mockSnapshot = jest.fn(() => ({
+      toString: jest.fn()
+    }));
+<% } else { -%>
     mockSnapshot = jasmine.createSpyObj<RouterStateSnapshot>('RouterStateSnapshot', ['toString']);
+<% } -%>
 
     TestBed.configureTestingModule({
       providers: [
