@@ -9,7 +9,7 @@
   "scripts": {
     "ng": "ng",
     "build": "<%= run('env') %> && ng build --prod",
-    "start": "<%= run('env') %> && ng serve --aot <%= props.ui !== 'ionic' ? '--aot ' : '' %>--proxy-config proxy.conf.js",
+    "start": "<%= run('env') %> && ng serve --aot --proxy-config proxy.conf.js",
 <% if (props.pwa) { -%>
     "serve:sw": "<%= run('build') %> && npx http-server ./<%= props.target.includes('cordova') ? 'www': 'dist' %> -p 4200",
 <% } -%>
