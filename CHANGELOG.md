@@ -1,5 +1,20 @@
 # Change Log
 
+## [6.0.2](https://github.com/ngx-rocket/generator-ngx-rocket/tree/6.0.2) (2019-05-04)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/6.0.1...6.0.2)
+
+**Fixed bugs:**
+
+- Fix duplicate --aot param in start script [\#467](https://github.com/ngx-rocket/generator-ngx-rocket/pull/467)
+
+**Closed issues:**
+
+- Compilation failed during e2e because of core-js [\#465](https://github.com/ngx-rocket/generator-ngx-rocket/issues/465)
+
+**Merged pull requests:**
+
+- Roll back core-js version [\#466](https://github.com/ngx-rocket/generator-ngx-rocket/pull/466)
+
 ## [6.0.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/6.0.1) (2019-04-25)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/6.0.0...6.0.1)
 
