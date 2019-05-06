@@ -52,9 +52,9 @@
   },
   "dependencies": {
     "@ngx-rocket/ascii-logo": "^1.0.1",
-    "@ngx-rocket/core": "^4.0.1",
+    "@ngx-rocket/core": "^4.1.0",
     "chalk": "^2.4.2",
-    "conf": "^4.0.1",
+    "conf": "^4.0.2",
     "figures": "^3.0.0",
     "fuzz-run": "^1.0.2",
     "inquirer": "^6.3.1",
