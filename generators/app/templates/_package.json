@@ -88,7 +88,7 @@
 <% } else if (props.ui === 'bootstrap') { -%>
     "@ng-bootstrap/ng-bootstrap": "^4.0.4",
     "bootstrap": "^4.1.1",
-    "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
+    "@fortawesome/fontawesome-free": "^5.1.0",
 <% } else if (props.ui === 'material') { -%>
     "@angular/cdk": "^7.0.1",
     "@angular/material": "^7.0.1",
