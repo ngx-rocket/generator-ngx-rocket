@@ -239,6 +239,7 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
   Angular router (default is `path`).
 - `--no-git`: do not initialize git repository.
 - `--strict`: enable all TypeScript strict type checking options.
+- `--skip-quickstart`: disable quick start message after project generation.
   
 When generating a *fullstack* project (with both client and server code), you can use the environment variables
 `NGX_CLIENT_PATH` and `NGX_SERVER_PATH` to customize the paths for client and server code. Be aware though that some

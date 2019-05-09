@@ -9,6 +9,13 @@ module.exports = [
     defaults: false
   },
   {
+    name: 'skip-quickstart',
+    type: 'Boolean',
+    required: false,
+    description: "Skip quick start message at the end",
+    defaults: false
+  },
+  {
     name: 'analytics',
     type: 'Boolean',
     required: false,
