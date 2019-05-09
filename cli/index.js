@@ -104,7 +104,7 @@ class NgxCli {
 
   async generate(update, args, options) {
     options = options || {};
-    let addon = options.addon;
+    let {addon} = options;
 
     if (!update) {
       if (!options['skip-welcome']) {

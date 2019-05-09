@@ -12,7 +12,7 @@ module.exports = [
     name: 'skip-quickstart',
     type: 'Boolean',
     required: false,
-    description: "Skip quick start message at the end",
+    description: 'Skip quick start message at the end',
     defaults: false
   },
   {
