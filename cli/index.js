@@ -23,10 +23,12 @@ const help = `${chalk.bold(`Usage:`)} ${appName} ${chalk.blue(`[new|update|confi
 const detailedHelp = `
 ${chalk.blue('n, new')} [name]
   Creates a new app.
-  -a, --addon                 Creates an add-on instead.
-  --packageManager <yarn|npm> Uses specified package manager.
-  --automate <json_file>      Automates prompt answers using JSON file.
+  -a, --addon                 Creates an add-on instead
+  --packageManager <yarn|npm> Uses specified package manager
+  --automate <json_file>      Automates prompt answers using JSON file
   --tools                     Generates only the toolchain
+  --addons                    Space-separated list of add-ons to use (override
+                              config)
   
 ${chalk.blue('u, update')}
   Updates an existing app or add-on.
@@ -49,7 +51,8 @@ class NgxCli {
   constructor(args) {
     this._args = args;
     this._options = minimist(args, {
-      boolean: ['help', 'npm', 'addon', 'packageManager'],
+      boolean: ['help', 'npm', 'addon', 'packageManager', 'skip-welcome'],
+      string: ['addons'],
       alias: {
         n: 'npm',
         a: 'addon'
@@ -75,10 +78,10 @@ class NgxCli {
     switch (this._args[0]) {
       case 'n':
       case 'new':
-        return this.generate(false, this._args.slice(1), this._options.addon);
+        return this.generate(false, this._args.slice(1), this._options);
       case 'u':
       case 'update':
-        return this.generate(true, this._args.slice(1), this._options.addon);
+        return this.generate(true, this._args.slice(1), this._options);
       case 'c':
       case 'config':
         return this.configure();
@@ -99,9 +102,14 @@ class NgxCli {
     fuzzyRun(args, packageManager);
   }
 
-  async generate(update, args, addon) {
+  async generate(update, args, options) {
+    options = options || {};
+    let {addon} = options;
+
     if (!update) {
-      console.log(asciiLogo(pkg.version));
+      if (!options['skip-welcome']) {
+        console.log(asciiLogo(pkg.version));
+      }
     } else if (fs.existsSync('.yo-rc.json')) {
       const rc = JSON.parse(fs.readFileSync('.yo-rc.json'));
       addon = Boolean(get(rc, 'generator-ngx-rocket.props.isAddon'));
@@ -119,9 +127,16 @@ class NgxCli {
         })
       );
     } else {
-      const disabled = this._config.get(disabledAddons);
-      let addons = await this._findAddons();
-      addons = addons.filter(addon => !disabled[addon]);
+      const addonsOption = options.addons;
+      let addons;
+
+      if (addonsOption) {
+        addons = addonsOption ? addonsOption.split(' ') : [];
+      } else {
+        const disabled = this._config.get(disabledAddons);
+        addons = await this._findAddons();
+        addons = addons.filter(addon => !disabled[addon]);
+      }
 
       await new Promise(resolve =>
         env.lookup(() =>

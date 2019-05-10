@@ -146,6 +146,10 @@ class NgxGenerator extends Generator {
       return;
     }
 
+    if (this.options['skip-quickstart']) {
+      return;
+    }
+
     this.log('\nAll done! Get started with these tasks:');
     this.log(
       `- $ ${chalk.green(`${this.packageManager} start`)}: start dev server with live reload on http://localhost:4200`

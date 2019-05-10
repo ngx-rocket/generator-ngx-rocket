@@ -225,7 +225,7 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
  You can also use the environment variable `NGX_PACKAGE_MANAGER` to set this option globally.
 - `--automate <json_file>`: automate prompt answers using specified JSON file (see
   [here](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/scripts/tests) for examples).
-- `--addons <addon_name> [<addon_name>] ...`: space-separated list of add-on to use.
+- `--addons <addon_name> [<addon_name>] ...`: space-separated list of add-ons to use.
 - `--no-update`: do no update existing project (see also [updating generated projects](#updating-generated-projects)).
 - `--no-analytics`: do not report anonymous usage analytics.
   You can also use the environment variable `NGX_DISABLE_ANALYTICS` to set this option globally.
@@ -239,6 +239,7 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
   Angular router (default is `path`).
 - `--no-git`: do not initialize git repository.
 - `--strict`: enable all TypeScript strict type checking options.
+- `--skip-quickstart`: disable quick start message after project generation.
   
 When generating a *fullstack* project (with both client and server code), you can use the environment variables
 `NGX_CLIENT_PATH` and `NGX_SERVER_PATH` to customize the paths for client and server code. Be aware though that some
