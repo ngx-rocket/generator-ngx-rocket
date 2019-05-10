@@ -44,7 +44,11 @@ src/                         project source code
 |- main.scss                 global style entry point
 |- main.ts                   app entry point
 |- polyfills.ts              polyfills needed by Angular
+<% if (props.tools.includes('jest')) { -%>
++- setup-jest.ts             unit tests entry point
+<% } else { -%>
 +- test.ts                   unit tests entry point
+<% } -%>
 <% if (props.target.includes('cordova')) { -%>
 platforms/                   Cordova platform-specific projects
 plugins/                     Cordova plugins
