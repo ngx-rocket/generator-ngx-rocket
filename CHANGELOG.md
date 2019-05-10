@@ -1,5 +1,17 @@
 # Change Log
 
+## [6.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/6.1.0) (2019-05-10)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/6.0.2...6.1.0)
+
+**Enhancements**:
+
+- Add options for dropshipping generator [\#470](https://github.com/ngx-rocket/generator-ngx-rocket/pull/470) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add package install in root/client/server folders in full-stack mode [\#468](https://github.com/ngx-rocket/generator-ngx-rocket/pull/468) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Merged pull requests:**
+
+- Migrate to new fontawesome package [\#469](https://github.com/ngx-rocket/generator-ngx-rocket/pull/469)
+
 ## [6.0.2](https://github.com/ngx-rocket/generator-ngx-rocket/tree/6.0.2) (2019-05-04)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/6.0.1...6.0.2)
 
