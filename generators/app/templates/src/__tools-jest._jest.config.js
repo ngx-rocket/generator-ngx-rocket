@@ -8,9 +8,12 @@ module.exports = {
     '@app/(.*)': '<rootDir>/src/app/$1',
     '@env': '<rootDir>/src/environments/environment'
   },
-<% if (props.ui === 'ionic') { -%>
-  transformIgnorePatterns: ['node_modules/(?!(jest-test))']
-<% } else { -%>
-  transformIgnorePatterns: ['node_modules/(?!(jest-test|@ionic|@ionic-native))'],
-<% } -%>
+  // Do not ignore librairies such as ionic, ionic-native or bootstrap to transform them during unit testing.
+<%
+  var excludedLibrairies = ['jest-test'];
+  if (props.target.includes('cordova')) { excludedLibrairies.push('@ionic-native'); }
+  if (props.ui === 'ionic') { excludedLibrairies.push('@ionic'); }
+  if (props.ui === 'bootstrap') { excludedLibrairies.push('@ng-bootstrap'); }
+-%>
+  transformIgnorePatterns: ['node_modules/(?!(<%- excludedLibrairies.join('|') %>))']
 };
