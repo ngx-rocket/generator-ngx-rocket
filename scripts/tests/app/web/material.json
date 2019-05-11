@@ -7,5 +7,6 @@
   "lazy": false,
   "angulartics": false,
   "location": "hash",
-  "strict": true
+  "strict": true,
+  "tools": ["jest"]
 }
