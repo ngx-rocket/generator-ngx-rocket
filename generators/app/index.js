@@ -208,6 +208,6 @@ module.exports = Generator.make({
     'electron-linux': props => props.desktop && props.desktop.includes('linux'),
     'tools-hads': props => props.tools && props.tools.includes('hads'),
     'tools-jest': props => props.tools && props.tools.includes('jest'),
-    'tools-!jest': props => props.tools && !props.tools.includes('jest')
+    'tools-karma': props => props.tools && !props.tools.includes('jest')
   })
 });
