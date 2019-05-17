@@ -9,7 +9,7 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { merge } from 'rxjs';
-import { filter, map, mergeMap } from 'rxjs/operators';
+import { filter, map, switchMap } from 'rxjs/operators';
 <% if (props.ui === 'ionic') { -%>
 <%   if (props.target.includes('cordova')) { -%>
 import { Platform } from '@ionic/angular';
@@ -91,7 +91,7 @@ export class AppComponent implements OnInit, OnDestroy {
           return route;
         }),
         filter(route => route.outlet === 'primary'),
-        mergeMap(route => route.data),
+        switchMap(route => route.data),
         untilDestroyed(this)
       )
       .subscribe(event => {
