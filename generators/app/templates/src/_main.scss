@@ -19,10 +19,10 @@
 @import "~@ionic/angular/css/flex-utils.css";
 <% } else if (props.ui === 'bootstrap') { -%>
 @import "~bootstrap/scss/bootstrap";
-@import "~@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss";
-@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-brands.scss";
-@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-regular.scss";
-@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
 <% } else if (props.ui === 'material') { -%>
 @import "~material-design-icons-iconfont/src/material-design-icons.scss";
 

@@ -1,7 +1,7 @@
 {
   "name": "generator-ngx-rocket",
-  "version": "6.0.0",
-  "description": "Extensible Angular 7+ enterprise-grade project generator based on angular-cli with best practices from the community. Includes PWA and Cordova support, coding guides and more!",
+  "version": "6.1.0",
+  "description": "Extensible Angular 7+ enterprise-grade project generator based on angular-cli with best practices from the community. Includes PWA/Cordova/Electron support, coding guides and more!",
   "repository": "ngx-rocket/generator-ngx-rocket",
   "keywords": [
     "yeoman-generator",
@@ -26,6 +26,7 @@
     "mobile",
     "web",
     "pwa",
+    "electron",
     "tool",
     "cli"
   ],
@@ -51,9 +52,9 @@
   },
   "dependencies": {
     "@ngx-rocket/ascii-logo": "^1.0.1",
-    "@ngx-rocket/core": "^4.0.1",
+    "@ngx-rocket/core": "^5.0.0",
     "chalk": "^2.4.2",
-    "conf": "^4.0.1",
+    "conf": "^4.0.2",
     "figures": "^3.0.0",
     "fuzz-run": "^1.0.2",
     "inquirer": "^6.3.1",
@@ -63,7 +64,7 @@
     "lodash.upperfirst": "^4.3.1",
     "minimist": "^1.2.0",
     "semver": "^6.0.0",
-    "update-notifier": "^2.5.0",
+    "update-notifier": "^3.0.0",
     "yeoman-environment": "^2.3.4"
   },
   "devDependencies": {

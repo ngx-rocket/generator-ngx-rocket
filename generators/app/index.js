@@ -1,5 +1,7 @@
 'use strict';
 
+const fs = require('fs');
+const path = require('path');
 const chalk = require('chalk');
 const Insight = require('insight');
 const semver = require('semver');
@@ -9,6 +11,8 @@ const asciiLogo = require('@ngx-rocket/ascii-logo');
 const pkg = require('../../package.json');
 const prompts = require('./prompts');
 const options = require('./options');
+
+const packageJsonFile = 'package.json';
 
 class NgxGenerator extends Generator {
   initializing() {
@@ -118,10 +122,20 @@ class NgxGenerator extends Generator {
     if (!this.options['skip-install']) {
       this.log(`\nRunning ${chalk.yellow(`${this.packageManager} install`)}, please wait...`);
 
-      if (this.packageManager === 'yarn') {
-        this.yarnInstall();
-      } else {
-        this.npmInstall(null, {loglevel: 'error'});
+      const install = this.packageManager === 'yarn' ? this.yarnInstall.bind(this) : this.npmInstall.bind(this);
+
+      if (fs.existsSync(this.destinationPath(packageJsonFile))) {
+        install();
+      }
+
+      if (this.isFullstack) {
+        if (fs.existsSync(this.destinationPath(path.join(process.env.NGX_CLIENT_PATH, packageJsonFile)))) {
+          install(null, null, {cwd: this.destinationPath(process.env.NGX_CLIENT_PATH)});
+        }
+
+        if (fs.existsSync(this.destinationPath(path.join(process.env.NGX_SERVER_PATH, packageJsonFile)))) {
+          install(null, null, {cwd: this.destinationPath(process.env.NGX_SERVER_PATH)});
+        }
       }
     }
   }
@@ -129,6 +143,10 @@ class NgxGenerator extends Generator {
   end() {
     if (this.updating) {
       this.log(`\nUpdated ${chalk.green(this.props.appName)} to ${chalk.yellow(this.version)} successfully!`);
+      return;
+    }
+
+    if (this.options['skip-quickstart']) {
       return;
     }
 

@@ -1,5 +1,38 @@
 # Change Log
 
+## [6.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/6.1.0) (2019-05-10)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/6.0.2...6.1.0)
+
+**Enhancements**:
+
+- Add options for dropshipping generator [\#470](https://github.com/ngx-rocket/generator-ngx-rocket/pull/470) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add package install in root/client/server folders in full-stack mode [\#468](https://github.com/ngx-rocket/generator-ngx-rocket/pull/468) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Merged pull requests:**
+
+- Migrate to new fontawesome package [\#469](https://github.com/ngx-rocket/generator-ngx-rocket/pull/469)
+
+## [6.0.2](https://github.com/ngx-rocket/generator-ngx-rocket/tree/6.0.2) (2019-05-04)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/6.0.1...6.0.2)
+
+**Fixed bugs:**
+
+- Fix duplicate --aot param in start script [\#467](https://github.com/ngx-rocket/generator-ngx-rocket/pull/467)
+
+**Closed issues:**
+
+- Compilation failed during e2e because of core-js [\#465](https://github.com/ngx-rocket/generator-ngx-rocket/issues/465)
+
+**Merged pull requests:**
+
+- Roll back core-js version [\#466](https://github.com/ngx-rocket/generator-ngx-rocket/pull/466)
+
+## [6.0.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/6.0.1) (2019-04-25)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/6.0.0...6.0.1)
+
+**Fixed bugs:**
+- Error running ngx new [\#421](https://github.com/ngx-rocket/generator-ngx-rocket/issues/421) [[bug](https://github.com/ngx-rocket/generator-ngx-rocket/labels/bug)]
+
 ## [6.0.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/6.0.0) (2019-04-24)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/5.3.0...6.0.0)
 
@@ -20,6 +53,8 @@
 - Allow forcing generator options from addon \(close \#444\) [\#445](https://github.com/ngx-rocket/generator-ngx-rocket/pull/445) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
 - Update to Ionic 4 \(stable\) \(\#387, \#302\) [\#439](https://github.com/ngx-rocket/generator-ngx-rocket/pull/439) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
 - Add --strict-mode option to enable TypeScript strict mode [\#292](https://github.com/ngx-rocket/generator-ngx-rocket/issues/292) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Migrate to async/await everywhere [\#429](https://github.com/ngx-rocket/generator-ngx-rocket/issues/429) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Strict mode is broken on Ionic branch [\#291](https://github.com/ngx-rocket/generator-ngx-rocket/issues/291)
 
 **Fixed bugs:**
 
