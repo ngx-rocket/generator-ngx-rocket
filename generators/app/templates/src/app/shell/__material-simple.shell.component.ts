@@ -18,9 +18,10 @@ export class ShellComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // Automatically close side menu on screens > sm breakpoint
-    this.media.media$
+    this.media
+      .asObservable()
       .pipe(
-        filter((change: MediaChange) => (change.mqAlias !== 'xs' && change.mqAlias !== 'sm')),
+        filter((changes: MediaChange[]) => changes.some(change => change.mqAlias !== 'xs' && change.mqAlias !== 'sm')),
         untilDestroyed(this)
       )
       .subscribe(() => this.sidenav.close());
