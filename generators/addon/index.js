@@ -1,5 +1,3 @@
-'use strict';
-
 const chalk = require('chalk');
 const Insight = require('insight');
 const camelCase = require('lodash.camelcase');

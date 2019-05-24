@@ -1,5 +1,3 @@
-'use strict';
-
 const Generator = require('@ngx-rocket/core');
 <% if (props.advanced) { -%>
 const chalk = require('chalk');
