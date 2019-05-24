@@ -113,7 +113,7 @@
 <% } -%>
     "core-js": "^2.6.3",
     "rxjs": "^6.4.0",
-    "zone.js": "^0.9.0"
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
 <% if (props.target.includes('cordova')) { -%>
