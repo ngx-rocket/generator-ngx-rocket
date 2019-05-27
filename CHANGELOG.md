@@ -1,5 +1,16 @@
 # Change Log
 
+## [6.2.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/6.2.0) (2019-05-27)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/6.1.0...6.2.0)
+
+**Enhancements**:
+
+- Misc grooming and updates [\#474](https://github.com/ngx-rocket/generator-ngx-rocket/pull/474) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Merged pull requests:**
+
+- fix: avoid potential never-ending subscriptions for page titles [\#471](https://github.com/ngx-rocket/generator-ngx-rocket/pull/471)
+
 ## [6.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/6.1.0) (2019-05-10)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/6.0.2...6.1.0)
 
