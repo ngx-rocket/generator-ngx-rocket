@@ -1,5 +1,3 @@
-'use strict';
-
 const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
@@ -43,9 +41,10 @@ class NgxGenerator extends Generator {
       this.props.location = this.options['location-strategy'];
     }
 
-    if (this.options.strict) {
-      this.props.strict = true;
-    }
+    this.props.strict = this.options.strict;
+    this.props.skipInstall = this.options['skip-install'];
+    this.props.skipQuickstart = this.options['skip-quickstart'];
+    this.props.initGit = this.options.git;
 
     // Updating
     let fromVersion = null;
@@ -115,11 +114,11 @@ class NgxGenerator extends Generator {
   }
 
   install() {
-    if (this.options.git) {
+    if (this.props.initGit) {
       this.spawnCommandSync('git', ['init', '--quiet']);
     }
 
-    if (!this.options['skip-install']) {
+    if (!this.props.skipInstall) {
       this.log(`\nRunning ${chalk.yellow(`${this.packageManager} install`)}, please wait...`);
 
       const install = this.packageManager === 'yarn' ? this.yarnInstall.bind(this) : this.npmInstall.bind(this);
@@ -146,7 +145,7 @@ class NgxGenerator extends Generator {
       return;
     }
 
-    if (this.options['skip-quickstart']) {
+    if (this.props.skipQuickstart) {
       return;
     }
 

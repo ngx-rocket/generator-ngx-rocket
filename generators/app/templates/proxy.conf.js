@@ -1,5 +1,3 @@
-'use strict';
-
 const HttpsProxyAgent = require('https-proxy-agent');
 
 /*
