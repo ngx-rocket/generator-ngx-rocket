@@ -24,7 +24,7 @@
 @import "~@fortawesome/fontawesome-free/scss/regular.scss";
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
 <% } else if (props.ui === 'material') { -%>
-@import "~material-design-icons-iconfont/src/material-design-icons.scss";
+@import "~material-design-icons-iconfont/src/material-design-icons";
 
 // Angular Material custom theme
 // The mixins below must be included once so we separated them from the variables

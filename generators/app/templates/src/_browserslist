@@ -4,7 +4,7 @@
 
 last 2 versions
 <% if (props.target.includes('cordova')) { -%>
-iOS >= 8
+iOS >= 11
 Android >= 4.4
 Explorer >= 11
 ExplorerMobile >= 11
@@ -12,6 +12,6 @@ ExplorerMobile >= 11
 > 0.5%
 Firefox ESR
 not dead
-# For IE 9-11 support, please uncomment the next line and adjust as needed
-# IE 9-11
+# For IE 9-11 support, please remove 'not' from the last line of the file and adjust as needed
+not IE 9-11
 <% } -%>

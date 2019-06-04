@@ -12,7 +12,7 @@
     "noImplicitAny": true,
   <% } -%>
     "suppressImplicitAnyIndexErrors": true,
-    "target": "es5",
+    "target": "es2015",
     "typeRoots": [],
     "lib": [
       "es2018",
