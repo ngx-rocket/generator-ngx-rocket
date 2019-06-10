@@ -6,9 +6,16 @@
   "scope": "/",
   "start_url": "/",
   "display": "standalone",
-  "icons": [{
+  "icons": [
+    {
     "src": "assets/ngx-rocket-logo.png",
     "sizes": "512x512",
     "type": "image/png"
-  }]
+    },
+    {
+      "src": "assets/ngx-rocket-logo@192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
 }
