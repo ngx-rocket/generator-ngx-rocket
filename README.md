@@ -12,7 +12,7 @@
 
 > Extensible Angular 7+ enterprise-grade project generator based on
 > [angular-cli](https://github.com/angular/angular-cli) with best practices from the community.
-> Includes PWA and Cordova support, coding guides and more!
+> Includes PWA, Cordova & Electron support, coding guides and more!
 
 See generated project example [here](https://github.com/ngx-rocket/starter-kit).
 
@@ -32,7 +32,7 @@ See generated project example [here](https://github.com/ngx-rocket/starter-kit).
   [Bootstrap 4](https://getbootstrap.com/), [Ionic](http://ionicframework.com) or
   [Angular Material](https://material.angular.io) based UI with nicely looking, responsive starter templates
 
-- **Mobile/desktop app support:** choose between a web app, a mobile app (using [Cordova](https://cordova.apache.org)),
+- **Mobile/desktop hybrid app support:** choose between a web app, a mobile app (using [Cordova](https://cordova.apache.org)),
   a desktop app (using [Electron](https://electronjs.org)) or all at the same time using the same code base
 
 - **API proxy example setup:** develop and debug faster using any remote server
