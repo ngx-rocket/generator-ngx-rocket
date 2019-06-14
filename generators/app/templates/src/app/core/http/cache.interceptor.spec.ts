@@ -1,3 +1,4 @@
+import { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HTTP_INTERCEPTORS, HttpClient, HttpResponse } from '@angular/common/http';
@@ -39,7 +40,7 @@ describe('CacheInterceptor', () => {
     beforeEach(() => {
       interceptorOptions = null;
       http = TestBed.get(HttpClient);
-      httpMock = TestBed.get<HttpTestingController>(HttpTestingController);
+      httpMock = TestBed.get(HttpTestingController as Type<HttpTestingController>);
       httpCacheService = TestBed.get(HttpCacheService);
     });
 
@@ -89,7 +90,7 @@ describe('CacheInterceptor', () => {
     beforeEach(() => {
       interceptorOptions = { update: true };
       http = TestBed.get(HttpClient);
-      httpMock = TestBed.get<HttpTestingController>(HttpTestingController);
+      httpMock = TestBed.get(HttpTestingController as Type<HttpTestingController>);
       httpCacheService = TestBed.get(HttpCacheService);
     });
 

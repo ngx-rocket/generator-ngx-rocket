@@ -6,6 +6,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
+import { Keyboard } from '@ionic-native/keyboard/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 <% } -%>
@@ -21,12 +22,14 @@ describe('AppComponent', () => {
 
   let statusBarSpy: jasmine.Spy;
   let splashScreenSpy: jasmine.Spy;
+  let keyboardSpy: jasmine.Spy;
 
 <% } -%>
   beforeEach(async(() => {
 <% if (props.target.includes('cordova')) { -%>
     statusBarSpy = jasmine.createSpyObj('StatusBar', ['styleDefault']);
     splashScreenSpy = jasmine.createSpyObj('SplashScreen', ['hide']);
+    keyboardSpy = jasmine.createSpyObj('Keyboard', ['hideFormAccessoryBar']);
 
 <% } -%>
     TestBed.configureTestingModule({
@@ -47,6 +50,7 @@ describe('AppComponent', () => {
       declarations: [AppComponent],
 <% if (props.target.includes('cordova')) { -%>
       providers: [
+        { provide: Keyboard, useValue: keyboardSpy },
         { provide: StatusBar, useValue: statusBarSpy },
         { provide: SplashScreen, useValue: splashScreenSpy },
       ]
