@@ -1,6 +1,6 @@
+const os = require('os');
 const path = require('path');
 const fs = require('fs');
-const child = require('child_process');
 const Conf = require('conf');
 const inquirer = require('inquirer');
 const env = require('yeoman-environment').createEnv();
@@ -9,6 +9,7 @@ const figures = require('figures');
 const get = require('lodash.get');
 const minimist = require('minimist');
 const updateNotifier = require('update-notifier');
+const spawn = require('cross-spawn');
 const asciiLogo = require('@ngx-rocket/ascii-logo');
 const fuzzyRun = require('fuzz-run');
 const pkg = require('../package.json');
@@ -49,7 +50,7 @@ class NgxCli {
   constructor(args) {
     this._args = args;
     this._options = minimist(args, {
-      boolean: ['help', 'npm', 'addon', 'packageManager', 'skip-welcome', 'version'],
+      boolean: ['help', 'npm', 'addon', 'packageManager', 'skip-welcome', 'version', 'debug-infos'],
       string: ['addons'],
       alias: {
         n: 'npm',
@@ -75,6 +76,10 @@ class NgxCli {
 
     if (this._options.version) {
       return console.log(pkg.version);
+    }
+
+    if (this._options['debug-infos']) {
+      return this._debugInfos();
     }
 
     switch (this._args[0]) {
@@ -186,7 +191,7 @@ class NgxCli {
   async list(npm) {
     let addons;
     if (npm) {
-      addons = await Promise.resolve(child.execSync(`npm search ${addonKey} --json`, {stdio: [0, null, 2]}));
+      addons = await Promise.resolve(spawn.sync('npm', ['search', addonKey, '--json'], {stdio: [0, null, 2]}).stdout);
       addons = addons ? JSON.parse(addons) : [];
       addons = addons.filter(addon => blacklistedNpmAddons.indexOf(addon.name) === -1);
     } else {
@@ -261,6 +266,22 @@ class NgxCli {
   _help(details) {
     console.log(asciiLogo(pkg.version));
     this._exit(help + (details ? detailedHelp : `Use ${chalk.white(`--help`)} for more info.\n`));
+  }
+
+  _debugInfos() {
+    const npmVersion = spawn.sync('npm', ['--version']);
+    console.log(
+      `ngX-Rocket: ${pkg.version}\n` +
+        `Node.js: ${process.version}\n` +
+        `Npm: ${npmVersion.stdout}` +
+        `OS: ${os.platform()} ${os.arch()} ${os.release()}\n`
+    );
+
+    if (fs.existsSync('.yo-rc.json')) {
+      const rc = JSON.parse(fs.readFileSync('.yo-rc.json'));
+      console.log(`Generated project options:\n${JSON.stringify(rc, null, 2)}`);
+      spawn.sync('npx', ['ng', '--version'], {stdio: 'inherit'});
+    }
   }
 
   _exit(error, code = 1) {
