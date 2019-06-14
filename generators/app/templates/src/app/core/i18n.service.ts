@@ -55,7 +55,9 @@ export class I18nService {
    * Cleans up language change subscription.
    */
   destroy() {
-    this.langChangeSubscription.unsubscribe();
+    if (this.langChangeSubscription) {
+      this.langChangeSubscription.unsubscribe();
+    }
   }
 
   /**
