@@ -8,9 +8,9 @@
   "display": "standalone",
   "icons": [
     {
-    "src": "assets/ngx-rocket-logo.png",
-    "sizes": "512x512",
-    "type": "image/png"
+      "src": "assets/ngx-rocket-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
     },
     {
       "src": "assets/ngx-rocket-logo@192.png",
