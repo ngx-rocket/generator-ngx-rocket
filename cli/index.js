@@ -49,7 +49,7 @@ class NgxCli {
   constructor(args) {
     this._args = args;
     this._options = minimist(args, {
-      boolean: ['help', 'npm', 'addon', 'packageManager', 'skip-welcome'],
+      boolean: ['help', 'npm', 'addon', 'packageManager', 'skip-welcome', 'version'],
       string: ['addons'],
       alias: {
         n: 'npm',
@@ -71,6 +71,10 @@ class NgxCli {
 
     if (this._options.help) {
       return this._help(true);
+    }
+
+    if (this._options.version) {
+      return console.log(pkg.version);
     }
 
     switch (this._args[0]) {
