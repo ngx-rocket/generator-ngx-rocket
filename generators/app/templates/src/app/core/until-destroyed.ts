@@ -34,7 +34,7 @@ const untilDestroyedSymbol = Symbol('untilDestroyed');
  * }
  * ```
  */
-export function untilDestroyed(instance: Object, destroyMethodName: string = 'ngOnDestroy') {
+export function untilDestroyed(instance: object, destroyMethodName: string = 'ngOnDestroy') {
   return <T>(source: Observable<T>) => {
     const originalDestroy = instance[destroyMethodName];
     const hasDestroyFunction = typeof originalDestroy === 'function';

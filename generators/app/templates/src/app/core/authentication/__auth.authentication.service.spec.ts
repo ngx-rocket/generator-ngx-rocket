@@ -49,8 +49,8 @@ describe('AuthenticationService', () => {
       request.subscribe(() => {
         expect(credentialsService.isAuthenticated()).toBe(true);
         expect(credentialsService.credentials).not.toBeNull();
-        expect((<Credentials>credentialsService.credentials).token).toBeDefined();
-        expect((<Credentials>credentialsService.credentials).token).not.toBeNull();
+        expect((credentialsService.credentials as Credentials).token).toBeDefined();
+        expect((credentialsService.credentials as Credentials).token).not.toBeNull();
       });
     }));
 
@@ -65,7 +65,7 @@ describe('AuthenticationService', () => {
       // Assert
       request.subscribe(() => {
         expect(credentialsService.setCredentials).toHaveBeenCalled();
-        expect((<jasmine.Spy>credentialsService.setCredentials).calls.mostRecent().args[1]).toBe(undefined);
+        expect((credentialsService.setCredentials as jasmine.Spy).calls.mostRecent().args[1]).toBe(undefined);
       });
     }));
 
@@ -81,7 +81,7 @@ describe('AuthenticationService', () => {
       // Assert
       request.subscribe(() => {
         expect(credentialsService.setCredentials).toHaveBeenCalled();
-        expect((<jasmine.Spy>credentialsService.setCredentials).calls.mostRecent().args[1]).toBe(true);
+        expect((credentialsService.setCredentials as jasmine.Spy).calls.mostRecent().args[1]).toBe(true);
       });
     }));
   });

@@ -1,4 +1,4 @@
-import { Inject, Injectable, InjectionToken, Injector, Optional } from '@angular/core';
+import { Inject, Injectable, InjectionToken, Injector, Optional, Type } from '@angular/core';
 import { HttpClient, HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -61,7 +61,9 @@ export const HTTP_DYNAMIC_INTERCEPTORS = new InjectionToken<HttpInterceptor>('HT
 /**
  * Extends HttpClient with per request configuration using dynamic interceptors.
  */
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class HttpService extends HttpClient {
 
   constructor(private httpHandler: HttpHandler,
@@ -100,7 +102,7 @@ export class HttpService extends HttpClient {
     return new HttpClient(handler).request(method, url, options);
   }
 
-  private removeInterceptor(interceptorType: Function): HttpService {
+  private removeInterceptor(interceptorType: Type<HttpInterceptor>): HttpService {
     return new HttpService(
       this.httpHandler,
       this.injector,

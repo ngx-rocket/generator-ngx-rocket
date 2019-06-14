@@ -6,7 +6,7 @@ import { CacheInterceptor } from './cache.interceptor';
 import { HttpCacheService } from './http-cache.service';
 
 describe('CacheInterceptor', () => {
-  let interceptorOptions: Object | null = {};
+  let interceptorOptions: object | null = {};
   let httpCacheService: HttpCacheService;
   let http: HttpClient;
   let httpMock: HttpTestingController;

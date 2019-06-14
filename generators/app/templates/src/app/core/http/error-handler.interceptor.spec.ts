@@ -41,7 +41,7 @@ describe('ErrorHandlerInterceptor', () => {
     // Act
     http.get('/toto').subscribe(() => fail('should error'), () => {
       // Assert
-      expect(ErrorHandlerInterceptor.prototype['errorHandler']).toHaveBeenCalled();
+      expect((ErrorHandlerInterceptor.prototype as any).errorHandler).toHaveBeenCalled();
     });
 
     httpMock.expectOne({}).flush(null, {

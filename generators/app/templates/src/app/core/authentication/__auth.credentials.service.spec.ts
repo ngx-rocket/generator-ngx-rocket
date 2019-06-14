@@ -28,7 +28,7 @@ describe('CredentialsService', () => {
 
       // Assert
       expect(credentialsService.isAuthenticated()).toBe(true);
-      expect((<Credentials>credentialsService.credentials).username).toBe('me');
+      expect((credentialsService.credentials as Credentials).username).toBe('me');
     });
 
     it('should clean authentication', () => {

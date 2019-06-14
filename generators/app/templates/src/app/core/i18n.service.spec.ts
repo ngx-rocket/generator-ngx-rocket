@@ -24,7 +24,7 @@ class MockTranslateService {
     return 'en-US';
   }
 
-  setTranslation(lang: string, translations: Object, shouldMerge?: boolean) { }
+  setTranslation(lang: string, translations: object, shouldMerge?: boolean) { }
 
 }
 

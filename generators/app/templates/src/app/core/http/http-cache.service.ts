@@ -14,7 +14,9 @@ export interface HttpCacheEntry {
 /**
  * Provides a cache facility for HTTP requests with configurable persistence policy.
  */
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class HttpCacheService {
 
   private cachedData: { [key: string]: HttpCacheEntry; } = {};
@@ -33,7 +35,7 @@ export class HttpCacheService {
   setCacheData(url: string, data: HttpResponse<any>, lastUpdated?: Date) {
     this.cachedData[url] = {
       lastUpdated: lastUpdated || new Date(),
-      data: data
+      data
     };
     log.debug(`Cache set for key: "${url}"`);
     this.saveCacheData();

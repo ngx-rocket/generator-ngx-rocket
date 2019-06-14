@@ -6,7 +6,9 @@ import { CredentialsService } from './credentials.service';
 
 const log = new Logger('AuthenticationGuard');
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthenticationGuard implements CanActivate {
 
   constructor(private router: Router,
