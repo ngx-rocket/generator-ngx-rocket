@@ -21,7 +21,7 @@ describe('QuoteService', () => {
     });
 
     quoteService = TestBed.get(QuoteService);
-    httpMock = TestBed.get(HttpTestingController);
+    httpMock = TestBed.get<HttpTestingController>(HttpTestingController);
 
     const htttpCacheService = TestBed.get(HttpCacheService);
     htttpCacheService.cleanCache();

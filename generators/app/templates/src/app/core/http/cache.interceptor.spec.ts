@@ -39,7 +39,7 @@ describe('CacheInterceptor', () => {
     beforeEach(() => {
       interceptorOptions = null;
       http = TestBed.get(HttpClient);
-      httpMock = TestBed.get(HttpTestingController);
+      httpMock = TestBed.get<HttpTestingController>(HttpTestingController);
       httpCacheService = TestBed.get(HttpCacheService);
     });
 
@@ -89,7 +89,7 @@ describe('CacheInterceptor', () => {
     beforeEach(() => {
       interceptorOptions = { update: true };
       http = TestBed.get(HttpClient);
-      httpMock = TestBed.get(HttpTestingController);
+      httpMock = TestBed.get<HttpTestingController>(HttpTestingController);
       httpCacheService = TestBed.get(HttpCacheService);
     });
 
