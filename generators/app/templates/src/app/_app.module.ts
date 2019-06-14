@@ -19,6 +19,7 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
+import { Keyboard } from '@ionic-native/keyboard/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 <% } -%>
@@ -94,6 +95,7 @@ import { AppRoutingModule } from './app-routing.module';
 <%   } -%>
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
+    Keyboard,
     StatusBar,
     SplashScreen
 <% } -%>

@@ -19,7 +19,8 @@ import { AppComponent } from './app.component';
 describe('AppComponent', () => {
 <% if (props.target.includes('cordova')) { -%>
 
-  let statusBarSpy: any, splashScreenSpy: any;
+  let statusBarSpy: jasmine.Spy;
+  let splashScreenSpy: jasmine.Spy;
 
 <% } -%>
   beforeEach(async(() => {

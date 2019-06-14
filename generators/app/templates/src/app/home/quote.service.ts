@@ -12,7 +12,9 @@ export interface RandomQuoteContext {
   category: string;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class QuoteService {
 
   constructor(private httpClient: HttpClient) { }
