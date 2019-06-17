@@ -3,7 +3,7 @@
 <% if (props.tools.includes('prettier')) { -%>
     "tslint:recommended",
     "tslint-config-prettier"
-<% } else { -%>,
+<% } else { -%>
     "tslint:recommended"
 <% } -%>
   ],
