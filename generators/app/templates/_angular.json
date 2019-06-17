@@ -81,10 +81,13 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "hmr": true,
+            "hmrWarning": false,
             "browserTarget": "<%= props.projectName %>:build"
           },
           "configurations": {
             "production": {
+              "hmr": false,
               "browserTarget": "<%= props.projectName %>:build:production"
             },
             "ci": {
