@@ -24,12 +24,11 @@ ISSUES MISSING IMPORTANT INFORMATION MAY BE CLOSED WITHOUT INVESTIGATION.
 
 ## Environment
 
-```
-- generator version: X.Y.Z
-- node version: X.Y.Z  <!-- run `node --version` -->
-- npm version: X.Y.Z  <!-- run `npm --version` -->
-- OS:  <!-- Mac, Linux, Windows -->
-```
+<pre><code>
+<!-- Run `ngx --debug-infos` and paste output below -->
+
+
+</code></pre>
 
 Others:
 <!-- Anything else relevant?  Operating system version, IDE, package manager, HTTP server, ... -->
