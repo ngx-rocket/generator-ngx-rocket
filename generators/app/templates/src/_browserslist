@@ -8,7 +8,7 @@ iOS >= 11
 Android >= 4.4
 Explorer >= 11
 ExplorerMobile >= 11
-<% } %->
+<% } -%>
 <% if (props.target.includes('web')) { -%>
 > 0.5%
 Firefox ESR
