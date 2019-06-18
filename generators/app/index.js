@@ -18,8 +18,8 @@ class NgxGenerator extends Generator {
     this.insight = new Insight({trackingCode: 'UA-93069862-1', pkg});
     this.props = {};
 
-    if (semver.lt(process.version, '8.9.0')) {
-      this.log(chalk.yellow('Angular CLI v6 needs NodeJS v8.9 or greater.'));
+    if (semver.lt(process.version, '10.9.0')) {
+      this.log(chalk.yellow('Angular CLI v8 needs NodeJS v10.9 or greater.'));
       this.log(chalk.yellow(`You are using ${process.version} which is unsupported, please upgrade.\n`));
       // eslint-disable-next-line unicorn/no-process-exit
       process.exit(-1);
