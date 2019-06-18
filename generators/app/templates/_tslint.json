@@ -80,6 +80,7 @@
     ],
     "variable-name": false,
     "no-var-requires": false,
+    "object-literal-key-quotes": false,
     "ordered-imports": false,
     "trailing-comma": false,
     "no-conflicting-lifecycle": true,
