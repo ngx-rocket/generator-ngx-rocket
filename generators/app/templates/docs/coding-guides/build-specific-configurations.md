@@ -1,17 +1,113 @@
 # Build-Specific Configuration
 
-## tl;dr
+## tl;dr's
 
-- If you need any configuration to be used by the AOT compiler (e.g. Angular decorators), they must be statically
-  analyzable (i.e. their values knowable at build-time). Creative ideas like injecting globals with an entirely
-  separate script won't work.
-- ngx-rocket comes with a very helpful `env` script that will save environment-variables set at build time to constants
-  that can be used as configuration for your code.
-- If you want to go full-blown [Twelve-Factor](https://12factor.net/config):
-  * use the ngx-rocket `env` script along with environment variables for all build-specific configuration used by your
-    codebase
-  * only separate angular workspace "build-angular:browser" configurations if the actual build settings differ
-    (e.g. sourcemaps, optimization, etc). Even then, it can be avoided via individual commandline overrides.
+ngx-rocket comes with a very helpful `env` script that will save environment-variables set at build time to constants that can be used as configuration for your code.  When combined with the `dotenv-cli` package, it enables maximum configurability
+while maintaining lots of simplicity for local development and testing.
+
+### Cookbook for maximum independence of deployment-specific configuration
+
+Disclaimer: If you have a full-stack app in a monorepo, keep separate `.env` files for server-side and client-side
+configs, and make sure `.env` files are .gitignore'd and that secrets never make it into client-side `.env` file.
+
+For each configurable variable (e.g. BROWSER_URL, API_URL):
+
+- Add it to package.json's env script so that the build-time variables will be saved for runtime:
+
+  ```javascript
+  {
+    "scripts": {
+      "env": "ngx-scripts env npm_package_version BROWSER_URL API_URL",
+    }
+  }
+  ```
+
+- Add it to or edit it in src/environments/environment.ts to expose it to your app as e.g. environment.API_URL:
+  ```typescript
+  export const environment = {
+    // ...
+    API_URL: env.API_URL,
+    BROWSER_URL: env.BROWSER_URL,
+    // ...
+  }
+  ```
+- Configure your CI's deployment to set the variables and export them to the build script before building - if your CI
+  gives you a shell script to run, make it something like this:
+  ```shell
+  # bourne-like shells...
+  export API_URL='https://api.staging.example.com'
+  export BROWSER_URL='https://staging.example.com'
+  # ...
+  yarn build:ssr-and-client
+  ```
+- Finally, to have your cake and eat it too and avoid having to do all that for local development and testing (or clutter
+  your package.json up), install the `dotenv-cli` package and update your development-related npm scripts to take advantage
+  of it:
+  ```shell
+  # environment.development.env.sh
+  BROWSER_URL='http://localhost:4200'
+  API_URL='http://localhost:4200'
+  ```
+  ```javascript
+  {
+    "scripts": {
+      "start": "dotenv -e environment.development.env.sh -- yarn env && ng serve --aot",
+    }
+  }
+  ```
+
+This way, app configurations will always come from deploy-specific environment variables, and your development environments
+are still easy to work with.
+
+For configuring the build itself (for example, if you want your QA build to be similar to your production build, but with
+source maps enabled), consider avoiding adding a build configuration to angular.json, and instead adding the respective
+overriding flag to the `ng` command in package.json:
+```javascript
+{
+  "scripts": {
+    "build:client-and-server-bundles:qa": "NG_BUILD_OVERRIDES='--sourceMap=true' yarn build:client-and-server-bundles",
+    "build:client-and-server-bundles": "yarn build:client-bundles && yarn build:server-bundles",
+    "build:client-bundles": "yarn env && ng build --prod $NG_BUILD_OVERRIDES",
+  }
+}
+```
+
+The development server API proxy config can read runtime environment variables, so you can avoid having a superficial
+dev-server configuration by taking advantage of them:
+```javascript
+{
+  "scripts": {
+    "start": "dotenv -e environment.development.env.sh -- yarn env && API_PROXY_HOST='http://localhost:9000' ng serve --aot",
+    "e2e": "ngtw build && yarn env && API_PROXY_HOST='http://localhost:7357' ng e2e --webdriverUpdate=false",
+  }
+}
+```
+```javascript
+const proxyConfig = [
+  {
+    context: '/api',
+    pathRewrite: { '^/api': '' },
+    target: `${process.env.API_PROXY_HOST}/api`,
+    changeOrigin: true,
+    secure: false,
+  },
+  {
+    context: '/auth',
+    pathRewrite: { '^/auth': '' },
+    target: `${process.env.API_PROXY_HOST}/auth`,
+    changeOrigin: true,
+    secure: false,
+  },
+];
+```
+
+Quick SSR note: SSR works by building all the client bundles like normal, but then rendering them in real-time.  So,
+- the rest of your app from `main.server.ts` down has access to your build-time environment only, like your normal
+  client bundles
+- but `server.ts` (the file configuring and running express) has access to your serve-time environment variables
+
+### Less optimal alternatives
+
 - On the opposite extreme of the spectrum, you can keep all build-specific configuration in a separate environment
   file for each environment using Angular's built-in `fileReplacements`, but then you'll need a separate environment 
   file even for deployment-specific configuration (like hostnames), which can get out of hand fast.
@@ -37,17 +133,8 @@
         // ...
       }
       ```
-- If you have lots of environment variables, you can make a `.env` file in shell syntax, and use your particular
-  shell's method to source it before running the ngx-rocket env tool (e.g. `source .env && npm env` in bourne-like
-  shells or `env.bat; npm env` in windows).
-  * If you are and have a full-stack app in a monorepo, keep a separate `.env` file for server-side and client-side
-    config, and make sure `.env` files are .gitignore'd and that secrets never make it into client-side `.env` file. 
-- Development server API proxy config can read runtime environment variables, so you can avoid having a superficial
-  dev-server configuration by taking advantage of them.
-- SSR works by building all the client bundles like normal, but then rendering them in real-time.  So,
-  * the rest of your app from `main.server.ts` down has access to your build-time environment only, like your normal
-    client bundles
-  * but `server.ts` (the file configuring and running express) has access to your serve-time environment variables
+- If you don't have lots of environment variables, you can avoid dotenv-cli and use your particular shell's method
+  to expose the variables before running the ngx-rocket env tool.
 
 ## Introduction
 
@@ -121,11 +208,11 @@ would be really messy.
 One workaround would be to keep such configurations as globals in a separate deployment-specific script file. But
 that's pretty messy too. More importantly, there are limitations to where they can be used. For example, because
 of AOT, such configuration variables cannot be used in Angular's decorators, because they're not statically
-analyzable. So it would be better if we can keep everything in the same place.
+analyzable (i.e. their values knowable at build-time). So it would be better if we can keep everything in the same place.
 
 ### ngx-rocket to the rescue
 
-The `env` task solves this problem really well, and avoids the need for separate `environment.ts` files for
+The ngx-rocket `env` task solves this problem really well, and avoids the need for separate `environment.ts` files for
 deployment-specific configuration. 
 
 To add a deployment-specific configuration:
@@ -136,15 +223,33 @@ To add a deployment-specific configuration:
 2. add that variable name to the npm script's `env` task
 
 Now, as long as you have that environment variable set in the shell running the build, the `env` task will save it into
-the `.env` file before building.
+the `.env.ts` file before building.
 
 If you really want, you can take things even further to the twelve-factor extreme, and you can even eliminate the
 need for `fileReplacements` entirely, and make all configuration come from environment variables.  Whether this will be
 the right approach for your project will be up to you.
 
-If you do decide to take that approach, your list of environment variables will probably get very long, so you can
-create a .gitignore'd `.env` file with all the variables set, and source it with your shell (e.g. `source .env && npm
-env` in bourne-like shells or `env.bat; npm env` in windows).
+This makes separate deployments awesome and flexible, but unfortunately makes things a little bit of a hassle for your
+local development, test, etc. environments because you have the burden of providing all those keys, settings, etc. as
+environment variables.
+
+To avoid having to do that, you'll can create a .gitignore'd `.env` file with all the variables set, and source it
+with your shell (e.g. `source .env.sh && npm env` in bourne-like shells or `env.bat; npm env` in windows).
+```shell
+# bourne-like .env.sh
+export BROWSER_URL=localhost:4200
+```
+```shell
+REM windows env.bat
+SET BROWSER_URL=localhost:4200
+```
+
+Luckily for us, there's a package called `dotenv-cli` that uses the `dotenv` package and does this in a cleaner and
+cross-platform way and comes with even more bells and whistles.  You should use that instead, and make your env file
+like this instead:
+```shell
+BROWSER_URL=localhost:4200
+```
 
 ## When you can use environment variables directly without ngx-rocket `env`
 
@@ -153,7 +258,7 @@ Fortunately, for that same reason, you can directly use `process.env` within the
 separate proxy configs in most cases.
 
 On that same note, the `server.ts` for SSR builds can also access `process.env` as it's set at runtime.  But keep in mind
-that it stops there - the app itself is built, so even in SSR the app can't access process environment variables.
+that it stops there - the app itself is built, so even in SSR the client app can't access process environment variables.
 
 ## Security Considerations
 
