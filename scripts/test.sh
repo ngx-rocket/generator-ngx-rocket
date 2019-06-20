@@ -65,9 +65,15 @@ do
 
         ngx new --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
 
+        # disable signing in xcode (no development team)
+        CODE_SIGN_IDENTITY=""
+        CODE_SIGNING_REQUIRED="NO"
+        CODE_SIGN_ENTITLEMENTS=""
+        CODE_SIGNING_ALLOWED="NO"
+
         # cordova
         npm run cordova:prepare --no-progress
-        npm run cordova:build ios --debug --no-progress
+        npm run cordova:build ios --buildFlag='-CODE_SIGNING_ALLOWED=NO' --debug --no-progress
 
     else
 
