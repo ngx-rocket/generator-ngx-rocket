@@ -2,50 +2,48 @@
   <div class="login-background"></div>
   <ion-grid no-padding>
     <ion-row justify-content-center no-padding>
-      <ion-col col-sm-8 col-lg-6 col-xl-4 align-self-center no-padding>
+      <ion-col size-sm="8" size-lg="6" size-xl="4" align-self-center no-padding>
         <div class="login-header" text-center>
           <h1 translate>APP_NAME</h1>
           <h6>v{{version}}</h6>
-          <ion-list *ngIf="isWeb" color="primary" no-lines no-margin>
-            <ion-item color="primary">
+          <ion-list *ngIf="isWeb" color="primary" lines="none" no-padding>
+            <ion-item lines="none" color="primary">
               <ion-label><span translate>Language</span></ion-label>
               <ion-select [ngModel]="currentLanguage" (ngModelChange)="setLanguage($event)" interface="popover">
-                <ion-option *ngFor="let language of languages" [value]="language">{{language}}</ion-option>
+                <ion-select-option *ngFor="let language of languages" [value]="language">{{language}}</ion-select-option>
               </ion-select>
             </ion-item>
           </ion-list>
         </div>
         <div class="login-container">
           <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
-            <div padding ion-text color="danger" [hidden]="!error || loginForm.dirty" translate>
-              Username or password incorrect.
-            </div>
+            <ion-text color="danger" [hidden]="!error || loginForm.dirty || isLoading">
+              <span padding translate>Username or password incorrect.</span>
+            </ion-text>
             <ion-list>
-              <ion-item>
-                <ion-label floating>{{'Username' | translate}}</ion-label>
+              <ion-item lines="inset">
+                <ion-label color="medium" position="floating" translate>Username</ion-label>
                 <ion-input type="text" formControlName="username" autocomplete="username"></ion-input>
               </ion-item>
-              <div padding [hidden]="loginForm.controls.username.valid || loginForm.controls.username.untouched"
-                   ion-text color="danger" translate>
-                Username is required
-              </div>
-              <ion-item>
-                <ion-label floating>{{'Password' | translate}}</ion-label>
+              <ion-text color="danger" [hidden]="loginForm.controls.username.valid || loginForm.controls.username.untouched">
+                <span padding translate>Username is required</span>
+              </ion-text>
+              <ion-item lines="inset">
+                <ion-label color="medium" position="floating" translate>Password</ion-label>
                 <ion-input type="password" formControlName="password" autocomplete="current-password"></ion-input>
               </ion-item>
-              <div padding [hidden]="loginForm.controls.password.valid || loginForm.controls.password.untouched"
-                   ion-text color="danger" translate>
-                Password is required
-              </div>
-              <ion-item padding-top no-lines>
-                <ion-label><span translate>Remember me</span></ion-label>
-                <ion-checkbox formControlName="remember"></ion-checkbox>
+              <ion-text color="danger" [hidden]="loginForm.controls.password.valid || loginForm.controls.password.untouched">
+                <span padding translate>Password is required</span>
+              </ion-text>
+              <ion-item padding-top lines="none">
+                <ion-label translate>Remember me</ion-label>
+                <ion-checkbox slot="start" formControlName="remember"></ion-checkbox>
               </ion-item>
             </ion-list>
             <div padding-horizontal>
-              <button type="submit" [disabled]="loginForm.invalid" ion-button color="primary" block>
-                <span translate>Login</span>
-              </button>
+              <ion-button type="submit" [disabled]="loginForm.invalid || isLoading" color="primary" expand="block" translate>
+                Login
+              </ion-button>
             </div>
           </form>
         </div>

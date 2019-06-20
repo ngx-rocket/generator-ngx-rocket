@@ -1,6 +1,7 @@
 branches:
   only:
     - master
+    - /release\/.*/
 
 environment:
   nodejs_version: ""
@@ -12,6 +13,7 @@ environment:
     - CASE: "app/cordova/ionic-authentication"
     - CASE: "app/cordova/material"
     - CASE: "app/cordova/material-authentication"
+    - CASE: "app/electron/bootstrap"
     - CASE: "app/web/bootstrap"
     - CASE: "app/web/bootstrap-authentication"
     - CASE: "app/web/ionic"
@@ -33,7 +35,7 @@ matrix:
   fast_finish: true
 
 install:
-  - choco install googlechrome
+  - choco install googlechrome --ignore-checksums
   - ps: Install-Product node $env:nodejs_version
   - npm install
   - npm link

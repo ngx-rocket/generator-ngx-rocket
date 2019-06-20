@@ -17,6 +17,10 @@ describe('Logger', () => {
     savedOutputs = Logger.outputs;
   });
 
+  beforeEach(() => {
+    Logger.level = LogLevel.Debug;
+  });
+
   afterAll(() => {
     logMethods.forEach((m) => { console[m] = savedConsole[m]; });
     Logger.level = savedLevel;

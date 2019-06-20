@@ -1,5 +1,3 @@
-'use strict';
-
 const chalk = require('chalk');
 const Insight = require('insight');
 const camelCase = require('lodash.camelcase');
@@ -7,9 +5,9 @@ const upperFirst = require('lodash.upperfirst');
 const Generator = require('@ngx-rocket/core');
 const asciiLogo = require('@ngx-rocket/ascii-logo');
 
+const pkg = require('../../package.json');
 const options = require('./options.json');
 const prompts = require('./prompts');
-const pkg = require('../../package.json');
 
 class NgxAddonGenerator extends Generator {
   initializing() {
@@ -34,13 +32,18 @@ class NgxAddonGenerator extends Generator {
 
     if (fromVersion) {
       if (fromVersion >= this.version) {
-        this.log(chalk.green('\nNothing to update, it\'s all good!\n'));
+        this.log(chalk.green("\nNothing to update, it's all good!\n"));
+        // eslint-disable-next-line unicorn/no-process-exit
         process.exit(0);
       }
 
       this.updating = true;
-      this.log(`\nUpdating ${chalk.green(this.props.appName)} project (${chalk.yellow(fromVersion)} -> ${chalk.yellow(this.version)})\n`);
-      this.log(`${chalk.yellow('Make sure you don\'t have uncommitted changes before overwriting files!')}`);
+      this.log(
+        `\nUpdating ${chalk.green(this.props.appName)} project (${chalk.yellow(fromVersion)} -> ${chalk.yellow(
+          this.version
+        )})\n`
+      );
+      this.log(`${chalk.yellow("Make sure you don't have uncommitted changes before overwriting files!")}`);
       this.insight.track('update', fromVersion, 'to', this.version);
     } else if (!this.options['skip-welcome']) {
       this.log(asciiLogo(pkg.version));

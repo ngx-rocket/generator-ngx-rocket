@@ -1,11 +1,16 @@
-'use strict';
-
 module.exports = [
   {
     name: 'skip-welcome',
     type: 'Boolean',
     required: false,
-    description: 'Skip Yeoman\'s welcome message',
+    description: "Skip Yeoman's welcome message",
+    defaults: false
+  },
+  {
+    name: 'skip-quickstart',
+    type: 'Boolean',
+    required: false,
+    description: 'Skip quick start message at the end',
     defaults: false
   },
   {
@@ -41,12 +46,28 @@ module.exports = [
     type: value => {
       if (value !== 'hash' && value !== 'path') {
         console.error('Invalid location strategy: can be either "hash" or "path"');
+        // eslint-disable-next-line unicorn/no-process-exit
         process.exit(-1);
       }
+
       return value;
     },
     required: false,
     description: 'Location strategy to use in Angular router: "path" or "hash"',
     defaults: 'path'
+  },
+  {
+    name: 'git',
+    type: 'Boolean',
+    required: false,
+    description: 'Initialize git repository',
+    defaults: true
+  },
+  {
+    name: 'strict',
+    type: 'Boolean',
+    required: false,
+    description: 'Enable TypeScript strict mode',
+    defaults: false
   }
 ];

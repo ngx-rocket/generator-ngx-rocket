@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 <% if (props.lazy) { -%>
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { Route } from '@app/core';
+import { Shell } from '@app/shell/shell.service';
 <% } else { -%>
 import { Routes, RouterModule } from '@angular/router';
 <% } -%>
 
 const routes: Routes = [
 <% if (props.lazy) { -%>
-  Route.withShell([
+  Shell.childRoutes([
     { path: 'about', loadChildren: 'app/about/about.module#AboutModule' }
   ]),
 <% } -%>
   // Fallback when no prior route is matched
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: '**', redirectTo: '<%= props.ui === 'ionic' && props.layout === 'tabs' ? 'tabs/home' : '' -%>', pathMatch: 'full' }
 ];
 
 @NgModule({

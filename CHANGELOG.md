@@ -1,5 +1,198 @@
 # Change Log
 
+## [6.2.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/6.2.1) (2019-06-10)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/6.2.0...6.2.1)
+
+**Fixed bugs:**
+
+- Fix misc bugs with PWA [\#477](https://github.com/ngx-rocket/generator-ngx-rocket/pull/477)
+
+## [6.2.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/6.2.0) (2019-05-27)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/6.1.0...6.2.0)
+
+**Enhancements**:
+
+- Misc grooming and updates [\#474](https://github.com/ngx-rocket/generator-ngx-rocket/pull/474) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Merged pull requests:**
+
+- fix: avoid potential never-ending subscriptions for page titles [\#471](https://github.com/ngx-rocket/generator-ngx-rocket/pull/471)
+
+## [6.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/6.1.0) (2019-05-10)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/6.0.2...6.1.0)
+
+**Enhancements**:
+
+- Add options for dropshipping generator [\#470](https://github.com/ngx-rocket/generator-ngx-rocket/pull/470) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add package install in root/client/server folders in full-stack mode [\#468](https://github.com/ngx-rocket/generator-ngx-rocket/pull/468) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Merged pull requests:**
+
+- Migrate to new fontawesome package [\#469](https://github.com/ngx-rocket/generator-ngx-rocket/pull/469)
+
+## [6.0.2](https://github.com/ngx-rocket/generator-ngx-rocket/tree/6.0.2) (2019-05-04)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/6.0.1...6.0.2)
+
+**Fixed bugs:**
+
+- Fix duplicate --aot param in start script [\#467](https://github.com/ngx-rocket/generator-ngx-rocket/pull/467)
+
+**Closed issues:**
+
+- Compilation failed during e2e because of core-js [\#465](https://github.com/ngx-rocket/generator-ngx-rocket/issues/465)
+
+**Merged pull requests:**
+
+- Roll back core-js version [\#466](https://github.com/ngx-rocket/generator-ngx-rocket/pull/466)
+
+## [6.0.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/6.0.1) (2019-04-25)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/6.0.0...6.0.1)
+
+**Fixed bugs:**
+- Error running ngx new [\#421](https://github.com/ngx-rocket/generator-ngx-rocket/issues/421) [[bug](https://github.com/ngx-rocket/generator-ngx-rocket/labels/bug)]
+
+## [6.0.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/6.0.0) (2019-04-24)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/5.3.0...6.0.0)
+
+**Enhancements**:
+
+- Migrate to Ionic@4 [\#302](https://github.com/ngx-rocket/generator-ngx-rocket/issues/302) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Added untilDestroyed operator to properly clean up subscriptions on component destroy [\#396](https://github.com/ngx-rocket/generator-ngx-rocket/pull/396) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Extract credentials from authentication service [\#447](https://github.com/ngx-rocket/generator-ngx-rocket/issues/447) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Allow forcing generator options from addon [\#444](https://github.com/ngx-rocket/generator-ngx-rocket/issues/444) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Migrate to Angulartics2 v7 [\#438](https://github.com/ngx-rocket/generator-ngx-rocket/issues/438) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- switch to async/await tests and turn off SELENIUM\_PROMISE\_MANAGER [\#399](https://github.com/ngx-rocket/generator-ngx-rocket/issues/399) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add optional libraries / tools choice [\#381](https://github.com/ngx-rocket/generator-ngx-rocket/issues/381) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add TypeScript strict option support [\#462](https://github.com/ngx-rocket/generator-ngx-rocket/pull/462) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add optional tools choice \(close \#381\) [\#453](https://github.com/ngx-rocket/generator-ngx-rocket/pull/453) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add optional utility libraries choice \(\#381\) [\#452](https://github.com/ngx-rocket/generator-ngx-rocket/pull/452) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Enable prettier on HTML templates [\#451](https://github.com/ngx-rocket/generator-ngx-rocket/pull/451) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Extract credentials from authentication service \(close \#447\) [\#448](https://github.com/ngx-rocket/generator-ngx-rocket/pull/448) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Allow forcing generator options from addon \(close \#444\) [\#445](https://github.com/ngx-rocket/generator-ngx-rocket/pull/445) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Update to Ionic 4 \(stable\) \(\#387, \#302\) [\#439](https://github.com/ngx-rocket/generator-ngx-rocket/pull/439) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add --strict-mode option to enable TypeScript strict mode [\#292](https://github.com/ngx-rocket/generator-ngx-rocket/issues/292) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Migrate to async/await everywhere [\#429](https://github.com/ngx-rocket/generator-ngx-rocket/issues/429) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Strict mode is broken on Ionic branch [\#291](https://github.com/ngx-rocket/generator-ngx-rocket/issues/291)
+
+**Fixed bugs:**
+
+- Use localStorage `setItem` and `getItem` instead of `this.storage\[cachePersistenceKey\]` [\#410](https://github.com/ngx-rocket/generator-ngx-rocket/issues/410)
+
+**Closed issues:**
+
+- npm start does work when app is started, but error comes as "ENOENT: no such file or directory, stat 'D:\projects\ang6\src\app\shared\loader\loader.component.ngfactory.js'" when we modify and save the any file. [\#395](https://github.com/ngx-rocket/generator-ngx-rocket/issues/395)
+- Feature request: single e2e test run support [\#392](https://github.com/ngx-rocket/generator-ngx-rocket/issues/392)
+- Error Circular dependency when adding either HttpClient or HttpService to AuthenticationService [\#436](https://github.com/ngx-rocket/generator-ngx-rocket/issues/436)
+- consultation："ngx-scripts env npm\_package\_version" [\#412](https://github.com/ngx-rocket/generator-ngx-rocket/issues/412)
+- ngx update failed in .yo-rc.json [\#406](https://github.com/ngx-rocket/generator-ngx-rocket/issues/406)
+- API Prefix interceptor not used when routes are lazy loaded [\#405](https://github.com/ngx-rocket/generator-ngx-rocket/issues/405)
+- Registration module  [\#203](https://github.com/ngx-rocket/generator-ngx-rocket/issues/203)
+
+**Merged pull requests:**
+
+- Removal of deprecated keyboard [\#393](https://github.com/ngx-rocket/generator-ngx-rocket/pull/393)
+- Synced up polyfills with latest angular CLI [\#391](https://github.com/ngx-rocket/generator-ngx-rocket/pull/391)
+- Added redirect to previously saved url after login, if you are not authenticated. [\#390](https://github.com/ngx-rocket/generator-ngx-rocket/pull/390)
+- Leveled up e2e test example [\#383](https://github.com/ngx-rocket/generator-ngx-rocket/pull/383)
+- Ionic 4 support [\#369](https://github.com/ngx-rocket/generator-ngx-rocket/pull/369)
+- Inital support of electron target [\#333](https://github.com/ngx-rocket/generator-ngx-rocket/pull/333)
+- Release/6.0.x [\#463](https://github.com/ngx-rocket/generator-ngx-rocket/pull/463)
+- Update all dependencies and perform associated migrations [\#461](https://github.com/ngx-rocket/generator-ngx-rocket/pull/461)
+- Refactor: 💡 Use async/await instead of then\(\) \(close \#429\) [\#459](https://github.com/ngx-rocket/generator-ngx-rocket/pull/459)
+- Updated link to Angular docs for more relevance [\#457](https://github.com/ngx-rocket/generator-ngx-rocket/pull/457)
+- Update lodash dependency to 4.7.11 [\#456](https://github.com/ngx-rocket/generator-ngx-rocket/pull/456)
+- Fix CircleCI licence approval [\#450](https://github.com/ngx-rocket/generator-ngx-rocket/pull/450)
+- Feature/simplify tests [\#449](https://github.com/ngx-rocket/generator-ngx-rocket/pull/449)
+- Update add-on template and use xo with prettier [\#446](https://github.com/ngx-rocket/generator-ngx-rocket/pull/446)
+- update ng-bootstrap version to 4.x.x [\#437](https://github.com/ngx-rocket/generator-ngx-rocket/pull/437)
+- wrong `translations:extract` --sort parameter [\#435](https://github.com/ngx-rocket/generator-ngx-rocket/pull/435)
+- Add missing Material modules [\#434](https://github.com/ngx-rocket/generator-ngx-rocket/pull/434)
+- Update addon readme [\#430](https://github.com/ngx-rocket/generator-ngx-rocket/pull/430)
+- ionic: update to rc1 and fix tabs router and selected tab [\#428](https://github.com/ngx-rocket/generator-ngx-rocket/pull/428)
+- remove ionic overlay workaround and make login controller cleaner [\#427](https://github.com/ngx-rocket/generator-ngx-rocket/pull/427)
+- DOC: add clarity on the purpose of npm run env and how it works [\#426](https://github.com/ngx-rocket/generator-ngx-rocket/pull/426)
+- async/await e2e and disable selenium promise manager \(closes \#399\) [\#425](https://github.com/ngx-rocket/generator-ngx-rocket/pull/425)
+- Update Electron implementation and adds platform choice \(close \#114 \) [\#422](https://github.com/ngx-rocket/generator-ngx-rocket/pull/422)
+- Added ionic webview details for CORS-all platforms [\#419](https://github.com/ngx-rocket/generator-ngx-rocket/pull/419)
+- Standard accessors for local storage \(see \#410\) [\#415](https://github.com/ngx-rocket/generator-ngx-rocket/pull/415)
+- Updated ionic to beta 16 and migrated for tabs breaking changes [\#411](https://github.com/ngx-rocket/generator-ngx-rocket/pull/411)
+- Merge master onto 6.0.x branch \(Angular 7 update\) [\#403](https://github.com/ngx-rocket/generator-ngx-rocket/pull/403)
+- Unit test fixes, cosmetics and dependencies bump [\#397](https://github.com/ngx-rocket/generator-ngx-rocket/pull/397)
+
+## [5.3.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/5.3.0) (2018-10-29)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/5.2.0...5.3.0)
+
+**Enhancements**:
+
+- Contribution: Redirect to previously saved url after login, if you are not authenticated. [\#388](https://github.com/ngx-rocket/generator-ngx-rocket/issues/388) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Updated tslint rules, polyfills and some fixes [\#402](https://github.com/ngx-rocket/generator-ngx-rocket/pull/402) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Migrated generator code base to xo + prettier and async/await [\#401](https://github.com/ngx-rocket/generator-ngx-rocket/pull/401) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Update to Angular 7 [\#398](https://github.com/ngx-rocket/generator-ngx-rocket/pull/398) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+## [5.2.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/5.2.0) (2018-09-25)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/5.1.0...5.2.0)
+
+**Enhancements**:
+
+- Infinite loop when moving `AppRoutingModule` before `LoginModule ` in `imports` in `AppModule` [\#384](https://github.com/ngx-rocket/generator-ngx-rocket/issues/384) [[documentation](https://github.com/ngx-rocket/generator-ngx-rocket/labels/documentation)]
+- Prettier support [\#303](https://github.com/ngx-rocket/generator-ngx-rocket/issues/303) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+-  Added prettier support \(closes \#303\) and init git repo by default [\#380](https://github.com/ngx-rocket/generator-ngx-rocket/pull/380) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Added Angular update guide and updated maintainers doc [\#379](https://github.com/ngx-rocket/generator-ngx-rocket/pull/379) [[documentation](https://github.com/ngx-rocket/generator-ngx-rocket/labels/documentation)]
+
+**Fixed bugs:**
+
+- npm start gets dependency failure. Flexbox with rxjs [\#376](https://github.com/ngx-rocket/generator-ngx-rocket/issues/376)
+- Skip checksum checking for Chrome install on Appveyor to fix CI [\#382](https://github.com/ngx-rocket/generator-ngx-rocket/pull/382)
+
+**Closed issues:**
+
+- Cannot run cordova build  [\#363](https://github.com/ngx-rocket/generator-ngx-rocket/issues/363)
+- Auth guard triggering only once in lazy loaded modules [\#312](https://github.com/ngx-rocket/generator-ngx-rocket/issues/312)
+
+**Merged pull requests:**
+
+- Commented the importance of module import order [\#386](https://github.com/ngx-rocket/generator-ngx-rocket/pull/386)
+- Updated dependencies and fixed translations imports with angular/cli@6.2 [\#378](https://github.com/ngx-rocket/generator-ngx-rocket/pull/378)
+
+## [5.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/5.1.0) (2018-09-10)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/5.0.1...5.1.0)
+
+**Enhancements**:
+
+- ApiPrefixInterceptor - avoid to change URL if it starts with http/https [\#338](https://github.com/ngx-rocket/generator-ngx-rocket/issues/338) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add responsive tabs ionic template [\#106](https://github.com/ngx-rocket/generator-ngx-rocket/issues/106) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add CircleCI config to build Cordova/Android paths [\#364](https://github.com/ngx-rocket/generator-ngx-rocket/pull/364) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add ionic tabs after shell integration as component [\#361](https://github.com/ngx-rocket/generator-ngx-rocket/pull/361) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Updated angular guide with a FAQ section and added NGXS references [\#357](https://github.com/ngx-rocket/generator-ngx-rocket/pull/357) [[documentation](https://github.com/ngx-rocket/generator-ngx-rocket/labels/documentation)]
+- Added fuzzy matching to ngx \<script\> command [\#346](https://github.com/ngx-rocket/generator-ngx-rocket/pull/346) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Fixed bugs:**
+
+- Ionic / Cordova build is broken on current master [\#372](https://github.com/ngx-rocket/generator-ngx-rocket/issues/372)
+- wdm: Failed to compile on new project [\#352](https://github.com/ngx-rocket/generator-ngx-rocket/issues/352)
+- Update \_index.html, fix cordova routing bug [\#365](https://github.com/ngx-rocket/generator-ngx-rocket/pull/365)
+
+**Closed issues:**
+
+- App failed to compile upon save [\#367](https://github.com/ngx-rocket/generator-ngx-rocket/issues/367)
+- ERROR in ./src/app/app.module.ngfactory.js [\#366](https://github.com/ngx-rocket/generator-ngx-rocket/issues/366)
+- \[Feature request\] Add option for non-flex UI  [\#360](https://github.com/ngx-rocket/generator-ngx-rocket/issues/360)
+-  Can't resolve '@angular/router.ngfactory [\#359](https://github.com/ngx-rocket/generator-ngx-rocket/issues/359)
+- Change AuthGuard Route [\#348](https://github.com/ngx-rocket/generator-ngx-rocket/issues/348)
+- Angular Ionic module lazy load problem [\#342](https://github.com/ngx-rocket/generator-ngx-rocket/issues/342)
+- Data path ".baseHref" should be string. [\#336](https://github.com/ngx-rocket/generator-ngx-rocket/issues/336)
+- Redundancy in route [\#204](https://github.com/ngx-rocket/generator-ngx-rocket/issues/204)
+
+**Merged pull requests:**
+
+- Disable ng serve AOT for Ionic \(\#372\) [\#375](https://github.com/ngx-rocket/generator-ngx-rocket/pull/375)
+- Fixed Ionic/Cordova build \(closes \#372\) [\#374](https://github.com/ngx-rocket/generator-ngx-rocket/pull/374)
+- Updated ngx-scripts and docs [\#373](https://github.com/ngx-rocket/generator-ngx-rocket/pull/373)
+- Fix typo in i18n docs [\#368](https://github.com/ngx-rocket/generator-ngx-rocket/pull/368)
+- Updated dependencies and fixed npm vulnerabilities warnings [\#354](https://github.com/ngx-rocket/generator-ngx-rocket/pull/354)
+- Extract shell into a new module [\#351](https://github.com/ngx-rocket/generator-ngx-rocket/pull/351)
+- Avoid interception of full-path specified urls [\#339](https://github.com/ngx-rocket/generator-ngx-rocket/pull/339)
+
 ## [5.0.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/5.0.1) (2018-06-11)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/5.0.0...5.0.1)
 

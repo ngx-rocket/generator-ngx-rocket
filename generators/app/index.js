@@ -1,14 +1,16 @@
-'use strict';
-
+const fs = require('fs');
+const path = require('path');
 const chalk = require('chalk');
 const Insight = require('insight');
 const semver = require('semver');
 const Generator = require('@ngx-rocket/core');
 const asciiLogo = require('@ngx-rocket/ascii-logo');
 
+const pkg = require('../../package.json');
 const prompts = require('./prompts');
 const options = require('./options');
-const pkg = require('../../package.json');
+
+const packageJsonFile = 'package.json';
 
 class NgxGenerator extends Generator {
   initializing() {
@@ -19,6 +21,7 @@ class NgxGenerator extends Generator {
     if (semver.lt(process.version, '8.9.0')) {
       this.log(chalk.yellow('Angular CLI v6 needs NodeJS v8.9 or greater.'));
       this.log(chalk.yellow(`You are using ${process.version} which is unsupported, please upgrade.\n`));
+      // eslint-disable-next-line unicorn/no-process-exit
       process.exit(-1);
     }
 
@@ -38,6 +41,11 @@ class NgxGenerator extends Generator {
       this.props.location = this.options['location-strategy'];
     }
 
+    this.props.strict = this.options.strict;
+    this.props.skipInstall = this.options['skip-install'];
+    this.props.skipQuickstart = this.options['skip-quickstart'];
+    this.props.initGit = this.options.git;
+
     // Updating
     let fromVersion = null;
 
@@ -48,13 +56,18 @@ class NgxGenerator extends Generator {
 
     if (fromVersion) {
       if (fromVersion >= this.version) {
-        this.log(chalk.green('\nNothing to update, it\'s all good!\n'));
+        this.log(chalk.green("\nNothing to update, it's all good!\n"));
+        // eslint-disable-next-line unicorn/no-process-exit
         process.exit(0);
       }
 
       this.updating = true;
-      this.log(`\nUpdating ${chalk.green(this.props.appName)} project (${chalk.yellow(fromVersion)} -> ${chalk.yellow(this.version)})\n`);
-      this.log(`${chalk.yellow('Make sure you don\'t have uncommitted changes before overwriting files!')}`);
+      this.log(
+        `\nUpdating ${chalk.green(this.props.appName)} project (${chalk.yellow(fromVersion)} -> ${chalk.yellow(
+          this.version
+        )})\n`
+      );
+      this.log(`${chalk.yellow("Make sure you don't have uncommitted changes before overwriting files!")}`);
       this.insight.track('update', fromVersion, 'to', this.version);
     } else if (!this.options['skip-welcome']) {
       this.log(asciiLogo(pkg.version));
@@ -71,12 +84,16 @@ class NgxGenerator extends Generator {
     this.insight.track('addons', addonsOption);
   }
 
-  prompting() {
-    return super.prompting()
-      .then(() => {
-        this.props.mobile = this.props.mobile || [];
-        this.shareProps(this.props);
-      });
+  async prompting() {
+    // Allow to pre-set any props in an add-on generator
+    Object.assign(this.props, this.sharedProps);
+
+    await super.prompting();
+    this.props.mobile = this.props.mobile || [];
+    this.props.desktop = this.props.desktop || [];
+    this.props.utility = this.props.utility || [];
+    this.props.tools = this.props.tools || [];
+    this.shareProps(this.props);
   }
 
   configuring() {
@@ -97,15 +114,27 @@ class NgxGenerator extends Generator {
   }
 
   install() {
-    const skipInstall = this.options['skip-install'];
+    if (this.props.initGit) {
+      this.spawnCommandSync('git', ['init', '--quiet']);
+    }
 
-    if (!skipInstall) {
+    if (!this.props.skipInstall) {
       this.log(`\nRunning ${chalk.yellow(`${this.packageManager} install`)}, please wait...`);
 
-      if (this.packageManager === 'yarn') {
-        this.yarnInstall();
-      } else {
-        this.npmInstall(null, {loglevel: 'error'});
+      const install = this.packageManager === 'yarn' ? this.yarnInstall.bind(this) : this.npmInstall.bind(this);
+
+      if (fs.existsSync(this.destinationPath(packageJsonFile))) {
+        install();
+      }
+
+      if (this.isFullstack) {
+        if (fs.existsSync(this.destinationPath(path.join(process.env.NGX_CLIENT_PATH, packageJsonFile)))) {
+          install(null, null, {cwd: this.destinationPath(process.env.NGX_CLIENT_PATH)});
+        }
+
+        if (fs.existsSync(this.destinationPath(path.join(process.env.NGX_SERVER_PATH, packageJsonFile)))) {
+          install(null, null, {cwd: this.destinationPath(process.env.NGX_SERVER_PATH)});
+        }
       }
     }
   }
@@ -116,8 +145,14 @@ class NgxGenerator extends Generator {
       return;
     }
 
+    if (this.props.skipQuickstart) {
+      return;
+    }
+
     this.log('\nAll done! Get started with these tasks:');
-    this.log(`- $ ${chalk.green(`${this.packageManager} start`)}: start dev server with live reload on http://localhost:4200`);
+    this.log(
+      `- $ ${chalk.green(`${this.packageManager} start`)}: start dev server with live reload on http://localhost:4200`
+    );
 
     if (this.props.target.includes('web')) {
       this.log(`- $ ${chalk.green(`${this.packageManager} run build`)}: build web app for production`);
@@ -129,10 +164,31 @@ class NgxGenerator extends Generator {
       this.log(`- $ ${chalk.green(`${this.packageManager} run cordova:build`)}: build mobile app for production`);
     }
 
+    if (this.props.target.includes('electron')) {
+      this.log(`- $ ${chalk.green(`${this.packageManager} run electron:build`)}: build app for electron`);
+      this.log(`- $ ${chalk.green(`${this.packageManager} run electron:run`)}: run app in electron`);
+      this.log(
+        `- $ ${chalk.green(
+          `${this.packageManager} run electron:package`
+        )}: package executables for all selected platforms`
+      );
+    }
+
     this.log(`- $ ${chalk.green(`${this.packageManager} test`)}: run unit tests in watch mode for TDD`);
     this.log(`- $ ${chalk.green(`${this.packageManager} run test:ci`)}: lint code and run units tests with coverage`);
     this.log(`- $ ${chalk.green(`${this.packageManager} run e2e`)}: launch e2e tests`);
-    this.log(`- $ ${chalk.green(`${this.packageManager} run docs`)}: show docs and coding guides`);
+
+    if (this.props.tools.includes('hads')) {
+      this.log(`- $ ${chalk.green(`${this.packageManager} run docs`)}: show docs and coding guides`);
+    }
+
+    if (this.props.tools.includes('compodoc')) {
+      this.log(`- $ ${chalk.green(`${this.packageManager} run compodoc`)}: generates docs from code`);
+    }
+
+    if (this.props.tools.includes('prettier')) {
+      this.log(`- $ ${chalk.green(`${this.packageManager} run prettier`)}: format your code automatically`);
+    }
   }
 }
 
@@ -142,8 +198,14 @@ module.exports = Generator.make({
   options,
   prompts,
   prefixRules: Object.assign(Generator.defaultPrefixRules, {
+    'ionic-tabs': props => props.ui === 'ionic' && props.layout === 'tabs',
+    'ionic-side-menu': props => props.ui === 'ionic' && props.layout === 'side-menu',
     'material-simple': props => props.ui === 'material' && props.layout === 'simple',
     'material-side-menu': props => props.ui === 'material' && props.layout === 'side-menu',
-    raw: props => props.ui === 'raw'
+    raw: props => props.ui === 'raw',
+    'electron-windows': props => props.desktop && props.desktop.includes('windows'),
+    'electron-mac': props => props.desktop && props.desktop.includes('mac'),
+    'electron-linux': props => props.desktop && props.desktop.includes('linux'),
+    'tools-hads': props => props.tools && props.tools.includes('hads')
   })
 });

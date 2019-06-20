@@ -1,0 +1,21 @@
+@import "src/theme/theme-variables";
+
+[ion-fixed] {
+  width: 100%;
+  height: 100%;
+}
+<% if (props.auth) { -%>
+
+.profile {
+  background-color: var(--ion-color-primary);
+}
+
+.profile-icon {
+  font-size: 6rem;
+  color: var(--ion-color-primary-contrast);
+}
+
+.profile-title {
+  color: var(--ion-color-primary-contrast);
+}
+<% } -%>

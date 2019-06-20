@@ -1,4 +1,4 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
 
@@ -9,7 +9,7 @@ const supportedLanguages = ['eo', 'en-US', 'fr-FR'];
 
 class MockTranslateService {
 
-  currentLang: string;
+  currentLang = '';
   onLangChange = new Subject();
 
   use(language: string) {
@@ -40,16 +40,9 @@ describe('I18nService', () => {
         { provide: TranslateService, useClass: MockTranslateService },
       ]
     });
-  });
 
-  beforeEach(inject([
-    I18nService,
-    TranslateService
-  ], (_i18nService: I18nService,
-      _translateService: TranslateService) => {
-
-    i18nService = _i18nService;
-    translateService = _translateService;
+    i18nService = TestBed.get(I18nService);
+    translateService = TestBed.get(TranslateService);
 
     // Create spies
     onLangChangeSpy = jasmine.createSpy('onLangChangeSpy');
@@ -58,7 +51,7 @@ describe('I18nService', () => {
         onLangChangeSpy(event.lang);
       });
     spyOn(translateService, 'use').and.callThrough();
-  }));
+  });
 
   afterEach(() => {
     // Cleanup

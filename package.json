@@ -1,7 +1,7 @@
 {
   "name": "generator-ngx-rocket",
-  "version": "5.0.1",
-  "description": "Extensible Angular 6+ enterprise-grade project generator based on angular-cli with best practices from the community. Includes PWA and Cordova support, coding guides and more!",
+  "version": "6.2.1",
+  "description": "Extensible Angular 7+ enterprise-grade project generator based on angular-cli with best practices from the community. Includes PWA/Cordova/Electron support, coding guides and more!",
   "repository": "ngx-rocket/generator-ngx-rocket",
   "keywords": [
     "yeoman-generator",
@@ -26,6 +26,7 @@
     "mobile",
     "web",
     "pwa",
+    "electron",
     "tool",
     "cli"
   ],
@@ -41,39 +42,41 @@
     "ngx": "./cli/bin/ngx"
   },
   "scripts": {
-    "lint": "eslint \"generators/*/*.js\" \"cli/*.js\"",
+    "lint": "xo \"generators/*/*.js\" \"cli/*.js\"",
+    "lint:fix": "npm run lint -s -- --fix",
     "test": "npm run lint -s && ./scripts/test.sh",
     "test:addon": "npm run lint -s && TEST_ADDON=1 ./scripts/test.sh",
     "deploy": "scripts/deploy.sh",
     "postpublish": "git tag -a $npm_package_version -m \"$npm_package_version\" && git push --tags",
-    "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -m 'Updated changelog'"
+    "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -m 'Update changelog'"
   },
   "dependencies": {
     "@ngx-rocket/ascii-logo": "^1.0.1",
-    "@ngx-rocket/core": "^3.3.0",
-    "chalk": "^2.4.1",
-    "conf": "^2.0.0",
-    "figures": "^2.0.0",
-    "fuzz-run": "^1.0.1",
-    "inquirer": "^6.0.0",
-    "insight": "^0.10.1",
+    "@ngx-rocket/core": "^5.0.0",
+    "chalk": "^2.4.2",
+    "conf": "^4.1.0",
+    "cross-spawn": "^6.0.5",
+    "figures": "^3.0.0",
+    "fuzz-run": "^1.0.2",
+    "inquirer": "^6.3.1",
+    "insight": "^0.10.3",
     "lodash.camelcase": "^4.3.0",
     "lodash.get": "^4.4.2",
     "lodash.upperfirst": "^4.3.1",
     "minimist": "^1.2.0",
-    "semver": "^5.5.0",
-    "update-notifier": "^2.5.0",
-    "yeoman-environment": "^2.3.1"
+    "semver": "^6.1.1",
+    "update-notifier": "^3.0.0",
+    "yeoman-environment": "^2.3.4"
   },
   "devDependencies": {
-    "eslint": "^5.2.0",
-    "eslint-config-xo-space": "^0.19.0"
+    "xo": "^0.24.0"
   },
   "engines": {
     "node": ">=8.9.0"
   },
-  "eslintConfig": {
-    "extends": "xo-space/esnext"
+  "xo": {
+    "space": true,
+    "prettier": true
   },
   "files": [
     "generators",

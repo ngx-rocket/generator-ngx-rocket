@@ -18,6 +18,7 @@ general:
   branches:
     only:
       - master
+      - /release\/.*/
 
 defaults: &defaults
   docker:
@@ -57,10 +58,12 @@ jobs:
     steps:
       - restore_cache:
           *restore-repository-cache
+      # Captures SIGPIPE 141 error but still allow repeating "y" to accept all licenses
+      - run: yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses || if [ $? -ne '141' ]; then exit $?; fi;
       - run: *npm-link
       - run:
           name: Run tests and build android app
-          command: npm test app/cordova/bootstrap
+          command: npm test app/cordova/ionic
           environment:
             TEST_ANDROID: 1
 

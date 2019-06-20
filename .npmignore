@@ -1,7 +1,7 @@
 /.github/
 /.circleci/
 /.idea/
-/sample/
+/sample*/
 /cache/
 /sample-app/
 /deploy/

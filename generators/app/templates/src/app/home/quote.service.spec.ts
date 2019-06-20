@@ -1,4 +1,4 @@
-import { TestBed, inject, async } from '@angular/core/testing';
+import { TestBed, async } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { CoreModule, HttpCacheService } from '@app/core';
@@ -8,7 +8,7 @@ describe('QuoteService', () => {
   let quoteService: QuoteService;
   let httpMock: HttpTestingController;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         CoreModule,
@@ -19,21 +19,13 @@ describe('QuoteService', () => {
         QuoteService
       ]
     });
-  }));
 
-  beforeEach(inject([
-    HttpCacheService,
-    QuoteService,
-    HttpTestingController
-  ], (htttpCacheService: HttpCacheService,
-      _quoteService: QuoteService,
-      _httpMock: HttpTestingController) => {
+    quoteService = TestBed.get(QuoteService);
+    httpMock = TestBed.get(HttpTestingController);
 
-    quoteService = _quoteService;
-    httpMock = _httpMock;
-
+    const htttpCacheService = TestBed.get(HttpCacheService);
     htttpCacheService.cleanCache();
-  }));
+  });
 
   afterEach(() => {
     httpMock.verify();

@@ -1,15 +1,16 @@
 # :rocket: generator-ngx-rocket
 
 [![NPM version](https://img.shields.io/npm/v/generator-ngx-rocket.svg)](https://www.npmjs.com/package/generator-ngx-rocket)
-[![Build status](https://img.shields.io/travis/ngx-rocket/generator-ngx-rocket/master.svg)](https://travis-ci.org/ngx-rocket/generator-ngx-rocket)
-[![Windows build status](https://ci.appveyor.com/api/projects/status/github/ngx-rocket/generator-ngx-rocket?svg=true&branch=master)](https://ci.appveyor.com/project/sinedied/generator-ngx-rocket/branch/master)
+[![Travis build status](https://img.shields.io/travis/ngx-rocket/generator-ngx-rocket/master.svg?logo=travis)](https://travis-ci.org/ngx-rocket/generator-ngx-rocket)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/ngx-rocket/generator-ngx-rocket?svg=true&branch=master)](https://ci.appveyor.com/project/sinedied/generator-ngx-rocket/branch/master)
+[![CircleCi build status](https://img.shields.io/circleci/project/github/ngx-rocket/generator-ngx-rocket/master.svg?logo=circleci)](https://circleci.com/gh/ngx-rocket/generator-ngx-rocket/tree/master)
 ![Node version](https://img.shields.io/node/v/generator-ngx-rocket.svg)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![Downloads](https://img.shields.io/npm/dt/generator-ngx-rocket.svg)](https://npmjs.org/package/generator-ngx-rocket)
 
 ![ngx-rocket logo](https://user-images.githubusercontent.com/593151/28924751-08023b32-7863-11e7-9186-c17d4647d861.png)
 
-> Extensible Angular 6+ enterprise-grade project generator based on
+> Extensible Angular 7+ enterprise-grade project generator based on
 > [angular-cli](https://github.com/angular/angular-cli) with best practices from the community.
 > Includes PWA and Cordova support, coding guides and more!
 
@@ -31,8 +32,8 @@ See generated project example [here](https://github.com/ngx-rocket/starter-kit).
   [Bootstrap 4](https://getbootstrap.com/), [Ionic](http://ionicframework.com) or
   [Angular Material](https://material.angular.io) based UI with nicely looking, responsive starter templates
 
-- **Mobile app support:** choose between a web app, a mobile app (using [Cordova](https://cordova.apache.org)) or both
-  using the same code base
+- **Mobile/desktop app support:** choose between a web app, a mobile app (using [Cordova](https://cordova.apache.org)),
+  a desktop app (using [Electron](https://electronjs.org)) or all at the same time using the same code base
 
 - **API proxy example setup:** develop and debug faster using any remote server
 
@@ -56,6 +57,10 @@ And there's even more! See [What's in the box](#whats-in-the-box) for more detai
  ```sh
  ngx new
  ```
+ 
+> :bulb: Pro tip: the `ngx` CLI can do more that just bootstrapping new projects! You can use it to run your
+> NPM scripts with fuzzy matching (try `ngx ci` for example) or help you maintaining your project up-to-date.
+> Take a look at the [full documentation](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/cli)!
 
 # Project structure
 
@@ -94,7 +99,7 @@ Task                            | Description
 --------------------------------|---------------------------------------------------------------------------------------
 `npm start`                     | Run development server on `http://localhost:4200/`
 `npm run serve:sw`              | Run test server on `http://localhost:4200/` with service worker enabled
-`npm run build [-- --env=prod]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `dist/`
+`npm run build [-- --configuration=production]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `dist/`
 `npm test`                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
 `npm run test:ci`               | Lint code and run unit tests once for continuous integration
 `npm run e2e`                   | Run e2e tests using [Protractor](http://www.protractortest.org)
@@ -107,14 +112,22 @@ Additional tasks for Cordova-based projects:
 Task                            | Description
 --------------------------------|---------------------------------------------------------------------------------------
 `npm run cordova:prepare`       | Prepare for building mobile app (restore Cordova platforms and plugins)
-`npm run cordova:run <ios/android> [--device]` | Run app on target platform device or simulator
-`npm run cordova:build [-- --env=prod]`        | Build mobile app for production in `dist/` folder
+`npm run cordova:run <ios/android> [--device]`          | Run app on target platform device or simulator
+`npm run cordova:build [-- --configuration=production]` | Build mobile app for production in `dist/` folder
 `npm run cordova:clean`         | Removes `www/`, `platforms/` and `plugins/` folders
 
-When building the application, you can specify the target environment using the additional flag `--env <name>` (do not
-forget to prepend `--` to pass arguments to npm scripts).
+Additional tasks for Electron-based projects:
 
-The default build environment is `prod`.
+Task                            | Description
+--------------------------------|---------------------------------------------------------------------------------------
+`npm run electron:build`        | Build desktop app
+`npm run electron:run`          | Run app on electron
+`npm run electron:package`      | Package app for all supported platforms
+
+When building the application, you can specify the target configuration using the additional flag
+`--configuration <name>` (do not forget to prepend `--` to pass arguments to npm scripts).
+
+The default build configuration is `production`.
 
 ## Development server
 
@@ -153,6 +166,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - Static code analysis: [TSLint](https://github.com/palantir/tslint), [Codelyzer](https://github.com/mgechev/codelyzer),
   [Stylelint](http://stylelint.io) and [HTMLHint](http://htmlhint.com/)
 - Local knowledgebase server using [Hads](https://github.com/sinedied/hads)
+- Automatic code formatting with [Prettier](https://prettier.io)
 
 [Progressive Web App (PWA)](https://developers.google.com/web/progressive-web-apps/) support provided by
 [@angular/service-worker](https://docs.google.com/document/d/1F0e0ROaZUnTFftmC0XovpREHWHjcXa4CggiFlmifjhw/).
@@ -165,7 +179,6 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
 - [Angular](https://angular.io)
 - [RxJS](http://reactivex.io/rxjs)
 - [ngx-translate](https://github.com/ngx-translate/core)
-- [Lodash](https://lodash.com)
 - UI based on:
   * Bootstrap
     - [Bootstrap 4](https://getbootstrap.com)
@@ -178,6 +191,11 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
     - [Angular Material](https://material.angular.io)
     - [Angular Flex Layout](https://github.com/angular/flex-layout)
     - [Material Icons](https://material.io/icons/)
+- Optional utility libraries:
+  * [Lodash](https://lodash.com)
+  * [Ramda](https://ramdajs.com)
+  * [Moment.js](https://momentjs.com)
+  * [Date-fns](https://date-fns.org)
 
 
 #### Coding guides
@@ -198,6 +216,7 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
 - [Using a backend proxy for development](https://github.com/ngx-rocket/starter-kit/blob/master/docs/backend-proxy.md)
 - [Browser routing](https://github.com/ngx-rocket/starter-kit/blob/master/docs/routing.md)
 - [Cordova](https://github.com/ngx-rocket/starter-kit/blob/cordova/ionic/docs/cordova.md)
+- [Electron](https://github.com/ngx-rocket/starter-kit/blob/electron/ionic/docs/electron.md)
 
 ## Generator options
 
@@ -206,7 +225,7 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
  You can also use the environment variable `NGX_PACKAGE_MANAGER` to set this option globally.
 - `--automate <json_file>`: automate prompt answers using specified JSON file (see
   [here](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/scripts/tests) for examples).
-- `--addons <addon_name> [<addon_name>] ...`: space-separated list of add-on to use.
+- `--addons <addon_name> [<addon_name>] ...`: space-separated list of add-ons to use.
 - `--no-update`: do no update existing project (see also [updating generated projects](#updating-generated-projects)).
 - `--no-analytics`: do not report anonymous usage analytics.
   You can also use the environment variable `NGX_DISABLE_ANALYTICS` to set this option globally.
@@ -214,10 +233,13 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
   [puppeteer](https://github.com/GoogleChrome/puppeteer) to run unit tests.
   **Note:** You need a Chrome version `>= 59` that can run in
   [headless mode](https://developers.google.com/web/updates/2017/04/headless-chrome) or you will have errors.
-- `--raw`: do not use any UI library for templates
-- `--tools`: generate only the toolchain, without application template
-- `--location-strategy [hash|path`: [location strategy](https://angular.io/api/common/LocationStrategy) to use in
+- `--raw`: do not use any UI library for templates.
+- `--tools`: generate only the toolchain, without application template.
+- `--location-strategy [hash|path]`: [location strategy](https://angular.io/api/common/LocationStrategy) to use in
   Angular router (default is `path`).
+- `--no-git`: do not initialize git repository.
+- `--strict`: enable all TypeScript strict type checking options.
+- `--skip-quickstart`: disable quick start message after project generation.
   
 When generating a *fullstack* project (with both client and server code), you can use the environment variables
 `NGX_CLIENT_PATH` and `NGX_SERVER_PATH` to customize the paths for client and server code. Be aware though that some

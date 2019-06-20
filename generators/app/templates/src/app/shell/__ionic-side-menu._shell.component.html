@@ -1,0 +1,48 @@
+<ion-split-pane>
+  <ion-menu>
+<% if (!props.auth) { -%>
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-buttons *ngIf="isWeb" slot="end">
+          <ion-menu-toggle auto-hide="false">
+            <ion-button class="profile-button" (click)="changeLanguage()">
+              <ion-icon name="globe"></ion-icon>
+            </ion-button>
+          </ion-menu-toggle>
+        </ion-buttons>
+        <ion-title>{{'APP_NAME' | translate}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+<% } -%>
+    <ion-content>
+      <div ion-fixed>
+<% if (props.auth) { -%>
+        <div class="profile" text-center padding>
+          <ion-icon class="profile-icon" name="contact"></ion-icon>
+          <div>
+            <ion-menu-toggle auto-hide="false">
+              <ion-button class="profile-button" color="light" (click)="showProfileActions()"
+                          shape="round" fill="outline" size="small" expand="block">
+                <ion-icon name="person"></ion-icon> {{username}}
+              </ion-button>
+            </ion-menu-toggle>
+          </div>
+        </div>
+<% } -%>
+        <ion-list>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/home" routerLinkActive="active">
+              <ion-label><span translate>Home</span></ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/about" routerLinkActive="active">
+              <ion-label><span translate>About</span></ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </div>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
+</ion-split-pane>

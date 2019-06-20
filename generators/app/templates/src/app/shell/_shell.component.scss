@@ -1,0 +1,104 @@
+<% if (props.ui === 'ionic') { -%>
+<%   if (props.layout === 'tabs') { -%>
+$tabs-width: 90px;
+$tabs-height: $tabs-width;
+
+@media (min-width: 768px) {
+  ion-tabs {
+    flex-direction: row-reverse;
+  }
+
+  ion-tab-bar {
+    height: 100%;
+    width: $tabs-width;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-top: none;
+    border-right: var(--border);
+  }
+
+  ion-tab-button {
+    width: 100%;
+    height: $tabs-height;
+    flex: 0 1 auto;
+  }
+}
+<%   } else if (props.layout === 'side-menu') { -%>
+@import "src/theme/theme-variables";
+
+[ion-fixed] {
+  width: 100%;
+  height: 100%;
+}
+
+.profile {
+  background: var(--ion-color-primary);
+}
+
+.profile-icon {
+  font-size: 6rem;
+  color: var(--ion-color-primary-contrast);
+}
+<%   } -%>
+<% } else if (props.ui === 'material') { -%>
+<%   if (props.layout === 'simple') { -%>
+@import "src/theme/theme-variables";
+
+<%   } -%>
+:host {
+  display: flex;
+  flex: 1;
+}
+
+.mat-sidenav {
+  min-width: 270px;
+  max-width: 28%;
+}
+
+.has-border {
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.mat-list {
+  padding-top: 0;
+}
+
+.mat-list-item {
+  text-decoration: none;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+}
+
+<%   if (props.layout === 'simple') { -%>
+.mat-sidenav,
+.mat-drawer-content,
+// Force style down to child components
+// See https://angular.io/guide/component-styles#deep
+:host ::ng-deep .mat-drawer-backdrop {
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  position: absolute;
+}
+
+@media ($mat-xsmall) {
+  .mat-sidenav,
+  .mat-drawer-content,
+  :host ::ng-deep .mat-drawer-backdrop {
+    top: 56px;
+  }
+}
+<%   } else { -%>
+.menu-button {
+  margin-right: 1rem;
+}
+<%   } -%>
+<% } else if (props.ui === 'raw') { -%>
+.content {
+  padding: 1em;
+}
+<% } -%>
