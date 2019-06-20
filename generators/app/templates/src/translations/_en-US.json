@@ -8,6 +8,15 @@
   "Change language": "Change language",
   "Language": "Language",
   "Ok": "Ok",
+<%   if (props.layout === 'tabs') { -%>
+  "Settings": "Settings",
+  "Notifications": "Notifications",
+  "Preferences": "Preferences",
+  "Account": "Account",
+<%     if (props.auth) { -%>
+  "Profile": "Profile",
+<%     } -%>
+<%   } -%>
 <% } -%>
 <% if (props.auth) { -%>
 <%   if (props.ui !== 'ionic') { -%>

@@ -1,5 +1,13 @@
 {
-  "extends": ["stylelint-config-standard", "stylelint-config-recommended-scss"],
+  "extends": [
+    "stylelint-config-standard",
+<% if (props.tools.includes('prettier')) { -%>
+    "stylelint-config-recommended-scss",
+    "stylelint-config-prettier"
+<% } else { -%>
+    "stylelint-config-recommended-scss"
+<% } -%>
+  ],
   "rules": {
     "font-family-name-quotes": "always-where-recommended",
     "function-url-quotes": [
@@ -25,6 +33,12 @@
     "selector-max-id": 0,
     "selector-no-qualifying-type": true,
     "selector-max-universal": 0,
+    "selector-type-no-unknown": [
+      true,
+      {
+        "ignore": ["custom-elements", "default-namespace"]
+      }
+    ],
     "selector-pseudo-element-no-unknown": [
       true,
       {

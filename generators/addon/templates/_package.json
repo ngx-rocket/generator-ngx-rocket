@@ -4,8 +4,8 @@
   "description": "<%= props.description %>",
   "main": "./generators/app/index.js",
   "scripts": {
-    "test": "eslint generators/app/*.js",
-    "postpublish": "git tag -a $npm_package_version -m '$npm_package_version' && git push --tags"
+    "test": "xo generators/app/*.js",
+    "postpublish": "git tag -a $npm_package_version -m \"$npm_package_version\" && git push --tags"
   },
   "keywords": [
     "yeoman-generator",
@@ -14,18 +14,18 @@
   "author": "<%= props.author %>",
   "license": "MIT",
   "dependencies": {
-    "@ngx-rocket/core": "^3.3.0",
+    "@ngx-rocket/core": "^4.0.1",
     "chalk": "^2.3.0"
   },
   "devDependencies": {
-    "eslint": "^4.19.0",
-    "eslint-config-xo-space": "^0.18.0"
+    "xo": "^0.24.0"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.9.0"
   },
-  "eslintConfig": {
-    "extends": "xo-space/esnext"
+  "xo": {
+    "space": true,
+    "prettier": true
   },
   "files": [
     "generators/app"

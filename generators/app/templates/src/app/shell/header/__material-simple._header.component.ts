@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material';
 
 <% if (props.auth) { -%>
-import { AuthenticationService, I18nService } from '@app/core';
+import { AuthenticationService, CredentialsService, I18nService } from '@app/core';
 <% } else { -%>
 import { I18nService } from '@app/core';
 <% } -%>
@@ -16,12 +16,13 @@ import { I18nService } from '@app/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() sidenav: MatSidenav;
+  @Input() sidenav!: MatSidenav;
 
 <% if (props.auth) { -%>
   constructor(private router: Router,
               private titleService: Title,
               private authenticationService: AuthenticationService,
+              private credentialsService: CredentialsService,
 <% } else { -%>
   constructor(private titleService: Title,
 <% } -%>
@@ -50,7 +51,7 @@ export class HeaderComponent implements OnInit {
 
 <% if (props.auth) { -%>
   get username(): string {
-    const credentials = this.authenticationService.credentials;
+    const credentials = this.credentialsService.credentials;
     return credentials ? credentials.username : null;
   }
 

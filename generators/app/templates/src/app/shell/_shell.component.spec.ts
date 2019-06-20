@@ -2,7 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 <% if (props.ui === 'ionic') { -%>
-import { IonicModule } from 'ionic-angular';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 <% } else if (props.ui === 'bootstrap') { -%>
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 <% } else if (props.ui === 'material') { -%>
@@ -12,12 +13,22 @@ import { MaterialModule } from '@app/material.module';
 <% } -%>
 
 <% if (props.auth) { -%>
-import { AuthenticationService, CoreModule, MockAuthenticationService } from '@app/core';
+import { AuthenticationService, CredentialsService, CoreModule } from '@app/core';
+import { MockAuthenticationService } from '@app/core/authentication/authentication.service.mock';
+import { MockCredentialsService } from '@app/core/authentication/credentials.service.mock';
 <% } else {-%>
 import { CoreModule } from '@app/core';
 <% } -%>
 
 import { ShellComponent } from './shell.component';
+<% if (props.ui === 'ionic' && props.layout === 'tabs') { -%>
+import { AboutComponent } from '@app/about/about.component';
+import { SettingsComponent } from '@app/settings/settings.component';
+import { HomeComponent } from '@app/home/home.component';
+import { HomeModule } from '@app/home/home.module';
+import { AboutModule } from '@app/about/about.module';
+import { SettingsModule } from '@app/settings/settings.module';
+<% } -%>
 <% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple') || props.ui === 'raw') { -%>
 import { HeaderComponent } from './header/header.component';
 <% } -%>
@@ -32,21 +43,32 @@ describe('ShellComponent', () => {
         RouterTestingModule,
         TranslateModule.forRoot(),
 <% if (props.ui === 'ionic') { -%>
-        IonicModule.forRoot(ShellComponent),
+        IonicModule.forRoot(),
+<%   if (props.layout === 'tabs') { -%>
+        HomeModule,
+        AboutModule,
+        SettingsModule,
+<%   } -%>
 <% } else if (props.ui === 'bootstrap') { -%>
-        NgbModule.forRoot(),
+        NgbModule,
 <% } else if (props.ui === 'material') { -%>
         BrowserAnimationsModule,
         FlexLayoutModule,
         MaterialModule,
 <% } -%>
         CoreModule
-<% if (props.auth) { -%>
       ],
+<% if ((props.auth) || (props.ui === 'ionic')) { -%>
       providers: [
-        { provide: AuthenticationService, useClass: MockAuthenticationService }
-<% } -%>
+<%   if (props.auth) { -%>
+        { provide: AuthenticationService, useClass: MockAuthenticationService },
+        { provide: CredentialsService, useClass: MockCredentialsService }
+<%   } -%>
       ],
+<% } -%>
+<% if (props.ui === 'ionic') { -%>
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+<% } -%>
       declarations: [
 <% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple') || props.ui === 'raw') { -%>
         HeaderComponent,
@@ -54,6 +76,13 @@ describe('ShellComponent', () => {
         ShellComponent
       ]
   })
+<% if (props.ui === 'ionic' && props.layout === 'tabs') { -%>
+    .overrideComponent(ShellComponent, {
+        set: {
+          entryComponents: [HomeComponent, AboutComponent, SettingsComponent]
+        }
+      })
+<% } -%>
     .compileComponents();
   }));
 

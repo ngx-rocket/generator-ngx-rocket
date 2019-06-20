@@ -3,5 +3,6 @@
   "mobile": ["ios", "android"],
   "ui": "bootstrap",
   "auth": true,
-  "lazy": false
+  "lazy": false,
+  "strict": true
 }

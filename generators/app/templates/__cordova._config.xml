@@ -6,7 +6,7 @@
   <content src="index.html"/>
   <access origin="*"/>
 <% if (props.mobile.includes('ios')) { -%>
-  <allow-navigation href="http://localhost:8080/*"/>
+  <allow-navigation href="http://app/*"/>
 <% } -%>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
@@ -17,10 +17,10 @@
 
   <!-- Platforms -->
 <% if (props.mobile.includes('android')) { -%>
-  <engine name="android" spec="^7.0.0"/>
+  <engine name="android" spec="^8.0.0"/>
 <% } -%>
 <% if (props.mobile.includes('ios')) { -%>
-  <engine name="ios" spec="^4.5.4"/>
+  <engine name="ios" spec="^5.0.0"/>
 <% } -%>
 
 <% if (props.mobile.includes('android')) { -%>
@@ -57,7 +57,7 @@
   <platform name="ios">
     <allow-intent href="itms:*"/>
     <allow-intent href="itms-apps:*"/>
-    <preference name="deployment-target" value="9.0"/>
+    <preference name="deployment-target" value="11.0"/>
     <preference name="UIWebViewBounce" value="false"/>
     <!--
       Don't store local data in an iCloud backup. Turn this to "cloud" to enable storage
@@ -117,6 +117,7 @@
 
 <% } -%>
   <!-- Common to all platforms -->
+  <preference name="Hostname" value="app" />
   <preference name="Fullscreen" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="Orientation" value="portrait"/>
@@ -136,12 +137,10 @@
 
   <!-- Plugins -->
   <plugin name="cordova-custom-config" spec="^5.0.2"/>
-  <plugin name="cordova-plugin-device" spec="^2.0.1"/>
-  <plugin name="cordova-plugin-splashscreen" spec="^5.0.1"/>
+  <plugin name="cordova-plugin-device" spec="^2.0.2"/>
+  <plugin name="cordova-plugin-splashscreen" spec="^5.0.2"/>
   <plugin name="cordova-plugin-statusbar" spec="^2.4.1"/>
   <plugin name="cordova-plugin-whitelist" spec="^1.3.3"/>
-  <plugin name="ionic-plugin-keyboard" spec="^2.2.1"/>
-<% if (props.mobile.includes('ios')) { -%>
-  <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16"/>
-<% } -%>
+  <plugin name="cordova-plugin-ionic-webview" spec="^4.0.1" />
+  <plugin name="cordova-plugin-ionic-keyboard" spec="^2.1.2" />
 </widget>

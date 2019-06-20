@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
 
 /**
- * Prefixes all requests with `environment.serverUrl`.
+ * Prefixes all requests not starting with `http[s]` with `environment.serverUrl`.
  */
 @Injectable()
 export class ApiPrefixInterceptor implements HttpInterceptor {

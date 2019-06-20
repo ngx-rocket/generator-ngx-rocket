@@ -1,5 +1,7 @@
 <% if (props.ui === 'ionic') { -%>
-<ion-nav root=""></ion-nav>
+<ion-app>
+  <ion-router-outlet></ion-router-outlet>
+</ion-app>
 <% } else { -%>
 <router-outlet></router-outlet>
 <% } -%>

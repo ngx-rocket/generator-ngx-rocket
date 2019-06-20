@@ -15,8 +15,13 @@
 <% } -%>
 <% if (props.pwa) { -%>
   <link rel="manifest" href="manifest.json"/>
+
 <% } -%>
 <% if (props.target.includes('web')) { -%>
+  <!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+
   <link rel="icon" type="image/x-icon" href="favicon.ico"/>
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
 <% } -%>
@@ -49,19 +54,27 @@
 <% if (props.target.includes('cordova')) { -%>
   <!-- Include Cordova script only when needed -->
   <script>
-<%   if (props.mobile.includes('ios')) { -%>
-    if (!/^http/.test(location.protocol)|/^localhost:8080/.test(location.host)) {
-<%   } else { -%>
-    if (!/^http/.test(location.protocol)) {
-<%   } -%>
+    if (/^app/.test(location.host)) {
+      /**
+       * https://github.com/angular/angular/issues/22509
+       * Prevent cordova.js 5.2.4+ routing bug
+      **/
+      window.addEventListener = function () {
+          EventTarget.prototype.addEventListener.apply(this, arguments);
+      };
+      window.removeEventListener = function () {
+          EventTarget.prototype.removeEventListener.apply(this, arguments);
+      };
+      document.addEventListener = function () {
+          EventTarget.prototype.addEventListener.apply(this, arguments);
+      };
+      document.removeEventListener = function () {
+          EventTarget.prototype.removeEventListener.apply(this, arguments);
+      };
       document.write('<script src="cordova.js"><\/script>');
     }
   </script>
 <% } -%>
-<% if (props.ui === 'ionic') { -%>
-  <ion-app></ion-app>
-<% } else { -%>
   <app-root></app-root>
-<% } -%>
 </body>
 </html>

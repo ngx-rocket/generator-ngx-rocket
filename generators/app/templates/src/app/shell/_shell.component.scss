@@ -1,4 +1,29 @@
 <% if (props.ui === 'ionic') { -%>
+<%   if (props.layout === 'tabs') { -%>
+$tabs-width: 90px;
+$tabs-height: $tabs-width;
+
+@media (min-width: 768px) {
+  ion-tabs {
+    flex-direction: row-reverse;
+  }
+
+  ion-tab-bar {
+    height: 100%;
+    width: $tabs-width;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-top: none;
+    border-right: var(--border);
+  }
+
+  ion-tab-button {
+    width: 100%;
+    height: $tabs-height;
+    flex: 0 1 auto;
+  }
+}
+<%   } else if (props.layout === 'side-menu') { -%>
 @import "src/theme/theme-variables";
 
 [ion-fixed] {
@@ -7,24 +32,14 @@
 }
 
 .profile {
-  background: color($colors, primary);
+  background: var(--ion-color-primary);
 }
 
 .profile-icon {
   font-size: 6rem;
-  color: color-contrast($colors, primary);
-
-  // Use parent class from outside component context
-  // See https://angular.io/guide/component-styles#host-context
-  :host-context(.platform-ios) & {
-    padding-top: $cordova-ios-statusbar-padding;
-  }
+  color: var(--ion-color-primary-contrast);
 }
-
-.profile-button {
-  border-color: color-contrast($colors, primary);
-  color: color-contrast($colors, primary);
-}
+<%   } -%>
 <% } else if (props.ui === 'material') { -%>
 <%   if (props.layout === 'simple') { -%>
 @import "src/theme/theme-variables";

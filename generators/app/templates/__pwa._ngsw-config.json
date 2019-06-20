@@ -8,6 +8,7 @@
         "files": [
           "/favicon.ico",
           "/index.html",
+          "/manifest.json",
           "/*.css",
           "/*.js"
         ]
@@ -19,7 +20,11 @@
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "/assets/**"
+          "/assets/**",
+          "/*.woff",
+          "/*.woff2",
+          "/*.ttf",
+          "/*.eot"
         ]
       }
     }

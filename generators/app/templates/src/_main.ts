@@ -17,5 +17,5 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
+platformBrowserDynamic().bootstrapModule(AppModule, { preserveWhitespaces: true })
   .catch(err => console.log(err));

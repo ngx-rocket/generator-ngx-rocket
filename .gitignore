@@ -1,5 +1,5 @@
 node_modules/
-/sample/
+/sample*/
 /sample-app/
 /deploy/
 .idea/

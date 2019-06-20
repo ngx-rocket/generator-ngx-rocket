@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-import { each } from 'lodash';
 
 import { Logger } from '../logger.service';
 
@@ -27,9 +26,9 @@ export class HttpCacheService {
 
   /**
    * Sets the cache data for the specified request.
-   * @param {!string} url The request URL.
-   * @param {ResponseOptions} data The received data.
-   * @param {Date=} lastUpdated The cache last update, current date is used if not specified.
+   * @param url The request URL.
+   * @param data The received data.
+   * @param lastUpdated The cache last update, current date is used if not specified.
    */
   setCacheData(url: string, data: HttpResponse<any>, lastUpdated?: Date) {
     this.cachedData[url] = {
@@ -42,8 +41,8 @@ export class HttpCacheService {
 
   /**
    * Gets the cached data for the specified request.
-   * @param {!string} url The request URL.
-   * @return {?ResponseOptions} The cached data or null if no cached data exists for this request.
+   * @param url The request URL.
+   * @return The cached data or null if no cached data exists for this request.
    */
   getCacheData(url: string): HttpResponse<any> | null {
     const cacheEntry = this.cachedData[url];
@@ -58,8 +57,8 @@ export class HttpCacheService {
 
   /**
    * Gets the cached entry for the specified request.
-   * @param {!string} url The request URL.
-   * @return {?HttpCacheEntry} The cache entry or null if no cache entry exists for this request.
+   * @param url The request URL.
+   * @return The cache entry or null if no cache entry exists for this request.
    */
   getHttpCacheEntry(url: string): HttpCacheEntry | null {
     return this.cachedData[url] || null;
@@ -67,7 +66,7 @@ export class HttpCacheService {
 
   /**
    * Clears the cached entry (if exists) for the specified request.
-   * @param {!string} url The request URL.
+   * @param url The request URL.
    */
   clearCache(url: string): void {
     delete this.cachedData[url];
@@ -77,11 +76,11 @@ export class HttpCacheService {
 
   /**
    * Cleans cache entries older than the specified date.
-   * @param {date=} expirationDate The cache expiration date. If no date is specified, all cache is cleared.
+   * @param expirationDate The cache expiration date. If no date is specified, all cache is cleared.
    */
   cleanCache(expirationDate?: Date) {
     if (expirationDate) {
-      each(this.cachedData, (value: HttpCacheEntry, key: string) => {
+      Object.entries(this.cachedData).forEach(([key, value]) => {
         if (expirationDate >= value.lastUpdated) {
           delete this.cachedData[key];
         }
@@ -95,8 +94,8 @@ export class HttpCacheService {
   /**
    * Sets the cache persistence policy.
    * Note that changing the cache persistence will also clear the cache from its previous storage.
-   * @param {'local'|'session'=} persistence How the cache should be persisted, it can be either local or session
-   *   storage, or if no value is provided it will be only in-memory (default).
+   * @param persistence How the cache should be persisted, it can be either local or session storage, or if no value is
+   *   provided it will be only in-memory (default).
    */
   setPersistence(persistence?: 'local' | 'session') {
     this.cleanCache();
@@ -106,12 +105,12 @@ export class HttpCacheService {
 
   private saveCacheData() {
     if (this.storage) {
-      this.storage[cachePersistenceKey] = JSON.stringify(this.cachedData);
+      this.storage.setItem(cachePersistenceKey, JSON.stringify(this.cachedData));
     }
   }
 
   private loadCacheData() {
-    const data = this.storage ? this.storage[cachePersistenceKey] : null;
+    const data = this.storage ? this.storage.getItem(cachePersistenceKey) : null;
     this.cachedData = data ? JSON.parse(data) : {};
   }
 
