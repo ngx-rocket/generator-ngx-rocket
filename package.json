@@ -1,6 +1,6 @@
 {
   "name": "generator-ngx-rocket",
-  "version": "6.2.0",
+  "version": "6.2.1",
   "description": "Extensible Angular 7+ enterprise-grade project generator based on angular-cli with best practices from the community. Includes PWA/Cordova/Electron support, coding guides and more!",
   "repository": "ngx-rocket/generator-ngx-rocket",
   "keywords": [
@@ -54,7 +54,8 @@
     "@ngx-rocket/ascii-logo": "^1.0.1",
     "@ngx-rocket/core": "^5.0.0",
     "chalk": "^2.4.2",
-    "conf": "^4.0.2",
+    "conf": "^4.1.0",
+    "cross-spawn": "^6.0.5",
     "figures": "^3.0.0",
     "fuzz-run": "^1.0.2",
     "inquirer": "^6.3.1",
@@ -63,7 +64,7 @@
     "lodash.get": "^4.4.2",
     "lodash.upperfirst": "^4.3.1",
     "minimist": "^1.2.0",
-    "semver": "^6.1.0",
+    "semver": "^6.1.1",
     "update-notifier": "^3.0.0",
     "yeoman-environment": "^2.3.4"
   },

@@ -1,5 +1,12 @@
 # Change Log
 
+## [6.2.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/6.2.1) (2019-06-10)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/6.2.0...6.2.1)
+
+**Fixed bugs:**
+
+- Fix misc bugs with PWA [\#477](https://github.com/ngx-rocket/generator-ngx-rocket/pull/477)
+
 ## [6.2.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/6.2.0) (2019-05-27)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/6.1.0...6.2.0)
 
