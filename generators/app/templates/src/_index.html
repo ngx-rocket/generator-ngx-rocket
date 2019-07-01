@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
+<% if (props.target.includes('web')) { -%>
+  <!-- needs to be right at the top to prevent Chrome from reloading favicon on every route change -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+<% } -%>
   <title><%= props.appName %></title>
   <base href="/"/>
 <% if (props.target.includes('cordova')) { -%>
@@ -21,8 +25,6 @@
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes"/>
   <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
-
-  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
 <% } -%>
 </head>
