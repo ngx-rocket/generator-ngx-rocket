@@ -86,7 +86,7 @@
 <% if (props.ui === 'ionic') { -%>
     "@ionic/angular": "^4.0.0",
 <% } else if (props.ui === 'bootstrap') { -%>
-    "@ng-bootstrap/ng-bootstrap": "^4.0.4",
+    "@ng-bootstrap/ng-bootstrap": "^5.0.0-rc.1",
     "bootstrap": "^4.1.1",
     "@fortawesome/fontawesome-free": "^5.1.0",
 <% } else if (props.ui === 'material') { -%>
@@ -123,7 +123,7 @@
     "@angular/language-service": "^8.0.0",
     "@angular-devkit/build-angular": "^0.800.1",
     "@biesbjerg/ngx-translate-extract": "^2.3.4",
-    "@ngx-rocket/scripts": "^3.0.0",
+    "@ngx-rocket/scripts": "^4.0.0",
     "@types/jasmine": "^3.3.13",
     "@types/jasminewd2": "^2.0.3",
     "@types/node": "^10.9.0",
@@ -162,19 +162,19 @@
     "stylelint-config-prettier": "^5.1.0",
 <%   if (options.git) { -%>
     "pretty-quick": "^1.10.0",
-    "husky": "^2.3.0",
+    "husky": "^3.0.0",
 <%   } -%>
 <% } -%>
     "protractor": "~5.4.0",
 <% if (!options['external-chrome']) { -%>
     "puppeteer": "^1.17.0",
 <% } -%>
-    "stylelint": "~10.0.1",
+    "stylelint": "~10.1.0",
     "stylelint-config-recommended-scss": "~3.3.0",
     "stylelint-config-standard": "~18.3.0",
     "stylelint-scss": "~3.8.0",
-    "ts-node": "~8.2.0",
-    "tslint": "~5.17.0",
+    "ts-node": "~8.3.0",
+    "tslint": "~5.18.0",
     "typescript": "~3.4.0"
 <% if (props.tools.includes('prettier')) { -%>
   },
