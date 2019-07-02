@@ -38,7 +38,7 @@ For each configurable variable (e.g. BROWSER_URL, API_URL):
   export API_URL='https://api.staging.example.com'
   export BROWSER_URL='https://staging.example.com'
   # ...
-  yarn build:ssr-and-client
+  npm run build:ssr-and-client
   ```
 - Finally, to have your cake and eat it too and avoid having to do all that for local development and testing (or clutter
   your package.json up), install the `dotenv-cli` package and update your development-related npm scripts to take advantage
@@ -51,7 +51,7 @@ For each configurable variable (e.g. BROWSER_URL, API_URL):
   ```javascript
   {
     "scripts": {
-      "start": "dotenv -e environment.development.env.sh -- yarn env && ng serve --aot",
+      "start": "dotenv -e environment.development.env.sh -- npm run env && ng serve --aot",
     }
   }
   ```
@@ -65,9 +65,9 @@ overriding flag to the `ng` command in package.json:
 ```javascript
 {
   "scripts": {
-    "build:client-and-server-bundles:qa": "NG_BUILD_OVERRIDES='--sourceMap=true' yarn build:client-and-server-bundles",
-    "build:client-and-server-bundles": "yarn build:client-bundles && yarn build:server-bundles",
-    "build:client-bundles": "yarn env && ng build --prod $NG_BUILD_OVERRIDES",
+    "build:client-and-server-bundles:qa": "NG_BUILD_OVERRIDES='--sourceMap=true' npm run build:client-and-server-bundles",
+    "build:client-and-server-bundles": "npm run build:client-bundles && npm run build:server-bundles",
+    "build:client-bundles": "npm run env && ng build --prod $NG_BUILD_OVERRIDES",
   }
 }
 ```
@@ -77,8 +77,8 @@ dev-server configuration by taking advantage of them:
 ```javascript
 {
   "scripts": {
-    "start": "dotenv -e environment.development.env.sh -- yarn env && API_PROXY_HOST='http://localhost:9000' ng serve --aot",
-    "e2e": "ngtw build && yarn env && API_PROXY_HOST='http://localhost:7357' ng e2e --webdriverUpdate=false",
+    "start": "dotenv -e environment.development.env.sh -- npm run env && API_PROXY_HOST='http://localhost:9000' ng serve --aot",
+    "e2e": "ngtw build && npm run env && API_PROXY_HOST='http://localhost:7357' ng e2e --webdriverUpdate=false",
   }
 }
 ```
