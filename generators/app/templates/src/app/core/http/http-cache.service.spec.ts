@@ -55,8 +55,8 @@ describe('HttpCacheService', () => {
       httpCacheService.setCacheData('/hoho', response);
 
       // Assert
-      expect((<HttpCacheEntry>httpCacheService.getHttpCacheEntry('/popo')).lastUpdated).toBe(date);
-      expect((<HttpCacheEntry>httpCacheService.getHttpCacheEntry('/hoho')).lastUpdated).not.toBe(date);
+      expect((httpCacheService.getHttpCacheEntry('/popo') as HttpCacheEntry).lastUpdated).toBe(date);
+      expect((httpCacheService.getHttpCacheEntry('/hoho') as HttpCacheEntry).lastUpdated).not.toBe(date);
     });
   });
 
@@ -93,7 +93,7 @@ describe('HttpCacheService', () => {
 
       // Act
       httpCacheService.setCacheData('/hoho', response, date);
-      const entry = <HttpCacheEntry>httpCacheService.getHttpCacheEntry('/hoho');
+      const entry = httpCacheService.getHttpCacheEntry('/hoho') as HttpCacheEntry;
 
       // Assert
       expect(entry).not.toBeNull();
