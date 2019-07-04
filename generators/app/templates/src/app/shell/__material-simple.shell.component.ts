@@ -12,7 +12,7 @@ import { untilDestroyed } from '@app/core';
 })
 export class ShellComponent implements OnInit, OnDestroy {
 
-  @ViewChild('sidenav') sidenav!: MatSidenav;
+  @ViewChild('sidenav', { static: false }) sidenav!: MatSidenav;
 
   constructor(private media: MediaObserver) { }
 

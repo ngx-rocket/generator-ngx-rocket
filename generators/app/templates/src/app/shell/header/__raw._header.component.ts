@@ -17,9 +17,9 @@ export class HeaderComponent implements OnInit {
 
 <% if (props.auth) { -%>
   constructor(private router: Router,
-    private authenticationService: AuthenticationService,
-    private credentialsService: CredentialsService,
-    private i18nService: I18nService) { }
+              private authenticationService: AuthenticationService,
+              private credentialsService: CredentialsService,
+              private i18nService: I18nService) { }
 <% } else { -%>
   constructor(private i18nService: I18nService) { }
 <% } -%>

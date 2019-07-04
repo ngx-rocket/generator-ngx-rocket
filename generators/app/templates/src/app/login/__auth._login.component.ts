@@ -20,7 +20,7 @@ const log = new Logger('Login');
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
-  version: string = environment.version;
+  version: string | null = environment.version;
   error: string | undefined;
   loginForm!: FormGroup;
   isLoading = false;
@@ -49,9 +49,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     const login$ = this.authenticationService.login(this.loginForm.value);
 <% if (props.ui === 'ionic') { -%>
-    const loadingOverlay = await this.loadingController.create();
+    const loadingOverlay = await this.loadingController.create({});
     const loading$ = from(loadingOverlay.present());
-    forkJoin(login$, loading$).pipe(
+    forkJoin([login$, loading$]).pipe(
       map(([credentials, ...rest]) => credentials),
 <% } else { -%>
     login$.pipe(

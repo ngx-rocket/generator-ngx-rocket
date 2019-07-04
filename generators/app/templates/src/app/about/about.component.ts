@@ -9,7 +9,7 @@ import { environment } from '@env/environment';
 })
 export class AboutComponent implements OnInit {
 
-  version: string = environment.version;
+  version: string | null = environment.version;
 
   constructor() { }
 
