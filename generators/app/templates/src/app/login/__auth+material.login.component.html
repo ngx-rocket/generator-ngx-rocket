@@ -22,18 +22,18 @@
           Username or password incorrect.
         </div>
         <br/>
-        <div fxLayout="column">
-          <mat-form-field>
+        <div class="login-fields" fxLayout="column">
+          <mat-form-field [hideRequiredMarker]="true">
             <input type="text" matInput formControlName="username" autocomplete="username"
-                   [placeholder]="'Username' | translate"/>
-            <mat-error *ngIf="loginForm.controls.username.valid || loginForm.controls.username.untouched">
+                   [placeholder]="'Username' | translate" required/>
+            <mat-error *ngIf="loginForm.controls.username.invalid && loginForm.controls.username.touched">
               <span translate>Username is required</span>
             </mat-error>
           </mat-form-field>
-          <mat-form-field>
+          <mat-form-field [hideRequiredMarker]="true">
             <input type="password" matInput formControlName="password" autocomplete="current-password"
                    [placeholder]="'Password' | translate" required/>
-            <mat-error *ngIf="loginForm.controls.password.valid || loginForm.controls.password.untouched">
+            <mat-error *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched">
               <span translate>Password is required</span>
             </mat-error>
           </mat-form-field>
