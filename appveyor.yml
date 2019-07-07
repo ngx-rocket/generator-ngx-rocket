@@ -37,6 +37,7 @@ matrix:
 install:
   - choco install googlechrome --ignore-checksums
   - ps: Install-Product node $env:nodejs_version
+  - cmd: set NODE_OPTIONS=--max-old-space-size=2048
   - npm install
   - npm link
 
