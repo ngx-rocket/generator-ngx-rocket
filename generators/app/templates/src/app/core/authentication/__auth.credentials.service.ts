@@ -12,7 +12,9 @@ const credentialsKey = 'credentials';
  * Provides storage for authentication credentials.
  * The Credentials interface should be replaced with proper implementation.
  */
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CredentialsService {
 
   private _credentials: Credentials | null = null;

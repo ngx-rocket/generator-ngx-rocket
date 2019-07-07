@@ -4,7 +4,7 @@
   "ui": "ionic",
   "layout": "side-menu",
   "auth": true,
-  "lazy": false,
+  "lazy": true,
   "location": "hash",
   "strict": true
 }

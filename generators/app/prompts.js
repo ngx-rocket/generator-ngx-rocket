@@ -128,7 +128,7 @@ module.exports = [
     type: 'confirm',
     name: 'lazy',
     message: 'Do you want lazy loading?',
-    default: false
+    default: true
   },
   {
     type: 'confirm',

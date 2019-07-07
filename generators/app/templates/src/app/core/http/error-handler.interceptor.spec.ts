@@ -1,3 +1,4 @@
+import { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
@@ -25,7 +26,7 @@ describe('ErrorHandlerInterceptor', () => {
     });
 
     http = TestBed.get(HttpClient);
-    httpMock = TestBed.get(HttpTestingController);
+    httpMock = TestBed.get(HttpTestingController as Type<HttpTestingController>);
   });
 
   afterEach(() => {
@@ -41,7 +42,7 @@ describe('ErrorHandlerInterceptor', () => {
     // Act
     http.get('/toto').subscribe(() => fail('should error'), () => {
       // Assert
-      expect(ErrorHandlerInterceptor.prototype['errorHandler']).toHaveBeenCalled();
+      expect((ErrorHandlerInterceptor.prototype as any).errorHandler).toHaveBeenCalled();
     });
 
     httpMock.expectOne({}).flush(null, {

@@ -1,4 +1,4 @@
-import { Inject, Injectable, InjectionToken, Injector, Optional } from '@angular/core';
+import { Inject, Injectable, InjectionToken, Injector, Optional, Type } from '@angular/core';
 import { HttpClient, HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { ApiPrefixInterceptor } from './api-prefix.interceptor';
 
 // HttpClient is declared in a re-exported module, so we have to extend the original module to make it work properly
 // (see https://github.com/Microsoft/TypeScript/issues/13897)
-declare module '@angular/common/http/src/client' {
+declare module '@angular/common/http/http' {
 
   // Augment HttpClient with the added configuration methods from HttpService, to allow in-place replacement of
   // HttpClient with HttpService using dependency injection
@@ -61,7 +61,9 @@ export const HTTP_DYNAMIC_INTERCEPTORS = new InjectionToken<HttpInterceptor>('HT
 /**
  * Extends HttpClient with per request configuration using dynamic interceptors.
  */
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class HttpService extends HttpClient {
 
   constructor(private httpHandler: HttpHandler,
@@ -79,7 +81,8 @@ export class HttpService extends HttpClient {
   }
 
   cache(forceUpdate?: boolean): HttpClient {
-    const cacheInterceptor = this.injector.get(CacheInterceptor).configure({ update: forceUpdate });
+    const cacheInterceptor = this.injector.get(CacheInterceptor as Type<CacheInterceptor>)
+      .configure({ update: forceUpdate });
     return this.addInterceptor(cacheInterceptor);
   }
 
@@ -100,7 +103,7 @@ export class HttpService extends HttpClient {
     return new HttpClient(handler).request(method, url, options);
   }
 
-  private removeInterceptor(interceptorType: Function): HttpService {
+  private removeInterceptor(interceptorType: Type<HttpInterceptor>): HttpService {
     return new HttpService(
       this.httpHandler,
       this.injector,

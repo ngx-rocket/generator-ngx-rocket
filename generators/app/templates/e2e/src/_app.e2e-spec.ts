@@ -1,4 +1,4 @@
-import { browser } from 'protractor';
+import { browser, ExpectedConditions as until } from 'protractor';
 <% if (props.auth) { -%>
 import { LoginPage } from './page-objects/login.po';
 <% } -%>
@@ -37,6 +37,7 @@ describe('when the app loads', () => {
   describe('and the page loads', () => {
 <% } -%>
     it('should display the hello message', async () => {
+      await browser.wait(until.visibilityOf(shell.welcomeText), 5000, 'Element taking too long to appear');
       expect(await shell.getParagraphText()).toEqual('Hello world !');
     });
   });

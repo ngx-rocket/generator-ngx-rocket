@@ -1,3 +1,4 @@
+import { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient, HttpInterceptor } from '@angular/common/http';
@@ -30,7 +31,7 @@ describe('HttpService', () => {
     });
 
     http = TestBed.get(HttpClient);
-    httpMock = TestBed.get(HttpTestingController);
+    httpMock = TestBed.get(HttpTestingController as Type<HttpTestingController>);
     httpCacheService = TestBed.get(HttpCacheService);
 
     const realRequest = http.request;

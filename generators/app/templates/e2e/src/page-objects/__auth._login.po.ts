@@ -17,9 +17,6 @@ export class LoginPage {
   loginButton = element(by.css('button[type="submit"]'));
 <%   } -%>
 
-  constructor() {
-  }
-
   async login() {
     await this.usernameField.sendKeys('test');
     await this.passwordField.sendKeys('123');

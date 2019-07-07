@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { MediaChange, MediaObserver } from '@angular/flex-layout';
-import { MatSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material/sidenav';
 import { filter } from 'rxjs/operators';
 
 import { untilDestroyed } from '@app/core';
@@ -12,7 +12,7 @@ import { untilDestroyed } from '@app/core';
 })
 export class ShellComponent implements OnInit, OnDestroy {
 
-  @ViewChild('sidenav') sidenav!: MatSidenav;
+  @ViewChild('sidenav', { static: false }) sidenav!: MatSidenav;
 
   constructor(private media: MediaObserver) { }
 

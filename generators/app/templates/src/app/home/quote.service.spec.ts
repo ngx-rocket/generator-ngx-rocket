@@ -1,3 +1,4 @@
+import { Type } from '@angular/core';
 import { TestBed, async } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
@@ -21,7 +22,7 @@ describe('QuoteService', () => {
     });
 
     quoteService = TestBed.get(QuoteService);
-    httpMock = TestBed.get(HttpTestingController);
+    httpMock = TestBed.get(HttpTestingController as Type<HttpTestingController>);
 
     const htttpCacheService = TestBed.get(HttpCacheService);
     htttpCacheService.cleanCache();

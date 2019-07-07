@@ -9,7 +9,7 @@
   "scripts": {
     "ng": "ng",
     "build": "<%= run('env') %> && ng build --prod",
-    "start": "<%= run('env') %> && ng serve --aot --proxy-config proxy.conf.js",
+    "start": "<%= run('env') %> && ng serve --proxy-config proxy.conf.js",
 <% if (props.pwa) { -%>
     "serve:sw": "<%= run('build') %> && npx http-server ./<%= props.target.includes('cordova') ? 'www': 'dist' %> -p 4200",
 <% } -%>
@@ -56,18 +56,18 @@
     "generate": "ng generate"
   },
   "dependencies": {
-    "@angular/animations": "^7.2.3",
-    "@angular/common": "^7.2.3",
-    "@angular/compiler": "^7.2.3",
-    "@angular/core": "^7.2.3",
-    "@angular/forms": "^7.2.3",
-    "@angular/http": "^7.2.3",
-    "@angular/platform-browser": "^7.2.3",
-    "@angular/platform-browser-dynamic": "^7.2.3",
-    "@angular/router": "^7.2.3",
+    "@angular/animations": "^8.1.0",
+    "@angular/common": "^8.1.0",
+    "@angular/compiler": "^8.1.0",
+    "@angular/core": "^8.1.0",
+    "@angular/forms": "^8.1.0",
+    "@angular/platform-browser": "^8.1.0",
+    "@angular/platform-browser-dynamic": "^8.1.0",
+    "@angular/router": "^8.1.0",
     "@ngx-translate/core": "^11.0.1",
 <% if (props.target.includes('cordova')) { -%>
     "@ionic-native/core": "^5.0.0",
+    "@ionic-native/keyboard": "^5.0.0",
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.0.0",
     "cordova-android": "^8.0.0",
@@ -75,25 +75,25 @@
     "cordova-ios": "^5.0.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-ionic-webview": "^4.0.1",
-    "cordova-plugin-ionic-keyboard": "^2.1.2",
+    "cordova-plugin-ionic-keyboard": "^2.1.3",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.1",
     "cordova-plugin-whitelist": "^1.3.3",
 <% } -%>
 <% if (props.pwa) { -%>
-    "@angular/service-worker": "^7.2.3",
+    "@angular/service-worker": "^8.1.0",
 <% } -%>
 <% if (props.ui === 'ionic') { -%>
     "@ionic/angular": "^4.0.0",
 <% } else if (props.ui === 'bootstrap') { -%>
-    "@ng-bootstrap/ng-bootstrap": "^4.0.4",
+    "@ng-bootstrap/ng-bootstrap": "^5.0.0-rc.1",
     "bootstrap": "^4.1.1",
     "@fortawesome/fontawesome-free": "^5.1.0",
 <% } else if (props.ui === 'material') { -%>
-    "@angular/cdk": "^7.0.1",
-    "@angular/material": "^7.0.1",
-    "@angular/flex-layout": "^7.0.0-beta.24",
-    "material-design-icons-iconfont": "^4.0.5",
+    "@angular/cdk": "^8.0.2",
+    "@angular/material": "^8.0.2",
+    "@angular/flex-layout": "^8.0.0-beta.26",
+    "material-design-icons-iconfont": "^5.0.1",
     "hammerjs": "^2.0.8",
 <% } -%>
 <% if (props.angulartics) { -%>
@@ -111,32 +111,31 @@
 <% if (props.utility.includes('datefns')) { -%>
     "date-fns": "^1.30.1",
 <% } -%>
-    "core-js": "^2.6.3",
-    "rxjs": "^6.4.0",
-    "zone.js": "~0.8.26"
+    "rxjs": "^6.5.2",
+    "zone.js": "^0.9.1"
   },
   "devDependencies": {
 <% if (props.target.includes('cordova')) { -%>
     "cordova": "^9.0.0",
 <% } -%>
-    "@angular/cli": "~7.3.0",
-    "@angular/compiler-cli": "^7.2.3",
-    "@angular/language-service": "^7.2.3",
-    "@angular-devkit/build-angular": "^0.13.0",
+    "@angular/cli": "~8.1.0",
+    "@angular/compiler-cli": "^8.1.0",
+    "@angular/language-service": "^8.1.0",
+    "@angular-devkit/build-angular": "^0.801.0",
     "@biesbjerg/ngx-translate-extract": "^2.3.4",
-    "@ngx-rocket/scripts": "^3.0.0",
-    "@types/jasmine": "^3.3.8",
+    "@ngx-rocket/scripts": "^4.0.0",
+    "@types/jasmine": "^3.3.13",
     "@types/jasminewd2": "^2.0.3",
-    "@types/node": "^8.10.13",
+    "@types/node": "^10.9.0",
 <% if (props.utility.includes('lodash')) { -%>
     "@types/lodash": "^4.14.112",
 <% } -%>
 <% if (props.utility.includes('ramda')) { -%>
     "@types/ramda": "^0.26.6",
 <% } -%>
-    "codelyzer": "^5.0.0",
+    "codelyzer": "^5.1.0",
 <% if (props.target.includes('electron')) { -%>
-    "electron": "^4.0.3",
+    "electron": "^5.0.2",
     "electron-packager": "^13.0.1",
     "electron-reload": "^1.4.0",
 <% } -%>
@@ -163,20 +162,20 @@
     "stylelint-config-prettier": "^5.1.0",
 <%   if (options.git) { -%>
     "pretty-quick": "^1.10.0",
-    "husky": "^1.3.1",
+    "husky": "^3.0.0",
 <%   } -%>
 <% } -%>
     "protractor": "~5.4.0",
 <% if (!options['external-chrome']) { -%>
-    "puppeteer": "^1.12.0",
+    "puppeteer": "^1.17.0",
 <% } -%>
-    "stylelint": "~10.0.1",
+    "stylelint": "~10.1.0",
     "stylelint-config-recommended-scss": "~3.3.0",
     "stylelint-config-standard": "~18.3.0",
-    "stylelint-scss": "~3.6.0",
-    "ts-node": "~8.1.0",
-    "tslint": "~5.16.0",
-    "typescript": "~3.2.0"
+    "stylelint-scss": "~3.9.0",
+    "ts-node": "~8.3.0",
+    "tslint": "~5.18.0",
+    "typescript": "~3.4.0"
 <% if (props.tools.includes('prettier')) { -%>
   },
   "prettier": {

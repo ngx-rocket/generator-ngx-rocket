@@ -19,7 +19,9 @@ export function extract(s: string) {
   return s;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class I18nService {
 
   defaultLanguage!: string;
@@ -53,7 +55,9 @@ export class I18nService {
    * Cleans up language change subscription.
    */
   destroy() {
-    this.langChangeSubscription.unsubscribe();
+    if (this.langChangeSubscription) {
+      this.langChangeSubscription.unsubscribe();
+    }
   }
 
   /**

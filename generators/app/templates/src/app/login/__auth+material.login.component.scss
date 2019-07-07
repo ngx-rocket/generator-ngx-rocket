@@ -19,6 +19,10 @@
   width: 100%;
 }
 
+.login-fields > :not(:last-child) {
+  margin-bottom: 8px;
+}
+
 .login-error {
   color: mat-color($app-warn);
 }

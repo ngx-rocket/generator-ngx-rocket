@@ -14,10 +14,7 @@ export class ShellPage {
   welcomeText = element(by.css('app-root h1'));
 <% } -%>
 
-  constructor() {
-  }
-
-  async getParagraphText() {
-    return await this.welcomeText.getText();
+  getParagraphText() {
+    return this.welcomeText.getText();
   }
 }

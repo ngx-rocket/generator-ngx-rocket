@@ -1,5 +1,5 @@
 <% if (props.ui === 'ionic') { -%>
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 <% } else if (props.target.includes('cordova')) { -%>
 import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
 <% } else { -%>
@@ -18,6 +18,7 @@ import { Platform } from '@ionic/angular';
 <% if (props.target.includes('cordova')) { -%>
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { Keyboard } from '@ionic-native/keyboard/ngx';
 <% } -%>
 <% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
@@ -48,6 +49,7 @@ export class AppComponent implements OnInit, OnDestroy {
 <%   } else { -%>
               private zone: NgZone,
 <%   } -%>
+              private keyboard: Keyboard,
               private statusBar: StatusBar,
               private splashScreen: SplashScreen,
 <% } -%>
@@ -95,7 +97,7 @@ export class AppComponent implements OnInit, OnDestroy {
         untilDestroyed(this)
       )
       .subscribe(event => {
-        const title = event['title'];
+        const title = event.title;
         if (title) {
           this.titleService.setTitle(this.translateService.instant(title));
         }
@@ -124,10 +126,10 @@ export class AppComponent implements OnInit, OnDestroy {
   private onCordovaReady() {
     log.debug('device ready');
 
-    if (window['cordova']) {
+    if (window.cordova) {
       log.debug('Cordova init');
 
-      window['Keyboard'].hideFormAccessoryBar(true);
+      this.keyboard.hideFormAccessoryBar(true);
 <% if (props.ui === 'ionic') { -%>
       this.statusBar.styleLightContent();
 <% } else { -%>

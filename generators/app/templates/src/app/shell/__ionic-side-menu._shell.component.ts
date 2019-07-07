@@ -63,7 +63,7 @@ export class ShellComponent {
 
     const actionSheetOptions: ActionSheetOptions = {
       header: (this.username || undefined),
-      buttons: buttons
+      buttons
     };
 
     createdActionSheet = await this.actionSheetController.create(actionSheetOptions);
@@ -93,28 +93,28 @@ export class ShellComponent {
   async changeLanguage() {
 <% } -%>
     const alertController = await this.alertController.create({
-        header: this.translateService.instant('Change language'),
-        inputs: this.i18nService.supportedLanguages.map(language => ({
-          type: 'radio' as TextFieldTypes,
-          name: language,
-          label: language,
-          value: language,
-          checked: language === this.i18nService.language
-        })),
-        buttons: [
-          {
-            text: this.translateService.instant('Cancel'),
-            role: 'cancel'
-          },
-          {
-            text: this.translateService.instant('Ok'),
-            handler: language => {
-              this.i18nService.language = language;
-            }
+      header: this.translateService.instant('Change language'),
+      inputs: this.i18nService.supportedLanguages.map(language => ({
+        type: 'radio' as TextFieldTypes,
+        name: language,
+        label: language,
+        value: language,
+        checked: language === this.i18nService.language
+      })),
+      buttons: [
+        {
+          text: this.translateService.instant('Cancel'),
+          role: 'cancel'
+        },
+        {
+          text: this.translateService.instant('Ok'),
+          handler: language => {
+            this.i18nService.language = language;
           }
-        ]
-      });
-      alertController.present();
+        }
+      ]
+    });
+    alertController.present();
   }
 
 }

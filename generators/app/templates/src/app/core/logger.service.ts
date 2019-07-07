@@ -102,7 +102,7 @@ export class Logger {
     this.log(console.error, LogLevel.Error, objects);
   }
 
-  private log(func: Function, level: LogLevel, objects: any[]) {
+  private log(func: (...args: any[]) => void, level: LogLevel, objects: any[]) {
     if (level <= Logger.level) {
       const log = this.source ? ['[' + this.source + ']'].concat(objects) : objects;
       func.apply(console, log);
