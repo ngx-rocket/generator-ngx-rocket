@@ -4,6 +4,6 @@
   "ui": "ionic",
   "layout": "tabs",
   "auth": false,
-  "lazy": false,
+  "lazy": true,
   "angulartics": false
 }
