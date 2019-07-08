@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-<% if (props.tools.includes('jest')) {
--%>
+<% if (props.tools.includes('jest')) { -%>
 import { Router, ActivatedRouteSnapshot } from '@angular/router';
 <% } else { -%>
 import { Router, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
