@@ -32,10 +32,13 @@ describe('AppComponent', () => {
     keyboardSpy = jasmine.createSpyObj('Keyboard', ['hideFormAccessoryBar']);
 
 <% } else if (props.target.includes('cordova') && props.tools.includes('jest')) { -%>
-  statusBarSpy = jest.fn();
-  splashScreenSpy = jest.fn(() => ({
-    hide: jest.fn()
-  }));
+    statusBarSpy = jest.fn();
+    splashScreenSpy = {
+      hide: jest.fn()
+    };
+    keyboardSpy = {
+      hideFormAccessoryBar: jest.fn()
+    };
 
 <% } -%>
     TestBed.configureTestingModule({

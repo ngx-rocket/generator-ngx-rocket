@@ -27,7 +27,7 @@ describe('AuthenticationGuard', () => {
       navigate: jasmine.createSpy('navigate')
 <% } -%>
     };
-  <% if (props.tools.includes('jest')) { -%>
+<% if (props.tools.includes('jest')) { -%>
     mockSnapshot = jest.fn(() => ({
       toString: jest.fn()
     }));
