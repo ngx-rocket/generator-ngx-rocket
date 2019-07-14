@@ -1,5 +1,32 @@
 # Change Log
 
+## [7.0.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/7.0.1) (2019-07-14)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/7.0.0...7.0.1)
+
+## [7.0.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/7.0.0) (2019-07-14)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/6.2.1...7.0.0)
+
+**Enhancements**:
+
+- Support for Angular 8 [\#478](https://github.com/ngx-rocket/generator-ngx-rocket/issues/478) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- coding guide for configurations and environments [\#475](https://github.com/ngx-rocket/generator-ngx-rocket/issues/475) [[documentation](https://github.com/ngx-rocket/generator-ngx-rocket/labels/documentation)]
+- Add --debug-infos option to ngx CLI [\#377](https://github.com/ngx-rocket/generator-ngx-rocket/issues/377) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- HMR \(Hot Module Replacement\) support? [\#132](https://github.com/ngx-rocket/generator-ngx-rocket/issues/132) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add HMR support \(close \#132\) [\#482](https://github.com/ngx-rocket/generator-ngx-rocket/pull/482) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add Angular 8 support \(close \#478\) [\#481](https://github.com/ngx-rocket/generator-ngx-rocket/pull/481) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+- Add --debug-infos flag \(close \#377\) to CLI [\#479](https://github.com/ngx-rocket/generator-ngx-rocket/pull/479) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+
+**Closed issues:**
+
+- How to create an Angular 6 project with latest version of generator-ngx-rocket  [\#484](https://github.com/ngx-rocket/generator-ngx-rocket/issues/484)
+- New created ng7-pre Project fails to compile due to directory with hashtag [\#483](https://github.com/ngx-rocket/generator-ngx-rocket/issues/483)
+- Explicitly document the licence for the generated code [\#385](https://github.com/ngx-rocket/generator-ngx-rocket/issues/385)
+
+**Merged pull requests:**
+
+- Fix favicons being loaded on every route change [\#485](https://github.com/ngx-rocket/generator-ngx-rocket/pull/485)
+- doc: build-specific configuration options \(fix \#475\) [\#476](https://github.com/ngx-rocket/generator-ngx-rocket/pull/476)
+
 ## [6.2.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/6.2.1) (2019-06-10)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/6.2.0...6.2.1)
 
