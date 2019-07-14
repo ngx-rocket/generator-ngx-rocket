@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "@ngx-rocket/ascii-logo": "^1.0.1",
-    "@ngx-rocket/core": "^5.0.0",
+    "@ngx-rocket/core": "^5.0.1",
     "chalk": "^2.4.2",
     "conf": "^5.0.0",
     "cross-spawn": "^6.0.5",
@@ -64,8 +64,8 @@
     "lodash.get": "^4.4.2",
     "lodash.upperfirst": "^4.3.1",
     "minimist": "^1.2.0",
-    "semver": "^6.1.1",
-    "update-notifier": "^3.0.0",
+    "semver": "^6.2.0",
+    "update-notifier": "^3.0.1",
     "yeoman-environment": "^2.4.0"
   },
   "devDependencies": {
