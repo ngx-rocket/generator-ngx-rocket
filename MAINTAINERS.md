@@ -46,7 +46,6 @@ The `ci/*` branches are used to test different use cases to help guarantee compa
 the standard supported workflow:
 
 - `ci/canary` uses the `@next` tag of Angular CLI and the `@latest` version of TypeScript.
-- `ci/strict` enables TypeScript strict type checking mode.
 
 These branches should **NEVER** be merged into master, and are triggered regularly for CI builds using cron-like jobs.
 
