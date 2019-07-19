@@ -1,5 +1,20 @@
 # Change Log
 
+## [7.0.2](https://github.com/ngx-rocket/generator-ngx-rocket/tree/7.0.2) (2019-07-19)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/7.0.1...7.0.2)
+
+**Fixed bugs:**
+
+- generate bootstrap header dropdown give page more than 100% [\#488](https://github.com/ngx-rocket/generator-ngx-rocket/issues/488)
+
+**Closed issues:**
+
+- favicons loaded on every route change [\#305](https://github.com/ngx-rocket/generator-ngx-rocket/issues/305)
+
+**Merged pull requests:**
+
+- Fix issue with bootstrap dropdown [\#490](https://github.com/ngx-rocket/generator-ngx-rocket/pull/490)
+
 ## [7.0.1](https://github.com/ngx-rocket/generator-ngx-rocket/tree/7.0.1) (2019-07-14)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/7.0.0...7.0.1)
 
@@ -12,7 +27,7 @@
 - coding guide for configurations and environments [\#475](https://github.com/ngx-rocket/generator-ngx-rocket/issues/475) [[documentation](https://github.com/ngx-rocket/generator-ngx-rocket/labels/documentation)]
 - Add --debug-infos option to ngx CLI [\#377](https://github.com/ngx-rocket/generator-ngx-rocket/issues/377) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
 - HMR \(Hot Module Replacement\) support? [\#132](https://github.com/ngx-rocket/generator-ngx-rocket/issues/132) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
-- Add HMR support \(close \#132\) [\#482](https://github.com/ngx-rocket/generator-ngx-rocket/pull/482) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
+-  Add HMR support \(close \#132\) [\#482](https://github.com/ngx-rocket/generator-ngx-rocket/pull/482) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
 - Add Angular 8 support \(close \#478\) [\#481](https://github.com/ngx-rocket/generator-ngx-rocket/pull/481) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
 - Add --debug-infos flag \(close \#377\) to CLI [\#479](https://github.com/ngx-rocket/generator-ngx-rocket/pull/479) [[feature](https://github.com/ngx-rocket/generator-ngx-rocket/labels/feature)]
 
