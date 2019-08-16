@@ -36,7 +36,6 @@ jobs:
     displayName: Disable git automatic line ending conversion
 
   - checkout: self
-    fetchDepth: 1
 
   - task: NodeTool@0
     inputs:
