@@ -102,6 +102,20 @@
           }
         },
         "test": {
+<% if (props.tools.includes('jest')) { -%>
+          "builder": "@angular-builders/jest:run",
+          "options": {
+            "watch": true
+          },
+          "configurations": {
+            "ci": {
+              "watch": false,
+              "ci": true,
+              "coverage": true,
+              "silent": true
+            }
+          }
+<% } else { -%>
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
@@ -137,6 +151,7 @@
               "watch": false
             }
           }
+<% } -%>
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",

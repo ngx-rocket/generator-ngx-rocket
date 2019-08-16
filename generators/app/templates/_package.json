@@ -15,7 +15,7 @@
 <% } -%>
     "lint": "ng lint && stylelint \"src/**/*.scss\" --syntax scss && htmlhint \"src\" --config .htmlhintrc",
     "test": "<%= run('env') %> && ng test",
-    "test:ci": "<%= run('env') %> && <%= run('lint') %> && ng test --code-coverage --watch=false",
+    "test:ci": "<%= run('env') %> && <%= run('lint') %> && ng test --configuration=ci",
     "e2e": "<%= run('env') %> && ng e2e",
     "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean --sort --marker extract",
 <% if (props.tools.includes('hads')) { -%>
@@ -118,6 +118,9 @@
 <% if (props.target.includes('cordova')) { -%>
     "cordova": "^9.0.0",
 <% } -%>
+<% if (props.tools.includes('jest')) { -%>
+    "@angular-builders/jest": "^8.0.4",
+<% } -%>
     "@angular/cli": "~8.1.0",
     "@angular/compiler-cli": "^8.1.0",
     "@angular/language-service": "^8.1.0",
@@ -127,6 +130,9 @@
     "@ngx-rocket/scripts": "^4.0.0",
     "@types/jasmine": "^3.3.13",
     "@types/jasminewd2": "^2.0.3",
+<% if (props.tools.includes('jest')) { -%>
+      "@types/jest": "^24.0.12",
+<% } -%>
     "@types/node": "^10.9.0",
 <% if (props.utility.includes('lodash')) { -%>
     "@types/lodash": "^4.14.112",
@@ -150,6 +156,10 @@
     "https-proxy-agent": "^2.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
+<% if (props.tools.includes('jest')) { -%>
+    "jest": "^24.7.1",
+    "jest-preset-angular": "^7.1.0",
+<% } else { -%>
     "karma": "~4.2.0",
     "karma-chrome-launcher": "^3.0.0",
     "karma-cli": "~2.0.0",
@@ -157,6 +167,7 @@
     "karma-jasmine": "^2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
     "karma-junit-reporter": "^1.2.0",
+<% } -%>
 <% if (props.tools.includes('prettier')) { -%>
     "prettier": "^1.16.3",
     "tslint-config-prettier": "^1.14.0",

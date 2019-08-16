@@ -181,6 +181,10 @@ module.exports = [
       {
         value: 'compodoc',
         name: 'Compodoc (Angular doc generator)'
+      },
+      {
+        value: 'jest',
+        name: 'Jest (Delightful JavaScript Testing)'
       }
     ]
   },

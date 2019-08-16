@@ -4,5 +4,6 @@
   "ui": "ionic",
   "layout": "tabs",
   "auth": true,
-  "lazy": false
+  "lazy": false,
+  "tools": ["jest"]
 }
