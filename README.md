@@ -1,9 +1,7 @@
 # :rocket: generator-ngx-rocket
 
 [![NPM version](https://img.shields.io/npm/v/generator-ngx-rocket.svg)](https://www.npmjs.com/package/generator-ngx-rocket)
-[![Travis build status](https://img.shields.io/travis/ngx-rocket/generator-ngx-rocket/master.svg?logo=travis)](https://travis-ci.org/ngx-rocket/generator-ngx-rocket)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/ngx-rocket/generator-ngx-rocket?svg=true&branch=master)](https://ci.appveyor.com/project/sinedied/generator-ngx-rocket/branch/master)
-[![CircleCi build status](https://img.shields.io/circleci/project/github/ngx-rocket/generator-ngx-rocket/master.svg?logo=circleci)](https://circleci.com/gh/ngx-rocket/generator-ngx-rocket/tree/master)
+[![Build Status](https://sinedied.visualstudio.com/oss-pipelines/_apis/build/status/ngx-rocket.generator-ngx-rocket?branchName=master)](https://sinedied.visualstudio.com/oss-pipelines/_build/latest?definitionId=2&branchName=master&WT.mc_id=generatorngxrocket-github-yolasors)
 ![Node version](https://img.shields.io/node/v/generator-ngx-rocket.svg)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![Downloads](https://img.shields.io/npm/dt/generator-ngx-rocket.svg)](https://npmjs.org/package/generator-ngx-rocket)

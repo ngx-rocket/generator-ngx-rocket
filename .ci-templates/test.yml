@@ -1,0 +1,75 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript?WT.mc_id=generatorngxrocket-github-yolasors
+
+parameters:
+  nodeVersions: ['10.x', '>=12.x']
+  operatingSystems: ['ubuntu-latest', 'macos-latest', 'windows-latest']
+  testCases: []
+
+jobs:
+- job: Test
+
+  strategy:
+    matrix:
+      ${{ each os in parameters.operatingSystems }}:
+        ${{ each node in parameters.nodeVersions }}:
+          ${{ each test in parameters.testCases }}:
+            # MacOS/Node-latest builds are only used for mobile
+            ${{ if or(not(contains(os, 'mac')), and(eq(test.android, true), contains(node, '>='))) }}:
+              ${{ format('{1}/node-{0}|{2}', node, os, test.case) }}:
+                nodeVersion: ${{ node }}
+                osImage: ${{ os }}
+                case: ${{ test.case }}
+                addon: ${{ coalesce(test.addon, '') }}
+                packageManager: ${{ coalesce(test.packageManager, 'npm') }}
+                ${{ if and(contains(os, 'mac'), contains(node, '>=')) }}:
+                  testAndroid: ${{ coalesce(test.android, '') }}
+
+  pool:
+    vmImage: $(osImage)
+
+  steps:
+  # Needed to avoid issues with Prettier on Windows
+  - bash: git config --global core.autocrlf false
+    displayName: Disable git automatic line ending conversion
+
+  - checkout: self
+    fetchDepth: 1
+
+  - task: NodeTool@0
+    inputs:
+      versionSpec: $(nodeVersion)
+    displayName: Install Node.js
+
+  - bash: |
+      npm install
+      npm install -g yarn@latest
+      npm link
+    displayName: Install dependencies
+
+  - bash: |
+      npm run lint
+      bash -c "scripts/test.sh $CASE"
+      # Export a variable for the artifact name
+      CASE_ARTIFACT=$(echo $CASE | sed -e 's/[^A-Za-z0-9._-]/-/g')
+      echo "##vso[task.setvariable variable=CASE_ARTIFACT]$CASE_ARTIFACT"
+    env:
+      TEST_ADDON: $(addon)
+      TEST_ANDROID: $(testAndroid)
+      NGX_PACKAGE_MANAGER: $(packageManager)
+      NODE_OPTIONS: --max_old_space_size=2048
+    displayName: Run unit tests
+
+  - task: CopyFiles@2
+    condition: and(succeeded(), eq(variables['testAndroid'], true))
+    inputs:
+      contents: 'dist/**/*.apk'
+      targetFolder: '$(Build.ArtifactStagingDirectory)'
+    displayName: Copy Android APK
+
+  - publish: $(Build.ArtifactStagingDirectory)/dist
+    condition: and(succeeded(), eq(variables['testAndroid'], true))
+    artifact: $(CASE_ARTIFACT)
+    displayName: Publish APK

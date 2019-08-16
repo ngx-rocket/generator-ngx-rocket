@@ -1,0 +1,39 @@
+# For reference, see https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema&WT.mc_id=generatorngxrocket-github-yolasors
+
+trigger:
+  - master
+  - release/*
+
+schedules:
+- cron: '0 12 * * 1'
+  always: true
+  branches:
+    include:
+    - master
+  displayName: Weekly monday build
+
+jobs:
+- template: .ci-templates/test.yml
+  parameters:
+    testCases: [
+      { case: app/cordova/bootstrap, android: true },
+      { case: app/cordova/bootstrap-authentication },
+      { case: app/cordova/ionic, android: true },
+      { case: app/cordova/ionic-authentication },
+      { case: app/cordova/material },
+      { case: app/cordova/material-authentication, android: true },
+      { case: app/electron/bootstrap },
+      { case: app/web/bootstrap },
+      { case: app/web/bootstrap-authentication },
+      { case: app/web/ionic },
+      { case: app/web/ionic-authentication },
+      { case: app/web/material },
+      { case: app/web/material-authentication },
+      { case: app/web/raw },
+      { case: app/web/raw-authentication },
+      { case: app/web+cordova/bootstrap-authentication },
+      { case: app/web+cordova/ionic-authentication },
+      { case: app/web+cordova/material-authentication, packageManager: 'yarn' },
+      { case: addon/simple, addon: true },
+      { case: addon/advanced, addon: true }
+    ]

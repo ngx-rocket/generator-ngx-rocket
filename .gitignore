@@ -2,6 +2,7 @@ node_modules/
 /sample*/
 /sample-app/
 /deploy/
+/dist/
 .idea/
 npm-debug.log
 .DS_Store

@@ -5,10 +5,11 @@
 
 set -e
 
-CWD=`pwd`
-SCRIPT_FOLDER=`dirname "${BASH_SOURCE[0]}"`
+CWD=$(pwd)
+SCRIPT_FOLDER=$(dirname "${BASH_SOURCE[0]}")
 TEST_FOLDER=$CWD/sample-app
 CACHE_FOLDER=$CWD/cache
+OUT_FOLDER=$CWD/dist
 TEST_APP_NAME="Sample App"
 
 if [ -n "$1" ]; then
@@ -53,22 +54,31 @@ do
 
         npm run test
 
-    elif [ -n "$TEST_ANDROID" ]; then
-
-        ngx new --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
-
-        # cordova android
-        npm run cordova:prepare --no-progress
-        npm run cordova:build android --no-progress
-
     else
 
         # generators/app test
         ngx new --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
-
         npm run test:ci -- --no-progress
+
+        # force usage of local chrome binary, in headless mode
+        PROTRACTOR_CHROME_BIN=$(node -p "require('puppeteer').executablePath()") \
+        PROTRACTOR_CHROME_ARGS='["lang=en-US","--headless","--disable-gpu","--window-size=1024,768"]' \
         npm run e2e
+
         npm run build -- --no-progress
+
+        if [ -n "$TEST_ANDROID" ]; then
+
+            # cordova/android build
+            npm run cordova:prepare -- --fast --no-progress
+            npm run cordova:build android -- --fast --no-progress
+
+            # copy apk
+            mkdir -p $OUT_FOLDER
+            APK_FILE=$(echo $1 | sed -e 's/[^A-Za-z0-9._-]/-/g')
+            cp dist/*.apk $OUT_FOLDER/$APK_FILE.apk
+
+        fi
 
     fi
 
