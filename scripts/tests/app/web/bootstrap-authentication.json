@@ -4,5 +4,5 @@
   "ui": "bootstrap",
   "auth": true,
   "lazy": false,
-  "tools": ["prettier", "hads"]
+  "tools": ["prettier", "hads", "jest"]
 }

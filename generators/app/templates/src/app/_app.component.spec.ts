@@ -18,18 +18,33 @@ import { CoreModule } from '@app/core';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-<% if (props.target.includes('cordova')) { -%>
+<% if (props.target.includes('cordova') && !props.tools.includes('jest')) { -%>
 
   let statusBarSpy: jasmine.Spy;
   let splashScreenSpy: jasmine.Spy;
   let keyboardSpy: jasmine.Spy;
 
+<% } else if (props.target.includes('cordova') && props.tools.includes('jest')) { -%>
+
+  let statusBarSpy: any;
+  let splashScreenSpy: any;
+  let keyboardSpy: any;
+
 <% } -%>
   beforeEach(async(() => {
-<% if (props.target.includes('cordova')) { -%>
+<% if (props.target.includes('cordova') && !props.tools.includes('jest')) { -%>
     statusBarSpy = jasmine.createSpyObj('StatusBar', ['styleDefault']);
     splashScreenSpy = jasmine.createSpyObj('SplashScreen', ['hide']);
     keyboardSpy = jasmine.createSpyObj('Keyboard', ['hideFormAccessoryBar']);
+
+<% } else if (props.target.includes('cordova') && props.tools.includes('jest')) { -%>
+    statusBarSpy = jest.fn();
+    splashScreenSpy = {
+      hide: jest.fn()
+    };
+    keyboardSpy = {
+      hideFormAccessoryBar: jest.fn()
+    };
 
 <% } -%>
     TestBed.configureTestingModule({
@@ -64,5 +79,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  }));
+  }), 30000);
 });
