@@ -2,7 +2,10 @@
   "name": "generator-ngx-rocket",
   "version": "7.0.2",
   "description": "Extensible Angular 8+ enterprise-grade project generator based on angular-cli with best practices from the community. Includes PWA/Cordova/Electron support, coding guides and more!",
-  "repository": "ngx-rocket/generator-ngx-rocket",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ngx-rocket/generator-ngx-rocket.git"
+  },
   "keywords": [
     "yeoman-generator",
     "ngx",
@@ -30,7 +33,10 @@
     "tool",
     "cli"
   ],
-  "author": "Yohan Lasorsa",
+  "author": {
+    "name": "Yohan Lasorsa",
+    "url": "https://twitter.com/sinedied"
+  },
   "license": "MIT",
   "homepage": "https://github.com/ngx-rocket/generator-ngx-rocket",
   "bugs": {
