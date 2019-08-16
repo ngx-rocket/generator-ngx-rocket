@@ -18,11 +18,17 @@ import { CoreModule } from '@app/core';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-<% if (props.target.includes('cordova')) { -%>
+<% if (props.target.includes('cordova') && !props.tools.includes('jest')) { -%>
 
   let statusBarSpy: jasmine.Spy;
   let splashScreenSpy: jasmine.Spy;
   let keyboardSpy: jasmine.Spy;
+
+<% } else if (props.target.includes('cordova') && props.tools.includes('jest')) { -%>
+
+  let statusBarSpy: any;
+  let splashScreenSpy: any;
+  let keyboardSpy: any;
 
 <% } -%>
   beforeEach(async(() => {
