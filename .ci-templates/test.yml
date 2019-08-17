@@ -49,11 +49,11 @@ jobs:
     displayName: Install dependencies
 
   - bash: |
-      npm run lint
-      bash -c "scripts/test.sh $CASE"
       # Export a variable for the artifact name
       CASE_ARTIFACT=$(echo $CASE | sed -e 's/[^A-Za-z0-9._-]/-/g')
       echo "##vso[task.setvariable variable=CASE_ARTIFACT]$CASE_ARTIFACT"
+      npm run lint
+      bash -c "scripts/test.sh $CASE"
     env:
       TEST_ADDON: $(addon)
       TEST_ANDROID: $(testAndroid)

@@ -5,8 +5,8 @@
 
 set -e
 
-CWD=`pwd`
-SCRIPT_FOLDER=`dirname "${BASH_SOURCE[0]}"`
+CWD=$(pwd)
+SCRIPT_FOLDER=$(dirname "${BASH_SOURCE[0]}")
 TEST_FOLDER=$CWD/sample-app
 CACHE_FOLDER=$CWD/cache
 OUT_FOLDER=$CWD/dist
@@ -51,20 +51,17 @@ do
 
         # generators/addon test
         ngx new --addon --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
-
         npm run test
 
     else
 
         # generators/app test
         ngx new --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
-
         npm run test:ci
 
         # force usage of local chrome binary, in headless mode
-        PROTRACTOR_CHROME_BIN=`node -p "require('puppeteer').executablePath()"` \
+        PROTRACTOR_CHROME_BIN=$(node -p "require('puppeteer').executablePath()") \
         PROTRACTOR_CHROME_ARGS='["lang=en-US","--headless","--disable-gpu","--window-size=1024,768"]' \
-
         npm run e2e
 
         npm run build -- --no-progress
@@ -77,7 +74,7 @@ do
 
             # copy apk
             mkdir -p $OUT_FOLDER
-            APK_FILE=`echo $1 | sed -e 's/[^A-Za-z0-9._-]/-/g'`
+            APK_FILE=$(echo $1 | sed -e 's/[^A-Za-z0-9._-]/-/g')
             cp dist/*.apk $OUT_FOLDER/$APK_FILE.apk
 
         fi
