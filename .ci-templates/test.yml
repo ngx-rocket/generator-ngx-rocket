@@ -26,6 +26,8 @@ jobs:
                 packageManager: ${{ coalesce(test.packageManager, 'npm') }}
                 ${{ if and(contains(os, 'mac'), contains(node, '>=')) }}:
                   testAndroid: ${{ coalesce(test.android, '') }}
+                ${{ if not(and(contains(os, 'mac'), contains(node, '>='))) }}:
+                  testAndroid: ''
 
   pool:
     vmImage: $(osImage)
