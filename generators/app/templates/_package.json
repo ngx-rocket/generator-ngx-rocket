@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "ng": "ng",
-    "build": "<%= run('env') %> && ng build --prod",
+    "build": "<%= run('env') %> && node --max-old-space-size=8192 ./node_modules/@angular/cli/bin/ng build --prod",
     "start": "<%= run('env') %> && ng serve <%= props.ui !== 'ionic' ? '--aot ' : '' %>--proxy-config proxy.conf.js",
 <% if (props.pwa) { -%>
     "serve:sw": "<%= run('build') %> && npx http-server ./<%= props.target.includes('cordova') ? 'www': 'dist' %> -p 4200",
