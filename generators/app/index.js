@@ -15,8 +15,22 @@ const packageJsonFile = 'package.json';
 class NgxGenerator extends Generator {
   initializing() {
     this.version = pkg.version;
-    this.insight = new Insight({trackingCode: 'UA-93069862-1', pkg});
     this.props = {};
+
+    // Try to initialize analytics. Insight is broken for some users, so if it fails, proceed as if the --no-analytics flag was present.
+    try {
+      this.insight =
+        !this.options.analytics || process.env.DISABLE_NGX_ANALYTICS
+          ? {track: () => {}}
+          : new Insight({trackingCode: 'UA-93069862-1', pkg});
+    } catch {
+      this.insight = {track: () => {}};
+      this.log(
+        chalk.yellow(
+          'There was a problem collecting analytics data. Proceeding without anonymous usage tracking. To suppress this warning in the future, use the --no-analytics flag.'
+        )
+      );
+    }
 
     if (semver.lt(process.version, '10.9.0')) {
       this.log(chalk.yellow('Angular CLI v8 needs NodeJS v10.9 or greater.'));
