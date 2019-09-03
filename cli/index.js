@@ -28,11 +28,11 @@ ${chalk.blue('n, new')} [name]
   --tools                     Generates only the toolchain
   --addons                    Space-separated list of add-ons to use (override
                               config)
-  
+
 ${chalk.blue('u, update')}
   Updates an existing app or add-on.
   --tools                     Updates only the toolchain
-  
+
 ${chalk.blue('c, config')}
   Configures add-ons to use for new apps.
   All available add-ons are used by default.
@@ -40,7 +40,7 @@ ${chalk.blue('c, config')}
 ${chalk.blue('l, list')}
   Lists available add-ons.
   -n, --npm    Show installable add-ons on NPM
-  
+
 ${chalk.blue('<script>')}
   Runs specified script from your ${chalk.bold(`package.json`)}.
   Works like ${chalk.bold(`npm run <script>`)} with fuzzy matching
@@ -54,7 +54,8 @@ class NgxCli {
       string: ['addons'],
       alias: {
         n: 'npm',
-        a: 'addon'
+        a: 'addon',
+        v: 'version'
       }
     });
     this._config = new Conf({
@@ -67,7 +68,7 @@ class NgxCli {
     env.register(require.resolve('..'), 'ngx-rocket');
   }
 
-  run() {
+  async run() {
     updateNotifier({pkg}).notify();
 
     if (this._options.help) {
@@ -85,16 +86,16 @@ class NgxCli {
     switch (this._args[0]) {
       case 'n':
       case 'new':
-        return this.generate(false, this._args.slice(1), this._options);
+        return await this.generate(false, this._args.slice(1), this._options);
       case 'u':
       case 'update':
-        return this.generate(true, this._args.slice(1), this._options);
+        return await this.generate(true, this._args.slice(1), this._options);
       case 'c':
       case 'config':
-        return this.configure();
+        return await this.configure();
       case 'l':
       case 'list':
-        return this.list(this._options.npm);
+        return await this.list(this._options.npm);
       default:
         this.runScript(this._args);
     }

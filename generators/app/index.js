@@ -90,7 +90,19 @@ class NgxGenerator extends Generator {
     // Composition
     const addonsOption = this.options.addons;
     this.addons = addonsOption ? addonsOption.split(' ') : [];
-    this.addons.forEach(addon => this.composeWith(addon, this.options));
+      this.addons.forEach(addon => {
+        try {
+          if (addon.startsWith('generator-')) {
+            // This prefix must be removed for Yeoman to work properly
+            addon = addon.substring(10);
+          }
+          this.composeWith(addon, this.options);
+        } catch(err) {
+          this.log(chalk.red(`Error: add-on "${addon}" not found.`));
+          // eslint-disable-next-line unicorn/no-process-exit
+          process.exit(-1);
+        }
+    });
 
     this.insight.track('version', this.version);
     this.insight.track('node', process.version);
