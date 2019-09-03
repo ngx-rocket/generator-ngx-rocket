@@ -22,7 +22,7 @@
     "docs": "hads ./docs -o",
 <% } -%>
 <% if (props.tools.includes('compodoc')) { -%>
-    "compodoc": "compodoc -p src/tsconfig.app.json -d docs/generated -s -o",
+    "compodoc": "compodoc -p tsconfig.app.json -d docs/generated -s -o",
 <% } -%>
     "env": "ngx-scripts env npm_package_version",
 <% if (props.tools.includes('prettier')) { -%>
