@@ -95,7 +95,7 @@ class NgxGenerator extends Generator {
         if (/[:/]/.test(addon)) {
           // Fetch addon name from URL/GitHub/Local package format
           let splitIndex = addon.lastIndexOf('/');
-          splitIndex = splitIndex !== -1 ? splitIndex : addon.lastIndexOf(':');
+          splitIndex = splitIndex === -1 ? addon.lastIndexOf(':') : splitIndex;
           addon = addon.substring(splitIndex + 1);
         }
 

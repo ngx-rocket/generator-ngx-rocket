@@ -86,16 +86,16 @@ class NgxCli {
     switch (this._args[0]) {
       case 'n':
       case 'new':
-        return await this.generate(false, this._args.slice(1), this._options);
+        return this.generate(false, this._args.slice(1), this._options);
       case 'u':
       case 'update':
-        return await this.generate(true, this._args.slice(1), this._options);
+        return this.generate(true, this._args.slice(1), this._options);
       case 'c':
       case 'config':
-        return await this.configure();
+        return this.configure();
       case 'l':
       case 'list':
-        return await this.list(this._options.npm);
+        return this.list(this._options.npm);
       default:
         this.runScript(this._args);
     }
