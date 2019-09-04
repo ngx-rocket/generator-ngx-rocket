@@ -1,5 +1,26 @@
 # Change Log
 
+## [$npm_package_version](https://github.com/ngx-rocket/generator-ngx-rocket/tree/$npm_package_version) (2019-09-04)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/7.0.2...$npm_package_version)
+
+**Fixed bugs:**
+
+- generating electron app breaks l10n [\#500](https://github.com/ngx-rocket/generator-ngx-rocket/issues/500)
+- Npm run compodoc does not work because src/tsconfig.app.json is not found [\#497](https://github.com/ngx-rocket/generator-ngx-rocket/issues/497)
+- ngx new immediately aborts after splash / header intro without initiating prompts. [\#494](https://github.com/ngx-rocket/generator-ngx-rocket/issues/494)
+- Fix CI E2E ionic tests flakyness [\#480](https://github.com/ngx-rocket/generator-ngx-rocket/issues/480)
+
+**Merged pull requests:**
+
+- Fix i18n with Electron target \(close \#500\) [\#506](https://github.com/ngx-rocket/generator-ngx-rocket/pull/506)
+- Fix tsconfig path for compodoc \(close \#497\) [\#505](https://github.com/ngx-rocket/generator-ngx-rocket/pull/505)
+- Autofix add-ons names from package ref [\#504](https://github.com/ngx-rocket/generator-ngx-rocket/pull/504)
+- Fix crash with invalid add-ons [\#503](https://github.com/ngx-rocket/generator-ngx-rocket/pull/503)
+- Bump eslint-utils from 1.3.1 to 1.4.2 [\#501](https://github.com/ngx-rocket/generator-ngx-rocket/pull/501)
+- Fixed insight issue causing ngx CLI crash [\#496](https://github.com/ngx-rocket/generator-ngx-rocket/pull/496)
+- Migrate to Azure Pipelines CI [\#492](https://github.com/ngx-rocket/generator-ngx-rocket/pull/492)
+- Add Jest option [\#486](https://github.com/ngx-rocket/generator-ngx-rocket/pull/486)
+
 ## [7.0.2](https://github.com/ngx-rocket/generator-ngx-rocket/tree/7.0.2) (2019-07-19)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/7.0.1...7.0.2)
 
