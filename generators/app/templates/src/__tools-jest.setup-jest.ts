@@ -1,7 +1,7 @@
 import 'jest-preset-angular';
 
 /* global mocks for jsdom */
-const mock = () => {
+const storageMock = () => {
   let storage: { [key: string]: string } = {};
   return {
     getItem: (key: string) => (key in storage ? storage[key] : null),
@@ -11,8 +11,8 @@ const mock = () => {
   };
 };
 
-Object.defineProperty(window, 'localStorage', { value: mock() });
-Object.defineProperty(window, 'sessionStorage', { value: mock() });
+Object.defineProperty(window, 'localStorage', { value: storageMock() });
+Object.defineProperty(window, 'sessionStorage', { value: storageMock() });
 Object.defineProperty(window, 'getComputedStyle', {
   value: () => ['-webkit-appearance']
 });
@@ -31,6 +31,16 @@ Object.defineProperty(window, 'getComputedStyle', {
     getPropertyValue: (prop: any) => {
       return '';
     }
+  })
+});
+
+Object.defineProperty(window, 'matchMedia', {
+  value: (query: any) => ({
+    matches: false,
+    media: query,
+    onchange: null as any,
+    addListener: () => {},
+    removeListener: () => {}
   })
 });
 
