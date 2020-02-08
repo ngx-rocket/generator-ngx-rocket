@@ -25,7 +25,6 @@ import { AboutComponent } from './about.component';
 <% } -%>
     AboutRoutingModule
   ],
-<% } -%>
   declarations: [
     AboutComponent
   ]

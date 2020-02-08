@@ -152,12 +152,6 @@
           },
           "configurations": {
             "ci": {
-              "budgets": [
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
-                }
-              ],
               "progress": false,
               "watch": false
             }
