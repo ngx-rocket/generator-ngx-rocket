@@ -35,11 +35,6 @@ import { LoginComponent } from './login.component';
 <% } -%>
     LoginRoutingModule
   ],
-<% if (props.ui === 'ionic') { -%>
-  entryComponents: [
-    LoginComponent
-  ],
-<% } -%>
   declarations: [
     LoginComponent
   ]

@@ -30,9 +30,9 @@ describe('HttpService', () => {
       ]
     });
 
-    http = TestBed.get(HttpClient);
-    httpMock = TestBed.get(HttpTestingController as Type<HttpTestingController>);
-    httpCacheService = TestBed.get(HttpCacheService);
+    http = TestBed.inject(HttpClient);
+    httpMock = TestBed.inject(HttpTestingController as Type<HttpTestingController>);
+    httpCacheService = TestBed.inject(HttpCacheService);
 
     const realRequest = http.request;
     spyOn(HttpService.prototype, 'request').and.callFake(

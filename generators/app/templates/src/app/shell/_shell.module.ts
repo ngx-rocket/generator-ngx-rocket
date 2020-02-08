@@ -32,11 +32,6 @@ import { HeaderComponent } from './header/header.component';
 <% } -%>
     RouterModule
   ],
-<% if (props.ui === 'ionic') { -%>
-  entryComponents: [
-    ShellComponent
-  ],
-<% } -%>
   declarations: [
 <% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple') || props.ui === 'raw') { -%>
     HeaderComponent,

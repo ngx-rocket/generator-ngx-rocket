@@ -21,10 +21,10 @@ describe('QuoteService', () => {
       ]
     });
 
-    quoteService = TestBed.get(QuoteService);
-    httpMock = TestBed.get(HttpTestingController as Type<HttpTestingController>);
+    quoteService = TestBed.inject(QuoteService);
+    httpMock = TestBed.inject(HttpTestingController as Type<HttpTestingController>);
 
-    const htttpCacheService = TestBed.get(HttpCacheService);
+    const htttpCacheService = TestBed.inject(HttpCacheService);
     htttpCacheService.cleanCache();
   });
 

@@ -36,11 +36,6 @@ import { QuoteService } from './quote.service';
 <% } -%>
     HomeRoutingModule
   ],
-<% if (props.ui === 'ionic') { -%>
-  entryComponents: [
-    HomeComponent
-  ],
-<% } -%>
   declarations: [
     HomeComponent
   ]

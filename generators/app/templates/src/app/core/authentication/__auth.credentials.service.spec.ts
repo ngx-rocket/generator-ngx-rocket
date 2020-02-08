@@ -12,7 +12,7 @@ describe('CredentialsService', () => {
       providers: [CredentialsService]
     });
 
-    credentialsService = TestBed.get(CredentialsService);
+    credentialsService = TestBed.inject(CredentialsService);
   });
 
   afterEach(() => {
