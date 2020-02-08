@@ -1,4 +1,7 @@
 <div fxFlex>
+<% if (props.layout === 'simple') { -%>
+  <app-header [sidenav]="sidenav"></app-header>
+<% } else { -%>
   <mat-sidenav-container fxFill>
 <% if (props.layout === 'simple') { -%>
     <mat-sidenav #sidenav mode="over" ngClass.gt-sm="has-border">
@@ -59,9 +62,7 @@
       </nav>
     </mat-sidenav>
     <mat-sidenav-content>
-<% if (props.layout === 'simple') { -%>
-      <app-header [sidenav]="sidenav"></app-header>
-<% } else { -%>
+<% if (props.layout !== 'simple') { -%>
       <mat-toolbar color="primary" class="mat-elevation-z6">
         <button class="menu-button" mat-icon-button (click)="sidenav.toggle()" fxHide.gt-sm>
           <mat-icon>menu</mat-icon>
