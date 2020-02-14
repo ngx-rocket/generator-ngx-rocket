@@ -6,11 +6,11 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-  <% if (props.strict) { -%>
+<% if (props.strict) { -%>
     "strict": true,
-  <% } else { -%>
+<% } else { -%>
     "noImplicitAny": true,
-  <% } -%>
+<% } -%>
     "suppressImplicitAnyIndexErrors": true,
     "target": "es5",
     "typeRoots": [],
