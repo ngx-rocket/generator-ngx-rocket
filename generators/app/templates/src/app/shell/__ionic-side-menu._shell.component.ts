@@ -67,7 +67,7 @@ export class ShellComponent {
     };
 
     createdActionSheet = await this.actionSheetController.create(actionSheetOptions);
-    createdActionSheet.present();
+    await createdActionSheet.present();
   }
 
   get username(): string | null {
@@ -114,7 +114,7 @@ export class ShellComponent {
         }
       ]
     });
-    alertController.present();
+    await alertController.present();
   }
 
 }
