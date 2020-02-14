@@ -84,7 +84,7 @@
     "@angular/service-worker": "^9.0.0",
 <% } -%>
 <% if (props.ui === 'ionic') { -%>
-    "@ionic/angular": "^4.0.0",
+    "@ionic/angular": "^5.0.0",
 <% } else if (props.ui === 'bootstrap') { -%>
     "@ng-bootstrap/ng-bootstrap": "^5.0.0-rc.1",
     "bootstrap": "^4.1.1",
