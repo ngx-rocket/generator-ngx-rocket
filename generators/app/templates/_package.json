@@ -89,6 +89,7 @@
     "@ng-bootstrap/ng-bootstrap": "^5.0.0-rc.1",
     "bootstrap": "^4.1.1",
     "@fortawesome/fontawesome-free": "^5.1.0",
+    "@angular/localize": "^9.0.1",
 <% } else if (props.ui === 'material') { -%>
     "@angular/cdk": "^9.0.0",
     "@angular/material": "^9.0.0",
@@ -147,7 +148,7 @@
     "electron-reload": "^1.4.0",
 <% } -%>
 <% if (props.tools.includes('hads')) { -%>
-    "hads": "^1.7.0",
+    "hads": "^2.0.1",
 <% } -%>
 <% if (props.tools.includes('compodoc')) { -%>
     "@compodoc/compodoc": "^1.1.9",
@@ -169,10 +170,10 @@
 <% if (props.tools.includes('prettier')) { -%>
     "prettier": "^1.16.3",
     "tslint-config-prettier": "^1.14.0",
-    "stylelint-config-prettier": "^5.1.0",
+    "stylelint-config-prettier": "^8.0.1",
 <%   if (options.git) { -%>
-    "pretty-quick": "^1.10.0",
-    "husky": "^3.0.0",
+    "pretty-quick": "^2.0.1",
+    "husky": "^4.2.3",
 <%   } -%>
 <% } -%>
     "protractor": "~5.4.3",
