@@ -28,13 +28,6 @@ module.exports = [
     defaults: ''
   },
   {
-    name: 'external-chrome',
-    type: 'Boolean',
-    required: false,
-    description: 'Avoid downloading an extra Chrome binary',
-    defaults: false
-  },
-  {
     name: 'raw',
     type: 'Boolean',
     required: false,

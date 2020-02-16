@@ -177,7 +177,7 @@
 <%   } -%>
 <% } -%>
     "protractor": "~5.4.3",
-<% if (!options['external-chrome']) { -%>
+<% if (props.tools.includes('puppeteer')) { -%>
     "puppeteer": "^2.1.1",
 <% } -%>
     "stylelint": "~13.2.0",
