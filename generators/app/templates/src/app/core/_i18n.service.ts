@@ -4,11 +4,11 @@ import { Subscription } from 'rxjs';
 
 import { Logger } from './logger.service';
 <% if (props.target.includes('electron')) { -%>
-import * as enUS from '../../translations/en-US.json';
-import * as frFR from '../../translations/fr-FR.json';
-<% } else { -%>
 import enUS from '../../translations/en-US.json';
 import frFR from '../../translations/fr-FR.json';
+<% } else { -%>
+import * as enUS from '../../translations/en-US.json';
+import * as frFR from '../../translations/fr-FR.json';
 <% } -%>
 
 const log = new Logger('I18nService');
