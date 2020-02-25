@@ -1,7 +1,7 @@
 <div fxFlex>
 <% if (props.layout === 'simple') { -%>
   <app-header [sidenav]="sidenav"></app-header>
-<% } else { -%>
+<% } -%>
   <mat-sidenav-container fxFill>
 <% if (props.layout === 'simple') { -%>
     <mat-sidenav #sidenav mode="over" ngClass.gt-sm="has-border">
