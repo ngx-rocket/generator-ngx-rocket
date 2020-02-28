@@ -96,12 +96,12 @@ class NgxGenerator extends Generator {
           // Fetch addon name from URL/GitHub/Local package format
           let splitIndex = addon.lastIndexOf('/');
           splitIndex = splitIndex === -1 ? addon.lastIndexOf(':') : splitIndex;
-          addon = addon.substring(splitIndex + 1);
+          addon = addon.slice(splitIndex + 1);
         }
 
         if (addon.startsWith('generator-')) {
           // This prefix must be removed for Yeoman to work properly
-          addon = addon.substring(10);
+          addon = addon.slice(10);
         }
 
         if (addon.endsWith('.git')) {
@@ -110,7 +110,7 @@ class NgxGenerator extends Generator {
         }
 
         this.composeWith(addon, this.options);
-      } catch (error) {
+      } catch (_) {
         this.log(chalk.red(`Error: add-on "${addon}" not found.`));
         // eslint-disable-next-line unicorn/no-process-exit
         process.exit(-1);

@@ -194,7 +194,7 @@ class NgxCli {
     if (npm) {
       addons = await Promise.resolve(spawn.sync('npm', ['search', addonKey, '--json'], {stdio: [0, null, 2]}).stdout);
       addons = addons ? JSON.parse(addons) : [];
-      addons = addons.filter(addon => blacklistedNpmAddons.indexOf(addon.name) === -1);
+      addons = addons.filter(addon => !blacklistedNpmAddons.includes(addon.name));
     } else {
       addons = await this._findAddons();
     }
@@ -257,7 +257,7 @@ class NgxCli {
     try {
       const rc = require(path.join(process.cwd(), '.yo-rc.json'));
       pm = rc['generator-ngx-rocket'].props.packageManager;
-    } catch (error) {
+    } catch (_) {
       // Do nothing
     }
 

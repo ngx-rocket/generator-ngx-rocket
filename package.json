@@ -60,9 +60,9 @@
     "@ngx-rocket/ascii-logo": "^1.0.1",
     "@ngx-rocket/core": "^5.0.2",
     "chalk": "^3.0.0",
-    "conf": "^6.2.0",
+    "conf": "^6.2.1",
     "cross-spawn": "^7.0.1",
-    "figures": "^3.1.0",
+    "figures": "^3.2.0",
     "fuzz-run": "^1.0.2",
     "inquirer": "^7.0.4",
     "insight": "^0.10.3",
@@ -70,12 +70,12 @@
     "lodash.get": "^4.4.2",
     "lodash.upperfirst": "^4.3.1",
     "minimist": "^1.2.0",
-    "semver": "^7.1.2",
-    "update-notifier": "^4.0.0",
-    "yeoman-environment": "^2.7.0"
+    "semver": "^7.1.3",
+    "update-notifier": "^4.1.0",
+    "yeoman-environment": "^2.8.0"
   },
   "devDependencies": {
-    "xo": "^0.25.3"
+    "xo": "^0.27.2"
   },
   "engines": {
     "node": ">=10.9.0"
