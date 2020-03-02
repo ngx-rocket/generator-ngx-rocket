@@ -61,7 +61,7 @@ do
 
         # force specific puppeteer/webdriver version to match up
         npm i puppeteer@2.0.0
-        npx webdriver-manager update --versions.chrome 79.0.3945.36
+        npx webdriver-manager update --versions.chrome 79.0.3945.36 --gecko=false
 
         # force usage of local chrome binary, in headless mode
         PROTRACTOR_CHROME_BIN=$(node -p "require('puppeteer').executablePath()") \

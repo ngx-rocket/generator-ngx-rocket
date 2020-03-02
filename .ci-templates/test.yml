@@ -60,8 +60,6 @@ jobs:
       TEST_ADDON: $(addon)
       TEST_ANDROID: $(testAndroid)
       NGX_PACKAGE_MANAGER: $(packageManager)
-      GITHUB_TOKEN: $(GITHUB_TOKEN)
-      GH_TOKEN: $(GITHUB_TOKEN)
       NODE_OPTIONS: --max_old_space_size=2048
     displayName: Run unit tests
 
