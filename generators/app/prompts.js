@@ -78,19 +78,19 @@ module.exports = [
     message: 'Which UI framework do you want?',
     choices: [
       {
-        value: 'bootstrap',
-        name: 'Bootstrap (more website-oriented)'
-      },
-      {
         value: 'material',
         name: 'Angular Material (more website-oriented)'
       },
       {
         value: 'ionic',
         name: 'Ionic (more mobile-oriented)'
+      },
+      {
+        value: 'bootstrap',
+        name: 'Bootstrap (more website-oriented)'
       }
     ],
-    default: props => (props.target && props.target.includes('cordova') ? 'ionic' : 'bootstrap')
+    default: props => (props.target && props.target.includes('cordova') ? 'ionic' : 'material')
   },
   {
     type: 'list',
