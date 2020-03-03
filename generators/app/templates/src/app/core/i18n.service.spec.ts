@@ -41,8 +41,8 @@ describe('I18nService', () => {
       ]
     });
 
-    i18nService = TestBed.get(I18nService);
-    translateService = TestBed.get(TranslateService);
+    i18nService = TestBed.inject(I18nService);
+    translateService = TestBed.inject(TranslateService);
 
     // Create spies
     onLangChangeSpy = jasmine.createSpy('onLangChangeSpy');

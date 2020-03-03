@@ -25,11 +25,6 @@ import { AboutComponent } from './about.component';
 <% } -%>
     AboutRoutingModule
   ],
-<% if (props.ui === 'ionic') { -%>
-  entryComponents: [
-    AboutComponent
-  ],
-<% } -%>
   declarations: [
     AboutComponent
   ]

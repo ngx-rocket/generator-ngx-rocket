@@ -43,8 +43,8 @@ describe('AuthenticationGuard', () => {
       ]
     });
 
-    authenticationGuard = TestBed.get(AuthenticationGuard);
-    credentialsService = TestBed.get(CredentialsService);
+    authenticationGuard = TestBed.inject(AuthenticationGuard);
+    credentialsService = TestBed.inject(CredentialsService);
   });
 
   it('should have a canActivate method', () => {

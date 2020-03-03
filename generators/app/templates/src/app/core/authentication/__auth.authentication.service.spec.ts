@@ -13,8 +13,8 @@ describe('AuthenticationService', () => {
       providers: [{ provide: CredentialsService, useClass: MockCredentialsService }, AuthenticationService]
     });
 
-    authenticationService = TestBed.get(AuthenticationService);
-    credentialsService = TestBed.get(CredentialsService);
+    authenticationService = TestBed.inject(AuthenticationService);
+    credentialsService = TestBed.inject(CredentialsService);
     credentialsService.credentials = null;
     spyOn(credentialsService, 'setCredentials').and.callThrough();
   });

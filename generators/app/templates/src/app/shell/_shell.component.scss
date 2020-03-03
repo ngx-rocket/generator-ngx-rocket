@@ -72,6 +72,10 @@ $tabs-height: $tabs-width;
 }
 
 <%   if (props.layout === 'simple') { -%>
+.mat-drawer-container {
+  position: unset;
+}
+
 .mat-sidenav,
 .mat-drawer-content,
 // Force style down to child components

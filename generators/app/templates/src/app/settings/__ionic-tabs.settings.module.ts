@@ -13,9 +13,6 @@ import { SettingsComponent } from './settings.component';
     IonicModule,
     SettingsRoutingModule
   ],
-  entryComponents: [
-    SettingsComponent
-  ],
   declarations: [
     SettingsComponent
   ]

@@ -1,12 +1,12 @@
 <ion-content no-bounce>
   <div class="login-background"></div>
-  <ion-grid no-padding>
-    <ion-row justify-content-center no-padding>
-      <ion-col size-sm="8" size-lg="6" size-xl="4" align-self-center no-padding>
-        <div class="login-header" text-center>
+  <ion-grid class="ion-no-padding">
+    <ion-row class="ion-justify-content-center ion-no-padding">
+      <ion-col size-sm="8" size-lg="6" size-xl="4" class="ion-align-self-center ion-no-padding">
+        <div class="login-header ion-text-center">
           <h1 translate>APP_NAME</h1>
           <h6>v{{version}}</h6>
-          <ion-list *ngIf="isWeb" color="primary" lines="none" no-padding>
+          <ion-list *ngIf="isWeb" color="primary" lines="none" class="ion-no-padding">
             <ion-item lines="none" color="primary">
               <ion-label><span translate>Language</span></ion-label>
               <ion-select [ngModel]="currentLanguage" (ngModelChange)="setLanguage($event)" interface="popover">
@@ -18,7 +18,7 @@
         <div class="login-container">
           <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
             <ion-text color="danger" [hidden]="!error || loginForm.dirty || isLoading">
-              <span padding translate>Username or password incorrect.</span>
+              <span class="ion-padding" translate>Username or password incorrect.</span>
             </ion-text>
             <ion-list>
               <ion-item lines="inset">
@@ -26,21 +26,21 @@
                 <ion-input type="text" formControlName="username" autocomplete="username"></ion-input>
               </ion-item>
               <ion-text color="danger" [hidden]="loginForm.controls.username.valid || loginForm.controls.username.untouched">
-                <span padding translate>Username is required</span>
+                <span class="ion-padding" translate>Username is required</span>
               </ion-text>
               <ion-item lines="inset">
                 <ion-label color="medium" position="floating" translate>Password</ion-label>
                 <ion-input type="password" formControlName="password" autocomplete="current-password"></ion-input>
               </ion-item>
               <ion-text color="danger" [hidden]="loginForm.controls.password.valid || loginForm.controls.password.untouched">
-                <span padding translate>Password is required</span>
+                <span class="ion-padding" translate>Password is required</span>
               </ion-text>
-              <ion-item padding-top lines="none">
+              <ion-item class="ion-padding-top" lines="none">
                 <ion-label translate>Remember me</ion-label>
                 <ion-checkbox slot="start" formControlName="remember"></ion-checkbox>
               </ion-item>
             </ion-list>
-            <div padding-horizontal>
+            <div class="ion-padding-horizontal">
               <ion-button type="submit" [disabled]="loginForm.invalid || isLoading" color="primary" expand="block" translate>
                 Login
               </ion-button>

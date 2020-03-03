@@ -1,5 +1,5 @@
-<ion-split-pane>
-  <ion-menu>
+<ion-split-pane contentId="main-content">
+  <ion-menu contentId="main-content">
 <% if (!props.auth) { -%>
     <ion-header>
       <ion-toolbar color="primary">
@@ -17,7 +17,7 @@
     <ion-content>
       <div ion-fixed>
 <% if (props.auth) { -%>
-        <div class="profile" text-center padding>
+        <div class="profile ion-text-center ion-padding">
           <ion-icon class="profile-icon" name="contact"></ion-icon>
           <div>
             <ion-menu-toggle auto-hide="false">
@@ -44,5 +44,5 @@
       </div>
     </ion-content>
   </ion-menu>
-  <ion-router-outlet main></ion-router-outlet>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-split-pane>

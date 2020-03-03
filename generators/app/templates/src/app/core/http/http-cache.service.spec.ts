@@ -18,7 +18,7 @@ describe('HttpCacheService', () => {
     window.sessionStorage.removeItem(cachePersistenceKey);
     window.localStorage.removeItem(cachePersistenceKey);
 
-    httpCacheService = TestBed.get(HttpCacheService);
+    httpCacheService = TestBed.inject(HttpCacheService);
 
     response = new HttpResponse({ body: 'data' });
   });

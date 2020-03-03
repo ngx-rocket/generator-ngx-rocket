@@ -39,9 +39,9 @@ describe('CacheInterceptor', () => {
   describe('with default configuration', () => {
     beforeEach(() => {
       interceptorOptions = null;
-      http = TestBed.get(HttpClient);
-      httpMock = TestBed.get(HttpTestingController as Type<HttpTestingController>);
-      httpCacheService = TestBed.get(HttpCacheService);
+      http = TestBed.inject(HttpClient);
+      httpMock = TestBed.inject(HttpTestingController as Type<HttpTestingController>);
+      httpCacheService = TestBed.inject(HttpCacheService);
     });
 
     it('should cache the request', () => {
@@ -89,9 +89,9 @@ describe('CacheInterceptor', () => {
   describe('with update forced configuration', () => {
     beforeEach(() => {
       interceptorOptions = { update: true };
-      http = TestBed.get(HttpClient);
-      httpMock = TestBed.get(HttpTestingController as Type<HttpTestingController>);
-      httpCacheService = TestBed.get(HttpCacheService);
+      http = TestBed.inject(HttpClient);
+      httpMock = TestBed.inject(HttpTestingController as Type<HttpTestingController>);
+      httpCacheService = TestBed.inject(HttpCacheService);
     });
 
     afterEach(() => {

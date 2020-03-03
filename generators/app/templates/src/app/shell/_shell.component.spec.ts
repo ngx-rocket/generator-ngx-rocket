@@ -76,13 +76,6 @@ describe('ShellComponent', () => {
         ShellComponent
       ]
   })
-<% if (props.ui === 'ionic' && props.layout === 'tabs') { -%>
-    .overrideComponent(ShellComponent, {
-        set: {
-          entryComponents: [HomeComponent, AboutComponent, SettingsComponent]
-        }
-      })
-<% } -%>
     .compileComponents();
   }));
 
