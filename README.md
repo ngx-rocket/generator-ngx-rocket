@@ -180,7 +180,7 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
 - UI based on:
   * Bootstrap
     - [Bootstrap 4](https://getbootstrap.com)
-    - [ng-bootsrap](https://ng-bootstrap.github.io/)
+    - [ng-bootstrap](https://ng-bootstrap.github.io/)
     - [Font Awesome](http://fontawesome.io)
   * Ionic:
     - [Ionic](http://ionicframework.com)
