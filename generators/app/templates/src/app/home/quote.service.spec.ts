@@ -2,7 +2,7 @@ import { Type } from '@angular/core';
 import { TestBed, async } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { CoreModule, HttpCacheService } from '@app/core';
+import { CoreModule } from '@app/core';
 import { QuoteService } from './quote.service';
 
 describe('QuoteService', () => {
@@ -16,16 +16,12 @@ describe('QuoteService', () => {
         HttpClientTestingModule
       ],
       providers: [
-        HttpCacheService,
         QuoteService
       ]
     });
 
     quoteService = TestBed.inject(QuoteService);
     httpMock = TestBed.inject(HttpTestingController as Type<HttpTestingController>);
-
-    const htttpCacheService = TestBed.inject(HttpCacheService);
-    htttpCacheService.cleanCache();
   });
 
   afterEach(() => {
