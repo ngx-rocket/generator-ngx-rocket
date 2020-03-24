@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 <% if (props.auth) { -%>
 import { Router } from '@angular/router';
 
-import { AuthenticationService, CredentialsService, I18nService } from '@app/core';
+import { I18nService } from '@app/core';
+import { AuthenticationService, CredentialsService } from '@app/auth';
 <% } else { -%>
 
 import { I18nService } from '@app/core';

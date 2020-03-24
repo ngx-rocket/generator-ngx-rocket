@@ -7,6 +7,11 @@ import { IonicModule } from '@ionic/angular';
 
 import { SharedModule } from '@app/shared';
 import { CoreModule } from '@app/core';
+<% if (props.auth) { -%>
+import { AuthenticationService, CredentialsService } from '@app/auth';
+import { MockAuthenticationService } from '@app/auth/authentication.service.mock';
+import { MockCredentialsService } from '@app/auth/credentials.service.mock';
+<% } -%>
 import { SettingsComponent } from './settings.component';
 
 describe('SettingsComponent', () => {
@@ -25,9 +30,13 @@ describe('SettingsComponent', () => {
         schemas: [CUSTOM_ELEMENTS_SCHEMA],
         declarations: [SettingsComponent],
         providers: [
+<% if (props.auth) { -%>
+          { provide: AuthenticationService, useClass: MockAuthenticationService },
+          { provide: CredentialsService, useClass: MockCredentialsService },
+<% } -%>
           Platform,
           AlertController,
-          ActionSheetController,
+          ActionSheetController
         ]
       })
       .compileComponents();

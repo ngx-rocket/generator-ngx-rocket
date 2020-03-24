@@ -1,7 +1,7 @@
 import { Routes, Route } from '@angular/router';
 
 <% if (props.auth) { -%>
-import { AuthenticationGuard } from '@app/core';
+import { AuthenticationGuard } from '@app/auth';
 <% } -%>
 import { ShellComponent } from './shell.component';
 

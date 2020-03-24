@@ -35,13 +35,13 @@ import { environment } from '@env/environment';
 <% } -%>
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
+<% if (props.auth) { -%>
+import { AuthModule } from '@app/auth';
+<% } -%>
 import { HomeModule } from './home/home.module';
 import { ShellModule } from './shell/shell.module';
 <% if (!props.lazy) { -%>
 import { AboutModule } from './about/about.module';
-<% } -%>
-<% if (props.auth) { -%>
-import { LoginModule } from './login/login.module';
 <% } -%>
 <% if (props.layout === 'tabs') { -%>
 import { SettingsModule } from './settings/settings.module';
@@ -77,7 +77,7 @@ import { AppRoutingModule } from './app-routing.module';
     AboutModule,
 <% } -%>
 <% if (props.auth) { -%>
-    LoginModule,
+    AuthModule,
 <% } -%>
 <% if (props.angulartics ) { -%>
     Angulartics2Module.forRoot(),

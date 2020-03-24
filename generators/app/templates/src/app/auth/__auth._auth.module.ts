@@ -15,7 +15,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from '@app/shared';
 import { MaterialModule } from '@app/material.module';
 <% } -%>
-import { LoginRoutingModule } from './login-routing.module';
+import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login.component';
 
 @NgModule({
@@ -33,10 +33,10 @@ import { LoginComponent } from './login.component';
     FlexLayoutModule,
     MaterialModule,
 <% } -%>
-    LoginRoutingModule
+    AuthRoutingModule
   ],
   declarations: [
     LoginComponent
   ]
 })
-export class LoginModule { }
+export class AuthModule { }

@@ -56,14 +56,14 @@
     "generate": "ng generate"
   },
   "dependencies": {
-    "@angular/animations": "^9.0.0",
-    "@angular/common": "^9.0.0",
-    "@angular/compiler": "^9.0.0",
-    "@angular/core": "^9.0.0",
-    "@angular/forms": "^9.0.0",
-    "@angular/platform-browser": "^9.0.0",
-    "@angular/platform-browser-dynamic": "^9.0.0",
-    "@angular/router": "^9.0.0",
+    "@angular/animations": "^9.0.7",
+    "@angular/common": "^9.0.7",
+    "@angular/compiler": "^9.0.7",
+    "@angular/core": "^9.0.7",
+    "@angular/forms": "^9.0.7",
+    "@angular/platform-browser": "^9.0.7",
+    "@angular/platform-browser-dynamic": "^9.0.7",
+    "@angular/router": "^9.0.7",
     "@ngx-translate/core": "^12.0.0",
 <% if (props.target.includes('cordova')) { -%>
     "@ionic-native/core": "^5.0.0",
@@ -81,7 +81,7 @@
     "cordova-plugin-whitelist": "^1.3.3",
 <% } -%>
 <% if (props.pwa) { -%>
-    "@angular/service-worker": "^9.0.0",
+    "@angular/service-worker": "^9.0.7",
 <% } -%>
 <% if (props.ui === 'ionic') { -%>
     "@ionic/angular": "^5.0.0",
@@ -89,10 +89,10 @@
     "@ng-bootstrap/ng-bootstrap": "^5.0.0-rc.1",
     "bootstrap": "^4.1.1",
     "@fortawesome/fontawesome-free": "^5.1.0",
-    "@angular/localize": "^9.0.1",
+    "@angular/localize": "^9.0.7",
 <% } else if (props.ui === 'material') { -%>
-    "@angular/cdk": "^9.0.0",
-    "@angular/material": "^9.0.0",
+    "@angular/cdk": "^9.1.3",
+    "@angular/material": "^9.1.3",
     "@angular/flex-layout": "^9.0.0-beta.29",
     "material-design-icons-iconfont": "^5.0.1",
 <% } -%>
@@ -112,8 +112,8 @@
     "date-fns": "^2.9.0",
 <% } -%>
     "rxjs": "^6.5.4",
-    "tslib": "^1.10.0",
-    "zone.js": "^0.10.2"
+    "tslib": "^1.10.1",
+    "zone.js": "^0.10.3"
   },
   "devDependencies": {
 <% if (props.target.includes('cordova')) { -%>
@@ -122,10 +122,10 @@
 <% if (props.tools.includes('jest')) { -%>
     "@angular-builders/jest": "^8.3.2",
 <% } -%>
-    "@angular/cli": "~9.0.1",
-    "@angular/compiler-cli": "^9.0.0",
-    "@angular/language-service": "^9.0.0",
-    "@angular-devkit/build-angular": "^0.900.1",
+    "@angular/cli": "~9.0.7",
+    "@angular/compiler-cli": "^9.0.1",
+    "@angular/language-service": "^9.0.1",
+    "@angular-devkit/build-angular": "^0.900.7",
     "@angularclass/hmr": "^2.1.3",
     "@biesbjerg/ngx-translate-extract": "^4.2.0",
     "@ngx-rocket/scripts": "^4.0.0",
@@ -180,11 +180,11 @@
 <% if (props.tools.includes('puppeteer')) { -%>
     "puppeteer": "^2.1.1",
 <% } -%>
-    "stylelint": "~13.2.0",
+    "stylelint": "~13.2.1",
     "stylelint-config-recommended-scss": "~4.2.0",
     "stylelint-config-standard": "~20.0.0",
-    "stylelint-scss": "~3.14.2",
-    "ts-node": "^8.3.0",
+    "stylelint-scss": "~3.16.0",
+    "ts-node": "^8.8.1",
     "tslint": "~5.18.0",
     "typescript": "~3.7.5"
 <% if (props.tools.includes('prettier')) { -%>

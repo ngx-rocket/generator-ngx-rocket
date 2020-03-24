@@ -3,10 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MediaObserver } from '@angular/flex-layout';
 
-<% if (props.auth) { -%>
-import { AuthenticationService, CredentialsService, I18nService } from '@app/core';
-<% } else { -%>
 import { I18nService } from '@app/core';
+<% if (props.auth) { -%>
+import { AuthenticationService, CredentialsService } from '@app/auth';
 <% } -%>
 
 @Component({

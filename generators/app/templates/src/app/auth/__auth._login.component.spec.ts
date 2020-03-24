@@ -18,6 +18,9 @@ import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { MaterialModule } from '@app/material.module';
 <% } -%>
+import { AuthenticationService, CredentialsService } from '@app/auth';
+import { MockAuthenticationService } from '@app/auth/authentication.service.mock';
+import { MockCredentialsService } from '@app/auth/credentials.service.mock';
 import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {
@@ -46,8 +49,10 @@ describe('LoginComponent', () => {
 <% if (props.ui === 'ionic') { -%>
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
+        { provide: AuthenticationService, useClass: MockAuthenticationService },
+        { provide: CredentialsService, useClass: MockCredentialsService },
         Platform,
-        LoadingController,
+        LoadingController
       ],
 <% } -%>
       declarations: [LoginComponent]
