@@ -12,12 +12,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@app/material.module';
 <% } -%>
 
-<% if (props.auth) { -%>
-import { AuthenticationService, CredentialsService, CoreModule } from '@app/core';
-import { MockAuthenticationService } from '@app/core/authentication/authentication.service.mock';
-import { MockCredentialsService } from '@app/core/authentication/credentials.service.mock';
-<% } else {-%>
 import { CoreModule } from '@app/core';
+<% if (props.auth) { -%>
+import { AuthenticationService, CredentialsService } from '@app/auth';
+import { MockAuthenticationService } from '@app/auth/authentication.service.mock';
+import { MockCredentialsService } from '@app/auth/credentials.service.mock';
 <% } -%>
 
 import { ShellComponent } from './shell.component';

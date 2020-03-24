@@ -4,10 +4,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { ActionSheetController, AlertController, Platform } from '@ionic/angular';
 import { TextFieldTypes } from '@ionic/core';
 
-<% if (props.auth) { -%>
-import { AuthenticationService, CredentialsService, I18nService } from '@app/core';
-<% } else { -%>
 import { I18nService } from '@app/core';
+<% if (props.auth) { -%>
+import { AuthenticationService, CredentialsService } from '@app/auth';
 <% } -%>
 
 @Component({

@@ -12,6 +12,9 @@ import { IonicModule } from '@ionic/angular';
 <% if (props.ui === 'material') { -%>
 import { MaterialModule } from '@app/material.module';
 <% } -%>
+<% if (props.auth) { -%>
+import { AuthModule } from '@app/auth';
+<% } -%>
 
 import { ShellComponent } from './shell.component';
 <% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple') || props.ui === 'raw') { -%>
@@ -29,6 +32,9 @@ import { HeaderComponent } from './header/header.component';
     MaterialModule,
 <% } else if (props.ui === 'ionic') { -%>
     IonicModule,
+<% } -%>
+<% if (props.auth) { -%>
+    AuthModule,
 <% } -%>
     RouterModule
   ],
