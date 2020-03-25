@@ -3,7 +3,7 @@ module.exports = [
     name: 'skip-welcome',
     type: 'Boolean',
     required: false,
-    description: "Skip Yeoman's welcome message",
+    description: 'Skip Yeoman’s welcome message',
     defaults: false
   },
   {
