@@ -19,6 +19,7 @@ import { MockAuthenticationService } from '@app/auth/authentication.service.mock
 import { MockCredentialsService } from '@app/auth/credentials.service.mock';
 <% } -%>
 
+import { I18nModule } from '@app/i18n';
 import { ShellComponent } from './shell.component';
 <% if (props.ui === 'ionic' && props.layout === 'tabs') { -%>
 import { AboutComponent } from '@app/about/about.component';
@@ -41,6 +42,7 @@ describe('ShellComponent', () => {
       imports: [
         RouterTestingModule,
         TranslateModule.forRoot(),
+        I18nModule,
 <% if (props.ui === 'ionic') { -%>
         IonicModule.forRoot(),
 <%   if (props.layout === 'tabs') { -%>

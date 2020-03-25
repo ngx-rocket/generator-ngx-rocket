@@ -3,7 +3,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 <% if (props.ui === 'ionic') { -%>
-import { FormsModule } from '@angular/forms';
 import { IonicModule, LoadingController, Platform } from '@ionic/angular';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 <% } else if (props.ui === 'bootstrap') { -%>
@@ -21,6 +20,7 @@ import { MaterialModule } from '@app/material.module';
 import { AuthenticationService, CredentialsService } from '@app/auth';
 import { MockAuthenticationService } from '@app/auth/authentication.service.mock';
 import { MockCredentialsService } from '@app/auth/credentials.service.mock';
+import { I18nModule } from '@app/i18n';
 import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {
@@ -32,7 +32,6 @@ describe('LoginComponent', () => {
       imports: [
 <% if (props.ui === 'ionic') { -%>
         IonicModule.forRoot(),
-        FormsModule,
 <% } else if (props.ui === 'bootstrap') { -%>
         NgbModule,
 <% } else if (props.ui === 'material') { -%>
@@ -43,6 +42,7 @@ describe('LoginComponent', () => {
 <% } -%>
         RouterTestingModule,
         TranslateModule.forRoot(),
+        I18nModule,
         ReactiveFormsModule,
         CoreModule
       ],

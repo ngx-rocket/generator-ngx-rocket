@@ -1,3 +1,5 @@
+const getLanguages = require('./languages');
+
 module.exports = [
   {
     type: 'input',
@@ -135,6 +137,14 @@ module.exports = [
     name: 'angulartics',
     message: 'Do you want analytics support (with Angulartics2)?',
     default: false
+  },
+  {
+    type: 'checkbox',
+    name: 'languages',
+    message: 'Which languages do you want to support?',
+    choices: () => getLanguages()
+      .map(language => ({ value: language, name: language, checked: language === 'en-US' })),
+    validate: value => value.length > 0 ? true : 'You must pick at least one language.'
   },
   {
     type: 'list',

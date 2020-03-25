@@ -3,7 +3,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
 
-import { I18nService } from '@app/core';
 <% if (props.auth) { -%>
 import { AuthenticationService, CredentialsService } from '@app/auth';
 <% } -%>
@@ -21,17 +20,12 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router,
               private titleService: Title,
               private authenticationService: AuthenticationService,
-              private credentialsService: CredentialsService,
+              private credentialsService: CredentialsService) { }
 <% } else { -%>
-  constructor(private titleService: Title,
+  constructor(private titleService: Title) { }
 <% } -%>
-              private i18nService: I18nService) { }
 
   ngOnInit() { }
-
-  setLanguage(language: string) {
-    this.i18nService.language = language;
-  }
 
 <% if (props.auth) { -%>
   logout() {
@@ -39,16 +33,6 @@ export class HeaderComponent implements OnInit {
       .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
   }
 
-<% } -%>
-  get currentLanguage(): string {
-    return this.i18nService.language;
-  }
-
-  get languages(): string[] {
-    return this.i18nService.supportedLanguages;
-  }
-
-<% if (props.auth) { -%>
   get username(): string | null {
     const credentials = this.credentialsService.credentials;
     return credentials ? credentials.username : null;

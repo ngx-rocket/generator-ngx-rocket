@@ -9,6 +9,7 @@ const asciiLogo = require('@ngx-rocket/ascii-logo');
 const pkg = require('../../package.json');
 const prompts = require('./prompts');
 const options = require('./options');
+const getLanguages = require('./languages');
 
 const packageJsonFile = 'package.json';
 
@@ -132,10 +133,16 @@ class NgxGenerator extends Generator {
     this.props.desktop = this.props.desktop || [];
     this.props.utility = this.props.utility || [];
     this.props.tools = this.props.tools || [];
+    this.props.languages = this.props.languages || ['en-US', 'fr-FR'];
     this.shareProps(this.props);
   }
 
   configuring() {
+    // Add prefix rules for languages
+    getLanguages().forEach(language => {
+      this._prefixRules[language] = (props => props.languages.includes(language));
+    });
+
     this.insight.track(
       'generator',
       this.props.target,

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicModule } from '@ionic/angular';
 
+import { I18nModule } from '@app/i18n';
 import { SettingsRoutingModule } from './settings-routing.module';
 import { SettingsComponent } from './settings.component';
 
@@ -11,7 +12,8 @@ import { SettingsComponent } from './settings.component';
     CommonModule,
     TranslateModule,
     IonicModule,
-    SettingsRoutingModule
+    I18nModule,
+    SettingsRoutingModule,
   ],
   declarations: [
     SettingsComponent

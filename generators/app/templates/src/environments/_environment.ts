@@ -15,11 +15,8 @@ export const environment = {
   hmr: true,
   version: env.npm_package_version + '-dev',
   serverUrl: '/api',
-  defaultLanguage: 'en-US',
-  supportedLanguages: [
-    'en-US',
-    'fr-FR'
-  ]
+  defaultLanguage: '<%= props.languages.includes('en-US') ? 'en-US' : props.languages[0] %>',
+  supportedLanguages: [<%- (props.languages).map(language => `'${language}'`).join(', ') %>]
 };
 
 /*

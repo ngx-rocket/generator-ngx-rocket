@@ -3,11 +3,7 @@
     <h1 translate>APP_NAME</h1>
     <div>
       <strong>v{{version}}</strong>
-      <select (change)="setLanguage($event.target.value)">
-        <option *ngFor="let language of languages" [value]="language" [selected]="language === currentLanguage">
-          {{language}}
-        </option>
-      </select>
+      <app-language-selector></app-language-selector>
     </div>
     <div class="container">
       <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
