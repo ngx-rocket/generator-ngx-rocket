@@ -86,7 +86,7 @@
 <% if (props.ui === 'ionic') { -%>
     "@ionic/angular": "^5.0.0",
 <% } else if (props.ui === 'bootstrap') { -%>
-    "@ng-bootstrap/ng-bootstrap": "^5.0.0-rc.1",
+    "@ng-bootstrap/ng-bootstrap": "^6.0.2",
     "bootstrap": "^4.1.1",
     "@fortawesome/fontawesome-free": "^5.1.0",
     "@angular/localize": "^9.0.7",
