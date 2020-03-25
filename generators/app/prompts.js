@@ -185,6 +185,10 @@ module.exports = [
       {
         value: 'jest',
         name: 'Jest (Delightful JavaScript Testing)'
+      },
+      {
+        value: 'puppeteer',
+        name: 'Puppeteer (Embedded Chrome for testing)'
       }
     ]
   },
@@ -208,10 +212,6 @@ module.exports = [
       {
         value: 'datefns',
         name: 'Date-fns (Moment.js FP alternative)'
-      },
-      {
-        value: 'puppeteer',
-        name: 'Puppeteer (Embedded Chrome for testing)'
       }
     ]
   }
