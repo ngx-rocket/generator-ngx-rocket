@@ -1,13 +1,22 @@
 {
   "APP_NAME": "<%= props.appName %>",
   "About": "Über",
-  "Hello world !": "Hallo Welt !",
-  "Home": "Home",
+  "Hello world !": "Hallo welt !",
+  "Home": "Hause",
 <% if (props.ui === 'ionic') { -%>
   "Cancel": "Abbruch",
   "Change language": "Sprache wechseln",
   "Language": "Sprache",
   "Ok": "Ok",
+<%   if (props.layout === 'tabs') { -%>
+  "Settings": "Einstellungen",
+  "Notifications": "Mitteilung",
+  "Preferences": "Nutzerpreferenzen",
+  "Account": "Konto",
+<%     if (props.auth) { -%>
+  "Profile": "Profil",
+<%     } -%>
+<%   } -%>
 <% } -%>
 <% if (props.auth) { -%>
 <%   if (props.ui !== 'ionic') { -%>
