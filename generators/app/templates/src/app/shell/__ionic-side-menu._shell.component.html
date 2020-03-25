@@ -5,9 +5,7 @@
       <ion-toolbar color="primary">
         <ion-buttons *ngIf="isWeb" slot="end">
           <ion-menu-toggle auto-hide="false">
-            <ion-button class="profile-button" (click)="changeLanguage()">
-              <ion-icon name="globe"></ion-icon>
-            </ion-button>
+            <app-language-selector></app-language-selector>
           </ion-menu-toggle>
         </ion-buttons>
         <ion-title>{{'APP_NAME' | translate}}</ion-title>
@@ -18,7 +16,7 @@
       <div ion-fixed>
 <% if (props.auth) { -%>
         <div class="profile ion-text-center ion-padding">
-          <ion-icon class="profile-icon" name="contact"></ion-icon>
+          <ion-icon class="profile-icon" name="person-circle"></ion-icon>
           <div>
             <ion-menu-toggle auto-hide="false">
               <ion-button class="profile-button" color="light" (click)="showProfileActions()"
@@ -29,7 +27,7 @@
           </div>
         </div>
 <% } -%>
-        <ion-list>
+        <ion-list lines="full" class="ion-no-padding">
           <ion-menu-toggle auto-hide="false">
             <ion-item [routerDirection]="'root'" routerLink="/home" routerLinkActive="active">
               <ion-label><span translate>Home</span></ion-label>

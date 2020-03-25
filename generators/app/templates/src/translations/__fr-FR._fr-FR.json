@@ -16,7 +16,7 @@
 <%     if (props.auth) { -%>
   "Profile": "Profil",
 <%     } -%>
-<%    } -%>
+<%   } -%>
 <% } -%>
 <% if (props.auth) { -%>
 <%   if (props.ui !== 'ionic') { -%>

@@ -9,13 +9,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 <% } else if (props.ui === 'ionic') { -%>
 import { IonicModule } from '@ionic/angular';
 <% } -%>
+
+import { I18nModule } from '@app/i18n';
 <% if (props.ui === 'material') { -%>
 import { MaterialModule } from '@app/material.module';
 <% } -%>
 <% if (props.auth) { -%>
 import { AuthModule } from '@app/auth';
 <% } -%>
-
 import { ShellComponent } from './shell.component';
 <% if (props.ui === 'bootstrap' || (props.ui === 'material' && props.layout === 'simple') || props.ui === 'raw') { -%>
 import { HeaderComponent } from './header/header.component';
@@ -36,6 +37,7 @@ import { HeaderComponent } from './header/header.component';
 <% if (props.auth) { -%>
     AuthModule,
 <% } -%>
+    I18nModule,
     RouterModule
   ],
   declarations: [

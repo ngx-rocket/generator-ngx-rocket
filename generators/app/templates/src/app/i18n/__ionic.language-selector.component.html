@@ -1,0 +1,17 @@
+<ng-container [ngSwitch]="type">
+  <ion-button *ngSwitchCase="'icon'" class="profile-button" (click)="changeLanguage()">
+    <ion-icon name="globe-outline"></ion-icon>
+  </ion-button>
+
+  <ion-item *ngSwitchCase="'select'" [ngClass]="itemClass">
+    <ion-label><span translate>Language</span></ion-label>
+    <ion-select [ngModel]="currentLanguage" (ngModelChange)="setLanguage($event)" interface="popover">
+      <ion-select-option *ngFor="let language of languages" [value]="language">{{language}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item *ngSwitchCase="'item'" button (click)="changeLanguage()" [ngClass]="itemClass">
+    <ion-icon name="md-globe" slot="start"></ion-icon>
+    <ion-label translate>Change language</ion-label>
+  </ion-item>
+</ng-container>

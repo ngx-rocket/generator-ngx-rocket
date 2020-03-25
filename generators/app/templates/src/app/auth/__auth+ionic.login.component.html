@@ -7,12 +7,8 @@
           <h1 translate>APP_NAME</h1>
           <h6>v{{version}}</h6>
           <ion-list *ngIf="isWeb" color="primary" lines="none" class="ion-no-padding">
-            <ion-item lines="none" color="primary">
-              <ion-label><span translate>Language</span></ion-label>
-              <ion-select [ngModel]="currentLanguage" (ngModelChange)="setLanguage($event)" interface="popover">
-                <ion-select-option *ngFor="let language of languages" [value]="language">{{language}}</ion-select-option>
-              </ion-select>
-            </ion-item>
+            <app-language-selector type="select" itemClass="ion-color ion-color-primary item-lines-none">
+            </app-language-selector>
           </ion-list>
         </div>
         <div class="login-container">

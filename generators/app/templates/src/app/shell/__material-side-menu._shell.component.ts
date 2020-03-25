@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MediaObserver } from '@angular/flex-layout';
 
-import { I18nService } from '@app/core';
 <% if (props.auth) { -%>
 import { AuthenticationService, CredentialsService } from '@app/auth';
 <% } -%>
@@ -17,18 +16,13 @@ export class ShellComponent implements OnInit {
 
   constructor(private router: Router,
               private titleService: Title,
-              private media: MediaObserver,
 <% if (props.auth) { -%>
               private authenticationService: AuthenticationService,
               private credentialsService: CredentialsService,
 <% } -%>
-              private i18nService: I18nService) { }
+              private media: MediaObserver) { }
 
   ngOnInit() { }
-
-  setLanguage(language: string) {
-    this.i18nService.language = language;
-  }
 
 <% if (props.auth) { -%>
   logout() {
@@ -42,10 +36,6 @@ export class ShellComponent implements OnInit {
   }
 
 <% } -%>
-  get languages(): string[] {
-    return this.i18nService.supportedLanguages;
-  }
-
   get isMobile(): boolean {
     return this.media.isActive('xs') || this.media.isActive('sm');
   }

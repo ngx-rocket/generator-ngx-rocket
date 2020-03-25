@@ -3,15 +3,8 @@
     <h1 translate>APP_NAME</h1>
     <div>
       <h6 class="d-inline-block">v{{version}}</h6>
-      <div class="d-inline-block ml-3" ngbDropdown>
-        <button id="language-dropdown" class="btn btn-sm btn-secondary" ngbDropdownToggle>
-          {{currentLanguage}}
-        </button>
-        <div ngbDropdownMenu aria-labelledby="language-dropdown">
-          <button class="dropdown-item" *ngFor="let language of languages" (click)="setLanguage(language)">
-            {{language}}
-          </button>
-        </div>
+      <div class="d-inline-block ml-3">
+        <app-language-selector></app-language-selector>
       </div>
     </div>
     <div class="container">
