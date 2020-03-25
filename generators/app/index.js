@@ -71,7 +71,7 @@ class NgxGenerator extends Generator {
 
     if (fromVersion) {
       if (fromVersion >= this.version) {
-        this.log(chalk.green("\nNothing to update, it's all good!\n"));
+        this.log(chalk.green('\nNothing to update, it’s all good!\n'));
         // eslint-disable-next-line unicorn/no-process-exit
         process.exit(0);
       }
@@ -82,7 +82,7 @@ class NgxGenerator extends Generator {
           this.version
         )})\n`
       );
-      this.log(`${chalk.yellow("Make sure you don't have uncommitted changes before overwriting files!")}`);
+      this.log(`${chalk.yellow('Make sure you don’t have uncommitted changes before overwriting files!')}`);
       this.insight.track('update', fromVersion, 'to', this.version);
     } else if (!this.options['skip-welcome']) {
       this.log(asciiLogo(pkg.version));
@@ -140,7 +140,7 @@ class NgxGenerator extends Generator {
   configuring() {
     // Add prefix rules for languages
     getLanguages().forEach(language => {
-      this._prefixRules[language] = (props => props.languages.includes(language));
+      this._prefixRules[language] = props => props.languages.includes(language);
     });
 
     this.insight.track(
@@ -165,7 +165,7 @@ class NgxGenerator extends Generator {
     }
 
     if (!this.props.skipInstall) {
-      this.log(`\nRunning ${chalk.yellow(`${this.packageManager} install`)}, please wait...`);
+      this.log(`\nRunning ${chalk.yellow(`${this.packageManager} install`)}, please wait…`);
 
       const install = this.packageManager === 'yarn' ? this.yarnInstall.bind(this) : this.npmInstall.bind(this);
 

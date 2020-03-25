@@ -142,9 +142,8 @@ module.exports = [
     type: 'checkbox',
     name: 'languages',
     message: 'Which languages do you want to support?',
-    choices: () => getLanguages()
-      .map(language => ({ value: language, name: language, checked: language === 'en-US' })),
-    validate: value => value.length > 0 ? true : 'You must pick at least one language.'
+    choices: () => getLanguages().map(language => ({value: language, name: language, checked: language === 'en-US'})),
+    validate: value => (value.length > 0 ? true : 'You must pick at least one language.')
   },
   {
     type: 'list',

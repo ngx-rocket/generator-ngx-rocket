@@ -32,7 +32,7 @@ class NgxAddonGenerator extends Generator {
 
     if (fromVersion) {
       if (fromVersion >= this.version) {
-        this.log(chalk.green("\nNothing to update, it's all good!\n"));
+        this.log(chalk.green('\nNothing to update, it’s all good!\n'));
         // eslint-disable-next-line unicorn/no-process-exit
         process.exit(0);
       }
@@ -43,7 +43,7 @@ class NgxAddonGenerator extends Generator {
           this.version
         )})\n`
       );
-      this.log(`${chalk.yellow("Make sure you don't have uncommitted changes before overwriting files!")}`);
+      this.log(`${chalk.yellow('Make sure you don’t have uncommitted changes before overwriting files!')}`);
       this.insight.track('update', fromVersion, 'to', this.version);
     } else if (!this.options['skip-welcome']) {
       this.log(asciiLogo(pkg.version));
@@ -65,7 +65,7 @@ class NgxAddonGenerator extends Generator {
     const skipInstall = this.options['skip-install'];
 
     if (!skipInstall) {
-      this.log(`\nRunning ${chalk.yellow(`${this.packageManager} install`)}, please wait...`);
+      this.log(`\nRunning ${chalk.yellow(`${this.packageManager} install`)}, please wait…`);
 
       if (this.packageManager === 'yarn') {
         this.yarnInstall();
