@@ -40,19 +40,6 @@ Then follow these steps:
    
 8. Done! :tropical_drink: Now you can tell the world a new version is out! :speaker:
 
-## Dedicated CI branches
-
-The `ci/*` branches are used to test different use cases to help guarantee compatibility of generated apps, outside
-the standard supported workflow:
-
-- `ci/canary` uses the `@next` tag of Angular CLI and the `@latest` version of TypeScript.
-
-These branches should **NEVER** be merged into master, and are triggered regularly for CI builds using cron-like jobs.
-
-Currently these branches are not automatically updated with newest code pushes, so they should be rebased onto `master`
-branches as often as possible when new changes are merged into `master`. Ideally a script could do this update
-operations using the CI...
-
 ## Website notes
 
 ### HTTPS setup
