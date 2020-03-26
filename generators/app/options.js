@@ -62,5 +62,12 @@ module.exports = [
     required: false,
     description: 'Enable TypeScript strict mode',
     defaults: false
+  },
+  {
+    name: 'prefix',
+    type: 'Boolean',
+    required: false,
+    description: 'Add "@" prefix to core/shared folders',
+    defaults: true
   }
 ];

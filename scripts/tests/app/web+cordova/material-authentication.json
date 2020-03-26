@@ -5,5 +5,6 @@
   "ui": "material",
   "layout": "simple",
   "auth": true,
-  "lazy": true
+  "lazy": true,
+  "usePrefix": false
 }

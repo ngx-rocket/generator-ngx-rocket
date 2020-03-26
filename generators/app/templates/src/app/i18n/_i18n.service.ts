@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
-import { Logger } from '@app/core/logger.service';
+import { Logger } from '@core/logger.service';
 <% for (let lang of props.languages) { -%>
 import <%- lang.replace('-', '') %> from '../../translations/<%- lang %>.json';
 <% } -%>

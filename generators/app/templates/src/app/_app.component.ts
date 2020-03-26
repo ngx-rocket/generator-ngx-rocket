@@ -25,7 +25,7 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 <% } -%>
 
 import { environment } from '@env/environment';
-import { Logger, untilDestroyed } from '@app/core';
+import { Logger, untilDestroyed } from '@core';
 import { I18nService } from '@app/i18n';
 
 <% if (props.target.includes('cordova')) { -%>

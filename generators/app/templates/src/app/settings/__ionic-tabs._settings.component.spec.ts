@@ -5,8 +5,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ActionSheetController, AlertController, Platform } from '@ionic/angular';
 import { IonicModule } from '@ionic/angular';
 
-import { SharedModule } from '@app/shared';
-import { CoreModule } from '@app/core';
+import { SharedModule } from '@shared';
+import { CoreModule } from '@core';
 <% if (props.auth) { -%>
 import { AuthenticationService, CredentialsService } from '@app/auth';
 import { MockAuthenticationService } from '@app/auth/authentication.service.mock';

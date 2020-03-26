@@ -33,8 +33,8 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 <% if (props.pwa) { -%>
 import { environment } from '@env/environment';
 <% } -%>
-import { CoreModule } from '@app/core';
-import { SharedModule } from '@app/shared';
+import { CoreModule } from '@core';
+import { SharedModule } from '@shared';
 <% if (props.auth) { -%>
 import { AuthModule } from '@app/auth';
 <% } -%>

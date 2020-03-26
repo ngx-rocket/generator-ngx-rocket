@@ -14,7 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { Angulartics2Module } from 'angulartics2';
 <% } -%>
 
-import { CoreModule } from '@app/core';
+import { CoreModule } from '@core';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
