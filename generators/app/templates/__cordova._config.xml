@@ -5,8 +5,11 @@
   <author email="dev@company.com" href="http://company.com">Development Team</author>
   <content src="index.html"/>
   <access origin="*"/>
-<% if (props.mobile.includes('ios')) { -%>
+<% if (props.mobile.includes('android')) { -%>
   <allow-navigation href="http://app/*"/>
+<% } -%>
+<% if (props.mobile.includes('ios')) { -%>
+  <allow-navigation href="httpsionic://app/*"/>
 <% } -%>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
@@ -57,6 +60,7 @@
   <platform name="ios">
     <allow-intent href="itms:*"/>
     <allow-intent href="itms-apps:*"/>
+    <preference name="iosScheme" value="httpsionic" />
     <preference name="deployment-target" value="11.0"/>
     <preference name="UIWebViewBounce" value="false"/>
     <!--
