@@ -137,6 +137,7 @@ class NgxGenerator extends Generator {
     this.props.utility = this.props.utility || [];
     this.props.tools = this.props.tools || [];
     this.props.languages = this.props.languages || ['en-US', 'fr-FR'];
+    this.props.usePrefix = typeof this.props.usePrefix === 'boolean' ? this.props.usePrefix : true;
     this.shareProps(this.props);
   }
 
@@ -177,9 +178,9 @@ class NgxGenerator extends Generator {
         fs.renameSync(path.join(basePath, '@shared'), path.join(basePath, 'shared'));
 
         // Replace imports in files
-        const options = { files: 'src/**/*.ts' };
-        replace.sync({ ...options, from: /@core/g, to: '@app/core' });
-        replace.sync({ ...options, from: /@shared/g, to: '@app/shared' });
+        const options = {files: 'src/**/*.ts'};
+        replace.sync({...options, from: /@core/g, to: '@app/core'});
+        replace.sync({...options, from: /@shared/g, to: '@app/shared'});
       } catch (error) {
         this.log(`${chalk.red('An error occured during prefix config:')}\n${error && error.message}`);
       }
