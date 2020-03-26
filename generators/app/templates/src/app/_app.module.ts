@@ -87,7 +87,7 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [AppComponent],
   providers: [
 <% if (props.location === 'hash') { -%>
-    // This strategy with base-href './' allows to move the app to any subsite
+     // This strategy with base-href './' allows to move the app to any subsite
 <%   if (props.target.includes('cordova')) { -%>
     { provide: LocationStrategy, useClass: HashLocationStrategy },
 <%   } else { -%>
