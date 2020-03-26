@@ -1,8 +1,9 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
 const chalk = require('chalk');
 const Insight = require('insight');
 const semver = require('semver');
+const replace = require('replace-in-file');
 const Generator = require('@ngx-rocket/core');
 const asciiLogo = require('@ngx-rocket/ascii-logo');
 
@@ -12,6 +13,7 @@ const options = require('./options');
 const getLanguages = require('./languages');
 
 const packageJsonFile = 'package.json';
+const appPath = 'src/app';
 
 class NgxGenerator extends Generator {
   initializing() {
@@ -60,6 +62,7 @@ class NgxGenerator extends Generator {
     this.props.skipInstall = this.options['skip-install'];
     this.props.skipQuickstart = this.options['skip-quickstart'];
     this.props.initGit = this.options.git;
+    this.props.usePrefix = this.options.prefix;
 
     // Updating
     let fromVersion = null;
@@ -160,6 +163,28 @@ class NgxGenerator extends Generator {
   }
 
   install() {
+    if (!this.props.usePrefix) {
+      this.log(`\nConfiguring prefix, please wait…`);
+
+      const clientPath = this.isFullstack ? process.env.NGX_CLIENT_PATH : '';
+      const basePath = this.destinationPath(path.join(clientPath, appPath));
+
+      try {
+        // Rename folders
+        fs.removeSync(path.join(basePath, 'core'));
+        fs.removeSync(path.join(basePath, 'shared'));
+        fs.renameSync(path.join(basePath, '@core'), path.join(basePath, 'core'));
+        fs.renameSync(path.join(basePath, '@shared'), path.join(basePath, 'shared'));
+
+        // Replace imports in files
+        const options = { files: 'src/**/*.ts' };
+        replace.sync({ ...options, from: /@core/g, to: '@app/core' });
+        replace.sync({ ...options, from: /@shared/g, to: '@app/shared' });
+      } catch (error) {
+        this.log(`${chalk.red('An error occured during prefix config:')}\n${error && error.message}`);
+      }
+    }
+
     if (this.props.initGit) {
       this.spawnCommandSync('git', ['init', '--quiet']);
     }

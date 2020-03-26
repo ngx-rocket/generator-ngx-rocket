@@ -70,8 +70,8 @@ docs/                        project docs and coding guides
 e2e/                         end-to-end tests
 src/                         project source code
 |- app/                      app components
-|  |- core/                  core module (singleton services and single-use components)
-|  |- shared/                shared module  (common components, directives and pipes)
+|  |- @core/                 core module (singleton services and single-use components)
+|  |- @shared/               shared module  (common components, directives and pipes)
 |  |- app.component.*        app root component (shell)
 |  |- app.module.ts          app root module definition
 |  |- app-routing.module.ts  app routes
@@ -235,6 +235,7 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
 - `--no-git`: do not initialize git repository.
 - `--strict`: enable all TypeScript strict type checking options.
 - `--skip-quickstart`: disable quick start message after project generation.
+- `--no-prefix`: do not add `@` prefix to `core`/`shared` folders.
   
 When generating a *fullstack* project (with both client and server code), you can use the environment variables
 `NGX_CLIENT_PATH` and `NGX_SERVER_PATH` to customize the paths for client and server code. Be aware though that some

@@ -14,7 +14,7 @@ const untilDestroyedSymbol = Symbol('untilDestroyed');
  * @param destroyMethodName The method to hook on (default: 'ngOnDestroy').
  * @example
  * ```
- * import { untilDestroyed } from '@app/core';
+ * import { untilDestroyed } from '@core';
  *
  * @Component({
  * selector: 'app-example',

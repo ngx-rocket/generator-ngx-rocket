@@ -12,7 +12,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@app/material.module';
 <% } -%>
 
-import { CoreModule } from '@app/core';
+import { CoreModule } from '@core';
 <% if (props.auth) { -%>
 import { AuthenticationService, CredentialsService } from '@app/auth';
 import { MockAuthenticationService } from '@app/auth/authentication.service.mock';
