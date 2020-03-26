@@ -1,4 +1,5 @@
 const getLanguages = require('./languages');
+const {deployerChoices} = require('./deployers');
 
 module.exports = [
   {
@@ -223,5 +224,13 @@ module.exports = [
         name: 'Date-fns (Moment.js FP alternative)'
       }
     ]
+  },
+  {
+    type: 'list',
+    name: 'deploy',
+    message: 'Which automatic deployment do you want?',
+    default: 'none',
+    choices: deployerChoices,
+    when: props => props.target && props.target.includes('web')
   }
 ];

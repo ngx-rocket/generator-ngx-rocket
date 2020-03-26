@@ -165,6 +165,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
   [Stylelint](http://stylelint.io) and [HTMLHint](http://htmlhint.com/)
 - Local knowledgebase server using [Hads](https://github.com/sinedied/hads)
 - Automatic code formatting with [Prettier](https://prettier.io)
+- Deployment with the CLI using [ng deploy](https://angular.io/guide/deployment)
 
 [Progressive Web App (PWA)](https://developers.google.com/web/progressive-web-apps/) support provided by
 [@angular/service-worker](https://docs.google.com/document/d/1F0e0ROaZUnTFftmC0XovpREHWHjcXa4CggiFlmifjhw/).
@@ -236,6 +237,7 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
 - `--strict`: enable all TypeScript strict type checking options.
 - `--skip-quickstart`: disable quick start message after project generation.
 - `--no-prefix`: do not add `@` prefix to `core`/`shared` folders.
+- `--deploy <option>`: choose automatic deployment option. Use `ngx n --deploy` to see possible values.
   
 When generating a *fullstack* project (with both client and server code), you can use the environment variables
 `NGX_CLIENT_PATH` and `NGX_SERVER_PATH` to customize the paths for client and server code. Be aware though that some

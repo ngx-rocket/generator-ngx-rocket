@@ -11,6 +11,7 @@ const pkg = require('../../package.json');
 const prompts = require('./prompts');
 const options = require('./options');
 const getLanguages = require('./languages');
+const {deployers} = require('./deployers');
 
 const packageJsonFile = 'package.json';
 const appPath = 'src/app';
@@ -63,6 +64,10 @@ class NgxGenerator extends Generator {
     this.props.skipQuickstart = this.options['skip-quickstart'];
     this.props.initGit = this.options.git;
     this.props.usePrefix = this.options.prefix;
+
+    if (this.options.deploy) {
+      this.props.deploy = this.options.deploy;
+    }
 
     // Updating
     let fromVersion = null;
@@ -138,6 +143,7 @@ class NgxGenerator extends Generator {
     this.props.tools = this.props.tools || [];
     this.props.languages = this.props.languages || ['en-US', 'fr-FR'];
     this.props.usePrefix = typeof this.props.usePrefix === 'boolean' ? this.props.usePrefix : true;
+    this.props.deploy = this.props.deploy || 'none';
     this.shareProps(this.props);
   }
 
@@ -212,6 +218,18 @@ class NgxGenerator extends Generator {
   }
 
   end() {
+    const deployer = deployers.find(d => d.value === this.props.deploy);
+
+    if (this.props.deploy !== 'none') {
+      this.log(`\nConfiguring deployment with ${chalk.cyan(deployer.name)}, please wait…\n`);
+      const result = this.spawnCommandSync('ng', ['add', deployer.package]);
+
+      if (result.error) {
+        this.log(`${chalk.red('Something went wrong during deployment configuration :(')}`);
+        this.log(`You can retry manually using ${chalk.yellow(`npx ng add ${deployer.package}`)}`);
+      }
+    }
+
     if (this.updating) {
       this.log(`\nUpdated ${chalk.green(this.props.appName)} to ${chalk.yellow(this.version)} successfully!`);
       return;
@@ -228,6 +246,10 @@ class NgxGenerator extends Generator {
 
     if (this.props.target.includes('web')) {
       this.log(`- $ ${chalk.green(`${this.packageManager} run build`)}: build web app for production`);
+
+      if (this.props.deploy !== 'none') {
+        this.log(`- $ ${chalk.green(`${this.packageManager} run deploy`)}: deploy app to ${deployer.name}`);
+      }
     }
 
     if (this.props.target.includes('cordova')) {
