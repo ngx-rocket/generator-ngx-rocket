@@ -1,3 +1,5 @@
+const {deployerValues, deployerValuesHelp} = require('./deployers');
+
 module.exports = [
   {
     name: 'skip-welcome',
@@ -69,5 +71,20 @@ module.exports = [
     required: false,
     description: 'Add "@" prefix to core/shared folders',
     defaults: true
+  },
+  {
+    name: 'deploy',
+    required: false,
+    description: 'Choose automatic deployment option',
+    defaults: null,
+    type: value => {
+      if (value !== null && !deployerValues.includes(value)) {
+        console.error(`Invalid deployment option, accepted values:\n- ${deployerValuesHelp.join('\n- ')}`);
+        // eslint-disable-next-line unicorn/no-process-exit
+        process.exit(-1);
+      }
+
+      return value;
+    }
   }
 ];
