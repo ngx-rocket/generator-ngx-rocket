@@ -1,3 +1,53 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [8.0.0](https://github.com/ngx-rocket/generator-ngx-rocket/compare/7.1.0...8.0.0) (2020-03-27)
+
+
+### Bug Fixes
+
+* broken template ([68d287e](https://github.com/ngx-rocket/generator-ngx-rocket/commit/68d287e5904d3617034ed3665a945b123e9b9144))
+* i18n for Electron ([15c7615](https://github.com/ngx-rocket/generator-ngx-rocket/commit/15c761559b6a2d24c03fd7eb99fbd41c959aac0c))
+* i18n language imports ([0b8a1a6](https://github.com/ngx-rocket/generator-ngx-rocket/commit/0b8a1a6ebe78e12beaad5d8a713abc354836ce28))
+* ionic css import ([2a4b5cd](https://github.com/ngx-rocket/generator-ngx-rocket/commit/2a4b5cdf86d0b3f6801180eee73119c9366a1235))
+* jest alias and update cases for prefix ([6f84b73](https://github.com/ngx-rocket/generator-ngx-rocket/commit/6f84b739ff66a36c2268e922a29fb542f626eda9))
+* languages listing on windows ([37d5656](https://github.com/ngx-rocket/generator-ngx-rocket/commit/37d56568756604402ba6b5f2f603ae7a8e0fcbd4))
+* material header not showing in cordova (close [#215](https://github.com/ngx-rocket/generator-ngx-rocket/issues/215), [#511](https://github.com/ngx-rocket/generator-ngx-rocket/issues/511)) ([2b78ff0](https://github.com/ngx-rocket/generator-ngx-rocket/commit/2b78ff01facfe263e3342a5e77e8654053c2af08))
+* misplaced prompt for puppeteer ([5cb4b60](https://github.com/ngx-rocket/generator-ngx-rocket/commit/5cb4b607b13786df1c650740fe2c705ba387eee8))
+* missing global mock when using Jest ([#509](https://github.com/ngx-rocket/generator-ngx-rocket/issues/509)) ([32c69cf](https://github.com/ngx-rocket/generator-ngx-rocket/commit/32c69cf5f365114ec78a3974d77a06f3674c74b0))
+* stylelint issue ([451b47b](https://github.com/ngx-rocket/generator-ngx-rocket/commit/451b47bc7a17b9a6fce98452e3a0c0bd70ae0abb))
+* template issues ([046fd48](https://github.com/ngx-rocket/generator-ngx-rocket/commit/046fd488435b9c06f49054f2967971ec6f15bc32))
+* ts error with cordova ([9ae8b51](https://github.com/ngx-rocket/generator-ngx-rocket/commit/9ae8b51ac16094885bfa48af54f4544a8adbd6e5))
+* webview config for ios/android (close [#491](https://github.com/ngx-rocket/generator-ngx-rocket/issues/491)) ([79f4e49](https://github.com/ngx-rocket/generator-ngx-rocket/commit/79f4e49c2aa497ea9f25896d3694198b4adfbbe8))
+
+
+### Features
+
+* add de-DE translation ([f08f6ec](https://github.com/ngx-rocket/generator-ngx-rocket/commit/f08f6ec4d691297e434d56c85ff55937c944bf63))
+* add deployment options (close [#540](https://github.com/ngx-rocket/generator-ngx-rocket/issues/540), [#327](https://github.com/ngx-rocket/generator-ngx-rocket/issues/327)) ([7602e8c](https://github.com/ngx-rocket/generator-ngx-rocket/commit/7602e8cb9c4631ae8313ead37b78754c0756599b))
+* add i18n module and language selection at generation (close [#262](https://github.com/ngx-rocket/generator-ngx-rocket/issues/262)) ([383d6fb](https://github.com/ngx-rocket/generator-ngx-rocket/commit/383d6fbc90dd6ce34cf67899947d8f6e75958ba1))
+* add prefix and aliasing for core/shared (close [#277](https://github.com/ngx-rocket/generator-ngx-rocket/issues/277)) ([faa1981](https://github.com/ngx-rocket/generator-ngx-rocket/commit/faa198163981aa2bc87b06718f2eac4958d76050))
+* aggregate all auth related components in auth module (close [#535](https://github.com/ngx-rocket/generator-ngx-rocket/issues/535)) ([8dbadb7](https://github.com/ngx-rocket/generator-ngx-rocket/commit/8dbadb7cab6b5e29f042b6bd32ff623211e1eb3d))
+* make Angular Material the default UI for web apps ([626505c](https://github.com/ngx-rocket/generator-ngx-rocket/commit/626505c3a591fe5466b7f9e947d759861d9a934b))
+* remove HttpService and CacheService ([99eea62](https://github.com/ngx-rocket/generator-ngx-rocket/commit/99eea6261aace3c883b75d350edfd0f2505fcee8))
+* remove usage of puppeter by default for testing (fix [#522](https://github.com/ngx-rocket/generator-ngx-rocket/issues/522)) ([b786c23](https://github.com/ngx-rocket/generator-ngx-rocket/commit/b786c233ed0c391c25d0e6fec8fd5d3768ee635c))
+* update bootstrap template for ng9 ([88d3d58](https://github.com/ngx-rocket/generator-ngx-rocket/commit/88d3d58e6166ef4056badafa13dd94a70984e191))
+* update de-DE translation ([3c0b244](https://github.com/ngx-rocket/generator-ngx-rocket/commit/3c0b24496bc7f2688d0f4f4d011ccdb6beeb31c9))
+* update to Ionic 5 ([589a1fb](https://github.com/ngx-rocket/generator-ngx-rocket/commit/589a1fb08c4e5d81d070156c3ee4c28eb07225bd))
+* upgrade to ng9 for material path ([97d8fb0](https://github.com/ngx-rocket/generator-ngx-rocket/commit/97d8fb0ab8dea49fda6ea5d1d4a8ef2151ab94f5))
+
+
+### BREAKING CHANGES
+
+* core/shared folders now have an `@` prefix to have them listed first,
+along with a direct TypeScript alias for imports.
+* Removing HttpClient overload as this is definitely not something
+the Angular team is looking to support. Also it's not relevant and
+useful anymore thanks to state management libraries, that's why
+CacheService is also removed.
+
 ## [7.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/7.1.0) (2019-09-04)
 [Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/7.0.2...7.1.0)
 
