@@ -22,6 +22,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Link CLI
+        run: npm link
+        env:
+          CI: true
       - name: Deploy starter-kit updates
         run: npm run deploy
         env:
