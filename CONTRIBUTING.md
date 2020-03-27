@@ -42,6 +42,15 @@ ESLint is supported by most IDE/code editors natively or via plugins.
 When using `npm test` to run tests it will also run ESLint. You can also lint your code changes separately by using
 `npm run lint`.
 
+### Commit messages
+
+This repo now follows the [Conventional Commits](https://www.conventionalcommits.org) for commit messages, to allow
+automatic releases.
+
+If you are not familiar with conventional commits, instead of using `git commit` to commit your changes you can use
+`npm run commit` for a guided process that will help you follow the conventions. It is based on
+[Commitizen CLI](http://commitizen.github.io/cz-cli/).
+
 ### Generator contribution mini-guide
 
 1. Clone this repo.

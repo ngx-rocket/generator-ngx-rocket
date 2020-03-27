@@ -1,7 +1,5 @@
-# Change Log
-
-## [$npm_package_version](https://github.com/ngx-rocket/generator-ngx-rocket/tree/$npm_package_version) (2019-09-04)
-[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/7.0.2...$npm_package_version)
+## [7.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/tree/7.1.0) (2019-09-04)
+[Full Changelog](https://github.com/ngx-rocket/generator-ngx-rocket/compare/7.0.2...7.1.0)
 
 **Fixed bugs:**
 

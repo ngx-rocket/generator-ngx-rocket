@@ -4,19 +4,14 @@ This is a small guide dedicated to project maintainers.
 
 ## Prerequisites
 
-To generate the project's changelog after a release, you need to install [Github changelog generator](https://github.com/skywinder/github-changelog-generator)
-with `[sudo] gem install github_changelog_generator`.
-
-You also need to generate a Github token following [this guide](https://github.com/skywinder/github-changelog-generator#github-token)
-and add it to your shell profile: `export CHANGELOG_GITHUB_TOKEN="«your-40-digit-github-token»"`.
-
-If you have errors like `API rate limit exceeded for github_username.` during changelog generation, you have an issue
-with your token setup.
+You need to generate a Github token with the `repo` permissions, following
+[this guide](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line).
+Then add this line to your shell profile: `export GITHUB_TOKEN="«your-40-digit-github-token»"`.
 
 ## Releasing a new version
 
 Before releasing a new version, you should check for dependencies updates with `npm outdated`, and update them if
-needed. Don't forget to run `npm run lint` after update in case `eslint` was updated.
+needed. Don't forget to run `npm run lint` after update in case `xo` was updated.
 
 Then follow these steps:
 
@@ -27,18 +22,17 @@ Then follow these steps:
 3. Generate projects on all 3 UI branches (Bootstrap, Ionic and Material) and perform a visual sanity check
    (would love to automate this!)
 
-4. Bump the `package.json` version according to [semver](https://semver.org), and commit the changes using the new
-   version as the commit message.
+4. Run this command:
+```
+curl -H "Accept: application/vnd.github.everest-preview+json" \
+  -H "Authorization: token ${GITHUB_TOKEN}" \
+  -d '{ "event_type": "release" }' \
+  https://api.github.com/repos/ngx-rocket/generator-ngx-rocket/dispatches
+```
 
-5. Run `npm publish`. The new version will be tagged and pushed automatically through the `postpublish` script.
+5. Check that the `release` workflow has succeeded on GitHub Actions pane.
 
-6. Run `npm run deploy` to update the various branches of the [starter kit](https://github.com/ngx-rocket/starter-kit)
-   repository. **Make sure you do not have any add-on enabled!** 
-
-7. Run `npm run changelog`. This will create a commit with the new updated `CHANGELOG.md`, but it will not be pushed so
-   you can check it up before pushing.
-   
-8. Done! :tropical_drink: Now you can tell the world a new version is out! :speaker:
+6. Done! :tropical_drink: Now you can tell the world a new version is out! :speaker:
 
 ## Website notes
 

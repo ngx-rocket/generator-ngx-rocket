@@ -48,13 +48,13 @@
     "ngx": "./cli/bin/ngx"
   },
   "scripts": {
+    "commit": "git-cz",
     "lint": "xo \"generators/*/*.js\" \"cli/*.js\"",
     "lint:fix": "npm run lint -s -- --fix",
     "test": "npm run lint -s && ./scripts/test.sh",
     "test:addon": "npm run lint -s && TEST_ADDON=1 ./scripts/test.sh",
     "deploy": "scripts/deploy.sh",
-    "postpublish": "git tag -a $npm_package_version -m \"$npm_package_version\" && git push --tags",
-    "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -m 'Update changelog'"
+    "release:check": "semantic-release --dry-run"
   },
   "dependencies": {
     "@ngx-rocket/ascii-logo": "^1.0.1",
@@ -77,14 +77,29 @@
     "yeoman-environment": "^2.8.1"
   },
   "devDependencies": {
+    "@jedmao/semantic-release-npm-github-config": "^1.0.9",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.1.0",
+    "semantic-release": "^17.0.4",
     "xo": "^0.28.0"
   },
   "engines": {
-    "node": ">=10.9.0"
+    "node": ">=10.9.0",
+    "npm": ">=5.2"
   },
   "xo": {
     "space": true,
     "prettier": true
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "extends": "@jedmao/semantic-release-npm-github-config",
+    "tagFormat": "${version}",
+    "branch": "master"
   },
   "files": [
     "generators",
