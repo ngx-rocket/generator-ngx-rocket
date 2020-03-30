@@ -4,7 +4,7 @@
 [![Build Status](https://sinedied.visualstudio.com/oss-pipelines/_apis/build/status/ngx-rocket.generator-ngx-rocket?branchName=master)](https://sinedied.visualstudio.com/oss-pipelines/_build/latest?definitionId=2&branchName=master&WT.mc_id=generatorngxrocket-github-yolasors)
 ![Node version](https://img.shields.io/node/v/generator-ngx-rocket.svg)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
-[![Downloads](https://img.shields.io/npm/dt/generator-ngx-rocket.svg)](https://npmjs.org/package/generator-ngx-rocket)
+[![Downloads](https://img.shields.io/npm/dm/generator-ngx-rocket.svg)](https://npmjs.org/package/generator-ngx-rocket)
 
 ![ngx-rocket logo](https://user-images.githubusercontent.com/593151/28924751-08023b32-7863-11e7-9186-c17d4647d861.png)
 
