@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.1](https://github.com/ngx-rocket/generator-ngx-rocket/compare/8.0.0...8.0.1) (2020-04-02)
+
+
+### Bug Fixes
+
+* spec reporter warning ([38b6666](https://github.com/ngx-rocket/generator-ngx-rocket/commit/38b66661f1d81d8e1564724ae912b13bd5f33927))
+* update angular.json config ([437ec0c](https://github.com/ngx-rocket/generator-ngx-rocket/commit/437ec0ca7d670df8ac3c0df344bac28d47769ef8)), closes [#544](https://github.com/ngx-rocket/generator-ngx-rocket/issues/544)
+
 # [8.0.0](https://github.com/ngx-rocket/generator-ngx-rocket/compare/7.1.0...8.0.0) (2020-03-27)
 
 
