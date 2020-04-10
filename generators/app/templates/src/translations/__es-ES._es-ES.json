@@ -1,0 +1,35 @@
+{
+  "APP_NAME": "<%= props.appName %>",
+  "About": "Acerca de",
+  "Hello world !": "¡Hola Mundo!",
+  "Home": "Inicio",
+<% if (props.ui === 'ionic') { -%>
+  "Cancel": "Cancelar",
+  "Change language": "Cambiar idioma",
+  "Language": "Idioma",
+  "Ok": "Ok",
+<%   if (props.layout === 'tabs') { -%>
+  "Settings": "Configuraciones",
+  "Notifications": "Notificaciones",
+  "Preferences": "Preferencias",
+  "Account": "Cuenta",
+<%     if (props.auth) { -%>
+  "Profile": "Perfil",
+<%     } -%>
+<%   } -%>
+<% } -%>
+<% if (props.auth) { -%>
+<%   if (props.ui !== 'ionic') { -%>
+  "Logged in as": "Conectado como",
+<%   } -%>
+  "Login": "Iniciar sesión",
+  "Logout": "Salir",
+  "Password": "Contraseña",
+  "Password is required": "Se requiere contraseña",
+  "Username": "Nombre de usuario",
+  "Username is required": "Se requiere nombre de usuario",
+  "Username or password incorrect.": "Usuario o contraseña incorrectos.",
+  "Remember me": "Recuérdame",
+<% } -%>
+  "Version": "Versión"
+}
