@@ -37,7 +37,7 @@ module.exports = [
   {
     type: 'confirm',
     name: 'gmt',
-    message: 'Do you want add meta (content="notranslate") so Google Chrome doesn\'t offer to translate it?',
+    message: 'Do you want add meta (content="notranslate") so Google Chrome does not offer to translate it?',
     default: false,
     when: props => props.target && props.target.includes('web')
   },
