@@ -226,6 +226,12 @@ module.exports = [
     ]
   },
   {
+    type: 'confirm',
+    name: 'dtap',
+    message: 'Do you want common architecture development, testing, acceptance and production (DTAP)?',
+    default: false
+  },
+  {
     type: 'list',
     name: 'deploy',
     message: 'Which automatic deployment do you want?',

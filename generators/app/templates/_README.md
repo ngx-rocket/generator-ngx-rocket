@@ -72,6 +72,8 @@ Task                            | Description
 `npm run build [-- --configuration=production]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `www/` folder
 <%   } else { -%>
 `npm run build [-- --configuration=production]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `dist/` folder
+`npm run build:testing` | Lint code and build web app for user testing (with [AOT](https://angular.io/guide/aot-compiler)) in `dist/` folder
+`npm run build:acceptance` | Lint code and build web app for user acceptance (with [AOT](https://angular.io/guide/aot-compiler)) in `dist/` folder
 <%   } -%>
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
