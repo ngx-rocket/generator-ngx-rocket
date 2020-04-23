@@ -28,8 +28,8 @@ jobs:
           CI: true
       - name: Configure git
         run: |
-          git config --local user.email "semantic-release-bot@martynus.net"
-          git config --local user.name "semantic-release-bot"
+          git config --global user.email "semantic-release-bot@martynus.net"
+          git config --global user.name "semantic-release-bot"
       - name: Deploy starter-kit updates
         run: npm run deploy
         env:
