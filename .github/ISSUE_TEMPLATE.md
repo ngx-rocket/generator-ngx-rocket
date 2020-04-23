@@ -9,6 +9,7 @@ ISSUES MISSING IMPORTANT INFORMATION MAY BE CLOSED WITHOUT INVESTIGATION.
 - [ ] Bug report  <!-- Please search GitHub for a similar issue or PR before submitting -->
 - [ ] Feature request
 - [ ] Documentation issue or request
+- [ ] Question
 
 ## Current behavior
 <!-- Describe how the issue manifests. -->
