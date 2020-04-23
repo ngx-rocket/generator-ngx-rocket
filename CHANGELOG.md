@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/compare/8.0.1...8.1.0) (2020-04-23)
+
+
+### Bug Fixes
+
+* index.ts still present if auth option is not selected ([856a7fc](https://github.com/ngx-rocket/generator-ngx-rocket/commit/856a7fc86e6ccf8b58312a5e0103fc5e8830bf72))
+
+
+### Features
+
+* add spanish and italian languages ([4df356c](https://github.com/ngx-rocket/generator-ngx-rocket/commit/4df356c2326c13b6d1f8c2e22fb6fcd2fd80c6a3))
+
 ## [8.0.1](https://github.com/ngx-rocket/generator-ngx-rocket/compare/8.0.0...8.0.1) (2020-04-02)
 
 
