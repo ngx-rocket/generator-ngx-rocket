@@ -62,5 +62,4 @@ You may then use the `eventTrack` function:
 this.angulartics2GoogleAnalytics.eventTrack('Something happened', {category: 'My category'});
 this.angulartics2GoogleAnalytics.eventTrack('Something else happened', {category: 'My other category', label: 'My custom label'});
 ```
-
 <% } -%>
