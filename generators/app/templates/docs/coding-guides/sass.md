@@ -31,11 +31,11 @@ The main benefits of using Sass over plain CSS are *variables*, *nesting* and *m
   Note that with
   [Angular view encapsulation](https://angular.io/docs/ts/latest/guide/component-styles.html#!#view-encapsulation),
   the first "namespace" level of nesting is not necessary as Angular takes care of the scoping for avoid collisions.
-  
+
   > As a side note, we are aware of the [BEM naming approach](https://en.bem.info/tools/bem/bem-naming/), but we found
     it impractical for large projects. The nesting approach has drawbacks such as increased specificity, but it helps
     keeping everything nicely organized, and more importantly, *scoped*.
-  
+
 
 Also keep in mind this general rules:
 - Always use **class selectors**, never use ID selectors and avoid element selectors whenever possible
@@ -49,10 +49,10 @@ Also keep in mind this general rules:
   ```scss
   // Base button class
   .btn { ... }
-  
+
   // Color variation
   .btn-warning { ... }
-  
+
   // Size variation
   .btn-small { ... }
   ```
@@ -66,22 +66,22 @@ Also keep in mind this general rules:
   * Avoid style interactions between components, if some style may need to be shared, refactor it as a framework
     component in put it in your global theme.
   * Avoid using wider selectors than needed: always use classes if you can!
-  
+
 - Avoid rules multiplication
   * The less CSS the better, factorize rules whenever it's possible
   * CSS is code, and like any code frequent refactoring is healthy
-  
+
 - When ugly hacks cannot be avoided, create an explicit `src/hacks.scss` file and put it in:
   * These ugly hacks should only be **temporary**
   * Each hack should be documented with the author name, the problem and hack reason
-  * Limit this file to a reasonable length (~100 lines) and refactor hacks with proper solutions when the limit is 
+  * Limit this file to a reasonable length (~100 lines) and refactor hacks with proper solutions when the limit is
     reached.
 
 ## Pitfalls
 
 - Never use the `!important` keyword. Ever.
 - Never use **inline** style in html, even *just for debugging* (because we **KNOW** it will end up in your commit)
-  
+
 ## Browser compatibility
 
 You should never use browser-specific prefixes in your code, as [autoprefixer](https://github.com/postcss/autoprefixer)

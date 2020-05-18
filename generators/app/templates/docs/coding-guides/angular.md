@@ -59,7 +59,7 @@ like [reactive programming](#reactive-programming), [unidirectional data flow](#
 These concepts are difficult to resume in a few words, and despite being tightly related to each other they concern
 specific parts of an application flow, each being quite deep to learn on its own.
 
-You will essentially find here a list of good starting points to learn more on these subjects. 
+You will essentially find here a list of good starting points to learn more on these subjects.
 
 #### Reactive programming
 
@@ -76,12 +76,12 @@ Angular uses [RxJS](http://reactivex.io/rxjs/) to implement the *Observable* pat
 While AngularJS used to rely heavily on [*Promises*](https://docs.angularjs.org/api/ng/service/$q) to handle
 asynchronous events, *Observables* are now used instead in Angular. Even though in specific cases like for HTTP
 requests, an *Observable* can be converted into a *Promise*, it is recommended to embrace the new paradigm as it can a
-lot more than *Promises*, with way less code. This transition is also explained in the 
+lot more than *Promises*, with way less code. This transition is also explained in the
 [Angular tutorial](https://angular.io/tutorial/toh-pt6#!%23observables).
 Once you have made the switch, you will never look back again.
 
 ##### Learning references
- 
+
 - [What is reactive programming?](http://paulstovell.com/blog/reactive-programming), explained nicely through a simple
   imaged story *(5 min)*
 
@@ -166,7 +166,7 @@ Here are some resources to get started:
 
 - [Comprehensive introduction to @ngrx/store](https://gist.github.com/btroncone/a6e4347326749f938510), an in-depth
   walkthrough to this library usage in Angular *(60 min)*
-  
+
 ##### When to use it?
 
 You may have noticed that the starter template does not include a centralized state management system out of the box.

@@ -10,15 +10,15 @@ These tests use [Protractor](https://github.com/angular/protractor), which is a 
 [Selenium](https://github.com/SeleniumHQ/selenium) to control browsers and simulate user inputs.
 [Jasmine](http://jasmine.github.io) is used as the base test framework.
 
-Many of protractor's actions and assertions are asynchronous and return promises.  To ensure that test steps are
+Many of protractor's actions and assertions are asynchronous and return promises. To ensure that test steps are
 performed in the intended order, generated projects are set up to use async/await as the flow control mechanism
-because of its good readability.  See the [Protractor async/await](https://www.protractortest.org/#/async-await) page
+because of its good readability. See the [Protractor async/await](https://www.protractortest.org/#/async-await) page
 for more information and examples on using async/await in tests, and the
 [Protractor API guide](https://www.protractortest.org/#/api) to determine which API calls are asynchronous.
 
-Beware that some examples of protractor tests you'll find on the internet might not be using async/await.  Tests like
+Beware that some examples of protractor tests you'll find on the internet might not be using async/await. Tests like
 these that you encounter were using the now-deprecated "selenium promise manager" flow control mechanism, so they
-should not be used verbatim.  See the [Protractor control flow](https://www.protractortest.org/#/control-flow) page
+should not be used verbatim. See the [Protractor control flow](https://www.protractortest.org/#/control-flow) page
 for more details.
 
 ## Good practices
@@ -54,11 +54,11 @@ export class LoginPage {
   passwordInput = element(by.css('input[name=^"password"]'));
   loginButton = element(by.css('button[(click)^="login"]'));
   registerButton = element(by.css('button[(click)^="register"]'));
-  
+
   async navigateTo() {
     await browser.get('/');
   }
-  
+
   async getGreetingText() {
     return await element(by.css('.greeting')).getText();
   }
@@ -78,13 +78,13 @@ describe('Login', () => {
     page = new LoginPage();
     await page.navigateTo();
   });
-  
+
   it('should navigate to the register page when the register button is clicked', async () => {
     await page.registerButton.click();
-   
+
     expect(await browser.getCurrentUrl()).toContain('/register');
   });
-  
+
   it('should allow a user to log in', async () => {
     await page.emailInput.sendKeys('test@mail.com');
     await page.passwordInput.sendKeys('abc123');
@@ -97,5 +97,5 @@ describe('Login', () => {
 
 ## Credits
 
-Parts of this guide were freely inspired by this 
+Parts of this guide were freely inspired by this
 [presentation](https://docs.google.com/presentation/d/1B6manhG0zEXkC-H-tPo2vwU06JhL8w9-XCF9oehXzAQ).
