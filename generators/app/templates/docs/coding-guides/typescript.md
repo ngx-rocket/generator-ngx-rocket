@@ -30,7 +30,7 @@ In addition, this project also follows the general [Angular style guide](https:/
 ## Coding rules
 
 - Use single quotes `'` for strings
-- Always use strict equality checks: `===` and `!==` instead of `==` or `!=` to avoid comparison pitfalls (see 
+- Always use strict equality checks: `===` and `!==` instead of `==` or `!=` to avoid comparison pitfalls (see
   [JavaScript equality table](https://dorey.github.io/JavaScript-Equality-Table/)).
   The only accepted usage for `==` is when you want to check a value against `null` or `undefined`.
 - Use `[]` instead of `Array` constructor
@@ -39,7 +39,7 @@ In addition, this project also follows the general [Angular style guide](https:/
 - Do not export types/functions unless you need to share it across multiple components
 - Do not introduce new types/values to the global namespace
 - Use arrow functions over anonymous function expressions
-- Only surround arrow function parameters when necessary. 
+- Only surround arrow function parameters when necessary.
   For example, `(x) => x + x` is wrong but the following are correct:
   * `x => x + x`
   * `(x, y) => x + y`

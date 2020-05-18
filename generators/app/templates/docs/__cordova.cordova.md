@@ -239,7 +239,7 @@ npm run cordova -- plugin <add|remove> cordova-plugin-ionic-webview
 
 On a new project, external domain navigation is disabled but loading resources from any domain is enabled by default.
 
-Although XHRs to all domains are enabled in the default whitelist configuration, it doesn't apply when using the ionic-webview cordova plugin versions 2+.  Therefore, if your app is a full-stack app or it needs to access any APIs, you'll need to either be sure the CORS headers allow the origin localhost:8080, or remove the ionic-webview plugin.  You can find more details about this in the [ionic webview documentation](https://beta.ionicframework.com/docs/building/webview/#cors).  Note that this applies to both ios and android builds.
+Although XHRs to all domains are enabled in the default whitelist configuration, it doesn't apply when using the ionic-webview cordova plugin versions 2+. Therefore, if your app is a full-stack app or it needs to access any APIs, you'll need to either be sure the CORS headers allow the origin localhost:8080, or remove the ionic-webview plugin. You can find more details about this in the [ionic webview documentation](https://beta.ionicframework.com/docs/building/webview/#cors). Note that this applies to both ios and android builds.
 
 Before building for production, you should consider restricting domain access to improve your app security.
 You can find documentation on this regard in the

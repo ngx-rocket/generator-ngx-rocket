@@ -55,7 +55,7 @@ npm shrinkwrap --dev
 
 This will create a file `npm-shrinkwrap.json` alongside your `package.json` files.
 
-> Do not forget  to run shrinkwrap each time you manually update your dependencies!
+> Do not forget to run shrinkwrap each time you manually update your dependencies!
 <% } -%>
 
 # Updating angular-related dependencies

@@ -12,7 +12,7 @@ Electron applications are composed by 2 main parts:
 - The *render process* that renders your web page (your Angular application). There is as many render processes
   as there is `BrowserWindow` instances. One special feature of Electron is that your web pages can make use of
   the Node.js API to manage low-level interaction with the host operating system.
-  
+
 Read more about specific features of Electron application architecture in the
 [official documentation](https://electronjs.org/docs/tutorial/application-architecture).
 

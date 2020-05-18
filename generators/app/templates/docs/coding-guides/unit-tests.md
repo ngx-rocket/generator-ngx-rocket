@@ -30,7 +30,7 @@ integration and interactions with other app components based on real use cases s
 
 ## Pitfalls
 
-- Sometimes your architecture might mean your code modify static variables during unit tests. Avoid this if you can, 
+- Sometimes your architecture might mean your code modify static variables during unit tests. Avoid this if you can,
   but if you can't, at least make sure each test resets the relevant statics before and after your tests.
 - Don’t unit-test configuration settings
 - Improving test coverage is good, but having meaningful tests is better: start with the latter first, and **only after
