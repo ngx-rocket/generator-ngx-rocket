@@ -72,7 +72,7 @@ export class LoginPage {
 import { LoginPage } from './login.po';
 
 describe('Login', () => {
-  let page: LoginPage ;
+  let page: LoginPage;
 
   beforeEach(async () => {
     page = new LoginPage();
