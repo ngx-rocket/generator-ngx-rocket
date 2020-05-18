@@ -200,4 +200,3 @@ Fortunately, the Angular team provides tools to help you follow through the upda
 
 - The [Angular update website](https://update.angular.io) guides you through Angular changes and migrations, providing
   step by step guides from one version to another.
-
