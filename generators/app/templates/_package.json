@@ -59,20 +59,20 @@
     "generate": "ng generate"
   },
   "dependencies": {
-    "@angular/animations": "^9.1.0",
-    "@angular/common": "^9.1.0",
-    "@angular/compiler": "^9.1.0",
-    "@angular/core": "^9.1.0",
-    "@angular/forms": "^9.1.0",
-    "@angular/platform-browser": "^9.1.0",
-    "@angular/platform-browser-dynamic": "^9.1.0",
-    "@angular/router": "^9.1.0",
+    "@angular/animations": "^9.1.9",
+    "@angular/common": "^9.1.9",
+    "@angular/compiler": "^9.1.9",
+    "@angular/core": "^9.1.9",
+    "@angular/forms": "^9.1.9",
+    "@angular/platform-browser": "^9.1.9",
+    "@angular/platform-browser-dynamic": "^9.1.9",
+    "@angular/router": "^9.1.9",
     "@ngx-translate/core": "^12.0.0",
 <% if (props.target.includes('cordova')) { -%>
-    "@ionic-native/core": "^5.0.0",
-    "@ionic-native/keyboard": "^5.0.0",
-    "@ionic-native/splash-screen": "^5.0.0",
-    "@ionic-native/status-bar": "^5.0.0",
+    "@ionic-native/core": "^5.26.0",
+    "@ionic-native/keyboard": "^5.26.0",
+    "@ionic-native/splash-screen": "^5.26.0",
+    "@ionic-native/status-bar": "^5.26.0",
     "cordova-android": "^8.0.0",
     "cordova-custom-config": "^5.0.2",
     "cordova-ios": "^5.0.0",
@@ -84,19 +84,19 @@
     "cordova-plugin-whitelist": "^1.3.3",
 <% } -%>
 <% if (props.pwa) { -%>
-    "@angular/service-worker": "^9.1.0",
+    "@angular/service-worker": "^9.1.9",
 <% } -%>
 <% if (props.ui === 'ionic') { -%>
-    "@ionic/angular": "^5.0.0",
+    "@ionic/angular": "^5.1.1",
 <% } else if (props.ui === 'bootstrap') { -%>
     "@ng-bootstrap/ng-bootstrap": "^6.0.2",
     "bootstrap": "^4.1.1",
     "@fortawesome/fontawesome-free": "^5.1.0",
     "@angular/localize": "^9.1.0",
 <% } else if (props.ui === 'material') { -%>
-    "@angular/cdk": "^9.1.3",
-    "@angular/material": "^9.1.3",
-    "@angular/flex-layout": "^9.0.0-beta.29",
+    "@angular/cdk": "^9.2.4",
+    "@angular/material": "^9.2.4",
+    "@angular/flex-layout": "^9.0.0-beta.31",
     "material-design-icons-iconfont": "^5.0.1",
 <% } -%>
 <% if (props.angulartics) { -%>
@@ -114,7 +114,7 @@
 <% if (props.utility.includes('datefns')) { -%>
     "date-fns": "^2.9.0",
 <% } -%>
-    "rxjs": "^6.5.4",
+    "rxjs": "^6.5.5",
     "tslib": "^1.10.1",
     "zone.js": "^0.10.3"
   },
@@ -125,10 +125,10 @@
 <% if (props.tools.includes('jest')) { -%>
     "@angular-builders/jest": "^8.3.2",
 <% } -%>
-    "@angular/cli": "~9.1.0",
-    "@angular/compiler-cli": "^9.1.0",
-    "@angular/language-service": "^9.1.0",
-    "@angular-devkit/build-angular": "^0.901.0",
+    "@angular/cli": "~9.1.7",
+    "@angular/compiler-cli": "^9.1.9",
+    "@angular/language-service": "^9.1.9",
+    "@angular-devkit/build-angular": "^0.901.7",
     "@angularclass/hmr": "^2.1.3",
     "@biesbjerg/ngx-translate-extract": "^4.2.0",
     "@ngx-rocket/scripts": "^4.0.0",
