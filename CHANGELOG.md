@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.1.1](https://github.com/ngx-rocket/generator-ngx-rocket/compare/8.1.0...8.1.1) (2020-06-15)
+
+
+### Bug Fixes
+
+* remove extra translate in material template ([0f14325](https://github.com/ngx-rocket/generator-ngx-rocket/commit/0f143251039319359a6696ce9275b92c3aa4dd26))
+* update ionic icon names ([b21ebd2](https://github.com/ngx-rocket/generator-ngx-rocket/commit/b21ebd2892116ec584dd6045177e653308789c5c))
+
 # [8.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/compare/8.0.1...8.1.0) (2020-04-23)
 
 
