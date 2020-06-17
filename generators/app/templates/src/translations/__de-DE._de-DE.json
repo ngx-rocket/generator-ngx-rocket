@@ -2,9 +2,9 @@
   "APP_NAME": "<%= props.appName %>",
   "About": "Über",
   "Hello world !": "Hallo welt !",
-  "Home": "Hause",
+  "Home": "Startseite",
 <% if (props.ui === 'ionic') { -%>
-  "Cancel": "Abbruch",
+  "Cancel": "Abbrechen",
   "Change language": "Sprache wechseln",
   "Language": "Sprache",
   "Ok": "Ok",
