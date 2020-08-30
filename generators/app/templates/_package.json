@@ -154,7 +154,7 @@
     "hads": "^2.1.0",
 <% } -%>
 <% if (props.tools.includes('compodoc')) { -%>
-    "@compodoc/compodoc": "^1.11.1",
+    "@compodoc/compodoc": "^1.1.11",
 <% } -%>
     "htmlhint": "^0.14.1",
     "https-proxy-agent": "^5.0.0",
