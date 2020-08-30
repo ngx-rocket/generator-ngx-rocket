@@ -17,9 +17,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-          "allowedCommonJsDependencies": [
-            "rxjs-compat"
-          ],
             "outputPath": "<%= props.target.includes('cordova') ? 'www' : 'dist' %>",
             "index": "src/index.html",
             "main": "src/main.ts",
