@@ -4,8 +4,8 @@
   "theme_color": "#488aff",
   "background_color": "#488aff",
   "display": "standalone",
-  "scope": "/",
-  "start_url": "/",
+  "scope": "./",
+  "start_url": "./",
   "icons": [
     {
       "src": "assets/ngx-rocket-logo.png",
