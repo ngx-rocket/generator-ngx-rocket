@@ -1,0 +1,49 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+      "outDir": "./dist/out-tsc",
+      "sourceMap": true,
+      "declaration": false,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "importHelpers": true,
+  <% if (props.strict) { -%>
+      "strict": true,
+  <% } else { -%>
+      "noImplicitAny": true,
+  <% } -%>
+      "suppressImplicitAnyIndexErrors": true,
+  <% if (props.target.includes('electron')) { -%>
+      "target": "es5",
+  <% } else { -%>
+      "target": "es2015",
+  <% } -%>
+      "typeRoots": [
+        "node_modules/@types"
+      ],
+      "lib": [
+        "es2018",
+        "dom"
+      ],
+      "baseUrl": "./",
+      "paths": {
+        "@app/*": ["src/app/*"],
+  <% if (props.usePrefix) { -%>
+        "@core": ["src/app/@core"],
+        "@core/*": ["src/app/@core/*"],
+        "@shared": ["src/app/@shared"],
+        "@shared/*": ["src/app/@shared/*"],
+  <% } -%>
+        "@env/*": ["src/environments/*"]
+      }
+    },
+    "angularCompilerOptions": {
+      "fullTemplateTypeCheck": true,
+      "strictInjectionParameters": true,
+      "preserveWhitespaces": true
+    }
+  }
+  

@@ -17,6 +17,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+          "allowedCommonJsDependencies": [
+            "rxjs-compat"
+          ],
             "outputPath": "<%= props.target.includes('cordova') ? 'www' : 'dist' %>",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -53,7 +56,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -65,7 +67,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ],
 <% if (props.pwa) { -%>
