@@ -3,19 +3,21 @@
   "short_name": "<%= props.appName %>",
   "theme_color": "#488aff",
   "background_color": "#488aff",
+  "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "display": "standalone",
   "icons": [
     {
       "src": "assets/ngx-rocket-logo.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable any"
     },
     {
       "src": "assets/ngx-rocket-logo@192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable any"
     }
   ]
 }
