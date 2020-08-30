@@ -30,7 +30,7 @@
               "src/robots.txt",
 <% } -%>
 <% if (props.pwa) { -%>
-              "src/manifest.json",
+              "src/manifest.webmanifest",
 <% } -%>
 <% if (props.ui === 'ionic') { -%>
               {
@@ -138,7 +138,7 @@
               "src/robots.txt",
 <% } -%>
 <% if (props.pwa) { -%>
-              "src/manifest.json",
+              "src/manifest.webmanifest",
 <% } -%>
 <% if (props.ui === 'ionic') { -%>
               {
