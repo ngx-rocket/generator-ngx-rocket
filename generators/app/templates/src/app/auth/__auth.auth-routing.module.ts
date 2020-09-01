@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { marker } from '@biesbjerg/ngx-translate-extract-marker';
 
-import { extract } from '@app/i18n';
 import { LoginComponent } from './login.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent, data: { title: extract('Login') } }
+  { path: 'login', component: LoginComponent, data: { title: marker('Login') } }
 ];
 
 @NgModule({

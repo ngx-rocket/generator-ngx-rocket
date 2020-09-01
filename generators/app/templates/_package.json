@@ -20,7 +20,7 @@
     "test": "<%= run('env') %> && ng test",
     "test:ci": "<%= run('env') %> && <%= run('lint') %> && ng test --configuration=ci",
     "e2e": "<%= run('env') %> && ng e2e",
-    "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean --sort --marker extract",
+    "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean --sort",
 <% if (props.tools.includes('hads')) { -%>
     "docs": "hads ./docs -o",
 <% } -%>
@@ -132,7 +132,8 @@
     "@angular/language-service": "^10.0.14",
     "@angular-devkit/build-angular": "^0.1000.8",
     "@angularclass/hmr": "^3.0.0",
-    "@biesbjerg/ngx-translate-extract": "^4.2.0",
+    "@biesbjerg/ngx-translate-extract": "^7.0.2",
+    "@biesbjerg/ngx-translate-extract-marker": "^1.0.0",
     "@ngx-rocket/scripts": "^4.0.0",
     "@types/jasmine": "^3.5.14",
     "@types/jasminewd2": "^2.0.8",

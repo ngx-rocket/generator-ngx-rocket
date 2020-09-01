@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
 
-import { extract, I18nService } from './i18n.service';
+import { I18nService } from './i18n.service';
 
 const defaultLanguage = 'en-US';
 const supportedLanguages = ['eo', 'en-US', 'fr-FR'];
@@ -56,12 +56,6 @@ describe('I18nService', () => {
   afterEach(() => {
     // Cleanup
     localStorage.removeItem('language');
-  });
-
-  describe('extract', () => {
-    it('should not modify string', () => {
-      expect(extract('Hello world !')).toEqual('Hello world !');
-    });
   });
 
   describe('init', () => {
