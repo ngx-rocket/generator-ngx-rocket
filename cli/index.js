@@ -16,7 +16,7 @@ const pkg = require('../package.json');
 
 const addonKey = 'ngx-rocket-addon';
 const disabledAddons = 'disabledAddons';
-const blacklistedNpmAddons = ['generator-ngx-rocket', 'generator-ngx-rocket-addon'];
+const blacklistedNpmAddons = new Set(['generator-ngx-rocket', 'generator-ngx-rocket-addon']);
 const appName = path.basename(process.argv[1]);
 const help = `${chalk.bold(`Usage:`)} ${appName} ${chalk.blue(`[new|update|config|list|<script>]`)} [options]\n`;
 const detailedHelp = `
@@ -126,7 +126,7 @@ class NgxCli {
     }
 
     if (addon) {
-      args = args.filter(arg => arg !== '--addon' && arg !== '-a');
+      args = args.filter((arg) => arg !== '--addon' && arg !== '-a');
       env.lookup(() =>
         env.run(['ngx-rocket:addon'].concat(args), {
           update,
@@ -143,10 +143,11 @@ class NgxCli {
       } else {
         const disabled = this._config.get(disabledAddons);
         addons = await this._findAddons();
-        addons = addons.filter(addon => !disabled[addon]);
+        addons = addons.filter((addon) => !disabled[addon]);
       }
 
-      await new Promise(resolve =>
+      await new Promise((resolve) =>
+        // eslint-disable-next-line no-promise-executor-return
         env.lookup(() =>
           env.run(
             ['ngx-rocket'].concat(args),
@@ -171,7 +172,7 @@ class NgxCli {
       type: 'checkbox',
       name: 'addons',
       message: 'Choose add-ons to use for new apps',
-      choices: addons.map(addon => ({
+      choices: addons.map((addon) => ({
         name: addon,
         checked: !disabled[addon]
       }))
@@ -180,7 +181,7 @@ class NgxCli {
     this._config.set(
       disabledAddons,
       addons
-        .filter(addon => !answers.addons.includes(addon))
+        .filter((addon) => !answers.addons.includes(addon))
         .reduce((r, addon) => {
           r[addon] = true;
           return r;
@@ -194,7 +195,7 @@ class NgxCli {
     if (npm) {
       addons = await Promise.resolve(spawn.sync('npm', ['search', addonKey, '--json'], {stdio: [0, null, 2]}).stdout);
       addons = addons ? JSON.parse(addons) : [];
-      addons = addons.filter(addon => !blacklistedNpmAddons.includes(addon.name));
+      addons = addons.filter((addon) => !blacklistedNpmAddons.has(addon.name));
     } else {
       addons = await this._findAddons();
     }
@@ -205,31 +206,31 @@ class NgxCli {
     if (addons.length === 0) {
       console.log('  No add-ons found.');
     } else if (npm) {
-      addons.forEach(addon => console.log(`  ${addon.name}@${addon.version} - ${addon.description}`));
+      addons.forEach((addon) => console.log(`  ${addon.name}@${addon.version} - ${addon.description}`));
     } else {
-      addons.forEach(addon => console.log(`${chalk.green(disabled[addon] ? ' ' : figures.tick)} ${addon}`));
+      addons.forEach((addon) => console.log(`${chalk.green(disabled[addon] ? ' ' : figures.tick)} ${addon}`));
     }
   }
 
   _findAddons() {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       env.lookup(() => {
         const generators = env.getGeneratorsMeta();
         const addons = Object.keys(generators)
-          .map(alias => generators[alias])
-          .filter(generator => {
+          .map((alias) => generators[alias])
+          .filter((generator) => {
             const packagePath = this._findPackageJson(generator.resolved);
             const keywords = require(packagePath).keywords || [];
             return keywords.includes(addonKey);
           })
-          .map(generator => generator.namespace.replace(/(.*?):app$/, '$1'));
+          .map((generator) => generator.namespace.replace(/(.*?):app$/, '$1'));
         resolve(addons);
       });
     });
   }
 
   _findPackageJson(basePath) {
-    const find = components => {
+    const find = (components) => {
       if (components.length === 0) {
         return null;
       }
@@ -257,7 +258,7 @@ class NgxCli {
     try {
       const rc = require(path.join(process.cwd(), '.yo-rc.json'));
       pm = rc['generator-ngx-rocket'].props.packageManager;
-    } catch (_) {
+    } catch {
       // Do nothing
     }
 

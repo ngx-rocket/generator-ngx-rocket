@@ -43,12 +43,14 @@ const deployers = [
   }
 ];
 
-const deployerChoices = deployers.map(d => ({
+const deployerChoices = deployers.map((d) => ({
   value: d.value,
   name: d.name + (d.value === 'none' ? '' : ` (with ${chalk.green(d.package)})`)
 }));
-const deployerValues = deployers.map(d => d.value);
-const deployerValuesHelp = deployers.map(d => d.value + (d.value === 'none' ? '' : ` (use ${chalk.green(d.package)})`));
+const deployerValues = deployers.map((d) => d.value);
+const deployerValuesHelp = deployers.map(
+  (d) => d.value + (d.value === 'none' ? '' : ` (use ${chalk.green(d.package)})`)
+);
 
 module.exports = {
   deployers,
