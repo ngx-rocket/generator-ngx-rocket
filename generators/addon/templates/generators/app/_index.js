@@ -55,7 +55,7 @@ module.exports = Generator.make({
       message: 'To whom shall we say hello?',
       default: 'world',
       // Only ask this one when "yes" is replied to the sayHello prompt
-      when: props => props.sayHello
+      when: (props) => props.sayHello
     }
   ]
 });
