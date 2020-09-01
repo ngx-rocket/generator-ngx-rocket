@@ -99,7 +99,7 @@ class NgxGenerator extends Generator {
     // Composition
     const addonsOption = this.options.addons;
     this.addons = addonsOption ? addonsOption.split(' ') : [];
-    this.addons.forEach(addon => {
+    this.addons.forEach((addon) => {
       try {
         if (/[:/]/.test(addon)) {
           // Fetch addon name from URL/GitHub/Local package format
@@ -119,7 +119,7 @@ class NgxGenerator extends Generator {
         }
 
         this.composeWith(addon, this.options);
-      } catch (_) {
+      } catch {
         this.log(chalk.red(`Error: add-on "${addon}" not found.`));
         // eslint-disable-next-line unicorn/no-process-exit
         process.exit(-1);
@@ -149,8 +149,8 @@ class NgxGenerator extends Generator {
 
   configuring() {
     // Add prefix rules for languages
-    getLanguages().forEach(language => {
-      this._prefixRules[language] = props => props.languages.includes(language);
+    getLanguages().forEach((language) => {
+      this._prefixRules[language] = (props) => props.languages.includes(language);
     });
 
     this.insight.track(
@@ -218,7 +218,7 @@ class NgxGenerator extends Generator {
   }
 
   end() {
-    const deployer = deployers.find(d => d.value === this.props.deploy);
+    const deployer = deployers.find((d) => d.value === this.props.deploy);
 
     if (this.props.deploy !== 'none') {
       this.log(`\nConfiguring deployment with ${chalk.cyan(deployer.name)}, please wait…\n`);
@@ -292,16 +292,16 @@ module.exports = Generator.make({
   options,
   prompts,
   prefixRules: Object.assign(Generator.defaultPrefixRules, {
-    'ionic-tabs': props => props.ui === 'ionic' && props.layout === 'tabs',
-    'ionic-side-menu': props => props.ui === 'ionic' && props.layout === 'side-menu',
-    'material-simple': props => props.ui === 'material' && props.layout === 'simple',
-    'material-side-menu': props => props.ui === 'material' && props.layout === 'side-menu',
-    raw: props => props.ui === 'raw',
-    'electron-windows': props => props.desktop && props.desktop.includes('windows'),
-    'electron-mac': props => props.desktop && props.desktop.includes('mac'),
-    'electron-linux': props => props.desktop && props.desktop.includes('linux'),
-    'tools-hads': props => props.tools && props.tools.includes('hads'),
-    'tools-jest': props => props.tools && props.tools.includes('jest'),
-    'tools-karma': props => props.tools && !props.tools.includes('jest')
+    'ionic-tabs': (props) => props.ui === 'ionic' && props.layout === 'tabs',
+    'ionic-side-menu': (props) => props.ui === 'ionic' && props.layout === 'side-menu',
+    'material-simple': (props) => props.ui === 'material' && props.layout === 'simple',
+    'material-side-menu': (props) => props.ui === 'material' && props.layout === 'side-menu',
+    raw: (props) => props.ui === 'raw',
+    'electron-windows': (props) => props.desktop && props.desktop.includes('windows'),
+    'electron-mac': (props) => props.desktop && props.desktop.includes('mac'),
+    'electron-linux': (props) => props.desktop && props.desktop.includes('linux'),
+    'tools-hads': (props) => props.tools && props.tools.includes('hads'),
+    'tools-jest': (props) => props.tools && props.tools.includes('jest'),
+    'tools-karma': (props) => props.tools && !props.tools.includes('jest')
   })
 });

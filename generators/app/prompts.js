@@ -32,13 +32,13 @@ module.exports = [
     name: 'pwa',
     message: 'Do you want a progressive web app? (with manifest and service worker)',
     default: true,
-    when: props => props.target && props.target.includes('web')
+    when: (props) => props.target && props.target.includes('web')
   },
   {
     type: 'checkbox',
     name: 'mobile',
     message: 'Which mobile platform do you want to support?',
-    when: props => props.target && props.target.includes('cordova'),
+    when: (props) => props.target && props.target.includes('cordova'),
     choices: [
       {
         value: 'ios',
@@ -56,7 +56,7 @@ module.exports = [
     type: 'checkbox',
     name: 'desktop',
     message: 'Which desktop platform do you want to support?',
-    when: props => props.target && props.target.includes('electron'),
+    when: (props) => props.target && props.target.includes('electron'),
     choices: [
       {
         value: 'windows',
@@ -93,13 +93,13 @@ module.exports = [
         name: 'Bootstrap (more website-oriented)'
       }
     ],
-    default: props => (props.target && props.target.includes('cordova') ? 'ionic' : 'material')
+    default: (props) => (props.target && props.target.includes('cordova') ? 'ionic' : 'material')
   },
   {
     type: 'list',
     name: 'layout',
     message: 'Which kind of layout do you want?',
-    choices: props => {
+    choices: (props) => {
       return [
         {
           value: 'simple',
@@ -116,9 +116,9 @@ module.exports = [
           name: 'Tabs menu (more app-oriented)',
           when: props.ui === 'ionic'
         }
-      ].filter(choice => choice.when);
+      ].filter((choice) => choice.when);
     },
-    when: props => props.ui === 'material' || props.ui === 'ionic',
+    when: (props) => props.ui === 'material' || props.ui === 'ionic',
     default: 'side-menu'
   },
   {
@@ -143,8 +143,8 @@ module.exports = [
     type: 'checkbox',
     name: 'languages',
     message: 'Which languages do you want to support?',
-    choices: () => getLanguages().map(language => ({value: language, name: language, checked: language === 'en-US'})),
-    validate: value => (value.length > 0 ? true : 'You must pick at least one language.')
+    choices: () => getLanguages().map((language) => ({value: language, name: language, checked: language === 'en-US'})),
+    validate: (value) => (value.length > 0 ? true : 'You must pick at least one language.')
   },
   {
     type: 'list',
@@ -164,14 +164,14 @@ module.exports = [
         name: 'Other'
       }
     ],
-    when: props => props.angulartics,
+    when: (props) => props.angulartics,
     default: 'ga'
   },
   {
     type: 'input',
     name: 'googleAnalyticsAccount',
     message: 'What is your Google Analytics account (e.g. UA-1234567-1)?',
-    when: props => props.angulartics && props.analyticsProvider === 'ga'
+    when: (props) => props.angulartics && props.analyticsProvider === 'ga'
   },
   {
     type: 'checkbox',
@@ -231,6 +231,6 @@ module.exports = [
     message: 'Which automatic deployment do you want?',
     default: 'none',
     choices: deployerChoices,
-    when: props => props.target && props.target.includes('web')
+    when: (props) => props.target && props.target.includes('web')
   }
 ];
