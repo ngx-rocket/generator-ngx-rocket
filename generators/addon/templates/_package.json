@@ -14,14 +14,14 @@
   "author": "<%= props.author %>",
   "license": "MIT",
   "dependencies": {
-    "@ngx-rocket/core": "^5.0.2",
-    "chalk": "^2.4.2"
+    "@ngx-rocket/core": "^6.0.0",
+    "chalk": "^4.1.0"
   },
   "devDependencies": {
-    "xo": "^0.27.2"
+    "xo": "^0.33.1"
   },
   "engines": {
-    "node": ">=8.9.0"
+    "node": ">=10.0.0"
   },
   "xo": {
     "space": true,
