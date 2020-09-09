@@ -9,6 +9,10 @@
   "scripts": {
     "ng": "ng",
     "build": "<%= run('env') %> && ng build --prod",
+<% if (props.dtap) { -%>
+    "build:testing": "<%= run('env') %> && ng build --prod --configuration=testing",
+    "build:acceptance": "<%= run('env') %> && ng build --prod --configuration=acceptance",
+<% } -%>
     "start": "<%= run('env') %> && ng serve --proxy-config proxy.conf.js",
 <% if (props.deploy !== 'none') { -%>
     "deploy": "<%= run('env') %> && ng deploy",
