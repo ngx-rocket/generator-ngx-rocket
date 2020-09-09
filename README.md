@@ -272,7 +272,12 @@ for more information about add-on creation.
 
 # Contributing
 
-See [contributing guide](CONTRIBUTING.md)
+First time contributors are welcome in this project! 🎉
+
+To get started, take a look at the [contributing guide](CONTRIBUTING.md).
+If you want to help and don't know what you can do, look for [good first contribution issues](https://github.com/ngx-rocket/generator-ngx-rocket/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+contribution%22), or if you're a seasoned OSS contributor look for [PR welcome tags](https://github.com/ngx-rocket/generator-ngx-rocket/issues?q=is%3Aopen+is%3Aissue+label%3A%22PR+welcome%22).
+
+Thanks for helping ❤️
 
 # License
 
