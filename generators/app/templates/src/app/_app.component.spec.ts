@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 <% if (props.ui === 'ionic') { -%>
@@ -31,7 +31,7 @@ describe('AppComponent', () => {
   let keyboardSpy: any;
 
 <% } -%>
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
 <% if (props.target.includes('cordova') && !props.tools.includes('jest')) { -%>
     statusBarSpy = jasmine.createSpyObj('StatusBar', ['styleDefault']);
     splashScreenSpy = jasmine.createSpyObj('SplashScreen', ['hide']);
@@ -75,7 +75,7 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-  it('should create the app', async(() => {
+  it('should create the app', waitForAsync(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
