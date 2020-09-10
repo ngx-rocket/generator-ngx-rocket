@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript?WT.mc_id=generatorngxrocket-github-yolasors
 
 parameters:
-  nodeVersions: ['10.x', '>=12.x']
+  nodeVersions: ['12.x', '>=14.x']
   operatingSystems: ['ubuntu-latest', 'macos-latest', 'windows-latest']
   testCases: []
 
