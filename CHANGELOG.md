@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.0.0](https://github.com/ngx-rocket/generator-ngx-rocket/compare/8.1.1...9.0.0) (2020-09-10)
+
+
+### Bug Fixes
+
+* bump min node version to 12 ([5145294](https://github.com/ngx-rocket/generator-ngx-rocket/commit/514529432230da339ceb7822daf547b63bc124c2))
+* double prompt issue (close [#566](https://github.com/ngx-rocket/generator-ngx-rocket/issues/566)) ([330b174](https://github.com/ngx-rocket/generator-ngx-rocket/commit/330b174a90dccedb87132617073699a353e740ab))
+* downgrade stylelint due to pending bugs ([5faf55a](https://github.com/ngx-rocket/generator-ngx-rocket/commit/5faf55a038382d187d408444de4d4815c114164e))
+* incorrect version of @types/jest ([889b147](https://github.com/ngx-rocket/generator-ngx-rocket/commit/889b1477ff9fd0d5be3f68b26295dfdd8f48a70c))
+* migrate tests using async to waitForAsync ([b386534](https://github.com/ngx-rocket/generator-ngx-rocket/commit/b386534c8e19c8da599e48874f931809b7b25b14))
+* remove unused modules (close [#560](https://github.com/ngx-rocket/generator-ngx-rocket/issues/560)) ([840c033](https://github.com/ngx-rocket/generator-ngx-rocket/commit/840c033d1c2d4fa55faf71e9cb2ece3ed9a82f72))
+* translation strings extraction (close [#551](https://github.com/ngx-rocket/generator-ngx-rocket/issues/551)) ([cc58749](https://github.com/ngx-rocket/generator-ngx-rocket/commit/cc58749e55ea8499d8ed1f24e1f21391629ddf24))
+
+
+### Features
+
+* **deps:** update packages ([05e240a](https://github.com/ngx-rocket/generator-ngx-rocket/commit/05e240ace5154e9a52642c7f51c200c80e6be433))
+* upgrade to Angular 10 ([#568](https://github.com/ngx-rocket/generator-ngx-rocket/issues/568)) ([ce64a85](https://github.com/ngx-rocket/generator-ngx-rocket/commit/ce64a85711bf774db8356b3663b13dd2e8613adf))
+
+
+### BREAKING CHANGES
+
+* Now requires Node >= 12 dues to dependencies update.
+
 ## [8.1.1](https://github.com/ngx-rocket/generator-ngx-rocket/compare/8.1.0...8.1.1) (2020-06-15)
 
 
