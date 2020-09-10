@@ -60,7 +60,7 @@ do
         npm run test:ci
 
         # force specific puppeteer/webdriver version to match up
-        if [ -n "$YARN" ]; then
+        if [ "$NGX_PACKAGE_MANAGER" == "yarn" ]; then
             yarn add npm i puppeteer@2.0.0
             yarn run webdriver-manager update --versions.chrome 79.0.3945.36 --gecko=false
         else
