@@ -60,8 +60,13 @@ do
         npm run test:ci
 
         # force specific puppeteer/webdriver version to match up
-        npm i puppeteer@2.0.0
-        npx webdriver-manager update --versions.chrome 79.0.3945.36 --gecko=false
+        if [ -n "$YARN" ]; then
+            yarn add npm i puppeteer@2.0.0
+            yarn run webdriver-manager update --versions.chrome 79.0.3945.36 --gecko=false
+        else
+            npm i puppeteer@2.0.0
+            npx webdriver-manager update --versions.chrome 79.0.3945.36 --gecko=false
+        fi
 
         # force usage of local chrome binary, in headless mode
         PROTRACTOR_CHROME_BIN=$(node -p "require('puppeteer').executablePath()") \
