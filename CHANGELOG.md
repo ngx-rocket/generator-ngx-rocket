@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/compare/9.0.0...9.1.0) (2020-10-05)
+
+
+### Features
+
+* update app dependencies ([a36d906](https://github.com/ngx-rocket/generator-ngx-rocket/commit/a36d906dc20fabe69f5f81ef599a1d09816560dd))
+
 # [9.0.0](https://github.com/ngx-rocket/generator-ngx-rocket/compare/8.1.1...9.0.0) (2020-09-10)
 
 
