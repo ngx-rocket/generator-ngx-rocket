@@ -24,7 +24,11 @@ export class RouteReusableStrategy extends RouteReuseStrategy {
   }
 
   public shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean {
-    return (future.routeConfig === curr.routeConfig) || future.data.reuse;
+    // Reuse the route if the RouteConfig is the same, or if both routes use the
+    // same component, because the latter can have different RouteConfigs.
+    return future.routeConfig === curr.routeConfig ||
+      (!!future.routeConfig?.component &&
+        future.routeConfig?.component === curr.routeConfig?.component);
   }
 
 }
