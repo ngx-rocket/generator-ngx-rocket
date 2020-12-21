@@ -1,6 +1,6 @@
 {
   "APP_NAME": "<%= props.appName %>",
-  "About": "About",
+  "About": "Informazioni",
   "Hello world !": "Ciao Mondo !",
   "Home": "Inizio",
 <% if (props.ui === 'ionic') { -%>
