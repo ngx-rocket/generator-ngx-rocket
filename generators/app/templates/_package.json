@@ -8,18 +8,18 @@
   <% } -%>
   "scripts": {
     "ng": "ng",
-    "build": "<%= run('env') %> && ng build --prod",
-    "start": "<%= run('env') %> && ng serve --proxy-config proxy.conf.js",
+    "build": "<%= run('write:env') %> && ng build --prod",
+    "start": "<%= run('write:env') %> && ng serve --proxy-config proxy.conf.js",
 <% if (props.deploy !== 'none') { -%>
-    "deploy": "<%= run('env') %> && ng deploy",
+    "deploy": "<%= run('write:env') %> && ng deploy",
 <% } -%>
 <% if (props.pwa) { -%>
     "serve:sw": "<%= run('build') %> && npx http-server ./<%= props.target.includes('cordova') ? 'www': 'dist' %> -p 4200",
 <% } -%>
     "lint": "ng lint && stylelint \"src/**/*.scss\" --syntax scss && htmlhint \"src\" --config .htmlhintrc",
-    "test": "<%= run('env') %> && ng test",
-    "test:ci": "<%= run('env') %> && <%= run('lint') %> && ng test --configuration=ci",
-    "e2e": "<%= run('env') %> && ng e2e",
+    "test": "<%= run('write:env') %> && ng test",
+    "test:ci": "<%= run('write:env') %> && <%= run('lint') %> && ng test --configuration=ci",
+    "e2e": "<%= run('write:env') %> && ng e2e",
     "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean --sort",
 <% if (props.tools.includes('hads')) { -%>
     "docs": "hads ./docs -o",
@@ -27,7 +27,7 @@
 <% if (props.tools.includes('compodoc')) { -%>
     "compodoc": "compodoc -p tsconfig.json -d docs/generated -s -o",
 <% } -%>
-    "env": "ngx-scripts env npm_package_version",
+    "write:env": "ngx-scripts env npm_package_version",
 <% if (props.tools.includes('prettier')) { -%>
     "prettier": "prettier --write \"./{src,e2e}/**/*.{ts,js,html,scss}\"",
     "prettier:check": "prettier --list-different \"./{src,e2e}/**/*.{ts,js,html,scss}\"",
@@ -43,7 +43,7 @@
 <% if (props.target.includes('electron')) { -%>
     "electron:compile": "tsc --project tsconfig.electron.json",
     "electron:run": "<%= run('electron:compile') %> && electron .",
-    "electron:build": "<%= run('electron:compile') %> && <%= run('env') %> && ng build --prod --base-href ./dist.electron --output-path dist.electron",
+    "electron:build": "<%= run('electron:compile') %> && <%= run('write:env') %> && ng build --prod --base-href ./dist.electron --output-path dist.electron",
     "electron:package:common": "electron-packager . --overwrite --out=dist.packages --ignore=\"/(platforms|plugins|docs|www|reports|e2e|src)\"",
 <%   if (props.desktop.includes('windows')) { -%>
     "electron:package:windows": "<%= run('electron:package:common') %> -- --platform=win32 --arch=x64 --icon=./resources/win/icon.ico",
