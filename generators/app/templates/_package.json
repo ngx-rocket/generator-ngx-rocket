@@ -214,6 +214,9 @@
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
   },
+  "resolutions": {
+    "webpack": "^5.0.0"
+  },
   "cordova": {
     "platforms": [
       "android",
