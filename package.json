@@ -60,7 +60,7 @@
     "@ngx-rocket/ascii-logo": "^1.0.1",
     "@ngx-rocket/core": "^6.0.0",
     "chalk": "^4.1.0",
-    "conf": "^7.1.2",
+    "conf": "^8.0.0",
     "cross-spawn": "^7.0.3",
     "figures": "^3.2.0",
     "fs-extra": "^9.0.1",
@@ -73,7 +73,7 @@
     "minimist": "^1.2.5",
     "replace-in-file": "^6.1.0",
     "semver": "^7.3.2",
-    "update-notifier": "^4.1.1",
+    "update-notifier": "^5.0.1",
     "yeoman-environment": "^2.10.3"
   },
   "devDependencies": {
@@ -81,7 +81,7 @@
     "commitizen": "^4.2.1",
     "cz-conventional-changelog": "^3.3.0",
     "semantic-release": "^17.1.1",
-    "xo": "^0.33.1"
+    "xo": "^0.37.1"
   },
   "engines": {
     "node": ">=12.0.0",
