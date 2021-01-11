@@ -1,36 +1,40 @@
 name: release
 on:
+  workflow_dispatch:
   repository_dispatch:
     types: [release]
+
 jobs:
   release:
-    name: release
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - run: git config --global core.autocrlf false
+      - uses: actions/checkout@v2
+          with:
+            persist-credentials: false
+      - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm ci
+          npm link
         env:
           CI: true
-      - name: Release
+      - run: npx semantic-release
         if: success()
-        run: npx semantic-release
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Link CLI
-        run: npm link
-        env:
-          CI: true
+          # Need owner/admin account to bypass branch protection
+          GIT_COMMITTER_NAME: ci-rebot
+          GIT_COMMITTER_EMAIL: cirebot.github@gmail.com
       - name: Configure git
         run: |
-          git config --global user.email "semantic-release-bot@martynus.net"
-          git config --global user.name "semantic-release-bot"
+          git config --global user.email "ci-rebot"
+          git config --global user.name "cirebot.github@gmail.com"
       - name: Deploy starter-kit updates
         run: npm run deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
