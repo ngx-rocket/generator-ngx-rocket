@@ -154,7 +154,7 @@
     "electron-reload": "^1.5.0",
 <% } -%>
 <% if (props.tools.includes('hads')) { -%>
-    "hads": "^3.1.0",
+    "hads": "^3.0.0",
 <% } -%>
 <% if (props.tools.includes('compodoc')) { -%>
     "@compodoc/compodoc": "^1.1.11",
