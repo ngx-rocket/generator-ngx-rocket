@@ -59,23 +59,23 @@
     "generate": "ng generate"
   },
   "dependencies": {
-    "@angular/animations": "^11.0.5",
-    "@angular/common": "^11.0.5",
-    "@angular/compiler": "^11.0.5",
-    "@angular/core": "^11.0.5",
-    "@angular/forms": "^11.0.5",
+    "@angular/animations": "^11.0.8",
+    "@angular/common": "^11.0.8",
+    "@angular/compiler": "^11.0.8",
+    "@angular/core": "^11.0.8",
+    "@angular/forms": "^11.0.8",
 <%   if (props.ui === 'bootstrap' || props.ui === 'material') { -%>
-    "@angular/localize": "^11.0.5",
+    "@angular/localize": "^11.0.8",
 <%   } -%>
-    "@angular/platform-browser": "^11.0.5",
-    "@angular/platform-browser-dynamic": "^11.0.5",
-    "@angular/router": "^11.0.5",
+    "@angular/platform-browser": "^11.0.8",
+    "@angular/platform-browser-dynamic": "^11.0.8",
+    "@angular/router": "^11.0.8",
     "@ngx-translate/core": "^13.0.0",
 <% if (props.target.includes('cordova')) { -%>
-    "@ionic-native/core": "^5.28.0",
-    "@ionic-native/keyboard": "^5.28.0",
-    "@ionic-native/splash-screen": "^5.28.0",
-    "@ionic-native/status-bar": "^5.28.0",
+    "@ionic-native/core": "^5.30.0",
+    "@ionic-native/keyboard": "^5.30.0",
+    "@ionic-native/splash-screen": "^5.30.0",
+    "@ionic-native/status-bar": "^5.30.0",
     "cordova-android": "^9.0.0",
     "cordova-custom-config": "^5.1.0",
     "cordova-ios": "^6.1.0",
@@ -87,7 +87,7 @@
     "cordova-plugin-whitelist": "^1.3.4",
 <% } -%>
 <% if (props.pwa) { -%>
-    "@angular/service-worker": "^11.0.5",
+    "@angular/service-worker": "^11.0.8",
 <% } -%>
 <% if (props.ui === 'ionic') { -%>
     "@ionic/angular": "^5.3.2",
@@ -127,19 +127,19 @@
 <% if (props.tools.includes('jest')) { -%>
     "@angular-builders/jest": "^10.0.1",
 <% } -%>
-    "@angular/cli": "~11.0.5",
-    "@angular/compiler-cli": "^11.0.5",
-    "@angular/language-service": "^11.0.5",
-    "@angular-devkit/build-angular": "^0.1100.5",
+    "@angular/cli": "~11.0.6",
+    "@angular/compiler-cli": "^11.0.8",
+    "@angular/language-service": "^11.0.8",
+    "@angular-devkit/build-angular": "^0.1100.6",
     "@biesbjerg/ngx-translate-extract": "^7.0.3",
     "@biesbjerg/ngx-translate-extract-marker": "^1.0.0",
-    "@ngx-rocket/scripts": "^4.0.0",
-    "@types/jasmine": "^3.5.14",
+    "@ngx-rocket/scripts": "^5.0.0",
+    "@types/jasmine": "^3.6.2",
     "@types/jasminewd2": "^2.0.8",
 <% if (props.tools.includes('jest')) { -%>
     "@types/jest": "^26.0.19",
 <% } -%>
-    "@types/node": "^12.12.62",
+    "@types/node": "^12.19.12",
 <% if (props.utility.includes('lodash')) { -%>
     "@types/lodash": "^4.14.165",
 <% } -%>
@@ -165,7 +165,7 @@
 <% if (props.tools.includes('jest')) { -%>
     "jest": "^26.6.3",
 <% } else { -%>
-    "karma": "~5.2.3",
+    "karma": "~5.1.1",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage-istanbul-reporter": "~3.0.3",
     "karma-jasmine": "~4.0.1",
@@ -191,7 +191,7 @@
     "stylelint-scss": "~3.18.0",
     "ts-node": "^9.1.1",
     "tslint": "~6.1.0",
-    "typescript": "~4.0.3"
+    "typescript": "~4.0.5"
 <% if (props.tools.includes('prettier')) { -%>
   },
   "prettier": {
