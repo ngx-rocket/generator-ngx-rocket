@@ -25,7 +25,7 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 <% } -%>
 
 import { environment } from '@env/environment';
-import { Logger, untilDestroyed } from '@core';
+import { Logger, UntilDestroy, untilDestroyed } from '@core';
 import { I18nService } from '@app/i18n';
 
 <% if (props.target.includes('cordova')) { -%>
@@ -33,6 +33,7 @@ import { I18nService } from '@app/i18n';
 <% } -%>
 const log = new Logger('App');
 
+@UntilDestroy()
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
