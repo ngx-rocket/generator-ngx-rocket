@@ -53,7 +53,7 @@ Alternatively, you can build a package for one specific target platform using:
 npm run electron:package:<windows|mac|linux>
 ```
 
-The build packages will be then located in the `dist.packages` folder.
+The build packages will be then located in the `dist-packages` folder.
 
 > Note: in order to build Windows packages from non-Windows platform, you need to install
 > [Wine](https://www.winehq.org) 1.6 or later.

@@ -16,7 +16,8 @@
 /platforms
 
 # Electron
-/dist.electron
+/dist-electron
+/dist-packages
 /electron.main.js
 
 # IDEs and editors
