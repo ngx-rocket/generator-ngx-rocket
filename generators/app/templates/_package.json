@@ -125,7 +125,7 @@
     "cordova": "^10.0.0",
 <% } -%>
 <% if (props.tools.includes('jest')) { -%>
-    "@angular-builders/jest": "^10.0.1",
+    "@angular-builders/jest": "^11.0.0",
 <% } -%>
     "@angular/cli": "~11.0.6",
     "@angular/compiler-cli": "^11.0.8",
