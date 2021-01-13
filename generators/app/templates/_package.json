@@ -44,7 +44,7 @@
     "electron:compile": "tsc --project tsconfig.electron.json",
     "electron:run": "<%= run('electron:compile') %> && electron .",
     "electron:build": "<%= run('electron:compile') %> && <%= run('write:env') %> && ng build --prod --base-href ./ --output-path dist-electron",
-    "electron:package:common": "electron-packager . --overwrite --out=dist.packages --ignore=\"/(platforms|plugins|docs|www|reports|e2e|src)\"",
+    "electron:package:common": "electron-packager . --overwrite --out=dist-packages --ignore=\"/(platforms|plugins|docs|www|reports|e2e|src)\"",
 <%   if (props.desktop.includes('windows')) { -%>
     "electron:package:windows": "<%= run('electron:package:common') %> -- --platform=win32 --arch=x64 --icon=./resources/win/icon.ico",
 <%   } -%>

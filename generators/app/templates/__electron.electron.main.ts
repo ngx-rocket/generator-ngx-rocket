@@ -24,7 +24,7 @@ function createWindow() {
     mainWindow.loadURL('http://localhost:4200');
   } else {
     // Load the index.html of the app.
-    mainWindow.loadFile('dist.electron/index.html');
+    mainWindow.loadFile('dist-electron/index.html');
   }  
 }
 
