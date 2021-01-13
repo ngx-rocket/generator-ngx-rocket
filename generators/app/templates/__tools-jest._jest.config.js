@@ -17,7 +17,7 @@ module.exports = {
   globals: {
     'ts-jest': {
       allowSyntheticDefaultImports: true,
-      tsConfig: '<rootDir>/tsconfig.spec.json'
+      tsconfig: '<rootDir>/tsconfig.spec.json'
     },
   },
   // Do not ignore librairies such as ionic, ionic-native or bootstrap to transform them during unit testing.
