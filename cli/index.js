@@ -241,7 +241,7 @@ class NgxCli {
     };
 
     const components = basePath.split(/[/\\]/);
-    if (components.length !== 0 && components[0].length === 0) {
+    if (components.length > 0 && components[0].length === 0) {
       // When path starts with a slash, the first path component is empty string
       components[0] = path.sep;
     }
