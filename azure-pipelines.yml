@@ -1,7 +1,7 @@
 # For reference, see https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema&WT.mc_id=generatorngxrocket-github-yolasors
 
 trigger:
-  - master
+  - main
   - release/*
 
 schedules:
@@ -9,7 +9,7 @@ schedules:
   always: true
   branches:
     include:
-    - master
+    - main
   displayName: Weekly monday build
 
 jobs:

@@ -102,7 +102,7 @@
   "release": {
     "extends": "@jedmao/semantic-release-npm-github-config",
     "tagFormat": "${version}",
-    "branch": "master"
+    "branches": "main"
   },
   "files": [
     "generators",

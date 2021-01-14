@@ -55,7 +55,7 @@ If you are not familiar with conventional commits, instead of using `git commit`
    
 7. Add new [test cases](#testing), if needed.
 
-8. Submit pull request against the `master` branch.
+8. Submit pull request against the `main` branch.
 
 ### Testing
 

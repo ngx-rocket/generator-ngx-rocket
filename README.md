@@ -1,7 +1,7 @@
 # :rocket: generator-ngx-rocket
 
 [![NPM version](https://img.shields.io/npm/v/generator-ngx-rocket.svg)](https://www.npmjs.com/package/generator-ngx-rocket)
-[![Build Status](https://sinedied.visualstudio.com/oss-pipelines/_apis/build/status/ngx-rocket.generator-ngx-rocket?branchName=master)](https://sinedied.visualstudio.com/oss-pipelines/_build?definitionId=2&_a=summary&repositoryFilter=2&branchFilter=7&WT.mc_id=generatorngxrocket-github-yolasors)
+[![Build Status](https://sinedied.visualstudio.com/oss-pipelines/_apis/build/status/ngx-rocket.generator-ngx-rocket?branchName=main)](https://sinedied.visualstudio.com/oss-pipelines/_build?definitionId=2&_a=summary&repositoryFilter=2&branchFilter=7&WT.mc_id=generatorngxrocket-github-yolasors)
 ![Node version](https://img.shields.io/node/v/generator-ngx-rocket.svg)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![Downloads](https://img.shields.io/npm/dm/generator-ngx-rocket.svg)](https://npmjs.org/package/generator-ngx-rocket)
@@ -36,7 +36,7 @@ See generated project example [here](https://github.com/ngx-rocket/starter-kit).
 - **API proxy example setup:** develop and debug faster using any remote server
 
 - **Generator output customization:** with the provided
-  [add-on support](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/generators/addon), start multiple
+  [add-on support](https://github.com/ngx-rocket/generator-ngx-rocket/tree/main/generators/addon), start multiple
   projects even faster by plugging in additions that fit your needs, such as your enterprise theme, SSO authentication,
   services integrations...
 
@@ -44,7 +44,7 @@ And there's even more! See [What's in the box](#whats-in-the-box) for more detai
 
 # Getting started
 
-## Using [ngX-Rocket CLI](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/cli)
+## Using [ngX-Rocket CLI](https://github.com/ngx-rocket/generator-ngx-rocket/tree/main/cli)
 
 1. Install required tools:
  ```sh
@@ -58,7 +58,7 @@ And there's even more! See [What's in the box](#whats-in-the-box) for more detai
  
 > :bulb: Pro tip: the `ngx` CLI can do more that just bootstrapping new projects! You can use it to run your
 > NPM scripts with fuzzy matching (try `ngx ci` for example) or help you maintaining your project up-to-date.
-> Take a look at the [full documentation](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/cli)!
+> Take a look at the [full documentation](https://github.com/ngx-rocket/generator-ngx-rocket/tree/main/cli)!
 
 # Project structure
 
@@ -200,21 +200,21 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
 
 #### Coding guides
 
-- [Angular](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/angular.md)
+- [Angular](https://github.com/ngx-rocket/starter-kit/blob/main/docs/coding-guides/angular.md)
 - [Ionic](https://github.com/ngx-rocket/starter-kit/blob/cordova/ionic/docs/coding-guides/ionic.md)
-- [TypeScript](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/typescript.md)
-- [Sass](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/sass.md)
-- [HTML](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/html.md)
-- [Unit tests](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/unit-tests.md)
-- [End-to-end tests](https://github.com/ngx-rocket/starter-kit/blob/master/docs/coding-guides/e2e-tests.md)
+- [TypeScript](https://github.com/ngx-rocket/starter-kit/blob/main/docs/coding-guides/typescript.md)
+- [Sass](https://github.com/ngx-rocket/starter-kit/blob/main/docs/coding-guides/sass.md)
+- [HTML](https://github.com/ngx-rocket/starter-kit/blob/main/docs/coding-guides/html.md)
+- [Unit tests](https://github.com/ngx-rocket/starter-kit/blob/main/docs/coding-guides/unit-tests.md)
+- [End-to-end tests](https://github.com/ngx-rocket/starter-kit/blob/main/docs/coding-guides/e2e-tests.md)
 
 #### Other documentation
 
-- [I18n guide](https://github.com/ngx-rocket/starter-kit/blob/master/docs/i18n.md)
-- [Working behind a corporate proxy](https://github.com/ngx-rocket/starter-kit/blob/master/docs/corporate-proxy.md)
-- [Updating dependencies and tools](https://github.com/ngx-rocket/starter-kit/blob/master/docs/updating.md)
-- [Using a backend proxy for development](https://github.com/ngx-rocket/starter-kit/blob/master/docs/backend-proxy.md)
-- [Browser routing](https://github.com/ngx-rocket/starter-kit/blob/master/docs/routing.md)
+- [I18n guide](https://github.com/ngx-rocket/starter-kit/blob/main/docs/i18n.md)
+- [Working behind a corporate proxy](https://github.com/ngx-rocket/starter-kit/blob/main/docs/corporate-proxy.md)
+- [Updating dependencies and tools](https://github.com/ngx-rocket/starter-kit/blob/main/docs/updating.md)
+- [Using a backend proxy for development](https://github.com/ngx-rocket/starter-kit/blob/main/docs/backend-proxy.md)
+- [Browser routing](https://github.com/ngx-rocket/starter-kit/blob/main/docs/routing.md)
 - [Cordova](https://github.com/ngx-rocket/starter-kit/blob/cordova/ionic/docs/cordova.md)
 - [Electron](https://github.com/ngx-rocket/starter-kit/blob/electron/ionic/docs/electron.md)
 
@@ -224,7 +224,7 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
  (default is NPM).
  You can also use the environment variable `NGX_PACKAGE_MANAGER` to set this option globally.
 - `--automate <json_file>`: automate prompt answers using specified JSON file (see
-  [here](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/scripts/tests) for examples).
+  [here](https://github.com/ngx-rocket/generator-ngx-rocket/tree/main/scripts/tests) for examples).
 - `--addons <addon_name> [<addon_name>] ...`: space-separated list of add-ons to use.
 - `--no-update`: do no update existing project (see also [updating generated projects](#updating-generated-projects)).
 - `--no-analytics`: do not report anonymous usage analytics.
@@ -262,12 +262,12 @@ point. Here is how we suggest you to do it:
 You can customize the generator output to change or enhance it to better suit your needs using
 [add-ons](https://www.npmjs.com/search?q=ngx-rocket-addon).
 
-To create a new add-on, you can use the `addon` sub-generator of the [CLI](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/cli):
+To create a new add-on, you can use the `addon` sub-generator of the [CLI](https://github.com/ngx-rocket/generator-ngx-rocket/tree/main/cli):
 ```sh
 ngx new --addon
 ```
 
-See the [add-on generator documentation](https://github.com/ngx-rocket/generator-ngx-rocket/tree/master/generators/addon)
+See the [add-on generator documentation](https://github.com/ngx-rocket/generator-ngx-rocket/tree/main/generators/addon)
 for more information about add-on creation.
 
 # Contributing

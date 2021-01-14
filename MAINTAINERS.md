@@ -14,7 +14,7 @@ Don't forget to run `npm run lint` after update in case `xo` was updated.
 
 Then follow these steps:
 
-1. Update your local master branch
+1. Update your local main branch
 
 2. Make sure you have no pending changes
 

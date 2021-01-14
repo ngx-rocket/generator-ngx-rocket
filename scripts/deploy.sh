@@ -36,7 +36,7 @@ function update_repo() {
     git commit -m "Updated from generator v$VERSION"
     set -e
 
-    if [ "$BRANCH" == "master" ]; then
+    if [ "$BRANCH" == "main" ]; then
         git tag -a v$VERSION -m "v$VERSION";
     else
         git tag -a v$VERSION+$BRANCH -m "v$VERSION+$BRANCH";
@@ -51,8 +51,8 @@ function update_repo() {
 # Cleanup deploy folder in case of error
 trap cleanup ERR
 
-# Use web/bootstrap for master branch
-BRANCH=master
+# Use web/bootstrap for main branch
+BRANCH=main
 prepare_repo
 ngx new --skip-install --automate "$SCRIPT_FOLDER/tests/app/web/bootstrap-authentication.json" "$DEPLOY_APP_NAME"
 update_repo
