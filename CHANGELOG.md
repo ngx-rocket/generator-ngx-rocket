@@ -1,3 +1,25 @@
+# [9.2.0](https://github.com/ngx-rocket/generator-ngx-rocket/compare/9.1.0...9.2.0) (2021-01-14)
+
+
+### Bug Fixes
+
+* app not loading with Electron v11 ([1444bf0](https://github.com/ngx-rocket/generator-ngx-rocket/commit/1444bf09c123619fc8ef0a0203a2ebabd51b6106))
+* incorrect hads version ([ba20ff1](https://github.com/ngx-rocket/generator-ngx-rocket/commit/ba20ff18460eafd84f3f46656a215e612a62f6b1))
+* rename env script to fix execution in some environments (closes [#575](https://github.com/ngx-rocket/generator-ngx-rocket/issues/575)) ([ec93fdb](https://github.com/ngx-rocket/generator-ngx-rocket/commit/ec93fdb3de5ad578bc338d41cc8a93a45a7ae422))
+* update electron templates ([3433465](https://github.com/ngx-rocket/generator-ngx-rocket/commit/3433465bd204c05af5606d1c37387042b0f2f3b1))
+* update generator dependencies ([bda29d9](https://github.com/ngx-rocket/generator-ngx-rocket/commit/bda29d993f25c22b3ebeb2422ad9c513628686e3))
+* update jest config ([4b4a357](https://github.com/ngx-rocket/generator-ngx-rocket/commit/4b4a35740d1e12847910ca732c9e78fcca91d866))
+* update packages and fix peer dependencies ([64098dc](https://github.com/ngx-rocket/generator-ngx-rocket/commit/64098dcee249a9edccb208c209b2a28bc3498faa))
+* update RouteReusableStrategy for Angular 11 ([#576](https://github.com/ngx-rocket/generator-ngx-rocket/issues/576)) ([3077f5b](https://github.com/ngx-rocket/generator-ngx-rocket/commit/3077f5bc71c67f0b0f43e4a511314076580068ec))
+
+
+### Features
+
+* add brazilian portuguese language ([1a6d728](https://github.com/ngx-rocket/generator-ngx-rocket/commit/1a6d7286700b3827590c388f9e019d6a6865e523))
+* enable webpack 5 ([8592a71](https://github.com/ngx-rocket/generator-ngx-rocket/commit/8592a7163f4a8f50bbf11383c50590b636d6198d))
+* migrate to @ngneat/until-destroy (fix [#577](https://github.com/ngx-rocket/generator-ngx-rocket/issues/577)) ([3a77fcb](https://github.com/ngx-rocket/generator-ngx-rocket/commit/3a77fcb1cfc89f8adcf99cd4bf8c1d00ad191b7e))
+* update editorconfig (fixes [#580](https://github.com/ngx-rocket/generator-ngx-rocket/issues/580)) ([9f036b3](https://github.com/ngx-rocket/generator-ngx-rocket/commit/9f036b3c1640e30f158d09198ad069bdcfc9e9b2))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See
