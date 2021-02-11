@@ -32,8 +32,8 @@ jobs:
           GIT_COMMITTER_EMAIL: cirebot.github@gmail.com
       - name: Configure git
         run: |
-          git config --global user.email "ci-rebot"
-          git config --global user.name "cirebot.github@gmail.com"
+          git config --global user.name "ci-rebot"
+          git config --global user.email "cirebot.github@gmail.com"
       - name: Deploy starter-kit updates
         run: npm run deploy
         env:
