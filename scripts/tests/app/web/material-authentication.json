@@ -3,6 +3,5 @@
   "pwa": true,
   "ui": "material",
   "layout": "simple",
-  "auth": true,
-  "lazy": false
+  "features": ["auth", "e2e"]
 }
