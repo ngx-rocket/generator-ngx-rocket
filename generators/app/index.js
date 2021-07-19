@@ -144,6 +144,11 @@ class NgxGenerator extends Generator {
     this.props.languages = this.props.languages || ['en-US', 'fr-FR'];
     this.props.usePrefix = typeof this.props.usePrefix === 'boolean' ? this.props.usePrefix : true;
     this.props.deploy = this.props.deploy || 'none';
+    this.props.features = this.props.features || [];
+    this.props.auth = this.props.features.includes('auth');
+    this.props.lazy = this.props.features.includes('lazy');
+    this.props.e2e = this.props.features.includes('e2e');
+    this.props.angulartics = this.props.features.includes('angulartics');
     this.shareProps(this.props);
   }
 
@@ -302,6 +307,7 @@ module.exports = Generator.make({
     'electron-linux': (props) => props.desktop && props.desktop.includes('linux'),
     'tools-hads': (props) => props.tools && props.tools.includes('hads'),
     'tools-jest': (props) => props.tools && props.tools.includes('jest'),
-    'tools-karma': (props) => props.tools && !props.tools.includes('jest')
+    'tools-karma': (props) => props.tools && !props.tools.includes('jest'),
+    'e2e': (props) => !props.features || props.features.includes('e2e')
   })
 });
