@@ -157,6 +157,35 @@
             }
           }
 <% } -%>
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+<% if (props.e2e) { -%>
+              "e2e/tsconfig.json",
+<% } -%>
+              "tsconfig.app.json",
+              "tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+<% if (props.e2e) { -%>
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "<%= props.projectName %>:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "<%= props.projectName %>:serve:production"
+            }
+          }
+<% } -%>
         }
       }
     }
