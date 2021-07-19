@@ -122,22 +122,30 @@ module.exports = [
     default: 'side-menu'
   },
   {
-    type: 'confirm',
-    name: 'auth',
-    message: 'Do you want authentication?',
-    default: true
-  },
-  {
-    type: 'confirm',
-    name: 'lazy',
-    message: 'Do you want lazy loading?',
-    default: true
-  },
-  {
-    type: 'confirm',
-    name: 'angulartics',
-    message: 'Do you want analytics support (with Angulartics2)?',
-    default: false
+    type: 'checkbox',
+    name: 'features',
+    message: 'Which features do you need?',
+    choices: [
+      {
+        value: 'auth',
+        name: 'Authentication',
+        checked: true
+      },
+      {
+        value: 'lazy',
+        name: 'Lazy loading',
+        checked: true
+      },
+      {
+        value: 'e2e',
+        name: 'End-to-end tests',
+        checked: true
+      },
+      {
+        value: 'angulartics',
+        name: 'Analytics support (with Angulartics2)?'
+      }
+    ]
   },
   {
     type: 'checkbox',
@@ -164,14 +172,14 @@ module.exports = [
         name: 'Other'
       }
     ],
-    when: (props) => props.angulartics,
+    when: (props) => props.features && props.features.includes('angulartics'),
     default: 'ga'
   },
   {
     type: 'input',
     name: 'googleAnalyticsAccount',
     message: 'What is your Google Analytics account (e.g. UA-1234567-1)?',
-    when: (props) => props.angulartics && props.analyticsProvider === 'ga'
+    when: (props) => props.features && props.features.includes('angulartics') && props.analyticsProvider === 'ga'
   },
   {
     type: 'checkbox',
@@ -194,7 +202,7 @@ module.exports = [
       },
       {
         value: 'jest',
-        name: 'Jest (Delightful JavaScript Testing)'
+        name: 'Jest (replaces Jasmine)'
       },
       {
         value: 'puppeteer',
