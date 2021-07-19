@@ -137,8 +137,10 @@
     "@biesbjerg/ngx-translate-extract-marker": "^1.0.0",
     "@ngx-rocket/scripts": "^5.1.0",
     "@ngneat/until-destroy": "^8.0.4",
+<% if (!props.tools.includes('jest') || props.e2e) { -%>
     "@types/jasmine": "^3.6.2",
     "@types/jasminewd2": "^2.0.8",
+<% } -%>
 <% if (props.tools.includes('jest')) { -%>
     "@types/jest": "^26.0.19",
 <% } -%>
@@ -161,18 +163,20 @@
 <% if (props.tools.includes('compodoc')) { -%>
     "@compodoc/compodoc": "^1.1.11",
 <% } -%>
-    "htmlhint": "^0.14.2",
+    "htmlhint": "^0.15.1",
     "https-proxy-agent": "^5.0.0",
-    "jasmine-core": "~3.7.0",
-    "jasmine-spec-reporter": "~6.0.0",
+<% if (!props.tools.includes('jest') || props.e2e) { -%>
+    "jasmine-core": "~3.8.0",
+    "jasmine-spec-reporter": "~7.0.0",
+<% } -%>
 <% if (props.tools.includes('jest')) { -%>
-    "jest": "^26.6.3",
+    "jest": "^27.0.6",
 <% } else { -%>
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage-istanbul-reporter": "~3.0.3",
     "karma-jasmine": "~4.0.1",
-    "karma-jasmine-html-reporter": "^1.5.4",
+    "karma-jasmine-html-reporter": "~1.7.0",
     "karma-junit-reporter": "^2.0.1",
 <% } -%>
 <% if (props.tools.includes('prettier')) { -%>
@@ -190,11 +194,11 @@
 <% if (props.tools.includes('puppeteer')) { -%>
     "puppeteer": "^5.5.0",
 <% } -%>
-    "stylelint": "~13.8.0",
-    "stylelint-config-recommended-scss": "~4.2.0",
-    "stylelint-config-standard": "~20.0.0",
-    "stylelint-scss": "~3.18.0",
-    "ts-node": "^9.1.1",
+    "stylelint": "~13.13.1",
+    "stylelint-config-recommended-scss": "~4.3.0",
+    "stylelint-config-standard": "~22.0.0",
+    "stylelint-scss": "~3.20.1",
+    "ts-node": "^10.1.0",
     "tslint": "~6.1.0",
     "typescript": "~4.3.2"
 <% if (props.tools.includes('prettier')) { -%>
