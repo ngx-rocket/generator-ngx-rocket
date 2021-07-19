@@ -1,5 +1,5 @@
-const fs = require('fs-extra');
 const path = require('path');
+const fs = require('fs-extra');
 const chalk = require('chalk');
 const Insight = require('insight');
 const semver = require('semver');
@@ -8,10 +8,10 @@ const Generator = require('@ngx-rocket/core');
 const asciiLogo = require('@ngx-rocket/ascii-logo');
 
 const pkg = require('../../package.json');
-const prompts = require('./prompts');
-const options = require('./options');
-const getLanguages = require('./languages');
-const {deployers} = require('./deployers');
+const prompts = require('./prompts.js');
+const options = require('./options.js');
+const getLanguages = require('./languages.js');
+const {deployers} = require('./deployers.js');
 
 const packageJsonFile = 'package.json';
 const appPath = 'src/app';
@@ -308,6 +308,6 @@ module.exports = Generator.make({
     'tools-hads': (props) => props.tools && props.tools.includes('hads'),
     'tools-jest': (props) => props.tools && props.tools.includes('jest'),
     'tools-karma': (props) => props.tools && !props.tools.includes('jest'),
-    'e2e': (props) => !props.features || props.features.includes('e2e')
+    e2e: (props) => !props.features || props.features.includes('e2e')
   })
 });
