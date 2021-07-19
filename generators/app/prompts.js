@@ -1,5 +1,5 @@
-const getLanguages = require('./languages');
-const {deployerChoices} = require('./deployers');
+const getLanguages = require('./languages.js');
+const {deployerChoices} = require('./deployers.js');
 
 module.exports = [
   {
@@ -99,8 +99,8 @@ module.exports = [
     type: 'list',
     name: 'layout',
     message: 'Which kind of layout do you want?',
-    choices: (props) => {
-      return [
+    choices: (props) =>
+      [
         {
           value: 'simple',
           name: 'Simple responsive header bar (more website-oriented)',
@@ -116,8 +116,7 @@ module.exports = [
           name: 'Tabs menu (more app-oriented)',
           when: props.ui === 'ionic'
         }
-      ].filter((choice) => choice.when);
-    },
+      ].filter((choice) => choice.when),
     when: (props) => props.ui === 'material' || props.ui === 'ionic',
     default: 'side-menu'
   },

@@ -7,7 +7,7 @@ const asciiLogo = require('@ngx-rocket/ascii-logo');
 
 const pkg = require('../../package.json');
 const options = require('./options.json');
-const prompts = require('./prompts');
+const prompts = require('./prompts.js');
 
 class NgxAddonGenerator extends Generator {
   initializing() {

@@ -1,4 +1,4 @@
-const {deployerValues, deployerValuesHelp} = require('./deployers');
+const {deployerValues, deployerValuesHelp} = require('./deployers.js');
 
 module.exports = [
   {
