@@ -1,10 +1,8 @@
 {
   "target": ["electron"],
   "desktop": ["windows", "mac", "linux"],
-  "pwa": false,
   "ui": "ionic",
   "layout": "tabs",
-  "auth": true,
-  "lazy": false,
+  "features": ["auth", "e2e"],
   "strict": true
 }

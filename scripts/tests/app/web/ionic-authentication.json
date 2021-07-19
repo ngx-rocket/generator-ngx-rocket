@@ -3,8 +3,7 @@
   "pwa": true,
   "ui": "ionic",
   "layout": "side-menu",
-  "auth": true,
-  "lazy": true,
+  "features": ["auth", "lazy", "e2e"],
   "location": "hash",
   "strict": true,
   "tools": ["jest"]

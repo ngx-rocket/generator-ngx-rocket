@@ -3,7 +3,6 @@
   "pwa": false,
   "ui": "ionic",
   "layout": "tabs",
-  "auth": false,
-  "lazy": true,
+  "features": ["lazy", "e2e"],
   "angulartics": false
 }
