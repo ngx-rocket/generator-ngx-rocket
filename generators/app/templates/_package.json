@@ -33,7 +33,11 @@
 <% if (props.tools.includes('prettier')) { -%>
     "prettier": "prettier --write \"./src/**/*.{ts,js,html,scss}\"",
     "prettier:check": "prettier --list-different \"./src/**/*.{ts,js,html,scss}\"",
+<%   if (options.git) { -%>
+    "postinstall": "<%= run('prettier') %> && husky install",
+<%   } else { -%>
     "postinstall": "<%= run('prettier') %>",
+<%   } -%>
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
     "cordova:prepare": "ngx-scripts cordova prepare",
@@ -185,7 +189,7 @@
     "stylelint-config-prettier": "^8.0.2",
 <%   if (options.git) { -%>
     "pretty-quick": "^3.1.0",
-    "husky": "^4.3.6",
+    "husky": "^7.0.1",
 <%   } -%>
 <% } -%>
 <% if (props.e2e) { -%>
@@ -213,13 +217,6 @@
         }
       }
     ]
-<% } -%>
-<% if (props.tools.includes('prettier') && options.git) { -%>
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
   },
