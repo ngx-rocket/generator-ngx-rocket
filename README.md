@@ -234,7 +234,7 @@ Native mobile application bundling is based on [Cordova](https://cordova.apache.
 - `--location-strategy [hash|path]`: [location strategy](https://angular.io/api/common/LocationStrategy) to use in
   Angular router (default is `path`).
 - `--no-git`: do not initialize git repository.
-- `--strict`: enable all TypeScript strict type checking options.
+- `--no-strict`: disable TypeScript strict type checking options.
 - `--skip-quickstart`: disable quick start message after project generation.
 - `--no-prefix`: do not add `@` prefix to `core`/`shared` folders.
 - `--deploy <option>`: choose automatic deployment option. Use `ngx n --deploy` to see possible values.
