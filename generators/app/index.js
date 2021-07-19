@@ -308,6 +308,7 @@ module.exports = Generator.make({
     'tools-hads': (props) => props.tools && props.tools.includes('hads'),
     'tools-jest': (props) => props.tools && props.tools.includes('jest'),
     'tools-karma': (props) => props.tools && !props.tools.includes('jest'),
-    e2e: (props) => !props.features || props.features.includes('e2e')
+    e2e: (props) => !props.features || props.features.includes('e2e'),
+    husky: (props) => props.initGit && props.tools.includes('prettier')
   })
 });
