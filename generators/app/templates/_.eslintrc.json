@@ -10,9 +10,11 @@
       ],
       "parserOptions": {
         "project": [
-          "tsconfig.json",
 <% if (props.e2e) { -%>
+          "tsconfig.json",
           "e2e/tsconfig.json"
+<% } else { -%>
+          "tsconfig.json"
 <% } -%>
         ],
         "createDefaultProgram": true
