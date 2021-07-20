@@ -70,8 +70,7 @@ docs/                        project docs and coding guides
 e2e/                         end-to-end tests
 src/                         project source code
 |- app/                      app components
-|  |- @core/                 core module (singleton services and single-use components)
-|  |- @shared/               shared module  (common components, directives and pipes)
+|  |- @shared/               shared module  (common components, directives, pipes and services)
 |  |- app.component.*        app root component (shell)
 |  |- app.module.ts          app root module definition
 |  |- app-routing.module.ts  app routes

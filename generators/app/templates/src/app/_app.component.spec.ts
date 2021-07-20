@@ -14,7 +14,6 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { Angulartics2Module } from 'angulartics2';
 <% } -%>
 
-import { CoreModule } from '@core';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -57,8 +56,7 @@ describe('AppComponent', () => {
         Angulartics2Module.forRoot(),
 <% } -%>
         RouterTestingModule,
-        TranslateModule.forRoot(),
-        CoreModule
+        TranslateModule.forRoot()
       ],
       declarations: [AppComponent],
 <% if (props.target.includes('cordova')) { -%>
