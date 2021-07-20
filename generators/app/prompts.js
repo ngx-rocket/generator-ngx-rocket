@@ -142,7 +142,7 @@ module.exports = [
       },
       {
         value: 'angulartics',
-        name: 'Analytics support (with Angulartics2)?'
+        name: 'Analytics (with Angulartics2)?'
       }
     ]
   },
@@ -205,7 +205,7 @@ module.exports = [
       },
       {
         value: 'puppeteer',
-        name: 'Puppeteer (Embedded Chrome for testing)'
+        name: 'Puppeteer (embedded Chrome for testing)'
       }
     ]
   },
