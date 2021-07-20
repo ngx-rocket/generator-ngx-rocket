@@ -1,6 +1,5 @@
 {
   "target": ["web", "cordova"],
-  "pwa": false,
   "mobile": ["ios", "android"],
   "ui": "ionic",
   "layout": "side-menu",

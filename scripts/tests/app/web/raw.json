@@ -1,6 +1,5 @@
 {
   "target": ["web"],
-  "pwa": false,
   "ui": "raw",
   "features": ["angulartics", "e2e"],
   "analyticsProvider": "other",

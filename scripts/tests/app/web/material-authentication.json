@@ -1,7 +1,6 @@
 {
   "target": ["web"],
-  "pwa": true,
   "ui": "material",
   "layout": "simple",
-  "features": ["auth", "e2e"]
+  "features": ["pwa", "auth", "e2e"]
 }

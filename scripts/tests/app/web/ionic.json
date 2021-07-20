@@ -1,8 +1,6 @@
 {
   "target": ["web"],
-  "pwa": false,
   "ui": "ionic",
   "layout": "tabs",
-  "features": ["lazy", "e2e"],
-  "angulartics": false
+  "features": ["lazy", "e2e"]
 }

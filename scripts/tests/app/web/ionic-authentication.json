@@ -1,10 +1,8 @@
 {
   "target": ["web"],
-  "pwa": true,
   "ui": "ionic",
   "layout": "side-menu",
-  "features": ["auth", "lazy", "e2e"],
+  "features": ["pwa", "auth", "lazy", "e2e"],
   "location": "hash",
-  "strict": true,
   "tools": ["jest"]
 }

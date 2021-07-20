@@ -1,6 +1,5 @@
 {
   "target": ["web"],
-  "pwa": false,
   "ui": "bootstrap",
   "features": ["angulartics", "e2e"],
   "analyticsProvider": "ga",

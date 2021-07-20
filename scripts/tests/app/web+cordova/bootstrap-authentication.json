@@ -1,6 +1,5 @@
 {
   "target": ["web", "cordova"],
-  "pwa": false,
   "mobile": ["ios", "android"],
   "ui": "bootstrap",
   "features": ["auth", "lazy"]
