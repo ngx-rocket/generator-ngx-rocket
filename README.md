@@ -8,7 +8,7 @@
 
 ![ngx-rocket logo](https://user-images.githubusercontent.com/593151/28924751-08023b32-7863-11e7-9186-c17d4647d861.png)
 
-> Extensible Angular 11+ enterprise-grade project generator based on
+> Extensible Angular 12+ enterprise-grade project generator based on
 > [angular-cli](https://github.com/angular/angular-cli) with best practices from the community.
 > Includes PWA, Cordova & Electron support, coding guides and more!
 
