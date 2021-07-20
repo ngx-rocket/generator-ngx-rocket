@@ -21,6 +21,9 @@ class NgxGenerator extends Generator {
     this.version = pkg.version;
     this.props = {};
 
+    // Disable automatic env install based on package.json
+    this.features.customInstallTask = true;
+
     // Try to initialize analytics. Insight is broken for some users, so if it fails, proceed as if the --no-analytics flag was present.
     try {
       this.insight =
