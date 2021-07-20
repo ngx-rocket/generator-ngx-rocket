@@ -185,12 +185,10 @@ class NgxGenerator extends Generator {
         // Rename folders
         fs.removeSync(path.join(basePath, 'core'));
         fs.removeSync(path.join(basePath, 'shared'));
-        fs.renameSync(path.join(basePath, '@core'), path.join(basePath, 'core'));
         fs.renameSync(path.join(basePath, '@shared'), path.join(basePath, 'shared'));
 
         // Replace imports in files
         const options = {files: 'src/**/*.ts'};
-        replace.sync({...options, from: /@core/g, to: '@app/core'});
         replace.sync({...options, from: /@shared/g, to: '@app/shared'});
       } catch (error) {
         this.log(`${chalk.red('An error occured during prefix config:')}\n${error && error.message}`);

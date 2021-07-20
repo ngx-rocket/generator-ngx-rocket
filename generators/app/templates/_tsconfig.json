@@ -35,8 +35,6 @@
     "paths": {
       "@app/*": ["src/app/*"],
 <% if (props.usePrefix) { -%>
-      "@core": ["src/app/@core"],
-      "@core/*": ["src/app/@core/*"],
       "@shared": ["src/app/@shared"],
       "@shared/*": ["src/app/@shared/*"],
 <% } -%>
