@@ -28,13 +28,6 @@ module.exports = [
     ]
   },
   {
-    type: 'confirm',
-    name: 'pwa',
-    message: 'Do you want a progressive web app? (with manifest and service worker)',
-    default: true,
-    when: (props) => props.target && props.target.includes('web')
-  },
-  {
     type: 'checkbox',
     name: 'mobile',
     message: 'Which mobile platform do you want to support?',
@@ -126,6 +119,12 @@ module.exports = [
     message: 'Which features do you need?',
     choices: [
       {
+        value: 'pwa',
+        message: 'Progressive Web App (add manifest and service worker)',
+        checked: true,
+        when: props.target && props.target.includes('web')
+      },
+      {
         value: 'auth',
         name: 'Authentication',
         checked: true
@@ -144,7 +143,7 @@ module.exports = [
         value: 'angulartics',
         name: 'Analytics (with Angulartics2)?'
       }
-    ]
+    ].filter((choice) => choice.when)
   },
   {
     type: 'checkbox',

@@ -145,6 +145,7 @@ class NgxGenerator extends Generator {
     this.props.usePrefix = typeof this.props.usePrefix === 'boolean' ? this.props.usePrefix : true;
     this.props.deploy = this.props.deploy || 'none';
     this.props.features = this.props.features || [];
+    this.props.pwa = this.props.features.includes('pwa');
     this.props.auth = this.props.features.includes('auth');
     this.props.lazy = this.props.features.includes('lazy');
     this.props.e2e = this.props.features.includes('e2e');
