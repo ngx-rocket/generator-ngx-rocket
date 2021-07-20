@@ -117,37 +117,38 @@ module.exports = [
     type: 'checkbox',
     name: 'features',
     message: 'Which features do you need?',
-    choices: (props) => [
-      {
-        value: 'pwa',
-        name: 'Progressive Web App (add manifest and service worker)',
-        checked: true,
-        when: props.target && props.target.includes('web')
-      },
-      {
-        value: 'auth',
-        name: 'Authentication',
-        checked: true,
-        when: true
-      },
-      {
-        value: 'lazy',
-        name: 'Lazy loading',
-        checked: true,
-        when: true
-      },
-      {
-        value: 'e2e',
-        name: 'End-to-end tests',
-        checked: true,
-        when: true
-      },
-      {
-        value: 'angulartics',
-        name: 'Analytics (with Angulartics2)?',
-        when: true
-      }
-    ].filter((choice) => choice.when)
+    choices: (props) =>
+      [
+        {
+          value: 'pwa',
+          name: 'Progressive Web App (add manifest and service worker)',
+          checked: true,
+          when: props.target && props.target.includes('web')
+        },
+        {
+          value: 'auth',
+          name: 'Authentication',
+          checked: true,
+          when: true
+        },
+        {
+          value: 'lazy',
+          name: 'Lazy loading',
+          checked: true,
+          when: true
+        },
+        {
+          value: 'e2e',
+          name: 'End-to-end tests',
+          checked: true,
+          when: true
+        },
+        {
+          value: 'angulartics',
+          name: 'Analytics (with Angulartics2)?',
+          when: true
+        }
+      ].filter((choice) => choice.when)
   },
   {
     type: 'checkbox',
