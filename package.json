@@ -1,6 +1,6 @@
 {
   "name": "generator-ngx-rocket",
-  "version": "9.2.0",
+  "version": "9.2.1",
   "description": "Extensible Angular 11+ enterprise-grade project generator based on angular-cli with best practices from the community. Includes PWA/Cordova/Electron support, coding guides and more!",
   "repository": {
     "type": "git",

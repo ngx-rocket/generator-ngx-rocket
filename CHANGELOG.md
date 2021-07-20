@@ -1,3 +1,10 @@
+## [9.2.1](https://github.com/ngx-rocket/generator-ngx-rocket/compare/9.2.0...9.2.1) (2021-07-20)
+
+
+### Bug Fixes
+
+* fix generator due to botched core release ([de428e5](https://github.com/ngx-rocket/generator-ngx-rocket/commit/de428e52adbbbde963c1916a744b0bfdce314ad0))
+
 # [9.2.0](https://github.com/ngx-rocket/generator-ngx-rocket/compare/9.1.0...9.2.0) (2021-01-14)
 
 
