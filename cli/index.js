@@ -146,15 +146,12 @@ class NgxCli {
       }
 
       env.lookup();
-      env.run(
-        ['ngx-rocket', ...args],
-        {
-          update,
-          packageManager: this._packageManager(),
-          addons: addons.join(' '),
-          'skip-welcome': true
-        }
-      );
+      env.run(['ngx-rocket', ...args], {
+        update,
+        packageManager: this._packageManager(),
+        addons: addons.join(' '),
+        'skip-welcome': true
+      });
       console.log();
     }
   }
