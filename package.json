@@ -58,7 +58,7 @@
   },
   "dependencies": {
     "@ngx-rocket/ascii-logo": "^1.0.1",
-    "@ngx-rocket/core": "^6.0.0",
+    "@ngx-rocket/core": "~6.0.0",
     "chalk": "^4.1.0",
     "conf": "^8.0.0",
     "cross-spawn": "^7.0.3",
