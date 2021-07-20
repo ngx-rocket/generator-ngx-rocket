@@ -16,7 +16,7 @@
 <% if (props.pwa) { -%>
     "serve:sw": "<%= run('build') %> && npx http-server ./<%= props.target.includes('cordova') ? 'www': 'dist' %> -p 4200",
 <% } -%>
-    "lint": "ng lint && stylelint \"src/**/*.scss\" --syntax scss && htmlhint \"src\" --config .htmlhintrc",
+    "lint": "ng lint && stylelint \"src/**/*.scss\" --syntax scss",
     "test": "<%= run('write:env') %> && ng test",
     "test:ci": "<%= run('write:env') %> && <%= run('lint') %> && ng test --configuration=ci",
 <% if (props.e2e) { -%>
@@ -133,14 +133,21 @@
 <% if (props.tools.includes('jest')) { -%>
     "@angular-builders/jest": "^12.1.0",
 <% } -%>
+    "@angular-devkit/build-angular": "~12.1.1",
+    "@angular-eslint/builder": "~12.3.1",
+    "@angular-eslint/eslint-plugin": "~12.3.1",
+    "@angular-eslint/eslint-plugin-template": "~12.3.1",
+    "@angular-eslint/schematics": "~12.3.1",
+    "@angular-eslint/template-parser": "~12.3.1",
     "@angular/cli": "~12.1.1",
     "@angular/compiler-cli": "~12.1.1",
     "@angular/language-service": "~12.1.1",
-    "@angular-devkit/build-angular": "~12.1.1",
     "@biesbjerg/ngx-translate-extract": "^7.0.3",
     "@biesbjerg/ngx-translate-extract-marker": "^1.0.0",
     "@ngx-rocket/scripts": "^5.1.0",
     "@ngneat/until-destroy": "^8.0.4",
+    "@typescript-eslint/eslint-plugin": "4.28.2",
+    "@typescript-eslint/parser": "4.28.2",
 <% if (!props.tools.includes('jest') || props.e2e) { -%>
     "@types/jasmine": "^3.6.2",
     "@types/jasminewd2": "^2.0.8",
@@ -155,12 +162,15 @@
 <% if (props.utility.includes('ramda')) { -%>
     "@types/ramda": "^0.27.34",
 <% } -%>
-    "codelyzer": "^6.0.1",
 <% if (props.target.includes('electron')) { -%>
     "electron": "^13.1.7",
     "electron-packager": "^15.1.0",
     "electron-reload": "^1.5.0",
 <% } -%>
+    "eslint": "^7.26.0",
+    "eslint-plugin-import": "latest",
+    "eslint-plugin-jsdoc": "latest",
+    "eslint-plugin-prefer-arrow": "latest",
 <% if (props.tools.includes('hads')) { -%>
     "hads": "^3.0.0",
 <% } -%>
@@ -185,7 +195,6 @@
 <% } -%>
 <% if (props.tools.includes('prettier')) { -%>
     "prettier": "^2.2.1",
-    "tslint-config-prettier": "^1.18.0",
     "stylelint-config-prettier": "^8.0.2",
 <%   if (options.git) { -%>
     "pretty-quick": "^3.1.0",
@@ -203,7 +212,6 @@
     "stylelint-config-standard": "~22.0.0",
     "stylelint-scss": "~3.20.1",
     "ts-node": "^10.1.0",
-    "tslint": "~6.1.0",
     "typescript": "~4.3.2"
 <% if (props.tools.includes('prettier')) { -%>
   },
