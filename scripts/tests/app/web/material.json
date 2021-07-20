@@ -1,10 +1,8 @@
 {
   "target": ["web"],
-  "pwa": false,
   "ui": "material",
   "layout": "simple",
   "features": ["e2e"],
   "location": "hash",
-  "strict": true,
   "tools": ["jest"]
 }
