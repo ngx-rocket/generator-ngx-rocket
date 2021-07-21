@@ -1,8 +1,0 @@
-- [ ] publish + update scripts
-- [ ] BREAKING: publish + update core
-- [ ] BREAKING: ESM package
-- [x] BREAKING: migrate eslint
-- [x] BREAKING: remove core module -> shared
-- [x] BREAKING: strict by default
-- [x] Test e2e
-- [x] Remove jasmine when using Jest and not e2e
