@@ -78,8 +78,8 @@ do
         if [ -n "$TEST_ANDROID" ]; then
 
             # fix for Android SDK31 being corrupted
-            ln %ANDROID_HOME%/sdk/build-tools/31.0.0/d8 %ANDROID_HOME%/sdk/build-tools/31.0.0/dx
-            ln %ANDROID_HOME%/sdk/build-tools/31.0.0/lib/d8.jar %ANDROID_HOME%/sdk/build-tools/31.0.0/lib/dx.jar
+            ln "$ANDROID_HOME/sdk/build-tools/31.0.0/d8" "$ANDROID_HOME/sdk/build-tools/31.0.0/dx"
+            ln "$ANDROID_HOME/sdk/build-tools/31.0.0/lib/d8.jar" "$ANDROID_HOME/sdk/build-tools/31.0.0/lib/dx.jar"
 
             # cordova/android build
             npm run cordova:prepare -- --fast --no-progress
