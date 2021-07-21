@@ -84,7 +84,7 @@
     "@ionic-native/status-bar": "^5.30.0",
     "cordova-android": "^9.0.0",
     "cordova-custom-config": "^5.1.0",
-    "cordova-ios": "^6.1.0",
+    "cordova-ios": "^6.2.0",
     "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-ionic-webview": "^5.0.0",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
