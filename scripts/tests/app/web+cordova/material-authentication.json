@@ -3,6 +3,6 @@
   "mobile": ["ios", "android"],
   "ui": "material",
   "layout": "simple",
-  "features": ["auth", "lazy"],
+  "features": ["e2e", "auth", "lazy"],
   "usePrefix": false
 }
