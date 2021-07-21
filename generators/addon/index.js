@@ -14,6 +14,9 @@ class NgxAddonGenerator extends Generator {
     this.version = pkg.version;
     this.insight = new Insight({trackingCode: 'UA-93069862-2', pkg});
 
+    // Disable automatic env install based on package.json
+    this.features.customInstallTask = true;
+
     this.argument('appName', {
       desc: 'Name of the addon to generate',
       type: String,
