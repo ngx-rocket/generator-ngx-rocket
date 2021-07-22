@@ -1,3 +1,44 @@
+# [10.0.0](https://github.com/ngx-rocket/generator-ngx-rocket/compare/9.2.1...10.0.0) (2021-07-22)
+
+
+### Bug Fixes
+
+* angulartics errors in strict mode ([c8c2a97](https://github.com/ngx-rocket/generator-ngx-rocket/commit/c8c2a971e5eb8adcc966b86bc1b25f117deca88c))
+* bootstrap 5 styling ([982bd12](https://github.com/ngx-rocket/generator-ngx-rocket/commit/982bd12aa43e84be7bae57407e866cc1e6da7f3b))
+* features prompt ([5b7edcf](https://github.com/ngx-rocket/generator-ngx-rocket/commit/5b7edcf6e735b0bf62344aee8ba6dfa5da04e59c))
+* jest unit tests ([0e52d95](https://github.com/ngx-rocket/generator-ngx-rocket/commit/0e52d95f8faedefe95d89ba60a052b15407b952c))
+* strict mode errors ([a67967c](https://github.com/ngx-rocket/generator-ngx-rocket/commit/a67967cf38b670abc3b55f89ca3a74a96ed9d21d))
+* strict typings ([f1f1ea3](https://github.com/ngx-rocket/generator-ngx-rocket/commit/f1f1ea35c6bd6d5816a107ff1a6372687b6a6d39))
+
+
+### chore
+
+* update to lastest core ([2045838](https://github.com/ngx-rocket/generator-ngx-rocket/commit/2045838fda3ac8ef2f60ff8a62e38f7e26aae4e2))
+
+
+### Features
+
+* enable typescript strict mode by default ([a772e7d](https://github.com/ngx-rocket/generator-ngx-rocket/commit/a772e7df987069a4e710087d3017b21139bc4542))
+* make e2e tests optional and restore linting ([555ffc3](https://github.com/ngx-rocket/generator-ngx-rocket/commit/555ffc359b30760b7b469375160f8b43448d84fc))
+* migrate addon template ci to use github actions ([1a15bc8](https://github.com/ngx-rocket/generator-ngx-rocket/commit/1a15bc8fd5e18102702d19555cde797940083caf))
+* migrate to eslint, removes htmlhint (closes [#473](https://github.com/ngx-rocket/generator-ngx-rocket/issues/473)) ([b1f7334](https://github.com/ngx-rocket/generator-ngx-rocket/commit/b1f733499db62c4c6904f7745c3b93c236dfe6d8))
+* migrate to husky v7 ([ab06976](https://github.com/ngx-rocket/generator-ngx-rocket/commit/ab06976e25c507fb08744eebe6858447de7ebb4a))
+* move pwa prompt to the features list ([8828d3d](https://github.com/ngx-rocket/generator-ngx-rocket/commit/8828d3d36a21f0f6e009a03f9b1cb2b41c83e161))
+* regroup generator options under features prop ([d60b129](https://github.com/ngx-rocket/generator-ngx-rocket/commit/d60b129bc0e0dd2b8f1bed011d360fc4fb2fc782))
+* removed [@core](https://github.com/core) module and moved services to [@shared](https://github.com/shared) ([830489b](https://github.com/ngx-rocket/generator-ngx-rocket/commit/830489bb277dfa5e8e134e235f1ee2a9b70a8825))
+* update addon template ([580863f](https://github.com/ngx-rocket/generator-ngx-rocket/commit/580863f44c60324ccf586c6a112f6ed8ac0104e4))
+* update polyfills ([ecf5c98](https://github.com/ngx-rocket/generator-ngx-rocket/commit/ecf5c98e4a4f1e8db2a2c8b9dd6ccc5f95ea6c1d))
+* upgrade the generate app to be Angular 12 (closes [#600](https://github.com/ngx-rocket/generator-ngx-rocket/issues/600)) ([afd59bc](https://github.com/ngx-rocket/generator-ngx-rocket/commit/afd59bc8dcf34c6cfc0529a21ce2a7223bb7ddc2))
+
+
+### BREAKING CHANGES
+
+* update to lastest core, which forces yeoman-generator@5 breaking update.
+* migrate to eslint, removes htmlhint
+* Having a core module isn't necessary anymore as services aren't attached to modules anymore.
+This follows the Angular coding guide update that only mention shared module now.
+* enable typescript strict mode by default
+
 ## [9.2.1](https://github.com/ngx-rocket/generator-ngx-rocket/compare/9.2.0...9.2.1) (2021-07-20)
 
 
