@@ -25,7 +25,10 @@
   },
   "xo": {
     "space": true,
-    "prettier": true
+    "prettier": true,
+    "rules": {
+      "unicorn/prefer-module": "off"
+    }
   },
   "files": [
     "generators/app"
