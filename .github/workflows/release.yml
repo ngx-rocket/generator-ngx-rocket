@@ -18,6 +18,7 @@ jobs:
           node-version: 14
       - name: Install dependencies
         run: |
+          npm i -g npm@latest
           npm ci
           npm link
         env:
