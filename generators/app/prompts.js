@@ -139,7 +139,13 @@ module.exports = [
         },
         {
           value: 'e2e',
-          name: 'End-to-end tests',
+          name: 'End-to-end tests with Protractor (Wrapper over WebDrivers JS deprecated end 2022)',
+          checked: false,
+          when: true
+        },
+        {
+          value: 'cypress',
+          name: 'End-to-end tests with Cypress (Automated testing framework designed specifically for the modern Web)',
           checked: true,
           when: true
         },

@@ -152,6 +152,7 @@ class NgxGenerator extends Generator {
     this.props.auth = this.props.features.includes('auth');
     this.props.lazy = this.props.features.includes('lazy');
     this.props.e2e = this.props.features.includes('e2e');
+    this.props.cypress = this.props.features.includes('cypress');
     this.props.angulartics = this.props.features.includes('angulartics');
     this.shareProps(this.props);
   }
@@ -277,8 +278,9 @@ class NgxGenerator extends Generator {
 
     this.log(`- $ ${chalk.green(`${this.packageManager} test`)}: run unit tests in watch mode for TDD`);
     this.log(`- $ ${chalk.green(`${this.packageManager} run test:ci`)}: lint code and run units tests with coverage`);
-    this.log(`- $ ${chalk.green(`${this.packageManager} run e2e`)}: launch e2e tests`);
-
+    if (this.props.e2e || this.props.cypress) {
+      this.log(`- $ ${chalk.green(`${this.packageManager} run e2e`)}: launch e2e tests`);
+    }
     if (this.props.tools.includes('hads')) {
       this.log(`- $ ${chalk.green(`${this.packageManager} run docs`)}: show docs and coding guides`);
     }
@@ -311,6 +313,7 @@ module.exports = Generator.make({
     'tools-jest': (props) => props.tools && props.tools.includes('jest'),
     'tools-karma': (props) => props.tools && !props.tools.includes('jest'),
     e2e: (props) => !props.features || props.features.includes('e2e'),
+    cypress: (props) => !props.features || props.features.includes('cypress'),
     husky: (props) => props.initGit && props.tools.includes('prettier')
   })
 });
