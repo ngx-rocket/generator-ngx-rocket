@@ -124,8 +124,7 @@
 <% } -%>
     "rxjs": "^6.6.3",
     "tslib": "^2.2.0",
-    "zone.js": "~0.11.4",
-    "ts-jest": "^27.0.5"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
 <% if (props.target.includes('cordova')) { -%>
@@ -213,8 +212,9 @@
     "stylelint-config-standard": "~22.0.0",
     "stylelint-scss": "~3.20.1",
     "ts-node": "^10.1.0",
-    "typescript": "~4.3.2"
+    "typescript": "~4.3.2",
 <% if (props.tools.includes('prettier')) { -%>
+    "ts-jest": "^27.0.5"
   },
   "prettier": {
     "singleQuote": true,
