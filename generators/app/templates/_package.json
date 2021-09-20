@@ -185,6 +185,7 @@
 <% } -%>
 <% if (props.tools.includes('jest')) { -%>
     "jest": "^27.0.6",
+    "ts-jest": "^27.0.5",
 <% } else { -%>
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -212,9 +213,8 @@
     "stylelint-config-standard": "~22.0.0",
     "stylelint-scss": "~3.20.1",
     "ts-node": "^10.1.0",
-    "typescript": "~4.3.2",
+    "typescript": "~4.3.2"
 <% if (props.tools.includes('prettier')) { -%>
-    "ts-jest": "^27.0.5"
   },
   "prettier": {
     "singleQuote": true,
