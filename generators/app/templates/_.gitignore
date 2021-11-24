@@ -44,6 +44,7 @@ xcuserdata/
 /log
 
 # Misc
+/.angular/cache
 /.sass-cache
 /connect.lock
 /coverage
