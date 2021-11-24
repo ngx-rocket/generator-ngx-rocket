@@ -8,6 +8,13 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "@schematics/angular:application": {
+<% if (props.strict) { -%>
+          "strict": true
+<% } else { -%>
+          "strict": false
+<% } -%>
         }
       },
       "root": "",
