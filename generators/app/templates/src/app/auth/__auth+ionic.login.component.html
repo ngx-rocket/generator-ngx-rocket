@@ -21,14 +21,14 @@
                 <ion-label color="medium" position="floating" translate>Username</ion-label>
                 <ion-input type="text" formControlName="username" autocomplete="username"></ion-input>
               </ion-item>
-              <ion-text color="danger" [hidden]="loginForm.controls.username.valid || loginForm.controls.username.untouched">
+              <ion-text color="danger" [hidden]="loginForm.controls['username'].valid || loginForm.controls['username'].untouched">
                 <span class="ion-padding" translate>Username is required</span>
               </ion-text>
               <ion-item lines="inset">
                 <ion-label color="medium" position="floating" translate>Password</ion-label>
                 <ion-input type="password" formControlName="password" autocomplete="current-password"></ion-input>
               </ion-item>
-              <ion-text color="danger" [hidden]="loginForm.controls.password.valid || loginForm.controls.password.untouched">
+              <ion-text color="danger" [hidden]="loginForm.controls['password'].valid || loginForm.controls['password'].untouched">
                 <span class="ion-padding" translate>Password is required</span>
               </ion-text>
               <ion-item class="ion-padding-top" lines="none">

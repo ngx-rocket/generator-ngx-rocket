@@ -21,7 +21,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { Keyboard } from '@ionic-native/keyboard/ngx';
 <% } -%>
 <% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import { Angulartics2GoogleAnalytics } from 'angulartics2';
 <% } -%>
 
 import { environment } from '@env/environment';
@@ -99,7 +99,7 @@ export class AppComponent implements OnInit, OnDestroy {
         untilDestroyed(this)
       )
       .subscribe(event => {
-        const title = event.title;
+        const title = event['title'];
         if (title) {
           this.titleService.setTitle(this.translateService.instant(title));
         }

@@ -17,14 +17,14 @@
           <mat-form-field [hideRequiredMarker]="true">
             <input type="text" matInput formControlName="username" autocomplete="username"
                    [placeholder]="'Username' | translate" required/>
-            <mat-error *ngIf="loginForm.controls.username.invalid && loginForm.controls.username.touched">
+            <mat-error *ngIf="loginForm.controls['username'].invalid && loginForm.controls['username'].touched">
               <span translate>Username is required</span>
             </mat-error>
           </mat-form-field>
           <mat-form-field [hideRequiredMarker]="true">
             <input type="password" matInput formControlName="password" autocomplete="current-password"
                    [placeholder]="'Password' | translate" required/>
-            <mat-error *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched">
+            <mat-error *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
               <span translate>Password is required</span>
             </mat-error>
           </mat-form-field>

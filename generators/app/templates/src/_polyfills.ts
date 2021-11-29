@@ -25,9 +25,6 @@ import '@angular/localize/init';
  * BROWSER POLYFILLS
  */
 
-/** IE11 requires the following for NgClass support on SVG elements */
-// import 'classlist.js';  // Run `npm install --save classlist.js`.
-
 /**
  * By default, zone.js will patch all possible macroTask and DomEvents
  * user can disable parts of macroTask/DomEvents patch by setting following flags
