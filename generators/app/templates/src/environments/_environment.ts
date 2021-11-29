@@ -12,7 +12,7 @@ import { env } from './.env';
 
 export const environment = {
   production: false,
-  version: env.npm_package_version + '-dev',
+  version: env['npm_package_version'] + '-dev',
   serverUrl: '/api',
   defaultLanguage: '<%= props.languages.includes('en-US') ? 'en-US' : props.languages[0] %>',
   supportedLanguages: [<%- (props.languages).map(language => `'${language}'`).join(', ') %>]

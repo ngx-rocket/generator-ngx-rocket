@@ -26,9 +26,6 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 <% if (props.angulartics) { -%>
 import { Angulartics2Module } from 'angulartics2';
 <% } -%>
-<% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
-<% } -%>
 
 <% if (props.pwa) { -%>
 import { environment } from '@env/environment';
