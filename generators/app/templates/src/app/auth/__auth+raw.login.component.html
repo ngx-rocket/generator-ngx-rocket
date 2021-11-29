@@ -14,7 +14,7 @@
           <input type="text" formControlName="username" autocomplete="username"
                  [placeholder]="'Username' | translate"/>
           <span hidden translate>Username</span>
-          <div [hidden]="loginForm.controls.username.valid || loginForm.controls.username.untouched"
+          <div [hidden]="loginForm.controls['username'].valid || loginForm.controls['username'].untouched"
                  class="invalid">
             <small translate>Username is required</small>
           </div>
@@ -23,7 +23,7 @@
           <input type="password" formControlName="password" autocomplete="current-password"
                  [placeholder]="'Password' | translate" required/>
           <span hidden translate>Password</span>
-          <div [hidden]="loginForm.controls.password.valid || loginForm.controls.password.untouched"
+          <div [hidden]="loginForm.controls['password'].valid || loginForm.controls['password'].untouched"
                  class="invalid">
             <small translate>Password is required</small>
           </div>

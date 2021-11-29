@@ -1,7 +1,7 @@
 import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MediaObserver } from '@angular/flex-layout';
+import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
 <% if (props.auth) { -%>
 import { AuthenticationService, CredentialsService } from '@app/auth';
@@ -20,7 +20,7 @@ export class ShellComponent implements OnInit {
               private authenticationService: AuthenticationService,
               private credentialsService: CredentialsService,
 <% } -%>
-              private media: MediaObserver) { }
+              private breakpoint: BreakpointObserver) { }
 
   ngOnInit() { }
 
@@ -37,7 +37,7 @@ export class ShellComponent implements OnInit {
 
 <% } -%>
   get isMobile(): boolean {
-    return this.media.isActive('xs') || this.media.isActive('sm');
+    return this.breakpoint.isMatched(Breakpoints.Small) || this.breakpoint.isMatched(Breakpoints.XSmall);
   }
 
   get title(): string {

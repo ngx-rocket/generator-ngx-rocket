@@ -59,20 +59,22 @@ export class I18nService {
    * @param language The IETF language code to set.
    */
   set language(language: string) {
-    language = language || localStorage.getItem(languageKey) || this.translateService.getBrowserCultureLang();
-    let isSupportedLanguage = this.supportedLanguages.includes(language);
+    let newLanguage = language || localStorage.getItem(languageKey) || this.translateService.getBrowserCultureLang() || '';
+    let isSupportedLanguage = this.supportedLanguages.includes(newLanguage);
 
     // If no exact match is found, search without the region
-    if (language && !isSupportedLanguage) {
-      language = language.split('-')[0];
-      language = this.supportedLanguages.find(supportedLanguage => supportedLanguage.startsWith(language)) || '';
-      isSupportedLanguage = Boolean(language);
+    if (newLanguage && !isSupportedLanguage) {
+      newLanguage = newLanguage.split('-')[0];
+      newLanguage = this.supportedLanguages.find(supportedLanguage => supportedLanguage.startsWith(newLanguage)) || '';
+      isSupportedLanguage = Boolean(newLanguage);
     }
 
     // Fallback if language is not supported
-    if (!isSupportedLanguage) {
-      language = this.defaultLanguage;
+    if (!newLanguage || !isSupportedLanguage) {
+      newLanguage = this.defaultLanguage;
     }
+
+    language = newLanguage;
 
     log.debug(`Language set to ${language}`);
     this.translateService.use(language);
