@@ -1,4 +1,4 @@
-// https://github.com/thymikee/jest-preset-angular#brief-explanation-of-config
+require('jest-preset-angular/ngcc-jest-processor');
 const { pathsToModuleNameMapper } = require('ts-jest/utils');
 // In the following statement, replace `./tsconfig` with the path to your `tsconfig` file
 // which contains the path mapping (ie the `compilerOptions.paths` option):
