@@ -108,7 +108,7 @@
 <% } else if (props.ui === 'material') { -%>
     "@angular/cdk": "^13.0.2",
     "@angular/material": "^13.0.2",
-    "@angular/flex-layout": "^12.0.0-beta.35",
+    "@angular/flex-layout": "^13.0.0-beta.36",
     "material-design-icons-iconfont": "^6.1.0",
 <% } -%>
 <% if (props.angulartics) { -%>
@@ -126,7 +126,7 @@
 <% if (props.utility.includes('datefns')) { -%>
     "date-fns": "^2.16.1",
 <% } -%>
-    "rxjs": "^6.6.0",
+    "rxjs": "^7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
@@ -154,8 +154,8 @@
     "cypress": "9.1.0",
 <% } -%>
     "@ngneat/until-destroy": "^9.0.0",
-    "@typescript-eslint/eslint-plugin": "5.4.0",
-    "@typescript-eslint/parser": "5.4.0",
+    "@typescript-eslint/eslint-plugin": "~5.5.0",
+    "@typescript-eslint/parser": "~5.5.0",
 <% if (!props.tools.includes('jest') || props.e2e) { -%>
     "@types/jasmine": "^3.6.2",
     "@types/jasminewd2": "^2.0.8",
@@ -214,7 +214,7 @@
     "protractor": "~7.0.0",
 <% } -%>
 <% if (props.tools.includes('puppeteer')) { -%>
-    "puppeteer": "^12.0.0",
+    "puppeteer": "^12.0.1",
 <% } -%>
     "stylelint": "~14.1.0",
     "stylelint-config-recommended-scss": "~5.0.2",
