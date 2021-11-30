@@ -138,14 +138,8 @@ module.exports = [
           when: true
         },
         {
-          value: 'e2e',
-          name: 'End-to-end tests with Protractor (Wrapper over WebDrivers JS deprecated end 2022)',
-          checked: false,
-          when: true
-        },
-        {
           value: 'cypress',
-          name: 'End-to-end tests with Cypress (Automated testing framework designed specifically for the modern Web)',
+          name: 'End-to-end tests with Cypress',
           checked: true,
           when: true
         },
@@ -212,6 +206,10 @@ module.exports = [
       {
         value: 'jest',
         name: 'Jest (replaces Jasmine)'
+      },
+      {
+        value: 'protractor',
+        name: 'Protractor (replaces Cypress) [deprecated soon]',
       },
       {
         value: 'puppeteer',

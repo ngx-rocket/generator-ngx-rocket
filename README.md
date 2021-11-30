@@ -67,7 +67,7 @@ The structure follows [Angular style guide](https://angular.io/guide/styleguide)
 ```
 dist/                        app production build
 docs/                        project docs and coding guides
-e2e/                         end-to-end tests
+cypress/                     end-to-end tests
 src/                         project source code
 |- app/                      app components
 |  |- @shared/               shared module  (common components, directives, pipes and services)
