@@ -151,7 +151,7 @@ class NgxGenerator extends Generator {
     this.props.pwa = this.props.features.includes('pwa');
     this.props.auth = this.props.features.includes('auth');
     this.props.lazy = this.props.features.includes('lazy');
-    this.props.e2e = this.props.features.includes('e2e');
+    this.props.e2e = this.props.tools.includes('protractor'); // legacy e2e
     this.props.cypress = this.props.features.includes('cypress');
     this.props.angulartics = this.props.features.includes('angulartics');
     this.shareProps(this.props);
