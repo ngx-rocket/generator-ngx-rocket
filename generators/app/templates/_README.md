@@ -28,7 +28,10 @@ dist/                        web app production build
 <% } -%>
 docs/                        project docs and coding guides
 <% if (props.e2e) { -%>
-e2e/                         end-to-end tests
+e2e/                         end-to-end tests (Protractor)
+<% } -%>
+<% if (props.cypress) { -%>
+cypress/                     end-to-end tests (Cypress)
 <% } -%>
 src/                         project source code
 |- app/                      app components
@@ -89,7 +92,12 @@ Task                            | Description
 <% } -%>
 `npm test`                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
 `npm run test:ci`               | Lint code and run unit tests once for continuous integration
+<% if (props.e2e) { -%>
 `npm run e2e`                   | Run e2e tests using [Protractor](http://www.protractortest.org)
+<% } -%>
+<% if (props.cypress) { -%>
+`npm run e2e`                   | Run e2e tests using [Cypress](https://www.cypress.io/)
+<% } -%>
 `npm run lint`                  | Lint code
 `npm run translations:extract`  | Extract strings from code and templates to `src/app/translations/template.json`
 <% if (props.tools.includes('hads')) { -%>
@@ -165,7 +173,12 @@ Development, build and quality processes are based on [angular-cli](https://gith
   [browserslist](https://github.com/ai/browserslist)
 - Asset revisioning for [better cache management](https://webpack.github.io/docs/long-term-caching.html)
 - Unit tests using [Jasmine](http://jasmine.github.io) and [Karma](https://karma-runner.github.io)
+<% if (props.e2e) { -%>
 - End-to-end tests using [Protractor](https://github.com/angular/protractor)
+<% } -%>
+<% if (props.cypress) { -%>
+- End-to-end tests using [Cypress](https://www.cypress.io/)
+<% } -%>
 - Static code analysis: [TSLint](https://github.com/palantir/tslint), [Codelyzer](https://github.com/mgechev/codelyzer),
   [Stylelint](http://stylelint.io) and [HTMLHint](http://htmlhint.com/)
 <% if (props.tools.includes('hads')) { -%>
