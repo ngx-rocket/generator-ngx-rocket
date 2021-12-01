@@ -1,3 +1,11 @@
+## [10.0.1](https://github.com/ngx-rocket/generator-ngx-rocket/compare/10.0.0...10.0.1) (2021-12-01)
+
+
+### Bug Fixes
+
+* **tsconfig:** remove unsupported comment ([634b1ff](https://github.com/ngx-rocket/generator-ngx-rocket/commit/634b1ffad395aed5f28ca6643d6abb1f1cc04cca))
+* **tsconfig:** trailing comma ([7847733](https://github.com/ngx-rocket/generator-ngx-rocket/commit/7847733b01018a917f454babb469437dcfd3c6ae))
+
 # [10.0.0](https://github.com/ngx-rocket/generator-ngx-rocket/compare/9.2.1...10.0.0) (2021-07-22)
 
 
