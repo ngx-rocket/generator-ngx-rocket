@@ -33,6 +33,13 @@
       "dom"
     ],
     "baseUrl": "./",
+<% if (props.strict) { -%>
+    "plugins": [
+      {
+        "name": "@angular/language-service"
+      }
+    ],
+<% } -%>
     "paths": {
       "@app/*": ["src/app/*"],
 <% if (props.usePrefix) { -%>
