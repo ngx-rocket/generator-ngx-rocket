@@ -5,5 +5,12 @@
   "screenshotsFolder": "cypress/screenshots",
   "pluginsFile": "cypress/plugins/index.ts",
   "fixturesFolder": "cypress/fixtures",
-  "baseUrl": "http://localhost:4200"
+  "baseUrl": "http://localhost:4200",
+  "testFiles": [
+<% if (props.auth) { -%>
+    "login.ts",
+<%   } -%>
+    "home.ts",
+    "about.ts"
+  ]
 }
