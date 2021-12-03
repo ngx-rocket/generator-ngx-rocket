@@ -23,8 +23,8 @@
     "e2e": "<%= run('write:env') %> && ng e2e",
 <% } -%>
 <% if (props.cypress) { -%>
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
+    "cypress:open": "<%= run('write:env') %> && ng run <%= props.projectName %>:cypress-open",
+    "cypress:run": "<%= run('write:env') %> && ng run <%= props.projectName %>:cypress-run",
 <% } -%>
     "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean --sort",
 <% if (props.tools.includes('hads')) { -%>
