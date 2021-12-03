@@ -2,5 +2,5 @@
   "target": ["web"],
   "ui": "ionic",
   "layout": "tabs",
-  "features": ["lazy", "e2e"]
+  "features": ["lazy", "cypress"]
 }

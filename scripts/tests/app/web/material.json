@@ -2,7 +2,7 @@
   "target": ["web"],
   "ui": "material",
   "layout": "simple",
-  "features": ["e2e"],
+  "features": ["cypress"],
   "location": "hash",
   "tools": ["jest"]
 }
