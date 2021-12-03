@@ -1,7 +1,7 @@
 {
   "target": ["web"],
   "ui": "bootstrap",
-  "features": ["angulartics", "e2e"],
+  "features": ["angulartics", "cypress"],
   "analyticsProvider": "ga",
   "googleAnalyticsAccount": "UA-116237171-1",
   "utility": ["ramda", "date-fns"]

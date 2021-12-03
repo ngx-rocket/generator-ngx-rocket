@@ -1,5 +1,5 @@
 {
   "target": ["web"],
   "ui": "raw",
-  "features": ["auth", "e2e"]
+  "features": ["auth", "cypress"]
 }

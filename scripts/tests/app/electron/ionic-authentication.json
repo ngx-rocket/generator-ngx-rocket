@@ -3,5 +3,6 @@
   "desktop": ["windows", "mac", "linux"],
   "ui": "ionic",
   "layout": "tabs",
-  "features": ["auth", "e2e"]
+  "features": ["auth"],
+  "tools": ["protractor"]
 }
