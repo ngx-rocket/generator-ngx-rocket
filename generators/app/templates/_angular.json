@@ -203,9 +203,7 @@
         "e2e": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "<%= props.projectName %>:serve",
-            "watch": true,
-            "headless": false
+            "devServerTarget": "<%= props.projectName %>:serve"
           },
           "configurations": {
             "production": {
