@@ -3,8 +3,7 @@
 .header {
   box-sizing: border-box;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   align-items: center;
   padding: 1em;
   background: $accent-color;
