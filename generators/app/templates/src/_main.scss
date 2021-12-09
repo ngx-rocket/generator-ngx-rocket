@@ -11,10 +11,10 @@
 @import "~@ionic/angular/css/ionic.bundle.css";
 <% } else if (props.ui === 'bootstrap') { -%>
 @import "~bootstrap/scss/bootstrap";
-@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
-@import "~@fortawesome/fontawesome-free/scss/brands.scss";
-@import "~@fortawesome/fontawesome-free/scss/regular.scss";
-@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
 <% } else if (props.ui === 'material') { -%>
 @import "~material-design-icons-iconfont/src/material-design-icons";
 
