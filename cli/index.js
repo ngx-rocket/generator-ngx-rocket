@@ -1,5 +1,6 @@
 const os = require('os');
 const path = require('path');
+const process = require('process');
 const fs = require('fs');
 const Conf = require('conf');
 const inquirer = require('inquirer');

@@ -209,7 +209,7 @@ module.exports = [
       },
       {
         value: 'protractor',
-        name: 'Protractor (replaces Cypress) [deprecated soon]',
+        name: 'Protractor (replaces Cypress) [deprecated soon]'
       },
       {
         value: 'puppeteer',

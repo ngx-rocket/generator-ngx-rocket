@@ -1,4 +1,5 @@
 const path = require('path');
+const process = require('process');
 const fs = require('fs-extra');
 const chalk = require('chalk');
 const Insight = require('insight');
@@ -152,7 +153,7 @@ class NgxGenerator extends Generator {
     this.props.pwa = this.props.features.includes('pwa');
     this.props.auth = this.props.features.includes('auth');
     this.props.lazy = this.props.features.includes('lazy');
-    this.props.e2e = this.props.tools.includes('protractor'); // legacy e2e
+    this.props.e2e = this.props.tools.includes('protractor'); // Legacy e2e
     this.props.cypress = this.props.features.includes('cypress') && !this.props.e2e;
     this.props.angulartics = this.props.features.includes('angulartics');
     this.shareProps(this.props);
@@ -211,7 +212,7 @@ class NgxGenerator extends Generator {
       const install = this.packageManager === 'yarn' ? this.yarnInstall.bind(this) : this.npmInstall.bind(this);
       // When using NPM, force install as peer dependencies with ionic-native packages
       // cause install errors with NPM >= 7.
-      const options = this.packageManager === 'yarn' ? null : { force: true };
+      const options = this.packageManager === 'yarn' ? null : {force: true};
 
       if (fs.existsSync(this.destinationPath(packageJsonFile))) {
         install(null, options);
@@ -285,6 +286,7 @@ class NgxGenerator extends Generator {
     if (this.props.e2e || this.props.cypress) {
       this.log(`- $ ${chalk.green(`${this.packageManager} run e2e`)}: launch e2e tests`);
     }
+
     if (this.props.tools.includes('hads')) {
       this.log(`- $ ${chalk.green(`${this.packageManager} run docs`)}: show docs and coding guides`);
     }

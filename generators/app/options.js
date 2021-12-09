@@ -1,3 +1,4 @@
+const process = require('process');
 const {deployerValues, deployerValuesHelp} = require('./deployers.js');
 
 module.exports = [
