@@ -39,8 +39,9 @@ class NgxGenerator extends Generator {
       );
     }
 
-    if (semver.lt(process.version, '10.9.0')) {
-      this.log(chalk.yellow('Angular CLI v8 needs NodeJS v10.9 or greater.'));
+    const minNodeVersion = pkg.engines.node.slice(2);
+    if (semver.lt(process.version, minNodeVersion)) {
+      this.log(chalk.yellow(`Angular CLI v13 needs NodeJS ${minNodeVersion} or greater.`));
       this.log(chalk.yellow(`You are using ${process.version} which is unsupported, please upgrade.\n`));
       // eslint-disable-next-line unicorn/no-process-exit
       process.exit(-1);
