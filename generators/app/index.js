@@ -208,18 +208,21 @@ class NgxGenerator extends Generator {
       this.log(`\nRunning ${chalk.yellow(`${this.packageManager} install`)}, please wait…`);
 
       const install = this.packageManager === 'yarn' ? this.yarnInstall.bind(this) : this.npmInstall.bind(this);
+      // When using NPM, force install as peer dependencies with ionic-native packages
+      // cause install errors with NPM >= 7.
+      const options = this.packageManager === 'yarn' ? null : { force: true };
 
       if (fs.existsSync(this.destinationPath(packageJsonFile))) {
-        install();
+        install(null, options);
       }
 
       if (this.isFullstack) {
         if (fs.existsSync(this.destinationPath(path.join(process.env.NGX_CLIENT_PATH, packageJsonFile)))) {
-          install(null, null, {cwd: this.destinationPath(process.env.NGX_CLIENT_PATH)});
+          install(null, options, {cwd: this.destinationPath(process.env.NGX_CLIENT_PATH)});
         }
 
         if (fs.existsSync(this.destinationPath(path.join(process.env.NGX_SERVER_PATH, packageJsonFile)))) {
-          install(null, null, {cwd: this.destinationPath(process.env.NGX_SERVER_PATH)});
+          install(null, options, {cwd: this.destinationPath(process.env.NGX_SERVER_PATH)});
         }
       }
     }
