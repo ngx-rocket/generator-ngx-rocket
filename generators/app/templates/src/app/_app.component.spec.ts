@@ -6,9 +6,9 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 <% } -%>
 <% if (props.target.includes('cordova')) { -%>
-import { Keyboard } from '@ionic-native/keyboard/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { Keyboard } from '@awesome-cordova-plugins/keyboard/ngx';
+import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
+import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
 <% } -%>
 <% if (props.angulartics && props.analyticsProvider === 'ga') { -%>
 import { Angulartics2Module } from 'angulartics2';
