@@ -66,7 +66,7 @@
     "fs-extra": "^10.0.0",
     "fuzz-run": "^1.0.2",
     "inquirer": "^8.1.2",
-    "insight": "^0.10.3",
+    "insight": "^0.11.1",
     "lodash.camelcase": "^4.3.0",
     "lodash.get": "^4.4.2",
     "lodash.upperfirst": "^4.3.1",
