@@ -81,7 +81,7 @@ class NgxGenerator extends Generator {
     }
 
     if (fromVersion) {
-      if (fromVersion >= this.version) {
+      if (semver.gte(fromVersion, this.version)) {
         this.log(chalk.green('\nNothing to update, it’s all good!\n'));
         // eslint-disable-next-line unicorn/no-process-exit
         process.exit(0);
