@@ -148,7 +148,7 @@
     "@angular/language-service": "~13.1.0",
     "@biesbjerg/ngx-translate-extract": "^7.0.3",
     "@biesbjerg/ngx-translate-extract-marker": "^1.0.0",
-    "@ngx-rocket/scripts": "^5.2.0",
+    "@ngx-rocket/scripts": "^5.2.1",
 <% if (props.cypress) { -%>
     "@cypress/schematic": "^1.5.0",
     "cypress": "~9.1.1",
