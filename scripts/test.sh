@@ -71,7 +71,7 @@ do
         # force usage of local chrome binary, in headless mode
         PROTRACTOR_CHROME_BIN=$(node -p "require('puppeteer').executablePath()") \
         PROTRACTOR_CHROME_ARGS='["lang=en-US","--headless","--disable-gpu","--window-size=1024,768"]' \
-        npm run e2e --if-present -- --webdriver-update=false
+        npm run e2e --if-present # -- --webdriver-update=false
 
         npm run build -- --no-progress
 
