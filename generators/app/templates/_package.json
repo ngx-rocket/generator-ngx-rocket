@@ -69,17 +69,17 @@
     "generate": "ng generate"
   },
   "dependencies": {
-    "@angular/animations": "^13.0.2",
-    "@angular/common": "^13.0.2",
-    "@angular/compiler": "^13.0.2",
-    "@angular/core": "^13.0.2",
-    "@angular/forms": "^13.0.2",
+    "@angular/animations": "~13.1.0",
+    "@angular/common": "~13.1.0",
+    "@angular/compiler": "~13.1.0",
+    "@angular/core": "~13.1.0",
+    "@angular/forms": "~13.1.0",
 <%   if (props.ui === 'bootstrap' || props.ui === 'material') { -%>
-    "@angular/localize": "^13.0.2",
+    "@angular/localize": "~13.1.0",
 <%   } -%>
-    "@angular/platform-browser": "^13.0.2",
-    "@angular/platform-browser-dynamic": "^13.0.2",
-    "@angular/router": "^13.0.2",
+    "@angular/platform-browser": "~13.1.0",
+    "@angular/platform-browser-dynamic": "~13.1.0",
+    "@angular/router": "~13.1.0",
     "@ngx-translate/core": "^14.0.0",
 <% if (props.target.includes('cordova')) { -%>
     "@awesome-cordova-plugins/core": "^5.30.0",
@@ -96,7 +96,7 @@
     "cordova-plugin-statusbar": "^3.0.0",
 <% } -%>
 <% if (props.pwa) { -%>
-    "@angular/service-worker": "^13.0.2",
+    "@angular/service-worker": "~13.1.0",
 <% } -%>
 <% if (props.ui === 'ionic') { -%>
     "@ionic/angular": "^6.0.0",
@@ -106,8 +106,8 @@
     "bootstrap": "^5.0.2",
     "@fortawesome/fontawesome-free": "^5.15.1",
 <% } else if (props.ui === 'material') { -%>
-    "@angular/cdk": "^13.0.2",
-    "@angular/material": "^13.0.2",
+    "@angular/cdk": "~13.1.0",
+    "@angular/material": "~13.1.0",
     "@angular/flex-layout": "^13.0.0-beta.36",
     "material-design-icons-iconfont": "^6.1.0",
 <% } -%>
@@ -137,15 +137,15 @@
 <% if (props.tools.includes('jest')) { -%>
     "@angular-builders/jest": "^13.0.0",
 <% } -%>
-    "@angular-devkit/build-angular": "~13.0.2",
+    "@angular-devkit/build-angular": "~13.1.0",
     "@angular-eslint/builder": "~13.0.1",
     "@angular-eslint/eslint-plugin": "~13.0.1",
     "@angular-eslint/eslint-plugin-template": "~13.0.1",
     "@angular-eslint/schematics": "~13.0.1",
     "@angular-eslint/template-parser": "~13.0.1",
-    "@angular/cli": "~13.0.2",
-    "@angular/compiler-cli": "~13.0.2",
-    "@angular/language-service": "~13.0.2",
+    "@angular/cli": "~13.1.0",
+    "@angular/compiler-cli": "~13.1.0",
+    "@angular/language-service": "~13.1.0",
     "@biesbjerg/ngx-translate-extract": "^7.0.3",
     "@biesbjerg/ngx-translate-extract-marker": "^1.0.0",
     "@ngx-rocket/scripts": "^5.2.0",
