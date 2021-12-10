@@ -1,3 +1,39 @@
+# [10.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/compare/10.0.1...10.1.0) (2021-12-10)
+
+
+### Bug Fixes
+
+* android package copy ([bcd2328](https://github.com/ngx-rocket/generator-ngx-rocket/commit/bcd23280f6f57ffc1b2afc40f334f57c4ee69914))
+* cannot update issue (fix [#607](https://github.com/ngx-rocket/generator-ngx-rocket/issues/607)) ([dd96390](https://github.com/ngx-rocket/generator-ngx-rocket/commit/dd9639009988592dd74a264102130e83aee0d7db))
+* e2e/cypress templates ([1131898](https://github.com/ngx-rocket/generator-ngx-rocket/commit/1131898f3bb90a66185df014cc8f601216fd8967))
+* install errors with npm 7+ (fix [#611](https://github.com/ngx-rocket/generator-ngx-rocket/issues/611)) ([1a273dd](https://github.com/ngx-rocket/generator-ngx-rocket/commit/1a273ddf9b9ca2d8e0ea39bef4c41ed63b7802e5))
+* jest test config with Angular 13 ([4a427ee](https://github.com/ngx-rocket/generator-ngx-rocket/commit/4a427eeeeb14d65a907e2fe23e04146cde6c06fa))
+* missing @popperjs/core peer dependency ([ba0aba5](https://github.com/ngx-rocket/generator-ngx-rocket/commit/ba0aba55d08c9a6fad03b72c1566e816b72cf4d5))
+* remove deprecated cordova-plugin-whitelist ([77e1b4f](https://github.com/ngx-rocket/generator-ngx-rocket/commit/77e1b4ff20255fc0e664988356f4d022234ab8f0))
+* update command in addon generator ([dd2409b](https://github.com/ngx-rocket/generator-ngx-rocket/commit/dd2409b5f65cbe1d4ca4b751a0c32797c0791105))
+
+
+### Code Refactoring
+
+* deprecate Protractor in favor of Cypress ([f5c4538](https://github.com/ngx-rocket/generator-ngx-rocket/commit/f5c4538fecfe7dca5ff37ff7e1b8f5c471f39d1f))
+
+
+### Features
+
+* add cypress for e2e test ([#605](https://github.com/ngx-rocket/generator-ngx-rocket/issues/605)) ([6fe85aa](https://github.com/ngx-rocket/generator-ngx-rocket/commit/6fe85aafce83159a90267f41586e52bf2b087dca))
+* Angular 13 update ([49a3669](https://github.com/ngx-rocket/generator-ngx-rocket/commit/49a366910b87207add51f74730ca30dc9557718b))
+* migrate to [@awesome-cordova-plugins](https://github.com/awesome-cordova-plugins) ([4df3fb8](https://github.com/ngx-rocket/generator-ngx-rocket/commit/4df3fb896e83d858ad0b4ff1641be09869075364))
+* update cypress and add auth support for e2e test ([6f80f69](https://github.com/ngx-rocket/generator-ngx-rocket/commit/6f80f69e81b64107770dc2c12d9fc1f8a4f6cdab))
+* update ionic packages ([839f629](https://github.com/ngx-rocket/generator-ngx-rocket/commit/839f629f19bc874fc7ba3b6ca4d4dc7783a1fd01))
+* update karma config ([90d40e6](https://github.com/ngx-rocket/generator-ngx-rocket/commit/90d40e6f4cf05cdf606347f59dad8cd07d11b985))
+* update ng-bootstrap for v13 support ([af21e28](https://github.com/ngx-rocket/generator-ngx-rocket/commit/af21e28bd04a46570977e70760a761abad78ecc2))
+* update to Angular 13 ([9b3183c](https://github.com/ngx-rocket/generator-ngx-rocket/commit/9b3183c4e106cf944901e7f912fd3ba189a0cb7a))
+
+
+### BREAKING CHANGES
+
+* Cypress is now the default choice for e2e tests.
+
 ## [10.0.1](https://github.com/ngx-rocket/generator-ngx-rocket/compare/10.0.0...10.0.1) (2021-12-01)
 
 
