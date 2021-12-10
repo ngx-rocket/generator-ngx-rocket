@@ -1,3 +1,5 @@
+## [10.1.1](https://github.com/ngx-rocket/generator-ngx-rocket/compare/10.1.0...10.1.1) (2021-12-10)
+
 # [10.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/compare/10.0.1...10.1.0) (2021-12-10)
 
 
