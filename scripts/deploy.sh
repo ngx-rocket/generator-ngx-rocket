@@ -54,23 +54,23 @@ trap cleanup ERR
 # Use web/bootstrap for main branch
 BRANCH=main
 prepare_repo
-ngx new --skip-install --automate "$SCRIPT_FOLDER/tests/app/web/bootstrap-authentication.json" "$DEPLOY_APP_NAME"
+ngx new --skip-install --no-insights --automate "$SCRIPT_FOLDER/tests/app/web/bootstrap-authentication.json" "$DEPLOY_APP_NAME"
 update_repo
 
 # Add cordova/ionic as mobile example branch
 BRANCH=cordova/ionic
 prepare_repo
-ngx new --skip-install --automate "$SCRIPT_FOLDER/tests/app/cordova/ionic-authentication.json" "$DEPLOY_APP_NAME"
+ngx new --skip-install --no-insights --automate "$SCRIPT_FOLDER/tests/app/cordova/ionic-authentication.json" "$DEPLOY_APP_NAME"
 update_repo
 
 # Add pwa/material branch
 BRANCH=pwa/material
 prepare_repo
-ngx new --skip-install --automate "$SCRIPT_FOLDER/tests/app/web/material-authentication.json" "$DEPLOY_APP_NAME"
+ngx new --skip-install --no-insights --automate "$SCRIPT_FOLDER/tests/app/web/material-authentication.json" "$DEPLOY_APP_NAME"
 update_repo
 
 # Add electron/ionic as desktop example branch
 BRANCH=electron/ionic
 prepare_repo
-ngx new --skip-install --automate "$SCRIPT_FOLDER/tests/app/electron/ionic-authentication.json" "$DEPLOY_APP_NAME"
+ngx new --skip-install --no-insights --automate "$SCRIPT_FOLDER/tests/app/electron/ionic-authentication.json" "$DEPLOY_APP_NAME"
 update_repo
