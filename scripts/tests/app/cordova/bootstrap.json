@@ -2,6 +2,6 @@
   "target": ["cordova"],
   "mobile": ["ios", "android"],
   "ui": "bootstrap",
-  "features": [],
-  "tools": ["protractor"]
+  "features": ["cypress"],
+  "tools": []
 }
