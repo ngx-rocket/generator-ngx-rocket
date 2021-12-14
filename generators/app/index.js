@@ -54,7 +54,7 @@ class NgxGenerator extends Generator {
       required: false
     });
 
-    this.insight.optOut = !this.options.analytics || process.env.DISABLE_NGX_ANALYTICS;
+    this.insight.optOut = !this.options.analytics || Boolean(process.env.DISABLE_NGX_ANALYTICS);
 
     if (this.options.raw) {
       this.props.ui = 'raw';
