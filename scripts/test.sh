@@ -89,7 +89,7 @@ do
             # copy apk
             mkdir -p $OUT_FOLDER
             APK_FILE=$(echo $1 | sed -e 's/[^A-Za-z0-9._-]/-/g')
-            cp dist/*.apk $OUT_FOLDER/$APK_FILE.apk
+            cp dist/*.aab $OUT_FOLDER/$APK_FILE.aab
 
         fi
 
