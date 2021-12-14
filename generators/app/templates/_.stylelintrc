@@ -49,6 +49,6 @@
     "max-empty-lines": 2,
     "max-line-length": 120,
     "no-invalid-position-at-import-rule": null,
-    "scss/comment-no-empty": null,
+    "scss/comment-no-empty": null
   }
 }
