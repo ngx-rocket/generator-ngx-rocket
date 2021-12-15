@@ -1,3 +1,11 @@
+## [10.1.2](https://github.com/ngx-rocket/generator-ngx-rocket/compare/10.1.1...10.1.2) (2021-12-15)
+
+
+### Bug Fixes
+
+* add missing postcss dep for yarn (fix [#618](https://github.com/ngx-rocket/generator-ngx-rocket/issues/618)) ([2d2e61a](https://github.com/ngx-rocket/generator-ngx-rocket/commit/2d2e61a42253707978065064388c364a6a203f2f))
+* possible error with insights (fix [#620](https://github.com/ngx-rocket/generator-ngx-rocket/issues/620)) ([7377db4](https://github.com/ngx-rocket/generator-ngx-rocket/commit/7377db414cfb40104b9f22ad508fc80e284bd747))
+
 ## [10.1.1](https://github.com/ngx-rocket/generator-ngx-rocket/compare/10.1.0...10.1.1) (2021-12-10)
 
 # [10.1.0](https://github.com/ngx-rocket/generator-ngx-rocket/compare/10.0.1...10.1.0) (2021-12-10)
