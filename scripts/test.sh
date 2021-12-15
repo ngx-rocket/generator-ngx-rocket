@@ -86,10 +86,10 @@ do
             npm run cordova:prepare -- --fast --no-progress
             npm run cordova:build android -- --fast --no-progress
 
-            # copy apk
+            # copy app bundle
             mkdir -p $OUT_FOLDER
-            APK_FILE=$(echo $1 | sed -e 's/[^A-Za-z0-9._-]/-/g')
-            cp dist/*.aab $OUT_FOLDER/$APK_FILE.aab
+            AAB_FILE=$(echo $1 | sed -e 's/[^A-Za-z0-9._-]/-/g')
+            cp dist/*.aab $OUT_FOLDER/$AAB_FILE.aab
 
         fi
 
