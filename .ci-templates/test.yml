@@ -66,11 +66,11 @@ jobs:
   - task: CopyFiles@2
     condition: and(succeeded(), eq(variables['testAndroid'], true))
     inputs:
-      contents: 'dist/**/*.apk'
+      contents: 'dist/**/*.aab'
       targetFolder: '$(Build.ArtifactStagingDirectory)'
-    displayName: Copy Android APK
+    displayName: Copy Android App Bundle
 
   - publish: $(Build.ArtifactStagingDirectory)/dist
     condition: and(succeeded(), eq(variables['testAndroid'], true))
     artifact: $(CASE_ARTIFACT)
-    displayName: Publish APK
+    displayName: Publish App Bundle
