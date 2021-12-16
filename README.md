@@ -99,7 +99,7 @@ Task                            | Description
 `npm run build [-- --configuration=production]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `dist/`
 `npm test`                      | Run unit tests via [Karma](https://karma-runner.github.io) or [Jest](https://jestjs.io/) in watch mode
 `npm run test:ci`               | Lint code and run unit tests once for continuous integration
-`npm run e2e`                   | Run e2e tests using [Protractor](http://www.protractortest.org)
+`npm run e2e`                   | Run e2e tests using [Cypress](https://cypress.io)
 `npm run lint`                  | Lint code
 `npm run translations:extract`  | Extract strings from code and templates to `src/app/translations/template.json`
 `npm run docs`                  | Display project documentation
@@ -159,7 +159,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - Asset revisioning for [better cache management](https://webpack.js.org/guides/caching/)
 - Unit tests using [Jasmine](http://jasmine.github.io), [Karma](https://karma-runner.github.io) and
   [headless Chrome](https://github.com/GoogleChrome/puppeteer)
-- End-to-end tests using [Protractor](https://github.com/angular/protractor)
+- End-to-end tests using [Cypress](https://cypress.io) or [Protractor](https://github.com/angular/protractor)
 - Static code analysis: [TSLint](https://github.com/palantir/tslint), [Codelyzer](https://github.com/mgechev/codelyzer),
   [Stylelint](http://stylelint.io) and [HTMLHint](http://htmlhint.com/)
 - Local knowledgebase server using [Hads](https://github.com/sinedied/hads)
