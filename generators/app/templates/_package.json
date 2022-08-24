@@ -18,7 +18,7 @@
 <% } -%>
     "lint": "ng lint && stylelint \"src/**/*.scss\"",
     "test": "<%= run('write:env') %> && ng test",
-    "test:ci": "<%= run('write:env') %> && <%= run('lint') %> && ng test --configuration=ci",
+    "test:ci": "<%= run('write:env') %> && <%= run('lint') %> && ng run <%= props.projectName %>:test:ci",
 <% if (props.e2e || props.cypress) { -%>
     "e2e": "<%= run('write:env') %> && ng e2e",
 <% } -%>
