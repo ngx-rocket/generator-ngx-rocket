@@ -64,7 +64,7 @@
     "cross-spawn": "^7.0.3",
     "figures": "^3.2.0",
     "fs-extra": "^10.0.0",
-    "fuzz-run": "^2.2.0",
+    "fuzz-run": "^1.0.2",
     "inquirer": "^8.1.2",
     "insight": "^0.11.1",
     "lodash.camelcase": "^4.3.0",
@@ -84,7 +84,7 @@
     "xo": "^0.51.0"
   },
   "engines": {
-    "node": ">=12.20.0",
+    "node": ">=14.0.0",
     "npm": ">=6"
   },
   "xo": {
