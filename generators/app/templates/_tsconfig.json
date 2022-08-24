@@ -20,11 +20,7 @@
     "noImplicitAny": true,
 <% } -%>
     "suppressImplicitAnyIndexErrors": true,
-<% if (props.target.includes('electron')) { -%>
-    "target": "es5",
-<% } else { -%>
-    "target": "es2017",
-<% } -%>
+    "target": "es2020",
     "typeRoots": [
       "node_modules/@types"
     ],

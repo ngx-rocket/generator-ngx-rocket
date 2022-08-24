@@ -51,7 +51,7 @@
     "cordova": "cordova",
 <% } -%>
 <% if (props.target.includes('electron')) { -%>
-    "electron:compile": "tsc --project tsconfig.electron.json",
+    "electron:compile": "tsc --project tsconfig.electron.json --target es5",
     "electron:run": "<%= run('electron:compile') %> && electron .",
     "electron:build": "<%= run('electron:compile') %> && <%= run('write:env') %> && ng build --base-href ./ --output-path dist-electron",
     "electron:package:common": "electron-packager . --overwrite --out=dist-packages --ignore=\"/(platforms|plugins|docs|www|reports|src)\"",
@@ -99,9 +99,9 @@
     "@angular/service-worker": "~14.1.3",
 <% } -%>
 <% if (props.ui === 'ionic') { -%>
-    "@ionic/angular": "^6.0.0",
+    "@ionic/angular": "^6.2.4",
 <% } else if (props.ui === 'bootstrap') { -%>
-    "@ng-bootstrap/ng-bootstrap": "^12.0.0-beta.4",
+    "@ng-bootstrap/ng-bootstrap": "^13.0.0",
     "@popperjs/core": "^2.11.0",
     "bootstrap": "^5.0.2",
     "@fortawesome/fontawesome-free": "^5.15.1",
@@ -148,7 +148,7 @@
     "@angular/language-service": "~14.1.3",
     "@biesbjerg/ngx-translate-extract": "^7.0.3",
     "@biesbjerg/ngx-translate-extract-marker": "^1.0.0",
-    "@ngx-rocket/scripts": "^5.2.1",
+    "@ngx-rocket/scripts": "^5.2.2",
 <% if (props.cypress) { -%>
     "@cypress/schematic": "^2.0.3",
     "cypress": "~10.6.0",
@@ -163,7 +163,7 @@
 <% if (props.tools.includes('jest')) { -%>
     "@types/jest": "^28.1.8",
 <% } -%>
-    "@types/node": "^14.0.0",
+    "@types/node": "^14.18.26",
 <% if (props.utility.includes('lodash')) { -%>
     "@types/lodash": "^4.14.184",
 <% } -%>
@@ -171,8 +171,8 @@
     "@types/ramda": "^0.28.15",
 <% } -%>
 <% if (props.target.includes('electron')) { -%>
-    "electron": "^16.0.2",
-    "electron-packager": "^15.1.0",
+    "electron": "^20.0.3",
+    "electron-packager": "^16.0.0",
     "electron-reload": "^1.5.0",
 <% } -%>
     "eslint": "^8.3.0",
