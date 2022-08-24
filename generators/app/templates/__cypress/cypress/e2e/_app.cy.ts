@@ -1,8 +1,8 @@
 <% if (props.auth) { -%>
-import { LoginPage } from './page-objects/login.po';
+import { LoginPage } from './page-objects/login.po.cy';
 <% } -%>
-import { AppSharedPage } from './page-objects/app-shared.po';
-import { HomePage } from './page-objects/home.po';
+import { AppSharedPage } from './page-objects/app-shared.po.cy';
+import { HomePage } from './page-objects/home.po.cy';
 
 describe('when the app loads', () => {
 <% if (props.auth) { -%>
