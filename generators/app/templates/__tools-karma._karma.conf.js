@@ -34,7 +34,7 @@ module.exports = function(config) {
       suite: '' // Will become the package name attribute in xml testsuite element
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/ng13'),
+      dir: require('path').join(__dirname, './coverage'),
       subdir: '.',
       reporters: [
         { type: 'html' },
