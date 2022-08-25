@@ -59,18 +59,21 @@ do
         ngx new --no-analytics --automate "$CWD/$file" "$TEST_APP_NAME" --no-insights
         npm run test:ci
 
-        USE_PROTRACTOR=$(npm list --depth 0 --parseable protractor)
+        echo
+        echo "Unit tests completed."
+        echo
 
-        if [ ! -z "$USE_PROTRACTOR" ]; then
+        if [ -n "$(cat package.json | grep protractor)" ]; then
             echo "Setting up puppeteer for protractor..."
-
             # force specific puppeteer/webdriver version to match up
             if [ "$NGX_PACKAGE_MANAGER" == "yarn" ]; then
                 yarn add -D puppeteer@16.2.0
-                yarn run webdriver-manager update --versions.chrome 104.0.5112.79 --gecko=false
+                yarn add -D webdriver-manager
+                yarn run webdriver-manager update --versions.chrome '104.0.5112.79' --gecko false
             else
                 npm i -D puppeteer@16.2.0
-                npx webdriver-manager update --versions.chrome 104.0.5112.79 --gecko=false
+                npm i -D webdriver-manager
+                npx webdriver-manager update --versions.chrome '104.0.5112.79' --gecko false
             fi
             # force usage of local chrome binary, in headless mode
             PROTRACTOR_CHROME_BIN=$(node -p "require('puppeteer').executablePath()") \
@@ -80,7 +83,15 @@ do
             npm run e2e --if-present
         fi
 
+        echo
+        echo "E2E tests completed."
+        echo
+
         npm run build -- --no-progress
+
+        echo
+        echo "Build completed."
+        echo
 
         if [ -n "$TEST_ANDROID" ]; then
 
