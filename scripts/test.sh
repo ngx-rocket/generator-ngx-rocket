@@ -62,6 +62,8 @@ do
         USE_PROTRACTOR=$(npm list --depth 0 --parseable protractor)
 
         if [ -z "$USE_PROTRACTOR" ]; then
+            echo "Setting up puppeteer for protractor..."
+
             # force specific puppeteer/webdriver version to match up
             if [ "$NGX_PACKAGE_MANAGER" == "yarn" ]; then
                 yarn add npm i puppeteer@16.2.0
