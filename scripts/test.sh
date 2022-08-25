@@ -66,22 +66,21 @@ do
 
             # force specific puppeteer/webdriver version to match up
             if [ "$NGX_PACKAGE_MANAGER" == "yarn" ]; then
-                yarn add npm i puppeteer@16.2.0
+                # yarn add npm i puppeteer@16.2.0
                 yarn run webdriver-manager update --versions.chrome 104.0.5112.79 --gecko=false
             else
-                npm i puppeteer@16.2.0
+                # npm i -D puppeteer@16.2.0
                 npx webdriver-manager update --versions.chrome 104.0.5112.79 --gecko=false
             fi
 
             # force usage of local chrome binary, in headless mode
             PROTRACTOR_CHROME_BIN=$(node -p "require('puppeteer').executablePath()") \
             PROTRACTOR_CHROME_ARGS='["lang=en-US","--headless","--disable-gpu","--window-size=1024,768"]' \
-            npm run e2e --if-present -- --webdriver-update=false
+            npm run e2e --if-present -- # --webdriver-update=false
         else
-            npm run e2e:ci --if-present
+            npm run e2e --if-present
         fi
 
-        npm run e2e --if-present
         npm run build -- --no-progress
 
         if [ -n "$TEST_ANDROID" ]; then
