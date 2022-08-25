@@ -4,6 +4,6 @@
   "ui": "material",
   "layout": "simple",
   "features": ["auth", "lazy"],
-  "tools": ["protractor"],
+  "tools": ["protractor", "puppeteer"],
   "usePrefix": false
 }

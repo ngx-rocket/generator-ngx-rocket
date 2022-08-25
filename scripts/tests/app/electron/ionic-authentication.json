@@ -4,5 +4,5 @@
   "ui": "ionic",
   "layout": "tabs",
   "features": ["auth"],
-  "tools": ["protractor"]
+  "tools": ["protractor", "puppeteer"]
 }
