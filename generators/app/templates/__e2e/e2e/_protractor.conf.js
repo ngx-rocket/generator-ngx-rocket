@@ -1,6 +1,9 @@
 // @ts-check
 // Protractor configuration file, see link for more information
 // https://github.com/angular/protractor/blob/master/lib/config.ts
+<% if (props.tools.includes('puppeteer')) { -%>
+process.env.CHROME_BIN = require('puppeteer').executablePath();
+<% } -%>
 
 const { SpecReporter } = require('jasmine-spec-reporter');
 
