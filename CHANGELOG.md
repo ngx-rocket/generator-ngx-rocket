@@ -1,3 +1,26 @@
+# [11.0.0](https://github.com/ngx-rocket/generator-ngx-rocket/compare/10.1.2...11.0.0) (2022-08-25)
+
+
+### Bug Fixes
+
+* bootstrap dropdown placement ([454b36f](https://github.com/ngx-rocket/generator-ngx-rocket/commit/454b36fe1a0828c80e4070d503f1026a010a39d9))
+* puppeteer use with protractor ([c3814b6](https://github.com/ngx-rocket/generator-ngx-rocket/commit/c3814b61b078857f1e3409a810e6e7087e43286a))
+* workaround for test:ci not working ([166411e](https://github.com/ngx-rocket/generator-ngx-rocket/commit/166411ea57e16c407666df9672e00f3a9c5204eb))
+
+
+### Features
+
+* migrate to Angular 14 and upgrade dependencies ([287ab10](https://github.com/ngx-rocket/generator-ngx-rocket/commit/287ab1001c91d152f81f6a9e367c8e9ccc0be26e))
+* update electron deps ([30ad04a](https://github.com/ngx-rocket/generator-ngx-rocket/commit/30ad04a125608f547a3bb4370c09648cd85d8d3e))
+* update remaining files (fixes [#629](https://github.com/ngx-rocket/generator-ngx-rocket/issues/629), [#631](https://github.com/ngx-rocket/generator-ngx-rocket/issues/631)) ([0da10ed](https://github.com/ngx-rocket/generator-ngx-rocket/commit/0da10ed2a103008a97b5108e1ef0deffa8d41e24))
+* update to Cypress 10 ([de4a483](https://github.com/ngx-rocket/generator-ngx-rocket/commit/de4a4833c2e14113389a7151257c3f8a50527787))
+
+
+### BREAKING CHANGES
+
+* - Migrate to Angular 14
+- Requires Node.js 14+
+
 ## [10.1.2](https://github.com/ngx-rocket/generator-ngx-rocket/compare/10.1.1...10.1.2) (2021-12-15)
 
 
